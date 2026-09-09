@@ -1,0 +1,2 @@
+[console_scripts]
+markerless_calibration = dobot_calibration.node:main

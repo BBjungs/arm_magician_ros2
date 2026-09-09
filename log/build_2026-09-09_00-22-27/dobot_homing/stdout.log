@@ -1,0 +1,34 @@
+running develop
+Removing /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot-homing.egg-link (link to .)
+running egg_info
+writing ../../../build/dobot_homing/dobot_homing.egg-info/PKG-INFO
+writing dependency_links to ../../../build/dobot_homing/dobot_homing.egg-info/dependency_links.txt
+writing entry points to ../../../build/dobot_homing/dobot_homing.egg-info/entry_points.txt
+writing requirements to ../../../build/dobot_homing/dobot_homing.egg-info/requires.txt
+writing top-level names to ../../../build/dobot_homing/dobot_homing.egg-info/top_level.txt
+reading manifest file '../../../build/dobot_homing/dobot_homing.egg-info/SOURCES.txt'
+writing manifest file '../../../build/dobot_homing/dobot_homing.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/bbcontact/magician_ros2/build/dobot_homing/build
+creating /home/bbcontact/magician_ros2/build/dobot_homing/build/lib
+creating /home/bbcontact/magician_ros2/build/dobot_homing/build/lib/dobot_homing
+copying dobot_homing/__init__.py -> /home/bbcontact/magician_ros2/build/dobot_homing/build/lib/dobot_homing
+copying dobot_homing/homing_server.py -> /home/bbcontact/magician_ros2/build/dobot_homing/build/lib/dobot_homing
+running install
+running install_lib
+creating /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot_homing
+copying /home/bbcontact/magician_ros2/build/dobot_homing/build/lib/dobot_homing/__init__.py -> /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot_homing
+copying /home/bbcontact/magician_ros2/build/dobot_homing/build/lib/dobot_homing/homing_server.py -> /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot_homing
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot_homing/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot_homing/homing_server.py to homing_server.cpython-312.pyc
+running install_data
+copying resource/dobot_homing -> /home/bbcontact/magician_ros2/install/dobot_homing/share/ament_index/resource_index/packages
+copying package.xml -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing
+copying launch/dobot_homing.launch.py -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing/launch
+copying config/homing_params.yaml -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing/config
+running install_egg_info
+Copying ../../../build/dobot_homing/dobot_homing.egg-info to /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot_homing-1.0.0-py3.12.egg-info
+running install_scripts
+Installing homing_server script to /home/bbcontact/magician_ros2/install/dobot_homing/lib/dobot_homing
+writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_homing/install.log'

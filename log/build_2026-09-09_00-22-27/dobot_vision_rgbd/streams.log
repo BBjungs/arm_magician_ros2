@@ -1,0 +1,67 @@
+[4.515s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build
+[6.275s] running develop
+[7.463s] Removing /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot-vision-rgbd.egg-link (link to .)
+[7.691s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build
+[7.692s] Invoking command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dobot_vision_rgbd build --build-base /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build install --record /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/install.log --install-scripts $base/lib/dobot_vision_rgbd --single-version-externally-managed install_data --force
+[8.715s] running egg_info
+[8.788s] writing ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/PKG-INFO
+[8.789s] writing dependency_links to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/dependency_links.txt
+[8.789s] writing entry points to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/entry_points.txt
+[8.790s] writing requirements to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/requires.txt
+[8.791s] writing top-level names to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/top_level.txt
+[8.942s] reading manifest file '../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/SOURCES.txt'
+[8.944s] writing manifest file '../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/SOURCES.txt'
+[8.944s] running build
+[8.945s] running build_py
+[8.945s] creating /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build
+[8.945s] creating /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib
+[8.946s] creating /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.946s] copying dobot_vision_rgbd/color_classifier.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.946s] copying dobot_vision_rgbd/__init__.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.947s] copying dobot_vision_rgbd/camera_health_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.947s] copying dobot_vision_rgbd/depth_geometry.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.948s] copying dobot_vision_rgbd/detection_schema.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.948s] copying dobot_vision_rgbd/object_fusion_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.948s] copying dobot_vision_rgbd/rgbd_sync_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.949s] copying dobot_vision_rgbd/shape_detector.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.949s] copying dobot_vision_rgbd/table_estimator.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.949s] copying dobot_vision_rgbd/visualization.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+[8.949s] running install
+[8.962s] running install_lib
+[9.033s] creating /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.033s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/color_classifier.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.034s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/__init__.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.034s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/camera_health_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.034s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/depth_geometry.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.035s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/detection_schema.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.035s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/object_fusion_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.035s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/rgbd_sync_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.036s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/shape_detector.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.036s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/table_estimator.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.036s] copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/visualization.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+[9.036s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/color_classifier.py to color_classifier.cpython-312.pyc
+[9.038s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/__init__.py to __init__.cpython-312.pyc
+[9.038s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/camera_health_node.py to camera_health_node.cpython-312.pyc
+[9.045s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/depth_geometry.py to depth_geometry.cpython-312.pyc
+[9.047s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/detection_schema.py to detection_schema.cpython-312.pyc
+[9.048s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/object_fusion_node.py to object_fusion_node.cpython-312.pyc
+[9.053s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/rgbd_sync_node.py to rgbd_sync_node.cpython-312.pyc
+[9.054s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/shape_detector.py to shape_detector.cpython-312.pyc
+[9.056s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/table_estimator.py to table_estimator.cpython-312.pyc
+[9.057s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/visualization.py to visualization.cpython-312.pyc
+[9.058s] running install_data
+[9.058s] copying resource/dobot_vision_rgbd -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/ament_index/resource_index/packages
+[9.058s] copying package.xml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd
+[9.059s] copying config/camera_geometry.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+[9.059s] copying config/color_rules.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+[9.059s] copying config/object_classes.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+[9.060s] copying config/rgbd_vision.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+[9.060s] copying config/shape_rules.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+[9.060s] copying launch/rgbd_vision.launch.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/launch
+[9.061s] running install_egg_info
+[9.140s] Copying ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd-0.1.0-py3.12.egg-info
+[9.142s] running install_scripts
+[9.593s] Installing camera_health_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd
+[9.594s] Installing object_fusion_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd
+[9.594s] writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/install.log'
+[9.664s] Invoked command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dobot_vision_rgbd build --build-base /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build install --record /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/install.log --install-scripts $base/lib/dobot_vision_rgbd --single-version-externally-managed install_data --force

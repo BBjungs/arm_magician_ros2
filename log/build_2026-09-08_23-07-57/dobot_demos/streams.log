@@ -1,0 +1,28 @@
+[7.518s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_demos': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_demos/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_demos/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_demos/build --no-deps symlink_data
+[9.206s] running develop
+[10.402s] running egg_info
+[10.402s] creating dobot_demos.egg-info
+[10.517s] writing dobot_demos.egg-info/PKG-INFO
+[10.520s] writing dependency_links to dobot_demos.egg-info/dependency_links.txt
+[10.520s] writing entry points to dobot_demos.egg-info/entry_points.txt
+[10.520s] writing requirements to dobot_demos.egg-info/requires.txt
+[10.521s] writing top-level names to dobot_demos.egg-info/top_level.txt
+[10.521s] writing manifest file 'dobot_demos.egg-info/SOURCES.txt'
+[10.775s] reading manifest file 'dobot_demos.egg-info/SOURCES.txt'
+[10.776s] writing manifest file 'dobot_demos.egg-info/SOURCES.txt'
+[10.930s] running build_ext
+[10.931s] Creating /home/bbcontact/magician_ros2/install/dobot_demos/lib/python3.12/site-packages/dobot-demos.egg-link (link to .)
+[10.933s] Installing test_gripper script to /home/bbcontact/magician_ros2/install/dobot_demos/lib/dobot_demos
+[10.933s] Installing test_homing script to /home/bbcontact/magician_ros2/install/dobot_demos/lib/dobot_demos
+[10.935s] Installing test_pick_and_place script to /home/bbcontact/magician_ros2/install/dobot_demos/lib/dobot_demos
+[10.935s] Installing test_point_to_point script to /home/bbcontact/magician_ros2/install/dobot_demos/lib/dobot_demos
+[10.936s] Installing test_suction_cup script to /home/bbcontact/magician_ros2/install/dobot_demos/lib/dobot_demos
+[10.937s] 
+[10.938s] Installed /home/bbcontact/magician_ros2/build/dobot_demos
+[10.939s] running symlink_data
+[10.939s] creating /home/bbcontact/magician_ros2/install/dobot_demos/share/ament_index
+[10.940s] creating /home/bbcontact/magician_ros2/install/dobot_demos/share/ament_index/resource_index
+[10.940s] creating /home/bbcontact/magician_ros2/install/dobot_demos/share/ament_index/resource_index/packages
+[10.941s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_demos/resource/dobot_demos -> /home/bbcontact/magician_ros2/install/dobot_demos/share/ament_index/resource_index/packages
+[10.941s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_demos/package.xml -> /home/bbcontact/magician_ros2/install/dobot_demos/share/dobot_demos
+[11.110s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_demos' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_demos/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_demos/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_demos/build --no-deps symlink_data

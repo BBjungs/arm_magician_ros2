@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot_msgs/srv/SuctionCupControl_Request",
+      "fields": [
+        {
+          "name": "enable_suction",
+          "type": {
+            "type_id": 15,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot_msgs/srv/SuctionCupControl_Request",
+      "hash_string": "RIHS01_fd058273b97c690902b1305e14a4c8daf6d28767e498c5ab8f3d1bcfeb351724"
+    }
+  ]
+}

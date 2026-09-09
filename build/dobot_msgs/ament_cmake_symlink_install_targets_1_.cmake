@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/dobot_msgs_s__rosidl_typesupport_introspection_c.so" "TARGETS" "dobot_msgs_s__rosidl_typesupport_introspection_c" "DESTINATION" "lib/python3.12/site-packages/dobot_msgs")

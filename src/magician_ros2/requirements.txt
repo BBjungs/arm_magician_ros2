@@ -1,0 +1,8 @@
+numpy>=1.26,<3
+pybullet>=3.2.7
+PyQt5>=5.15.10,<6
+pyserial==3.5
+pytest>=7.4,<9
+# python_qt_binding is provided by rosdep (ros-jazzy-python-qt-binding).
+setuptools>=68,<81
+transforms3d==0.4.1

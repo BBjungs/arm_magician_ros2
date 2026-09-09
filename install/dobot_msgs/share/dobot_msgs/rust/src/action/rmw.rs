@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/action/rmw.rs

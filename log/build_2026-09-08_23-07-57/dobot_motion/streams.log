@@ -1,0 +1,31 @@
+[9.400s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_motion': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_motion/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_motion/build --no-deps symlink_data
+[12.457s] running develop
+[15.629s] running egg_info
+[15.632s] creating dobot_motion.egg-info
+[15.953s] writing dobot_motion.egg-info/PKG-INFO
+[15.954s] writing dependency_links to dobot_motion.egg-info/dependency_links.txt
+[15.956s] writing entry points to dobot_motion.egg-info/entry_points.txt
+[15.958s] writing requirements to dobot_motion.egg-info/requires.txt
+[15.959s] writing top-level names to dobot_motion.egg-info/top_level.txt
+[15.960s] writing manifest file 'dobot_motion.egg-info/SOURCES.txt'
+[16.362s] reading manifest file 'dobot_motion.egg-info/SOURCES.txt'
+[16.367s] writing manifest file 'dobot_motion.egg-info/SOURCES.txt'
+[16.529s] running build_ext
+[16.529s] Creating /home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages/dobot-motion.egg-link (link to .)
+[16.534s] Installing PTP_server script to /home/bbcontact/magician_ros2/install/dobot_motion/lib/dobot_motion
+[16.535s] Installing sliding_rail_server script to /home/bbcontact/magician_ros2/install/dobot_motion/lib/dobot_motion
+[16.536s] 
+[16.537s] Installed /home/bbcontact/magician_ros2/build/dobot_motion
+[16.539s] running symlink_data
+[16.539s] creating /home/bbcontact/magician_ros2/install/dobot_motion/share/ament_index
+[16.542s] creating /home/bbcontact/magician_ros2/install/dobot_motion/share/ament_index/resource_index
+[16.542s] creating /home/bbcontact/magician_ros2/install/dobot_motion/share/ament_index/resource_index/packages
+[16.545s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_motion/resource/dobot_motion -> /home/bbcontact/magician_ros2/install/dobot_motion/share/ament_index/resource_index/packages
+[16.546s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_motion/package.xml -> /home/bbcontact/magician_ros2/install/dobot_motion/share/dobot_motion
+[16.546s] creating /home/bbcontact/magician_ros2/install/dobot_motion/share/dobot_motion/launch
+[16.547s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_motion/launch/dobot_PTP.launch.py -> /home/bbcontact/magician_ros2/install/dobot_motion/share/dobot_motion/launch
+[16.550s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_motion/launch/dobot_rail.launch.py -> /home/bbcontact/magician_ros2/install/dobot_motion/share/dobot_motion/launch
+[16.551s] creating /home/bbcontact/magician_ros2/install/dobot_motion/share/dobot_motion/config
+[16.553s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_motion/config/PTP_motion_params.yaml -> /home/bbcontact/magician_ros2/install/dobot_motion/share/dobot_motion/config
+[16.553s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_motion/config/sliding_rail_params.yaml -> /home/bbcontact/magician_ros2/install/dobot_motion/share/dobot_motion/config
+[18.467s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_motion' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_motion/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_motion/build --no-deps symlink_data

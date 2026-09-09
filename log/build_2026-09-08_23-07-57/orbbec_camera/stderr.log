@@ -1,0 +1,62 @@
+/usr/bin/ld: warning: libtiff.so.5, needed by /usr/local/lib/libopencv_imgcodecs.so.4.10.0, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libIlmImf-2_5.so.25, needed by /usr/local/lib/libopencv_imgcodecs.so.4.10.0, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::Header(int, int, float, Imath_2_5::Vec2<float> const&, float, Imf_2_5::LineOrder, Imf_2_5::Compression)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::InputFile::header() const'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Chromaticities::Chromaticities(Imath_2_5::Vec2<float> const&, Imath_2_5::Vec2<float> const&, Imath_2_5::Vec2<float> const&, Imath_2_5::Vec2<float> const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::globalThreadCount()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::OutputFile::writePixels(int)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::hasChromaticities(Imf_2_5::Header const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Channel::Channel(Imf_2_5::PixelType, int, int, bool)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::channels() const'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::compression()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::InputFile::InputFile(char const*, int)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::InputFile::readPixels(int, int)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::FrameBuffer::begin()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::FrameBuffer::end()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::dataWindow() const'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::OutputFile::~OutputFile()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::~Header()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::chromaticities(Imf_2_5::Header const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::InputFile::setFrameBuffer(Imf_2_5::FrameBuffer const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::OutputFile::OutputFile(char const*, Imf_2_5::Header const&, int)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::channels()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::ChannelList::insert(char const*, Imf_2_5::Channel const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::FrameBuffer::insert(char const*, Imf_2_5::Slice const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::ChannelList::findChannel(char const*) const'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Slice::Slice(Imf_2_5::PixelType, char*, unsigned long, unsigned long, int, int, double, bool, bool)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::OutputFile::setFrameBuffer(Imf_2_5::FrameBuffer const&)'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/list_devices_node.dir/build.make:365: list_devices_node] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:203: CMakeFiles/list_devices_node.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+/usr/bin/ld: warning: libtiff.so.5, needed by /usr/local/lib/libopencv_imgcodecs.so.4.10.0, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libIlmImf-2_5.so.25, needed by /usr/local/lib/libopencv_imgcodecs.so.4.10.0, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::Header(int, int, float, Imath_2_5::Vec2<float> const&, float, Imf_2_5::LineOrder, Imf_2_5::Compression)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::InputFile::header() const'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Chromaticities::Chromaticities(Imath_2_5::Vec2<float> const&, Imath_2_5::Vec2<float> const&, Imath_2_5::Vec2<float> const&, Imath_2_5::Vec2<float> const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::globalThreadCount()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::OutputFile::writePixels(int)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::hasChromaticities(Imf_2_5::Header const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Channel::Channel(Imf_2_5::PixelType, int, int, bool)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::channels() const'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::compression()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::InputFile::InputFile(char const*, int)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::InputFile::readPixels(int, int)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::FrameBuffer::begin()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::FrameBuffer::end()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::dataWindow() const'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::OutputFile::~OutputFile()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::~Header()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::chromaticities(Imf_2_5::Header const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::InputFile::setFrameBuffer(Imf_2_5::FrameBuffer const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::OutputFile::OutputFile(char const*, Imf_2_5::Header const&, int)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Header::channels()'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::ChannelList::insert(char const*, Imf_2_5::Channel const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::FrameBuffer::insert(char const*, Imf_2_5::Slice const&)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::ChannelList::findChannel(char const*) const'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::Slice::Slice(Imf_2_5::PixelType, char*, unsigned long, unsigned long, int, int, double, bool, bool)'
+/usr/bin/ld: /usr/local/lib/libopencv_imgcodecs.so.4.10.0: undefined reference to `Imf_2_5::OutputFile::setFrameBuffer(Imf_2_5::FrameBuffer const&)'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/list_camera_profile_mode_node.dir/build.make:365: list_camera_profile_mode_node] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:255: CMakeFiles/list_camera_profile_mode_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

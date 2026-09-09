@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_generator_c/orbbec_camera_msgs/srv/set_int32.h

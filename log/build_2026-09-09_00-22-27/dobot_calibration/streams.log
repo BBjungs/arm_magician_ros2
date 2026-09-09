@@ -1,0 +1,64 @@
+[4.218s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_calibration': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_calibration/build
+[5.952s] running develop
+[7.354s] Removing /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot-calibration.egg-link (link to .)
+[7.489s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_calibration' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_calibration/build
+[7.490s] Invoking command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_calibration': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dobot_calibration build --build-base /home/bbcontact/magician_ros2/build/dobot_calibration/build install --record /home/bbcontact/magician_ros2/build/dobot_calibration/install.log --install-scripts $base/lib/dobot_calibration --single-version-externally-managed install_data --force
+[8.869s] running egg_info
+[8.994s] writing ../../../build/dobot_calibration/dobot_calibration.egg-info/PKG-INFO
+[8.995s] writing dependency_links to ../../../build/dobot_calibration/dobot_calibration.egg-info/dependency_links.txt
+[8.995s] writing entry points to ../../../build/dobot_calibration/dobot_calibration.egg-info/entry_points.txt
+[8.996s] writing requirements to ../../../build/dobot_calibration/dobot_calibration.egg-info/requires.txt
+[8.996s] writing top-level names to ../../../build/dobot_calibration/dobot_calibration.egg-info/top_level.txt
+[9.250s] reading manifest file '../../../build/dobot_calibration/dobot_calibration.egg-info/SOURCES.txt'
+[9.253s] writing manifest file '../../../build/dobot_calibration/dobot_calibration.egg-info/SOURCES.txt'
+[9.254s] running build
+[9.254s] running build_py
+[9.255s] creating /home/bbcontact/magician_ros2/build/dobot_calibration/build
+[9.255s] creating /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib
+[9.255s] creating /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.256s] copying dobot_calibration/__init__.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.256s] copying dobot_calibration/geometry.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.256s] copying dobot_calibration/registration.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.257s] copying dobot_calibration/solver.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.257s] copying dobot_calibration/workflow.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.258s] copying dobot_calibration/node.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.258s] copying dobot_calibration/picking_guard.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.259s] copying dobot_calibration/depth_health.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.259s] copying dobot_calibration/validation_status.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.259s] copying dobot_calibration/hardware_readiness.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+[9.260s] running install
+[9.285s] running install_lib
+[9.432s] creating /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.433s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/__init__.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.433s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/geometry.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.434s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/registration.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.434s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/solver.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.435s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/workflow.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.435s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/node.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.435s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/picking_guard.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.436s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/depth_health.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.436s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/validation_status.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.437s] copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/hardware_readiness.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+[9.437s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/__init__.py to __init__.cpython-312.pyc
+[9.438s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/geometry.py to geometry.cpython-312.pyc
+[9.446s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/registration.py to registration.cpython-312.pyc
+[9.452s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/solver.py to solver.cpython-312.pyc
+[9.460s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/workflow.py to workflow.cpython-312.pyc
+[9.469s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/node.py to node.cpython-312.pyc
+[9.490s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/picking_guard.py to picking_guard.cpython-312.pyc
+[9.491s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/depth_health.py to depth_health.cpython-312.pyc
+[9.491s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/validation_status.py to validation_status.cpython-312.pyc
+[9.492s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/hardware_readiness.py to hardware_readiness.cpython-312.pyc
+[9.495s] running install_data
+[9.495s] copying resource/dobot_calibration -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/ament_index/resource_index/packages
+[9.496s] copying package.xml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration
+[9.496s] copying README.md -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration
+[9.497s] copying config/mount_model.yaml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/config
+[9.497s] copying config/calibration.yaml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/config
+[9.498s] copying launch/markerless_calibration.launch.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/launch
+[9.498s] running install_egg_info
+[9.585s] Copying ../../../build/dobot_calibration/dobot_calibration.egg-info to /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration-0.1.0-py3.12.egg-info
+[9.587s] running install_scripts
+[10.148s] Installing markerless_calibration script to /home/bbcontact/magician_ros2/install/dobot_calibration/lib/dobot_calibration
+[10.149s] writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_calibration/install.log'
+[10.214s] Invoked command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_calibration' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dobot_calibration build --build-base /home/bbcontact/magician_ros2/build/dobot_calibration/build install --record /home/bbcontact/magician_ros2/build/dobot_calibration/install.log --install-scripts $base/lib/dobot_calibration --single-version-externally-managed install_data --force

@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/ament_cmake_core/orbbec_camera_msgsConfig-version.cmake

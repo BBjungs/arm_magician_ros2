@@ -1,0 +1,63 @@
+running develop
+Removing /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot-vision-rgbd.egg-link (link to .)
+running egg_info
+writing ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/PKG-INFO
+writing dependency_links to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/dependency_links.txt
+writing entry points to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/entry_points.txt
+writing requirements to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/requires.txt
+writing top-level names to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/top_level.txt
+reading manifest file '../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/SOURCES.txt'
+writing manifest file '../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build
+creating /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib
+creating /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/color_classifier.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/__init__.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/camera_health_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/depth_geometry.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/detection_schema.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/object_fusion_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/rgbd_sync_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/shape_detector.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/table_estimator.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+copying dobot_vision_rgbd/visualization.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+running install
+running install_lib
+creating /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/color_classifier.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/__init__.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/camera_health_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/depth_geometry.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/detection_schema.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/object_fusion_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/rgbd_sync_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/shape_detector.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/table_estimator.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/visualization.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/color_classifier.py to color_classifier.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/camera_health_node.py to camera_health_node.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/depth_geometry.py to depth_geometry.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/detection_schema.py to detection_schema.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/object_fusion_node.py to object_fusion_node.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/rgbd_sync_node.py to rgbd_sync_node.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/shape_detector.py to shape_detector.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/table_estimator.py to table_estimator.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/visualization.py to visualization.cpython-312.pyc
+running install_data
+copying resource/dobot_vision_rgbd -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/ament_index/resource_index/packages
+copying package.xml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd
+copying config/camera_geometry.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+copying config/color_rules.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+copying config/object_classes.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+copying config/rgbd_vision.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+copying config/shape_rules.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/config
+copying launch/rgbd_vision.launch.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/launch
+running install_egg_info
+Copying ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd-0.1.0-py3.12.egg-info
+running install_scripts
+Installing camera_health_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd
+Installing object_fusion_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd
+writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/install.log'

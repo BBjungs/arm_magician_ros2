@@ -1,0 +1,16 @@
+from dobot_msgs.srv._evaluate_ptp_trajectory import EvaluatePTPTrajectory  # noqa: F401
+from dobot_msgs.srv._evaluate_ptp_trajectory import EvaluatePTPTrajectory_Event  # noqa: F401
+from dobot_msgs.srv._evaluate_ptp_trajectory import EvaluatePTPTrajectory_Request  # noqa: F401
+from dobot_msgs.srv._evaluate_ptp_trajectory import EvaluatePTPTrajectory_Response  # noqa: F401
+from dobot_msgs.srv._execute_homing_procedure import ExecuteHomingProcedure  # noqa: F401
+from dobot_msgs.srv._execute_homing_procedure import ExecuteHomingProcedure_Event  # noqa: F401
+from dobot_msgs.srv._execute_homing_procedure import ExecuteHomingProcedure_Request  # noqa: F401
+from dobot_msgs.srv._execute_homing_procedure import ExecuteHomingProcedure_Response  # noqa: F401
+from dobot_msgs.srv._gripper_control import GripperControl  # noqa: F401
+from dobot_msgs.srv._gripper_control import GripperControl_Event  # noqa: F401
+from dobot_msgs.srv._gripper_control import GripperControl_Request  # noqa: F401
+from dobot_msgs.srv._gripper_control import GripperControl_Response  # noqa: F401
+from dobot_msgs.srv._suction_cup_control import SuctionCupControl  # noqa: F401
+from dobot_msgs.srv._suction_cup_control import SuctionCupControl_Event  # noqa: F401
+from dobot_msgs.srv._suction_cup_control import SuctionCupControl_Request  # noqa: F401
+from dobot_msgs.srv._suction_cup_control import SuctionCupControl_Response  # noqa: F401

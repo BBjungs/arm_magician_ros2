@@ -1,0 +1,15 @@
+{
+  "package_name": "dobot_msgs",
+  "non_idl_tuples": [
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:action/PointToPoint.action",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:action/SlidingRail.action",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:msg/DobotAlarmCodes.msg",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:msg/GripperStatus.msg",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:msg/CircleTarget.msg",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:msg/CircleTargetArray.msg",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/EvaluatePTPTrajectory.srv",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/ExecuteHomingProcedure.srv",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/GripperControl.srv",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/SuctionCupControl.srv"
+  ]
+}

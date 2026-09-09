@@ -1,0 +1,74 @@
+running develop
+Removing /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot-vision-yolo.egg-link (link to .)
+running egg_info
+writing ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/PKG-INFO
+writing dependency_links to ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/dependency_links.txt
+writing entry points to ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/entry_points.txt
+writing requirements to ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/requires.txt
+writing top-level names to ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/top_level.txt
+reading manifest file '../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/SOURCES.txt'
+writing manifest file '../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build
+creating /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib
+creating /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/aruco_board.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/__init__.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/eye_in_hand_calibration_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/camera_calibration_tool.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/vision_pick_place_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/eye_in_hand_transform.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/markerless_hand_eye.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/pixel_to_robot_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/safety_guard.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/target_selector_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+copying dobot_vision_yolo/yolo_detector_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+running install
+running install_lib
+creating /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/aruco_board.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/__init__.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/eye_in_hand_calibration_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/camera_calibration_tool.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/vision_pick_place_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/eye_in_hand_transform.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/markerless_hand_eye.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/pixel_to_robot_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/safety_guard.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/target_selector_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/yolo_detector_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/aruco_board.py to aruco_board.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/eye_in_hand_calibration_node.py to eye_in_hand_calibration_node.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/camera_calibration_tool.py to camera_calibration_tool.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/vision_pick_place_node.py to vision_pick_place_node.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/eye_in_hand_transform.py to eye_in_hand_transform.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/markerless_hand_eye.py to markerless_hand_eye.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/pixel_to_robot_node.py to pixel_to_robot_node.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/safety_guard.py to safety_guard.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/target_selector_node.py to target_selector_node.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/yolo_detector_node.py to yolo_detector_node.cpython-312.pyc
+running install_data
+copying resource/dobot_vision_yolo -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/ament_index/resource_index/packages
+copying package.xml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo
+copying README.md -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo
+copying launch/vision_pick_place.launch.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/launch
+copying config/camera_intrinsics.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+copying config/aruco_board.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+copying config/camera_to_robot.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+copying config/eye_in_hand.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+copying config/place_positions.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+copying config/workspace.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+copying config/yolo.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+running install_egg_info
+Copying ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo-0.1.0-py3.12.egg-info
+running install_scripts
+Installing camera_calibration_tool script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing eye_in_hand_calibration_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing pixel_to_robot_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing safety_guard_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing target_selector_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing vision_pick_place_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing yolo_detector_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_vision_yolo/install.log'

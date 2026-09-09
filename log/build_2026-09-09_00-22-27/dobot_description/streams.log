@@ -1,0 +1,92 @@
+[0.055s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/bbcontact/magician_ros2/src/magician_ros2/dobot_description -DCMAKE_INSTALL_PREFIX=/home/bbcontact/magician_ros2/install/dobot_description
+[1.979s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.979s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.980s] -- Found ament_cmake_pytest: 2.5.6 (/opt/ros/jazzy/share/ament_cmake_pytest/cmake)
+[4.230s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[4.781s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[4.821s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[4.884s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.969s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.300s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[5.304s] -- Found rmw_cyclonedds_cpp: 2.2.3 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)
+[5.369s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[6.319s] -- Found eigen3_cmake_module: 0.3.1 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[6.326s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[6.374s] -- Configuring done (6.3s)
+[6.408s] -- Generating done (0.0s)
+[6.419s] -- Build files have been written to: /home/bbcontact/magician_ros2/build/dobot_description
+[6.448s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/bbcontact/magician_ros2/src/magician_ros2/dobot_description -DCMAKE_INSTALL_PREFIX=/home/bbcontact/magician_ros2/install/dobot_description
+[6.452s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/dobot_description -- -j8 -l8
+[6.699s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/dobot_description -- -j8 -l8
+[6.702s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/dobot_description
+[6.732s] -- Install configuration: ""
+[6.733s] -- Execute custom install script
+[6.741s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/launch/camera_view.launch.py
+[6.742s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/launch/display.launch.py
+[6.745s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/additional_elements/sliding_rail.dae
+[6.747s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/core/magicianBase.dae
+[6.748s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/core/magicianLink1.dae
+[6.749s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/core/magicianLink2.dae
+[6.749s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/core/magicianLink3.dae
+[6.750s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/extended_gripper_collision_part1.dae
+[6.755s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/extended_gripper_collision_part2.dae
+[6.755s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/gripper_collision_part1.dae
+[6.756s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/gripper_collision_part2.dae
+[6.758s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/link4_collision.dae
+[6.759s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/pen_collision_part1.dae
+[6.760s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/pen_collision_part2.dae
+[6.763s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/suction_cup_collision_part1.dae
+[6.764s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/end_tools/suction_cup_collision_part2.dae
+[6.764s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/urdf_models/3DOF.urdf
+[6.768s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/urdf_models/dobot_with_rail.urdf
+[6.768s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/urdf_models/extended_gripper.urdf
+[6.769s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/urdf_models/gripper.urdf
+[6.769s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/urdf_models/pen.urdf
+[6.769s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/urdf_models/sliding_rail_draft.urdf
+[6.776s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/urdf_models/suction_cup.urdf
+[6.777s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/IntelRealSenseD435i.dae
+[6.777s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/camera.dae
+[6.777s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/gripper_core.dae
+[6.778s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/jaw_left.dae
+[6.778s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/jaw_left_extended.dae
+[6.778s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/jaw_right.dae
+[6.779s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/jaw_right_extended.dae
+[6.784s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magicianBase.dae
+[6.785s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magicianGripper.dae
+[6.785s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magicianLink1.dae
+[6.785s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magicianLink2.dae
+[6.786s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magicianLink3.dae
+[6.786s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magicianLink4.dae
+[6.786s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magicianLink4_default.dae
+[6.787s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magicianSuctionCup.dae
+[6.787s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/magician_pen.dae
+[6.787s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/moving_gripper.dae
+[6.788s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/stl/dobot_gripper_extender.stl
+[6.795s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/stl/realsense_gripper.stl
+[6.795s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/dae/suction_cup.dae
+[6.796s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/rviz/camera.rviz
+[6.796s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/rviz/urdf.rviz
+[6.797s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/rviz/urdf_full.rviz
+[6.797s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/model/clean_model_no_macros.urdf
+[6.798s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/model/dobot_common.urdf.xacro
+[6.800s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/model/eye_in_hand_frames.md
+[6.800s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/model/eye_in_hand_mount.yaml
+[6.801s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/model/magician.urdf.xacro
+[6.805s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/model/magician_standalone.urdf.xacro
+[6.806s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/model/orbbec_suction_mount.urdf.xacro
+[6.807s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/ament_index/resource_index/package_run_dependencies/dobot_description
+[6.807s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/ament_index/resource_index/parent_prefix_path/dobot_description
+[6.807s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/environment/ament_prefix_path.sh
+[6.807s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/environment/ament_prefix_path.dsv
+[6.808s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/environment/path.sh
+[6.808s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/environment/path.dsv
+[6.808s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/local_setup.bash
+[6.809s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/local_setup.sh
+[6.815s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/local_setup.zsh
+[6.816s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/local_setup.dsv
+[6.816s] -- Symlinking: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/package.dsv
+[6.848s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/ament_index/resource_index/packages/dobot_description
+[6.850s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/cmake/dobot_descriptionConfig.cmake
+[6.851s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/cmake/dobot_descriptionConfig-version.cmake
+[6.852s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/package.xml
+[6.857s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/dobot_description

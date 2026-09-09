@@ -1,0 +1,9 @@
+{
+  "names": {
+    "orbbec_camera": {
+      "cmake-args": [
+        "-DOpenCV_DIR=/usr/lib/x86_64-linux-gnu/cmake/opencv4"
+      ]
+    }
+  }
+}

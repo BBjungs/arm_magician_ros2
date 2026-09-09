@@ -1,0 +1,17 @@
+circle_targets:
+  ros__parameters:
+    rgb_topic: /camera/color/image_rect
+    depth_topic: /camera/aligned_depth_to_color/image_raw
+    camera_info_topic: /camera/color/camera_info
+    camera_frame: camera_color_optical_frame
+    detections_topic: /object_vision/detections
+    annotated_topic: /object_vision/annotated
+    max_age_s: 0.5
+    max_skew_s: 0.05
+    process_hz: 5.0
+    input_rectified: true
+    rules.min_diameter: 0.015
+    rules.max_diameter: 0.080
+    rules.min_height: 0.003
+    rules.max_height: 0.060
+    rules.suction_radius: 0.004

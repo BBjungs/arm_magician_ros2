@@ -1,0 +1,5 @@
+# Training-machine dependencies. Install PyTorch separately from the official
+# selector for the machine's CUDA version; never apply this file blindly to Jetson.
+ultralytics>=8.3,<9
+opencv-python-headless>=4.8
+PyYAML>=6

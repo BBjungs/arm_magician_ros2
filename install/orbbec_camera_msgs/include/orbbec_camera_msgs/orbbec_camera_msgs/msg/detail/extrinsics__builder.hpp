@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_generator_cpp/orbbec_camera_msgs/msg/detail/extrinsics__builder.hpp

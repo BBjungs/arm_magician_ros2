@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/src/magician_ros2/dobot_description/model/eye_in_hand_frames.md

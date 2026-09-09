@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot_msgs/action/SlidingRail_Goal",
+      "fields": [
+        {
+          "name": "target_pose",
+          "type": {
+            "type_id": 11,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot_msgs/action/SlidingRail_Goal",
+      "hash_string": "RIHS01_e852ecdb0a14eab6d3818d480959b2cee07d3ebfc88243e3d9f93ddf01a1f28e"
+    }
+  ]
+}

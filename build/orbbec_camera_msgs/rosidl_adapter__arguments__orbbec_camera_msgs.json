@@ -1,0 +1,19 @@
+{
+  "package_name": "orbbec_camera_msgs",
+  "non_idl_tuples": [
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:msg/DeviceInfo.msg",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:msg/Extrinsics.msg",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:msg/Metadata.msg",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:msg/IMUInfo.msg",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:msg/RGBD.msg",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:msg/StreamProfile.msg",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:srv/GetBool.srv",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:srv/GetDeviceInfo.srv",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:srv/GetCameraInfo.srv",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:srv/GetInt32.srv",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:srv/GetString.srv",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:srv/SetInt32.srv",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:srv/SetString.srv",
+    "/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs:srv/SetStreamProfile.srv"
+  ]
+}

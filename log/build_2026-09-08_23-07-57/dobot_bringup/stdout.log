@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating dobot_bringup.egg-info
+writing dobot_bringup.egg-info/PKG-INFO
+writing dependency_links to dobot_bringup.egg-info/dependency_links.txt
+writing entry points to dobot_bringup.egg-info/entry_points.txt
+writing requirements to dobot_bringup.egg-info/requires.txt
+writing top-level names to dobot_bringup.egg-info/top_level.txt
+writing manifest file 'dobot_bringup.egg-info/SOURCES.txt'
+reading manifest file 'dobot_bringup.egg-info/SOURCES.txt'
+writing manifest file 'dobot_bringup.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages/dobot-bringup.egg-link (link to .)
+Installing set_tool_null script to /home/bbcontact/magician_ros2/install/dobot_bringup/lib/dobot_bringup
+
+Installed /home/bbcontact/magician_ros2/build/dobot_bringup
+running symlink_data
+creating /home/bbcontact/magician_ros2/install/dobot_bringup/share/ament_index
+creating /home/bbcontact/magician_ros2/install/dobot_bringup/share/ament_index/resource_index
+creating /home/bbcontact/magician_ros2/install/dobot_bringup/share/ament_index/resource_index/packages
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_bringup/resource/dobot_bringup -> /home/bbcontact/magician_ros2/install/dobot_bringup/share/ament_index/resource_index/packages
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_bringup/package.xml -> /home/bbcontact/magician_ros2/install/dobot_bringup/share/dobot_bringup
+creating /home/bbcontact/magician_ros2/install/dobot_bringup/share/dobot_bringup/launch
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_bringup/launch/dobot_magician_control_system.launch.py -> /home/bbcontact/magician_ros2/install/dobot_bringup/share/dobot_bringup/launch

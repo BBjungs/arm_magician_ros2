@@ -1,0 +1,4 @@
+install/dobot_description/share/dobot_description/launch/__pycache__/camera_view.launch.cpython-312.pyc
+[Errno 2] No such file or directory: '/home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/launch/__pycache__/camera_view.launch.cpython-312.pyc'
+install/dobot_description/share/dobot_description/launch/__pycache__/display.launch.cpython-312.pyc
+[Errno 2] No such file or directory: '/home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/launch/__pycache__/display.launch.cpython-312.pyc'

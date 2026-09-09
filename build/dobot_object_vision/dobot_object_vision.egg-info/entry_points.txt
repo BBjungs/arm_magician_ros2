@@ -1,0 +1,2 @@
+[console_scripts]
+circle_targets = dobot_object_vision.node:main

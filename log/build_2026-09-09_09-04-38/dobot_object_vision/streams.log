@@ -1,0 +1,23 @@
+[4.539s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_object_vision': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_object_vision/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_object_vision/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_object_vision/build --no-deps symlink_data --force
+[5.786s] running develop
+[6.656s] running egg_info
+[6.741s] writing dobot_object_vision.egg-info/PKG-INFO
+[6.742s] writing dependency_links to dobot_object_vision.egg-info/dependency_links.txt
+[6.742s] writing entry points to dobot_object_vision.egg-info/entry_points.txt
+[6.743s] writing requirements to dobot_object_vision.egg-info/requires.txt
+[6.743s] writing top-level names to dobot_object_vision.egg-info/top_level.txt
+[6.945s] reading manifest file 'dobot_object_vision.egg-info/SOURCES.txt'
+[6.948s] writing manifest file 'dobot_object_vision.egg-info/SOURCES.txt'
+[7.045s] running build_ext
+[7.046s] Creating /home/bbcontact/magician_ros2/install/dobot_object_vision/lib/python3.12/site-packages/dobot-object-vision.egg-link (link to .)
+[7.047s] Installing circle_targets script to /home/bbcontact/magician_ros2/install/dobot_object_vision/lib/dobot_object_vision
+[7.047s] 
+[7.048s] Installed /home/bbcontact/magician_ros2/build/dobot_object_vision
+[7.048s] running symlink_data
+[7.048s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_object_vision/resource/dobot_object_vision -> /home/bbcontact/magician_ros2/install/dobot_object_vision/share/ament_index/resource_index/packages
+[7.049s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_object_vision/package.xml -> /home/bbcontact/magician_ros2/install/dobot_object_vision/share/dobot_object_vision
+[7.049s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_object_vision/README.md -> /home/bbcontact/magician_ros2/install/dobot_object_vision/share/dobot_object_vision
+[7.049s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_object_vision/config/vision.yaml -> /home/bbcontact/magician_ros2/install/dobot_object_vision/share/dobot_object_vision/config
+[7.049s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_object_vision/config/orbbec_registered.yaml -> /home/bbcontact/magician_ros2/install/dobot_object_vision/share/dobot_object_vision/config
+[7.049s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_object_vision/launch/object_vision.launch.py -> /home/bbcontact/magician_ros2/install/dobot_object_vision/share/dobot_object_vision/launch
+[7.168s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_object_vision' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_object_vision/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_object_vision/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_object_vision/build --no-deps symlink_data --force

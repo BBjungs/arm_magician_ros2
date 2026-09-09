@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_fastrtps_cpp/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_cpp.hpp

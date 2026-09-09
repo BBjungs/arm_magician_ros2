@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/dobot_driver/ament_cmake_core/dobot_driverConfig.cmake

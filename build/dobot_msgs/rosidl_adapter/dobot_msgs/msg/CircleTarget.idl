@@ -1,0 +1,48 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot_msgs/msg/CircleTarget.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+
+module dobot_msgs {
+  module msg {
+    typedef double double__2[2];
+    @verbatim (language="comment", text=
+      "ID is local to this exposure; identify a target by (array header stamp, id).")
+    struct CircleTarget {
+      uint32 id;
+
+      @verbatim (language="comment", text=
+        "black, white or yellow")
+      string class_name;
+
+      double__2 center_uv;
+
+      @verbatim (language="comment", text=
+        "Metres, in the array header's registered optical frame.")
+      geometry_msgs::msg::Point camera_xyz;
+
+      @verbatim (language="comment", text=
+        "Optical Z in metres (not Euclidean range).")
+      double depth;
+
+      @verbatim (language="comment", text=
+        "Diameter in metres, measured in the object top plane.")
+      double size;
+
+      double confidence;
+
+      @verbatim (language="comment", text=
+        "Visual suction suitability only; robot calibration/readiness is a separate gate.")
+      boolean pickable;
+
+      double top_height;
+
+      double depth_valid_ratio;
+
+      double depth_mad;
+
+      string rejection_reason;
+    };
+  };
+};

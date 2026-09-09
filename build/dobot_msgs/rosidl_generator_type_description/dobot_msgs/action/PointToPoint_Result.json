@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot_msgs/action/PointToPoint_Result",
+      "fields": [
+        {
+          "name": "achieved_pose",
+          "type": {
+            "type_id": 59,
+            "capacity": 4,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot_msgs/action/PointToPoint_Result",
+      "hash_string": "RIHS01_746b19c33fb29552a689a4666a9ad620f090c4d253d198181e27a4f544ad8854"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot_msgs/action/SlidingRail_Feedback",
+      "fields": [
+        {
+          "name": "current_pose",
+          "type": {
+            "type_id": 11,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot_msgs/action/SlidingRail_Feedback",
+      "hash_string": "RIHS01_c4edb4057a7179daa96e674501595b4c692427ade5d2cbba4ebc1b9b58b9ff02"
+    }
+  ]
+}

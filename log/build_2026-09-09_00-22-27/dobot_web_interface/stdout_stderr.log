@@ -1,0 +1,61 @@
+running develop
+Removing /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot-web-interface.egg-link (link to .)
+running egg_info
+writing ../../../build/dobot_web_interface/dobot_web_interface.egg-info/PKG-INFO
+writing dependency_links to ../../../build/dobot_web_interface/dobot_web_interface.egg-info/dependency_links.txt
+writing entry points to ../../../build/dobot_web_interface/dobot_web_interface.egg-info/entry_points.txt
+writing requirements to ../../../build/dobot_web_interface/dobot_web_interface.egg-info/requires.txt
+writing top-level names to ../../../build/dobot_web_interface/dobot_web_interface.egg-info/top_level.txt
+reading manifest file '../../../build/dobot_web_interface/dobot_web_interface.egg-info/SOURCES.txt'
+writing manifest file '../../../build/dobot_web_interface/dobot_web_interface.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/bbcontact/magician_ros2/build/dobot_web_interface/build
+creating /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib
+creating /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface
+copying dobot_web_interface/calibration_guide.py -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface
+copying dobot_web_interface/__init__.py -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface
+copying dobot_web_interface/calibration_capture.py -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface
+copying dobot_web_interface/calibration_print.py -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface
+copying dobot_web_interface/operation_workflow.py -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface
+copying dobot_web_interface/web_interface.py -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface
+creating /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static
+copying dobot_web_interface/static/index.html -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static
+copying dobot_web_interface/static/app.js -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static
+copying dobot_web_interface/static/calibration_eye_in_hand_a4.pdf -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static
+copying dobot_web_interface/static/calibration_board_a4.html -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static
+copying dobot_web_interface/static/calibration_print.js -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static
+copying dobot_web_interface/static/styles.css -> /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static
+running install
+running install_lib
+creating /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/calibration_guide.py -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/__init__.py -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/calibration_capture.py -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/calibration_print.py -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/operation_workflow.py -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/web_interface.py -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface
+creating /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/static
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static/index.html -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/static
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static/app.js -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/static
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static/calibration_eye_in_hand_a4.pdf -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/static
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static/calibration_board_a4.html -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/static
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static/calibration_print.js -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/static
+copying /home/bbcontact/magician_ros2/build/dobot_web_interface/build/lib/dobot_web_interface/static/styles.css -> /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/static
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/calibration_guide.py to calibration_guide.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/calibration_capture.py to calibration_capture.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/calibration_print.py to calibration_print.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/operation_workflow.py to operation_workflow.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/web_interface.py to web_interface.cpython-312.pyc
+running install_data
+copying resource/dobot_web_interface -> /home/bbcontact/magician_ros2/install/dobot_web_interface/share/ament_index/resource_index/packages
+copying package.xml -> /home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface
+copying README.md -> /home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface
+copying launch/dobot_auto.launch.py -> /home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/launch
+copying launch/dobot_web_interface.launch.py -> /home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/launch
+running install_egg_info
+Copying ../../../build/dobot_web_interface/dobot_web_interface.egg-info to /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface-1.0.0-py3.12.egg-info
+running install_scripts
+Installing web_interface script to /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/dobot_web_interface
+writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_web_interface/install.log'

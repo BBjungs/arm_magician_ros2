@@ -1,0 +1,27 @@
+{
+  "package_name": "orbbec_camera_msgs",
+  "output_dir": "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_generator_type_description/orbbec_camera_msgs",
+  "idl_tuples": [
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:msg/DeviceInfo.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:msg/Extrinsics.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:msg/Metadata.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:msg/IMUInfo.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:msg/RGBD.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:msg/StreamProfile.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:srv/GetBool.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:srv/GetDeviceInfo.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:srv/GetCameraInfo.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:srv/GetInt32.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:srv/GetString.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:srv/SetInt32.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:srv/SetString.idl",
+    "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_adapter/orbbec_camera_msgs:srv/SetStreamProfile.idl"
+  ],
+  "include_paths": [
+    "sensor_msgs:/opt/ros/jazzy/share/sensor_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "geometry_msgs:/opt/ros/jazzy/share/geometry_msgs",
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "service_msgs:/opt/ros/jazzy/share/service_msgs"
+  ]
+}

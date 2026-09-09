@@ -1,0 +1,28 @@
+[10.043s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_diagnostics': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_diagnostics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_diagnostics/build --no-deps symlink_data
+[13.185s] running develop
+[15.336s] running egg_info
+[15.337s] creating dobot_diagnostics.egg-info
+[15.705s] writing dobot_diagnostics.egg-info/PKG-INFO
+[15.709s] writing dependency_links to dobot_diagnostics.egg-info/dependency_links.txt
+[15.709s] writing entry points to dobot_diagnostics.egg-info/entry_points.txt
+[15.713s] writing requirements to dobot_diagnostics.egg-info/requires.txt
+[15.717s] writing top-level names to dobot_diagnostics.egg-info/top_level.txt
+[15.718s] writing manifest file 'dobot_diagnostics.egg-info/SOURCES.txt'
+[16.128s] reading manifest file 'dobot_diagnostics.egg-info/SOURCES.txt'
+[16.130s] writing manifest file 'dobot_diagnostics.egg-info/SOURCES.txt'
+[16.315s] running build_ext
+[16.316s] Creating /home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages/dobot-diagnostics.egg-link (link to .)
+[16.317s] Installing alarms_parser script to /home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/dobot_diagnostics
+[16.318s] 
+[16.318s] Installed /home/bbcontact/magician_ros2/build/dobot_diagnostics
+[16.319s] running symlink_data
+[16.319s] creating /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/ament_index
+[16.322s] creating /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/ament_index/resource_index
+[16.323s] creating /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/ament_index/resource_index/packages
+[16.323s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_diagnostics/resource/dobot_diagnostics -> /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/ament_index/resource_index/packages
+[16.323s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_diagnostics/package.xml -> /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/dobot_diagnostics
+[16.324s] creating /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/dobot_diagnostics/launch
+[16.324s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_diagnostics/launch/alarms_analyzer.launch.py -> /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/dobot_diagnostics/launch
+[16.325s] creating /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/dobot_diagnostics/config
+[16.325s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_diagnostics/config/analyzer_params.yaml -> /home/bbcontact/magician_ros2/install/dobot_diagnostics/share/dobot_diagnostics/config
+[17.440s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_diagnostics' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_diagnostics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_diagnostics/build --no-deps symlink_data

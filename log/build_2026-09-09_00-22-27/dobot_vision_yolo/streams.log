@@ -1,0 +1,78 @@
+[5.367s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_vision_yolo': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_yolo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build
+[7.119s] running develop
+[8.265s] Removing /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot-vision-yolo.egg-link (link to .)
+[9.682s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_vision_yolo' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_yolo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build
+[9.685s] Invoking command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_yolo': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_yolo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dobot_vision_yolo build --build-base /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build install --record /home/bbcontact/magician_ros2/build/dobot_vision_yolo/install.log --install-scripts $base/lib/dobot_vision_yolo --single-version-externally-managed install_data --force
+[10.741s] running egg_info
+[10.889s] writing ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/PKG-INFO
+[10.889s] writing dependency_links to ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/dependency_links.txt
+[10.892s] writing entry points to ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/entry_points.txt
+[10.892s] writing requirements to ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/requires.txt
+[10.892s] writing top-level names to ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/top_level.txt
+[11.149s] reading manifest file '../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/SOURCES.txt'
+[11.153s] writing manifest file '../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info/SOURCES.txt'
+[11.153s] running build
+[11.155s] running build_py
+[11.155s] creating /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build
+[11.156s] creating /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib
+[11.157s] creating /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.157s] copying dobot_vision_yolo/aruco_board.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.158s] copying dobot_vision_yolo/__init__.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.159s] copying dobot_vision_yolo/eye_in_hand_calibration_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.160s] copying dobot_vision_yolo/camera_calibration_tool.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.161s] copying dobot_vision_yolo/vision_pick_place_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.162s] copying dobot_vision_yolo/eye_in_hand_transform.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.163s] copying dobot_vision_yolo/markerless_hand_eye.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.164s] copying dobot_vision_yolo/pixel_to_robot_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.165s] copying dobot_vision_yolo/safety_guard.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.166s] copying dobot_vision_yolo/target_selector_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.166s] copying dobot_vision_yolo/yolo_detector_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo
+[11.170s] running install
+[11.192s] running install_lib
+[11.318s] creating /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.318s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/aruco_board.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.319s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/__init__.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.320s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/eye_in_hand_calibration_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.321s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/camera_calibration_tool.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.322s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/vision_pick_place_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.323s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/eye_in_hand_transform.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.323s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/markerless_hand_eye.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.325s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/pixel_to_robot_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.325s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/safety_guard.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.326s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/target_selector_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.328s] copying /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build/lib/dobot_vision_yolo/yolo_detector_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo
+[11.328s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/aruco_board.py to aruco_board.cpython-312.pyc
+[11.344s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/__init__.py to __init__.cpython-312.pyc
+[11.346s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/eye_in_hand_calibration_node.py to eye_in_hand_calibration_node.cpython-312.pyc
+[11.355s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/camera_calibration_tool.py to camera_calibration_tool.cpython-312.pyc
+[11.398s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/vision_pick_place_node.py to vision_pick_place_node.cpython-312.pyc
+[11.415s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/eye_in_hand_transform.py to eye_in_hand_transform.cpython-312.pyc
+[11.483s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/markerless_hand_eye.py to markerless_hand_eye.cpython-312.pyc
+[11.499s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/pixel_to_robot_node.py to pixel_to_robot_node.cpython-312.pyc
+[11.505s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/safety_guard.py to safety_guard.cpython-312.pyc
+[11.519s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/target_selector_node.py to target_selector_node.cpython-312.pyc
+[11.536s] byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo/yolo_detector_node.py to yolo_detector_node.cpython-312.pyc
+[11.553s] running install_data
+[11.554s] copying resource/dobot_vision_yolo -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/ament_index/resource_index/packages
+[11.555s] copying package.xml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo
+[11.556s] copying README.md -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo
+[11.557s] copying launch/vision_pick_place.launch.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/launch
+[11.558s] copying config/camera_intrinsics.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+[11.559s] copying config/aruco_board.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+[11.560s] copying config/camera_to_robot.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+[11.561s] copying config/eye_in_hand.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+[11.562s] copying config/place_positions.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+[11.563s] copying config/workspace.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+[11.563s] copying config/yolo.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+[11.567s] running install_egg_info
+[11.698s] Copying ../../../build/dobot_vision_yolo/dobot_vision_yolo.egg-info to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot_vision_yolo-0.1.0-py3.12.egg-info
+[11.702s] running install_scripts
+[12.455s] Installing camera_calibration_tool script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[12.455s] Installing eye_in_hand_calibration_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[12.458s] Installing pixel_to_robot_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[12.458s] Installing safety_guard_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[12.462s] Installing target_selector_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[12.462s] Installing vision_pick_place_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[12.462s] Installing yolo_detector_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[12.463s] writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_vision_yolo/install.log'
+[13.522s] Invoked command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_yolo' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_yolo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/dobot_vision_yolo build --build-base /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build install --record /home/bbcontact/magician_ros2/build/dobot_vision_yolo/install.log --install-scripts $base/lib/dobot_vision_yolo --single-version-externally-managed install_data --force

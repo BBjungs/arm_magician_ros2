@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: dobot-vision-rgbd
+Version: 0.1.0
+Summary: Rule-based RGB-D object detector for Dobot Magician.
+Maintainer: bbcontact
+Maintainer-email: bbcontact@example.com
+License: MIT

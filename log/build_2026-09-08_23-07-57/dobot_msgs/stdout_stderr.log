@@ -1,0 +1,479 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found std_msgs: 5.3.8 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+-- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found PythonExtra: /usr/bin/python3  
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (15.8s)
+-- Generating done (0.2s)
+-- Build files have been written to: /home/bbcontact/magician_ros2/build/dobot_msgs
+[  0%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[  1%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[  1%] Built target ament_cmake_python_symlink_dobot_msgs
+running egg_info
+creating dobot_msgs.egg-info
+writing dobot_msgs.egg-info/PKG-INFO
+writing dependency_links to dobot_msgs.egg-info/dependency_links.txt
+writing top-level names to dobot_msgs.egg-info/top_level.txt
+writing manifest file 'dobot_msgs.egg-info/SOURCES.txt'
+reading manifest file 'dobot_msgs.egg-info/SOURCES.txt'
+writing manifest file 'dobot_msgs.egg-info/SOURCES.txt'
+[  1%] Built target ament_cmake_python_build_dobot_msgs_egg
+[  1%] Built target dobot_msgs__rosidl_generator_type_description
+[  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[  2%] Built target dobot_msgs__rs
+[  2%] Built target dobot_msgs__cpp
+[  3%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__description.c.o[0m
+[  4%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__description.c.o[0m
+[  5%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__functions.c.o[0m
+[  6%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__functions.c.o[0m
+[  6%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__type_support.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/dobot_alarm_codes__description.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/dobot_alarm_codes__functions.c.o[0m
+[  8%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__type_support.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__description.c.o[0m
+[ 11%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__functions.c.o[0m
+[ 12%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__type_support.c.o[0m
+[ 12%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target__description.c.o[0m
+[ 13%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target__type_support.c.o[0m
+[ 14%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target__functions.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target_array__description.c.o[0m
+[ 16%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target_array__functions.c.o[0m
+[ 16%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target_array__type_support.c.o[0m
+[ 17%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__description.c.o[0m
+[ 18%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__functions.c.o[0m
+[ 19%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.c.o[0m
+[ 20%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__description.c.o[0m
+[ 20%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__functions.c.o[0m
+[ 21%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.c.o[0m
+[ 22%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__description.c.o[0m
+[ 23%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__functions.c.o[0m
+[ 24%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.c.o[0m
+[ 24%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__description.c.o[0m
+[ 25%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.c.o[0m
+[ 26%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o[0m
+[ 27%] [32m[1mLinking C shared library libdobot_msgs__rosidl_generator_c.so[0m
+[ 27%] Built target dobot_msgs__rosidl_generator_c
+[ 28%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 28%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 29%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 30%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 31%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 32%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/msg/dobot_alarm_codes__type_support.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/action/sliding_rail__type_support.cpp.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp.o[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/action/point_to_point__type_support.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/action/sliding_rail__type_support.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/msg/dobot_alarm_codes__type_support.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/msg/gripper_status__type_support.cpp.o[0m
+[ 38%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/msg/circle_target__type_support.cpp.o[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/msg/circle_target_array__type_support.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/evaluate_ptp_trajectory__type_support.cpp.o[0m
+[ 41%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/execute_homing_procedure__type_support.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/action/detail/point_to_point__type_support.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/gripper_control__type_support.cpp.o[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/suction_cup_control__type_support.cpp.o[0m
+[ 44%] [32m[1mLinking CXX shared library libdobot_msgs__rosidl_typesupport_c.so[0m
+[ 44%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__type_support.c.o[0m
+[ 44%] Built target dobot_msgs__rosidl_typesupport_c
+[ 45%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/action/detail/sliding_rail__type_support.c.o[0m
+[ 46%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.c.o[0m
+[ 47%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/msg/detail/gripper_status__type_support.c.o[0m
+[ 48%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/msg/detail/circle_target__type_support.c.o[0m
+[ 48%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/msg/detail/circle_target_array__type_support.c.o[0m
+[ 49%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/msg/circle_target_array__type_support.cpp.o[0m
+[ 50%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.c.o[0m
+[ 51%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.c.o[0m
+[ 52%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/gripper_control__type_support.c.o[0m
+[ 53%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/action/detail/sliding_rail__type_support.cpp.o[0m
+[ 54%] [32m[1mLinking C shared library libdobot_msgs__rosidl_typesupport_introspection_c.so[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/evaluate_ptp_trajectory__type_support.cpp.o[0m
+[ 54%] Built target dobot_msgs__rosidl_typesupport_introspection_c
+[ 55%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__type_support_c.cpp.o[0m
+[ 56%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/action/detail/dds_fastrtps/point_to_point__type_support.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/execute_homing_procedure__type_support.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.cpp.o[0m
+[ 59%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/sliding_rail__type_support_c.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/msg/detail/gripper_status__type_support.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/msg/detail/dds_fastrtps/dobot_alarm_codes__type_support.cpp.o[0m
+[ 61%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/msg/circle_target__type_support.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/msg/detail/dobot_alarm_codes__type_support_c.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/msg/detail/circle_target_array__type_support.cpp.o[0m
+[ 64%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp.o[0m
+[ 65%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/msg/detail/circle_target__type_support.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/msg/detail/dds_fastrtps/gripper_status__type_support.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/msg/detail/circle_target__type_support_c.cpp.o[0m
+[ 67%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/msg/gripper_status__type_support.cpp.o[0m
+[ 68%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.cpp.o[0m
+[ 69%] [32m[1mLinking CXX shared library libdobot_msgs__rosidl_typesupport_cpp.so[0m
+[ 70%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/action/detail/dds_fastrtps/sliding_rail__type_support.cpp.o[0m
+[ 71%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support_c.cpp.o[0m
+[ 71%] Built target dobot_msgs__rosidl_typesupport_cpp
+[ 72%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/execute_homing_procedure__type_support.cpp.o[0m
+[ 73%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/gripper_control__type_support_c.cpp.o[0m
+[ 73%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/gripper_control__type_support.cpp.o[0m
+[ 74%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/msg/detail/dds_fastrtps/circle_target__type_support.cpp.o[0m
+[ 74%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/suction_cup_control__type_support.cpp.o[0m
+[ 76%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support_c.cpp.o[0m
+[ 76%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/execute_homing_procedure__type_support.cpp.o[0m
+[ 77%] [32m[1mLinking CXX shared library libdobot_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[ 77%] Built target dobot_msgs__rosidl_typesupport_introspection_cpp
+[ 78%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/msg/detail/circle_target_array__type_support_c.cpp.o[0m
+[ 79%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/suction_cup_control__type_support.cpp.o[0m
+[ 80%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/msg/detail/gripper_status__type_support_c.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/gripper_control__type_support.cpp.o[0m
+[ 82%] [32m[1mLinking CXX shared library libdobot_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[ 82%] Built target dobot_msgs__rosidl_typesupport_fastrtps_c
+[ 83%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/evaluate_ptp_trajectory__type_support.cpp.o[0m
+[ 84%] [32mBuilding CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/msg/detail/dds_fastrtps/circle_target_array__type_support.cpp.o[0m
+[ 85%] [32m[1mLinking CXX shared library libdobot_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 85%] Built target dobot_msgs__rosidl_typesupport_fastrtps_cpp
+[ 85%] Built target dobot_msgs
+[ 86%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 86%] Built target dobot_msgs__py
+[ 87%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/action/_point_to_point_s.c.o[0m
+[ 88%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_execute_homing_procedure_s.c.o[0m
+[ 89%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_gripper_control_s.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_evaluate_ptp_trajectory_s.c.o[0m
+[ 91%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/msg/_circle_target_array_s.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/msg/_circle_target_s.c.o[0m
+[ 93%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/msg/_gripper_status_s.c.o[0m
+[ 94%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/msg/_dobot_alarm_codes_s.c.o[0m
+[ 94%] [32mBuilding C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/action/_sliding_rail_s.c.o[0m
+[ 95%] [32m[1mLinking C shared library libdobot_msgs__rosidl_generator_py.so[0m
+[ 95%] Built target dobot_msgs__rosidl_generator_py
+[ 96%] [32mBuilding C object CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 97%] [32m[1mLinking C shared module rosidl_generator_py/dobot_msgs/dobot_msgs_s__rosidl_typesupport_fastrtps_c.so[0m
+[ 97%] Built target dobot_msgs_s__rosidl_typesupport_fastrtps_c
+[ 98%] [32mBuilding C object CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[ 98%] [32m[1mLinking C shared module rosidl_generator_py/dobot_msgs/dobot_msgs_s__rosidl_typesupport_c.so[0m
+[ 98%] Built target dobot_msgs_s__rosidl_typesupport_c
+[ 99%] [32mBuilding C object CMakeFiles/dobot_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[100%] [32m[1mLinking C shared module rosidl_generator_py/dobot_msgs/dobot_msgs_s__rosidl_typesupport_introspection_c.so[0m
+[100%] Built target dobot_msgs_s__rosidl_typesupport_introspection_c
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/rosidl_interfaces/dobot_msgs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/PointToPoint.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/SlidingRail.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/DobotAlarmCodes.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/GripperStatus.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTarget.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTargetArray.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/EvaluatePTPTrajectory.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/ExecuteHomingProcedure.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GripperControl.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.json
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/point_to_point.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/sliding_rail.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/circle_target.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/circle_target_array.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/dobot_alarm_codes.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/gripper_status.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_generator_c__visibility_control.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__functions.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__struct.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__type_support.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/evaluate_ptp_trajectory.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/execute_homing_procedure.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/gripper_control.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/suction_cup_control.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/library_path.sh
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/library_path.dsv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/point_to_point.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/sliding_rail.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/circle_target.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/circle_target_array.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/dobot_alarm_codes.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/gripper_status.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__builder.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__struct.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__traits.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__type_support.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/evaluate_ptp_trajectory.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/execute_homing_procedure.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/gripper_control.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/suction_cup_control.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/pythonpath.sh
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/pythonpath.dsv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs-1.0.0-py3.12.egg-info/PKG-INFO
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs-1.0.0-py3.12.egg-info/SOURCES.txt
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs-1.0.0-py3.12.egg-info/dependency_links.txt
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs-1.0.0-py3.12.egg-info/top_level.txt
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/__init__.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_c.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_introspection_c.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/__init__.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_point_to_point.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_point_to_point_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_sliding_rail.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_sliding_rail_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_c.so
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_fastrtps_c.so
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_introspection_c.so
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/__init__.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target_array.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target_array_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_dobot_alarm_codes.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_dobot_alarm_codes_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_gripper_status.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_gripper_status_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_evaluate_ptp_trajectory.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_evaluate_ptp_trajectory_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_execute_homing_procedure.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_execute_homing_procedure_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_gripper_control.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_gripper_control_s.c
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_suction_cup_control.py
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_suction_cup_control_s.c
+-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_introspection_c.so
+-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_c.so
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/rust_packages/dobot_msgs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/Cargo.toml
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/build.rs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/action.rs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/action/rmw.rs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/lib.rs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/msg.rs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/msg/rmw.rs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/srv.rs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/srv/rmw.rs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/PointToPoint.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/SlidingRail.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/DobotAlarmCodes.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/GripperStatus.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTarget.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTargetArray.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/EvaluatePTPTrajectory.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/ExecuteHomingProcedure.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GripperControl.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.idl
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/PointToPoint.action
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/SlidingRail.action
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/DobotAlarmCodes.msg
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/GripperStatus.msg
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTarget.msg
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTargetArray.msg
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/EvaluatePTPTrajectory.srv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/ExecuteHomingProcedure.srv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GripperControl.srv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.srv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/package_run_dependencies/dobot_msgs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/parent_prefix_path/dobot_msgs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/ament_prefix_path.sh
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/ament_prefix_path.dsv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/path.sh
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/path.dsv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/local_setup.bash
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/local_setup.sh
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/local_setup.zsh
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/local_setup.dsv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/package.dsv
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/packages/dobot_msgs
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/rosidl_cmake-extras.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgsConfig.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgsConfig-version.cmake
+-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/package.xml
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_generator_c.so
+-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_generator_c.so" to ""
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_c.so" to ""
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_fastrtps_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_introspection_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_cpp.so" to ""
+Listing '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/__init__.py'...
+Listing '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/__init__.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_point_to_point.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_sliding_rail.py'...
+Listing '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/__init__.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target_array.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_dobot_alarm_codes.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_gripper_status.py'...
+Listing '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_evaluate_ptp_trajectory.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_execute_homing_procedure.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_gripper_control.py'...
+Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_suction_cup_control.py'...
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_generator_py.so
+-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_generator_py.so" to ""
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_cExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_cExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_cppExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_pyExport.cmake
+-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_pyExport-noconfig.cmake

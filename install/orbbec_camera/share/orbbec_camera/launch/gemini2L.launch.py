@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera/launch/gemini2L.launch.py

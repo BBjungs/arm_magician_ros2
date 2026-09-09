@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: dobot-object-vision
+Version: 0.1.0
+Summary: Contour and depth based circular suction target vision.
+Maintainer: bbcontact
+Maintainer-email: bbcontact@users.noreply.github.com
+License: MIT

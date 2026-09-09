@@ -1,0 +1,20 @@
+[8.739s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_visualization_tools': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_visualization_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_visualization_tools/build --no-deps symlink_data
+[10.801s] running develop
+[12.073s] running egg_info
+[12.214s] writing dobot_visualization_tools.egg-info/PKG-INFO
+[12.214s] writing dependency_links to dobot_visualization_tools.egg-info/dependency_links.txt
+[12.215s] writing entry points to dobot_visualization_tools.egg-info/entry_points.txt
+[12.216s] writing requirements to dobot_visualization_tools.egg-info/requires.txt
+[12.216s] writing top-level names to dobot_visualization_tools.egg-info/top_level.txt
+[12.588s] reading manifest file 'dobot_visualization_tools.egg-info/SOURCES.txt'
+[12.595s] writing manifest file 'dobot_visualization_tools.egg-info/SOURCES.txt'
+[12.840s] running build_ext
+[12.844s] Creating /home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/python3.12/site-packages/dobot-visualization-tools.egg-link (link to .)
+[12.851s] Installing int_marker script to /home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/dobot_visualization_tools
+[12.852s] Installing show_camera_FOV script to /home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/dobot_visualization_tools
+[12.852s] Installing show_dobot_range script to /home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/dobot_visualization_tools
+[12.853s] Installing show_trajectory script to /home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/dobot_visualization_tools
+[12.857s] 
+[12.858s] Installed /home/bbcontact/magician_ros2/build/dobot_visualization_tools
+[12.858s] running symlink_data
+[13.905s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_visualization_tools' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_visualization_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_visualization_tools/build --no-deps symlink_data

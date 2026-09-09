@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h

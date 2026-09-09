@@ -1,0 +1,7 @@
+/home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so
+/home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so.1.10
+/home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so.1.10.37
+/home/bbcontact/magician_ros2/install/orbbec_camera/lib//libdepthengine.so
+/home/bbcontact/magician_ros2/install/orbbec_camera/lib//libdepthengine.so.2.0
+/home/bbcontact/magician_ros2/install/orbbec_camera/lib//liblive555.so
+/home/bbcontact/magician_ros2/install/orbbec_camera/lib//libob_usb.so

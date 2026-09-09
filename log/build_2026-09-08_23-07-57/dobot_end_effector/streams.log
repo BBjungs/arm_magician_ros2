@@ -1,0 +1,25 @@
+[10.379s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_end_effector': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_end_effector/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_end_effector/build --no-deps symlink_data
+[14.824s] running develop
+[16.229s] running egg_info
+[16.229s] creating dobot_end_effector.egg-info
+[16.429s] writing dobot_end_effector.egg-info/PKG-INFO
+[16.430s] writing dependency_links to dobot_end_effector.egg-info/dependency_links.txt
+[16.431s] writing entry points to dobot_end_effector.egg-info/entry_points.txt
+[16.433s] writing requirements to dobot_end_effector.egg-info/requires.txt
+[16.433s] writing top-level names to dobot_end_effector.egg-info/top_level.txt
+[16.434s] writing manifest file 'dobot_end_effector.egg-info/SOURCES.txt'
+[16.766s] reading manifest file 'dobot_end_effector.egg-info/SOURCES.txt'
+[16.768s] writing manifest file 'dobot_end_effector.egg-info/SOURCES.txt'
+[16.903s] running build_ext
+[16.903s] Creating /home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages/dobot-end-effector.egg-link (link to .)
+[16.904s] Installing gripper_server script to /home/bbcontact/magician_ros2/install/dobot_end_effector/lib/dobot_end_effector
+[16.904s] Installing suction_cup_server script to /home/bbcontact/magician_ros2/install/dobot_end_effector/lib/dobot_end_effector
+[16.905s] 
+[16.905s] Installed /home/bbcontact/magician_ros2/build/dobot_end_effector
+[16.909s] running symlink_data
+[16.911s] creating /home/bbcontact/magician_ros2/install/dobot_end_effector/share/ament_index
+[16.911s] creating /home/bbcontact/magician_ros2/install/dobot_end_effector/share/ament_index/resource_index
+[16.912s] creating /home/bbcontact/magician_ros2/install/dobot_end_effector/share/ament_index/resource_index/packages
+[16.912s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_end_effector/resource/dobot_end_effector -> /home/bbcontact/magician_ros2/install/dobot_end_effector/share/ament_index/resource_index/packages
+[16.912s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_end_effector/package.xml -> /home/bbcontact/magician_ros2/install/dobot_end_effector/share/dobot_end_effector
+[18.536s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_end_effector' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_end_effector/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_end_effector/build --no-deps symlink_data

@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/dobot_msgs/ament_cmake_core/dobot_msgsConfig.cmake

@@ -1,0 +1,10 @@
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:action/PointToPoint.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:action/SlidingRail.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:msg/DobotAlarmCodes.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:msg/GripperStatus.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:msg/CircleTarget.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:msg/CircleTargetArray.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/EvaluatePTPTrajectory.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/ExecuteHomingProcedure.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/GripperControl.idl
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SuctionCupControl.idl

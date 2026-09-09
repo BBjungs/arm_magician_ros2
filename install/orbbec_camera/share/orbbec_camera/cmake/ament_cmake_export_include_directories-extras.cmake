@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/orbbec_camera/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake

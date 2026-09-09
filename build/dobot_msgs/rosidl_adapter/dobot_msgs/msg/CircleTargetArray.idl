@@ -1,0 +1,31 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot_msgs/msg/CircleTargetArray.msg
+// generated code does not contain a copyright notice
+
+#include "dobot_msgs/msg/CircleTarget.idl"
+#include "std_msgs/msg/Header.idl"
+
+module dobot_msgs {
+  module msg {
+    typedef double double__4[4];
+    @verbatim (language="comment", text=
+      "RGB exposure stamp and registered optical frame; never the processing time.")
+    struct CircleTargetArray {
+      std_msgs::msg::Header header;
+
+      boolean valid;
+
+      string reason;
+
+      @verbatim (language="comment", text=
+        "Unit normal faces the camera; n dot camera_xyz + d = 0, metres.")
+      double__4 table_plane;
+
+      double table_inlier_ratio;
+
+      double table_rmse;
+
+      sequence<dobot_msgs::msg::CircleTarget> detections;
+    };
+  };
+};

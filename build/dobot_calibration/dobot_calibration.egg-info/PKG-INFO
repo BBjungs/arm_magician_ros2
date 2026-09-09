@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: dobot-calibration
+Version: 0.1.0
+Summary: Automatic markerless RGB-D calibration for the Dobot Magician.
+Maintainer: bbcontact
+Maintainer-email: bbcontact@users.noreply.github.com
+License: MIT

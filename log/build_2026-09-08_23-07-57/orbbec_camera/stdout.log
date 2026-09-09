@@ -1,0 +1,81 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_index_cpp: 1.8.4 (/opt/ros/jazzy/share/ament_index_cpp/cmake)
+-- Found builtin_interfaces: 2.0.4 (/opt/ros/jazzy/share/builtin_interfaces/cmake)
+-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found cv_bridge: 4.1.0 (/opt/ros/jazzy/share/cv_bridge/cmake)
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_cyclonedds_cpp: 2.2.3 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)
+-- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+-- Found camera_info_manager: 5.1.8 (/opt/ros/jazzy/share/camera_info_manager/cmake)
+-- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'
+-- Found image_transport: 5.1.8 (/opt/ros/jazzy/share/image_transport/cmake)
+-- Found TinyXML2 via Config file: /usr/lib/x86_64-linux-gnu/cmake/tinyxml2
+-- Found image_publisher: 5.0.12 (/opt/ros/jazzy/share/image_publisher/cmake)
+-- Found OpenCV: /usr/local (found version "4.10.0") 
+-- Found orbbec_camera_msgs: 1.5.22 (/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake)
+-- Found std_srvs: 5.3.8 (/opt/ros/jazzy/share/std_srvs/cmake)
+-- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)
+-- Found tf2_eigen: 0.36.21 (/opt/ros/jazzy/share/tf2_eigen/cmake)
+-- Found tf2_sensor_msgs: 0.36.21 (/opt/ros/jazzy/share/tf2_sensor_msgs/cmake)
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found diagnostic_updater: 4.2.7 (/opt/ros/jazzy/share/diagnostic_updater/cmake)
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") 
+-- ORRBEC Machine : x86_64
+
+-- ORRBEC Machine Bits : 64
+
+-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Configuring done (7.0s)
+-- Generating done (0.3s)
+-- Build files have been written to: /home/bbcontact/magician_ros2/build/orbbec_camera
+[  3%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/d2c_viewer.cpp.o[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/frame_timestamp_csv_logger.cpp.o[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/ob_camera_node_driver.cpp.o[0m
+[ 15%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/image_publisher.cpp.o[0m
+[ 19%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/dynamic_params.cpp.o[0m
+[ 23%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/ob_camera_node.cpp.o[0m
+[ 26%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/ros_param_backend.cpp.o[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/ros_service.cpp.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/synced_imu_publisher.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/jpeg_decoder.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/utils.cpp.o[0m
+[ 46%] [32m[1mLinking CXX shared library liborbbec_camera.so[0m
+[ 46%] Built target orbbec_camera
+[ 50%] [32mBuilding CXX object CMakeFiles/frame_latency_node.dir/rclcpp_components/node_main_frame_latency_node.cpp.o[0m
+[ 53%] [32mBuilding CXX object CMakeFiles/frame_latency.dir/tools/frame_latency.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/list_depth_work_mode_node.dir/tools/list_depth_work_mode.cpp.o[0m
+[ 61%] [32mBuilding CXX object CMakeFiles/orbbec_camera_node.dir/rclcpp_components/node_main_orbbec_camera_node.cpp.o[0m
+[ 65%] [32mBuilding CXX object CMakeFiles/list_devices_node.dir/tools/list_devices_node.cpp.o[0m
+[ 69%] [32mBuilding CXX object CMakeFiles/list_camera_profile_mode_node.dir/tools/list_camera_profile.cpp.o[0m
+[ 73%] [32mBuilding CXX object CMakeFiles/topic_statistics_node.dir/tools/topic_statistics.cpp.o[0m
+[ 76%] [32m[1mLinking CXX executable orbbec_camera_node[0m
+[ 80%] [32m[1mLinking CXX executable frame_latency_node[0m
+[ 80%] Built target orbbec_camera_node
+[ 80%] Built target frame_latency_node
+[ 84%] [32m[1mLinking CXX executable list_devices_node[0m
+[ 88%] [32m[1mLinking CXX executable list_depth_work_mode_node[0m
+[ 88%] Built target list_depth_work_mode_node
+[ 92%] [32m[1mLinking CXX executable topic_statistics_node[0m
+[ 96%] [32m[1mLinking CXX executable list_camera_profile_mode_node[0m
+[ 96%] Built target topic_statistics_node
+[100%] [32m[1mLinking CXX shared library libframe_latency.so[0m
+[100%] Built target frame_latency

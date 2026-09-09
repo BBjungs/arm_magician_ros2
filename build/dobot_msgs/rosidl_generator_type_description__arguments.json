@@ -1,0 +1,24 @@
+{
+  "package_name": "dobot_msgs",
+  "output_dir": "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs",
+  "idl_tuples": [
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:action/PointToPoint.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:action/SlidingRail.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:msg/DobotAlarmCodes.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:msg/GripperStatus.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:msg/CircleTarget.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:msg/CircleTargetArray.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/EvaluatePTPTrajectory.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/ExecuteHomingProcedure.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/GripperControl.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SuctionCupControl.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "geometry_msgs:/opt/ros/jazzy/share/geometry_msgs",
+    "service_msgs:/opt/ros/jazzy/share/service_msgs",
+    "action_msgs:/opt/ros/jazzy/share/action_msgs",
+    "unique_identifier_msgs:/opt/ros/jazzy/share/unique_identifier_msgs"
+  ]
+}

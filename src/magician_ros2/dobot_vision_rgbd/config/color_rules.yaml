@@ -1,0 +1,10 @@
+inner_mask_erode_px: 3
+minimum_matching_ratio: 0.35
+classification_priority: [yellow, black, white, red, green, blue]
+colors:
+  yellow: {h_ranges: [[15, 45]], s_min: 55, s_max: 255, v_min: 60, v_max: 255}
+  black:  {h_ranges: [[0, 179]], s_min: 0, s_max: 255, v_min: 0, v_max: 95}
+  white:  {h_ranges: [[0, 179]], s_min: 0, s_max: 145, v_min: 175, v_max: 255}
+  red:    {h_ranges: [[0, 10], [170, 179]], s_min: 80, s_max: 255, v_min: 60, v_max: 255}
+  green:  {h_ranges: [[46, 85]], s_min: 60, s_max: 255, v_min: 50, v_max: 255}
+  blue:   {h_ranges: [[90, 135]], s_min: 60, s_max: 255, v_min: 50, v_max: 255}

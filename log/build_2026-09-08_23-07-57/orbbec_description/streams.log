@@ -1,0 +1,107 @@
+[2.098s] Invoking command in '/home/bbcontact/magician_ros2/build/orbbec_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/bbcontact/magician_ros2/install/orbbec_description
+[2.303s] -- The C compiler identification is GNU 13.3.0
+[2.535s] -- The CXX compiler identification is GNU 13.3.0
+[2.619s] -- Detecting C compiler ABI info
+[3.049s] -- Detecting C compiler ABI info - done
+[3.105s] -- Check for working C compiler: /usr/bin/cc - skipped
+[3.106s] -- Detecting C compile features
+[3.108s] -- Detecting C compile features - done
+[3.147s] -- Detecting CXX compiler ABI info
+[3.521s] -- Detecting CXX compiler ABI info - done
+[3.569s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.570s] -- Detecting CXX compile features
+[3.572s] -- Detecting CXX compile features - done
+[3.579s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[4.142s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[4.412s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.902s] -- Configuring done (2.8s)
+[4.925s] -- Generating done (0.0s)
+[4.933s] -- Build files have been written to: /home/bbcontact/magician_ros2/build/orbbec_description
+[4.957s] Invoked command in '/home/bbcontact/magician_ros2/build/orbbec_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/bbcontact/magician_ros2/install/orbbec_description
+[4.960s] Invoking command in '/home/bbcontact/magician_ros2/build/orbbec_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/orbbec_description -- -j8 -l8
+[5.111s] Invoked command in '/home/bbcontact/magician_ros2/build/orbbec_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/orbbec_description -- -j8 -l8
+[5.143s] Invoking command in '/home/bbcontact/magician_ros2/build/orbbec_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/orbbec_description
+[5.175s] -- Install configuration: ""
+[5.175s] -- Execute custom install script
+[5.181s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/launch/launch_utils.py
+[5.220s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/launch/view_model.launch.py
+[5.262s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/AstraPlus.stl
+[5.312s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/astra2/base_link.STL
+[5.374s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/astra2/camera_bottom_screw_frame.STL
+[5.422s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/astra2/camera_color_optical_frame.STL
+[5.489s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/astra2/camera_colorl_frame.STL
+[5.539s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/astra2/camera_depth_frame.STL
+[5.577s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/astra2/camera_depth_optical_frame.STL
+[5.617s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/astra2/camera_infra1_frame.STL
+[5.652s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/astra2/camera_infra1_optical_frame.STL
+[5.685s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/femto_bolt/femto_bolt.stl
+[5.719s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/base_link.STL
+[5.755s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/camera_botter_screw_frame.STL
+[5.795s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/camera_color_frame.STL
+[5.828s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/camera_color_optical_frame.STL
+[5.862s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/camera_depth_frame.STL
+[5.893s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/camera_infra1_frame.STL
+[5.931s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/camera_infra1_optical_frame.STL
+[5.961s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/camera_infra2_frame.STL
+[5.998s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2/camera_infra2_optical_frame.STL
+[6.035s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/base_link.STL
+[6.072s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_IR1_frame.STL
+[6.113s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_IR1_optical_frame.STL
+[6.161s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_IR2_frame.STL
+[6.226s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_IR2_optical_frame.STL
+[6.269s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_bottom_screw_frame.STL
+[6.307s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_color_frame.STL
+[6.349s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_depth_frame.STL
+[6.381s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_imu_frame.STL
+[6.409s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini2l/camera_rgb_optical_frame.STL
+[6.432s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/base_link.STL
+[6.460s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_IMU_frame.STL
+[6.495s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_color_frame.STL
+[6.535s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_color_optical_frame.STL
+[6.559s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_color_screw_frame.STL
+[6.587s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_depth_frame.STL
+[6.614s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_infra1_frame.STL
+[6.649s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_infra1_optical_frame.STL
+[6.685s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_infra2_frame.STL
+[6.719s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335L_336L/camera_infra2_optical_frame.STL
+[6.755s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_bottom_screw_frame.STL
+[6.796s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_color_frame.STL
+[6.833s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_color_optical_frame.STL
+[6.870s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_depth_frame.STL
+[6.910s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_depth_optical_frame.STL
+[6.941s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_left_ir_frame.STL
+[6.977s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_left_ir_optical_frame.STL
+[7.003s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_link.STL
+[7.038s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_right_ir_frame.STL
+[7.071s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/meshes/gemini335_336/camera_right_ir_optical_frame.STL
+[7.104s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/astra2.urdf.xacro
+[7.138s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/femto_bolt.urdf.xacro
+[7.165s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/gemini2.urdf.xacro
+[7.204s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/gemini2L.urdf.xacro
+[7.238s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/gemini335L_336L.urdf.xacro
+[7.270s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/gemini_335_336.urdf.xacro
+[7.308s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/test_astra2.urdf.xacro
+[7.343s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/test_femto_bolt.urdf.xacro
+[7.373s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/test_gemini2.urdf.xacro
+[7.403s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/test_gemini2L.urdf.xacro
+[7.433s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/test_gemini335L.urdf.xacro
+[7.463s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/test_gemini336L.urdf.xacro
+[7.500s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/test_gemini_335.urdf.xarco
+[7.552s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/urdf/test_gemini_336.urdf.xarco
+[7.590s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/rviz/urdf.rviz
+[7.617s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/ament_index/resource_index/package_run_dependencies/orbbec_description
+[7.644s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/ament_index/resource_index/parent_prefix_path/orbbec_description
+[7.667s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/environment/ament_prefix_path.sh
+[7.692s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/environment/ament_prefix_path.dsv
+[7.714s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/environment/path.sh
+[7.744s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/environment/path.dsv
+[7.772s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/local_setup.bash
+[7.799s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/local_setup.sh
+[7.828s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/local_setup.zsh
+[7.853s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/local_setup.dsv
+[7.875s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/package.dsv
+[7.898s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/ament_index/resource_index/packages/orbbec_description
+[7.924s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/cmake/orbbec_descriptionConfig.cmake
+[7.956s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/cmake/orbbec_descriptionConfig-version.cmake
+[7.979s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_description/share/orbbec_description/package.xml
+[8.176s] Invoked command in '/home/bbcontact/magician_ros2/build/orbbec_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/orbbec_description

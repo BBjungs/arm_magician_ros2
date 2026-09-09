@@ -1,0 +1,1 @@
+cv_bridge:dobot_bringup:dobot_description:dobot_msgs:dobot_vision_rgbd:dobot_vision_yolo:orbbec_camera:python3-fastapi:python3-numpy:python3-opencv:python3-uvicorn:rclpy:sensor_msgs:std_msgs

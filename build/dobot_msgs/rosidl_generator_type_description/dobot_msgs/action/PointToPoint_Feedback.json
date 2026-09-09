@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot_msgs/action/PointToPoint_Feedback",
+      "fields": [
+        {
+          "name": "current_pose",
+          "type": {
+            "type_id": 59,
+            "capacity": 4,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot_msgs/action/PointToPoint_Feedback",
+      "hash_string": "RIHS01_eb179f4e10653bb561d0375ff28fe3f7451b91afda044c9ed7506ad08e61aeef"
+    }
+  ]
+}

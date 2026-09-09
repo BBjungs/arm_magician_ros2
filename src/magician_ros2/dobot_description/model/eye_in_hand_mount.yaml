@@ -1,0 +1,13 @@
+# Fill from physical measurements/CAD. This file intentionally cannot publish a mount yet.
+geometry_verified: false
+rigid_to_rotating_tool: false
+measurement_source: ''
+translation_units: m
+rotation_units: rad
+# Origins expressed in tool coordinates; R = Rz(yaw) Ry(pitch) Rx(roll).
+camera_link:
+  xyz: []
+  rpy: []
+suction_tcp:
+  xyz: []
+  rpy: []

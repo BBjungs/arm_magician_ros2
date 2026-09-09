@@ -1,0 +1,60 @@
+running develop
+Removing /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot-calibration.egg-link (link to .)
+running egg_info
+writing ../../../build/dobot_calibration/dobot_calibration.egg-info/PKG-INFO
+writing dependency_links to ../../../build/dobot_calibration/dobot_calibration.egg-info/dependency_links.txt
+writing entry points to ../../../build/dobot_calibration/dobot_calibration.egg-info/entry_points.txt
+writing requirements to ../../../build/dobot_calibration/dobot_calibration.egg-info/requires.txt
+writing top-level names to ../../../build/dobot_calibration/dobot_calibration.egg-info/top_level.txt
+reading manifest file '../../../build/dobot_calibration/dobot_calibration.egg-info/SOURCES.txt'
+writing manifest file '../../../build/dobot_calibration/dobot_calibration.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/bbcontact/magician_ros2/build/dobot_calibration/build
+creating /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib
+creating /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/__init__.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/geometry.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/registration.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/solver.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/workflow.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/node.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/picking_guard.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/depth_health.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/validation_status.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+copying dobot_calibration/hardware_readiness.py -> /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration
+running install
+running install_lib
+creating /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/__init__.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/geometry.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/registration.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/solver.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/workflow.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/node.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/picking_guard.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/depth_health.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/validation_status.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+copying /home/bbcontact/magician_ros2/build/dobot_calibration/build/lib/dobot_calibration/hardware_readiness.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/geometry.py to geometry.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/registration.py to registration.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/solver.py to solver.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/workflow.py to workflow.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/node.py to node.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/picking_guard.py to picking_guard.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/depth_health.py to depth_health.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/validation_status.py to validation_status.cpython-312.pyc
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/hardware_readiness.py to hardware_readiness.cpython-312.pyc
+running install_data
+copying resource/dobot_calibration -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/ament_index/resource_index/packages
+copying package.xml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration
+copying README.md -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration
+copying config/mount_model.yaml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/config
+copying config/calibration.yaml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/config
+copying launch/markerless_calibration.launch.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/launch
+running install_egg_info
+Copying ../../../build/dobot_calibration/dobot_calibration.egg-info to /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration-0.1.0-py3.12.egg-info
+running install_scripts
+Installing markerless_calibration script to /home/bbcontact/magician_ros2/install/dobot_calibration/lib/dobot_calibration
+writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_calibration/install.log'

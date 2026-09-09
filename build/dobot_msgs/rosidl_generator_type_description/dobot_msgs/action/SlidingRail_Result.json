@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot_msgs/action/SlidingRail_Result",
+      "fields": [
+        {
+          "name": "achieved_pose",
+          "type": {
+            "type_id": 11,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot_msgs/action/SlidingRail_Result",
+      "hash_string": "RIHS01_0e32f90f21ca5926c55dcca6b1098f1094a0d6127c2304d24f8deb11f4ce93ff"
+    }
+  ]
+}

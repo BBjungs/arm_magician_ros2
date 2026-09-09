@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Metres/radians. Optical/extrinsic camera frames belong to the Orbbec driver. -->
+  <xacro:macro name="measured_mount_joint" params="parent child xyz rpy">
+    <xacro:property name="t" value="${[float(v) for v in xyz.split()]}"/>
+    <xacro:property name="r" value="${[float(v) for v in rpy.split()]}"/>
+    <link name="${child}"/>
+    <joint name="${parent}_to_${child}" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${child}"/>
+      <origin xyz="${t[0]} ${t[1]} ${t[2]}" rpy="${r[0]} ${r[1]} ${r[2]}"/>
+    </joint>
+  </xacro:macro>
+  <xacro:macro name="orbbec_suction_mount" params="parent camera_xyz camera_rpy suction_xyz suction_rpy">
+    <xacro:measured_mount_joint parent="${parent}" child="camera_link" xyz="${camera_xyz}" rpy="${camera_rpy}"/>
+    <xacro:measured_mount_joint parent="${parent}" child="suction_tcp" xyz="${suction_xyz}" rpy="${suction_rpy}"/>
+  </xacro:macro>
+</robot>

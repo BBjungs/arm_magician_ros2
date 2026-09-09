@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_cmake/rosidl_cmake-extras.cmake

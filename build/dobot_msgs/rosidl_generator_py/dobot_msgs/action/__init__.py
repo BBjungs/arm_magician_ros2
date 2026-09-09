@@ -1,0 +1,14 @@
+from dobot_msgs.action._point_to_point import PointToPoint  # noqa: F401
+from dobot_msgs.action._point_to_point import PointToPoint_GetResult_Event  # noqa: F401
+from dobot_msgs.action._point_to_point import PointToPoint_GetResult_Request  # noqa: F401
+from dobot_msgs.action._point_to_point import PointToPoint_GetResult_Response  # noqa: F401
+from dobot_msgs.action._point_to_point import PointToPoint_SendGoal_Event  # noqa: F401
+from dobot_msgs.action._point_to_point import PointToPoint_SendGoal_Request  # noqa: F401
+from dobot_msgs.action._point_to_point import PointToPoint_SendGoal_Response  # noqa: F401
+from dobot_msgs.action._sliding_rail import SlidingRail  # noqa: F401
+from dobot_msgs.action._sliding_rail import SlidingRail_GetResult_Event  # noqa: F401
+from dobot_msgs.action._sliding_rail import SlidingRail_GetResult_Request  # noqa: F401
+from dobot_msgs.action._sliding_rail import SlidingRail_GetResult_Response  # noqa: F401
+from dobot_msgs.action._sliding_rail import SlidingRail_SendGoal_Event  # noqa: F401
+from dobot_msgs.action._sliding_rail import SlidingRail_SendGoal_Request  # noqa: F401
+from dobot_msgs.action._sliding_rail import SlidingRail_SendGoal_Response  # noqa: F401

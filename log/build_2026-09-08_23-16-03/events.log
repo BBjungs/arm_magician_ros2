@@ -1,0 +1,2122 @@
+[0.000000] (-) TimerEvent: {}
+[0.000190] (-) JobUnselected: {'identifier': 'dobot_bringup'}
+[0.000954] (-) JobUnselected: {'identifier': 'dobot_calibration'}
+[0.001124] (-) JobUnselected: {'identifier': 'dobot_control_panel'}
+[0.001158] (-) JobUnselected: {'identifier': 'dobot_demos'}
+[0.001184] (-) JobUnselected: {'identifier': 'dobot_description'}
+[0.001211] (-) JobUnselected: {'identifier': 'dobot_diagnostics'}
+[0.001235] (-) JobUnselected: {'identifier': 'dobot_driver'}
+[0.001257] (-) JobUnselected: {'identifier': 'dobot_end_effector'}
+[0.001281] (-) JobUnselected: {'identifier': 'dobot_homing'}
+[0.001304] (-) JobUnselected: {'identifier': 'dobot_kinematics'}
+[0.001328] (-) JobUnselected: {'identifier': 'dobot_motion'}
+[0.001352] (-) JobUnselected: {'identifier': 'dobot_msgs'}
+[0.001375] (-) JobUnselected: {'identifier': 'dobot_object_vision'}
+[0.001398] (-) JobUnselected: {'identifier': 'dobot_state_updater'}
+[0.001421] (-) JobUnselected: {'identifier': 'dobot_vision_rgbd'}
+[0.001444] (-) JobUnselected: {'identifier': 'dobot_vision_yolo'}
+[0.001467] (-) JobUnselected: {'identifier': 'dobot_visualization_tools'}
+[0.001491] (-) JobUnselected: {'identifier': 'dobot_web_interface'}
+[0.001514] (-) JobUnselected: {'identifier': 'orbbec_camera_msgs'}
+[0.001548] (-) JobUnselected: {'identifier': 'orbbec_description'}
+[0.001577] (orbbec_camera) JobQueued: {'identifier': 'orbbec_camera', 'dependencies': OrderedDict({'orbbec_camera_msgs': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs'})}
+[0.001620] (orbbec_camera) JobStarted: {'identifier': 'orbbec_camera'}
+[0.031351] (orbbec_camera) JobProgress: {'identifier': 'orbbec_camera', 'progress': 'cmake'}
+[0.032178] (orbbec_camera) Command: {'cmd': ['/usr/bin/cmake', '/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera', '-DOpenCV_DIR=/usr/lib/x86_64-linux-gnu/cmake/opencv4', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/bbcontact/magician_ros2/install/orbbec_camera'], 'cwd': '/home/bbcontact/magician_ros2/build/orbbec_camera', 'env': OrderedDict({'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.10.102 37541 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/home/bbcontact/magician_ros2/install/dobot_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/9', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/bbcontact/magician_ros2/install', 'CODEX_PERMISSION_PROFILE': ':workspace', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8788/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4173', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0nDeQv6:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_SESSION_ID': '01a08098-0d3a-7ec0-968b-0ba67ec93773', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a08098-0d3a-7ec0-968b-0ba67ec93773', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/orbbec_camera', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.10.102 37541 172.30.10.208 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_object_vision/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_demos/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_control_panel:/opt/ros/jazzy'}), 'shell': False}
+[0.099362] (-) TimerEvent: {}
+[0.140383] (orbbec_camera) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.199531] (-) TimerEvent: {}
+[0.246121] (orbbec_camera) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.275015] (orbbec_camera) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.299687] (-) TimerEvent: {}
+[0.400016] (-) TimerEvent: {}
+[0.447577] (orbbec_camera) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.471211] (orbbec_camera) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.471769] (orbbec_camera) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.472694] (orbbec_camera) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.491757] (orbbec_camera) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.500177] (-) TimerEvent: {}
+[0.600562] (-) TimerEvent: {}
+[0.690312] (orbbec_camera) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.700656] (-) TimerEvent: {}
+[0.712902] (orbbec_camera) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.713603] (orbbec_camera) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.714726] (orbbec_camera) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.722549] (orbbec_camera) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.800794] (-) TimerEvent: {}
+[0.901174] (-) TimerEvent: {}
+[1.001563] (-) TimerEvent: {}
+[1.101926] (-) TimerEvent: {}
+[1.139045] (orbbec_camera) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[1.202032] (-) TimerEvent: {}
+[1.302371] (-) TimerEvent: {}
+[1.310985] (orbbec_camera) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.402527] (-) TimerEvent: {}
+[1.410506] (orbbec_camera) StdoutLine: {'line': b'-- Found ament_index_cpp: 1.8.4 (/opt/ros/jazzy/share/ament_index_cpp/cmake)\n'}
+[1.429504] (orbbec_camera) StdoutLine: {'line': b'-- Found builtin_interfaces: 2.0.4 (/opt/ros/jazzy/share/builtin_interfaces/cmake)\n'}
+[1.502688] (-) TimerEvent: {}
+[1.527538] (orbbec_camera) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[1.566385] (orbbec_camera) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[1.602853] (-) TimerEvent: {}
+[1.612019] (orbbec_camera) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.663331] (orbbec_camera) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.702963] (-) TimerEvent: {}
+[1.709928] (orbbec_camera) StdoutLine: {'line': b'-- Found cv_bridge: 4.1.0 (/opt/ros/jazzy/share/cv_bridge/cmake)\n'}
+[1.803063] (-) TimerEvent: {}
+[1.903415] (-) TimerEvent: {}
+[2.003726] (-) TimerEvent: {}
+[2.046880] (orbbec_camera) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[2.057046] (orbbec_camera) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 2.2.3 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)\n'}
+[2.103849] (-) TimerEvent: {}
+[2.142115] (orbbec_camera) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[2.203963] (-) TimerEvent: {}
+[2.304303] (-) TimerEvent: {}
+[2.320387] (orbbec_camera) StdoutLine: {'line': b'-- Found camera_info_manager: 5.1.8 (/opt/ros/jazzy/share/camera_info_manager/cmake)\n'}
+[2.339386] (orbbec_camera) StdoutLine: {'line': b"-- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'\n"}
+[2.404452] (-) TimerEvent: {}
+[2.438870] (orbbec_camera) StdoutLine: {'line': b'-- Found image_transport: 5.1.8 (/opt/ros/jazzy/share/image_transport/cmake)\n'}
+[2.504559] (-) TimerEvent: {}
+[2.505061] (orbbec_camera) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: /usr/lib/x86_64-linux-gnu/cmake/tinyxml2\n'}
+[2.513262] (orbbec_camera) StdoutLine: {'line': b'-- Found image_publisher: 5.0.12 (/opt/ros/jazzy/share/image_publisher/cmake)\n'}
+[2.604716] (-) TimerEvent: {}
+[2.605012] (orbbec_camera) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.6.0") \n'}
+[2.606385] (orbbec_camera) StdoutLine: {'line': b'-- Found orbbec_camera_msgs: 1.5.22 (/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake)\n'}
+[2.686965] (orbbec_camera) StdoutLine: {'line': b'-- Found std_srvs: 5.3.8 (/opt/ros/jazzy/share/std_srvs/cmake)\n'}
+[2.704844] (-) TimerEvent: {}
+[2.732532] (orbbec_camera) StdoutLine: {'line': b'-- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)\n'}
+[2.747083] (orbbec_camera) StdoutLine: {'line': b'-- Found tf2_eigen: 0.36.21 (/opt/ros/jazzy/share/tf2_eigen/cmake)\n'}
+[2.804958] (-) TimerEvent: {}
+[2.905300] (-) TimerEvent: {}
+[2.980285] (orbbec_camera) StdoutLine: {'line': b'-- Found tf2_sensor_msgs: 0.36.21 (/opt/ros/jazzy/share/tf2_sensor_msgs/cmake)\n'}
+[2.990824] (orbbec_camera) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[3.005409] (-) TimerEvent: {}
+[3.105808] (-) TimerEvent: {}
+[3.153027] (orbbec_camera) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[3.155192] (orbbec_camera) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[3.161864] (orbbec_camera) StdoutLine: {'line': b'-- Found diagnostic_updater: 4.2.7 (/opt/ros/jazzy/share/diagnostic_updater/cmake)\n'}
+[3.205926] (-) TimerEvent: {}
+[3.245915] (orbbec_camera) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") \n'}
+[3.252263] (orbbec_camera) StdoutLine: {'line': b'-- ORRBEC Machine : x86_64\n'}
+[3.252517] (orbbec_camera) StdoutLine: {'line': b'\n'}
+[3.252671] (orbbec_camera) StdoutLine: {'line': b'-- ORRBEC Machine Bits : 64\n'}
+[3.252843] (orbbec_camera) StdoutLine: {'line': b'\n'}
+[3.306029] (-) TimerEvent: {}
+[3.406375] (-) TimerEvent: {}
+[3.506751] (-) TimerEvent: {}
+[3.542505] (orbbec_camera) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[3.606865] (-) TimerEvent: {}
+[3.707170] (-) TimerEvent: {}
+[3.768951] (orbbec_camera) StdoutLine: {'line': b'-- Configuring done (3.7s)\n'}
+[3.807320] (-) TimerEvent: {}
+[3.907672] (-) TimerEvent: {}
+[4.007991] (-) TimerEvent: {}
+[4.048835] (orbbec_camera) StdoutLine: {'line': b'-- Generating done (0.2s)\n'}
+[4.094910] (orbbec_camera) StdoutLine: {'line': b'-- Build files have been written to: /home/bbcontact/magician_ros2/build/orbbec_camera\n'}
+[4.108136] (-) TimerEvent: {}
+[4.116531] (orbbec_camera) CommandEnded: {'returncode': 0}
+[4.117709] (orbbec_camera) JobProgress: {'identifier': 'orbbec_camera', 'progress': 'build'}
+[4.118839] (orbbec_camera) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bbcontact/magician_ros2/build/orbbec_camera', '--', '-j8', '-l8'], 'cwd': '/home/bbcontact/magician_ros2/build/orbbec_camera', 'env': OrderedDict({'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.10.102 37541 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/home/bbcontact/magician_ros2/install/dobot_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/9', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/bbcontact/magician_ros2/install', 'CODEX_PERMISSION_PROFILE': ':workspace', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8788/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4173', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0nDeQv6:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_SESSION_ID': '01a08098-0d3a-7ec0-968b-0ba67ec93773', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a08098-0d3a-7ec0-968b-0ba67ec93773', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/orbbec_camera', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.10.102 37541 172.30.10.208 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_object_vision/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_demos/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_control_panel:/opt/ros/jazzy'}), 'shell': False}
+[4.208251] (-) TimerEvent: {}
+[4.237533] (orbbec_camera) StdoutLine: {'line': b'[ 15%] Built target frame_latency_node\n'}
+[4.238044] (orbbec_camera) StdoutLine: {'line': b'[ 15%] Built target orbbec_camera_node\n'}
+[4.241749] (orbbec_camera) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/frame_latency.dir/tools/frame_latency.cpp.o\x1b[0m\n'}
+[4.308412] (-) TimerEvent: {}
+[4.341255] (orbbec_camera) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/d2c_viewer.cpp.o\x1b[0m\n'}
+[4.341694] (orbbec_camera) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/dynamic_params.cpp.o\x1b[0m\n'}
+[4.343990] (orbbec_camera) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/image_publisher.cpp.o\x1b[0m\n'}
+[4.347035] (orbbec_camera) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/frame_timestamp_csv_logger.cpp.o\x1b[0m\n'}
+[4.351230] (orbbec_camera) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/ob_camera_node_driver.cpp.o\x1b[0m\n'}
+[4.356321] (orbbec_camera) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/ob_camera_node.cpp.o\x1b[0m\n'}
+[4.359130] (orbbec_camera) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/ros_param_backend.cpp.o\x1b[0m\n'}
+[4.408608] (-) TimerEvent: {}
+[4.510246] (-) TimerEvent: {}
+[4.610627] (-) TimerEvent: {}
+[4.711335] (-) TimerEvent: {}
+[4.814189] (-) TimerEvent: {}
+[4.917816] (-) TimerEvent: {}
+[5.018222] (-) TimerEvent: {}
+[5.118633] (-) TimerEvent: {}
+[5.219089] (-) TimerEvent: {}
+[5.319746] (-) TimerEvent: {}
+[5.420207] (-) TimerEvent: {}
+[5.520625] (-) TimerEvent: {}
+[5.621125] (-) TimerEvent: {}
+[5.722015] (-) TimerEvent: {}
+[5.823175] (-) TimerEvent: {}
+[5.925299] (-) TimerEvent: {}
+[6.025869] (-) TimerEvent: {}
+[6.127097] (-) TimerEvent: {}
+[6.230848] (-) TimerEvent: {}
+[6.331378] (-) TimerEvent: {}
+[6.431867] (-) TimerEvent: {}
+[6.532440] (-) TimerEvent: {}
+[6.636881] (-) TimerEvent: {}
+[6.742414] (-) TimerEvent: {}
+[6.846856] (-) TimerEvent: {}
+[6.947422] (-) TimerEvent: {}
+[7.047982] (-) TimerEvent: {}
+[7.148587] (-) TimerEvent: {}
+[7.249281] (-) TimerEvent: {}
+[7.352872] (-) TimerEvent: {}
+[7.453583] (-) TimerEvent: {}
+[7.554997] (-) TimerEvent: {}
+[7.657307] (-) TimerEvent: {}
+[7.758264] (-) TimerEvent: {}
+[7.861831] (-) TimerEvent: {}
+[7.962403] (-) TimerEvent: {}
+[8.062947] (-) TimerEvent: {}
+[8.164856] (-) TimerEvent: {}
+[8.265926] (-) TimerEvent: {}
+[8.369994] (-) TimerEvent: {}
+[8.470507] (-) TimerEvent: {}
+[8.571481] (-) TimerEvent: {}
+[8.672075] (-) TimerEvent: {}
+[8.772705] (-) TimerEvent: {}
+[8.877847] (-) TimerEvent: {}
+[9.009959] (-) TimerEvent: {}
+[9.110857] (-) TimerEvent: {}
+[9.212177] (-) TimerEvent: {}
+[9.312859] (-) TimerEvent: {}
+[9.416642] (-) TimerEvent: {}
+[9.517218] (-) TimerEvent: {}
+[9.617775] (-) TimerEvent: {}
+[9.718310] (-) TimerEvent: {}
+[9.819846] (-) TimerEvent: {}
+[9.920416] (-) TimerEvent: {}
+[10.023390] (-) TimerEvent: {}
+[10.123978] (-) TimerEvent: {}
+[10.224562] (-) TimerEvent: {}
+[10.325164] (-) TimerEvent: {}
+[10.426415] (-) TimerEvent: {}
+[10.528083] (-) TimerEvent: {}
+[10.632843] (-) TimerEvent: {}
+[10.734971] (-) TimerEvent: {}
+[10.835475] (-) TimerEvent: {}
+[10.936190] (-) TimerEvent: {}
+[11.036760] (-) TimerEvent: {}
+[11.137866] (-) TimerEvent: {}
+[11.239383] (-) TimerEvent: {}
+[11.341273] (-) TimerEvent: {}
+[11.443856] (-) TimerEvent: {}
+[11.544426] (-) TimerEvent: {}
+[11.644990] (-) TimerEvent: {}
+[11.745504] (-) TimerEvent: {}
+[11.853847] (-) TimerEvent: {}
+[11.954467] (-) TimerEvent: {}
+[12.055851] (-) TimerEvent: {}
+[12.157839] (-) TimerEvent: {}
+[12.258402] (-) TimerEvent: {}
+[12.359008] (-) TimerEvent: {}
+[12.460856] (-) TimerEvent: {}
+[12.561467] (-) TimerEvent: {}
+[12.662803] (-) TimerEvent: {}
+[12.767020] (-) TimerEvent: {}
+[12.867595] (-) TimerEvent: {}
+[12.970670] (-) TimerEvent: {}
+[13.071392] (-) TimerEvent: {}
+[13.171930] (-) TimerEvent: {}
+[13.274308] (-) TimerEvent: {}
+[13.374847] (-) TimerEvent: {}
+[13.475397] (-) TimerEvent: {}
+[13.577650] (-) TimerEvent: {}
+[13.678776] (-) TimerEvent: {}
+[13.780872] (-) TimerEvent: {}
+[13.881931] (-) TimerEvent: {}
+[13.983062] (-) TimerEvent: {}
+[14.084836] (-) TimerEvent: {}
+[14.187119] (-) TimerEvent: {}
+[14.287687] (-) TimerEvent: {}
+[14.388273] (-) TimerEvent: {}
+[14.490983] (-) TimerEvent: {}
+[14.593254] (-) TimerEvent: {}
+[14.694265] (-) TimerEvent: {}
+[14.796555] (-) TimerEvent: {}
+[14.897387] (-) TimerEvent: {}
+[14.998001] (-) TimerEvent: {}
+[15.101050] (-) TimerEvent: {}
+[15.201780] (-) TimerEvent: {}
+[15.305109] (-) TimerEvent: {}
+[15.405681] (-) TimerEvent: {}
+[15.506874] (-) TimerEvent: {}
+[15.608364] (-) TimerEvent: {}
+[15.708979] (-) TimerEvent: {}
+[15.809563] (-) TimerEvent: {}
+[15.910138] (-) TimerEvent: {}
+[16.012835] (-) TimerEvent: {}
+[16.113349] (-) TimerEvent: {}
+[16.216844] (-) TimerEvent: {}
+[16.317410] (-) TimerEvent: {}
+[16.418022] (-) TimerEvent: {}
+[16.518619] (-) TimerEvent: {}
+[16.624855] (-) TimerEvent: {}
+[16.725405] (-) TimerEvent: {}
+[16.826043] (-) TimerEvent: {}
+[16.926636] (-) TimerEvent: {}
+[17.027179] (-) TimerEvent: {}
+[17.127790] (-) TimerEvent: {}
+[17.234860] (-) TimerEvent: {}
+[17.343908] (-) TimerEvent: {}
+[17.444483] (-) TimerEvent: {}
+[17.545577] (-) TimerEvent: {}
+[17.646656] (-) TimerEvent: {}
+[17.749841] (-) TimerEvent: {}
+[17.850361] (-) TimerEvent: {}
+[17.951035] (-) TimerEvent: {}
+[18.052187] (-) TimerEvent: {}
+[18.152789] (-) TimerEvent: {}
+[18.253846] (-) TimerEvent: {}
+[18.354363] (-) TimerEvent: {}
+[18.458100] (-) TimerEvent: {}
+[18.559256] (-) TimerEvent: {}
+[18.660145] (-) TimerEvent: {}
+[18.765854] (-) TimerEvent: {}
+[18.866467] (-) TimerEvent: {}
+[18.967136] (-) TimerEvent: {}
+[19.067674] (-) TimerEvent: {}
+[19.168238] (-) TimerEvent: {}
+[19.214522] (orbbec_camera) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/ros_service.cpp.o\x1b[0m\n'}
+[19.271851] (-) TimerEvent: {}
+[19.372447] (-) TimerEvent: {}
+[19.473804] (-) TimerEvent: {}
+[19.575114] (-) TimerEvent: {}
+[19.680863] (-) TimerEvent: {}
+[19.781424] (-) TimerEvent: {}
+[19.881964] (-) TimerEvent: {}
+[19.982506] (-) TimerEvent: {}
+[20.083090] (-) TimerEvent: {}
+[20.183692] (-) TimerEvent: {}
+[20.287866] (-) TimerEvent: {}
+[20.388460] (-) TimerEvent: {}
+[20.489012] (-) TimerEvent: {}
+[20.589589] (-) TimerEvent: {}
+[20.690170] (-) TimerEvent: {}
+[20.792328] (-) TimerEvent: {}
+[20.895072] (-) TimerEvent: {}
+[20.996603] (-) TimerEvent: {}
+[21.099908] (-) TimerEvent: {}
+[21.201550] (-) TimerEvent: {}
+[21.302108] (-) TimerEvent: {}
+[21.402756] (-) TimerEvent: {}
+[21.507116] (-) TimerEvent: {}
+[21.607714] (-) TimerEvent: {}
+[21.708879] (-) TimerEvent: {}
+[21.811160] (-) TimerEvent: {}
+[21.914372] (-) TimerEvent: {}
+[22.015853] (-) TimerEvent: {}
+[22.116409] (-) TimerEvent: {}
+[22.217266] (-) TimerEvent: {}
+[22.318194] (-) TimerEvent: {}
+[22.422125] (-) TimerEvent: {}
+[22.522715] (-) TimerEvent: {}
+[22.623391] (-) TimerEvent: {}
+[22.723968] (-) TimerEvent: {}
+[22.824505] (-) TimerEvent: {}
+[22.925888] (-) TimerEvent: {}
+[23.026855] (-) TimerEvent: {}
+[23.131105] (-) TimerEvent: {}
+[23.231722] (-) TimerEvent: {}
+[23.332426] (-) TimerEvent: {}
+[23.433153] (-) TimerEvent: {}
+[23.536158] (-) TimerEvent: {}
+[23.636896] (-) TimerEvent: {}
+[23.738854] (-) TimerEvent: {}
+[23.841846] (-) TimerEvent: {}
+[23.942383] (-) TimerEvent: {}
+[24.042972] (-) TimerEvent: {}
+[24.145499] (-) TimerEvent: {}
+[24.246058] (-) TimerEvent: {}
+[24.346633] (-) TimerEvent: {}
+[24.448005] (-) TimerEvent: {}
+[24.551123] (-) TimerEvent: {}
+[24.652345] (-) TimerEvent: {}
+[24.754856] (-) TimerEvent: {}
+[24.856157] (-) TimerEvent: {}
+[24.961831] (-) TimerEvent: {}
+[25.062327] (-) TimerEvent: {}
+[25.163200] (-) TimerEvent: {}
+[25.263822] (-) TimerEvent: {}
+[25.364316] (-) TimerEvent: {}
+[25.464848] (-) TimerEvent: {}
+[25.567865] (-) TimerEvent: {}
+[25.668438] (-) TimerEvent: {}
+[25.770479] (-) TimerEvent: {}
+[25.871863] (-) TimerEvent: {}
+[25.972419] (-) TimerEvent: {}
+[26.073005] (-) TimerEvent: {}
+[26.173542] (-) TimerEvent: {}
+[26.274081] (-) TimerEvent: {}
+[26.374650] (-) TimerEvent: {}
+[26.477095] (-) TimerEvent: {}
+[26.577641] (-) TimerEvent: {}
+[26.678200] (-) TimerEvent: {}
+[26.779842] (-) TimerEvent: {}
+[26.880409] (-) TimerEvent: {}
+[26.982145] (-) TimerEvent: {}
+[27.082700] (-) TimerEvent: {}
+[27.186067] (-) TimerEvent: {}
+[27.286580] (-) TimerEvent: {}
+[27.387096] (-) TimerEvent: {}
+[27.488860] (-) TimerEvent: {}
+[27.589404] (-) TimerEvent: {}
+[27.624897] (orbbec_camera) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/synced_imu_publisher.cpp.o\x1b[0m\n'}
+[27.689546] (-) TimerEvent: {}
+[27.790464] (-) TimerEvent: {}
+[27.891035] (-) TimerEvent: {}
+[27.992568] (-) TimerEvent: {}
+[28.093839] (-) TimerEvent: {}
+[28.130979] (orbbec_camera) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/utils.cpp.o\x1b[0m\n'}
+[28.196844] (-) TimerEvent: {}
+[28.297423] (-) TimerEvent: {}
+[28.399888] (-) TimerEvent: {}
+[28.500390] (-) TimerEvent: {}
+[28.601446] (-) TimerEvent: {}
+[28.703834] (-) TimerEvent: {}
+[28.804332] (-) TimerEvent: {}
+[28.906847] (-) TimerEvent: {}
+[29.008601] (-) TimerEvent: {}
+[29.110823] (-) TimerEvent: {}
+[29.211363] (-) TimerEvent: {}
+[29.312850] (-) TimerEvent: {}
+[29.416837] (-) TimerEvent: {}
+[29.517341] (-) TimerEvent: {}
+[29.617865] (-) TimerEvent: {}
+[29.718470] (-) TimerEvent: {}
+[29.819551] (-) TimerEvent: {}
+[29.921627] (-) TimerEvent: {}
+[30.024408] (-) TimerEvent: {}
+[30.125119] (-) TimerEvent: {}
+[30.225693] (-) TimerEvent: {}
+[30.328858] (-) TimerEvent: {}
+[30.429978] (-) TimerEvent: {}
+[30.530566] (-) TimerEvent: {}
+[30.631846] (-) TimerEvent: {}
+[30.732404] (-) TimerEvent: {}
+[30.858223] (-) TimerEvent: {}
+[30.958721] (-) TimerEvent: {}
+[31.060708] (-) TimerEvent: {}
+[31.162337] (-) TimerEvent: {}
+[31.263389] (-) TimerEvent: {}
+[31.363965] (-) TimerEvent: {}
+[31.465665] (-) TimerEvent: {}
+[31.571251] (-) TimerEvent: {}
+[31.672138] (-) TimerEvent: {}
+[31.772719] (-) TimerEvent: {}
+[31.873390] (-) TimerEvent: {}
+[31.973958] (-) TimerEvent: {}
+[32.076090] (-) TimerEvent: {}
+[32.178844] (-) TimerEvent: {}
+[32.279390] (-) TimerEvent: {}
+[32.379927] (-) TimerEvent: {}
+[32.480468] (-) TimerEvent: {}
+[32.578828] (orbbec_camera) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/orbbec_camera.dir/src/jpeg_decoder.cpp.o\x1b[0m\n'}
+[32.582832] (-) TimerEvent: {}
+[32.683361] (-) TimerEvent: {}
+[32.783933] (-) TimerEvent: {}
+[32.884513] (-) TimerEvent: {}
+[32.985088] (-) TimerEvent: {}
+[33.087845] (-) TimerEvent: {}
+[33.188377] (-) TimerEvent: {}
+[33.291844] (-) TimerEvent: {}
+[33.392359] (-) TimerEvent: {}
+[33.492915] (-) TimerEvent: {}
+[33.594844] (-) TimerEvent: {}
+[33.695352] (-) TimerEvent: {}
+[33.796352] (-) TimerEvent: {}
+[33.897576] (-) TimerEvent: {}
+[33.998078] (-) TimerEvent: {}
+[34.098600] (-) TimerEvent: {}
+[34.200025] (-) TimerEvent: {}
+[34.302836] (-) TimerEvent: {}
+[34.403381] (-) TimerEvent: {}
+[34.503969] (-) TimerEvent: {}
+[34.608339] (-) TimerEvent: {}
+[34.708842] (-) TimerEvent: {}
+[34.809369] (-) TimerEvent: {}
+[34.910788] (-) TimerEvent: {}
+[35.011839] (-) TimerEvent: {}
+[35.115889] (-) TimerEvent: {}
+[35.216432] (-) TimerEvent: {}
+[35.317000] (-) TimerEvent: {}
+[35.417604] (-) TimerEvent: {}
+[35.518217] (-) TimerEvent: {}
+[35.618804] (-) TimerEvent: {}
+[35.720986] (-) TimerEvent: {}
+[35.821804] (-) TimerEvent: {}
+[35.922903] (-) TimerEvent: {}
+[36.032855] (-) TimerEvent: {}
+[36.135846] (-) TimerEvent: {}
+[36.236837] (-) TimerEvent: {}
+[36.338755] (-) TimerEvent: {}
+[36.442678] (-) TimerEvent: {}
+[36.545857] (-) TimerEvent: {}
+[36.649204] (-) TimerEvent: {}
+[36.749836] (-) TimerEvent: {}
+[36.854268] (-) TimerEvent: {}
+[36.955814] (-) TimerEvent: {}
+[37.059458] (-) TimerEvent: {}
+[37.162849] (-) TimerEvent: {}
+[37.266472] (-) TimerEvent: {}
+[37.367184] (-) TimerEvent: {}
+[37.470563] (-) TimerEvent: {}
+[37.582868] (-) TimerEvent: {}
+[37.686176] (-) TimerEvent: {}
+[37.788566] (-) TimerEvent: {}
+[37.900283] (-) TimerEvent: {}
+[38.000964] (-) TimerEvent: {}
+[38.105021] (-) TimerEvent: {}
+[38.205874] (-) TimerEvent: {}
+[38.306417] (-) TimerEvent: {}
+[38.408843] (-) TimerEvent: {}
+[38.510031] (-) TimerEvent: {}
+[38.623087] (-) TimerEvent: {}
+[38.725780] (-) TimerEvent: {}
+[38.833864] (-) TimerEvent: {}
+[38.936877] (-) TimerEvent: {}
+[39.040868] (-) TimerEvent: {}
+[39.157838] (-) TimerEvent: {}
+[39.258362] (-) TimerEvent: {}
+[39.358952] (-) TimerEvent: {}
+[39.470758] (-) TimerEvent: {}
+[39.572153] (-) TimerEvent: {}
+[39.673460] (-) TimerEvent: {}
+[39.774683] (-) TimerEvent: {}
+[39.879008] (-) TimerEvent: {}
+[39.982853] (-) TimerEvent: {}
+[40.085849] (-) TimerEvent: {}
+[40.191272] (-) TimerEvent: {}
+[40.300879] (-) TimerEvent: {}
+[40.404015] (-) TimerEvent: {}
+[40.504692] (-) TimerEvent: {}
+[40.608506] (-) TimerEvent: {}
+[40.711952] (-) TimerEvent: {}
+[40.816079] (-) TimerEvent: {}
+[40.918788] (-) TimerEvent: {}
+[41.021698] (-) TimerEvent: {}
+[41.122242] (-) TimerEvent: {}
+[41.223485] (-) TimerEvent: {}
+[41.326845] (-) TimerEvent: {}
+[41.427980] (-) TimerEvent: {}
+[41.529216] (-) TimerEvent: {}
+[41.630756] (-) TimerEvent: {}
+[41.736812] (-) TimerEvent: {}
+[41.845020] (-) TimerEvent: {}
+[41.956931] (-) TimerEvent: {}
+[42.057515] (-) TimerEvent: {}
+[42.175877] (-) TimerEvent: {}
+[42.276508] (-) TimerEvent: {}
+[42.377780] (-) TimerEvent: {}
+[42.478480] (-) TimerEvent: {}
+[42.580114] (-) TimerEvent: {}
+[42.686873] (-) TimerEvent: {}
+[42.787465] (-) TimerEvent: {}
+[42.889846] (-) TimerEvent: {}
+[42.990849] (-) TimerEvent: {}
+[43.091443] (-) TimerEvent: {}
+[43.192116] (-) TimerEvent: {}
+[43.295903] (-) TimerEvent: {}
+[43.396544] (-) TimerEvent: {}
+[43.497188] (-) TimerEvent: {}
+[43.597843] (-) TimerEvent: {}
+[43.710872] (-) TimerEvent: {}
+[43.811629] (-) TimerEvent: {}
+[43.912790] (-) TimerEvent: {}
+[44.018041] (-) TimerEvent: {}
+[44.119275] (-) TimerEvent: {}
+[44.219889] (-) TimerEvent: {}
+[44.326617] (-) TimerEvent: {}
+[44.427319] (-) TimerEvent: {}
+[44.528001] (-) TimerEvent: {}
+[44.632865] (-) TimerEvent: {}
+[44.736961] (-) TimerEvent: {}
+[44.837577] (-) TimerEvent: {}
+[44.938276] (-) TimerEvent: {}
+[45.054038] (-) TimerEvent: {}
+[45.157861] (-) TimerEvent: {}
+[45.258446] (-) TimerEvent: {}
+[45.359718] (-) TimerEvent: {}
+[45.461890] (-) TimerEvent: {}
+[45.562673] (-) TimerEvent: {}
+[45.663866] (-) TimerEvent: {}
+[45.765928] (-) TimerEvent: {}
+[45.866845] (-) TimerEvent: {}
+[45.970956] (-) TimerEvent: {}
+[46.077313] (-) TimerEvent: {}
+[46.177967] (-) TimerEvent: {}
+[46.278554] (-) TimerEvent: {}
+[46.381009] (-) TimerEvent: {}
+[46.481618] (-) TimerEvent: {}
+[46.584505] (-) TimerEvent: {}
+[46.686965] (-) TimerEvent: {}
+[46.787581] (-) TimerEvent: {}
+[46.890019] (-) TimerEvent: {}
+[46.992871] (-) TimerEvent: {}
+[47.094067] (-) TimerEvent: {}
+[47.197778] (-) TimerEvent: {}
+[47.299934] (-) TimerEvent: {}
+[47.402879] (-) TimerEvent: {}
+[47.505865] (-) TimerEvent: {}
+[47.606902] (-) TimerEvent: {}
+[47.707549] (-) TimerEvent: {}
+[47.809872] (-) TimerEvent: {}
+[47.916871] (-) TimerEvent: {}
+[48.022936] (-) TimerEvent: {}
+[48.123852] (-) TimerEvent: {}
+[48.224644] (-) TimerEvent: {}
+[48.327860] (-) TimerEvent: {}
+[48.428478] (-) TimerEvent: {}
+[48.530867] (-) TimerEvent: {}
+[48.632881] (-) TimerEvent: {}
+[48.733584] (-) TimerEvent: {}
+[48.837105] (-) TimerEvent: {}
+[48.938260] (-) TimerEvent: {}
+[49.039379] (-) TimerEvent: {}
+[49.141863] (-) TimerEvent: {}
+[49.242494] (-) TimerEvent: {}
+[49.344165] (-) TimerEvent: {}
+[49.445047] (-) TimerEvent: {}
+[49.548513] (-) TimerEvent: {}
+[49.649045] (-) TimerEvent: {}
+[49.750086] (-) TimerEvent: {}
+[49.851555] (-) TimerEvent: {}
+[49.957840] (-) TimerEvent: {}
+[50.060842] (-) TimerEvent: {}
+[50.161474] (-) TimerEvent: {}
+[50.262148] (-) TimerEvent: {}
+[50.365855] (-) TimerEvent: {}
+[50.466585] (-) TimerEvent: {}
+[50.572967] (-) TimerEvent: {}
+[50.674846] (-) TimerEvent: {}
+[50.779887] (-) TimerEvent: {}
+[50.880622] (-) TimerEvent: {}
+[50.984887] (-) TimerEvent: {}
+[51.085642] (-) TimerEvent: {}
+[51.186266] (-) TimerEvent: {}
+[51.287984] (-) TimerEvent: {}
+[51.396850] (-) TimerEvent: {}
+[51.499935] (-) TimerEvent: {}
+[51.600536] (-) TimerEvent: {}
+[51.717865] (-) TimerEvent: {}
+[51.820387] (-) TimerEvent: {}
+[51.925869] (-) TimerEvent: {}
+[52.027896] (-) TimerEvent: {}
+[52.129170] (-) TimerEvent: {}
+[52.232890] (-) TimerEvent: {}
+[52.334603] (-) TimerEvent: {}
+[52.435894] (-) TimerEvent: {}
+[52.541874] (-) TimerEvent: {}
+[52.643388] (-) TimerEvent: {}
+[52.746934] (-) TimerEvent: {}
+[52.847795] (-) TimerEvent: {}
+[52.950871] (-) TimerEvent: {}
+[53.054888] (-) TimerEvent: {}
+[53.156882] (-) TimerEvent: {}
+[53.258417] (-) TimerEvent: {}
+[53.367712] (-) TimerEvent: {}
+[53.468324] (-) TimerEvent: {}
+[53.575875] (-) TimerEvent: {}
+[53.677216] (-) TimerEvent: {}
+[53.781883] (-) TimerEvent: {}
+[53.882562] (-) TimerEvent: {}
+[53.985606] (-) TimerEvent: {}
+[54.104842] (-) TimerEvent: {}
+[54.207849] (-) TimerEvent: {}
+[54.308471] (-) TimerEvent: {}
+[54.412013] (-) TimerEvent: {}
+[54.512606] (-) TimerEvent: {}
+[54.618214] (-) TimerEvent: {}
+[54.718858] (-) TimerEvent: {}
+[54.819801] (-) TimerEvent: {}
+[54.924868] (-) TimerEvent: {}
+[55.030117] (-) TimerEvent: {}
+[55.138873] (-) TimerEvent: {}
+[55.249830] (-) TimerEvent: {}
+[55.355875] (-) TimerEvent: {}
+[55.458849] (-) TimerEvent: {}
+[55.559432] (-) TimerEvent: {}
+[55.663124] (-) TimerEvent: {}
+[55.764305] (-) TimerEvent: {}
+[55.866097] (-) TimerEvent: {}
+[55.967503] (-) TimerEvent: {}
+[56.068099] (-) TimerEvent: {}
+[56.168701] (-) TimerEvent: {}
+[56.281853] (-) TimerEvent: {}
+[56.388582] (-) TimerEvent: {}
+[56.492847] (-) TimerEvent: {}
+[56.593428] (-) TimerEvent: {}
+[56.694089] (-) TimerEvent: {}
+[56.795284] (-) TimerEvent: {}
+[56.905856] (-) TimerEvent: {}
+[57.007880] (-) TimerEvent: {}
+[57.109843] (-) TimerEvent: {}
+[57.213850] (-) TimerEvent: {}
+[57.314832] (-) TimerEvent: {}
+[57.416371] (-) TimerEvent: {}
+[57.519170] (-) TimerEvent: {}
+[57.619795] (-) TimerEvent: {}
+[57.725868] (-) TimerEvent: {}
+[57.829350] (-) TimerEvent: {}
+[57.930471] (-) TimerEvent: {}
+[58.041850] (-) TimerEvent: {}
+[58.145218] (-) TimerEvent: {}
+[58.250850] (-) TimerEvent: {}
+[58.354757] (-) TimerEvent: {}
+[58.459702] (-) TimerEvent: {}
+[58.561664] (-) TimerEvent: {}
+[58.671773] (-) TimerEvent: {}
+[58.773225] (-) TimerEvent: {}
+[58.881858] (-) TimerEvent: {}
+[58.984988] (-) TimerEvent: {}
+[59.085551] (-) TimerEvent: {}
+[59.186117] (-) TimerEvent: {}
+[59.286663] (-) TimerEvent: {}
+[59.388170] (-) TimerEvent: {}
+[59.490236] (-) TimerEvent: {}
+[59.592071] (-) TimerEvent: {}
+[59.694403] (-) TimerEvent: {}
+[59.795941] (-) TimerEvent: {}
+[59.899107] (-) TimerEvent: {}
+[60.000434] (-) TimerEvent: {}
+[60.102639] (-) TimerEvent: {}
+[60.204836] (-) TimerEvent: {}
+[60.305383] (-) TimerEvent: {}
+[60.406872] (-) TimerEvent: {}
+[60.508372] (-) TimerEvent: {}
+[60.609838] (-) TimerEvent: {}
+[60.712410] (-) TimerEvent: {}
+[60.813175] (-) TimerEvent: {}
+[60.916681] (-) TimerEvent: {}
+[61.017500] (-) TimerEvent: {}
+[61.121853] (-) TimerEvent: {}
+[61.244205] (-) TimerEvent: {}
+[61.350886] (-) TimerEvent: {}
+[61.460099] (-) TimerEvent: {}
+[61.568039] (-) TimerEvent: {}
+[61.669777] (-) TimerEvent: {}
+[61.773252] (-) TimerEvent: {}
+[61.874412] (-) TimerEvent: {}
+[61.979848] (-) TimerEvent: {}
+[62.087860] (-) TimerEvent: {}
+[62.193850] (-) TimerEvent: {}
+[62.295569] (-) TimerEvent: {}
+[62.396484] (-) TimerEvent: {}
+[62.500833] (-) TimerEvent: {}
+[62.602376] (-) TimerEvent: {}
+[62.703796] (-) TimerEvent: {}
+[62.805909] (-) TimerEvent: {}
+[62.906507] (-) TimerEvent: {}
+[63.008393] (-) TimerEvent: {}
+[63.109771] (-) TimerEvent: {}
+[63.212927] (-) TimerEvent: {}
+[63.313845] (-) TimerEvent: {}
+[63.414510] (-) TimerEvent: {}
+[63.515984] (-) TimerEvent: {}
+[63.617618] (-) TimerEvent: {}
+[63.718176] (-) TimerEvent: {}
+[63.820672] (-) TimerEvent: {}
+[63.922037] (-) TimerEvent: {}
+[64.022625] (-) TimerEvent: {}
+[64.126042] (-) TimerEvent: {}
+[64.226576] (-) TimerEvent: {}
+[64.328559] (-) TimerEvent: {}
+[64.429205] (-) TimerEvent: {}
+[64.531663] (-) TimerEvent: {}
+[64.632246] (-) TimerEvent: {}
+[64.733413] (-) TimerEvent: {}
+[64.834980] (-) TimerEvent: {}
+[64.935507] (-) TimerEvent: {}
+[65.047122] (-) TimerEvent: {}
+[65.147704] (-) TimerEvent: {}
+[65.251118] (-) TimerEvent: {}
+[65.352889] (-) TimerEvent: {}
+[65.456198] (-) TimerEvent: {}
+[65.559849] (-) TimerEvent: {}
+[65.660411] (-) TimerEvent: {}
+[65.766159] (-) TimerEvent: {}
+[65.866705] (-) TimerEvent: {}
+[65.967350] (-) TimerEvent: {}
+[66.069373] (-) TimerEvent: {}
+[66.171267] (-) TimerEvent: {}
+[66.271873] (-) TimerEvent: {}
+[66.375071] (-) TimerEvent: {}
+[66.475645] (-) TimerEvent: {}
+[66.577362] (-) TimerEvent: {}
+[66.677948] (-) TimerEvent: {}
+[66.779959] (-) TimerEvent: {}
+[66.880473] (-) TimerEvent: {}
+[66.981082] (-) TimerEvent: {}
+[67.083846] (-) TimerEvent: {}
+[67.184408] (-) TimerEvent: {}
+[67.285114] (-) TimerEvent: {}
+[67.385790] (-) TimerEvent: {}
+[67.489096] (-) TimerEvent: {}
+[67.589714] (-) TimerEvent: {}
+[67.691865] (-) TimerEvent: {}
+[67.793312] (-) TimerEvent: {}
+[67.901017] (-) TimerEvent: {}
+[68.015920] (-) TimerEvent: {}
+[68.124868] (-) TimerEvent: {}
+[68.225516] (-) TimerEvent: {}
+[68.326860] (-) TimerEvent: {}
+[68.427860] (-) TimerEvent: {}
+[68.529857] (-) TimerEvent: {}
+[68.630478] (-) TimerEvent: {}
+[68.731932] (-) TimerEvent: {}
+[68.832486] (-) TimerEvent: {}
+[68.933667] (-) TimerEvent: {}
+[69.034420] (-) TimerEvent: {}
+[69.138308] (-) TimerEvent: {}
+[69.240333] (-) TimerEvent: {}
+[69.341621] (-) TimerEvent: {}
+[69.443675] (-) TimerEvent: {}
+[69.548337] (-) TimerEvent: {}
+[69.649843] (-) TimerEvent: {}
+[69.752306] (-) TimerEvent: {}
+[69.857055] (-) TimerEvent: {}
+[69.958917] (-) TimerEvent: {}
+[70.062927] (-) TimerEvent: {}
+[70.163654] (-) TimerEvent: {}
+[70.265845] (-) TimerEvent: {}
+[70.366336] (-) TimerEvent: {}
+[70.467465] (-) TimerEvent: {}
+[70.573837] (-) TimerEvent: {}
+[70.674325] (-) TimerEvent: {}
+[70.774854] (-) TimerEvent: {}
+[70.875366] (-) TimerEvent: {}
+[70.975866] (-) TimerEvent: {}
+[71.076380] (-) TimerEvent: {}
+[71.183692] (-) TimerEvent: {}
+[71.290615] (-) TimerEvent: {}
+[71.391175] (-) TimerEvent: {}
+[71.491660] (-) TimerEvent: {}
+[71.592191] (-) TimerEvent: {}
+[71.692731] (-) TimerEvent: {}
+[71.795847] (-) TimerEvent: {}
+[71.896473] (-) TimerEvent: {}
+[71.997127] (-) TimerEvent: {}
+[72.098235] (-) TimerEvent: {}
+[72.200981] (-) TimerEvent: {}
+[72.301533] (-) TimerEvent: {}
+[72.402194] (-) TimerEvent: {}
+[72.502701] (-) TimerEvent: {}
+[72.605835] (-) TimerEvent: {}
+[72.706333] (-) TimerEvent: {}
+[72.806829] (-) TimerEvent: {}
+[72.907302] (-) TimerEvent: {}
+[73.007831] (-) TimerEvent: {}
+[73.108336] (-) TimerEvent: {}
+[73.208826] (-) TimerEvent: {}
+[73.309346] (-) TimerEvent: {}
+[73.409954] (-) TimerEvent: {}
+[73.518863] (-) TimerEvent: {}
+[73.620867] (-) TimerEvent: {}
+[73.721366] (-) TimerEvent: {}
+[73.821924] (-) TimerEvent: {}
+[73.922466] (-) TimerEvent: {}
+[74.023454] (-) TimerEvent: {}
+[74.125978] (-) TimerEvent: {}
+[74.228848] (-) TimerEvent: {}
+[74.329351] (-) TimerEvent: {}
+[74.429853] (-) TimerEvent: {}
+[74.530349] (-) TimerEvent: {}
+[74.630872] (-) TimerEvent: {}
+[74.731421] (-) TimerEvent: {}
+[74.831944] (-) TimerEvent: {}
+[74.941852] (-) TimerEvent: {}
+[75.042373] (-) TimerEvent: {}
+[75.142861] (-) TimerEvent: {}
+[75.243354] (-) TimerEvent: {}
+[75.344375] (-) TimerEvent: {}
+[75.445603] (-) TimerEvent: {}
+[75.547137] (-) TimerEvent: {}
+[75.647648] (-) TimerEvent: {}
+[75.749113] (-) TimerEvent: {}
+[75.851981] (-) TimerEvent: {}
+[75.954054] (-) TimerEvent: {}
+[76.055921] (-) TimerEvent: {}
+[76.160213] (-) TimerEvent: {}
+[76.268798] (-) TimerEvent: {}
+[76.371846] (-) TimerEvent: {}
+[76.472384] (-) TimerEvent: {}
+[76.572841] (-) TimerEvent: {}
+[76.673728] (-) TimerEvent: {}
+[76.774271] (-) TimerEvent: {}
+[76.874807] (-) TimerEvent: {}
+[76.975333] (-) TimerEvent: {}
+[77.076839] (-) TimerEvent: {}
+[77.178839] (-) TimerEvent: {}
+[77.283836] (-) TimerEvent: {}
+[77.386864] (-) TimerEvent: {}
+[77.495039] (-) TimerEvent: {}
+[77.595765] (-) TimerEvent: {}
+[77.700825] (-) TimerEvent: {}
+[77.801348] (-) TimerEvent: {}
+[77.901847] (-) TimerEvent: {}
+[78.002520] (-) TimerEvent: {}
+[78.107356] (-) TimerEvent: {}
+[78.210877] (-) TimerEvent: {}
+[78.311511] (-) TimerEvent: {}
+[78.412167] (-) TimerEvent: {}
+[78.513361] (-) TimerEvent: {}
+[78.613963] (-) TimerEvent: {}
+[78.717007] (-) TimerEvent: {}
+[78.817530] (-) TimerEvent: {}
+[78.919926] (-) TimerEvent: {}
+[79.020861] (-) TimerEvent: {}
+[79.121413] (-) TimerEvent: {}
+[79.221947] (-) TimerEvent: {}
+[79.325012] (-) TimerEvent: {}
+[79.425606] (-) TimerEvent: {}
+[79.526840] (-) TimerEvent: {}
+[79.627416] (-) TimerEvent: {}
+[79.728518] (-) TimerEvent: {}
+[79.829056] (-) TimerEvent: {}
+[79.932845] (-) TimerEvent: {}
+[80.042840] (-) TimerEvent: {}
+[80.143367] (-) TimerEvent: {}
+[80.248273] (-) TimerEvent: {}
+[80.348831] (-) TimerEvent: {}
+[80.449838] (-) TimerEvent: {}
+[80.550359] (-) TimerEvent: {}
+[80.652035] (-) TimerEvent: {}
+[80.752546] (-) TimerEvent: {}
+[80.853844] (-) TimerEvent: {}
+[80.955246] (-) TimerEvent: {}
+[81.063828] (-) TimerEvent: {}
+[81.164636] (-) TimerEvent: {}
+[81.265161] (-) TimerEvent: {}
+[81.365677] (-) TimerEvent: {}
+[81.470845] (-) TimerEvent: {}
+[81.571627] (-) TimerEvent: {}
+[81.678995] (-) TimerEvent: {}
+[81.779668] (-) TimerEvent: {}
+[81.883319] (-) TimerEvent: {}
+[81.994451] (-) TimerEvent: {}
+[82.102952] (-) TimerEvent: {}
+[82.203498] (-) TimerEvent: {}
+[82.306842] (-) TimerEvent: {}
+[82.410939] (-) TimerEvent: {}
+[82.513821] (-) TimerEvent: {}
+[82.620386] (-) TimerEvent: {}
+[82.725531] (-) TimerEvent: {}
+[82.826021] (-) TimerEvent: {}
+[82.927968] (-) TimerEvent: {}
+[83.029975] (-) TimerEvent: {}
+[83.130475] (-) TimerEvent: {}
+[83.231089] (-) TimerEvent: {}
+[83.334165] (-) TimerEvent: {}
+[83.436872] (-) TimerEvent: {}
+[83.537433] (-) TimerEvent: {}
+[83.640858] (-) TimerEvent: {}
+[83.741898] (-) TimerEvent: {}
+[83.843659] (-) TimerEvent: {}
+[83.944642] (-) TimerEvent: {}
+[84.047625] (-) TimerEvent: {}
+[84.148846] (-) TimerEvent: {}
+[84.250418] (-) TimerEvent: {}
+[84.350918] (-) TimerEvent: {}
+[84.452833] (-) TimerEvent: {}
+[84.553419] (-) TimerEvent: {}
+[84.653989] (-) TimerEvent: {}
+[84.755837] (-) TimerEvent: {}
+[84.856362] (-) TimerEvent: {}
+[84.957843] (-) TimerEvent: {}
+[85.059360] (-) TimerEvent: {}
+[85.159905] (-) TimerEvent: {}
+[85.262236] (-) TimerEvent: {}
+[85.363993] (-) TimerEvent: {}
+[85.464808] (-) TimerEvent: {}
+[85.565543] (-) TimerEvent: {}
+[85.666153] (-) TimerEvent: {}
+[85.769031] (-) TimerEvent: {}
+[85.872044] (-) TimerEvent: {}
+[85.976880] (-) TimerEvent: {}
+[86.080050] (-) TimerEvent: {}
+[86.193129] (-) TimerEvent: {}
+[86.298866] (-) TimerEvent: {}
+[86.399990] (-) TimerEvent: {}
+[86.501856] (-) TimerEvent: {}
+[86.605905] (-) TimerEvent: {}
+[86.707621] (-) TimerEvent: {}
+[86.809857] (-) TimerEvent: {}
+[86.916795] (-) TimerEvent: {}
+[87.022947] (-) TimerEvent: {}
+[87.123579] (-) TimerEvent: {}
+[87.225376] (-) TimerEvent: {}
+[87.326391] (-) TimerEvent: {}
+[87.429557] (-) TimerEvent: {}
+[87.530852] (-) TimerEvent: {}
+[87.633720] (-) TimerEvent: {}
+[87.737182] (-) TimerEvent: {}
+[87.848019] (-) TimerEvent: {}
+[87.949120] (-) TimerEvent: {}
+[88.049657] (-) TimerEvent: {}
+[88.151018] (-) TimerEvent: {}
+[88.251639] (-) TimerEvent: {}
+[88.359047] (-) TimerEvent: {}
+[88.459729] (-) TimerEvent: {}
+[88.565913] (-) TimerEvent: {}
+[88.676076] (-) TimerEvent: {}
+[88.777942] (-) TimerEvent: {}
+[88.879297] (-) TimerEvent: {}
+[88.981187] (-) TimerEvent: {}
+[89.081788] (-) TimerEvent: {}
+[89.182988] (-) TimerEvent: {}
+[89.287882] (-) TimerEvent: {}
+[89.392271] (-) TimerEvent: {}
+[89.493007] (-) TimerEvent: {}
+[89.596064] (-) TimerEvent: {}
+[89.696827] (-) TimerEvent: {}
+[89.798547] (-) TimerEvent: {}
+[89.899257] (-) TimerEvent: {}
+[89.999906] (-) TimerEvent: {}
+[90.106063] (-) TimerEvent: {}
+[90.207288] (-) TimerEvent: {}
+[90.309455] (-) TimerEvent: {}
+[90.410908] (-) TimerEvent: {}
+[90.516272] (-) TimerEvent: {}
+[90.619786] (-) TimerEvent: {}
+[90.721866] (-) TimerEvent: {}
+[90.824117] (-) TimerEvent: {}
+[90.928435] (-) TimerEvent: {}
+[91.029431] (-) TimerEvent: {}
+[91.131150] (-) TimerEvent: {}
+[91.233257] (-) TimerEvent: {}
+[91.334200] (-) TimerEvent: {}
+[91.435847] (-) TimerEvent: {}
+[91.541106] (-) TimerEvent: {}
+[91.643754] (-) TimerEvent: {}
+[91.748846] (-) TimerEvent: {}
+[91.849831] (-) TimerEvent: {}
+[91.950841] (-) TimerEvent: {}
+[92.053051] (-) TimerEvent: {}
+[92.156819] (-) TimerEvent: {}
+[92.257288] (-) TimerEvent: {}
+[92.363849] (-) TimerEvent: {}
+[92.468883] (-) TimerEvent: {}
+[92.570120] (-) TimerEvent: {}
+[92.672953] (-) TimerEvent: {}
+[92.773934] (-) TimerEvent: {}
+[92.874517] (-) TimerEvent: {}
+[92.976024] (-) TimerEvent: {}
+[93.076544] (-) TimerEvent: {}
+[93.179864] (-) TimerEvent: {}
+[93.280343] (-) TimerEvent: {}
+[93.380945] (-) TimerEvent: {}
+[93.483643] (-) TimerEvent: {}
+[93.588625] (-) TimerEvent: {}
+[93.695613] (-) TimerEvent: {}
+[93.796153] (-) TimerEvent: {}
+[93.897611] (-) TimerEvent: {}
+[93.998882] (-) TimerEvent: {}
+[94.099842] (-) TimerEvent: {}
+[94.204704] (-) TimerEvent: {}
+[94.306071] (-) TimerEvent: {}
+[94.408240] (-) TimerEvent: {}
+[94.510198] (-) TimerEvent: {}
+[94.613185] (-) TimerEvent: {}
+[94.717572] (-) TimerEvent: {}
+[94.820794] (-) TimerEvent: {}
+[94.921318] (-) TimerEvent: {}
+[95.023220] (-) TimerEvent: {}
+[95.123958] (-) TimerEvent: {}
+[95.229911] (-) TimerEvent: {}
+[95.332108] (-) TimerEvent: {}
+[95.433797] (-) TimerEvent: {}
+[95.538567] (-) TimerEvent: {}
+[95.639137] (-) TimerEvent: {}
+[95.742002] (-) TimerEvent: {}
+[95.842536] (-) TimerEvent: {}
+[95.945684] (-) TimerEvent: {}
+[96.048101] (-) TimerEvent: {}
+[96.148761] (-) TimerEvent: {}
+[96.253855] (-) TimerEvent: {}
+[96.356035] (-) TimerEvent: {}
+[96.463470] (-) TimerEvent: {}
+[96.564156] (-) TimerEvent: {}
+[96.665288] (-) TimerEvent: {}
+[96.765822] (-) TimerEvent: {}
+[96.868878] (-) TimerEvent: {}
+[96.970036] (-) TimerEvent: {}
+[97.070586] (-) TimerEvent: {}
+[97.171204] (-) TimerEvent: {}
+[97.271867] (-) TimerEvent: {}
+[97.372562] (-) TimerEvent: {}
+[97.483854] (-) TimerEvent: {}
+[97.584400] (-) TimerEvent: {}
+[97.684965] (-) TimerEvent: {}
+[97.786840] (-) TimerEvent: {}
+[97.888193] (-) TimerEvent: {}
+[97.993577] (-) TimerEvent: {}
+[98.094871] (-) TimerEvent: {}
+[98.196121] (-) TimerEvent: {}
+[98.296853] (-) TimerEvent: {}
+[98.397401] (-) TimerEvent: {}
+[98.498857] (-) TimerEvent: {}
+[98.601661] (-) TimerEvent: {}
+[98.705298] (-) TimerEvent: {}
+[98.809632] (-) TimerEvent: {}
+[98.918901] (-) TimerEvent: {}
+[99.020105] (-) TimerEvent: {}
+[99.125853] (-) TimerEvent: {}
+[99.227416] (-) TimerEvent: {}
+[99.330614] (-) TimerEvent: {}
+[99.432181] (-) TimerEvent: {}
+[99.532785] (-) TimerEvent: {}
+[99.638242] (-) TimerEvent: {}
+[99.740439] (-) TimerEvent: {}
+[99.843432] (-) TimerEvent: {}
+[99.946911] (-) TimerEvent: {}
+[100.052159] (-) TimerEvent: {}
+[100.153789] (-) TimerEvent: {}
+[100.259411] (-) TimerEvent: {}
+[100.362602] (-) TimerEvent: {}
+[100.464331] (-) TimerEvent: {}
+[100.570642] (-) TimerEvent: {}
+[100.671191] (-) TimerEvent: {}
+[100.775801] (-) TimerEvent: {}
+[100.877078] (-) TimerEvent: {}
+[100.979508] (-) TimerEvent: {}
+[101.080071] (-) TimerEvent: {}
+[101.181073] (-) TimerEvent: {}
+[101.283635] (-) TimerEvent: {}
+[101.385917] (-) TimerEvent: {}
+[101.486466] (-) TimerEvent: {}
+[101.587520] (-) TimerEvent: {}
+[101.687985] (-) TimerEvent: {}
+[101.788453] (-) TimerEvent: {}
+[101.889858] (-) TimerEvent: {}
+[101.990378] (-) TimerEvent: {}
+[102.090877] (-) TimerEvent: {}
+[102.191371] (-) TimerEvent: {}
+[102.291932] (-) TimerEvent: {}
+[102.392478] (-) TimerEvent: {}
+[102.493083] (-) TimerEvent: {}
+[102.593702] (-) TimerEvent: {}
+[102.694334] (-) TimerEvent: {}
+[102.794871] (-) TimerEvent: {}
+[102.895424] (-) TimerEvent: {}
+[102.996051] (-) TimerEvent: {}
+[103.096642] (-) TimerEvent: {}
+[103.197319] (-) TimerEvent: {}
+[103.298006] (-) TimerEvent: {}
+[103.398555] (-) TimerEvent: {}
+[103.499102] (-) TimerEvent: {}
+[103.599623] (-) TimerEvent: {}
+[103.700124] (-) TimerEvent: {}
+[103.800608] (-) TimerEvent: {}
+[103.901075] (-) TimerEvent: {}
+[104.001548] (-) TimerEvent: {}
+[104.102069] (-) TimerEvent: {}
+[104.202524] (-) TimerEvent: {}
+[104.303072] (-) TimerEvent: {}
+[104.403508] (-) TimerEvent: {}
+[104.503956] (-) TimerEvent: {}
+[104.604798] (-) TimerEvent: {}
+[104.705297] (-) TimerEvent: {}
+[104.805666] (-) TimerEvent: {}
+[104.906130] (-) TimerEvent: {}
+[105.006560] (-) TimerEvent: {}
+[105.107035] (-) TimerEvent: {}
+[105.207498] (-) TimerEvent: {}
+[105.307841] (-) TimerEvent: {}
+[105.408322] (-) TimerEvent: {}
+[105.508800] (-) TimerEvent: {}
+[105.609274] (-) TimerEvent: {}
+[105.709719] (-) TimerEvent: {}
+[105.810181] (-) TimerEvent: {}
+[105.910646] (-) TimerEvent: {}
+[106.011136] (-) TimerEvent: {}
+[106.111558] (-) TimerEvent: {}
+[106.211998] (-) TimerEvent: {}
+[106.314435] (-) TimerEvent: {}
+[106.414924] (-) TimerEvent: {}
+[106.515310] (-) TimerEvent: {}
+[106.615777] (-) TimerEvent: {}
+[106.716256] (-) TimerEvent: {}
+[106.816731] (-) TimerEvent: {}
+[106.917194] (-) TimerEvent: {}
+[107.017650] (-) TimerEvent: {}
+[107.118151] (-) TimerEvent: {}
+[107.218620] (-) TimerEvent: {}
+[107.319273] (-) TimerEvent: {}
+[107.419730] (-) TimerEvent: {}
+[107.520182] (-) TimerEvent: {}
+[107.620645] (-) TimerEvent: {}
+[107.721118] (-) TimerEvent: {}
+[107.821615] (-) TimerEvent: {}
+[107.922001] (-) TimerEvent: {}
+[108.022390] (-) TimerEvent: {}
+[108.122807] (-) TimerEvent: {}
+[108.223184] (-) TimerEvent: {}
+[108.323562] (-) TimerEvent: {}
+[108.424011] (-) TimerEvent: {}
+[108.524432] (-) TimerEvent: {}
+[108.624851] (-) TimerEvent: {}
+[108.725245] (-) TimerEvent: {}
+[108.825649] (-) TimerEvent: {}
+[108.926069] (-) TimerEvent: {}
+[109.026512] (-) TimerEvent: {}
+[109.126962] (-) TimerEvent: {}
+[109.227323] (-) TimerEvent: {}
+[109.327719] (-) TimerEvent: {}
+[109.428140] (-) TimerEvent: {}
+[109.528569] (-) TimerEvent: {}
+[109.629001] (-) TimerEvent: {}
+[109.729476] (-) TimerEvent: {}
+[109.829872] (-) TimerEvent: {}
+[109.930243] (-) TimerEvent: {}
+[110.030604] (-) TimerEvent: {}
+[110.130985] (-) TimerEvent: {}
+[110.231368] (-) TimerEvent: {}
+[110.331809] (-) TimerEvent: {}
+[110.432148] (-) TimerEvent: {}
+[110.532550] (-) TimerEvent: {}
+[110.632992] (-) TimerEvent: {}
+[110.733337] (-) TimerEvent: {}
+[110.833709] (-) TimerEvent: {}
+[110.934202] (-) TimerEvent: {}
+[111.034583] (-) TimerEvent: {}
+[111.134977] (-) TimerEvent: {}
+[111.235377] (-) TimerEvent: {}
+[111.335791] (-) TimerEvent: {}
+[111.436294] (-) TimerEvent: {}
+[111.536772] (-) TimerEvent: {}
+[111.637195] (-) TimerEvent: {}
+[111.737622] (-) TimerEvent: {}
+[111.838101] (-) TimerEvent: {}
+[111.938533] (-) TimerEvent: {}
+[112.039012] (-) TimerEvent: {}
+[112.139467] (-) TimerEvent: {}
+[112.239905] (-) TimerEvent: {}
+[112.340324] (-) TimerEvent: {}
+[112.440769] (-) TimerEvent: {}
+[112.541194] (-) TimerEvent: {}
+[112.641627] (-) TimerEvent: {}
+[112.742147] (-) TimerEvent: {}
+[112.842541] (-) TimerEvent: {}
+[112.942923] (-) TimerEvent: {}
+[113.043297] (-) TimerEvent: {}
+[113.143662] (-) TimerEvent: {}
+[113.244031] (-) TimerEvent: {}
+[113.344519] (-) TimerEvent: {}
+[113.444852] (-) TimerEvent: {}
+[113.545225] (-) TimerEvent: {}
+[113.645573] (-) TimerEvent: {}
+[113.745893] (-) TimerEvent: {}
+[113.846236] (-) TimerEvent: {}
+[113.946598] (-) TimerEvent: {}
+[114.046920] (-) TimerEvent: {}
+[114.147248] (-) TimerEvent: {}
+[114.247606] (-) TimerEvent: {}
+[114.347924] (-) TimerEvent: {}
+[114.448243] (-) TimerEvent: {}
+[114.548672] (-) TimerEvent: {}
+[114.649013] (-) TimerEvent: {}
+[114.749368] (-) TimerEvent: {}
+[114.849726] (-) TimerEvent: {}
+[114.950077] (-) TimerEvent: {}
+[115.050414] (-) TimerEvent: {}
+[115.150883] (-) TimerEvent: {}
+[115.251306] (-) TimerEvent: {}
+[115.351673] (-) TimerEvent: {}
+[115.452016] (-) TimerEvent: {}
+[115.552331] (-) TimerEvent: {}
+[115.652796] (-) TimerEvent: {}
+[115.753282] (-) TimerEvent: {}
+[115.853645] (-) TimerEvent: {}
+[115.954003] (-) TimerEvent: {}
+[116.054382] (-) TimerEvent: {}
+[116.154766] (-) TimerEvent: {}
+[116.255149] (-) TimerEvent: {}
+[116.355592] (-) TimerEvent: {}
+[116.456076] (-) TimerEvent: {}
+[116.556493] (-) TimerEvent: {}
+[116.656902] (-) TimerEvent: {}
+[116.757320] (-) TimerEvent: {}
+[116.857680] (-) TimerEvent: {}
+[116.958024] (-) TimerEvent: {}
+[117.058394] (-) TimerEvent: {}
+[117.158763] (-) TimerEvent: {}
+[117.259069] (-) TimerEvent: {}
+[117.359387] (-) TimerEvent: {}
+[117.459677] (-) TimerEvent: {}
+[117.560037] (-) TimerEvent: {}
+[117.660393] (-) TimerEvent: {}
+[117.760744] (-) TimerEvent: {}
+[117.861093] (-) TimerEvent: {}
+[117.961458] (-) TimerEvent: {}
+[118.061814] (-) TimerEvent: {}
+[118.162166] (-) TimerEvent: {}
+[118.262606] (-) TimerEvent: {}
+[118.363017] (-) TimerEvent: {}
+[118.463424] (-) TimerEvent: {}
+[118.563839] (-) TimerEvent: {}
+[118.664244] (-) TimerEvent: {}
+[118.764643] (-) TimerEvent: {}
+[118.865066] (-) TimerEvent: {}
+[118.965457] (-) TimerEvent: {}
+[119.065903] (-) TimerEvent: {}
+[119.166280] (-) TimerEvent: {}
+[119.266649] (-) TimerEvent: {}
+[119.367050] (-) TimerEvent: {}
+[119.467505] (-) TimerEvent: {}
+[119.567861] (-) TimerEvent: {}
+[119.668236] (-) TimerEvent: {}
+[119.768627] (-) TimerEvent: {}
+[119.868983] (-) TimerEvent: {}
+[119.969412] (-) TimerEvent: {}
+[120.069853] (-) TimerEvent: {}
+[120.170252] (-) TimerEvent: {}
+[120.270635] (-) TimerEvent: {}
+[120.371020] (-) TimerEvent: {}
+[120.471405] (-) TimerEvent: {}
+[120.571802] (-) TimerEvent: {}
+[120.672225] (-) TimerEvent: {}
+[120.772681] (-) TimerEvent: {}
+[120.873109] (-) TimerEvent: {}
+[120.973526] (-) TimerEvent: {}
+[121.073915] (-) TimerEvent: {}
+[121.174317] (-) TimerEvent: {}
+[121.274787] (-) TimerEvent: {}
+[121.375213] (-) TimerEvent: {}
+[121.475769] (-) TimerEvent: {}
+[121.576288] (-) TimerEvent: {}
+[121.676812] (-) TimerEvent: {}
+[121.777331] (-) TimerEvent: {}
+[121.877819] (-) TimerEvent: {}
+[121.978304] (-) TimerEvent: {}
+[122.078716] (-) TimerEvent: {}
+[122.179163] (-) TimerEvent: {}
+[122.279625] (-) TimerEvent: {}
+[122.380123] (-) TimerEvent: {}
+[122.480609] (-) TimerEvent: {}
+[122.581113] (-) TimerEvent: {}
+[122.681510] (-) TimerEvent: {}
+[122.781981] (-) TimerEvent: {}
+[122.882452] (-) TimerEvent: {}
+[122.982955] (-) TimerEvent: {}
+[123.083454] (-) TimerEvent: {}
+[123.183985] (-) TimerEvent: {}
+[123.284491] (-) TimerEvent: {}
+[123.384944] (-) TimerEvent: {}
+[123.485378] (-) TimerEvent: {}
+[123.585827] (-) TimerEvent: {}
+[123.686281] (-) TimerEvent: {}
+[123.786716] (-) TimerEvent: {}
+[123.887221] (-) TimerEvent: {}
+[123.987639] (-) TimerEvent: {}
+[124.088096] (-) TimerEvent: {}
+[124.188544] (-) TimerEvent: {}
+[124.289032] (-) TimerEvent: {}
+[124.389583] (-) TimerEvent: {}
+[124.490012] (-) TimerEvent: {}
+[124.590380] (-) TimerEvent: {}
+[124.690792] (-) TimerEvent: {}
+[124.791148] (-) TimerEvent: {}
+[124.891519] (-) TimerEvent: {}
+[124.991882] (-) TimerEvent: {}
+[125.092333] (-) TimerEvent: {}
+[125.192828] (-) TimerEvent: {}
+[125.293243] (-) TimerEvent: {}
+[125.393621] (-) TimerEvent: {}
+[125.494037] (-) TimerEvent: {}
+[125.594406] (-) TimerEvent: {}
+[125.694976] (-) TimerEvent: {}
+[125.795350] (-) TimerEvent: {}
+[125.895809] (-) TimerEvent: {}
+[125.996211] (-) TimerEvent: {}
+[126.096613] (-) TimerEvent: {}
+[126.197055] (-) TimerEvent: {}
+[126.297488] (-) TimerEvent: {}
+[126.397837] (-) TimerEvent: {}
+[126.498244] (-) TimerEvent: {}
+[126.598613] (-) TimerEvent: {}
+[126.698945] (-) TimerEvent: {}
+[126.799282] (-) TimerEvent: {}
+[126.899712] (-) TimerEvent: {}
+[127.000157] (-) TimerEvent: {}
+[127.100592] (-) TimerEvent: {}
+[127.201011] (-) TimerEvent: {}
+[127.301417] (-) TimerEvent: {}
+[127.401812] (-) TimerEvent: {}
+[127.502201] (-) TimerEvent: {}
+[127.602612] (-) TimerEvent: {}
+[127.703065] (-) TimerEvent: {}
+[127.803463] (-) TimerEvent: {}
+[127.903826] (-) TimerEvent: {}
+[128.004197] (-) TimerEvent: {}
+[128.104579] (-) TimerEvent: {}
+[128.205000] (-) TimerEvent: {}
+[128.305386] (-) TimerEvent: {}
+[128.405798] (-) TimerEvent: {}
+[128.506204] (-) TimerEvent: {}
+[128.606608] (-) TimerEvent: {}
+[128.707056] (-) TimerEvent: {}
+[128.807464] (-) TimerEvent: {}
+[128.907826] (-) TimerEvent: {}
+[129.008234] (-) TimerEvent: {}
+[129.108633] (-) TimerEvent: {}
+[129.209059] (-) TimerEvent: {}
+[129.309471] (-) TimerEvent: {}
+[129.409882] (-) TimerEvent: {}
+[129.510297] (-) TimerEvent: {}
+[129.610710] (-) TimerEvent: {}
+[129.711143] (-) TimerEvent: {}
+[129.811559] (-) TimerEvent: {}
+[129.912013] (-) TimerEvent: {}
+[130.012463] (-) TimerEvent: {}
+[130.112896] (-) TimerEvent: {}
+[130.213382] (-) TimerEvent: {}
+[130.313713] (-) TimerEvent: {}
+[130.414103] (-) TimerEvent: {}
+[130.514445] (-) TimerEvent: {}
+[130.614821] (-) TimerEvent: {}
+[130.715174] (-) TimerEvent: {}
+[130.815586] (-) TimerEvent: {}
+[130.915980] (-) TimerEvent: {}
+[131.016421] (-) TimerEvent: {}
+[131.116822] (-) TimerEvent: {}
+[131.217214] (-) TimerEvent: {}
+[131.317591] (-) TimerEvent: {}
+[131.417941] (-) TimerEvent: {}
+[131.518331] (-) TimerEvent: {}
+[131.618696] (-) TimerEvent: {}
+[131.719124] (-) TimerEvent: {}
+[131.819618] (-) TimerEvent: {}
+[131.919970] (-) TimerEvent: {}
+[132.020345] (-) TimerEvent: {}
+[132.120724] (-) TimerEvent: {}
+[132.221087] (-) TimerEvent: {}
+[132.321540] (-) TimerEvent: {}
+[132.421989] (-) TimerEvent: {}
+[132.522370] (-) TimerEvent: {}
+[132.622755] (-) TimerEvent: {}
+[132.723119] (-) TimerEvent: {}
+[132.823493] (-) TimerEvent: {}
+[132.923846] (-) TimerEvent: {}
+[133.024289] (-) TimerEvent: {}
+[133.124717] (-) TimerEvent: {}
+[133.225146] (-) TimerEvent: {}
+[133.325570] (-) TimerEvent: {}
+[133.426012] (-) TimerEvent: {}
+[133.526470] (-) TimerEvent: {}
+[133.626935] (-) TimerEvent: {}
+[133.727358] (-) TimerEvent: {}
+[133.827799] (-) TimerEvent: {}
+[133.928231] (-) TimerEvent: {}
+[134.028647] (-) TimerEvent: {}
+[134.129089] (-) TimerEvent: {}
+[134.229528] (-) TimerEvent: {}
+[134.329975] (-) TimerEvent: {}
+[134.430407] (-) TimerEvent: {}
+[134.530841] (-) TimerEvent: {}
+[134.631264] (-) TimerEvent: {}
+[134.731676] (-) TimerEvent: {}
+[134.832120] (-) TimerEvent: {}
+[134.932538] (-) TimerEvent: {}
+[135.032992] (-) TimerEvent: {}
+[135.133414] (-) TimerEvent: {}
+[135.233836] (-) TimerEvent: {}
+[135.334276] (-) TimerEvent: {}
+[135.434749] (-) TimerEvent: {}
+[135.535183] (-) TimerEvent: {}
+[135.635629] (-) TimerEvent: {}
+[135.736069] (-) TimerEvent: {}
+[135.836493] (-) TimerEvent: {}
+[135.936958] (-) TimerEvent: {}
+[136.037359] (-) TimerEvent: {}
+[136.137763] (-) TimerEvent: {}
+[136.238149] (-) TimerEvent: {}
+[136.338520] (-) TimerEvent: {}
+[136.438849] (-) TimerEvent: {}
+[136.539228] (-) TimerEvent: {}
+[136.639583] (-) TimerEvent: {}
+[136.739926] (-) TimerEvent: {}
+[136.840349] (-) TimerEvent: {}
+[136.940726] (-) TimerEvent: {}
+[137.041096] (-) TimerEvent: {}
+[137.141462] (-) TimerEvent: {}
+[137.241847] (-) TimerEvent: {}
+[137.342178] (-) TimerEvent: {}
+[137.442560] (-) TimerEvent: {}
+[137.542905] (-) TimerEvent: {}
+[137.643263] (-) TimerEvent: {}
+[137.743643] (-) TimerEvent: {}
+[137.844016] (-) TimerEvent: {}
+[137.944386] (-) TimerEvent: {}
+[138.044768] (-) TimerEvent: {}
+[138.145138] (-) TimerEvent: {}
+[138.245451] (-) TimerEvent: {}
+[138.345780] (-) TimerEvent: {}
+[138.446121] (-) TimerEvent: {}
+[138.546504] (-) TimerEvent: {}
+[138.646858] (-) TimerEvent: {}
+[138.747223] (-) TimerEvent: {}
+[138.847564] (-) TimerEvent: {}
+[138.947902] (-) TimerEvent: {}
+[139.048246] (-) TimerEvent: {}
+[139.148604] (-) TimerEvent: {}
+[139.248975] (-) TimerEvent: {}
+[139.349335] (-) TimerEvent: {}
+[139.449671] (-) TimerEvent: {}
+[139.550128] (-) TimerEvent: {}
+[139.650540] (-) TimerEvent: {}
+[139.750958] (-) TimerEvent: {}
+[139.851347] (-) TimerEvent: {}
+[139.951759] (-) TimerEvent: {}
+[140.052165] (-) TimerEvent: {}
+[140.152576] (-) TimerEvent: {}
+[140.252996] (-) TimerEvent: {}
+[140.353405] (-) TimerEvent: {}
+[140.453824] (-) TimerEvent: {}
+[140.554229] (-) TimerEvent: {}
+[140.654646] (-) TimerEvent: {}
+[140.755092] (-) TimerEvent: {}
+[140.855506] (-) TimerEvent: {}
+[140.955928] (-) TimerEvent: {}
+[141.056348] (-) TimerEvent: {}
+[141.156800] (-) TimerEvent: {}
+[141.257234] (-) TimerEvent: {}
+[141.357619] (-) TimerEvent: {}
+[141.457963] (-) TimerEvent: {}
+[141.558339] (-) TimerEvent: {}
+[141.658697] (-) TimerEvent: {}
+[141.759051] (-) TimerEvent: {}
+[141.859460] (-) TimerEvent: {}
+[141.959946] (-) TimerEvent: {}
+[142.060328] (-) TimerEvent: {}
+[142.160633] (-) TimerEvent: {}
+[142.260975] (-) TimerEvent: {}
+[142.361324] (-) TimerEvent: {}
+[142.461690] (-) TimerEvent: {}
+[142.562086] (-) TimerEvent: {}
+[142.662458] (-) TimerEvent: {}
+[142.762829] (-) TimerEvent: {}
+[142.863178] (-) TimerEvent: {}
+[142.963540] (-) TimerEvent: {}
+[143.063929] (-) TimerEvent: {}
+[143.164302] (-) TimerEvent: {}
+[143.264628] (-) TimerEvent: {}
+[143.365038] (-) TimerEvent: {}
+[143.465405] (-) TimerEvent: {}
+[143.565793] (-) TimerEvent: {}
+[143.666180] (-) TimerEvent: {}
+[143.766555] (-) TimerEvent: {}
+[143.866842] (-) TimerEvent: {}
+[143.967223] (-) TimerEvent: {}
+[144.067667] (-) TimerEvent: {}
+[144.168024] (-) TimerEvent: {}
+[144.258933] (orbbec_camera) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX shared library libframe_latency.so\x1b[0m\n'}
+[144.268154] (-) TimerEvent: {}
+[144.368599] (-) TimerEvent: {}
+[144.468945] (-) TimerEvent: {}
+[144.569301] (-) TimerEvent: {}
+[144.669648] (-) TimerEvent: {}
+[144.769984] (-) TimerEvent: {}
+[144.870317] (-) TimerEvent: {}
+[144.970695] (-) TimerEvent: {}
+[145.071196] (-) TimerEvent: {}
+[145.141876] (orbbec_camera) StdoutLine: {'line': b'[ 65%] Built target frame_latency\n'}
+[145.171344] (-) TimerEvent: {}
+[145.271704] (-) TimerEvent: {}
+[145.372008] (-) TimerEvent: {}
+[145.472349] (-) TimerEvent: {}
+[145.572688] (-) TimerEvent: {}
+[145.673004] (-) TimerEvent: {}
+[145.773358] (-) TimerEvent: {}
+[145.873718] (-) TimerEvent: {}
+[145.974086] (-) TimerEvent: {}
+[146.074433] (-) TimerEvent: {}
+[146.174793] (-) TimerEvent: {}
+[146.275147] (-) TimerEvent: {}
+[146.375501] (-) TimerEvent: {}
+[146.475868] (-) TimerEvent: {}
+[146.576188] (-) TimerEvent: {}
+[146.676575] (-) TimerEvent: {}
+[146.776923] (-) TimerEvent: {}
+[146.877295] (-) TimerEvent: {}
+[146.977664] (-) TimerEvent: {}
+[147.078003] (-) TimerEvent: {}
+[147.178386] (-) TimerEvent: {}
+[147.278755] (-) TimerEvent: {}
+[147.379131] (-) TimerEvent: {}
+[147.479526] (-) TimerEvent: {}
+[147.579888] (-) TimerEvent: {}
+[147.680227] (-) TimerEvent: {}
+[147.780608] (-) TimerEvent: {}
+[147.880945] (-) TimerEvent: {}
+[147.981316] (-) TimerEvent: {}
+[148.081685] (-) TimerEvent: {}
+[148.182017] (-) TimerEvent: {}
+[148.282394] (-) TimerEvent: {}
+[148.382775] (-) TimerEvent: {}
+[148.483097] (-) TimerEvent: {}
+[148.583475] (-) TimerEvent: {}
+[148.683816] (-) TimerEvent: {}
+[148.784178] (-) TimerEvent: {}
+[148.884539] (-) TimerEvent: {}
+[148.984893] (-) TimerEvent: {}
+[149.085251] (-) TimerEvent: {}
+[149.185617] (-) TimerEvent: {}
+[149.285943] (-) TimerEvent: {}
+[149.386341] (-) TimerEvent: {}
+[149.486716] (-) TimerEvent: {}
+[149.587086] (-) TimerEvent: {}
+[149.687457] (-) TimerEvent: {}
+[149.787863] (-) TimerEvent: {}
+[149.888237] (-) TimerEvent: {}
+[149.988595] (-) TimerEvent: {}
+[150.088868] (-) TimerEvent: {}
+[150.189223] (-) TimerEvent: {}
+[150.289573] (-) TimerEvent: {}
+[150.389935] (-) TimerEvent: {}
+[150.490344] (-) TimerEvent: {}
+[150.563440] (orbbec_camera) StdoutLine: {'line': b'[ 69%] \x1b[32m\x1b[1mLinking CXX shared library liborbbec_camera.so\x1b[0m\n'}
+[150.590520] (-) TimerEvent: {}
+[150.690894] (-) TimerEvent: {}
+[150.791245] (-) TimerEvent: {}
+[150.891565] (-) TimerEvent: {}
+[150.991891] (-) TimerEvent: {}
+[151.092279] (-) TimerEvent: {}
+[151.192667] (-) TimerEvent: {}
+[151.293034] (-) TimerEvent: {}
+[151.393380] (-) TimerEvent: {}
+[151.438060] (orbbec_camera) StdoutLine: {'line': b'[ 69%] Built target orbbec_camera\n'}
+[151.493516] (-) TimerEvent: {}
+[151.519650] (orbbec_camera) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding CXX object CMakeFiles/topic_statistics_node.dir/tools/topic_statistics.cpp.o\x1b[0m\n'}
+[151.542606] (orbbec_camera) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/list_camera_profile_mode_node.dir/tools/list_camera_profile.cpp.o\x1b[0m\n'}
+[151.543130] (orbbec_camera) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding CXX object CMakeFiles/list_depth_work_mode_node.dir/tools/list_depth_work_mode.cpp.o\x1b[0m\n'}
+[151.548820] (orbbec_camera) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding CXX object CMakeFiles/list_devices_node.dir/tools/list_devices_node.cpp.o\x1b[0m\n'}
+[151.593641] (-) TimerEvent: {}
+[151.694055] (-) TimerEvent: {}
+[151.794477] (-) TimerEvent: {}
+[151.894896] (-) TimerEvent: {}
+[151.995279] (-) TimerEvent: {}
+[152.095647] (-) TimerEvent: {}
+[152.196027] (-) TimerEvent: {}
+[152.296436] (-) TimerEvent: {}
+[152.396824] (-) TimerEvent: {}
+[152.497237] (-) TimerEvent: {}
+[152.597655] (-) TimerEvent: {}
+[152.698197] (-) TimerEvent: {}
+[152.799009] (-) TimerEvent: {}
+[152.899494] (-) TimerEvent: {}
+[152.999970] (-) TimerEvent: {}
+[153.100498] (-) TimerEvent: {}
+[153.201111] (-) TimerEvent: {}
+[153.301643] (-) TimerEvent: {}
+[153.402170] (-) TimerEvent: {}
+[153.502715] (-) TimerEvent: {}
+[153.603185] (-) TimerEvent: {}
+[153.703754] (-) TimerEvent: {}
+[153.804228] (-) TimerEvent: {}
+[153.904758] (-) TimerEvent: {}
+[154.005315] (-) TimerEvent: {}
+[154.105875] (-) TimerEvent: {}
+[154.206396] (-) TimerEvent: {}
+[154.306946] (-) TimerEvent: {}
+[154.407452] (-) TimerEvent: {}
+[154.508105] (-) TimerEvent: {}
+[154.608625] (-) TimerEvent: {}
+[154.709194] (-) TimerEvent: {}
+[154.810347] (-) TimerEvent: {}
+[154.910835] (-) TimerEvent: {}
+[155.011344] (-) TimerEvent: {}
+[155.111852] (-) TimerEvent: {}
+[155.212386] (-) TimerEvent: {}
+[155.312936] (-) TimerEvent: {}
+[155.413481] (-) TimerEvent: {}
+[155.514098] (-) TimerEvent: {}
+[155.614670] (-) TimerEvent: {}
+[155.715231] (-) TimerEvent: {}
+[155.815819] (-) TimerEvent: {}
+[155.916471] (-) TimerEvent: {}
+[156.017029] (-) TimerEvent: {}
+[156.117599] (-) TimerEvent: {}
+[156.218166] (-) TimerEvent: {}
+[156.318730] (-) TimerEvent: {}
+[156.419373] (-) TimerEvent: {}
+[156.520138] (-) TimerEvent: {}
+[156.620713] (-) TimerEvent: {}
+[156.721312] (-) TimerEvent: {}
+[156.821931] (-) TimerEvent: {}
+[156.922479] (-) TimerEvent: {}
+[157.023073] (-) TimerEvent: {}
+[157.123686] (-) TimerEvent: {}
+[157.224305] (-) TimerEvent: {}
+[157.324880] (-) TimerEvent: {}
+[157.425505] (-) TimerEvent: {}
+[157.526196] (-) TimerEvent: {}
+[157.626795] (-) TimerEvent: {}
+[157.727402] (-) TimerEvent: {}
+[157.827965] (-) TimerEvent: {}
+[157.928548] (-) TimerEvent: {}
+[158.029148] (-) TimerEvent: {}
+[158.129826] (-) TimerEvent: {}
+[158.230411] (-) TimerEvent: {}
+[158.331101] (-) TimerEvent: {}
+[158.431728] (-) TimerEvent: {}
+[158.532201] (-) TimerEvent: {}
+[158.632782] (-) TimerEvent: {}
+[158.733392] (-) TimerEvent: {}
+[158.834009] (-) TimerEvent: {}
+[158.934580] (-) TimerEvent: {}
+[159.035139] (-) TimerEvent: {}
+[159.135705] (-) TimerEvent: {}
+[159.236491] (-) TimerEvent: {}
+[159.337072] (-) TimerEvent: {}
+[159.437638] (-) TimerEvent: {}
+[159.538311] (-) TimerEvent: {}
+[159.638924] (-) TimerEvent: {}
+[159.739481] (-) TimerEvent: {}
+[159.840054] (-) TimerEvent: {}
+[159.940624] (-) TimerEvent: {}
+[160.041157] (-) TimerEvent: {}
+[160.141727] (-) TimerEvent: {}
+[160.242364] (-) TimerEvent: {}
+[160.343027] (-) TimerEvent: {}
+[160.443592] (-) TimerEvent: {}
+[160.544148] (-) TimerEvent: {}
+[160.644689] (-) TimerEvent: {}
+[160.745249] (-) TimerEvent: {}
+[160.845799] (-) TimerEvent: {}
+[160.946291] (-) TimerEvent: {}
+[161.046822] (-) TimerEvent: {}
+[161.147361] (-) TimerEvent: {}
+[161.247859] (-) TimerEvent: {}
+[161.348395] (-) TimerEvent: {}
+[161.448954] (-) TimerEvent: {}
+[161.549501] (-) TimerEvent: {}
+[161.650184] (-) TimerEvent: {}
+[161.751088] (-) TimerEvent: {}
+[161.851618] (-) TimerEvent: {}
+[161.953481] (-) TimerEvent: {}
+[162.054274] (-) TimerEvent: {}
+[162.154826] (-) TimerEvent: {}
+[162.255359] (-) TimerEvent: {}
+[162.355975] (-) TimerEvent: {}
+[162.456568] (-) TimerEvent: {}
+[162.557446] (-) TimerEvent: {}
+[162.659061] (-) TimerEvent: {}
+[162.760076] (-) TimerEvent: {}
+[162.862269] (-) TimerEvent: {}
+[162.962877] (-) TimerEvent: {}
+[163.063489] (-) TimerEvent: {}
+[163.164103] (-) TimerEvent: {}
+[163.264793] (-) TimerEvent: {}
+[163.365512] (-) TimerEvent: {}
+[163.466277] (-) TimerEvent: {}
+[163.567166] (-) TimerEvent: {}
+[163.667819] (-) TimerEvent: {}
+[163.768407] (-) TimerEvent: {}
+[163.869077] (-) TimerEvent: {}
+[163.969695] (-) TimerEvent: {}
+[164.070488] (-) TimerEvent: {}
+[164.171221] (-) TimerEvent: {}
+[164.271836] (-) TimerEvent: {}
+[164.372381] (-) TimerEvent: {}
+[164.473007] (-) TimerEvent: {}
+[164.573561] (-) TimerEvent: {}
+[164.674131] (-) TimerEvent: {}
+[164.774694] (-) TimerEvent: {}
+[164.875274] (-) TimerEvent: {}
+[164.975853] (-) TimerEvent: {}
+[165.076397] (-) TimerEvent: {}
+[165.176935] (-) TimerEvent: {}
+[165.277457] (-) TimerEvent: {}
+[165.378015] (-) TimerEvent: {}
+[165.478539] (-) TimerEvent: {}
+[165.579051] (-) TimerEvent: {}
+[165.679856] (-) TimerEvent: {}
+[165.780376] (-) TimerEvent: {}
+[165.880968] (-) TimerEvent: {}
+[165.981499] (-) TimerEvent: {}
+[166.081998] (-) TimerEvent: {}
+[166.182515] (-) TimerEvent: {}
+[166.283065] (-) TimerEvent: {}
+[166.383654] (-) TimerEvent: {}
+[166.484301] (-) TimerEvent: {}
+[166.585878] (-) TimerEvent: {}
+[166.686458] (-) TimerEvent: {}
+[166.787430] (-) TimerEvent: {}
+[166.888505] (-) TimerEvent: {}
+[166.989682] (-) TimerEvent: {}
+[167.090302] (-) TimerEvent: {}
+[167.190905] (-) TimerEvent: {}
+[167.291647] (-) TimerEvent: {}
+[167.392358] (-) TimerEvent: {}
+[167.493048] (-) TimerEvent: {}
+[167.593679] (-) TimerEvent: {}
+[167.694324] (-) TimerEvent: {}
+[167.797916] (-) TimerEvent: {}
+[167.898526] (-) TimerEvent: {}
+[167.999216] (-) TimerEvent: {}
+[168.099880] (-) TimerEvent: {}
+[168.200487] (-) TimerEvent: {}
+[168.301031] (-) TimerEvent: {}
+[168.401554] (-) TimerEvent: {}
+[168.502117] (-) TimerEvent: {}
+[168.602666] (-) TimerEvent: {}
+[168.703211] (-) TimerEvent: {}
+[168.803720] (-) TimerEvent: {}
+[168.904270] (-) TimerEvent: {}
+[169.004803] (-) TimerEvent: {}
+[169.105313] (-) TimerEvent: {}
+[169.205853] (-) TimerEvent: {}
+[169.306605] (-) TimerEvent: {}
+[169.407137] (-) TimerEvent: {}
+[169.507605] (-) TimerEvent: {}
+[169.608153] (-) TimerEvent: {}
+[169.708660] (-) TimerEvent: {}
+[169.809201] (-) TimerEvent: {}
+[169.909716] (-) TimerEvent: {}
+[170.010286] (-) TimerEvent: {}
+[170.110829] (-) TimerEvent: {}
+[170.211391] (-) TimerEvent: {}
+[170.311961] (-) TimerEvent: {}
+[170.412501] (-) TimerEvent: {}
+[170.513070] (-) TimerEvent: {}
+[170.613592] (-) TimerEvent: {}
+[170.714160] (-) TimerEvent: {}
+[170.814715] (-) TimerEvent: {}
+[170.915292] (-) TimerEvent: {}
+[171.015853] (-) TimerEvent: {}
+[171.116859] (-) TimerEvent: {}
+[171.217432] (-) TimerEvent: {}
+[171.318031] (-) TimerEvent: {}
+[171.418588] (-) TimerEvent: {}
+[171.519159] (-) TimerEvent: {}
+[171.619706] (-) TimerEvent: {}
+[171.720309] (-) TimerEvent: {}
+[171.820979] (-) TimerEvent: {}
+[171.921867] (-) TimerEvent: {}
+[172.023200] (-) TimerEvent: {}
+[172.124038] (-) TimerEvent: {}
+[172.224719] (-) TimerEvent: {}
+[172.325857] (-) TimerEvent: {}
+[172.426368] (-) TimerEvent: {}
+[172.526954] (-) TimerEvent: {}
+[172.628400] (-) TimerEvent: {}
+[172.728988] (-) TimerEvent: {}
+[172.829613] (-) TimerEvent: {}
+[172.930353] (-) TimerEvent: {}
+[173.030992] (-) TimerEvent: {}
+[173.131617] (-) TimerEvent: {}
+[173.232265] (-) TimerEvent: {}
+[173.332887] (-) TimerEvent: {}
+[173.433497] (-) TimerEvent: {}
+[173.534142] (-) TimerEvent: {}
+[173.634753] (-) TimerEvent: {}
+[173.735314] (-) TimerEvent: {}
+[173.835982] (-) TimerEvent: {}
+[173.936577] (-) TimerEvent: {}
+[174.037226] (-) TimerEvent: {}
+[174.137836] (-) TimerEvent: {}
+[174.238480] (-) TimerEvent: {}
+[174.339196] (-) TimerEvent: {}
+[174.446823] (-) TimerEvent: {}
+[174.547847] (-) TimerEvent: {}
+[174.648408] (-) TimerEvent: {}
+[174.749028] (-) TimerEvent: {}
+[174.849710] (-) TimerEvent: {}
+[174.950356] (-) TimerEvent: {}
+[175.050945] (-) TimerEvent: {}
+[175.151503] (-) TimerEvent: {}
+[175.252104] (-) TimerEvent: {}
+[175.352701] (-) TimerEvent: {}
+[175.453406] (-) TimerEvent: {}
+[175.554215] (-) TimerEvent: {}
+[175.654955] (-) TimerEvent: {}
+[175.755727] (-) TimerEvent: {}
+[175.857338] (-) TimerEvent: {}
+[175.958717] (-) TimerEvent: {}
+[176.061014] (-) TimerEvent: {}
+[176.162526] (-) TimerEvent: {}
+[176.268672] (-) TimerEvent: {}
+[176.369164] (-) TimerEvent: {}
+[176.469657] (-) TimerEvent: {}
+[176.570479] (-) TimerEvent: {}
+[176.671347] (-) TimerEvent: {}
+[176.772128] (-) TimerEvent: {}
+[176.872808] (-) TimerEvent: {}
+[176.973429] (-) TimerEvent: {}
+[177.074592] (-) TimerEvent: {}
+[177.175175] (-) TimerEvent: {}
+[177.275818] (-) TimerEvent: {}
+[177.376432] (-) TimerEvent: {}
+[177.477015] (-) TimerEvent: {}
+[177.577518] (-) TimerEvent: {}
+[177.678016] (-) TimerEvent: {}
+[177.778513] (-) TimerEvent: {}
+[177.879033] (-) TimerEvent: {}
+[177.979527] (-) TimerEvent: {}
+[178.080043] (-) TimerEvent: {}
+[178.182850] (-) TimerEvent: {}
+[178.283332] (-) TimerEvent: {}
+[178.383859] (-) TimerEvent: {}
+[178.484373] (-) TimerEvent: {}
+[178.584964] (-) TimerEvent: {}
+[178.685525] (-) TimerEvent: {}
+[178.786092] (-) TimerEvent: {}
+[178.886600] (-) TimerEvent: {}
+[178.987095] (-) TimerEvent: {}
+[179.087575] (-) TimerEvent: {}
+[179.188099] (-) TimerEvent: {}
+[179.288672] (-) TimerEvent: {}
+[179.389291] (-) TimerEvent: {}
+[179.489852] (-) TimerEvent: {}
+[179.590378] (-) TimerEvent: {}
+[179.690860] (-) TimerEvent: {}
+[179.791346] (-) TimerEvent: {}
+[179.891847] (-) TimerEvent: {}
+[179.992321] (-) TimerEvent: {}
+[180.092793] (-) TimerEvent: {}
+[180.193271] (-) TimerEvent: {}
+[180.293795] (-) TimerEvent: {}
+[180.394303] (-) TimerEvent: {}
+[180.494844] (-) TimerEvent: {}
+[180.595322] (-) TimerEvent: {}
+[180.695783] (-) TimerEvent: {}
+[180.796226] (-) TimerEvent: {}
+[180.896685] (-) TimerEvent: {}
+[180.997447] (-) TimerEvent: {}
+[181.097915] (-) TimerEvent: {}
+[181.198377] (-) TimerEvent: {}
+[181.298837] (-) TimerEvent: {}
+[181.399300] (-) TimerEvent: {}
+[181.499781] (-) TimerEvent: {}
+[181.600247] (-) TimerEvent: {}
+[181.700748] (-) TimerEvent: {}
+[181.801209] (-) TimerEvent: {}
+[181.901659] (-) TimerEvent: {}
+[182.002222] (-) TimerEvent: {}
+[182.102676] (-) TimerEvent: {}
+[182.203190] (-) TimerEvent: {}
+[182.306855] (-) TimerEvent: {}
+[182.407280] (-) TimerEvent: {}
+[182.507732] (-) TimerEvent: {}
+[182.608191] (-) TimerEvent: {}
+[182.708619] (-) TimerEvent: {}
+[182.809090] (-) TimerEvent: {}
+[182.909534] (-) TimerEvent: {}
+[183.010006] (-) TimerEvent: {}
+[183.110455] (-) TimerEvent: {}
+[183.210957] (-) TimerEvent: {}
+[183.311452] (-) TimerEvent: {}
+[183.411904] (-) TimerEvent: {}
+[183.457915] (orbbec_camera) StdoutLine: {'line': b'[ 88%] \x1b[32m\x1b[1mLinking CXX executable list_depth_work_mode_node\x1b[0m\n'}
+[183.512049] (-) TimerEvent: {}
+[183.612506] (-) TimerEvent: {}
+[183.712967] (-) TimerEvent: {}
+[183.813457] (-) TimerEvent: {}
+[183.914003] (-) TimerEvent: {}
+[183.989066] (orbbec_camera) StdoutLine: {'line': b'[ 88%] Built target list_depth_work_mode_node\n'}
+[184.014154] (-) TimerEvent: {}
+[184.114581] (-) TimerEvent: {}
+[184.214951] (-) TimerEvent: {}
+[184.315431] (-) TimerEvent: {}
+[184.415821] (-) TimerEvent: {}
+[184.425063] (orbbec_camera) StdoutLine: {'line': b'[ 92%] \x1b[32m\x1b[1mLinking CXX executable list_devices_node\x1b[0m\n'}
+[184.515954] (-) TimerEvent: {}
+[184.539335] (orbbec_camera) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking CXX executable list_camera_profile_mode_node\x1b[0m\n'}
+[184.616186] (-) TimerEvent: {}
+[184.716699] (-) TimerEvent: {}
+[184.817231] (-) TimerEvent: {}
+[184.917895] (-) TimerEvent: {}
+[185.018627] (-) TimerEvent: {}
+[185.119375] (-) TimerEvent: {}
+[185.219958] (-) TimerEvent: {}
+[185.320416] (-) TimerEvent: {}
+[185.420827] (-) TimerEvent: {}
+[185.521182] (-) TimerEvent: {}
+[185.621602] (-) TimerEvent: {}
+[185.722103] (-) TimerEvent: {}
+[185.822667] (-) TimerEvent: {}
+[185.923426] (-) TimerEvent: {}
+[186.024975] (-) TimerEvent: {}
+[186.125872] (-) TimerEvent: {}
+[186.226568] (-) TimerEvent: {}
+[186.268460] (orbbec_camera) StdoutLine: {'line': b'[ 96%] Built target list_camera_profile_mode_node\n'}
+[186.288676] (orbbec_camera) StdoutLine: {'line': b'[ 96%] Built target list_devices_node\n'}
+[186.326665] (-) TimerEvent: {}
+[186.426986] (-) TimerEvent: {}
+[186.527311] (-) TimerEvent: {}
+[186.627623] (-) TimerEvent: {}
+[186.727986] (-) TimerEvent: {}
+[186.828331] (-) TimerEvent: {}
+[186.928713] (-) TimerEvent: {}
+[187.029096] (-) TimerEvent: {}
+[187.129484] (-) TimerEvent: {}
+[187.229859] (-) TimerEvent: {}
+[187.330194] (-) TimerEvent: {}
+[187.430545] (-) TimerEvent: {}
+[187.530964] (-) TimerEvent: {}
+[187.631341] (-) TimerEvent: {}
+[187.731711] (-) TimerEvent: {}
+[187.832052] (-) TimerEvent: {}
+[187.932433] (-) TimerEvent: {}
+[188.032812] (-) TimerEvent: {}
+[188.133198] (-) TimerEvent: {}
+[188.233566] (-) TimerEvent: {}
+[188.333857] (-) TimerEvent: {}
+[188.434181] (-) TimerEvent: {}
+[188.534563] (-) TimerEvent: {}
+[188.634866] (-) TimerEvent: {}
+[188.735187] (-) TimerEvent: {}
+[188.747781] (orbbec_camera) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable topic_statistics_node\x1b[0m\n'}
+[188.835354] (-) TimerEvent: {}
+[188.935692] (-) TimerEvent: {}
+[189.036045] (-) TimerEvent: {}
+[189.136465] (-) TimerEvent: {}
+[189.227928] (orbbec_camera) StdoutLine: {'line': b'[100%] Built target topic_statistics_node\n'}
+[189.236624] (-) TimerEvent: {}
+[189.251882] (orbbec_camera) CommandEnded: {'returncode': 0}
+[189.253682] (orbbec_camera) JobProgress: {'identifier': 'orbbec_camera', 'progress': 'install'}
+[189.274108] (orbbec_camera) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/bbcontact/magician_ros2/build/orbbec_camera'], 'cwd': '/home/bbcontact/magician_ros2/build/orbbec_camera', 'env': OrderedDict({'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.10.102 37541 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/home/bbcontact/magician_ros2/install/dobot_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/9', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/bbcontact/magician_ros2/install', 'CODEX_PERMISSION_PROFILE': ':workspace', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8788/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4173', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0nDeQv6:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_SESSION_ID': '01a08098-0d3a-7ec0-968b-0ba67ec93773', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'CODEX_SANDBOX_NETWORK_DISABLED': '1', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a08098-0d3a-7ec0-968b-0ba67ec93773', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/orbbec_camera', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.10.102 37541 172.30.10.208 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_object_vision/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_demos/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_control_panel:/opt/ros/jazzy'}), 'shell': False}
+[189.291124] (orbbec_camera) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[189.292760] (orbbec_camera) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[189.293719] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera/orbbec_camera_node\n'}
+[189.311962] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera/frame_latency_node\n'}
+[189.329981] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/liborbbec_camera.so\n'}
+[189.336746] (-) TimerEvent: {}
+[189.347508] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/libframe_latency.so\n'}
+[189.366186] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/magic_enum/magic_enum.hpp\n'}
+[189.382366] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/constants.h\n'}
+[189.399168] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/d2c_viewer.h\n'}
+[189.415611] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/dynamic_params.h\n'}
+[189.431548] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/frame_timestamp_csv_logger.h\n'}
+[189.436849] (-) TimerEvent: {}
+[189.447688] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/image_publisher.h\n'}
+[189.464089] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/jetson_nv_decoder.h\n'}
+[189.479927] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/jpeg_decoder.h\n'}
+[189.495870] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/ob_camera_node.h\n'}
+[189.512140] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/ob_camera_node_driver.h\n'}
+[189.528160] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/rk_mpp_decoder.h\n'}
+[189.536956] (-) TimerEvent: {}
+[189.543964] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/ros_param_backend.h\n'}
+[189.560043] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/synced_imu_publisher.h\n'}
+[189.575928] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/utils.h\n'}
+[189.594568] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra.launch.py\n'}
+[189.610644] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra2.launch.py\n'}
+[189.626609] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_adv.launch.py\n'}
+[189.637097] (-) TimerEvent: {}
+[189.642535] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_embedded_s.launch.py\n'}
+[189.658487] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_pro2.launch.py\n'}
+[189.674562] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_pro_plus.launch.py\n'}
+[189.690652] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_stereo_u3.launch.py\n'}
+[189.707071] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai.launch.py\n'}
+[189.723219] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_d1.launch.py\n'}
+[189.737216] (-) TimerEvent: {}
+[189.739217] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dcl.py\n'}
+[189.755504] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dcw.launch.py\n'}
+[189.771852] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dcw2.launch.py\n'}
+[189.787856] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dw.launch.py\n'}
+[189.804563] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dw2.launch.py\n'}
+[189.821779] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_max.launch.py\n'}
+[189.837381] (-) TimerEvent: {}
+[189.839023] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_max_pro.launch.py\n'}
+[189.857761] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_pro.launch.py\n'}
+[189.876784] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/deeya.launch.py\n'}
+[189.895928] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/femto.launch.py\n'}
+[189.913911] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/femto_bolt.launch.py\n'}
+[189.930566] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/femto_mega.launch.py\n'}
+[189.937522] (-) TimerEvent: {}
+[189.946677] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/femto_net_camera.launch.py\n'}
+[189.962935] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini2.launch.py\n'}
+[189.979389] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini2L.launch.py\n'}
+[189.995807] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini2VL.launch.py\n'}
+[190.011968] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini2XL.launch.py\n'}
+[190.028375] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_330_series.launch.py\n'}
+[190.037692] (-) TimerEvent: {}
+[190.044682] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_e.launch.py\n'}
+[190.061269] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_e_lite.launch.py\n'}
+[190.077535] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_ew.launch.py\n'}
+[190.093607] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_ew_lite.launch.py\n'}
+[190.109714] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_intra_process_demo_launch.py\n'}
+[190.125657] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_uw.launch.py\n'}
+[190.137874] (-) TimerEvent: {}
+[190.141629] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/multi_camera.launch.py\n'}
+[190.157894] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/multi_camera_synced.launch.py\n'}
+[190.173938] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/multi_net_camera.launch.py\n'}
+[190.189946] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/ob_camera.launch.py\n'}
+[190.209273] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/.gitkeep\n'}
+[190.225477] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/OrbbecSDKConfig_v1.0.xml\n'}
+[190.237991] (-) TimerEvent: {}
+[190.241579] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/camera_params.yaml\n'}
+[190.258147] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/depthfilter/Gemini2_v1.8.json\n'}
+[190.274458] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/depthfilter/Openni_device.json\n'}
+[190.291567] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/ObSensor.h\n'}
+[190.307599] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/ObSensor.hpp\n'}
+[190.323836] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Context.h\n'}
+[190.338115] (-) TimerEvent: {}
+[190.339777] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Device.h\n'}
+[190.356088] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Error.h\n'}
+[190.372255] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Filter.h\n'}
+[190.388259] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Frame.h\n'}
+[190.405475] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/MultipleDevices.h\n'}
+[190.423207] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/ObTypes.h\n'}
+[190.438275] (-) TimerEvent: {}
+[190.440370] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Pipeline.h\n'}
+[190.458607] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Property.h\n'}
+[190.478787] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/RecordPlayback.h\n'}
+[190.497175] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Sensor.h\n'}
+[190.516217] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/StreamProfile.h\n'}
+[190.532846] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Utils.h\n'}
+[190.538422] (-) TimerEvent: {}
+[190.548819] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Version.h\n'}
+[190.565035] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Context.hpp\n'}
+[190.581497] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Device.hpp\n'}
+[190.597398] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Error.hpp\n'}
+[190.614169] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Filter.hpp\n'}
+[190.630501] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Frame.hpp\n'}
+[190.638587] (-) TimerEvent: {}
+[190.646928] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Pipeline.hpp\n'}
+[190.663708] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/RecordPlayback.hpp\n'}
+[190.680311] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Sensor.hpp\n'}
+[190.696370] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/StreamProfile.hpp\n'}
+[190.712775] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Types.hpp\n'}
+[190.728971] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Utils.hpp\n'}
+[190.738772] (-) TimerEvent: {}
+[190.745467] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Version.hpp\n'}
+[190.763682] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/udev/99-obsensor-libusb.rules\n'}
+[190.780347] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera//list_devices_node\n'}
+[190.796282] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera//list_depth_work_mode_node\n'}
+[190.812926] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera//list_camera_profile_mode_node\n'}
+[190.829181] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera//topic_statistics_node\n'}
+[190.838859] (-) TimerEvent: {}
+[190.845799] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/library_path.sh\n'}
+[190.862143] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/library_path.dsv\n'}
+[190.879398] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/ament_index/resource_index/package_run_dependencies/orbbec_camera\n'}
+[190.895599] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/ament_index/resource_index/parent_prefix_path/orbbec_camera\n'}
+[190.912434] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/ament_prefix_path.sh\n'}
+[190.928584] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/ament_prefix_path.dsv\n'}
+[190.938990] (-) TimerEvent: {}
+[190.945359] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/path.sh\n'}
+[190.961513] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/path.dsv\n'}
+[190.977822] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/local_setup.bash\n'}
+[190.994092] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/local_setup.sh\n'}
+[191.012164] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/local_setup.zsh\n'}
+[191.029963] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/local_setup.dsv\n'}
+[191.039137] (-) TimerEvent: {}
+[191.048207] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/package.dsv\n'}
+[191.067899] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/ament_index/resource_index/packages/orbbec_camera\n'}
+[191.086673] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/ament_index/resource_index/rclcpp_components/orbbec_camera\n'}
+[191.106817] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[191.123649] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[191.139269] (-) TimerEvent: {}
+[191.140011] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[191.156339] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/orbbec_cameraConfig.cmake\n'}
+[191.172618] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/orbbec_cameraConfig-version.cmake\n'}
+[191.188651] (orbbec_camera) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/package.xml\n'}
+[191.207016] (orbbec_camera) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/\n'}
+[191.207295] (orbbec_camera) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so\n'}
+[191.207563] (orbbec_camera) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so.1.10\n'}
+[191.207789] (orbbec_camera) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so.1.10.37\n'}
+[191.227423] (orbbec_camera) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libdepthengine.so\n'}
+[191.227717] (orbbec_camera) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libdepthengine.so.2.0\n'}
+[191.228817] (orbbec_camera) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//liblive555.so\n'}
+[191.230877] (orbbec_camera) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libob_usb.so\n'}
+[191.234669] (orbbec_camera) CommandEnded: {'returncode': 0}
+[191.239353] (-) TimerEvent: {}
+[191.300576] (orbbec_camera) JobEnded: {'identifier': 'orbbec_camera', 'rc': 0}
+[191.301775] (-) EventReactorShutdown: {}
