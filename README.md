@@ -1,4 +1,82 @@
 # ROS 2 control stack for Dobot Magician  
+
+## Canonical Jazzy workspace
+
+The complete Dobot + Orbbec + RGB-D vision + calibration project lives in:
+
+```text
+/home/bbcontact/magician_ros2
+```
+
+Use a clean shell and source only:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/magician_ros2/install/setup.bash
+```
+
+**Do not source the old `/tmp/dobot-readiness-20260906/install` or
+`~/dobot-ros2-ai/install` overlays.**
+
+Source locations:
+
+- Dobot driver and support packages: `src/magician_ros2/`
+- Official Orbbec driver: `src/OrbbecSDK_ROS2/`
+- Markerless calibration: `src/magician_ros2/dobot_calibration/`
+- RGB-D/object vision: `src/magician_ros2/dobot_object_vision/`,
+  `dobot_vision_rgbd/`, and `dobot_vision_yolo/`
+
+Build and focused safety tests:
+
+```bash
+cd ~/magician_ros2
+source /opt/ros/jazzy/setup.bash
+colcon build --symlink-install
+source install/setup.bash
+python3 -m pytest -q \
+  src/magician_ros2/dobot_driver/test/test_message_safety.py \
+  src/magician_ros2/dobot_driver/test/test_protocol_responses.py \
+  src/magician_ros2/dobot_motion/test/test_ptp_safety.py \
+  src/magician_ros2/dobot_motion/test/test_ptp_state_guards.py
+```
+
+Launch only the official Orbbec camera with registered depth and point cloud:
+
+```bash
+ros2 launch orbbec_camera ob_camera.launch.py \
+  color_width:=640 color_height:=480 color_fps:=30 color_format:=MJPG \
+  depth_width:=640 depth_height:=400 depth_fps:=30 depth_format:=Y11 \
+  enable_ir:=false enable_ldp:=false depth_registration:=true \
+  enable_point_cloud:=true enable_colored_point_cloud:=false
+```
+
+Launch the Dobot stack with the validated suction-cup tool mapping:
+
+```bash
+export MAGICIAN_TOOL=suction_cup
+ros2 launch dobot_bringup dobot_magician_control_system.launch.py
+```
+
+Important interfaces:
+
+- TCP pose: `/dobot_TCP`; raw TCP: `/dobot_pose_raw`
+- Joint readback: `/joint_states`; alarms: `/dobot_alarms`
+- PTP motion action: `/PTP_action` (`dobot_msgs/action/PointToPoint`)
+- Suction service: `/dobot_suction_cup_service`
+  (`dobot_msgs/srv/SuctionCupControl`, `enable_suction: true|false`)
+- Gripper is a separate ID 63 path and is not the selected tool.
+
+Known limitations:
+
+- Suction reports controller command/ACK state; no vacuum-pressure sensor has
+  been validated.
+- Camera-to-robot calibration and live picking remain separate gated
+  validations. Vision defaults remain dry-run and real motion disabled.
+- Reproducible dependency installation still requires the Jazzy/system
+  packages recorded in `MIGRATION_MANIFEST.md`.
+
+The original upstream package documentation follows below.
+
 <img src="https://img.shields.io/badge/ros--version-humble-green"/>  <img src="https://img.shields.io/badge/platform%20-Ubuntu%2022.04-orange"/>  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <p align="center">
@@ -29,6 +107,8 @@
 <a name="packages"></a>
 ## Packages in the repository :open_file_folder:
 
+  - [`dobot_object_vision`](dobot_object_vision/README.md) - RGB-D black, white and yellow circular suction targets, metric geometry and typed detections
+  - [`dobot_calibration`](dobot_calibration/README.md) - automatic markerless RGB-D eye-in-hand calibration, independent verification and picking readiness
   - `dobot_bringup` - launch files and parameters configuration (in _YAML_ files)
   - `dobot_control_panel` - RQT plugin to control Dobot Magician robotic arm (as well as sliding rail)
   - `dobot_demos` - a collection of sample scripts for beginners (_minimal working examples_)
@@ -319,5 +399,4 @@ If you find this work useful, please give credits to the author by citing:
 Please use the [**issue tracker**](https://github.com/jkaniuka/magician_ros2/issues) to report any bugs or feature requests.
 
 
-
-
+# arm_magician_ros2
