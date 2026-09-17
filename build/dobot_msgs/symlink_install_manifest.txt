@@ -11,6 +11,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.json
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GetPTPCommonParams.json
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SetPTPCommonParams.json
+/home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/StartSmokeTest.json
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__functions.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__struct.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__type_support.h
@@ -51,6 +52,9 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__functions.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__struct.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__functions.h
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__struct.h
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__type_support.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__functions.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__struct.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__type_support.h
@@ -59,6 +63,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/get_ptp_common_params.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/gripper_control.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/set_ptp_common_params.h
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/start_smoke_test.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/suction_cup_control.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/library_path.sh
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/library_path.dsv
@@ -74,6 +79,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_fastrtps_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_fastrtps_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_fastrtps_c.h
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__rosidl_typesupport_fastrtps_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_fastrtps_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_introspection_c.h
@@ -87,6 +93,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_introspection_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_introspection_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_introspection_c.h
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__rosidl_typesupport_introspection_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_c.h
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__builder.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__struct.hpp
@@ -139,6 +146,10 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__struct.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__traits.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__type_support.hpp
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__builder.hpp
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__struct.hpp
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__traits.hpp
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__type_support.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__builder.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__struct.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__traits.hpp
@@ -148,6 +159,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/get_ptp_common_params.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/gripper_control.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/set_ptp_common_params.hpp
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/start_smoke_test.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/suction_cup_control.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_fastrtps_cpp.hpp
@@ -161,6 +173,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_fastrtps_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_fastrtps_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_fastrtps_cpp.hpp
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__rosidl_typesupport_fastrtps_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_fastrtps_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_introspection_cpp.hpp
@@ -173,6 +186,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_introspection_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_introspection_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_introspection_cpp.hpp
+/home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/start_smoke_test__rosidl_typesupport_introspection_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_cpp.hpp
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/pythonpath.sh
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/pythonpath.dsv
@@ -212,6 +226,8 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_gripper_control_s.c
 /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_set_ptp_common_params.py
 /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_set_ptp_common_params_s.c
+/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_start_smoke_test.py
+/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_start_smoke_test_s.c
 /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_suction_cup_control.py
 /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_suction_cup_control_s.c
 /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_fastrtps_c.so
@@ -238,6 +254,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.idl
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GetPTPCommonParams.idl
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SetPTPCommonParams.idl
+/home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/StartSmokeTest.idl
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/PointToPoint.action
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/SlidingRail.action
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/DobotAlarmCodes.msg
@@ -250,6 +267,7 @@
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.srv
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GetPTPCommonParams.srv
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SetPTPCommonParams.srv
+/home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/StartSmokeTest.srv
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/package_run_dependencies/dobot_msgs
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/parent_prefix_path/dobot_msgs
 /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/ament_prefix_path.sh

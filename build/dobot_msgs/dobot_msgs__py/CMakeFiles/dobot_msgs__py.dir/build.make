@@ -81,6 +81,7 @@ include /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_suction_cup_control.py
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_get_ptp_common_params.py
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params.py
+/home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_start_smoke_test.py
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/action/__init__.py
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/msg/__init__.py
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/__init__.py
@@ -96,6 +97,7 @@ include /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_get_ptp_common_params_s.c
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c
+/home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c
 
 rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_py/__init__.py
@@ -122,6 +124,7 @@ rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c:
 rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
 rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
 rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
+rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/dobot_msgs/srv/StartSmokeTest.idl
 rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -238,6 +241,9 @@ rosidl_generator_py/dobot_msgs/srv/_get_ptp_common_params.py: rosidl_generator_p
 rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params.py: rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params.py
 
+rosidl_generator_py/dobot_msgs/srv/_start_smoke_test.py: rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dobot_msgs/srv/_start_smoke_test.py
+
 rosidl_generator_py/dobot_msgs/action/__init__.py: rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dobot_msgs/action/__init__.py
 
@@ -283,6 +289,9 @@ rosidl_generator_py/dobot_msgs/srv/_get_ptp_common_params_s.c: rosidl_generator_
 rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c: rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c
 
+rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c: rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c
+
 dobot_msgs__py: /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py
 dobot_msgs__py: rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_c.c
 dobot_msgs__py: rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
@@ -312,6 +321,8 @@ dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_gripper_control.py
 dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_gripper_control_s.c
 dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params.py
 dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c
+dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_start_smoke_test.py
+dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c
 dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_suction_cup_control.py
 dobot_msgs__py: rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c
 dobot_msgs__py: /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__py/CMakeFiles/dobot_msgs__py.dir/build.make

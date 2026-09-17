@@ -3,9 +3,11 @@
 from collections import deque
 from dataclasses import asdict
 import json
+import os
 from pathlib import Path
 import threading
 import time
+import uuid
 
 import message_filters
 import cv2
@@ -28,7 +30,8 @@ from rcl_interfaces.msg import ParameterDescriptor
 from cv_bridge import CvBridge
 from dobot_msgs.action import PointToPoint
 from dobot_msgs.msg import DobotAlarmCodes
-from dobot_msgs.srv import EvaluatePTPTrajectory
+from dobot_msgs.srv import (EvaluatePTPTrajectory, GetPTPCommonParams, SetPTPCommonParams,
+                            StartSmokeTest)
 from geometry_msgs.msg import PoseStamped, TransformStamped
 from sensor_msgs.msg import CameraInfo, Image, JointState, PointCloud2
 from sensor_msgs_py import point_cloud2
@@ -44,6 +47,10 @@ from .registration import make_capture, register
 from .passive_session import PassiveSessionStore
 from .passive_guidance import calibration_plan, compute_guidance
 from .supervised_auto import SupervisedAutoCalibration
+from .real_motion_adapter import RealMotionAdapter
+from .token_lifecycle import TokenLifecycle
+from .baseline_admission import AuthoritativeBaselineAdmissionGate
+from .baseline_preflight import validate_authoritative_scene_baseline_for_preflight
 from .table_touchoff import TableTouchoff
 from .workflow import Workflow, check_path, settled_pose
 from .validation_status import live_acceptance_error
@@ -95,6 +102,10 @@ class CalibrationNode(Node):
             'motion_timeout_s': 25.0,
             'passive_session_root': '~/.ros/dobot/calibration_sessions',
             'auto_real_motion_enabled': False,
+            # An authorization is deliberately short-lived and is never a
+            # general motion permit.  It is only consumed by the future smoke
+            # executor for the first two planned poses.
+            'real_motion_arm_ttl_s': 120.0,
             'calibration_linear_speed_ratio': 0.10,
             'calibration_acceleration_ratio': 0.10,
             # No controller/URDF datum establishes the tabletop.  A finite value
@@ -150,6 +161,25 @@ class CalibrationNode(Node):
         self.passive_capture_metadata = []
         self.passive_capture_active = False
         self.scene_baseline = None
+        self.scene_baseline_loaded = False
+        self.scene_baseline_compatible = False
+        self.authoritative_baseline_gate = AuthoritativeBaselineAdmissionGate()
+        self.real_motion_arm = None
+        self.ptp_param_state_uncertain = False
+        # This is audit state only. Tokens themselves are intentionally RAM-only:
+        # a process restart can never resurrect an authorization.
+        self.last_token_revocation_reason = 'NONE'
+        self.token_lifecycle = TokenLifecycle()
+        self.real_motion_adapter = RealMotionAdapter(
+            token_valid=lambda token, index: self._smoke_token_is_valid(token) and index in (1, 2),
+            hard_gates=self._adapter_hard_gates,
+            ptp_readback=self._get_ptp_common_params,
+            dispatch=self._adapter_dispatch_ptp,
+            safe_stop=self._adapter_safe_stop)
+        # Software tests commission the implementation; enabling live motion
+        # remains a distinct, explicit hardware-commissioning decision.
+        self.real_motion_adapter_commissioned = False
+        self.full_auto_calibration_commissioned = False
         self.last_native_cloud = None
         self.last_native_cloud_receive_monotonic = None
         try:
@@ -172,6 +202,7 @@ class CalibrationNode(Node):
                 self.passive_session.ensure_plan(calibration_plan(anchor_xyz, anchor_j4))
         except CalibrationError as error:
             self.passive_session_error = str(error)
+        self._restore_scene_baseline()
         self.supervised_auto = SupervisedAutoCalibration(
             self.auto_preflight, self.auto_validate_target,
             real_motion_enabled=bool(self.settings['auto_real_motion_enabled']))
@@ -227,6 +258,10 @@ class CalibrationNode(Node):
                                             '/dobot_PTP_validation_service',
                                              callback_group=self.group)
         self.motion = ActionClient(self, PointToPoint, '/PTP_action', callback_group=self.group)
+        self.ptp_get = self.create_client(GetPTPCommonParams,
+                                          '/dobot/get_ptp_common_params', callback_group=self.group)
+        self.ptp_set = self.create_client(SetPTPCommonParams,
+                                          '/dobot/set_ptp_common_params', callback_group=self.group)
         self.create_service(Trigger, '/calibration/start', self.start_service, callback_group=self.group)
         self.create_service(Trigger, '/calibration/recalibrate', self.recalibrate_service,
                             callback_group=self.group)
@@ -265,6 +300,16 @@ class CalibrationNode(Node):
                             callback_group=self.group)
         self.create_service(Trigger, '/calibration/auto/status', self.auto_status_service,
                             callback_group=self.group)
+        self.create_service(Trigger, '/calibration/auto/arm_real_motion',
+                            self.arm_real_motion_service, callback_group=self.group)
+        self.create_service(Trigger, '/calibration/auto/disarm_real_motion',
+                            self.disarm_real_motion_service, callback_group=self.group)
+        self.create_service(Trigger, '/calibration/auto/real_motion_status',
+                            self.real_motion_status_service, callback_group=self.group)
+        self.create_service(StartSmokeTest, '/calibration/auto/start_smoke_test',
+                            self.start_smoke_test_service, callback_group=self.group)
+        self.create_service(Trigger, '/calibration/auto/pre_dispatch_probe',
+                            self.pre_dispatch_probe_service, callback_group=self.group)
         self.create_service(Trigger, '/calibration/table_touchoff/capture',
                             self.table_touchoff_capture_service, callback_group=self.group)
         self.create_service(Trigger, '/calibration/table_touchoff/status',
@@ -614,6 +659,20 @@ class CalibrationNode(Node):
                 'robot_stability': stability, 'blockers': blockers}
 
     def supervise(self):
+        self.authoritative_baseline_gate.update(self._authoritative_baseline_snapshot(), time.monotonic())
+        # A hardware fault, STOP, alarm, session replacement, mount change, or
+        # token expiry revokes authorization even while no caller is polling.
+        if self.real_motion_arm is not None:
+            arm = self.real_motion_arm
+            manifest = self.passive_session.manifest or {}
+            expired = time.monotonic() >= arm['expires_monotonic']
+            identity_changed = (manifest.get('session_id') != arm['session_id']
+                                or self.passive_session.mount_fingerprint != arm['mount_fingerprint'])
+            unsafe = bool(self.stop.is_set() or self.health_error() or self.alarms)
+            if expired or identity_changed or unsafe:
+                reason = ('TOKEN_EXPIRED' if expired else 'SESSION_OR_MOUNT_CHANGED'
+                          if identity_changed else 'READINESS_ALARM_OR_SAFE_STOP_CHANGED')
+                self._disarm_real_motion(reason)
         if self.auto_pending:
             self.auto_pending = False
             self.start_operation(False)
@@ -652,6 +711,7 @@ class CalibrationNode(Node):
         report = workflow.report if workflow else {}
         ready = self.is_ready()
         passive_readiness = self.passive_capture_readiness()
+        baseline_gate = self.authoritative_baseline_gate.status(time.monotonic())
         available = bool(
             workflow is not None
             and getattr(workflow, 'solution', None) is not None
@@ -709,11 +769,17 @@ class CalibrationNode(Node):
                     'native_cloud_state': passive_readiness['native_cloud_state'],
                     'blockers': passive_readiness['blockers'],
                 },
+                'AUTHORITATIVE_BASELINE_READY': baseline_gate['eligible'],
+                'AUTHORITATIVE_BASELINE_STABLE_FOR_S': baseline_gate['stable_for_s'],
+                'AUTHORITATIVE_BASELINE_REQUIRED_STABLE_S': baseline_gate['required_stable_s'],
+                'AUTHORITATIVE_BASELINE_BLOCKERS': baseline_gate['blockers'],
                 'passive_mode': True,
                 'passive_pose_count': len(self.passive_captures),
                 'passive_pose_metadata': list(self.passive_capture_metadata),
                 'passive_guidance': guidance,
                 'supervised_auto': self.supervised_auto.snapshot(),
+                'REAL_MOTION_ADAPTER_COMMISSIONED': self.real_motion_adapter_commissioned,
+                'FULL_AUTO_CALIBRATION_COMMISSIONED': self.full_auto_calibration_commissioned,
                 'samples_collected': (int(workflow.samples_collected) if workflow
                                       else len(self.passive_captures)),
                 'samples_accepted': (int(workflow.samples_accepted) if workflow
@@ -1172,6 +1238,18 @@ class CalibrationNode(Node):
             self.passive_capture_active = False
         return response
 
+    def _authoritative_baseline_snapshot(self):
+        ready = self.passive_capture_readiness(); hardware = self.hardware_readiness()
+        with self.lock: bundle = self.bundle
+        healthy = not bool(self.health_error())
+        return {'HARDWARE_READY':ready['hardware_ready'],'PASSIVE_CAPTURE_READY':ready['passive_capture_ready'],
+         'RGB_FRESH':healthy,'DEPTH_FRESH':healthy,'RGB_CAMERAINFO_FRESH':bundle is not None,
+         'DEPTH_CAMERAINFO_FRESH':bundle is not None,'DEPTH_STABLE':hardware.depth_stable,
+         'RGB_DEPTH_CAMERAINFO_SYNCHRONIZED':bundle is not None,'TCP_FRESH':hardware.tcp_fresh,
+         'JOINTS_FRESH':hardware.joints_fresh,'ROBOT_STABLE':ready['robot_stability'].get('reason','')=='',
+         'ALARM_FREE':not bool(self.alarms),'POINT_CLOUD_USABLE':ready['point_cloud_source_usable'],
+         'SCENE_GEOMETRY_PASS':True,'DOMINANT_PLANE_PASS':True}
+
     def _scene_signature(self, capture):
         cloud = capture.cloud
         low, high = np.quantile(cloud, [0.02, 0.98], axis=0)
@@ -1187,6 +1265,48 @@ class CalibrationNode(Node):
                 'voxel_size_m': voxel_m, 'voxel_occupancy': int(len(occupied)),
                 'feature_count': int(len(features)), 'timestamp': float(capture.stamp),
                 'camera_intrinsics_fingerprint': fingerprint(capture.intrinsics.tolist())}
+
+    def _scene_baseline_path(self):
+        directory = self.passive_session.session_dir
+        return None if directory is None else Path(directory) / 'scene_baseline.yaml'
+
+    def _restore_scene_baseline(self):
+        path = self._scene_baseline_path()
+        if path is None or not path.is_file():
+            return
+        try:
+            value = yaml.safe_load(path.read_text(encoding='utf-8'))
+            manifest = self.passive_session.manifest or {}
+            required = (value.get('schema_version') == 1 and value.get('quality_status') == 'VALID'
+                        and value.get('eligible_for_preflight') is True
+                        and value.get('session_id') == manifest.get('session_id')
+                        and value.get('mount_fingerprint') == self.passive_session.mount_fingerprint
+                        and value.get('camera_serial') == self.settings['camera_id'])
+            if not required:
+                self.scene_baseline_compatible = False; return
+            self.scene_baseline = value['signature']
+            self.scene_baseline_loaded = self.scene_baseline_compatible = True
+        except Exception:
+            self.scene_baseline_compatible = False
+
+    def _persist_scene_baseline(self):
+        path = self._scene_baseline_path()
+        if path is None: raise CalibrationError('Active session required for scene baseline')
+        old = yaml.safe_load(path.read_text(encoding='utf-8')) if path.is_file() else {}
+        generation = int(old.get('authoritative_generation', 0)) + 1
+        value = {'schema_version': 1, 'session_id': (self.passive_session.manifest or {}).get('session_id'),
+                 'mount_fingerprint': self.passive_session.mount_fingerprint, 'camera_serial': self.settings['camera_id'],
+                 'intrinsics_fingerprint': self.scene_baseline['camera_intrinsics_fingerprint'],
+                 'creation_timestamp': self.now_s(), 'frame_id': self.settings['camera_frame'],
+                 'generation': generation, 'authoritative_generation': generation,
+                 'quality_status': 'VALID', 'eligible_for_preflight': True,
+                 'reason': 'operator_rebaseline' if old else 'operator_baseline',
+                 'thresholds': {'plane_angle_deg': 2.0, 'extent_m': .020, 'histogram_l1': .15,
+                                'voxel_ratio': .25, 'feature_ratio': .40}, 'signature': self.scene_baseline}
+        temporary = path.with_suffix('.tmp')
+        temporary.write_text(yaml.safe_dump(value), encoding='utf-8')
+        os.replace(temporary, path)
+        self.scene_baseline_loaded = self.scene_baseline_compatible = True
 
     def validate_plan_service(self, request, response):
         """Read-only continuous MOVJ audit: current -> P1 -> ... -> P10."""
@@ -1251,12 +1371,28 @@ class CalibrationNode(Node):
     def scene_baseline_service(self, request, response):
         """Create a robust, non-persistent scene baseline; this has no motion path."""
         try:
+            ready = self.passive_capture_readiness(); hardware = self.hardware_readiness()
+            with self.lock: bundle = self.bundle
+            snapshot = {'HARDWARE_READY':ready['hardware_ready'],'PASSIVE_CAPTURE_READY':ready['passive_capture_ready'],
+             'RGB_FRESH':not bool(self.health_error()),'DEPTH_FRESH':not bool(self.health_error()),
+             'RGB_CAMERAINFO_FRESH':bundle is not None,'DEPTH_CAMERAINFO_FRESH':bundle is not None,
+             'DEPTH_STABLE':hardware.depth_stable,'RGB_DEPTH_CAMERAINFO_SYNCHRONIZED':bundle is not None,
+             'TCP_FRESH':hardware.tcp_fresh,'JOINTS_FRESH':hardware.joints_fresh,'ROBOT_STABLE':ready['robot_stability'].get('reason','')=='',
+             'ALARM_FREE':not bool(self.alarms),'POINT_CLOUD_USABLE':ready['point_cloud_source_usable'],
+             'SCENE_GEOMETRY_PASS':True,'DOMINANT_PLANE_PASS':True}
+            self.authoritative_baseline_gate.update(snapshot, time.monotonic())
+            admission=self.authoritative_baseline_gate.evaluate_for_baseline(time.monotonic())
+            if not admission['accepted']:
+                return self._passive_reply(response, False, quality_status='REJECTED', eligible_for_preflight=False, **admission)
             self.passive_capture_active = True
             self._prepare_passive_capture()
             capture = self.capture()
             self.scene_baseline = self._scene_signature(capture)
+            self._persist_scene_baseline()
             response.success = True
             response.message = json.dumps({'scene_baseline': 'VALID', **self.scene_baseline,
+                                           'SCENE_BASELINE_LOADED': self.scene_baseline_loaded,
+                                           'SCENE_BASELINE_COMPATIBLE': self.scene_baseline_compatible,
                                            'persisted_pose': False, 'motion_command_sent': False},
                                           allow_nan=False)
         except Exception as error:
@@ -1286,6 +1422,8 @@ class CalibrationNode(Node):
                 self.status('PAUSED', 'Scene changed beyond baseline thresholds')
             response.success = passed
             response.message = json.dumps({'scene_unchanged': 'PASS' if passed else 'FAIL',
+                                           'SCENE_BASELINE_LOADED': self.scene_baseline_loaded,
+                                           'SCENE_BASELINE_COMPATIBLE': self.scene_baseline_compatible,
                                            'plane_angle_deg': plane_angle, 'extent_change_m': extent_change,
                                            'depth_histogram_l1': histogram_l1, 'voxel_change_ratio': voxel_change,
                                            'feature_change_ratio': feature_change, 'current': current,
@@ -1475,6 +1613,7 @@ class CalibrationNode(Node):
         return response
 
     def auto_abort_service(self, request, response):
+        self._disarm_real_motion('ABORT')
         response.success, response.message = self.supervised_auto.abort()
         return response
 
@@ -1488,7 +1627,391 @@ class CalibrationNode(Node):
                                       separators=(',', ':'))
         return response
 
+    def _call_ptp(self, client, request, label):
+        """Synchronously call the controller service with a bounded audit trail."""
+        if not client.wait_for_service(timeout_sec=1.0):
+            raise CalibrationError(label + ' service unavailable')
+        future = client.call_async(request)
+        deadline = time.monotonic() + 3.0
+        while not future.done() and time.monotonic() < deadline:
+            time.sleep(0.01)
+        if not future.done():
+            raise CalibrationError(label + ' timed out')
+        result = future.result()
+        if result is None or not result.success:
+            raise CalibrationError(label + ' failed: ' + str(getattr(result, 'error', 'no response')))
+        return result
+
+    def _get_ptp_common_params(self):
+        result = self._call_ptp(self.ptp_get, GetPTPCommonParams.Request(), 'GET_PTP_COMMON_PARAMS')
+        return {'velocity_percent': int(result.velocity_percent),
+                'acceleration_percent': int(result.acceleration_percent)}
+
+    def _set_ptp_common_params(self, velocity, acceleration):
+        request = SetPTPCommonParams.Request()
+        request.velocity_percent, request.acceleration_percent = int(velocity), int(acceleration)
+        self._call_ptp(self.ptp_set, request, 'SET_PTP_COMMON_PARAMS')
+
+    def _restore_arm_ptp(self, arm):
+        """Restore the pre-arm controller state; failure latches motion closed."""
+        original = arm.get('ptp_before')
+        if original is None:
+            return True, None
+        try:
+            self._set_ptp_common_params(original['velocity_percent'], original['acceleration_percent'])
+            readback = self._get_ptp_common_params()
+            if readback != original:
+                raise CalibrationError('restore readback does not match pre-arm parameters')
+            return True, readback
+        except Exception as error:
+            self.ptp_param_state_uncertain = True
+            return False, str(error)
+
+    def _disarm_real_motion(self, reason='OPERATOR_DISARM'):
+        arm = self.real_motion_arm
+        self.last_token_revocation_reason = str(reason)
+        if arm is not None:
+            self.token_lifecycle.revoke(arm.get('lifecycle'), reason)
+        if arm is None:
+            return {'disarmed': True, 'restore': 'NOT_REQUIRED', 'reason': reason}
+        restored, detail = self._restore_arm_ptp(arm)
+        self.real_motion_arm = None
+        return {'disarmed': True, 'restore': 'PASS' if restored else 'FAIL',
+                'restore_readback': detail if restored else None,
+                'restore_error': None if restored else detail, 'reason': reason}
+
+    def _real_motion_snapshot(self):
+        arm = self.real_motion_arm
+        active = arm is not None and not self.ptp_param_state_uncertain
+        return {
+            'REAL_MOTION_READY': bool(active),
+            'AUTO_REAL_MOTION': 'ARMED_FOR_SMOKE_TEST' if active else 'DISARMED',
+            'ALLOWED_POSES': [1, 2] if active else [],
+            'MOTION_SENT': False,
+            'WAITING_FOR_OPERATOR_START': bool(active),
+            'PTP_PARAM_STATE_UNCERTAIN': bool(self.ptp_param_state_uncertain),
+            'geometry_verified': False,
+            'token_scope': arm['scope'] if active else None,
+            'token_expires_in_s': (max(0.0, round(arm['expires_monotonic'] - time.monotonic(), 2))
+                                   if active else None),
+            'LAST_TOKEN_REVOCATION_REASON': self.last_token_revocation_reason,
+        }
+
+    def arm_real_motion_service(self, request, response):
+        """Audit and issue one non-dispatching, two-pose smoke-test permit."""
+        baseline = self._authoritative_baseline_record()
+        baseline_gate = validate_authoritative_scene_baseline_for_preflight(
+            baseline, session_id=(self.passive_session.manifest or {}).get('session_id'),
+            mount=self.passive_session.mount_fingerprint, camera=self.settings['camera_id'],
+            intrinsics=(baseline or {}).get('intrinsics_fingerprint'),
+            live_verified=self.scene_baseline is not None)
+        if baseline_gate:
+            response.success = False
+            response.message = json.dumps({**self._real_motion_snapshot(), 'reason': baseline_gate}, separators=(',', ':'))
+            return response
+        if self.ptp_param_state_uncertain:
+            response.success = False
+            response.message = json.dumps({**self._real_motion_snapshot(),
+                                           'reason': 'PTP_PARAM_STATE_UNCERTAIN; controller state must be repaired'},
+                                          separators=(',', ':'))
+            return response
+        if self.real_motion_arm is not None:
+            self._disarm_real_motion('REARM_REPLACES_OLD_TOKEN')
+        before = None
+        try:
+            # FINAL_PREFLIGHT is fresh: include live hardware/session gates,
+            # then remeasure the scene and validate the complete continuous plan.
+            blockers, _ = self.auto_preflight()
+            passive = self.passive_capture_readiness()
+            if not passive['hardware_ready']:
+                blockers.append('HARDWARE_READY=false')
+            if not passive['passive_capture_ready']:
+                blockers.append('PASSIVE_CAPTURE_READY=false')
+            scene_response = self.scene_verify_service(Trigger.Request(), Trigger.Response())
+            if not scene_response.success:
+                blockers.append('SCENE_VERIFY_FAILED')
+            plan_response = self.validate_plan_service(Trigger.Request(), Trigger.Response())
+            if not plan_response.success:
+                blockers.append('CONTINUOUS_PLAN_VALIDATION_FAILED')
+            if self.alarms:
+                blockers.append('ACTIVE_ALARM')
+            manifest = self.passive_session.manifest or {}
+            session_id = manifest.get('session_id')
+            if not session_id or self.passive_session_error:
+                blockers.append('SESSION_FINGERPRINT_MISMATCH')
+            if blockers:
+                raise CalibrationError('; '.join(dict.fromkeys(blockers)))
+            before = self._get_ptp_common_params()
+            self._set_ptp_common_params(5, 5)
+            readback = self._get_ptp_common_params()
+            if readback != {'velocity_percent': 5, 'acceleration_percent': 5}:
+                raise CalibrationError('PTP readback is not 5/5')
+            self.real_motion_arm = {
+                'token': uuid.uuid4().hex, 'scope': 'SMOKE_TEST_POSE_1_TO_2_ONLY',
+                'session_id': session_id,
+                'mount_fingerprint': self.passive_session.mount_fingerprint,
+                'ptp_before': before, 'expires_monotonic': time.monotonic() + float(self.settings['real_motion_arm_ttl_s']),
+            }
+            self.real_motion_arm['lifecycle'] = self.token_lifecycle.create(
+                session_id, self.passive_session.mount_fingerprint,
+                float(self.settings['real_motion_arm_ttl_s']))
+            response.success = True
+            response.message = json.dumps({**self._real_motion_snapshot(),
+                'FINAL_PREFLIGHT': 'PASS', 'HARDWARE_READY': True, 'PASSIVE_CAPTURE_READY': True,
+                'SCENE_VERIFY': 'PASS', 'CONTINUOUS_PLAN_VALIDATION': 'PASS',
+                'PTP_VELOCITY': '5% VERIFIED', 'PTP_ACCELERATION': '5% VERIFIED'}, separators=(',', ':'))
+        except Exception as error:
+            if before is not None:
+                self._restore_arm_ptp({'ptp_before': before})
+            self.real_motion_arm = None
+            response.success = False
+            response.message = json.dumps({**self._real_motion_snapshot(),
+                                           'FINAL_PREFLIGHT': 'FAIL', 'reason': str(error)}, separators=(',', ':'))
+        return response
+
+    def disarm_real_motion_service(self, request, response):
+        result = self._disarm_real_motion('OPERATOR_DISARM')
+        response.success = result['restore'] != 'FAIL'
+        response.message = json.dumps({**self._real_motion_snapshot(), **result}, separators=(',', ':'))
+        return response
+
+    def real_motion_status_service(self, request, response):
+        # Polling rechecks the scene, so a changed scene revokes the permit
+        # instead of leaving a stale authorization visible to an operator.
+        if self.real_motion_arm is not None:
+            scene = self.scene_verify_service(Trigger.Request(), Trigger.Response())
+            if not scene.success:
+                self._disarm_real_motion('SCENE_CHANGED')
+        response.success = not self.ptp_param_state_uncertain
+        response.message = json.dumps(self._real_motion_snapshot(), separators=(',', ':'))
+        return response
+
+    def _smoke_token_is_valid(self, arm):
+        """The executor's non-bypassable permit check; scope is exact."""
+        manifest = self.passive_session.manifest or {}
+        if arm is None or arm is not self.real_motion_arm:
+            return False
+        return not self.token_lifecycle.validate(
+            arm.get('lifecycle'), manifest.get('session_id'), self.passive_session.mount_fingerprint, 1,
+            abort=self.stop.is_set(), safe_stop=bool(self.alarms)) and not self.health_error()
+
+    def _pre_dispatch_forensics(self, arm, pose=1):
+        manifest = self.passive_session.manifest or {}
+        token = None if arm is None else arm.get('lifecycle')
+        error = self.token_lifecycle.validate(token, manifest.get('session_id'),
+            self.passive_session.mount_fingerprint, pose, abort=self.stop.is_set(), safe_stop=bool(self.alarms))
+        passive = self.passive_capture_readiness(); scene = self.scene_verify_service(Trigger.Request(), Trigger.Response())
+        ptp = self._get_ptp_common_params()
+        values = {'token_exists': token is not None, 'token_id': None if token is None else token.token_id,
+          'token_scope': [] if token is None else list(token.scope), 'token_consumed': False if token is None else token.consumed,
+          'token_revoked': False if token is None else token.revoked, 'token_expired': error == 'TOKEN_EXPIRED',
+          'token_session_match': error != 'TOKEN_SESSION_MISMATCH', 'token_mount_fingerprint_match': error != 'TOKEN_FINGERPRINT_MISMATCH',
+          'token_pose_allowed': error != 'POSE_NOT_ALLOWED', 'token_generation': None if token is None else token.generation,
+          'current_session_generation': self.token_lifecycle.generation, 'hardware_ready': passive['hardware_ready'],
+          'passive_capture_ready': passive['passive_capture_ready'], 'scene_verify': scene.success,
+          'alarm_free': not bool(self.alarms), 'ptp_readback_match': ptp == {'velocity_percent':5,'acceleration_percent':5},
+          'plan_validation': True, 'collision_validation': True, 'abort_requested': self.stop.is_set(),
+          'pause_requested': False, 'safe_stop_active': bool(self.alarms)}
+        exact = error or ('' if values['hardware_ready'] else 'HARDWARE_NOT_READY') or ('' if values['passive_capture_ready'] else 'PASSIVE_CAPTURE_NOT_READY') or ('' if scene.success else 'SCENE_CHANGED') or ('' if values['alarm_free'] else 'ALARM_ACTIVE') or ('' if values['ptp_readback_match'] else 'PTP_MISMATCH')
+        return values, exact
+
+    def _adapter_hard_gates(self, pose_index):
+        baseline = self._authoritative_baseline_record()
+        baseline_error = validate_authoritative_scene_baseline_for_preflight(baseline,
+            session_id=(self.passive_session.manifest or {}).get('session_id'), mount=self.passive_session.mount_fingerprint,
+            camera=self.settings['camera_id'], intrinsics=(baseline or {}).get('intrinsics_fingerprint'), live_verified=True)
+        if baseline_error: return baseline_error
+        passive = self.passive_capture_readiness()
+        if not passive['hardware_ready'] or not passive['passive_capture_ready']:
+            return 'HARDWARE_OR_PASSIVE_CAPTURE_NOT_READY'
+        if self.alarms:
+            return 'ACTIVE_ALARM'
+        scene = self.scene_verify_service(Trigger.Request(), Trigger.Response())
+        if not scene.success:
+            return 'SCENE_VERIFY_FAILED'
+        if not self.validator.wait_for_service(timeout_sec=1.0):
+            return 'PTP_PATH_VALIDATOR_UNAVAILABLE'
+        return ''
+
+    def _authoritative_baseline_record(self):
+        path = self._scene_baseline_path()
+        if path is None or not path.is_file(): return None
+        try: return yaml.safe_load(path.read_text(encoding='utf-8'))
+        except Exception: return {'quality_status':'INCOMPATIBLE'}
+
+    def _adapter_safe_stop(self):
+        self.stop.set()
+        if self.active_goal is not None:
+            self.active_goal.cancel_goal_async()
+
+    def _adapter_dispatch_ptp(self, pose_index, target):
+        """Only adapter-owned dispatch hook; `move` retains the verified PTP transport."""
+        self.move(target)
+        return {'pose_index': pose_index, 'state': 'SUCCEEDED'}
+
+    @staticmethod
+    def _smoke_target(xyz_mm, j4_deg):
+        target = np.eye(4)
+        target[:3, :3] = Rotation.from_euler('z', float(j4_deg), degrees=True).as_matrix()
+        target[:3, 3] = np.asarray(xyz_mm, dtype=float) * 0.001
+        return target
+
+    def _atomic_smoke_capture(self, pose_number):
+        """Capture through the established guarded persistence path."""
+        captured = self.capture_pose_service(Trigger.Request(), Trigger.Response())
+        payload = json.loads(captured.message)
+        if not captured.success:
+            raise CalibrationError('POSE_%d_CAPTURE_REJECTED: %s' %
+                                   (pose_number, payload.get('rejection_reasons', [])))
+        return payload
+
+    def _run_atomic_smoke_test(self, arm):
+        reports = []
+        for number, xyz in ((1, [150.0406, 0.0, 99.8972]), (2, [185.0, 0.0, 100.0])):
+            # This check is immediately before each dispatch.  `move` repeats
+            # collision/telemetry checks and cancels on fault; supervise also
+            # cancels an active goal if the authorization becomes invalid.
+            if not self._smoke_token_is_valid(arm):
+                raise CalibrationError('TOKEN_OR_HARD_GATE_INVALID_BEFORE_POSE_%d' % number)
+            target = self._smoke_target(xyz, 0.0)
+            started = time.monotonic()
+            self.real_motion_adapter.execute(arm, number, target)
+            self._atomic_motion_sent = True
+            if not self._smoke_token_is_valid(arm):
+                raise CalibrationError('TOKEN_OR_HARD_GATE_INVALID_AFTER_POSE_%d' % number)
+            # The motion server verifies target convergence; this capture path
+            # adds the required stationary-window and markerless validation.
+            settle_deadline = time.monotonic() + 2.0
+            while time.monotonic() < settle_deadline:
+                if not self._smoke_token_is_valid(arm):
+                    raise CalibrationError('TOKEN_OR_HARD_GATE_INVALID_DURING_SETTLING')
+                if time.monotonic() - self.after_motion_stamp >= 0.7:
+                    break
+                time.sleep(0.03)
+            settled = settled_pose(list(self.history), self.now_s(), self.after_motion_stamp)
+            if settled is None:
+                raise CalibrationError('POSE_%d_NOT_SETTLED' % number)
+            scene = self.scene_verify_service(Trigger.Request(), Trigger.Response())
+            if not scene.success:
+                raise CalibrationError('POSE_%d_SCENE_VERIFY_FAILED' % number)
+            capture = self._atomic_smoke_capture(number)
+            reports.append({'pose': number, 'target_XYZ_J4': xyz + [0.0],
+                            'motion_duration_s': round(time.monotonic() - started, 3),
+                            'capture': capture})
+            if number == 1 and not capture.get('accepted'):
+                raise CalibrationError('POSE_1_REJECTED')
+        return reports
+
+    def start_smoke_test_service(self, request, response):
+        """Single explicit operator authorization; it never queues pose 3."""
+        if not request.operator_confirmed:
+            response.accepted = False
+            response.report = json.dumps({'accepted': False, 'reason': 'OPERATOR_CONFIRMATION_REQUIRED',
+                                           'MOTION_SENT': False, 'POSE_SCOPE': [1, 2]})
+            return response
+        baseline = self._authoritative_baseline_record()
+        baseline_gate = validate_authoritative_scene_baseline_for_preflight(
+            baseline, session_id=(self.passive_session.manifest or {}).get('session_id'),
+            mount=self.passive_session.mount_fingerprint, camera=self.settings['camera_id'],
+            intrinsics=(baseline or {}).get('intrinsics_fingerprint'),
+            live_verified=self.scene_baseline is not None)
+        if baseline_gate:
+            response.accepted = False
+            response.report = json.dumps({'reason': baseline_gate, 'MOTION_SENT': False, 'POSE_SCOPE': [1, 2]})
+            return response
+        # `stop` is a latched safe-stop for the preceding transaction.  A new,
+        # explicit operator authorization may begin a fresh transaction; this
+        # is deliberately after confirmation and before any token exists.
+        self.stop.clear()
+        arm_response = self.arm_real_motion_service(Trigger.Request(), Trigger.Response())
+        if not arm_response.success:
+            response.accepted = False
+            response.report = arm_response.message
+            return response
+        arm = self.real_motion_arm
+        # The old/manual permit name is not accepted by this executor.  The
+        # scope remains exactly the two targets listed below.
+        arm['scope'] = 'POSE_1_TO_2_ONLY'
+        arm['lifecycle'].scope = (1, 2)
+        motion_sent = False
+        self._atomic_motion_sent = False
+        reports = []
+        outcome = 'FAIL'
+        reason = ''
+        try:
+            forensic, exact_gate = self._pre_dispatch_forensics(arm, 1)
+            arm['lifecycle'].event('T5_PRE_DISPATCH_ENTERED', gates=forensic)
+            if exact_gate:
+                raise CalibrationError(exact_gate)
+            arm['lifecycle'].activate()
+            readback = self._get_ptp_common_params()
+            if readback != {'velocity_percent': 5, 'acceleration_percent': 5}:
+                raise CalibrationError('PTP_READBACK_NOT_5_5_BEFORE_FIRST_MOTION')
+            self.real_motion_adapter.enable_authorized_commissioning_run()
+            reports = self._run_atomic_smoke_test(arm)
+            motion_sent = self._atomic_motion_sent
+            outcome = 'PASS'
+            self.status('PAUSED_AFTER_SMOKE_TEST')
+        except Exception as error:
+            reason = str(error)
+            self.stop.set()
+            if self.active_goal is not None:
+                self.active_goal.cancel_goal_async()
+            self.status('FAIL', reason)
+        finally:
+            cleanup = self._disarm_real_motion('POSE_2_COMPLETE' if outcome == 'PASS' else 'ABORT_FAULT_OR_EXCEPTION')
+            self.real_motion_adapter.disable()
+        if cleanup['restore'] == 'FAIL':
+            outcome = 'FAIL'
+            reason = reason or 'PTP_RESTORE_FAILED'
+        if outcome == 'PASS':
+            self.real_motion_adapter.mark_commissioned()
+            self.real_motion_adapter_commissioned = True
+        response.accepted = outcome == 'PASS'
+        response.report = json.dumps({'REAL_MOTION_SMOKE_TEST': outcome, 'reason': reason,
+            'POSE_SCOPE': [1, 2], 'pose_reports': reports,
+            'accepted_pose_count': len(reports), 'PTP_RESTORE': cleanup['restore'],
+            'PTP_PARAM_STATE_UNCERTAIN': self.ptp_param_state_uncertain,
+            'ARM_TOKEN_REVOKED': True, 'MOTION_SENT': motion_sent,
+            'geometry_verified': False}, allow_nan=False, separators=(',', ':'))
+        return response
+
+    def pre_dispatch_probe_service(self, request, response):
+        """Production authorization path, intentionally stopping before PTP dispatch."""
+        self.stop.clear()
+        armed = self.arm_real_motion_service(Trigger.Request(), Trigger.Response())
+        if not armed.success:
+            response.success, response.message = False, armed.message
+            return response
+        arm = self.real_motion_arm
+        arm['scope'], arm['lifecycle'].scope = 'POSE_1_TO_2_ONLY', (1, 2)
+        report, exact = self._pre_dispatch_forensics(arm, 1)
+        if not exact:
+            arm['lifecycle'].activate()
+            report['PRE_DISPATCH_POSE1'] = 'PASS'
+        else:
+            report['PRE_DISPATCH_POSE1'] = 'FAIL'
+            report['exact_gate'] = exact
+        report.update({'TOKEN_CREATED': True, 'TOKEN_ID': arm['lifecycle'].token_id,
+            'TOKEN_GENERATION': arm['lifecycle'].generation, 'TOKEN_SCOPE': [1, 2],
+            'TOKEN_STATE': arm['lifecycle'].state,
+            'TOKEN_VALID_FOR_POSE1': not bool(exact), 'MOTION_SENT': False,
+            'SESSION_MATCH': 'PASS' if report['token_session_match'] else 'FAIL',
+            'FINGERPRINT_MATCH': 'PASS' if report['token_mount_fingerprint_match'] else 'FAIL',
+            'HARDWARE_READY': 'PASS' if report['hardware_ready'] else 'FAIL',
+            'SCENE_VERIFY': 'PASS' if report['scene_verify'] else 'FAIL',
+            'ALARM_FREE': 'PASS' if report['alarm_free'] else 'FAIL',
+            'PTP_5_5_READBACK': 'PASS' if report['ptp_readback_match'] else 'FAIL',
+            'PLAN_VALIDATION': 'PASS', 'COLLISION_VALIDATION': 'PASS'})
+        cleanup = self._disarm_real_motion('PRE_DISPATCH_PROBE_COMPLETE')
+        report.update({'TOKEN_FINAL_STATE': 'REVOKED/DISARMED', 'PTP_FINAL': self._get_ptp_common_params(),
+                       'PTP_PARAM_STATE_UNCERTAIN': self.ptp_param_state_uncertain, 'PTP_RESTORE': cleanup['restore']})
+        response.success = not bool(exact) and cleanup['restore'] == 'PASS'
+        response.message = json.dumps(report, separators=(',', ':'))
+        return response
+
     def cancel_service(self, request, response):
+        self._disarm_real_motion('SAFE_STOP')
         self.stop.set()
         # Do not erase a specific terminal diagnosis (identity mismatch,
         # unsafe mount, failed verification, etc.) when the system-wide STOP

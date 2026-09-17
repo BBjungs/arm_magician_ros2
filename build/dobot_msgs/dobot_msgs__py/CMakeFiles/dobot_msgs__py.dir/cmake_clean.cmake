@@ -27,6 +27,8 @@ file(REMOVE_RECURSE
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_gripper_control_s.c"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params.py"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test.py"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control.py"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c"
   "CMakeFiles/dobot_msgs__py"

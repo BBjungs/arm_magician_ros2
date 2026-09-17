@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot_msgs/srv/StartSmokeTest_Request",
+      "fields": [
+        {
+          "name": "operator_confirmed",
+          "type": {
+            "type_id": 15,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot_msgs/srv/StartSmokeTest_Request",
+      "hash_string": "RIHS01_fcc60aa0fe40090c3e840daa0205a6ef6fa1ce5947ba405d4fd88fb18feee3d4"
+    }
+  ]
+}

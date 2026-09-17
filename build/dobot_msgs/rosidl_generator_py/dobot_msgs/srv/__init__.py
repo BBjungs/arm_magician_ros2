@@ -18,6 +18,10 @@ from dobot_msgs.srv._set_ptp_common_params import SetPTPCommonParams  # noqa: F4
 from dobot_msgs.srv._set_ptp_common_params import SetPTPCommonParams_Event  # noqa: F401
 from dobot_msgs.srv._set_ptp_common_params import SetPTPCommonParams_Request  # noqa: F401
 from dobot_msgs.srv._set_ptp_common_params import SetPTPCommonParams_Response  # noqa: F401
+from dobot_msgs.srv._start_smoke_test import StartSmokeTest  # noqa: F401
+from dobot_msgs.srv._start_smoke_test import StartSmokeTest_Event  # noqa: F401
+from dobot_msgs.srv._start_smoke_test import StartSmokeTest_Request  # noqa: F401
+from dobot_msgs.srv._start_smoke_test import StartSmokeTest_Response  # noqa: F401
 from dobot_msgs.srv._suction_cup_control import SuctionCupControl  # noqa: F401
 from dobot_msgs.srv._suction_cup_control import SuctionCupControl_Event  # noqa: F401
 from dobot_msgs.srv._suction_cup_control import SuctionCupControl_Request  # noqa: F401

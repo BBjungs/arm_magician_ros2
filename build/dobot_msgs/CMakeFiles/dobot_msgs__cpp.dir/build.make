@@ -126,6 +126,11 @@ CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_c
 CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__struct.hpp
 CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__traits.hpp
 CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__type_support.hpp
+CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/start_smoke_test.hpp
+CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__builder.hpp
+CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__struct.hpp
+CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__traits.hpp
+CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__type_support.hpp
 CMakeFiles/dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 
 rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: /opt/ros/jazzy/lib/rosidl_generator_cpp/rosidl_generator_cpp
@@ -159,6 +164,7 @@ rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: rosidl_adapter/dobot_
 rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
 rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
 rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
+rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: rosidl_adapter/dobot_msgs/srv/StartSmokeTest.idl
 rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -410,6 +416,21 @@ rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__traits.hpp: ro
 rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__type_support.hpp: rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__type_support.hpp
 
+rosidl_generator_cpp/dobot_msgs/srv/start_smoke_test.hpp: rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dobot_msgs/srv/start_smoke_test.hpp
+
+rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__builder.hpp: rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__builder.hpp
+
+rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__struct.hpp: rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__struct.hpp
+
+rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__traits.hpp: rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__traits.hpp
+
+rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__type_support.hpp: rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__type_support.hpp
+
 rosidl_generator_cpp/dobot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp: rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/dobot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 
@@ -465,6 +486,10 @@ dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_param
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__struct.hpp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__traits.hpp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__type_support.hpp
+dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__builder.hpp
+dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__struct.hpp
+dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__traits.hpp
+dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__type_support.hpp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__builder.hpp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__struct.hpp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__traits.hpp
@@ -474,6 +499,7 @@ dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/execute_homing_procedure.hp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/get_ptp_common_params.hpp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/gripper_control.hpp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/set_ptp_common_params.hpp
+dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/start_smoke_test.hpp
 dobot_msgs__cpp: rosidl_generator_cpp/dobot_msgs/srv/suction_cup_control.hpp
 dobot_msgs__cpp: CMakeFiles/dobot_msgs__cpp.dir/build.make
 .PHONY : dobot_msgs__cpp

@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
+#include "dobot_msgs/msg/detail/dobot_alarm_codes__struct.h"
 #include "dobot_msgs/msg/detail/dobot_alarm_codes__type_support.h"
 #include "dobot_msgs/msg/detail/dobot_alarm_codes__functions.h"
-#include "dobot_msgs/msg/detail/dobot_alarm_codes__struct.h"
+#include "rosidl_typesupport_interface/macros.h"
 
 #ifdef __cplusplus
 extern "C"

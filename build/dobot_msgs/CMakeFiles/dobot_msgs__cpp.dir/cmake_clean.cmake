@@ -51,6 +51,10 @@ file(REMOVE_RECURSE
   "rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__struct.hpp"
   "rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__traits.hpp"
   "rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__type_support.hpp"
+  "rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__builder.hpp"
+  "rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__struct.hpp"
+  "rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__traits.hpp"
+  "rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__type_support.hpp"
   "rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__builder.hpp"
   "rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__struct.hpp"
   "rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__traits.hpp"
@@ -60,6 +64,7 @@ file(REMOVE_RECURSE
   "rosidl_generator_cpp/dobot_msgs/srv/get_ptp_common_params.hpp"
   "rosidl_generator_cpp/dobot_msgs/srv/gripper_control.hpp"
   "rosidl_generator_cpp/dobot_msgs/srv/set_ptp_common_params.hpp"
+  "rosidl_generator_cpp/dobot_msgs/srv/start_smoke_test.hpp"
   "rosidl_generator_cpp/dobot_msgs/srv/suction_cup_control.hpp"
 )
 

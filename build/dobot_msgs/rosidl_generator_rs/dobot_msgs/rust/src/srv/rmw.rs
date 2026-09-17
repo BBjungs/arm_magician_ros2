@@ -979,6 +979,161 @@ impl rosidl_runtime_rs::RmwMessage for SetPTPCommonParams_Response where Self: S
 }
 
 
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__StartSmokeTest_Request() -> *const std::ffi::c_void;
+}
+
+#[link(name = "dobot_msgs__rosidl_generator_c")]
+extern "C" {
+    fn dobot_msgs__srv__StartSmokeTest_Request__init(msg: *mut StartSmokeTest_Request) -> bool;
+    fn dobot_msgs__srv__StartSmokeTest_Request__Sequence__init(seq: *mut rosidl_runtime_rs::Sequence<StartSmokeTest_Request>, size: usize) -> bool;
+    fn dobot_msgs__srv__StartSmokeTest_Request__Sequence__fini(seq: *mut rosidl_runtime_rs::Sequence<StartSmokeTest_Request>);
+    fn dobot_msgs__srv__StartSmokeTest_Request__Sequence__copy(in_seq: &rosidl_runtime_rs::Sequence<StartSmokeTest_Request>, out_seq: *mut rosidl_runtime_rs::Sequence<StartSmokeTest_Request>) -> bool;
+}
+
+// Corresponds to dobot_msgs__srv__StartSmokeTest_Request
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct StartSmokeTest_Request {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub operator_confirmed: bool,
+
+}
+
+
+
+impl Default for StartSmokeTest_Request {
+  fn default() -> Self {
+    unsafe {
+      let mut msg = std::mem::zeroed();
+      if !dobot_msgs__srv__StartSmokeTest_Request__init(&mut msg as *mut _) {
+        panic!("Call to dobot_msgs__srv__StartSmokeTest_Request__init() failed");
+      }
+      msg
+    }
+  }
+}
+
+impl rosidl_runtime_rs::SequenceAlloc for StartSmokeTest_Request {
+  fn sequence_init(seq: &mut rosidl_runtime_rs::Sequence<Self>, size: usize) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__StartSmokeTest_Request__Sequence__init(seq as *mut _, size) }
+  }
+  fn sequence_fini(seq: &mut rosidl_runtime_rs::Sequence<Self>) {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__StartSmokeTest_Request__Sequence__fini(seq as *mut _) }
+  }
+  fn sequence_copy(in_seq: &rosidl_runtime_rs::Sequence<Self>, out_seq: &mut rosidl_runtime_rs::Sequence<Self>) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__StartSmokeTest_Request__Sequence__copy(in_seq, out_seq as *mut _) }
+  }
+}
+
+impl rosidl_runtime_rs::Message for StartSmokeTest_Request {
+  type RmwMsg = Self;
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> { msg_cow }
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self { msg }
+}
+
+impl rosidl_runtime_rs::RmwMessage for StartSmokeTest_Request where Self: Sized {
+  const TYPE_NAME: &'static str = "dobot_msgs/srv/StartSmokeTest_Request";
+  fn get_type_support() -> *const std::ffi::c_void {
+    // SAFETY: No preconditions for this function.
+    unsafe { rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__StartSmokeTest_Request() }
+  }
+}
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__StartSmokeTest_Response() -> *const std::ffi::c_void;
+}
+
+#[link(name = "dobot_msgs__rosidl_generator_c")]
+extern "C" {
+    fn dobot_msgs__srv__StartSmokeTest_Response__init(msg: *mut StartSmokeTest_Response) -> bool;
+    fn dobot_msgs__srv__StartSmokeTest_Response__Sequence__init(seq: *mut rosidl_runtime_rs::Sequence<StartSmokeTest_Response>, size: usize) -> bool;
+    fn dobot_msgs__srv__StartSmokeTest_Response__Sequence__fini(seq: *mut rosidl_runtime_rs::Sequence<StartSmokeTest_Response>);
+    fn dobot_msgs__srv__StartSmokeTest_Response__Sequence__copy(in_seq: &rosidl_runtime_rs::Sequence<StartSmokeTest_Response>, out_seq: *mut rosidl_runtime_rs::Sequence<StartSmokeTest_Response>) -> bool;
+}
+
+// Corresponds to dobot_msgs__srv__StartSmokeTest_Response
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct StartSmokeTest_Response {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub accepted: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub report: rosidl_runtime_rs::String,
+
+}
+
+
+
+impl Default for StartSmokeTest_Response {
+  fn default() -> Self {
+    unsafe {
+      let mut msg = std::mem::zeroed();
+      if !dobot_msgs__srv__StartSmokeTest_Response__init(&mut msg as *mut _) {
+        panic!("Call to dobot_msgs__srv__StartSmokeTest_Response__init() failed");
+      }
+      msg
+    }
+  }
+}
+
+impl rosidl_runtime_rs::SequenceAlloc for StartSmokeTest_Response {
+  fn sequence_init(seq: &mut rosidl_runtime_rs::Sequence<Self>, size: usize) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__StartSmokeTest_Response__Sequence__init(seq as *mut _, size) }
+  }
+  fn sequence_fini(seq: &mut rosidl_runtime_rs::Sequence<Self>) {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__StartSmokeTest_Response__Sequence__fini(seq as *mut _) }
+  }
+  fn sequence_copy(in_seq: &rosidl_runtime_rs::Sequence<Self>, out_seq: &mut rosidl_runtime_rs::Sequence<Self>) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__StartSmokeTest_Response__Sequence__copy(in_seq, out_seq as *mut _) }
+  }
+}
+
+impl rosidl_runtime_rs::Message for StartSmokeTest_Response {
+  type RmwMsg = Self;
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> { msg_cow }
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self { msg }
+}
+
+impl rosidl_runtime_rs::RmwMessage for StartSmokeTest_Response where Self: Sized {
+  const TYPE_NAME: &'static str = "dobot_msgs/srv/StartSmokeTest_Response";
+  fn get_type_support() -> *const std::ffi::c_void {
+    // SAFETY: No preconditions for this function.
+    unsafe { rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__StartSmokeTest_Response() }
+  }
+}
+
+
 
 
 
@@ -1109,6 +1264,28 @@ impl rosidl_runtime_rs::Service for SetPTPCommonParams {
     fn get_type_support() -> *const std::ffi::c_void {
         // SAFETY: No preconditions for this function.
         unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__SetPTPCommonParams() }
+    }
+}
+
+
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__StartSmokeTest() -> *const std::ffi::c_void;
+}
+
+// Corresponds to dobot_msgs__srv__StartSmokeTest
+#[allow(missing_docs, non_camel_case_types)]
+pub struct StartSmokeTest;
+
+impl rosidl_runtime_rs::Service for StartSmokeTest {
+    type Request = StartSmokeTest_Request;
+    type Response = StartSmokeTest_Response;
+
+    fn get_type_support() -> *const std::ffi::c_void {
+        // SAFETY: No preconditions for this function.
+        unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__StartSmokeTest() }
     }
 }
 

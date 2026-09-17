@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/start_smoke_test__type_support.h

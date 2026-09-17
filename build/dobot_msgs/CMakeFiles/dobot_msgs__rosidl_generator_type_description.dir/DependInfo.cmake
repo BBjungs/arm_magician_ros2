@@ -22,6 +22,7 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/GripperControl.json" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/StartSmokeTest.json" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json"
   )
 

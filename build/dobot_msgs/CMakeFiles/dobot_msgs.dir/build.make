@@ -78,6 +78,7 @@ CMakeFiles/dobot_msgs: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msg
 CMakeFiles/dobot_msgs: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SuctionCupControl.srv
 CMakeFiles/dobot_msgs: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/GetPTPCommonParams.srv
 CMakeFiles/dobot_msgs: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SetPTPCommonParams.srv
+CMakeFiles/dobot_msgs: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/StartSmokeTest.srv
 CMakeFiles/dobot_msgs: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 CMakeFiles/dobot_msgs: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 CMakeFiles/dobot_msgs: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl

@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp.o.d"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o.d"
+  "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o"
+  "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o.d"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp.o"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp.o.d"
   "libdobot_msgs__rosidl_typesupport_cpp.pdb"
@@ -36,6 +38,7 @@ file(REMOVE_RECURSE
   "rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp"
   "rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp"
   "rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp"
+  "rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp"
   "rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp"
 )
 

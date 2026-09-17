@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/gripper_control__type_support_c.cpp.o.d"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o.d"
+  "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/start_smoke_test__type_support_c.cpp.o"
+  "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/start_smoke_test__type_support_c.cpp.o.d"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.o"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.o.d"
   "libdobot_msgs__rosidl_typesupport_fastrtps_c.pdb"
@@ -47,6 +49,8 @@ file(REMOVE_RECURSE
   "rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/gripper_control__type_support_c.cpp"
   "rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_fastrtps_c.h"
   "rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/start_smoke_test__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/start_smoke_test__type_support_c.cpp"
   "rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_fastrtps_c.h"
   "rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp"
 )

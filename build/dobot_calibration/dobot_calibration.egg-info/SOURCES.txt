@@ -6,6 +6,8 @@ config/calibration.yaml
 config/carrier_mount.example.yaml
 config/mount_model.yaml
 dobot_calibration/__init__.py
+dobot_calibration/baseline_admission.py
+dobot_calibration/baseline_preflight.py
 dobot_calibration/bundle.py
 dobot_calibration/depth_health.py
 dobot_calibration/geometry.py
@@ -15,10 +17,13 @@ dobot_calibration/node.py
 dobot_calibration/passive_guidance.py
 dobot_calibration/passive_session.py
 dobot_calibration/picking_guard.py
+dobot_calibration/real_motion_adapter.py
 dobot_calibration/registration.py
+dobot_calibration/scene_baseline_store.py
 dobot_calibration/solver.py
 dobot_calibration/supervised_auto.py
 dobot_calibration/table_touchoff.py
+dobot_calibration/token_lifecycle.py
 dobot_calibration/validation_status.py
 dobot_calibration/workflow.py
 dobot_calibration.egg-info/PKG-INFO

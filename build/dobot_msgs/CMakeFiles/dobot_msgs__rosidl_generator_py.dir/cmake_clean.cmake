@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_gripper_control_s.c.o.d"
   "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c.o"
   "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c.o.d"
+  "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o"
+  "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o.d"
   "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c.o"
   "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c.o.d"
   "libdobot_msgs__rosidl_generator_py.pdb"

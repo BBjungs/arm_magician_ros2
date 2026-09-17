@@ -12,6 +12,7 @@
     "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/GripperControl.srv",
     "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/SuctionCupControl.srv",
     "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/GetPTPCommonParams.srv",
-    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/SetPTPCommonParams.srv"
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/SetPTPCommonParams.srv",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs:srv/StartSmokeTest.srv"
   ]
 }

@@ -97,6 +97,7 @@ rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/Gr
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
+rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/StartSmokeTest.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl

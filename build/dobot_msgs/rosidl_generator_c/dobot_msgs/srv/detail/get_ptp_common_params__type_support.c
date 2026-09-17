@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
-#include "dobot_msgs/srv/detail/get_ptp_common_params__functions.h"
 #include "dobot_msgs/srv/detail/get_ptp_common_params__type_support.h"
+#include "dobot_msgs/srv/detail/get_ptp_common_params__functions.h"
 #include "dobot_msgs/srv/detail/get_ptp_common_params__struct.h"
+#include "rosidl_typesupport_interface/macros.h"
 
 #ifdef __cplusplus
 extern "C"

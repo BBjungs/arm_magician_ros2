@@ -680,6 +680,106 @@ impl rosidl_runtime_rs::Message for SetPTPCommonParams_Response {
 }
 
 
+// Corresponds to dobot_msgs__srv__StartSmokeTest_Request
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct StartSmokeTest_Request {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub operator_confirmed: bool,
+
+}
+
+
+
+impl Default for StartSmokeTest_Request {
+  fn default() -> Self {
+    <Self as rosidl_runtime_rs::Message>::from_rmw_message(super::srv::rmw::StartSmokeTest_Request::default())
+  }
+}
+
+impl rosidl_runtime_rs::Message for StartSmokeTest_Request {
+  type RmwMsg = super::srv::rmw::StartSmokeTest_Request;
+
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> {
+    match msg_cow {
+      std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+        operator_confirmed: msg.operator_confirmed,
+      }),
+      std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+      operator_confirmed: msg.operator_confirmed,
+      })
+    }
+  }
+
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self {
+    Self {
+      operator_confirmed: msg.operator_confirmed,
+    }
+  }
+}
+
+
+// Corresponds to dobot_msgs__srv__StartSmokeTest_Response
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct StartSmokeTest_Response {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub accepted: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub report: std::string::String,
+
+}
+
+
+
+impl Default for StartSmokeTest_Response {
+  fn default() -> Self {
+    <Self as rosidl_runtime_rs::Message>::from_rmw_message(super::srv::rmw::StartSmokeTest_Response::default())
+  }
+}
+
+impl rosidl_runtime_rs::Message for StartSmokeTest_Response {
+  type RmwMsg = super::srv::rmw::StartSmokeTest_Response;
+
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> {
+    match msg_cow {
+      std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+        accepted: msg.accepted,
+        report: msg.report.as_str().into(),
+      }),
+      std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+      accepted: msg.accepted,
+        report: msg.report.as_str().into(),
+      })
+    }
+  }
+
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self {
+    Self {
+      accepted: msg.accepted,
+      report: msg.report.to_string(),
+    }
+  }
+}
+
+
 
 
 
@@ -810,6 +910,28 @@ impl rosidl_runtime_rs::Service for SetPTPCommonParams {
     fn get_type_support() -> *const std::ffi::c_void {
         // SAFETY: No preconditions for this function.
         unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__SetPTPCommonParams() }
+    }
+}
+
+
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__StartSmokeTest() -> *const std::ffi::c_void;
+}
+
+// Corresponds to dobot_msgs__srv__StartSmokeTest
+#[allow(missing_docs, non_camel_case_types)]
+pub struct StartSmokeTest;
+
+impl rosidl_runtime_rs::Service for StartSmokeTest {
+    type Request = StartSmokeTest_Request;
+    type Response = StartSmokeTest_Response;
+
+    fn get_type_support() -> *const std::ffi::c_void {
+        // SAFETY: No preconditions for this function.
+        unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__StartSmokeTest() }
     }
 }
 

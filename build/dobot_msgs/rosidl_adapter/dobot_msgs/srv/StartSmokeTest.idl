@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from dobot_msgs/srv/StartSmokeTest.srv
+// generated code does not contain a copyright notice
+
+
+module dobot_msgs {
+  module srv {
+    struct StartSmokeTest_Request {
+      boolean operator_confirmed;
+    };
+    struct StartSmokeTest_Response {
+      boolean accepted;
+
+      string report;
+    };
+  };
+};

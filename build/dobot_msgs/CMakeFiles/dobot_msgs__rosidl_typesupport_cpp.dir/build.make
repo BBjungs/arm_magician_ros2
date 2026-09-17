@@ -87,6 +87,7 @@ rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp: rosid
 rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
 rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
 rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
+rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp: rosidl_adapter/dobot_msgs/srv/StartSmokeTest.idl
 rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -193,6 +194,9 @@ rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp: r
 
 rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp: rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp
+
+rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp: rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp
 
 CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp.o: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp.o: rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp
@@ -362,6 +366,20 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_m
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp -o CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.s
 
+CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o: rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp
+CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o -MF CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o.d -o CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp > CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.i
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp -o CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.s
+
 # Object files for target dobot_msgs__rosidl_typesupport_cpp
 dobot_msgs__rosidl_typesupport_cpp_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp.o" \
@@ -375,7 +393,8 @@ dobot_msgs__rosidl_typesupport_cpp_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp.o" \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp.o" \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp.o" \
-"CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o"
+"CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o" \
+"CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o"
 
 # External object files for target dobot_msgs__rosidl_typesupport_cpp
 dobot_msgs__rosidl_typesupport_cpp_EXTERNAL_OBJECTS =
@@ -392,6 +411,7 @@ libdobot_msgs__rosidl_typesupport_cpp.so: CMakeFiles/dobot_msgs__rosidl_typesupp
 libdobot_msgs__rosidl_typesupport_cpp.so: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp.o
 libdobot_msgs__rosidl_typesupport_cpp.so: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp.o
 libdobot_msgs__rosidl_typesupport_cpp.so: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o
+libdobot_msgs__rosidl_typesupport_cpp.so: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp.o
 libdobot_msgs__rosidl_typesupport_cpp.so: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/build.make
 libdobot_msgs__rosidl_typesupport_cpp.so: libdobot_msgs__rosidl_generator_c.so
 libdobot_msgs__rosidl_typesupport_cpp.so: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_cpp.so
@@ -411,7 +431,7 @@ libdobot_msgs__rosidl_typesupport_cpp.so: /opt/ros/jazzy/lib/libunique_identifie
 libdobot_msgs__rosidl_typesupport_cpp.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 libdobot_msgs__rosidl_typesupport_cpp.so: /opt/ros/jazzy/lib/librcutils.so
 libdobot_msgs__rosidl_typesupport_cpp.so: CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX shared library libdobot_msgs__rosidl_typesupport_cpp.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX shared library libdobot_msgs__rosidl_typesupport_cpp.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -433,6 +453,7 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp
 CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp
 CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp
 CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp
+CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/dobot_msgs/srv/start_smoke_test__type_support.cpp
 CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp
 	cd /home/bbcontact/magician_ros2/build/dobot_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/depend

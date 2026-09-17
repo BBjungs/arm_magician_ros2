@@ -62,6 +62,10 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__struct.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__traits.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/set_ptp_common_params__type_support.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__builder.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__struct.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__traits.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/start_smoke_test__type_support.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__builder.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__struct.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/detail/suction_cup_control__traits.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
@@ -71,6 +75,7 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/get_ptp_common_params.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/gripper_control.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/set_ptp_common_params.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/start_smoke_test.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/suction_cup_control.hpp" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/action/point_to_point.hpp"
   )
 

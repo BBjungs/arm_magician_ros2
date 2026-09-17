@@ -14,7 +14,8 @@
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/GripperControl.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SuctionCupControl.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/GetPTPCommonParams.idl",
-    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SetPTPCommonParams.idl"
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SetPTPCommonParams.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/StartSmokeTest.idl"
   ],
   "ros_interface_dependencies": [
     "std_msgs:/opt/ros/jazzy/share/std_msgs/msg/Bool.idl",
@@ -121,6 +122,7 @@
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/StartSmokeTest.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/Bool.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/Byte.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl",
@@ -205,6 +207,7 @@
     "srv/GripperControl.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/GripperControl.json",
     "srv/SuctionCupControl.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json",
     "srv/GetPTPCommonParams.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json",
-    "srv/SetPTPCommonParams.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json"
+    "srv/SetPTPCommonParams.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json",
+    "srv/StartSmokeTest.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/StartSmokeTest.json"
   ]
 }

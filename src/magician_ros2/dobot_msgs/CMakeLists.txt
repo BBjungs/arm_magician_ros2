@@ -28,6 +28,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SuctionCupControl.srv"
   "srv/GetPTPCommonParams.srv"
   "srv/SetPTPCommonParams.srv"
+  "srv/StartSmokeTest.srv"
   DEPENDENCIES std_msgs geometry_msgs
 )
 

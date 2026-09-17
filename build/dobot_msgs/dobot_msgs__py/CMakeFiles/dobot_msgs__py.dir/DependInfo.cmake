@@ -39,6 +39,8 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_gripper_control_s.c" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params.py" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test.py" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control.py" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   )

@@ -237,6 +237,20 @@ CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/sr
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c -o CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c.s
 
+CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o: CMakeFiles/dobot_msgs__rosidl_generator_py.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o: rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c
+CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o: CMakeFiles/dobot_msgs__rosidl_generator_py.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o -MF CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o.d -o CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c
+
+CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c > CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.i
+
+CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c -o CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.s
+
 # Object files for target dobot_msgs__rosidl_generator_py
 dobot_msgs__rosidl_generator_py_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/action/_point_to_point_s.c.o" \
@@ -250,7 +264,8 @@ dobot_msgs__rosidl_generator_py_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_gripper_control_s.c.o" \
 "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c.o" \
 "CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_get_ptp_common_params_s.c.o" \
-"CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c.o"
+"CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o"
 
 # External object files for target dobot_msgs__rosidl_generator_py
 dobot_msgs__rosidl_generator_py_EXTERNAL_OBJECTS =
@@ -267,6 +282,7 @@ libdobot_msgs__rosidl_generator_py.so: CMakeFiles/dobot_msgs__rosidl_generator_p
 libdobot_msgs__rosidl_generator_py.so: CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c.o
 libdobot_msgs__rosidl_generator_py.so: CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_get_ptp_common_params_s.c.o
 libdobot_msgs__rosidl_generator_py.so: CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c.o
+libdobot_msgs__rosidl_generator_py.so: CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_start_smoke_test_s.c.o
 libdobot_msgs__rosidl_generator_py.so: CMakeFiles/dobot_msgs__rosidl_generator_py.dir/build.make
 libdobot_msgs__rosidl_generator_py.so: libdobot_msgs__rosidl_typesupport_c.so
 libdobot_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
@@ -329,7 +345,7 @@ libdobot_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/libunique_identifier_m
 libdobot_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 libdobot_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/librcutils.so
 libdobot_msgs__rosidl_generator_py.so: CMakeFiles/dobot_msgs__rosidl_generator_py.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C shared library libdobot_msgs__rosidl_generator_py.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C shared library libdobot_msgs__rosidl_generator_py.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dobot_msgs__rosidl_generator_py.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

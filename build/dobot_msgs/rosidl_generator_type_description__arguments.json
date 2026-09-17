@@ -13,7 +13,8 @@
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/GripperControl.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SuctionCupControl.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/GetPTPCommonParams.idl",
-    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SetPTPCommonParams.idl"
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SetPTPCommonParams.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/StartSmokeTest.idl"
   ],
   "include_paths": [
     "std_msgs:/opt/ros/jazzy/share/std_msgs",
