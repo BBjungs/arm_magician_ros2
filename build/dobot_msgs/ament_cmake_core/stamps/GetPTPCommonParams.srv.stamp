@@ -1,0 +1,8 @@
+---
+bool success
+uint8 velocity_percent
+uint8 acceleration_percent
+uint8 raw_velocity_percent
+uint8 raw_acceleration_percent
+bool timed_out
+string error

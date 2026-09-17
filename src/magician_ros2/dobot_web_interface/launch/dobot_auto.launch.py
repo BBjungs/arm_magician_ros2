@@ -87,7 +87,13 @@ def _maybe_start_vision(context, *args, **kwargs):
         vision_launch = PathJoinSubstitution([
             get_package_share_directory('dobot_vision_rgbd'), 'launch',
             'rgbd_vision.launch.py'])
-        return [IncludeLaunchDescription(PythonLaunchDescriptionSource(vision_launch))]
+        return [IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(vision_launch),
+            launch_arguments={
+                'camera_expected_fps': LaunchConfiguration('camera_fps'),
+                'camera_minimum_fps': LaunchConfiguration('camera_minimum_fps'),
+            }.items(),
+        )]
     vision_launch = PathJoinSubstitution([
         get_package_share_directory('dobot_vision_yolo'), 'launch',
         'vision_pick_place.launch.py'])
@@ -101,6 +107,7 @@ def _maybe_start_vision(context, *args, **kwargs):
                 'http_snapshot_url': f'http://127.0.0.1:{port}/api/snapshot',
                 'camera_device': LaunchConfiguration('camera_device'),
                 'vision_mode': LaunchConfiguration('vision_mode'),
+                'calibration_bundle_path': LaunchConfiguration('calibration_file'),
                 'tcp_pose_topic': LaunchConfiguration('tcp_pose_topic'),
                 'fallback_tcp_pose_topic': LaunchConfiguration(
                     'fallback_tcp_pose_topic'
@@ -108,6 +115,33 @@ def _maybe_start_vision(context, *args, **kwargs):
             }.items(),
         )
     ]
+
+
+def _maybe_start_calibration(context, *args, **kwargs):
+    """Launch the live calibration verifier before the web startup gate uses it.
+
+    The node itself remains idle until the integration state machine requests a
+    verification.  Starting the process here therefore establishes a stable
+    dependency without issuing unprompted robot motion.
+    """
+    if not _truthy(LaunchConfiguration('start_calibration').perform(context)):
+        return []
+    calibration_launch = PathJoinSubstitution([
+        get_package_share_directory('dobot_calibration'), 'launch',
+        'markerless_calibration.launch.py'])
+    return [IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(calibration_launch),
+        launch_arguments={
+            'camera_id': LaunchConfiguration('calibration_camera_id'),
+            'calibration_file': LaunchConfiguration('calibration_file'),
+            'carrier_frame': LaunchConfiguration('calibration_carrier_frame'),
+            'mount_model': LaunchConfiguration('calibration_mount_model'),
+            'auto_start': 'false',
+            'recalibrate_on_failure': LaunchConfiguration(
+                'startup_auto_recalibrate'
+            ),
+        }.items(),
+    )]
 
 
 def generate_launch_description():
@@ -131,6 +165,7 @@ def generate_launch_description():
     camera_compressed_topic_arg = DeclareLaunchArgument(
         'camera_compressed_topic',
         default_value='/camera/color/image_raw/compressed',
+        description='Native MJPG topic; empty falls back to throttled raw RGB.',
     )
     camera_info_topic_arg = DeclareLaunchArgument(
         'camera_info_topic',
@@ -139,12 +174,16 @@ def generate_launch_description():
     camera_width_arg = DeclareLaunchArgument('camera_width', default_value='640')
     camera_height_arg = DeclareLaunchArgument('camera_height', default_value='480')
     camera_fps_arg = DeclareLaunchArgument('camera_fps', default_value='30.0')
+    camera_minimum_fps_arg = DeclareLaunchArgument(
+        'camera_minimum_fps', default_value='20.0',
+        description='Minimum usable received RGB-D rate; lower rates fail readiness.',
+    )
     stream_fps_arg = DeclareLaunchArgument('stream_fps', default_value='12.0')
     vision_mode_arg = DeclareLaunchArgument(
         'vision_mode',
-        default_value='fixed_camera',
+        default_value='eye_in_hand',
         choices=['fixed_camera', 'eye_in_hand'],
-        description='Default vision mode for web safety checks.',
+        description='Camera mounting topology only; calibration is always markerless.',
     )
     tcp_pose_topic_arg = DeclareLaunchArgument(
         'tcp_pose_topic',
@@ -198,6 +237,52 @@ def generate_launch_description():
     )
     vision_annotated_path_arg = DeclareLaunchArgument(
         'vision_annotated_path', default_value='/tmp/dobot_rgbd_annotated.jpg')
+    start_calibration_arg = DeclareLaunchArgument(
+        'start_calibration', default_value='true',
+        description='Start the live calibration verification node (idle until requested).',
+    )
+    calibration_camera_id_arg = DeclareLaunchArgument(
+        'calibration_camera_id', default_value=LaunchConfiguration('orbbec_serial_number'),
+        description='Immutable camera serial/device identity for live calibration.',
+    )
+    calibration_file_arg = DeclareLaunchArgument(
+        'calibration_file', default_value='~/.ros/dobot/markerless_calibration.npz',
+    )
+    calibration_carrier_frame_arg = DeclareLaunchArgument(
+        'calibration_carrier_frame', default_value='',
+        description='Verified camera bracket TF frame; empty selects legacy TCP mode.',
+    )
+    calibration_mount_model_arg = DeclareLaunchArgument(
+        'calibration_mount_model', default_value=PathJoinSubstitution([
+            get_package_share_directory('dobot_calibration'), 'config', 'mount_model.yaml',
+        ]),
+        description='Measured mount YAML matching the selected calibration parent.',
+    )
+    require_integrated_startup_arg = DeclareLaunchArgument(
+        'require_integrated_startup', default_value='true',
+        choices=['true', 'false'],
+        description='Require live robot/camera/vision/calibration/HOME readiness for picks.',
+    )
+    startup_auto_arg = DeclareLaunchArgument(
+        'startup_auto', default_value='false', choices=['true', 'false'],
+        description='Automatically request calibration verification once prerequisites are ready.',
+    )
+    startup_auto_recalibrate_arg = DeclareLaunchArgument(
+        'startup_auto_recalibrate', default_value='false',
+        choices=['true', 'false'],
+        description=(
+            'Permit one calibration attempt after failed load/verification; '
+            'the calibration hardware safety gates still control all motion.'
+        ),
+    )
+    startup_auto_motion_arg = DeclareLaunchArgument(
+        'startup_auto_motion', default_value='false', choices=['true', 'false'],
+        description='Allow startup_auto to issue HOME and observation-pose motion.',
+    )
+    observation_pose_arg = DeclareLaunchArgument(
+        'observation_pose_mm', default_value='[220.0, 0.0, 80.0, 0.0]',
+        description='Safe [x,y,z,r] millimetre pose used to observe the work area.',
+    )
 
     web_node = Node(
         package='dobot_web_interface',
@@ -225,6 +310,13 @@ def generate_launch_description():
                 'fallback_tcp_pose_topic': LaunchConfiguration(
                     'fallback_tcp_pose_topic'
                 ),
+                'require_integrated_startup': LaunchConfiguration(
+                    'require_integrated_startup'
+                ),
+                'startup_auto': LaunchConfiguration('startup_auto'),
+                'startup_auto_motion': LaunchConfiguration('startup_auto_motion'),
+                'observation_pose_mm': LaunchConfiguration('observation_pose_mm'),
+                'calibration_bundle_path': LaunchConfiguration('calibration_file'),
             }
         ],
     )
@@ -241,6 +333,7 @@ def generate_launch_description():
             camera_width_arg,
             camera_height_arg,
             camera_fps_arg,
+            camera_minimum_fps_arg,
             stream_fps_arg,
             vision_mode_arg,
             tcp_pose_topic_arg,
@@ -260,10 +353,21 @@ def generate_launch_description():
             vision_engine_arg,
             tool_mapping_arg,
             vision_annotated_path_arg,
+            start_calibration_arg,
+            calibration_camera_id_arg,
+            calibration_file_arg,
+            calibration_carrier_frame_arg,
+            calibration_mount_model_arg,
+            require_integrated_startup_arg,
+            startup_auto_arg,
+            startup_auto_recalibrate_arg,
+            startup_auto_motion_arg,
+            observation_pose_arg,
             SetEnvironmentVariable('MAGICIAN_TOOL', LaunchConfiguration('tool')),
             OpaqueFunction(function=_maybe_start_bringup),
             OpaqueFunction(function=_maybe_start_camera),
             OpaqueFunction(function=_maybe_start_rviz),
+            OpaqueFunction(function=_maybe_start_calibration),
             web_node,
             OpaqueFunction(function=_maybe_start_vision),
         ]

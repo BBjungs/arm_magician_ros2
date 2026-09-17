@@ -1,0 +1,17 @@
+[15.018s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_control_panel': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_control_panel/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_control_panel/build --no-deps symlink_data
+[19.046s] running develop
+[21.338s] running egg_info
+[21.339s] writing dobot_control_panel.egg-info/PKG-INFO
+[21.340s] writing dependency_links to dobot_control_panel.egg-info/dependency_links.txt
+[21.340s] writing entry points to dobot_control_panel.egg-info/entry_points.txt
+[21.341s] writing requirements to dobot_control_panel.egg-info/requires.txt
+[21.342s] writing top-level names to dobot_control_panel.egg-info/top_level.txt
+[21.342s] reading manifest file 'dobot_control_panel.egg-info/SOURCES.txt'
+[21.344s] writing manifest file 'dobot_control_panel.egg-info/SOURCES.txt'
+[21.347s] running build_ext
+[21.348s] Creating /home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages/dobot-control-panel.egg-link (link to .)
+[21.350s] Installing dobot_control_panel script to /home/bbcontact/magician_ros2/install/dobot_control_panel/lib/dobot_control_panel
+[21.351s] 
+[21.351s] Installed /home/bbcontact/magician_ros2/build/dobot_control_panel
+[21.352s] running symlink_data
+[21.378s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_control_panel' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_control_panel/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_control_panel/build --no-deps symlink_data

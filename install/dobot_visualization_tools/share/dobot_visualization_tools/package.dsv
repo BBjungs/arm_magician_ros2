@@ -4,3 +4,6 @@ source;share/dobot_visualization_tools/hook/pythonpath.sh
 source;share/dobot_visualization_tools/hook/ament_prefix_path.ps1
 source;share/dobot_visualization_tools/hook/ament_prefix_path.dsv
 source;share/dobot_visualization_tools/hook/ament_prefix_path.sh
+source;../../build/dobot_visualization_tools/share/dobot_visualization_tools/hook/pythonpath_develop.ps1
+source;../../build/dobot_visualization_tools/share/dobot_visualization_tools/hook/pythonpath_develop.dsv
+source;../../build/dobot_visualization_tools/share/dobot_visualization_tools/hook/pythonpath_develop.sh

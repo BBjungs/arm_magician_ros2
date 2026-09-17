@@ -1,0 +1,136 @@
+[1.932s] Invoking command in '/home/bbcontact/magician_ros2/build/orbbec_camera': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/orbbec_camera -- -j8 -l8
+[3.860s] [ 46%] Built target orbbec_camera
+[3.861s] [ 53%] Built target frame_latency_node
+[3.861s] [ 61%] Built target topic_statistics_node
+[3.861s] [ 69%] Built target list_camera_profile_mode_node
+[3.862s] [ 76%] Built target list_depth_work_mode_node
+[5.655s] [ 84%] Built target list_devices_node
+[5.656s] [ 92%] Built target frame_latency
+[5.656s] [100%] Built target orbbec_camera_node
+[5.707s] Invoked command in '/home/bbcontact/magician_ros2/build/orbbec_camera' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/orbbec_camera -- -j8 -l8
+[5.712s] Invoking command in '/home/bbcontact/magician_ros2/build/orbbec_camera': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/orbbec_camera
+[5.764s] -- Install configuration: "Release"
+[5.766s] -- Execute custom install script
+[5.768s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera/orbbec_camera_node
+[5.771s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera/frame_latency_node
+[5.776s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/liborbbec_camera.so
+[5.776s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/libframe_latency.so
+[5.778s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/magic_enum/magic_enum.hpp
+[5.780s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/constants.h
+[5.781s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/d2c_viewer.h
+[5.784s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/dynamic_params.h
+[5.784s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/frame_timestamp_csv_logger.h
+[5.794s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/image_publisher.h
+[5.795s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/jetson_nv_decoder.h
+[5.795s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/jpeg_decoder.h
+[5.796s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/ob_camera_node.h
+[5.796s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/ob_camera_node_driver.h
+[5.796s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/rk_mpp_decoder.h
+[5.797s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/ros_param_backend.h
+[5.797s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/synced_imu_publisher.h
+[5.797s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/utils.h
+[5.804s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra.launch.py
+[5.804s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra2.launch.py
+[5.805s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_adv.launch.py
+[5.805s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_embedded_s.launch.py
+[5.805s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_pro2.launch.py
+[5.805s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_pro_plus.launch.py
+[5.806s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_stereo_u3.launch.py
+[5.806s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai.launch.py
+[5.806s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_d1.launch.py
+[5.810s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dcl.py
+[5.810s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dcw.launch.py
+[5.811s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dcw2.launch.py
+[5.812s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dw.launch.py
+[5.814s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_dw2.launch.py
+[5.816s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_max.launch.py
+[5.819s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_max_pro.launch.py
+[5.820s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/dabai_pro.launch.py
+[5.821s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/deeya.launch.py
+[5.822s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/femto.launch.py
+[5.825s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/femto_bolt.launch.py
+[5.827s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/femto_mega.launch.py
+[5.827s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/femto_net_camera.launch.py
+[5.827s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini2.launch.py
+[5.828s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini2L.launch.py
+[5.828s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini2VL.launch.py
+[5.833s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini2XL.launch.py
+[5.834s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_330_series.launch.py
+[5.834s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_e.launch.py
+[5.834s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_e_lite.launch.py
+[5.835s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_ew.launch.py
+[5.836s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_ew_lite.launch.py
+[5.840s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_intra_process_demo_launch.py
+[5.842s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/gemini_uw.launch.py
+[5.844s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/multi_camera.launch.py
+[5.845s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/multi_camera_synced.launch.py
+[5.846s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/multi_net_camera.launch.py
+[5.846s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/ob_camera.launch.py
+[5.847s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/.gitkeep
+[5.847s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/OrbbecSDKConfig_v1.0.xml
+[5.850s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/camera_params.yaml
+[5.850s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/depthfilter/Gemini2_v1.8.json
+[5.854s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//config/depthfilter/Openni_device.json
+[5.855s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/ObSensor.h
+[5.859s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/ObSensor.hpp
+[5.860s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Context.h
+[5.860s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Device.h
+[5.860s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Error.h
+[5.861s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Filter.h
+[5.861s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Frame.h
+[5.863s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/MultipleDevices.h
+[5.864s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/ObTypes.h
+[5.868s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Pipeline.h
+[5.869s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Property.h
+[5.869s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/RecordPlayback.h
+[5.870s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Sensor.h
+[5.873s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/StreamProfile.h
+[5.874s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Utils.h
+[5.874s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/h/Version.h
+[5.874s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Context.hpp
+[5.881s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Device.hpp
+[5.882s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Error.hpp
+[5.886s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Filter.hpp
+[5.887s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Frame.hpp
+[5.889s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Pipeline.hpp
+[5.889s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/RecordPlayback.hpp
+[5.889s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Sensor.hpp
+[5.893s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/StreamProfile.hpp
+[5.893s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Types.hpp
+[5.894s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Utils.hpp
+[5.894s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/include/libobsensor/hpp/Version.hpp
+[5.894s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/udev/99-obsensor-libusb.rules
+[5.896s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera//list_devices_node
+[5.897s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera//list_depth_work_mode_node
+[5.898s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera//list_camera_profile_mode_node
+[5.900s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/orbbec_camera//topic_statistics_node
+[5.902s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/library_path.sh
+[5.903s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/library_path.dsv
+[5.906s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/ament_index/resource_index/package_run_dependencies/orbbec_camera
+[5.911s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/ament_index/resource_index/parent_prefix_path/orbbec_camera
+[5.912s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/ament_prefix_path.sh
+[5.912s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/ament_prefix_path.dsv
+[5.913s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/path.sh
+[5.913s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/environment/path.dsv
+[5.915s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/local_setup.bash
+[5.918s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/local_setup.sh
+[5.919s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/local_setup.zsh
+[5.921s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/local_setup.dsv
+[5.923s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/package.dsv
+[6.067s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/ament_index/resource_index/packages/orbbec_camera
+[6.076s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/ament_index/resource_index/rclcpp_components/orbbec_camera
+[6.078s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/ament_cmake_export_include_directories-extras.cmake
+[6.083s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/ament_cmake_export_libraries-extras.cmake
+[6.093s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.106s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/orbbec_cameraConfig.cmake
+[6.111s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/cmake/orbbec_cameraConfig-version.cmake
+[6.111s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera/package.xml
+[6.112s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib/
+[6.113s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so
+[6.120s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so.1.10
+[6.120s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libOrbbecSDK.so.1.10.37
+[6.135s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libdepthengine.so
+[6.136s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libdepthengine.so.2.0
+[6.140s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//liblive555.so
+[6.140s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera/lib//libob_usb.so
+[6.144s] Invoked command in '/home/bbcontact/magician_ros2/build/orbbec_camera' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/orbbec_camera

@@ -1,0 +1,29 @@
+[9.392s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_kinematics': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_description:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_kinematics/build --no-deps symlink_data
+[11.551s] running develop
+[12.902s] running egg_info
+[12.903s] creating dobot_kinematics.egg-info
+[13.097s] writing dobot_kinematics.egg-info/PKG-INFO
+[13.098s] writing dependency_links to dobot_kinematics.egg-info/dependency_links.txt
+[13.098s] writing entry points to dobot_kinematics.egg-info/entry_points.txt
+[13.112s] writing requirements to dobot_kinematics.egg-info/requires.txt
+[13.112s] writing top-level names to dobot_kinematics.egg-info/top_level.txt
+[13.113s] writing manifest file 'dobot_kinematics.egg-info/SOURCES.txt'
+[14.250s] reading manifest file 'dobot_kinematics.egg-info/SOURCES.txt'
+[14.250s] writing manifest file 'dobot_kinematics.egg-info/SOURCES.txt'
+[14.251s] running build_ext
+[14.251s] Creating /home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages/dobot-kinematics.egg-link (link to .)
+[14.251s] Installing trajectory_validator_client script to /home/bbcontact/magician_ros2/install/dobot_kinematics/lib/dobot_kinematics
+[14.252s] Installing trajectory_validator_server script to /home/bbcontact/magician_ros2/install/dobot_kinematics/lib/dobot_kinematics
+[14.252s] 
+[14.252s] Installed /home/bbcontact/magician_ros2/build/dobot_kinematics
+[14.252s] running symlink_data
+[14.253s] creating /home/bbcontact/magician_ros2/install/dobot_kinematics/share/ament_index
+[14.253s] creating /home/bbcontact/magician_ros2/install/dobot_kinematics/share/ament_index/resource_index
+[14.254s] creating /home/bbcontact/magician_ros2/install/dobot_kinematics/share/ament_index/resource_index/packages
+[14.255s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_kinematics/resource/dobot_kinematics -> /home/bbcontact/magician_ros2/install/dobot_kinematics/share/ament_index/resource_index/packages
+[14.255s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_kinematics/package.xml -> /home/bbcontact/magician_ros2/install/dobot_kinematics/share/dobot_kinematics
+[14.255s] creating /home/bbcontact/magician_ros2/install/dobot_kinematics/share/dobot_kinematics/launch
+[14.255s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_kinematics/launch/dobot_validate_trajectory.launch.py -> /home/bbcontact/magician_ros2/install/dobot_kinematics/share/dobot_kinematics/launch
+[14.256s] creating /home/bbcontact/magician_ros2/install/dobot_kinematics/share/dobot_kinematics/config
+[14.256s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_kinematics/config/axis_limits.yaml -> /home/bbcontact/magician_ros2/install/dobot_kinematics/share/dobot_kinematics/config
+[14.316s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_kinematics' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_description:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_kinematics/build --no-deps symlink_data

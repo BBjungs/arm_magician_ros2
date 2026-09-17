@@ -1,0 +1,580 @@
+[0.690s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install', '--packages-select', 'dobot_calibration', 'dobot_vision_rgbd', 'dobot_web_interface', '--event-handlers', 'console_cohesion+']
+[0.690s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=['console_cohesion+'], ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['dobot_calibration', 'dobot_vision_rgbd', 'dobot_web_interface'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x70565d631d30>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x70565d7826f0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x70565d7826f0>>, mixin_verb=('build',))
+[0.820s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.823s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/home/bbcontact/magician_ros2/colcon.meta'
+[0.823s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.823s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.823s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.823s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.823s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.824s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/bbcontact/magician_ros2'
+[0.824s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.824s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.824s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.825s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extensions ['ignore', 'ignore_ament_install']
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extension 'ignore'
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extension 'ignore_ament_install'
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extensions ['colcon_pkg']
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extension 'colcon_pkg'
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extensions ['colcon_meta']
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extension 'colcon_meta'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extensions ['ros']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extension 'ros'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extensions ['cmake', 'python']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extension 'cmake'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extension 'python'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extensions ['python_setup_py']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(Log) by extension 'python_setup_py'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['ignore', 'ignore_ament_install']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ignore'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ignore_ament_install'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['colcon_pkg']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'colcon_pkg'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['colcon_meta']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'colcon_meta'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['ros']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ros'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['cmake', 'python']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'cmake'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'python'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['python_setup_py']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'python_setup_py'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ignore', 'ignore_ament_install']
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore_ament_install'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_pkg']
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_pkg'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_meta']
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_meta'
+[0.919s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ros']
+[0.920s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ros'
+[0.920s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['cmake', 'python']
+[0.920s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'cmake'
+[0.920s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python'
+[0.920s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['python_setup_py']
+[0.920s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python_setup_py'
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.921s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.922s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.922s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.922s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.922s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.922s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore_ament_install'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_pkg']
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_pkg'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_meta']
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_meta'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ros']
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ros'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['cmake', 'python']
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'cmake'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['python_setup_py']
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python_setup_py'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extension 'ignore'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extension 'ignore_ament_install'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extensions ['colcon_pkg']
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extension 'colcon_pkg'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extensions ['colcon_meta']
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extension 'colcon_meta'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extensions ['ros']
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extension 'ros'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extensions ['cmake', 'python']
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extension 'cmake'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extension 'python'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extensions ['python_setup_py']
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/__pycache__) by extension 'python_setup_py'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.928s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.928s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.928s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.928s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.928s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.928s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.928s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extensions ['ignore', 'ignore_ament_install']
+[0.928s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extension 'ignore'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extension 'ignore_ament_install'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extensions ['colcon_pkg']
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extension 'colcon_pkg'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extensions ['colcon_meta']
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extension 'colcon_meta'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extensions ['ros']
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extension 'ros'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extensions ['cmake', 'python']
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extension 'cmake'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extension 'python'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extensions ['python_setup_py']
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2) by extension 'python_setup_py'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extensions ['ignore', 'ignore_ament_install']
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extension 'ignore'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extension 'ignore_ament_install'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extensions ['colcon_pkg']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extension 'colcon_pkg'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extensions ['colcon_meta']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extension 'colcon_meta'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extensions ['ros']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extension 'ros'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extensions ['cmake', 'python']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extension 'cmake'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extension 'python'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extensions ['python_setup_py']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs) by extension 'python_setup_py'
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extensions ['ignore', 'ignore_ament_install']
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extension 'ignore'
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extension 'ignore_ament_install'
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extensions ['colcon_pkg']
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extension 'colcon_pkg'
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extensions ['colcon_meta']
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extension 'colcon_meta'
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extensions ['ros']
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extension 'ros'
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extensions ['cmake', 'python']
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extension 'cmake'
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extension 'python'
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extensions ['python_setup_py']
+[0.933s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/docs/images) by extension 'python_setup_py'
+[0.934s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extensions ['ignore', 'ignore_ament_install']
+[0.934s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extension 'ignore'
+[0.934s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extension 'ignore_ament_install'
+[0.934s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extensions ['colcon_pkg']
+[0.934s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extension 'colcon_pkg'
+[0.934s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extensions ['colcon_meta']
+[0.934s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extension 'colcon_meta'
+[0.935s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extensions ['ros']
+[0.935s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera) by extension 'ros'
+[0.952s] DEBUG:colcon.colcon_core.package_identification:Package 'src/OrbbecSDK_ROS2/orbbec_camera' with type 'ros.ament_cmake' and name 'orbbec_camera'
+[0.952s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extension 'ignore'
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extension 'ignore_ament_install'
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extensions ['colcon_pkg']
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extension 'colcon_pkg'
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extensions ['colcon_meta']
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extension 'colcon_meta'
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extensions ['ros']
+[0.953s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_camera_msgs) by extension 'ros'
+[0.954s] DEBUG:colcon.colcon_core.package_identification:Package 'src/OrbbecSDK_ROS2/orbbec_camera_msgs' with type 'ros.ament_cmake' and name 'orbbec_camera_msgs'
+[0.955s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extensions ['ignore', 'ignore_ament_install']
+[0.955s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extension 'ignore'
+[0.955s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extension 'ignore_ament_install'
+[0.955s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extensions ['colcon_pkg']
+[0.955s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extension 'colcon_pkg'
+[0.955s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extensions ['colcon_meta']
+[0.955s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extension 'colcon_meta'
+[0.956s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extensions ['ros']
+[0.956s] Level 1:colcon.colcon_core.package_identification:_identify(src/OrbbecSDK_ROS2/orbbec_description) by extension 'ros'
+[0.957s] DEBUG:colcon.colcon_core.package_identification:Package 'src/OrbbecSDK_ROS2/orbbec_description' with type 'ros.ament_cmake' and name 'orbbec_description'
+[0.957s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.957s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extension 'ignore'
+[0.957s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extension 'ignore_ament_install'
+[0.957s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extensions ['colcon_pkg']
+[0.957s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extension 'colcon_pkg'
+[0.957s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extensions ['colcon_meta']
+[0.957s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extension 'colcon_meta'
+[0.958s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extensions ['ros']
+[0.958s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extension 'ros'
+[0.958s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extensions ['cmake', 'python']
+[0.958s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extension 'cmake'
+[0.958s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extension 'python'
+[0.959s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extensions ['python_setup_py']
+[0.959s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2) by extension 'python_setup_py'
+[0.959s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.959s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extension 'ignore'
+[0.960s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extension 'ignore_ament_install'
+[0.960s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extensions ['colcon_pkg']
+[0.960s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extension 'colcon_pkg'
+[0.960s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extensions ['colcon_meta']
+[0.960s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extension 'colcon_meta'
+[0.960s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extensions ['ros']
+[0.961s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_bringup) by extension 'ros'
+[0.962s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_bringup' with type 'ros.ament_python' and name 'dobot_bringup'
+[0.962s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extensions ['ignore', 'ignore_ament_install']
+[0.962s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extension 'ignore'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extension 'ignore_ament_install'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extensions ['colcon_pkg']
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extension 'colcon_pkg'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extensions ['colcon_meta']
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extension 'colcon_meta'
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extensions ['ros']
+[0.963s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_calibration) by extension 'ros'
+[0.965s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_calibration' with type 'ros.ament_python' and name 'dobot_calibration'
+[0.965s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extensions ['ignore', 'ignore_ament_install']
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extension 'ignore'
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extension 'ignore_ament_install'
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extensions ['colcon_pkg']
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extension 'colcon_pkg'
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extensions ['colcon_meta']
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extension 'colcon_meta'
+[0.966s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extensions ['ros']
+[0.967s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_control_panel) by extension 'ros'
+[0.968s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_control_panel' with type 'ros.ament_python' and name 'dobot_control_panel'
+[0.969s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extensions ['ignore', 'ignore_ament_install']
+[0.969s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extension 'ignore'
+[0.969s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extension 'ignore_ament_install'
+[0.970s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extensions ['colcon_pkg']
+[0.970s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extension 'colcon_pkg'
+[0.970s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extensions ['colcon_meta']
+[0.970s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extension 'colcon_meta'
+[0.970s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extensions ['ros']
+[0.970s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_demos) by extension 'ros'
+[0.974s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_demos' with type 'ros.ament_python' and name 'dobot_demos'
+[0.974s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extensions ['ignore', 'ignore_ament_install']
+[0.974s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extension 'ignore'
+[0.974s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extension 'ignore_ament_install'
+[0.975s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extensions ['colcon_pkg']
+[0.975s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extension 'colcon_pkg'
+[0.975s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extensions ['colcon_meta']
+[0.975s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extension 'colcon_meta'
+[0.975s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extensions ['ros']
+[0.975s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_description) by extension 'ros'
+[0.977s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_description' with type 'ros.ament_cmake' and name 'dobot_description'
+[0.978s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extensions ['ignore', 'ignore_ament_install']
+[0.978s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extension 'ignore'
+[0.978s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extension 'ignore_ament_install'
+[0.978s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extensions ['colcon_pkg']
+[0.979s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extension 'colcon_pkg'
+[0.979s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extensions ['colcon_meta']
+[0.979s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extension 'colcon_meta'
+[0.979s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extensions ['ros']
+[0.979s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_diagnostics) by extension 'ros'
+[0.981s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_diagnostics' with type 'ros.ament_python' and name 'dobot_diagnostics'
+[0.982s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extensions ['ignore', 'ignore_ament_install']
+[0.982s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extension 'ignore'
+[0.982s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extension 'ignore_ament_install'
+[0.983s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extensions ['colcon_pkg']
+[0.983s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extension 'colcon_pkg'
+[0.983s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extensions ['colcon_meta']
+[0.983s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extension 'colcon_meta'
+[0.983s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extensions ['ros']
+[0.983s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_driver) by extension 'ros'
+[0.985s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_driver' with type 'ros.ament_cmake' and name 'dobot_driver'
+[0.985s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extensions ['ignore', 'ignore_ament_install']
+[0.985s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extension 'ignore'
+[0.986s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extension 'ignore_ament_install'
+[0.986s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extensions ['colcon_pkg']
+[0.986s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extension 'colcon_pkg'
+[0.986s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extensions ['colcon_meta']
+[0.986s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extension 'colcon_meta'
+[0.986s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extensions ['ros']
+[0.986s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_end_effector) by extension 'ros'
+[0.988s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_end_effector' with type 'ros.ament_python' and name 'dobot_end_effector'
+[0.988s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extensions ['ignore', 'ignore_ament_install']
+[0.988s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extension 'ignore'
+[0.989s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extension 'ignore_ament_install'
+[0.989s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extensions ['colcon_pkg']
+[0.989s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extension 'colcon_pkg'
+[0.989s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extensions ['colcon_meta']
+[0.989s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extension 'colcon_meta'
+[0.989s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extensions ['ros']
+[0.989s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_homing) by extension 'ros'
+[0.991s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_homing' with type 'ros.ament_python' and name 'dobot_homing'
+[0.991s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extensions ['ignore', 'ignore_ament_install']
+[0.992s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extension 'ignore'
+[0.992s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extension 'ignore_ament_install'
+[0.992s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extensions ['colcon_pkg']
+[0.992s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extension 'colcon_pkg'
+[0.992s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extensions ['colcon_meta']
+[0.992s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extension 'colcon_meta'
+[0.992s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extensions ['ros']
+[0.992s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_kinematics) by extension 'ros'
+[0.994s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_kinematics' with type 'ros.ament_python' and name 'dobot_kinematics'
+[0.994s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extensions ['ignore', 'ignore_ament_install']
+[0.995s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extension 'ignore'
+[0.995s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extension 'ignore_ament_install'
+[0.995s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extensions ['colcon_pkg']
+[0.995s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extension 'colcon_pkg'
+[0.995s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extensions ['colcon_meta']
+[0.995s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extension 'colcon_meta'
+[0.996s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extensions ['ros']
+[0.996s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_motion) by extension 'ros'
+[0.997s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_motion' with type 'ros.ament_python' and name 'dobot_motion'
+[0.998s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.998s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extension 'ignore'
+[0.998s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extension 'ignore_ament_install'
+[0.999s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extensions ['colcon_pkg']
+[0.999s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extension 'colcon_pkg'
+[0.999s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extensions ['colcon_meta']
+[0.999s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extension 'colcon_meta'
+[0.999s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extensions ['ros']
+[0.999s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_msgs) by extension 'ros'
+[1.001s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_msgs' with type 'ros.ament_cmake' and name 'dobot_msgs'
+[1.001s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extensions ['ignore', 'ignore_ament_install']
+[1.002s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extension 'ignore'
+[1.002s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extension 'ignore_ament_install'
+[1.002s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extensions ['colcon_pkg']
+[1.002s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extension 'colcon_pkg'
+[1.002s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extensions ['colcon_meta']
+[1.002s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extension 'colcon_meta'
+[1.002s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extensions ['ros']
+[1.003s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_object_vision) by extension 'ros'
+[1.005s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_object_vision' with type 'ros.ament_python' and name 'dobot_object_vision'
+[1.005s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extensions ['ignore', 'ignore_ament_install']
+[1.005s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extension 'ignore'
+[1.006s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extension 'ignore_ament_install'
+[1.006s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extensions ['colcon_pkg']
+[1.006s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extension 'colcon_pkg'
+[1.006s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extensions ['colcon_meta']
+[1.006s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extension 'colcon_meta'
+[1.006s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extensions ['ros']
+[1.006s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_state_updater) by extension 'ros'
+[1.008s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_state_updater' with type 'ros.ament_python' and name 'dobot_state_updater'
+[1.009s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extensions ['ignore', 'ignore_ament_install']
+[1.009s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extension 'ignore'
+[1.009s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extension 'ignore_ament_install'
+[1.009s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extensions ['colcon_pkg']
+[1.009s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extension 'colcon_pkg'
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extensions ['colcon_meta']
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extension 'colcon_meta'
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extensions ['ros']
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_rgbd) by extension 'ros'
+[1.012s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_vision_rgbd' with type 'ros.ament_python' and name 'dobot_vision_rgbd'
+[1.012s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extensions ['ignore', 'ignore_ament_install']
+[1.013s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extension 'ignore'
+[1.013s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extension 'ignore_ament_install'
+[1.013s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extensions ['colcon_pkg']
+[1.013s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extension 'colcon_pkg'
+[1.013s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extensions ['colcon_meta']
+[1.013s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extension 'colcon_meta'
+[1.013s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extensions ['ros']
+[1.013s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_vision_yolo) by extension 'ros'
+[1.015s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_vision_yolo' with type 'ros.ament_python' and name 'dobot_vision_yolo'
+[1.016s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extensions ['ignore', 'ignore_ament_install']
+[1.016s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extension 'ignore'
+[1.016s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extension 'ignore_ament_install'
+[1.016s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extensions ['colcon_pkg']
+[1.016s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extension 'colcon_pkg'
+[1.016s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extensions ['colcon_meta']
+[1.017s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extension 'colcon_meta'
+[1.017s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extensions ['ros']
+[1.017s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_visualization_tools) by extension 'ros'
+[1.018s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_visualization_tools' with type 'ros.ament_python' and name 'dobot_visualization_tools'
+[1.018s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extensions ['ignore', 'ignore_ament_install']
+[1.018s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extension 'ignore'
+[1.019s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extension 'ignore_ament_install'
+[1.019s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extensions ['colcon_pkg']
+[1.019s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extension 'colcon_pkg'
+[1.019s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extensions ['colcon_meta']
+[1.019s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extension 'colcon_meta'
+[1.019s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extensions ['ros']
+[1.019s] Level 1:colcon.colcon_core.package_identification:_identify(src/magician_ros2/dobot_web_interface) by extension 'ros'
+[1.022s] DEBUG:colcon.colcon_core.package_identification:Package 'src/magician_ros2/dobot_web_interface' with type 'ros.ament_python' and name 'dobot_web_interface'
+[1.022s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extensions ['ignore', 'ignore_ament_install']
+[1.022s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extension 'ignore'
+[1.022s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extension 'ignore_ament_install'
+[1.023s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extensions ['colcon_pkg']
+[1.023s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extension 'colcon_pkg'
+[1.023s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extensions ['colcon_meta']
+[1.023s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extension 'colcon_meta'
+[1.023s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extensions ['ros']
+[1.023s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extension 'ros'
+[1.024s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extensions ['cmake', 'python']
+[1.024s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extension 'cmake'
+[1.024s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extension 'python'
+[1.024s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extensions ['python_setup_py']
+[1.024s] Level 1:colcon.colcon_core.package_identification:_identify(systemd) by extension 'python_setup_py'
+[1.024s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.025s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.025s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.025s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.025s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.103s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_description' in 'src/magician_ros2/dobot_description'
+[1.103s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_driver' in 'src/magician_ros2/dobot_driver'
+[1.103s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_msgs' in 'src/magician_ros2/dobot_msgs'
+[1.103s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_vision_yolo' in 'src/magician_ros2/dobot_vision_yolo'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_visualization_tools' in 'src/magician_ros2/dobot_visualization_tools'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'orbbec_camera_msgs' in 'src/OrbbecSDK_ROS2/orbbec_camera_msgs'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'orbbec_description' in 'src/OrbbecSDK_ROS2/orbbec_description'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_control_panel' in 'src/magician_ros2/dobot_control_panel'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_diagnostics' in 'src/magician_ros2/dobot_diagnostics'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_end_effector' in 'src/magician_ros2/dobot_end_effector'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_homing' in 'src/magician_ros2/dobot_homing'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_kinematics' in 'src/magician_ros2/dobot_kinematics'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_motion' in 'src/magician_ros2/dobot_motion'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_object_vision' in 'src/magician_ros2/dobot_object_vision'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_state_updater' in 'src/magician_ros2/dobot_state_updater'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'orbbec_camera' in 'src/OrbbecSDK_ROS2/orbbec_camera'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_bringup' in 'src/magician_ros2/dobot_bringup'
+[1.104s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'dobot_demos' in 'src/magician_ros2/dobot_demos'
+[1.107s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.107s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.124s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 401 installed packages in /opt/ros/jazzy
+[1.127s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.314s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'cmake_args' from command line to 'None'
+[1.314s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'cmake_target' from command line to 'None'
+[1.314s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.314s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'cmake_clean_cache' from command line to 'False'
+[1.314s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'cmake_clean_first' from command line to 'False'
+[1.314s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'cmake_force_configure' from command line to 'False'
+[1.314s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'ament_cmake_args' from command line to 'None'
+[1.314s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'catkin_cmake_args' from command line to 'None'
+[1.315s] Level 5:colcon.colcon_core.verb:set package 'dobot_calibration' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.315s] DEBUG:colcon.colcon_core.verb:Building package 'dobot_calibration' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bbcontact/magician_ros2/build/dobot_calibration', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bbcontact/magician_ros2/install/dobot_calibration', 'merge_install': False, 'path': '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_calibration', 'symlink_install': True, 'test_result_base': None}
+[1.315s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'cmake_args' from command line to 'None'
+[1.316s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'cmake_target' from command line to 'None'
+[1.316s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.316s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'cmake_clean_cache' from command line to 'False'
+[1.316s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'cmake_clean_first' from command line to 'False'
+[1.316s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'cmake_force_configure' from command line to 'False'
+[1.316s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'ament_cmake_args' from command line to 'None'
+[1.316s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'catkin_cmake_args' from command line to 'None'
+[1.316s] Level 5:colcon.colcon_core.verb:set package 'dobot_vision_rgbd' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.316s] DEBUG:colcon.colcon_core.verb:Building package 'dobot_vision_rgbd' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd', 'merge_install': False, 'path': '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd', 'symlink_install': True, 'test_result_base': None}
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'cmake_args' from command line to 'None'
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'cmake_target' from command line to 'None'
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'cmake_clean_cache' from command line to 'False'
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'cmake_clean_first' from command line to 'False'
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'cmake_force_configure' from command line to 'False'
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'ament_cmake_args' from command line to 'None'
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'catkin_cmake_args' from command line to 'None'
+[1.317s] Level 5:colcon.colcon_core.verb:set package 'dobot_web_interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.317s] DEBUG:colcon.colcon_core.verb:Building package 'dobot_web_interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bbcontact/magician_ros2/build/dobot_web_interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bbcontact/magician_ros2/install/dobot_web_interface', 'merge_install': False, 'path': '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_web_interface', 'symlink_install': True, 'test_result_base': None}
+[1.317s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.319s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.319s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_calibration' with build type 'ament_python'
+[1.320s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_calibration', 'ament_prefix_path')
+[1.337s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.337s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/hook/ament_prefix_path.ps1'
+[1.339s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/hook/ament_prefix_path.dsv'
+[1.340s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/hook/ament_prefix_path.sh'
+[1.342s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.342s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.350s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd' with build type 'ament_python'
+[1.351s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_vision_rgbd', 'ament_prefix_path')
+[1.351s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/ament_prefix_path.ps1'
+[1.352s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/ament_prefix_path.dsv'
+[1.353s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/ament_prefix_path.sh'
+[1.354s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.354s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.188s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_calibration'
+[2.189s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.189s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.042s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd'
+[3.042s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.043s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.680s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_py, build_scripts, register, saveopts, rotate, clean, install_headers, bdist_wheel, bdist_dumb, build_ext, install_data, check, sdist, develop, bdist_egg, install_egg_info, dist_info, symlink_data, egg_info, editable_wheel, update_catalog, extract_messages, install_lib, install_scripts, bdist, test, bdist_rpm, setopt, upload_docs, install, alias, compile_catalog, init_catalog, easy_install, build_clib, build, upload
+[5.727s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_py, build_scripts, register, saveopts, rotate, clean, install_headers, bdist_wheel, bdist_dumb, build_ext, install_data, check, sdist, develop, bdist_egg, install_egg_info, dist_info, symlink_data, egg_info, editable_wheel, update_catalog, extract_messages, install_lib, install_scripts, bdist, test, bdist_rpm, setopt, upload_docs, install, alias, compile_catalog, init_catalog, easy_install, build_clib, build, upload
+[7.195s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --multi-version, --build-directory, --egg-path, --quiet, --site-dirs, --allow-hosts, --version, --editable, --force-installation-into-system-dir, --install-layout, --script-dir, --local-snapshots-ok, --user, --install-dir, --no-deps, --exclude-scripts, --always-copy, --no-user-cfg, --index-url, --uninstall, --record, --find-links, --prefix, --dry-run, --no-find-links, --optimize, --help, --upgrade, --verbose, --zip-ok, --always-unzip
+[7.203s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build --no-deps symlink_data
+[7.250s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --multi-version, --build-directory, --egg-path, --quiet, --site-dirs, --allow-hosts, --version, --editable, --force-installation-into-system-dir, --install-layout, --script-dir, --local-snapshots-ok, --user, --install-dir, --no-deps, --exclude-scripts, --always-copy, --no-user-cfg, --index-url, --uninstall, --record, --find-links, --prefix, --dry-run, --no-find-links, --optimize, --help, --upgrade, --verbose, --zip-ok, --always-unzip
+[7.258s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bbcontact/magician_ros2/build/dobot_calibration': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_calibration/build --no-deps symlink_data
+[10.161s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_vision_rgbd', 'pythonpath_develop')
+[10.162s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/pythonpath_develop.ps1'
+[10.163s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build --no-deps symlink_data
+[10.164s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/pythonpath_develop.dsv'
+[10.165s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/pythonpath_develop.sh'
+[10.187s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd' for CMake module files
+[10.189s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd' for CMake config files
+[10.191s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib'
+[10.192s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/bin'
+[10.192s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/pkgconfig/dobot_vision_rgbd.pc'
+[10.193s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages'
+[10.194s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_vision_rgbd', 'pythonpath')
+[10.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/pythonpath.ps1'
+[10.196s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/pythonpath.dsv'
+[10.197s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/hook/pythonpath.sh'
+[10.200s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/bin'
+[10.200s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dobot_vision_rgbd)
+[10.201s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/package.ps1'
+[10.205s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/package.dsv'
+[10.208s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/package.sh'
+[10.210s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/package.bash'
+[10.213s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/dobot_vision_rgbd/package.zsh'
+[10.215s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/share/colcon-core/packages/dobot_vision_rgbd)
+[10.411s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_calibration', 'pythonpath_develop')
+[10.412s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/build/dobot_calibration/share/dobot_calibration/hook/pythonpath_develop.ps1'
+[10.413s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bbcontact/magician_ros2/build/dobot_calibration' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_calibration/build --no-deps symlink_data
+[10.414s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/build/dobot_calibration/share/dobot_calibration/hook/pythonpath_develop.dsv'
+[10.415s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/build/dobot_calibration/share/dobot_calibration/hook/pythonpath_develop.sh'
+[10.417s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_calibration' for CMake module files
+[10.418s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_calibration' for CMake config files
+[10.420s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_calibration/lib'
+[10.420s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_calibration/bin'
+[10.420s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_calibration/lib/pkgconfig/dobot_calibration.pc'
+[10.421s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages'
+[10.422s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_calibration', 'pythonpath')
+[10.422s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/hook/pythonpath.ps1'
+[10.424s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/hook/pythonpath.dsv'
+[10.425s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/hook/pythonpath.sh'
+[10.428s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_calibration/bin'
+[10.428s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dobot_calibration)
+[10.429s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/package.ps1'
+[10.431s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/package.dsv'
+[10.432s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/package.sh'
+[10.433s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/package.bash'
+[10.434s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/package.zsh'
+[10.435s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bbcontact/magician_ros2/install/dobot_calibration/share/colcon-core/packages/dobot_calibration)
+[10.435s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_web_interface' with build type 'ament_python'
+[10.436s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_web_interface', 'ament_prefix_path')
+[10.436s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/hook/ament_prefix_path.ps1'
+[10.438s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/hook/ament_prefix_path.dsv'
+[10.440s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/hook/ament_prefix_path.sh'
+[10.442s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[10.442s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[11.391s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_web_interface'
+[11.392s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[11.392s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[14.090s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: build_py, build_scripts, register, saveopts, rotate, clean, install_headers, bdist_wheel, bdist_dumb, build_ext, install_data, check, sdist, develop, bdist_egg, install_egg_info, dist_info, symlink_data, egg_info, editable_wheel, update_catalog, extract_messages, install_lib, install_scripts, bdist, test, bdist_rpm, setopt, upload_docs, install, alias, compile_catalog, init_catalog, easy_install, build_clib, build, upload
+[15.519s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --multi-version, --build-directory, --egg-path, --quiet, --site-dirs, --allow-hosts, --version, --editable, --force-installation-into-system-dir, --install-layout, --script-dir, --local-snapshots-ok, --user, --install-dir, --no-deps, --exclude-scripts, --always-copy, --no-user-cfg, --index-url, --uninstall, --record, --find-links, --prefix, --dry-run, --no-find-links, --optimize, --help, --upgrade, --verbose, --zip-ok, --always-unzip
+[15.524s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bbcontact/magician_ros2/build/dobot_web_interface': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera/lib:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_web_interface/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_web_interface/build --no-deps symlink_data
+[18.530s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_web_interface', 'pythonpath_develop')
+[18.532s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/build/dobot_web_interface/share/dobot_web_interface/hook/pythonpath_develop.ps1'
+[18.534s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bbcontact/magician_ros2/build/dobot_web_interface' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera/lib:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_web_interface/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_web_interface/build --no-deps symlink_data
+[18.535s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/build/dobot_web_interface/share/dobot_web_interface/hook/pythonpath_develop.dsv'
+[18.537s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/build/dobot_web_interface/share/dobot_web_interface/hook/pythonpath_develop.sh'
+[18.539s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_web_interface' for CMake module files
+[18.541s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_web_interface' for CMake config files
+[18.543s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_web_interface/lib'
+[18.543s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_web_interface/bin'
+[18.543s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_web_interface/lib/pkgconfig/dobot_web_interface.pc'
+[18.544s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages'
+[18.545s] Level 1:colcon.colcon_core.shell:create_environment_hook('dobot_web_interface', 'pythonpath')
+[18.546s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/hook/pythonpath.ps1'
+[18.547s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/hook/pythonpath.dsv'
+[18.548s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/hook/pythonpath.sh'
+[18.551s] Level 1:colcon.colcon_core.environment:checking '/home/bbcontact/magician_ros2/install/dobot_web_interface/bin'
+[18.551s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dobot_web_interface)
+[18.552s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/package.ps1'
+[18.555s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/package.dsv'
+[18.557s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/package.sh'
+[18.559s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/package.bash'
+[18.561s] INFO:colcon.colcon_core.shell:Creating package script '/home/bbcontact/magician_ros2/install/dobot_web_interface/share/dobot_web_interface/package.zsh'
+[18.562s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bbcontact/magician_ros2/install/dobot_web_interface/share/colcon-core/packages/dobot_web_interface)
+[18.563s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[18.565s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[18.565s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[18.565s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[18.566s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[18.567s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bbcontact/magician_ros2/install/local_setup.ps1'
+[18.573s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/bbcontact/magician_ros2/install/_local_setup_util_ps1.py'
+[18.578s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bbcontact/magician_ros2/install/setup.ps1'
+[18.582s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bbcontact/magician_ros2/install/local_setup.sh'
+[18.584s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/bbcontact/magician_ros2/install/_local_setup_util_sh.py'
+[18.586s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bbcontact/magician_ros2/install/setup.sh'
+[18.590s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bbcontact/magician_ros2/install/local_setup.bash'
+[18.592s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bbcontact/magician_ros2/install/setup.bash'
+[18.597s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bbcontact/magician_ros2/install/local_setup.zsh'
+[18.599s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bbcontact/magician_ros2/install/setup.zsh'

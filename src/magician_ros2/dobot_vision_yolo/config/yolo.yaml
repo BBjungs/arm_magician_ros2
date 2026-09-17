@@ -34,7 +34,7 @@ target_selector_node:
     target_class: all
     object_classes: [yellow_cap, black_cap, white_cap]
     class_to_place:
-      yellow_cap: tray_A
-      black_cap: tray_B
-      white_cap: tray_C
+      yellow_cap: Zone A
+      black_cap: Zone B
+      white_cap: Zone C
     min_confidence: 0.70

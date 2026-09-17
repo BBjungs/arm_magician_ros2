@@ -1,0 +1,41 @@
+[0.028s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/dobot_driver -- -j8 -l8
+[0.194s] Built target ament_cmake_python_symlink_dobot_driver
+[1.006s] running egg_info
+[1.081s] writing dobot_driver.egg-info/PKG-INFO
+[1.082s] writing dependency_links to dobot_driver.egg-info/dependency_links.txt
+[1.082s] writing top-level names to dobot_driver.egg-info/top_level.txt
+[1.332s] reading manifest file 'dobot_driver.egg-info/SOURCES.txt'
+[1.334s] writing manifest file 'dobot_driver.egg-info/SOURCES.txt'
+[1.409s] Built target ament_cmake_python_build_dobot_driver_egg
+[1.439s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/dobot_driver -- -j8 -l8
+[1.442s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/dobot_driver
+[1.464s] -- Install configuration: ""
+[1.466s] -- Execute custom install script
+[1.466s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/environment/pythonpath.sh
+[1.467s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/environment/pythonpath.dsv
+[1.468s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver-1.0.0-py3.12.egg-info/PKG-INFO
+[1.469s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver-1.0.0-py3.12.egg-info/SOURCES.txt
+[1.469s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver-1.0.0-py3.12.egg-info/dependency_links.txt
+[1.470s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver-1.0.0-py3.12.egg-info/top_level.txt
+[1.471s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver/__init__.py
+[1.472s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver/dobot_handle.py
+[1.472s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver/interface.py
+[1.472s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver/message.py
+[1.473s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver/parsers.py
+[1.473s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/ament_index/resource_index/package_run_dependencies/dobot_driver
+[1.474s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/ament_index/resource_index/parent_prefix_path/dobot_driver
+[1.474s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/environment/ament_prefix_path.sh
+[1.475s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/environment/ament_prefix_path.dsv
+[1.475s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/environment/path.sh
+[1.476s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/environment/path.dsv
+[1.477s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/local_setup.bash
+[1.477s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/local_setup.sh
+[1.478s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/local_setup.zsh
+[1.478s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/local_setup.dsv
+[1.479s] -- Symlinking: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/package.dsv
+[1.501s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/ament_index/resource_index/packages/dobot_driver
+[1.501s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/cmake/dobot_driverConfig.cmake
+[1.502s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/cmake/dobot_driverConfig-version.cmake
+[1.502s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_driver/share/dobot_driver/package.xml
+[1.597s] Listing '/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages/dobot_driver'...
+[1.618s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/dobot_driver

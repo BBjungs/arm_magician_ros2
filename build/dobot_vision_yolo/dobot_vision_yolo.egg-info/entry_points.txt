@@ -1,6 +1,4 @@
 [console_scripts]
-camera_calibration_tool = dobot_vision_yolo.camera_calibration_tool:main
-eye_in_hand_calibration_node = dobot_vision_yolo.eye_in_hand_calibration_node:main
 pixel_to_robot_node = dobot_vision_yolo.pixel_to_robot_node:main
 safety_guard_node = dobot_vision_yolo.safety_guard:main
 target_selector_node = dobot_vision_yolo.target_selector_node:main

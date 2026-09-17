@@ -34,7 +34,7 @@ impl rosidl_runtime_rs::Message for DobotAlarmCodes {
     match msg_cow {
       std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
         header: std_msgs::msg::Header::into_rmw_message(std::borrow::Cow::Owned(msg.header)).into_owned(),
-        alarms_list: msg.alarms_list.into(),
+        alarms_list: msg.alarms_list.as_slice().into(),
       }),
       std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
         header: std_msgs::msg::Header::into_rmw_message(std::borrow::Cow::Borrowed(&msg.header)).into_owned(),
@@ -46,9 +46,7 @@ impl rosidl_runtime_rs::Message for DobotAlarmCodes {
   fn from_rmw_message(msg: Self::RmwMsg) -> Self {
     Self {
       header: std_msgs::msg::Header::from_rmw_message(msg.header),
-      alarms_list: msg.alarms_list
-          .into_iter()
-          .collect(),
+      alarms_list: msg.alarms_list.into(),
     }
   }
 }

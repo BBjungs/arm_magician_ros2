@@ -9,6 +9,7 @@ object_fusion_node:
     sync_queue_size: 10
     depth_scale_16uc1_to_mm: 1.0
     minimum_frame_depth_valid_ratio: 0.05
+    processing_fps: 10.0
     require_registered_depth: true
     shape_rules_path: ''
     color_rules_path: ''

@@ -258,6 +258,12 @@ CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/d
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.h \
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__struct.h \
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.h \
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.h \
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__struct.h \
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.h \
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h \
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__struct.h \
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.h \
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__type_support.h \
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__struct.h \
  /opt/ros/jazzy/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__struct.h \

@@ -15,8 +15,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/evaluate_ptp_trajectory__type_support.cpp.o.d"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/execute_homing_procedure__type_support.cpp.o"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/execute_homing_procedure__type_support.cpp.o.d"
+  "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp.o"
+  "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp.o.d"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp.o"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp.o.d"
+  "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o"
+  "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o.d"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp.o"
   "CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp.o.d"
   "libdobot_msgs__rosidl_typesupport_cpp.pdb"
@@ -29,7 +33,9 @@ file(REMOVE_RECURSE
   "rosidl_typesupport_cpp/dobot_msgs/msg/gripper_status__type_support.cpp"
   "rosidl_typesupport_cpp/dobot_msgs/srv/evaluate_ptp_trajectory__type_support.cpp"
   "rosidl_typesupport_cpp/dobot_msgs/srv/execute_homing_procedure__type_support.cpp"
+  "rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp"
   "rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp"
+  "rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp"
   "rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp"
 )
 

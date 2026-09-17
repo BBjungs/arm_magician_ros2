@@ -1,7 +1,1 @@
-frame_convention:
-  expected_optical_frame: camera_color_optical_frame
-  x_axis: right
-  y_axis: down
-  z_axis: forward
-physical_size_is_approximate: true
-registered_depth_required: true
+/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/config/camera_geometry.yaml

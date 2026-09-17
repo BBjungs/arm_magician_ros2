@@ -1,0 +1,252 @@
+[0.000000] (-) TimerEvent: {}
+[0.000212] (-) JobUnselected: {'identifier': 'dobot_bringup'}
+[0.000314] (-) JobUnselected: {'identifier': 'dobot_control_panel'}
+[0.000376] (-) JobUnselected: {'identifier': 'dobot_demos'}
+[0.000429] (-) JobUnselected: {'identifier': 'dobot_description'}
+[0.000483] (-) JobUnselected: {'identifier': 'dobot_diagnostics'}
+[0.000534] (-) JobUnselected: {'identifier': 'dobot_driver'}
+[0.000591] (-) JobUnselected: {'identifier': 'dobot_end_effector'}
+[0.000639] (-) JobUnselected: {'identifier': 'dobot_homing'}
+[0.000687] (-) JobUnselected: {'identifier': 'dobot_kinematics'}
+[0.000734] (-) JobUnselected: {'identifier': 'dobot_motion'}
+[0.000781] (-) JobUnselected: {'identifier': 'dobot_msgs'}
+[0.000843] (-) JobUnselected: {'identifier': 'dobot_object_vision'}
+[0.000891] (-) JobUnselected: {'identifier': 'dobot_state_updater'}
+[0.000937] (-) JobUnselected: {'identifier': 'dobot_vision_yolo'}
+[0.000983] (-) JobUnselected: {'identifier': 'dobot_visualization_tools'}
+[0.001027] (-) JobUnselected: {'identifier': 'orbbec_camera'}
+[0.001087] (-) JobUnselected: {'identifier': 'orbbec_camera_msgs'}
+[0.001145] (-) JobUnselected: {'identifier': 'orbbec_description'}
+[0.001211] (dobot_calibration) JobQueued: {'identifier': 'dobot_calibration', 'dependencies': OrderedDict({'dobot_msgs': '/home/bbcontact/magician_ros2/install/dobot_msgs'})}
+[0.001302] (dobot_vision_rgbd) JobQueued: {'identifier': 'dobot_vision_rgbd', 'dependencies': OrderedDict({'orbbec_camera_msgs': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs'})}
+[0.001381] (dobot_web_interface) JobQueued: {'identifier': 'dobot_web_interface', 'dependencies': OrderedDict({'dobot_description': '/home/bbcontact/magician_ros2/install/dobot_description', 'dobot_driver': '/home/bbcontact/magician_ros2/install/dobot_driver', 'dobot_msgs': '/home/bbcontact/magician_ros2/install/dobot_msgs', 'dobot_vision_yolo': '/home/bbcontact/magician_ros2/install/dobot_vision_yolo', 'orbbec_camera_msgs': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs', 'dobot_calibration': '/home/bbcontact/magician_ros2/install/dobot_calibration', 'dobot_diagnostics': '/home/bbcontact/magician_ros2/install/dobot_diagnostics', 'dobot_end_effector': '/home/bbcontact/magician_ros2/install/dobot_end_effector', 'dobot_homing': '/home/bbcontact/magician_ros2/install/dobot_homing', 'dobot_kinematics': '/home/bbcontact/magician_ros2/install/dobot_kinematics', 'dobot_motion': '/home/bbcontact/magician_ros2/install/dobot_motion', 'dobot_state_updater': '/home/bbcontact/magician_ros2/install/dobot_state_updater', 'dobot_vision_rgbd': '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd', 'orbbec_camera': '/home/bbcontact/magician_ros2/install/orbbec_camera', 'dobot_bringup': '/home/bbcontact/magician_ros2/install/dobot_bringup'})}
+[0.001509] (dobot_calibration) JobStarted: {'identifier': 'dobot_calibration'}
+[0.030477] (dobot_vision_rgbd) JobStarted: {'identifier': 'dobot_vision_rgbd'}
+[0.098369] (-) TimerEvent: {}
+[0.198652] (-) TimerEvent: {}
+[0.298886] (-) TimerEvent: {}
+[0.399100] (-) TimerEvent: {}
+[0.499341] (-) TimerEvent: {}
+[0.599587] (-) TimerEvent: {}
+[0.699784] (-) TimerEvent: {}
+[0.800010] (-) TimerEvent: {}
+[0.901268] (-) TimerEvent: {}
+[1.002251] (-) TimerEvent: {}
+[1.102523] (-) TimerEvent: {}
+[1.202780] (-) TimerEvent: {}
+[1.303014] (-) TimerEvent: {}
+[1.403253] (-) TimerEvent: {}
+[1.503456] (-) TimerEvent: {}
+[1.603661] (-) TimerEvent: {}
+[1.703894] (-) TimerEvent: {}
+[1.804159] (-) TimerEvent: {}
+[1.906193] (-) TimerEvent: {}
+[2.006440] (-) TimerEvent: {}
+[2.106723] (-) TimerEvent: {}
+[2.206951] (-) TimerEvent: {}
+[2.307190] (-) TimerEvent: {}
+[2.407428] (-) TimerEvent: {}
+[2.507683] (-) TimerEvent: {}
+[2.609305] (-) TimerEvent: {}
+[2.709570] (-) TimerEvent: {}
+[2.809825] (-) TimerEvent: {}
+[2.910103] (-) TimerEvent: {}
+[3.010366] (-) TimerEvent: {}
+[3.110595] (-) TimerEvent: {}
+[3.210858] (-) TimerEvent: {}
+[3.311102] (-) TimerEvent: {}
+[3.411314] (-) TimerEvent: {}
+[3.511533] (-) TimerEvent: {}
+[3.611807] (-) TimerEvent: {}
+[3.712029] (-) TimerEvent: {}
+[3.812255] (-) TimerEvent: {}
+[3.912582] (-) TimerEvent: {}
+[4.012783] (-) TimerEvent: {}
+[4.113011] (-) TimerEvent: {}
+[4.213308] (-) TimerEvent: {}
+[4.313633] (-) TimerEvent: {}
+[4.414461] (-) TimerEvent: {}
+[4.514774] (-) TimerEvent: {}
+[4.615002] (-) TimerEvent: {}
+[4.715304] (-) TimerEvent: {}
+[4.815523] (-) TimerEvent: {}
+[4.915722] (-) TimerEvent: {}
+[5.015989] (-) TimerEvent: {}
+[5.116173] (-) TimerEvent: {}
+[5.216357] (-) TimerEvent: {}
+[5.316539] (-) TimerEvent: {}
+[5.416792] (-) TimerEvent: {}
+[5.516979] (-) TimerEvent: {}
+[5.617199] (-) TimerEvent: {}
+[5.717393] (-) TimerEvent: {}
+[5.817638] (-) TimerEvent: {}
+[5.877036] (dobot_vision_rgbd) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build', '--no-deps', 'symlink_data'], 'cwd': '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd', 'env': {'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.10.102 15444 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/1', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8788/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '434', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0KQC7ct:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_SESSION_ID': '01a086a1-ae3b-79e0-9d25-89d2f29eb9fa', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a086a1-ae3b-79e0-9d25-89d2f29eb9fa', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.10.102 15444 172.30.40.77 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[5.917790] (-) TimerEvent: {}
+[5.931664] (dobot_calibration) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/bbcontact/magician_ros2/build/dobot_calibration/build', '--no-deps', 'symlink_data'], 'cwd': '/home/bbcontact/magician_ros2/build/dobot_calibration', 'env': {'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.10.102 15444 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/bbcontact/magician_ros2/install/dobot_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/1', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8788/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '434', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0KQC7ct:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_SESSION_ID': '01a086a1-ae3b-79e0-9d25-89d2f29eb9fa', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/dobot_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a086a1-ae3b-79e0-9d25-89d2f29eb9fa', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/dobot_calibration', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.10.102 15444 172.30.40.77 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/dobot_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[6.017880] (-) TimerEvent: {}
+[6.118078] (-) TimerEvent: {}
+[6.218307] (-) TimerEvent: {}
+[6.318546] (-) TimerEvent: {}
+[6.418743] (-) TimerEvent: {}
+[6.518950] (-) TimerEvent: {}
+[6.619154] (-) TimerEvent: {}
+[6.719377] (-) TimerEvent: {}
+[6.819658] (-) TimerEvent: {}
+[6.919908] (-) TimerEvent: {}
+[7.020143] (-) TimerEvent: {}
+[7.120351] (-) TimerEvent: {}
+[7.220561] (-) TimerEvent: {}
+[7.320800] (-) TimerEvent: {}
+[7.335480] (dobot_vision_rgbd) StdoutLine: {'line': b'running develop\n'}
+[7.420935] (-) TimerEvent: {}
+[7.455599] (dobot_calibration) StdoutLine: {'line': b'running develop\n'}
+[7.521126] (-) TimerEvent: {}
+[7.621568] (-) TimerEvent: {}
+[7.721786] (-) TimerEvent: {}
+[7.822041] (-) TimerEvent: {}
+[7.922314] (-) TimerEvent: {}
+[8.022635] (-) TimerEvent: {}
+[8.122889] (-) TimerEvent: {}
+[8.223150] (-) TimerEvent: {}
+[8.323386] (-) TimerEvent: {}
+[8.336433] (dobot_vision_rgbd) StdoutLine: {'line': b'running egg_info\n'}
+[8.423508] (-) TimerEvent: {}
+[8.434713] (dobot_vision_rgbd) StdoutLine: {'line': b'writing dobot_vision_rgbd.egg-info/PKG-INFO\n'}
+[8.435366] (dobot_vision_rgbd) StdoutLine: {'line': b'writing dependency_links to dobot_vision_rgbd.egg-info/dependency_links.txt\n'}
+[8.435991] (dobot_vision_rgbd) StdoutLine: {'line': b'writing entry points to dobot_vision_rgbd.egg-info/entry_points.txt\n'}
+[8.436847] (dobot_vision_rgbd) StdoutLine: {'line': b'writing requirements to dobot_vision_rgbd.egg-info/requires.txt\n'}
+[8.437238] (dobot_vision_rgbd) StdoutLine: {'line': b'writing top-level names to dobot_vision_rgbd.egg-info/top_level.txt\n'}
+[8.496810] (dobot_calibration) StdoutLine: {'line': b'running egg_info\n'}
+[8.523606] (-) TimerEvent: {}
+[8.591392] (dobot_calibration) StdoutLine: {'line': b'writing dobot_calibration.egg-info/PKG-INFO\n'}
+[8.591879] (dobot_calibration) StdoutLine: {'line': b'writing dependency_links to dobot_calibration.egg-info/dependency_links.txt\n'}
+[8.592286] (dobot_calibration) StdoutLine: {'line': b'writing entry points to dobot_calibration.egg-info/entry_points.txt\n'}
+[8.592665] (dobot_calibration) StdoutLine: {'line': b'writing requirements to dobot_calibration.egg-info/requires.txt\n'}
+[8.593057] (dobot_calibration) StdoutLine: {'line': b'writing top-level names to dobot_calibration.egg-info/top_level.txt\n'}
+[8.623758] (-) TimerEvent: {}
+[8.630004] (dobot_vision_rgbd) StdoutLine: {'line': b"reading manifest file 'dobot_vision_rgbd.egg-info/SOURCES.txt'\n"}
+[8.632823] (dobot_vision_rgbd) StdoutLine: {'line': b"writing manifest file 'dobot_vision_rgbd.egg-info/SOURCES.txt'\n"}
+[8.723881] (-) TimerEvent: {}
+[8.734480] (dobot_vision_rgbd) StdoutLine: {'line': b'running build_ext\n'}
+[8.734982] (dobot_vision_rgbd) StdoutLine: {'line': b'Creating /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot-vision-rgbd.egg-link (link to .)\n'}
+[8.736996] (dobot_vision_rgbd) StdoutLine: {'line': b'Installing camera_health_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd\n'}
+[8.737669] (dobot_vision_rgbd) StdoutLine: {'line': b'Installing object_fusion_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd\n'}
+[8.738572] (dobot_vision_rgbd) StdoutLine: {'line': b'\n'}
+[8.738857] (dobot_vision_rgbd) StdoutLine: {'line': b'Installed /home/bbcontact/magician_ros2/build/dobot_vision_rgbd\n'}
+[8.739045] (dobot_vision_rgbd) StdoutLine: {'line': b'running symlink_data\n'}
+[8.824044] (-) TimerEvent: {}
+[8.827536] (dobot_calibration) StdoutLine: {'line': b"reading manifest file 'dobot_calibration.egg-info/SOURCES.txt'\n"}
+[8.830395] (dobot_calibration) StdoutLine: {'line': b"writing manifest file 'dobot_calibration.egg-info/SOURCES.txt'\n"}
+[8.841183] (dobot_vision_rgbd) CommandEnded: {'returncode': 0}
+[8.896609] (dobot_vision_rgbd) JobEnded: {'identifier': 'dobot_vision_rgbd', 'rc': 0}
+[8.924182] (-) TimerEvent: {}
+[8.967448] (dobot_calibration) StdoutLine: {'line': b'running build_ext\n'}
+[8.968168] (dobot_calibration) StdoutLine: {'line': b'Creating /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot-calibration.egg-link (link to .)\n'}
+[8.969575] (dobot_calibration) StdoutLine: {'line': b'Installing markerless_calibration script to /home/bbcontact/magician_ros2/install/dobot_calibration/lib/dobot_calibration\n'}
+[8.970319] (dobot_calibration) StdoutLine: {'line': b'\n'}
+[8.970814] (dobot_calibration) StdoutLine: {'line': b'Installed /home/bbcontact/magician_ros2/build/dobot_calibration\n'}
+[8.970996] (dobot_calibration) StdoutLine: {'line': b'running symlink_data\n'}
+[9.024305] (-) TimerEvent: {}
+[9.090856] (dobot_calibration) CommandEnded: {'returncode': 0}
+[9.115455] (dobot_calibration) JobEnded: {'identifier': 'dobot_calibration', 'rc': 0}
+[9.118716] (dobot_web_interface) JobStarted: {'identifier': 'dobot_web_interface'}
+[9.125897] (-) TimerEvent: {}
+[9.226155] (-) TimerEvent: {}
+[9.326421] (-) TimerEvent: {}
+[9.426698] (-) TimerEvent: {}
+[9.527093] (-) TimerEvent: {}
+[9.627400] (-) TimerEvent: {}
+[9.727658] (-) TimerEvent: {}
+[9.827894] (-) TimerEvent: {}
+[9.928127] (-) TimerEvent: {}
+[10.028375] (-) TimerEvent: {}
+[10.128618] (-) TimerEvent: {}
+[10.228851] (-) TimerEvent: {}
+[10.329098] (-) TimerEvent: {}
+[10.429374] (-) TimerEvent: {}
+[10.529647] (-) TimerEvent: {}
+[10.629889] (-) TimerEvent: {}
+[10.730094] (-) TimerEvent: {}
+[10.830312] (-) TimerEvent: {}
+[10.931454] (-) TimerEvent: {}
+[11.031786] (-) TimerEvent: {}
+[11.132030] (-) TimerEvent: {}
+[11.232342] (-) TimerEvent: {}
+[11.332540] (-) TimerEvent: {}
+[11.432753] (-) TimerEvent: {}
+[11.532949] (-) TimerEvent: {}
+[11.633214] (-) TimerEvent: {}
+[11.733447] (-) TimerEvent: {}
+[11.833684] (-) TimerEvent: {}
+[11.933904] (-) TimerEvent: {}
+[12.034082] (-) TimerEvent: {}
+[12.134300] (-) TimerEvent: {}
+[12.234492] (-) TimerEvent: {}
+[12.334744] (-) TimerEvent: {}
+[12.434919] (-) TimerEvent: {}
+[12.535162] (-) TimerEvent: {}
+[12.635411] (-) TimerEvent: {}
+[12.735756] (-) TimerEvent: {}
+[12.836030] (-) TimerEvent: {}
+[12.936289] (-) TimerEvent: {}
+[13.036539] (-) TimerEvent: {}
+[13.136785] (-) TimerEvent: {}
+[13.236969] (-) TimerEvent: {}
+[13.337194] (-) TimerEvent: {}
+[13.437422] (-) TimerEvent: {}
+[13.537645] (-) TimerEvent: {}
+[13.637909] (-) TimerEvent: {}
+[13.738240] (-) TimerEvent: {}
+[13.838443] (-) TimerEvent: {}
+[13.938634] (-) TimerEvent: {}
+[14.038851] (-) TimerEvent: {}
+[14.139140] (-) TimerEvent: {}
+[14.201123] (dobot_web_interface) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/bbcontact/magician_ros2/build/dobot_web_interface/build', '--no-deps', 'symlink_data'], 'cwd': '/home/bbcontact/magician_ros2/build/dobot_web_interface', 'env': {'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.10.102 15444 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera/lib:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/home/bbcontact/magician_ros2/install/dobot_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/1', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8788/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '434', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0KQC7ct:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_SESSION_ID': '01a086a1-ae3b-79e0-9d25-89d2f29eb9fa', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a086a1-ae3b-79e0-9d25-89d2f29eb9fa', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/dobot_web_interface', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.10.102 15444 172.30.40.77 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bbcontact/magician_ros2/build/dobot_web_interface/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[14.239198] (-) TimerEvent: {}
+[14.339518] (-) TimerEvent: {}
+[14.439745] (-) TimerEvent: {}
+[14.540028] (-) TimerEvent: {}
+[14.640246] (-) TimerEvent: {}
+[14.740508] (-) TimerEvent: {}
+[14.840748] (-) TimerEvent: {}
+[14.940993] (-) TimerEvent: {}
+[15.041188] (-) TimerEvent: {}
+[15.141424] (-) TimerEvent: {}
+[15.241703] (-) TimerEvent: {}
+[15.341953] (-) TimerEvent: {}
+[15.442176] (-) TimerEvent: {}
+[15.542373] (-) TimerEvent: {}
+[15.627622] (dobot_web_interface) StdoutLine: {'line': b'running develop\n'}
+[15.642493] (-) TimerEvent: {}
+[15.742729] (-) TimerEvent: {}
+[15.843042] (-) TimerEvent: {}
+[15.943328] (-) TimerEvent: {}
+[16.043565] (-) TimerEvent: {}
+[16.143819] (-) TimerEvent: {}
+[16.244197] (-) TimerEvent: {}
+[16.344468] (-) TimerEvent: {}
+[16.444752] (-) TimerEvent: {}
+[16.545010] (-) TimerEvent: {}
+[16.645281] (-) TimerEvent: {}
+[16.656581] (dobot_web_interface) StdoutLine: {'line': b'running egg_info\n'}
+[16.745429] (-) TimerEvent: {}
+[16.772927] (dobot_web_interface) StdoutLine: {'line': b'writing dobot_web_interface.egg-info/PKG-INFO\n'}
+[16.773624] (dobot_web_interface) StdoutLine: {'line': b'writing dependency_links to dobot_web_interface.egg-info/dependency_links.txt\n'}
+[16.774100] (dobot_web_interface) StdoutLine: {'line': b'writing entry points to dobot_web_interface.egg-info/entry_points.txt\n'}
+[16.774646] (dobot_web_interface) StdoutLine: {'line': b'writing requirements to dobot_web_interface.egg-info/requires.txt\n'}
+[16.774932] (dobot_web_interface) StdoutLine: {'line': b'writing top-level names to dobot_web_interface.egg-info/top_level.txt\n'}
+[16.845522] (-) TimerEvent: {}
+[16.945717] (-) TimerEvent: {}
+[16.978297] (dobot_web_interface) StdoutLine: {'line': b"reading manifest file 'dobot_web_interface.egg-info/SOURCES.txt'\n"}
+[16.982375] (dobot_web_interface) StdoutLine: {'line': b"writing manifest file 'dobot_web_interface.egg-info/SOURCES.txt'\n"}
+[17.045841] (-) TimerEvent: {}
+[17.086873] (dobot_web_interface) StdoutLine: {'line': b'running build_ext\n'}
+[17.087759] (dobot_web_interface) StdoutLine: {'line': b'Creating /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages/dobot-web-interface.egg-link (link to .)\n'}
+[17.089087] (dobot_web_interface) StdoutLine: {'line': b'Installing web_interface script to /home/bbcontact/magician_ros2/install/dobot_web_interface/lib/dobot_web_interface\n'}
+[17.089752] (dobot_web_interface) StdoutLine: {'line': b'\n'}
+[17.089959] (dobot_web_interface) StdoutLine: {'line': b'Installed /home/bbcontact/magician_ros2/build/dobot_web_interface\n'}
+[17.090304] (dobot_web_interface) StdoutLine: {'line': b'running symlink_data\n'}
+[17.146036] (-) TimerEvent: {}
+[17.211952] (dobot_web_interface) CommandEnded: {'returncode': 0}
+[17.242764] (dobot_web_interface) JobEnded: {'identifier': 'dobot_web_interface', 'rc': 0}
+[17.245441] (-) EventReactorShutdown: {}

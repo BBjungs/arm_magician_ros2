@@ -510,7 +510,7 @@ liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libr
 liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librmw.so
 liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
 liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
-liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libfastcdr.so.2.2.7
+liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libfastcdr.so.2.2.8
 liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libsensor_msgs__rosidl_generator_c.so
 liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_c.so
 liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_c.so

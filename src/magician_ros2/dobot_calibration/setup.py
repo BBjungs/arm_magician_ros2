@@ -1,4 +1,3 @@
-from glob import glob
 from setuptools import setup
 
 setup(
@@ -8,8 +7,11 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/dobot_calibration']),
         ('share/dobot_calibration', ['package.xml', 'README.md']),
-        ('share/dobot_calibration/config', glob('config/*.yaml')),
-        ('share/dobot_calibration/launch', glob('launch/*.launch.py')),
+        ('share/dobot_calibration/config', [
+            'config/calibration.yaml', 'config/mount_model.yaml',
+            'config/carrier_mount.example.yaml',
+        ]),
+        ('share/dobot_calibration/launch', ['launch/markerless_calibration.launch.py']),
     ],
     install_requires=['setuptools', 'numpy', 'scipy', 'PyYAML'],
     zip_safe=True,

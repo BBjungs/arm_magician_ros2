@@ -14,7 +14,7 @@ TRUE_X = transform(Rotation.from_euler('xyz', [180, 5, 7], degrees=True).as_matr
 START = transform(translation=[0.19, 0.0, 0.125])
 K = np.array([[440., 0, 320.], [0, 440., 240.], [0, 0, 1.]])
 HINT = transform(Rotation.from_euler('xyz', [179, 7, 11], degrees=True).as_matrix(),
-                 [0.040, -0.015, 0.090])
+                 TRUE_X[:3, 3])
 MOUNT = Mount(HINT, 0.001, 0.105, 'synthetic CAD fixture', 'synthetic-mount-v1')
 
 _rng = np.random.default_rng(123)

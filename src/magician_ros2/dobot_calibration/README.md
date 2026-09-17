@@ -20,7 +20,7 @@ Live readiness recovery identified the installed Orbbec Gemini/Astra profile
 as 640x400 Y11 at 30 Hz. With depth registration enabled, the driver publishes
 the registered 640x480 `16UC1` image on `/camera/depth/image_raw` in
 `camera_color_optical_frame`; the registered cloud is
-`/camera/depth_registered/points`. LDP must be disabled for this workcell:
+`/camera/depth/points`. LDP must be disabled for this workcell:
 with LDP enabled every depth pixel was zero, while disabling it restored
 plausible metric depth. The supplied Phase 5 configuration uses the discovered
 interfaces. Topic names remain configurable for another driver or camera.
@@ -65,6 +65,36 @@ The repository's optional historical Realsense mount is on `magician_link_4`,
 upstream of wrist yaw. It must not be treated as rigid to the rotating TCP.
 Use a camera rigid to the reported TCP, or implement and validate a separate
 kinematic frame model before using that mount.
+
+## Measured translation and markerless rotation workflow
+
+Production calibration is exclusively markerless. ArUco, AprilTag, ChArUco,
+checkerboards and other calibration targets are prohibited. The workflow
+estimates camera motion from natural RGB-D scene structure and holds the
+as-built translation constraint fixed while solving mount rotation. The live
+Orbbec factory TF remains authoritative for internal camera frames.
+
+First fill `config/eye-in-hand-mount-measurement-form.yaml` with unsigned
+millimetre magnitudes and the physical direction words in that file. Do not
+enter signed XYZ or any guessed rotation. Check the derived translation before
+launching:
+
+```bash
+scripts/convert_eye_in_hand_mount_measurements.py \
+  config/eye-in-hand-mount-measurement-form.yaml
+```
+
+Collect 8–12 settled poses total, using 2–3 poses only for held-out validation.
+Every accepted pose contains synchronized TCP/joints, RGB, registered depth,
+CameraInfo and point cloud after the robot has stopped. Natural RGB-D feature
+registration estimates relative camera motion; 3D RANSAC and dense trimmed ICP
+refine it. Table-plane RANSAC and common-scene consistency constrain the
+nonlinear hand-eye solve. Held-out poses are never used to refit the result.
+
+The current generated workflow uses six training poses and three held-out
+poses (nine total), which is within this production requirement. Any weak scene,
+registration failure, degeneracy or held-out residual failure keeps
+`geometry_verified: false`.
 
 ## Build and launch
 

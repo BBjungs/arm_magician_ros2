@@ -69,8 +69,8 @@ orbbec_camera_msgs__srv__SetStreamProfile_Event__get_type_hash(
 
 // Include directives for referenced types
 #include "builtin_interfaces/msg/detail/time__functions.h"
-#include "service_msgs/msg/detail/service_event_info__functions.h"
 #include "orbbec_camera_msgs/msg/detail/stream_profile__functions.h"
+#include "service_msgs/msg/detail/service_event_info__functions.h"
 
 // Hashes for external referenced types
 #ifndef NDEBUG

@@ -87,6 +87,8 @@ rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_ty
 rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/dobot_msgs/srv/ExecuteHomingProcedure.idl
 rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/dobot_msgs/srv/GripperControl.idl
 rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
+rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
+rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
 rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -217,6 +219,18 @@ rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__rosidl_
 
 rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp: rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp
+
+rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_fastrtps_c.h: rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_fastrtps_c.h
+
+rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp: rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp
+
+rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_fastrtps_c.h: rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_fastrtps_c.h
+
+rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp: rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp
 
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__type_support_c.cpp.o: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/flags.make
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__type_support_c.cpp
@@ -358,6 +372,34 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp -o CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.s
 
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o -MF CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o.d -o CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp > CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.i
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp -o CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.s
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o -MF CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o.d -o CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp > CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.i
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp -o CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.s
+
 # Object files for target dobot_msgs__rosidl_typesupport_fastrtps_c
 dobot_msgs__rosidl_typesupport_fastrtps_c_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__type_support_c.cpp.o" \
@@ -369,7 +411,9 @@ dobot_msgs__rosidl_typesupport_fastrtps_c_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support_c.cpp.o" \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support_c.cpp.o" \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/gripper_control__type_support_c.cpp.o" \
-"CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.o"
+"CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.o" \
+"CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o" \
+"CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o"
 
 # External object files for target dobot_msgs__rosidl_typesupport_fastrtps_c
 dobot_msgs__rosidl_typesupport_fastrtps_c_EXTERNAL_OBJECTS =
@@ -384,6 +428,8 @@ libdobot_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dobot_msgs__rosidl_t
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support_c.cpp.o
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/gripper_control__type_support_c.cpp.o
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.o
+libdobot_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o
+libdobot_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: libdobot_msgs__rosidl_generator_c.so
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
@@ -398,7 +444,7 @@ libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librosidl_ty
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librmw.so
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
-libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libfastcdr.so.2.2.7
+libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libfastcdr.so.2.2.8
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_c.so
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libservice_msgs__rosidl_generator_c.so
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_generator_c.so
@@ -406,7 +452,7 @@ libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/libunique_id
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/jazzy/lib/librcutils.so
 libdobot_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared library libdobot_msgs__rosidl_typesupport_fastrtps_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX shared library libdobot_msgs__rosidl_typesupport_fastrtps_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -433,8 +479,12 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupp
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support_c.cpp
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_fastrtps_c.h
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support_c.cpp
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_fastrtps_c.h
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_fastrtps_c.h
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/gripper_control__type_support_c.cpp
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_fastrtps_c.h
+CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_fastrtps_c.h
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp
 	cd /home/bbcontact/magician_ros2/build/dobot_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/DependInfo.cmake "--color=$(COLOR)"

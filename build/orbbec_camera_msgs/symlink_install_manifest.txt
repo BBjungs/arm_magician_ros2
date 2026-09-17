@@ -248,7 +248,6 @@
 /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_fastrtps_c.so
 /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_introspection_c.so
 /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_c.so
-/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/ament_index/resource_index/rust_packages/orbbec_camera_msgs
 /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/Cargo.toml
 /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/build.rs
 /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/src/lib.rs

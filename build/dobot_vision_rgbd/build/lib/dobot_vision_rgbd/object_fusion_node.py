@@ -218,21 +218,26 @@ class ObjectFusionNode(Node):
         message.data = json.dumps({'stamp': stamp, 'vision_engine': 'rgbd_shape', 'detections': detections}, separators=(',', ':'))
         self.detections_pub.publish(message)
         table_values = [item['table_depth_mm'] for item in detections if item.get('table_depth_mm') is not None]
+        rgb_age_ms = self._age_ms(self.last_rgb)
+        depth_age_ms = self._age_ms(self.last_depth)
+        rgb_fresh = rgb_age_ms is not None and rgb_age_ms <= 1000.0
+        depth_fresh = depth_age_ms is not None and depth_age_ms <= 1000.0
         status = {
             'stamp': stamp, 'vision_engine': 'rgbd_shape', 'detector_running': True,
-            'rgb_ok': self.last_rgb is not None,
-            'depth_stream_ok': self.last_depth is not None,
-            'depth_data_valid': self.depth_data_valid,
+            'rgb_ok': rgb_fresh,
+            'depth_stream_ok': depth_fresh,
+            'depth_data_valid': bool(self.depth_data_valid and depth_fresh),
             'depth_valid_ratio': round(self.depth_frame_valid_ratio, 4),
-            'depth_ok': self.last_depth is not None and self.depth_data_valid,
-            'camera_info_ok': self.last_sync is not None, 'sync_ok': delta <= self.max_delta and registered,
-            'rgb_age_ms': self._age_ms(self.last_rgb),
-            'depth_age_ms': self._age_ms(self.last_depth),
+            'depth_ok': bool(depth_fresh and self.depth_data_valid),
+            'camera_info_ok': self.last_sync is not None, 'sync_ok': bool(
+                rgb_fresh and depth_fresh and delta <= self.max_delta and registered),
+            'rgb_age_ms': rgb_age_ms,
+            'depth_age_ms': depth_age_ms,
             'sync_delta_ms': round(delta, 3), 'registered_depth': registered,
             'detection_count': len(detections),
             'table_depth_mm': round(float(np.median(table_values)), 3) if table_values else None,
             'dry_run': True, 'real_motion': False, 'model_loaded': False,
-            'source_ok': self.last_rgb is not None, 'error': error,
+            'source_ok': rgb_fresh, 'error': error,
             'annotated_image_path': self.annotated_path,
         }
         msg = String(); msg.data = json.dumps(status, separators=(',', ':')); self.status_pub.publish(msg)

@@ -629,6 +629,356 @@ impl rosidl_runtime_rs::RmwMessage for SuctionCupControl_Response where Self: Si
 }
 
 
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__GetPTPCommonParams_Request() -> *const std::ffi::c_void;
+}
+
+#[link(name = "dobot_msgs__rosidl_generator_c")]
+extern "C" {
+    fn dobot_msgs__srv__GetPTPCommonParams_Request__init(msg: *mut GetPTPCommonParams_Request) -> bool;
+    fn dobot_msgs__srv__GetPTPCommonParams_Request__Sequence__init(seq: *mut rosidl_runtime_rs::Sequence<GetPTPCommonParams_Request>, size: usize) -> bool;
+    fn dobot_msgs__srv__GetPTPCommonParams_Request__Sequence__fini(seq: *mut rosidl_runtime_rs::Sequence<GetPTPCommonParams_Request>);
+    fn dobot_msgs__srv__GetPTPCommonParams_Request__Sequence__copy(in_seq: &rosidl_runtime_rs::Sequence<GetPTPCommonParams_Request>, out_seq: *mut rosidl_runtime_rs::Sequence<GetPTPCommonParams_Request>) -> bool;
+}
+
+// Corresponds to dobot_msgs__srv__GetPTPCommonParams_Request
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct GetPTPCommonParams_Request {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub structure_needs_at_least_one_member: u8,
+
+}
+
+
+
+impl Default for GetPTPCommonParams_Request {
+  fn default() -> Self {
+    unsafe {
+      let mut msg = std::mem::zeroed();
+      if !dobot_msgs__srv__GetPTPCommonParams_Request__init(&mut msg as *mut _) {
+        panic!("Call to dobot_msgs__srv__GetPTPCommonParams_Request__init() failed");
+      }
+      msg
+    }
+  }
+}
+
+impl rosidl_runtime_rs::SequenceAlloc for GetPTPCommonParams_Request {
+  fn sequence_init(seq: &mut rosidl_runtime_rs::Sequence<Self>, size: usize) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__GetPTPCommonParams_Request__Sequence__init(seq as *mut _, size) }
+  }
+  fn sequence_fini(seq: &mut rosidl_runtime_rs::Sequence<Self>) {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__GetPTPCommonParams_Request__Sequence__fini(seq as *mut _) }
+  }
+  fn sequence_copy(in_seq: &rosidl_runtime_rs::Sequence<Self>, out_seq: &mut rosidl_runtime_rs::Sequence<Self>) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__GetPTPCommonParams_Request__Sequence__copy(in_seq, out_seq as *mut _) }
+  }
+}
+
+impl rosidl_runtime_rs::Message for GetPTPCommonParams_Request {
+  type RmwMsg = Self;
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> { msg_cow }
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self { msg }
+}
+
+impl rosidl_runtime_rs::RmwMessage for GetPTPCommonParams_Request where Self: Sized {
+  const TYPE_NAME: &'static str = "dobot_msgs/srv/GetPTPCommonParams_Request";
+  fn get_type_support() -> *const std::ffi::c_void {
+    // SAFETY: No preconditions for this function.
+    unsafe { rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__GetPTPCommonParams_Request() }
+  }
+}
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__GetPTPCommonParams_Response() -> *const std::ffi::c_void;
+}
+
+#[link(name = "dobot_msgs__rosidl_generator_c")]
+extern "C" {
+    fn dobot_msgs__srv__GetPTPCommonParams_Response__init(msg: *mut GetPTPCommonParams_Response) -> bool;
+    fn dobot_msgs__srv__GetPTPCommonParams_Response__Sequence__init(seq: *mut rosidl_runtime_rs::Sequence<GetPTPCommonParams_Response>, size: usize) -> bool;
+    fn dobot_msgs__srv__GetPTPCommonParams_Response__Sequence__fini(seq: *mut rosidl_runtime_rs::Sequence<GetPTPCommonParams_Response>);
+    fn dobot_msgs__srv__GetPTPCommonParams_Response__Sequence__copy(in_seq: &rosidl_runtime_rs::Sequence<GetPTPCommonParams_Response>, out_seq: *mut rosidl_runtime_rs::Sequence<GetPTPCommonParams_Response>) -> bool;
+}
+
+// Corresponds to dobot_msgs__srv__GetPTPCommonParams_Response
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct GetPTPCommonParams_Response {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub success: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub velocity_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub acceleration_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub raw_velocity_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub raw_acceleration_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub timed_out: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub error: rosidl_runtime_rs::String,
+
+}
+
+
+
+impl Default for GetPTPCommonParams_Response {
+  fn default() -> Self {
+    unsafe {
+      let mut msg = std::mem::zeroed();
+      if !dobot_msgs__srv__GetPTPCommonParams_Response__init(&mut msg as *mut _) {
+        panic!("Call to dobot_msgs__srv__GetPTPCommonParams_Response__init() failed");
+      }
+      msg
+    }
+  }
+}
+
+impl rosidl_runtime_rs::SequenceAlloc for GetPTPCommonParams_Response {
+  fn sequence_init(seq: &mut rosidl_runtime_rs::Sequence<Self>, size: usize) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__GetPTPCommonParams_Response__Sequence__init(seq as *mut _, size) }
+  }
+  fn sequence_fini(seq: &mut rosidl_runtime_rs::Sequence<Self>) {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__GetPTPCommonParams_Response__Sequence__fini(seq as *mut _) }
+  }
+  fn sequence_copy(in_seq: &rosidl_runtime_rs::Sequence<Self>, out_seq: &mut rosidl_runtime_rs::Sequence<Self>) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__GetPTPCommonParams_Response__Sequence__copy(in_seq, out_seq as *mut _) }
+  }
+}
+
+impl rosidl_runtime_rs::Message for GetPTPCommonParams_Response {
+  type RmwMsg = Self;
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> { msg_cow }
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self { msg }
+}
+
+impl rosidl_runtime_rs::RmwMessage for GetPTPCommonParams_Response where Self: Sized {
+  const TYPE_NAME: &'static str = "dobot_msgs/srv/GetPTPCommonParams_Response";
+  fn get_type_support() -> *const std::ffi::c_void {
+    // SAFETY: No preconditions for this function.
+    unsafe { rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__GetPTPCommonParams_Response() }
+  }
+}
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__SetPTPCommonParams_Request() -> *const std::ffi::c_void;
+}
+
+#[link(name = "dobot_msgs__rosidl_generator_c")]
+extern "C" {
+    fn dobot_msgs__srv__SetPTPCommonParams_Request__init(msg: *mut SetPTPCommonParams_Request) -> bool;
+    fn dobot_msgs__srv__SetPTPCommonParams_Request__Sequence__init(seq: *mut rosidl_runtime_rs::Sequence<SetPTPCommonParams_Request>, size: usize) -> bool;
+    fn dobot_msgs__srv__SetPTPCommonParams_Request__Sequence__fini(seq: *mut rosidl_runtime_rs::Sequence<SetPTPCommonParams_Request>);
+    fn dobot_msgs__srv__SetPTPCommonParams_Request__Sequence__copy(in_seq: &rosidl_runtime_rs::Sequence<SetPTPCommonParams_Request>, out_seq: *mut rosidl_runtime_rs::Sequence<SetPTPCommonParams_Request>) -> bool;
+}
+
+// Corresponds to dobot_msgs__srv__SetPTPCommonParams_Request
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct SetPTPCommonParams_Request {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub velocity_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub acceleration_percent: u8,
+
+}
+
+
+
+impl Default for SetPTPCommonParams_Request {
+  fn default() -> Self {
+    unsafe {
+      let mut msg = std::mem::zeroed();
+      if !dobot_msgs__srv__SetPTPCommonParams_Request__init(&mut msg as *mut _) {
+        panic!("Call to dobot_msgs__srv__SetPTPCommonParams_Request__init() failed");
+      }
+      msg
+    }
+  }
+}
+
+impl rosidl_runtime_rs::SequenceAlloc for SetPTPCommonParams_Request {
+  fn sequence_init(seq: &mut rosidl_runtime_rs::Sequence<Self>, size: usize) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__SetPTPCommonParams_Request__Sequence__init(seq as *mut _, size) }
+  }
+  fn sequence_fini(seq: &mut rosidl_runtime_rs::Sequence<Self>) {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__SetPTPCommonParams_Request__Sequence__fini(seq as *mut _) }
+  }
+  fn sequence_copy(in_seq: &rosidl_runtime_rs::Sequence<Self>, out_seq: &mut rosidl_runtime_rs::Sequence<Self>) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__SetPTPCommonParams_Request__Sequence__copy(in_seq, out_seq as *mut _) }
+  }
+}
+
+impl rosidl_runtime_rs::Message for SetPTPCommonParams_Request {
+  type RmwMsg = Self;
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> { msg_cow }
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self { msg }
+}
+
+impl rosidl_runtime_rs::RmwMessage for SetPTPCommonParams_Request where Self: Sized {
+  const TYPE_NAME: &'static str = "dobot_msgs/srv/SetPTPCommonParams_Request";
+  fn get_type_support() -> *const std::ffi::c_void {
+    // SAFETY: No preconditions for this function.
+    unsafe { rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__SetPTPCommonParams_Request() }
+  }
+}
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__SetPTPCommonParams_Response() -> *const std::ffi::c_void;
+}
+
+#[link(name = "dobot_msgs__rosidl_generator_c")]
+extern "C" {
+    fn dobot_msgs__srv__SetPTPCommonParams_Response__init(msg: *mut SetPTPCommonParams_Response) -> bool;
+    fn dobot_msgs__srv__SetPTPCommonParams_Response__Sequence__init(seq: *mut rosidl_runtime_rs::Sequence<SetPTPCommonParams_Response>, size: usize) -> bool;
+    fn dobot_msgs__srv__SetPTPCommonParams_Response__Sequence__fini(seq: *mut rosidl_runtime_rs::Sequence<SetPTPCommonParams_Response>);
+    fn dobot_msgs__srv__SetPTPCommonParams_Response__Sequence__copy(in_seq: &rosidl_runtime_rs::Sequence<SetPTPCommonParams_Response>, out_seq: *mut rosidl_runtime_rs::Sequence<SetPTPCommonParams_Response>) -> bool;
+}
+
+// Corresponds to dobot_msgs__srv__SetPTPCommonParams_Response
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct SetPTPCommonParams_Response {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub success: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub acknowledged: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub timed_out: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub error: rosidl_runtime_rs::String,
+
+}
+
+
+
+impl Default for SetPTPCommonParams_Response {
+  fn default() -> Self {
+    unsafe {
+      let mut msg = std::mem::zeroed();
+      if !dobot_msgs__srv__SetPTPCommonParams_Response__init(&mut msg as *mut _) {
+        panic!("Call to dobot_msgs__srv__SetPTPCommonParams_Response__init() failed");
+      }
+      msg
+    }
+  }
+}
+
+impl rosidl_runtime_rs::SequenceAlloc for SetPTPCommonParams_Response {
+  fn sequence_init(seq: &mut rosidl_runtime_rs::Sequence<Self>, size: usize) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__SetPTPCommonParams_Response__Sequence__init(seq as *mut _, size) }
+  }
+  fn sequence_fini(seq: &mut rosidl_runtime_rs::Sequence<Self>) {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__SetPTPCommonParams_Response__Sequence__fini(seq as *mut _) }
+  }
+  fn sequence_copy(in_seq: &rosidl_runtime_rs::Sequence<Self>, out_seq: &mut rosidl_runtime_rs::Sequence<Self>) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot_msgs__srv__SetPTPCommonParams_Response__Sequence__copy(in_seq, out_seq as *mut _) }
+  }
+}
+
+impl rosidl_runtime_rs::Message for SetPTPCommonParams_Response {
+  type RmwMsg = Self;
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> { msg_cow }
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self { msg }
+}
+
+impl rosidl_runtime_rs::RmwMessage for SetPTPCommonParams_Response where Self: Sized {
+  const TYPE_NAME: &'static str = "dobot_msgs/srv/SetPTPCommonParams_Response";
+  fn get_type_support() -> *const std::ffi::c_void {
+    // SAFETY: No preconditions for this function.
+    unsafe { rosidl_typesupport_c__get_message_type_support_handle__dobot_msgs__srv__SetPTPCommonParams_Response() }
+  }
+}
+
+
 
 
 
@@ -715,6 +1065,50 @@ impl rosidl_runtime_rs::Service for SuctionCupControl {
     fn get_type_support() -> *const std::ffi::c_void {
         // SAFETY: No preconditions for this function.
         unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__SuctionCupControl() }
+    }
+}
+
+
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__GetPTPCommonParams() -> *const std::ffi::c_void;
+}
+
+// Corresponds to dobot_msgs__srv__GetPTPCommonParams
+#[allow(missing_docs, non_camel_case_types)]
+pub struct GetPTPCommonParams;
+
+impl rosidl_runtime_rs::Service for GetPTPCommonParams {
+    type Request = GetPTPCommonParams_Request;
+    type Response = GetPTPCommonParams_Response;
+
+    fn get_type_support() -> *const std::ffi::c_void {
+        // SAFETY: No preconditions for this function.
+        unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__GetPTPCommonParams() }
+    }
+}
+
+
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__SetPTPCommonParams() -> *const std::ffi::c_void;
+}
+
+// Corresponds to dobot_msgs__srv__SetPTPCommonParams
+#[allow(missing_docs, non_camel_case_types)]
+pub struct SetPTPCommonParams;
+
+impl rosidl_runtime_rs::Service for SetPTPCommonParams {
+    type Request = SetPTPCommonParams_Request;
+    type Response = SetPTPCommonParams_Response;
+
+    fn get_type_support() -> *const std::ffi::c_void {
+        // SAFETY: No preconditions for this function.
+        unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__SetPTPCommonParams() }
     }
 }
 

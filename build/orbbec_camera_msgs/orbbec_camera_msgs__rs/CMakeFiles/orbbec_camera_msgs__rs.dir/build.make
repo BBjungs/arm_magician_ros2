@@ -69,15 +69,14 @@ include /home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msg
 /home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs
 /home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/build.rs
 /home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/Cargo.toml
-/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/msg.rs
-/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/msg/rmw.rs
-/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/srv.rs
-/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/srv/rmw.rs
 
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/lib/rosidl_generator_rs/rosidl_generator_rs
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_rs/__init__.py
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/action.rs.em
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/action/rmw.rs.em
+rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/build.rs.em
+rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/Cargo.toml.em
+rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/lib.rs.em
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/msg.rs.em
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/msg/rmw.rs.em
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/srv.rs.em
@@ -86,20 +85,6 @@ rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/ros
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/templates/msg_rmw.rs.em
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/templates/srv_idiomatic.rs.em
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/templates/srv_rmw.rs.em
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/DeviceInfo.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/Extrinsics.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/Metadata.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/IMUInfo.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/RGBD.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/StreamProfile.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/srv/GetBool.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/srv/GetDeviceInfo.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/srv/GetCameraInfo.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/srv/GetInt32.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/srv/GetString.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/srv/SetInt32.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/srv/SetString.idl
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/srv/SetStreamProfile.idl
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/DeviceInfo.idl
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/Extrinsics.idl
 rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs: rosidl_adapter/orbbec_camera_msgs/msg/Metadata.idl
@@ -217,26 +202,10 @@ rosidl_generator_rs/orbbec_camera_msgs/rust/build.rs: rosidl_generator_rs/orbbec
 rosidl_generator_rs/orbbec_camera_msgs/rust/Cargo.toml: rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/orbbec_camera_msgs/rust/Cargo.toml
 
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/msg.rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/orbbec_camera_msgs/rust/src/msg.rs
-
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/msg/rmw.rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/orbbec_camera_msgs/rust/src/msg/rmw.rs
-
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/srv.rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/orbbec_camera_msgs/rust/src/srv.rs
-
-rosidl_generator_rs/orbbec_camera_msgs/rust/src/srv/rmw.rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/orbbec_camera_msgs/rust/src/srv/rmw.rs
-
 orbbec_camera_msgs__rs: /home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs
 orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/Cargo.toml
 orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/build.rs
 orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/lib.rs
-orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/msg.rs
-orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/msg/rmw.rs
-orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/srv.rs
-orbbec_camera_msgs__rs: rosidl_generator_rs/orbbec_camera_msgs/rust/src/srv/rmw.rs
 orbbec_camera_msgs__rs: /home/bbcontact/magician_ros2/build/orbbec_camera_msgs/orbbec_camera_msgs__rs/CMakeFiles/orbbec_camera_msgs__rs.dir/build.make
 .PHONY : orbbec_camera_msgs__rs
 

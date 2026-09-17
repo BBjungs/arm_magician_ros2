@@ -416,6 +416,270 @@ impl rosidl_runtime_rs::Message for SuctionCupControl_Response {
 }
 
 
+// Corresponds to dobot_msgs__srv__GetPTPCommonParams_Request
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct GetPTPCommonParams_Request {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub structure_needs_at_least_one_member: u8,
+
+}
+
+
+
+impl Default for GetPTPCommonParams_Request {
+  fn default() -> Self {
+    <Self as rosidl_runtime_rs::Message>::from_rmw_message(super::srv::rmw::GetPTPCommonParams_Request::default())
+  }
+}
+
+impl rosidl_runtime_rs::Message for GetPTPCommonParams_Request {
+  type RmwMsg = super::srv::rmw::GetPTPCommonParams_Request;
+
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> {
+    match msg_cow {
+      std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+        structure_needs_at_least_one_member: msg.structure_needs_at_least_one_member,
+      }),
+      std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+      structure_needs_at_least_one_member: msg.structure_needs_at_least_one_member,
+      })
+    }
+  }
+
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self {
+    Self {
+      structure_needs_at_least_one_member: msg.structure_needs_at_least_one_member,
+    }
+  }
+}
+
+
+// Corresponds to dobot_msgs__srv__GetPTPCommonParams_Response
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct GetPTPCommonParams_Response {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub success: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub velocity_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub acceleration_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub raw_velocity_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub raw_acceleration_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub timed_out: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub error: std::string::String,
+
+}
+
+
+
+impl Default for GetPTPCommonParams_Response {
+  fn default() -> Self {
+    <Self as rosidl_runtime_rs::Message>::from_rmw_message(super::srv::rmw::GetPTPCommonParams_Response::default())
+  }
+}
+
+impl rosidl_runtime_rs::Message for GetPTPCommonParams_Response {
+  type RmwMsg = super::srv::rmw::GetPTPCommonParams_Response;
+
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> {
+    match msg_cow {
+      std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+        success: msg.success,
+        velocity_percent: msg.velocity_percent,
+        acceleration_percent: msg.acceleration_percent,
+        raw_velocity_percent: msg.raw_velocity_percent,
+        raw_acceleration_percent: msg.raw_acceleration_percent,
+        timed_out: msg.timed_out,
+        error: msg.error.as_str().into(),
+      }),
+      std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+      success: msg.success,
+      velocity_percent: msg.velocity_percent,
+      acceleration_percent: msg.acceleration_percent,
+      raw_velocity_percent: msg.raw_velocity_percent,
+      raw_acceleration_percent: msg.raw_acceleration_percent,
+      timed_out: msg.timed_out,
+        error: msg.error.as_str().into(),
+      })
+    }
+  }
+
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self {
+    Self {
+      success: msg.success,
+      velocity_percent: msg.velocity_percent,
+      acceleration_percent: msg.acceleration_percent,
+      raw_velocity_percent: msg.raw_velocity_percent,
+      raw_acceleration_percent: msg.raw_acceleration_percent,
+      timed_out: msg.timed_out,
+      error: msg.error.to_string(),
+    }
+  }
+}
+
+
+// Corresponds to dobot_msgs__srv__SetPTPCommonParams_Request
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct SetPTPCommonParams_Request {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub velocity_percent: u8,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub acceleration_percent: u8,
+
+}
+
+
+
+impl Default for SetPTPCommonParams_Request {
+  fn default() -> Self {
+    <Self as rosidl_runtime_rs::Message>::from_rmw_message(super::srv::rmw::SetPTPCommonParams_Request::default())
+  }
+}
+
+impl rosidl_runtime_rs::Message for SetPTPCommonParams_Request {
+  type RmwMsg = super::srv::rmw::SetPTPCommonParams_Request;
+
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> {
+    match msg_cow {
+      std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+        velocity_percent: msg.velocity_percent,
+        acceleration_percent: msg.acceleration_percent,
+      }),
+      std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+      velocity_percent: msg.velocity_percent,
+      acceleration_percent: msg.acceleration_percent,
+      })
+    }
+  }
+
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self {
+    Self {
+      velocity_percent: msg.velocity_percent,
+      acceleration_percent: msg.acceleration_percent,
+    }
+  }
+}
+
+
+// Corresponds to dobot_msgs__srv__SetPTPCommonParams_Response
+
+// This struct is not documented.
+#[allow(missing_docs)]
+
+#[allow(non_camel_case_types)]
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct SetPTPCommonParams_Response {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub success: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub acknowledged: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub timed_out: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub error: std::string::String,
+
+}
+
+
+
+impl Default for SetPTPCommonParams_Response {
+  fn default() -> Self {
+    <Self as rosidl_runtime_rs::Message>::from_rmw_message(super::srv::rmw::SetPTPCommonParams_Response::default())
+  }
+}
+
+impl rosidl_runtime_rs::Message for SetPTPCommonParams_Response {
+  type RmwMsg = super::srv::rmw::SetPTPCommonParams_Response;
+
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> {
+    match msg_cow {
+      std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+        success: msg.success,
+        acknowledged: msg.acknowledged,
+        timed_out: msg.timed_out,
+        error: msg.error.as_str().into(),
+      }),
+      std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+      success: msg.success,
+      acknowledged: msg.acknowledged,
+      timed_out: msg.timed_out,
+        error: msg.error.as_str().into(),
+      })
+    }
+  }
+
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self {
+    Self {
+      success: msg.success,
+      acknowledged: msg.acknowledged,
+      timed_out: msg.timed_out,
+      error: msg.error.to_string(),
+    }
+  }
+}
+
+
 
 
 
@@ -502,6 +766,50 @@ impl rosidl_runtime_rs::Service for SuctionCupControl {
     fn get_type_support() -> *const std::ffi::c_void {
         // SAFETY: No preconditions for this function.
         unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__SuctionCupControl() }
+    }
+}
+
+
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__GetPTPCommonParams() -> *const std::ffi::c_void;
+}
+
+// Corresponds to dobot_msgs__srv__GetPTPCommonParams
+#[allow(missing_docs, non_camel_case_types)]
+pub struct GetPTPCommonParams;
+
+impl rosidl_runtime_rs::Service for GetPTPCommonParams {
+    type Request = GetPTPCommonParams_Request;
+    type Response = GetPTPCommonParams_Response;
+
+    fn get_type_support() -> *const std::ffi::c_void {
+        // SAFETY: No preconditions for this function.
+        unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__GetPTPCommonParams() }
+    }
+}
+
+
+
+
+#[link(name = "dobot_msgs__rosidl_typesupport_c")]
+extern "C" {
+    fn rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__SetPTPCommonParams() -> *const std::ffi::c_void;
+}
+
+// Corresponds to dobot_msgs__srv__SetPTPCommonParams
+#[allow(missing_docs, non_camel_case_types)]
+pub struct SetPTPCommonParams;
+
+impl rosidl_runtime_rs::Service for SetPTPCommonParams {
+    type Request = SetPTPCommonParams_Request;
+    type Response = SetPTPCommonParams_Response;
+
+    fn get_type_support() -> *const std::ffi::c_void {
+        // SAFETY: No preconditions for this function.
+        unsafe { rosidl_typesupport_c__get_service_type_support_handle__dobot_msgs__srv__SetPTPCommonParams() }
     }
 }
 

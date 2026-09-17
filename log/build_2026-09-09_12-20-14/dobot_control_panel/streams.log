@@ -1,0 +1,34 @@
+[9.458s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_control_panel': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_control_panel/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_control_panel/build --no-deps symlink_data --force
+[11.476s] running develop
+[13.619s] running egg_info
+[13.620s] writing dobot_control_panel.egg-info/PKG-INFO
+[13.620s] writing dependency_links to dobot_control_panel.egg-info/dependency_links.txt
+[13.620s] writing entry points to dobot_control_panel.egg-info/entry_points.txt
+[13.621s] writing requirements to dobot_control_panel.egg-info/requires.txt
+[13.621s] writing top-level names to dobot_control_panel.egg-info/top_level.txt
+[13.621s] reading manifest file 'dobot_control_panel.egg-info/SOURCES.txt'
+[13.621s] writing manifest file 'dobot_control_panel.egg-info/SOURCES.txt'
+[13.622s] running build_ext
+[13.622s] Creating /home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages/dobot-control-panel.egg-link (link to .)
+[13.622s] Installing dobot_control_panel script to /home/bbcontact/magician_ros2/install/dobot_control_panel/lib/dobot_control_panel
+[13.623s] 
+[13.624s] Installed /home/bbcontact/magician_ros2/build/dobot_control_panel
+[13.625s] running symlink_data
+[13.625s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/dobot_control_panel -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/ament_index/resource_index/packages
+[13.625s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/package.xml -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel
+[13.625s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/DobotControlPanel_layout.ui -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource
+[13.626s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/plugin.xml -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel
+[13.626s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/blue_house.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.626s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/cartesian_system.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.626s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/coordinate_system.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.627s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/dobot_joints_system.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.627s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/estop.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.627s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/gripper.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.627s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/info.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.628s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/magician_gui_image.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.629s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/settings.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.630s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/sliding_rail2.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.630s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/stop_rail.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.630s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/suction_cup.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.631s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/velocity.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+[13.655s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_control_panel' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_control_panel/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_control_panel/build --no-deps symlink_data --force

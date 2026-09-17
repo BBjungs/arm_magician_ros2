@@ -1,0 +1,185 @@
+[0.837s] Invoking command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTEST_ADDOPTS=--tb=short --junit-xml=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml --junit-prefix=dobot_vision_rgbd -o cache_dir=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -m pytest
+[3.493s] ============================= test session starts ==============================
+[3.493s] platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+[3.493s] cachedir: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache
+[3.494s] rootdir: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd
+[3.494s] plugins: ament-lint-0.17.5, ament-flake8-0.17.5, ament-pep257-0.17.5, ament-copyright-0.17.5, ament-xmllint-0.17.5, launch-testing-3.4.11, launch-testing-ros-0.26.12, anyio-4.14.2, colcon-core-0.21.1, typeguard-4.1.5, cov-4.1.0
+[3.494s] collected 54 items
+[3.494s] 
+[4.512s] test/test_camera_health.py ............F.FFFFFFFFFFFFFFFFF               [ 57%]
+[4.528s] test/test_color_classifier.py ..                                         [ 61%]
+[4.532s] test/test_depth_diagnostic.py ..                                         [ 64%]
+[4.537s] test/test_depth_geometry.py ...                                          [ 70%]
+[4.540s] test/test_detection_schema.py .                                          [ 72%]
+[4.678s] test/test_object_fusion.py .....                                         [ 81%]
+[4.689s] test/test_object_fusion_health.py .....                                  [ 90%]
+[4.703s] test/test_shape_detector.py ....                                         [ 98%]
+[4.714s] test/test_visualization.py .                                             [100%]
+[4.714s] 
+[4.715s] =================================== FAILURES ===================================
+[4.715s] ___________ test_fresh_low_rate_is_degraded_warning_not_hard_blocker ___________
+[4.715s] test/test_camera_health.py:122: in test_fresh_low_rate_is_degraded_warning_not_hard_blocker
+[4.715s]     result = report(healthy)
+[4.715s] test/test_camera_health.py:158: in report
+[4.716s]     health.CameraHealthNode.publish_health(node)
+[4.716s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.716s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.716s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.716s] _____________ test_health_can_report_ready_for_complete_valid_data _____________
+[4.716s] test/test_camera_health.py:163: in test_health_can_report_ready_for_complete_valid_data
+[4.717s]     assert report(healthy)['ready']
+[4.717s] test/test_camera_health.py:158: in report
+[4.717s]     health.CameraHealthNode.publish_health(node)
+[4.718s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.718s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.718s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.718s] _____ test_usable_rate_is_ready_but_requested_rate_degradation_is_visible ______
+[4.719s] test/test_camera_health.py:169: in test_usable_rate_is_ready_but_requested_rate_degradation_is_visible
+[4.719s]     result = report(healthy)
+[4.719s] test/test_camera_health.py:158: in report
+[4.719s]     health.CameraHealthNode.publish_health(node)
+[4.719s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.719s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.720s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.720s] ___________________ test_usb2_blocks_otherwise_valid_streams ___________________
+[4.720s] test/test_camera_health.py:182: in test_usb2_blocks_otherwise_valid_streams
+[4.720s]     result = report(healthy)
+[4.720s] test/test_camera_health.py:158: in report
+[4.720s]     health.CameraHealthNode.publish_health(node)
+[4.721s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.721s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.721s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.721s] ______________________ test_stream_loss_clears_readiness _______________________
+[4.721s] test/test_camera_health.py:189: in test_stream_loss_clears_readiness
+[4.721s]     assert not report(healthy)['ready']
+[4.721s] test/test_camera_health.py:158: in report
+[4.722s]     health.CameraHealthNode.publish_health(node)
+[4.722s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.722s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.722s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.722s] _______________________ test_zero_depth_clears_readiness _______________________
+[4.722s] test/test_camera_health.py:194: in test_zero_depth_clears_readiness
+[4.723s]     assert 'depth_data_invalid' in report(healthy)['blockers']
+[4.723s] test/test_camera_health.py:158: in report
+[4.723s]     health.CameraHealthNode.publish_health(node)
+[4.723s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.723s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.723s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.723s] ___________________ test_invalid_rgb_buffer_clears_readiness ___________________
+[4.724s] test/test_camera_health.py:199: in test_invalid_rgb_buffer_clears_readiness
+[4.724s]     assert 'rgb_payload_invalid' in report(healthy)['blockers']
+[4.724s] test/test_camera_health.py:158: in report
+[4.724s]     health.CameraHealthNode.publish_health(node)
+[4.724s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.724s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.725s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.725s] __________________ test_cloud_frame_mismatch_clears_readiness __________________
+[4.725s] test/test_camera_health.py:204: in test_cloud_frame_mismatch_clears_readiness
+[4.725s]     assert 'point_cloud_frame_mismatch' in report(healthy)['blockers']
+[4.725s] test/test_camera_health.py:158: in report
+[4.725s]     health.CameraHealthNode.publish_health(node)
+[4.725s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.726s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.726s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.726s] ___________ test_active_or_unknown_protection_blocks_readiness[True] ___________
+[4.726s] test/test_camera_health.py:210: in test_active_or_unknown_protection_blocks_readiness
+[4.726s]     result = report(healthy)
+[4.726s] test/test_camera_health.py:158: in report
+[4.727s]     health.CameraHealthNode.publish_health(node)
+[4.727s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.727s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.727s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.727s] ___________ test_active_or_unknown_protection_blocks_readiness[None] ___________
+[4.727s] test/test_camera_health.py:210: in test_active_or_unknown_protection_blocks_readiness
+[4.728s]     result = report(healthy)
+[4.728s] test/test_camera_health.py:158: in report
+[4.728s]     health.CameraHealthNode.publish_health(node)
+[4.728s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.729s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.729s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.729s] ________________ test_stale_protection_status_blocks_readiness _________________
+[4.729s] test/test_camera_health.py:217: in test_stale_protection_status_blocks_readiness
+[4.729s]     assert not report(healthy)['ready']
+[4.730s] test/test_camera_health.py:158: in report
+[4.730s]     health.CameraHealthNode.publish_health(node)
+[4.730s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.730s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.730s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.731s] __________ test_forwarded_health_preserves_image_age[50.0-450.0-True] __________
+[4.731s] test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+[4.731s]     result = report(healthy)['streams']['depth']
+[4.731s] test/test_camera_health.py:158: in report
+[4.731s]     health.CameraHealthNode.publish_health(node)
+[4.731s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.732s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.732s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.732s] ________ test_forwarded_health_preserves_image_age[700.0-1100.0-False] _________
+[4.732s] test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+[4.732s]     result = report(healthy)['streams']['depth']
+[4.733s] test/test_camera_health.py:158: in report
+[4.733s]     health.CameraHealthNode.publish_health(node)
+[4.733s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.733s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.733s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.733s] __________ test_forwarded_health_preserves_image_age[None-None-False] __________
+[4.734s] test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+[4.734s]     result = report(healthy)['streams']['depth']
+[4.734s] test/test_camera_health.py:158: in report
+[4.734s]     health.CameraHealthNode.publish_health(node)
+[4.734s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.734s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.735s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.735s] __________ test_forwarded_health_preserves_image_age[-1.0-None-False] __________
+[4.735s] test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+[4.735s]     result = report(healthy)['streams']['depth']
+[4.735s] test/test_camera_health.py:158: in report
+[4.736s]     health.CameraHealthNode.publish_health(node)
+[4.736s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.736s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.736s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.736s] __________ test_forwarded_health_preserves_image_age[nan-None-False] ___________
+[4.736s] test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+[4.737s]     result = report(healthy)['streams']['depth']
+[4.737s] test/test_camera_health.py:158: in report
+[4.737s]     health.CameraHealthNode.publish_health(node)
+[4.737s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.737s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.737s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.738s] ____________ test_direct_images_do_not_depend_on_detector_heartbeat ____________
+[4.738s] test/test_camera_health.py:247: in test_direct_images_do_not_depend_on_detector_heartbeat
+[4.738s]     result = report(healthy)
+[4.738s] test/test_camera_health.py:158: in report
+[4.739s]     health.CameraHealthNode.publish_health(node)
+[4.739s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.739s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.739s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.740s] ________ test_stopped_direct_depth_cannot_be_masked_by_detector_health _________
+[4.740s] test/test_camera_health.py:260: in test_stopped_direct_depth_cannot_be_masked_by_detector_health
+[4.740s]     result = report(healthy)
+[4.740s] test/test_camera_health.py:158: in report
+[4.741s]     health.CameraHealthNode.publish_health(node)
+[4.741s] dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+[4.741s]     key: dict(value) for key, value in self.callback_diagnostics.items()
+[4.741s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+[4.742s] - generated xml file: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml -
+[4.742s] =========================== short test summary info ============================
+[4.742s] FAILED test/test_camera_health.py::test_fresh_low_rate_is_degraded_warning_not_hard_blocker
+[4.743s] FAILED test/test_camera_health.py::test_health_can_report_ready_for_complete_valid_data
+[4.743s] FAILED test/test_camera_health.py::test_usable_rate_is_ready_but_requested_rate_degradation_is_visible
+[4.743s] FAILED test/test_camera_health.py::test_usb2_blocks_otherwise_valid_streams
+[4.743s] FAILED test/test_camera_health.py::test_stream_loss_clears_readiness - Attrib...
+[4.744s] FAILED test/test_camera_health.py::test_zero_depth_clears_readiness - Attribu...
+[4.744s] FAILED test/test_camera_health.py::test_invalid_rgb_buffer_clears_readiness
+[4.744s] FAILED test/test_camera_health.py::test_cloud_frame_mismatch_clears_readiness
+[4.745s] FAILED test/test_camera_health.py::test_active_or_unknown_protection_blocks_readiness[True]
+[4.745s] FAILED test/test_camera_health.py::test_active_or_unknown_protection_blocks_readiness[None]
+[4.745s] FAILED test/test_camera_health.py::test_stale_protection_status_blocks_readiness
+[4.746s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[50.0-450.0-True]
+[4.746s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[700.0-1100.0-False]
+[4.746s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[None-None-False]
+[4.747s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[-1.0-None-False]
+[4.747s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[nan-None-False]
+[4.747s] FAILED test/test_camera_health.py::test_direct_images_do_not_depend_on_detector_heartbeat
+[4.748s] FAILED test/test_camera_health.py::test_stopped_direct_depth_cannot_be_masked_by_detector_health
+[4.748s] ======================== 18 failed, 36 passed in 2.67s =========================
+[5.055s] Invoked command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd' returned '1': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTEST_ADDOPTS=--tb=short --junit-xml=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml --junit-prefix=dobot_vision_rgbd -o cache_dir=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -m pytest

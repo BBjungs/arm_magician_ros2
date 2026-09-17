@@ -1,6 +1,6 @@
 """Geometry in metres; a_T_b maps points from frame b into frame a."""
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 import hashlib
 import json
 
@@ -36,7 +36,7 @@ class Limits:
     max_plane_offset_m: float = 0.004
     max_plane_angle_deg: float = 1.5
     max_cloud_rmse_m: float = 0.005
-    max_mount_sigma_m: float = 0.002
+    max_mount_translation_error_m: float = 0.006
     max_mount_deviation_m: float = 0.020
     max_mount_deviation_deg: float = 15.0
 
@@ -194,25 +194,124 @@ def fingerprint(value):
 @dataclass(frozen=True)
 class Mount:
     tool_T_camera: np.ndarray
-    axial_sigma_m: float
+    translation_error_bound_m: float
     envelope_radius_m: float
     source: str
     digest: str
+    camera_reference_T_optical: np.ndarray = field(default_factory=lambda: np.eye(4))
+    rotation_seed_verified: bool = True
+
+    @property
+    def tool_T_camera_reference(self):
+        """Measured mount datum separated from the factory internal camera TF."""
+        return self.tool_T_camera @ inverse(checked_transform(
+            self.camera_reference_T_optical))
+
+    def compose_optical(self, tool_R_camera_reference):
+        """Compose solved mount rotation, fixed measured origin and factory TF."""
+        reference = transform(
+            tool_R_camera_reference, self.tool_T_camera_reference[:3, 3])
+        return reference @ checked_transform(self.camera_reference_T_optical)
 
     @classmethod
-    def load(cls, path, limits=Limits()):
+    def translation_constraint_blockers(cls, path, limits=Limits(), *, carrier_frame=""):
+        """Describe pending measured-mount inputs without needing live camera TF."""
         with open(path, encoding='utf-8') as stream:
             value = yaml.safe_load(stream)
+        rigidity = ('rigid_to_camera_carrier' if carrier_frame
+                    else 'rigid_to_rotating_tool')
+        if not isinstance(value, dict):
+            return ['mount model is not a YAML mapping']
+        blockers = []
+        if value.get(rigidity) is not True:
+            blockers.append(f'{rigidity} must be true')
+        if value.get('translation_verified') is not True:
+            blockers.append('translation_verified must be true')
+        if value.get('translation_units') != 'm':
+            blockers.append('translation_units must be m')
+        if not value.get('measurement_source'):
+            blockers.append('measurement_source is missing')
+        constraint = value.get('initial_mount_constraint', {})
+        try:
+            translation = np.asarray(constraint.get('tool_to_camera_reference'), dtype=float)
+            valid_translation = translation.shape == (3,) and np.isfinite(translation).all()
+        except (TypeError, ValueError):
+            valid_translation = False
+            translation = np.zeros(3)
+        if not valid_translation:
+            blockers.append('tool_to_camera_reference is missing or invalid')
+        try:
+            error_bound = float(value.get('translation_error_bound_m'))
+        except (TypeError, ValueError):
+            error_bound = float('nan')
+        if (not np.isfinite(error_bound)
+                or not 0 < error_bound <= limits.max_mount_translation_error_m):
+            blockers.append('translation_error_bound_m is missing or outside (0, 0.006]')
+        try:
+            envelope = float(value.get('envelope_radius_m'))
+        except (TypeError, ValueError):
+            envelope = float('nan')
+        minimum = np.linalg.norm(translation) if valid_translation else 0.0
+        if not np.isfinite(envelope) or not minimum < envelope < 0.30:
+            blockers.append(
+                f'envelope_radius_m must be greater than {minimum:.6f} and below 0.30')
+        return blockers
+
+    @classmethod
+    def load_translation_constraint(cls, path, camera_reference_T_optical,
+                                    limits=Limits(), *, carrier_frame=""):
+        """Load measured translation while leaving rotation for calibration."""
+        with open(path, encoding='utf-8') as stream:
+            value = yaml.safe_load(stream)
+        rigidity = ('rigid_to_camera_carrier' if carrier_frame
+                    else 'rigid_to_rotating_tool')
+        constraint = value.get('initial_mount_constraint', {}) if isinstance(value, dict) else {}
+        if (not isinstance(value, dict) or value.get(rigidity) is not True
+                or value.get('translation_verified') is not True
+                or value.get('translation_units') != 'm'
+                or not value.get('measurement_source')):
+            raise CalibrationError(
+                'A verified measured translation rigid to the camera parent is required')
+        translation = np.asarray(constraint.get('tool_to_camera_reference'), dtype=float)
+        if translation.shape != (3,) or not np.isfinite(translation).all():
+            raise CalibrationError('Measured tool-to-camera-reference translation is missing')
+        error_bound = float(value.get('translation_error_bound_m', float('nan')))
+        envelope = float(value.get('envelope_radius_m', float('nan')))
+        if (not np.isfinite([error_bound, envelope]).all()
+                or not 0 < error_bound <= limits.max_mount_translation_error_m):
+            raise CalibrationError('Mount translation error bound is missing or too large')
+        if not np.linalg.norm(translation) < envelope < 0.30:
+            raise CalibrationError('Mount envelope must enclose the camera, tool and attached hardware')
+        internal = checked_transform(camera_reference_T_optical).copy()
+        # Identity is only a numerical seed. It is never accepted as measured
+        # rotation and the markerless solve must replace and validate it.
+        seed = transform(translation=translation) @ internal
+        return cls(seed, error_bound, envelope, str(value['measurement_source']),
+                   fingerprint(value), internal, False)
+
+    @classmethod
+    def load(cls, path, limits=Limits(), *, carrier_frame=""):
+        with open(path, encoding='utf-8') as stream:
+            value = yaml.safe_load(stream)
+        rigidity = ('rigid_to_camera_carrier' if carrier_frame else 'rigid_to_rotating_tool')
         if (not isinstance(value, dict) or value.get('geometry_verified') is not True
-                or value.get('rigid_to_rotating_tool') is not True
+                or value.get(rigidity) is not True
                 or not value.get('measurement_source')
                 or value.get('translation_units') != 'm'):
-            raise CalibrationError('A verified CAD/mount model rigid to the rotating TCP is required')
-        matrix = checked_transform(value.get('tool_T_camera_optical'))
-        sigma = float(value.get('axial_sigma_m', float('nan')))
+            raise CalibrationError('A verified CAD/mount model rigid to the configured camera parent is required')
+        if carrier_frame and value.get('camera_carrier_frame') != carrier_frame:
+            raise CalibrationError('Verified mount camera-carrier frame does not match')
+        if carrier_frame and value.get('envelope_reference_frame') != 'TCP':
+            raise CalibrationError('Carrier mount envelope must be measured about command TCP')
+        key = 'carrier_T_camera_optical' if carrier_frame else 'tool_T_camera_optical'
+        matrix = checked_transform(value.get(key))
+        error_bound = float(value.get('translation_error_bound_m', float('nan')))
         envelope = float(value.get('envelope_radius_m', float('nan')))
-        if not np.isfinite([sigma, envelope]).all() or not 0 < sigma <= limits.max_mount_sigma_m:
-            raise CalibrationError('Mount axial uncertainty is missing or too large')
-        if not np.linalg.norm(matrix[:3, 3]) < envelope < 0.30:
+        if (not np.isfinite([error_bound, envelope]).all()
+                or not 0 < error_bound <= limits.max_mount_translation_error_m):
+            raise CalibrationError('Mount translation error bound is missing or too large')
+        minimum_envelope = 0.0 if carrier_frame else np.linalg.norm(matrix[:3, 3])
+        if not minimum_envelope < envelope < 0.30:
             raise CalibrationError('Mount envelope must enclose the camera, tool and attached hardware')
-        return cls(matrix, sigma, envelope, str(value['measurement_source']), fingerprint(value))
+        return cls(matrix, error_bound, envelope, str(value['measurement_source']),
+                   fingerprint(value))

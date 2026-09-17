@@ -98,6 +98,8 @@ rosidl_generator_c/dobot_msgs/action/point_to_point.h: rosidl_adapter/dobot_msgs
 rosidl_generator_c/dobot_msgs/action/point_to_point.h: rosidl_adapter/dobot_msgs/srv/ExecuteHomingProcedure.idl
 rosidl_generator_c/dobot_msgs/action/point_to_point.h: rosidl_adapter/dobot_msgs/srv/GripperControl.idl
 rosidl_generator_c/dobot_msgs/action/point_to_point.h: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
+rosidl_generator_c/dobot_msgs/action/point_to_point.h: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
+rosidl_generator_c/dobot_msgs/action/point_to_point.h: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
 rosidl_generator_c/dobot_msgs/action/point_to_point.h: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_c/dobot_msgs/action/point_to_point.h: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_c/dobot_msgs/action/point_to_point.h: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -289,6 +291,30 @@ rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__struct.h: rosidl_g
 rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.h
 
+rosidl_generator_c/dobot_msgs/srv/get_ptp_common_params.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/get_ptp_common_params.h
+
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.h
+
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__struct.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__struct.h
+
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.h
+
+rosidl_generator_c/dobot_msgs/srv/set_ptp_common_params.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/set_ptp_common_params.h
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.h
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__struct.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__struct.h
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h
+
 rosidl_generator_c/dobot_msgs/action/detail/point_to_point__description.c: rosidl_generator_c/dobot_msgs/action/point_to_point.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/action/detail/point_to_point__description.c
 
@@ -378,6 +404,24 @@ rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.c: rosid
 
 rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c: rosidl_generator_c/dobot_msgs/action/point_to_point.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c
+
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c
+
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c
+
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c: rosidl_generator_c/dobot_msgs/action/point_to_point.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c
 
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__description.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/flags.make
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__description.c.o: rosidl_generator_c/dobot_msgs/action/detail/point_to_point__description.c
@@ -799,6 +843,90 @@ CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.s
 
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o -MF CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o.d -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c > CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.i
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.s
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o -MF CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o.d -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c > CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.i
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.s
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o -MF CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o.d -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c > CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.i
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.s
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o -MF CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o.d -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c > CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.i
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.s
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o -MF CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o.d -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c > CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.i
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.s
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o -MF CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o.d -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c > CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.i
+
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c -o CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.s
+
 # Object files for target dobot_msgs__rosidl_generator_c
 dobot_msgs__rosidl_generator_c_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__description.c.o" \
@@ -830,7 +958,13 @@ dobot_msgs__rosidl_generator_c_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.c.o" \
 "CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__description.c.o" \
 "CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.c.o" \
-"CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o"
+"CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o"
 
 # External object files for target dobot_msgs__rosidl_generator_c
 dobot_msgs__rosidl_generator_c_EXTERNAL_OBJECTS =
@@ -865,6 +999,12 @@ libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.
 libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__description.c.o
 libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.c.o
 libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o
+libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o
+libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o
+libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o
+libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o
+libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o
+libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o
 libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/build.make
 libdobot_msgs__rosidl_generator_c.so: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_generator_c.so
 libdobot_msgs__rosidl_generator_c.so: /opt/ros/jazzy/lib/libaction_msgs__rosidl_generator_c.so
@@ -875,7 +1015,7 @@ libdobot_msgs__rosidl_generator_c.so: /opt/ros/jazzy/lib/libbuiltin_interfaces__
 libdobot_msgs__rosidl_generator_c.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 libdobot_msgs__rosidl_generator_c.so: /opt/ros/jazzy/lib/librcutils.so
 libdobot_msgs__rosidl_generator_c.so: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking C shared library libdobot_msgs__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Linking C shared library libdobot_msgs__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dobot_msgs__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -940,12 +1080,24 @@ CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_m
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__struct.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.c
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.h
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.h
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__struct.h
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__description.c
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__functions.c
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__functions.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__struct.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.c
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.h
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.h
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__struct.h
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__description.c
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.c
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.h
@@ -954,7 +1106,9 @@ CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_m
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/evaluate_ptp_trajectory.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/execute_homing_procedure.h
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/get_ptp_common_params.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/gripper_control.h
+CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/set_ptp_common_params.h
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/dobot_msgs/srv/suction_cup_control.h
 	cd /home/bbcontact/magician_ros2/build/dobot_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles/dobot_msgs__rosidl_generator_c.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/dobot_msgs__rosidl_generator_c.dir/depend

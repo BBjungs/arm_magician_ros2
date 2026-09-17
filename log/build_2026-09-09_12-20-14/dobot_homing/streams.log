@@ -1,0 +1,21 @@
+[9.619s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_homing': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_homing/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_homing/build --no-deps symlink_data --force
+[13.251s] running develop
+[14.262s] running egg_info
+[14.417s] writing dobot_homing.egg-info/PKG-INFO
+[14.420s] writing dependency_links to dobot_homing.egg-info/dependency_links.txt
+[14.420s] writing entry points to dobot_homing.egg-info/entry_points.txt
+[14.422s] writing requirements to dobot_homing.egg-info/requires.txt
+[14.424s] writing top-level names to dobot_homing.egg-info/top_level.txt
+[14.939s] reading manifest file 'dobot_homing.egg-info/SOURCES.txt'
+[14.947s] writing manifest file 'dobot_homing.egg-info/SOURCES.txt'
+[15.170s] running build_ext
+[15.172s] Creating /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot-homing.egg-link (link to .)
+[15.176s] Installing homing_server script to /home/bbcontact/magician_ros2/install/dobot_homing/lib/dobot_homing
+[15.178s] 
+[15.179s] Installed /home/bbcontact/magician_ros2/build/dobot_homing
+[15.182s] running symlink_data
+[15.182s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_homing/resource/dobot_homing -> /home/bbcontact/magician_ros2/install/dobot_homing/share/ament_index/resource_index/packages
+[15.183s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_homing/package.xml -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing
+[15.183s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_homing/launch/dobot_homing.launch.py -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing/launch
+[15.184s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_homing/config/homing_params.yaml -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing/config
+[16.563s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_homing' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_homing/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_homing/build --no-deps symlink_data --force

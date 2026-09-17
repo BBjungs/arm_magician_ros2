@@ -1,0 +1,1 @@
+/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_cpp/dobot_msgs/srv/set_ptp_common_params.hpp

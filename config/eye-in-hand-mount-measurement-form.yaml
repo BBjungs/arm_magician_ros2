@@ -1,0 +1,118 @@
+# CAD-first gate: do not fill manual measurements until official Dobot CAD and
+# the as-built Orbbec mount CAD have been checked. See the acquisition report in
+# docs/evidence/official-dobot-magician/geometry-acquisition-report.md.
+# Fill only fallback magnitudes in millimetres and choose physical direction words.
+# Do not enter signed XYZ values. scripts/convert_eye_in_hand_mount_measurements.py
+# applies the verified frame convention below.
+schema_version: 1
+status: measured_translation_verified_rotation_and_multi_pose_validation_pending
+
+geometry_acquisition:
+  priority: [official_dobot_cad, as_built_mount_cad, manual_fallback]
+  official_dobot_cad:
+    status: recovered_bare_robot_only_no_suction_assembly
+    recovered_file: /tmp/dobot-magician-official-cad.bin
+    sha256: 105a9ecf62b408d68bf37298e6bdb744f8b628a10d3e393ea0c12f3455b1c171
+    official_urdf_file: /tmp/dobot-magician-official-urdf.bin
+    official_urdf_sha256: d98e48bc3debf466e6357c2c07539f88cd98a84cd7cac4c57a525da4f0362339
+    provenance: DOBOT_staff_forum_links_archived_topics_5010_and_4512
+    limitation: Neither official artifact contains the suction-cup contact-plane datum.
+  vendor_preset:
+    status: verified_on_controller
+    software_sources: [DobotStudio_1.5.1, DobotStudio_1.9.4, DobotLab_2.4.6]
+    suction_cup_xyz_bias_mm: [59.7, 0.0, 0.0]
+    meaning: horizontal_forearm_reference_to_j4_tool_output_axis_not_suction_tip
+    controller_readback_original_mm: [0.0, 0.0, 0.0]
+    controller_readback_restored_mm: [0.0, 0.0, 0.0]
+  as_built_orbbec_mount_cad:
+    status: not_found_in_repository
+    recovered_file: null
+  repository_suction_mesh_cross_check:
+    bottom_z_mm: -57.29105562750363
+    top_z_mm: -0.014974940521841668
+    status: unverified_visual_mesh_extent_not_tcp
+    audit_command: python3 scripts/audit_suction_mesh_geometry.py
+  external_suction_tcp_hint:
+    xyz_mm: [0.0, 0.0, -70.0]
+    status: corroborating_evidence_only_not_primary_source
+  note: The external -70 mm hint corroborates the as-built measurement but is not its provenance. Do not use the repository mesh extent or unused Xacro 60 mm property as a physical TCP source.
+
+frame_convention:
+  frame: TCP
+  reference_pose: controller_R_equals_zero
+  positive_x: away_from_robot_base
+  positive_y: left_when_viewed_from_robot_base_toward_tool
+  positive_z: upward
+  rotation_about_positive_z: counterclockwise_viewed_from_above
+
+references:
+  tool_origin:
+    definition: controller_native_end_effector_reference_with_zero_bias
+    physical_location_verified: true
+    note: Verified at the joint-4 rotation-axis centre; ROS publishes raw get_pose and startup sets end-effector bias to [0, 0, 0].
+  suction_tcp:
+    definition: centre_of_suction_cup_mouth_contact_plane
+  camera_reference:
+    definition: center_of_camera
+    tf_binding: camera_link_mount_reference
+    provenance: user_identified_as_built_measurement_reference_2026-09-15
+    note: Physical camera-centre reference used for the as-built measurements; not estimated from a photograph.
+
+measurements_mm:
+  tool_origin_to_suction_tcp:
+    measure_from: joint_4_rotation_axis_centre_at_tool_origin
+    measure_to: suction_axis_centre_at_suction_cup_mouth_contact_plane
+    axial_distance: 70.0
+    source: as_built_manual_measurement
+    provenance: user_confirmed_physical_hardware_measurement_2026-09-15
+    physical_direction: below_tool_origin
+  suction_tcp_to_camera_reference:
+    measure_from: suction_axis_centre_at_suction_cup_mouth_contact_plane
+    measure_to: center_of_camera
+    forward_backward_distance: 50.0
+    physical_direction: farther_from_robot_base
+    lateral_distance: 0.0
+    lateral_direction: centered
+    vertical_distance: 35.0
+    vertical_direction: above
+    source: as_built_manual_measurement
+    provenance: user_confirmed_physical_hardware_measurements_2026-09-15
+    component_note: Measure three orthogonal component distances, not the diagonal.
+    optical_note: Do not measure to an RGB/depth optical centre; factory TF supplies camera_link-to-optical.
+
+safety_measurements_mm:
+  translation_error_bound:
+    value: 1.0
+    meaning: maximum_absolute_error_covering_each_recorded_70_50_0_35_mm_component
+    sign_required: false
+    source: as_built_manual_measurement
+    provenance: user_confirmed_physical_hardware_measurement_2026-09-16
+    note: Use instrument accuracy or a conservative verified repeatability bound; do not enter a statistical sigma.
+  tool_origin_envelope_radius:
+    value: 152.6
+    measure_from: joint_4_rotation_axis_centre_at_tool_origin
+    measure_to: farthest_point_on_any_rotating_suction_mount_bracket_or_camera_hardware
+    sign_required: false
+    source: as_built_manual_measurement
+    provenance: user_confirmed_physical_hardware_measurement_2026-09-16
+    measured_components_mm:
+      x: 130.0
+      z: 80.0
+    derivation: sqrt(x^2 + z^2) = 152.643... mm; recorded as 152.6 mm
+    note: Straight-line radius enclosing the complete rotating assembly, not camera-centre offset or diameter.
+
+rotation:
+  tool_to_camera_link:
+    status: unverified
+    source: null               # verified_CAD | markerless_rgbd_multi_pose
+    rpy_rad: null
+    note: Image appearance, fiducials and assumed zero/cardinal rotations are not accepted as sources.
+
+derived_tool_frame_mm:
+  tool_to_suction_tcp_xyz: [0.0, 0.0, -70.0]
+  suction_tcp_to_camera_link_xyz: [50.0, 0.0, 35.0]
+  tool_to_camera_link_xyz: [50.0, 0.0, -35.0]
+derived_tool_frame_m:
+  tool_to_suction_tcp_xyz: [0.0, 0.0, -0.070]
+  suction_tcp_to_camera_link_xyz: [0.050, 0.0, 0.035]
+  tool_to_camera_link_xyz: [0.050, 0.0, -0.035]

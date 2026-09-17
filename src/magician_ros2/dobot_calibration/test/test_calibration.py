@@ -6,7 +6,7 @@ import pytest
 from scipy.spatial.transform import Rotation
 
 from dobot_calibration.geometry import (
-    CalibrationError, Limits, apply, inverse, pose_distance, scene_geometry,
+    CalibrationError, Limits, Mount, apply, inverse, pose_distance, scene_geometry,
     table_plane, transform, transform_plane,
 )
 from dobot_calibration.registration import Registration, make_capture, register
@@ -14,7 +14,8 @@ from dobot_calibration.solver import (
     collect_pairs, excitation, require_quality, solve, verify,
 )
 from dobot_calibration.workflow import (
-    Workflow, calibration_poses, check_path, load_bundle, save_bundle, settled_pose,
+    Workflow, calibration_origin, calibration_poses, check_path, load_bundle, save_bundle,
+    settled_pose,
 )
 from dobot_calibration.picking_guard import ReadinessLease
 from synthetic_scene import MOUNT, START, TRUE_X, held_out, render, training
@@ -44,9 +45,10 @@ def test_constrained_solution_and_independent_verification(calibrated, observati
     distance, angle = pose_distance(TRUE_X, calibrated.tool_T_camera)
     assert distance < 0.003
     assert angle < 1
-    assert calibrated.observability['free_parameter_count'] == 5
-    assert calibrated.observability['unobservable_component'] == 'tool_translation_z'
-    assert calibrated.tool_T_camera[2, 3] == MOUNT.tool_T_camera[2, 3]
+    assert calibrated.observability['free_parameter_count'] == 3
+    assert calibrated.observability['fixed_parameters'] == 'tool_translation_xyz'
+    np.testing.assert_array_equal(
+        calibrated.tool_T_camera[:3, 3], MOUNT.tool_T_camera[:3, 3])
     assert verify(calibrated, observations[0], held_out(), MOUNT)['result'] == 'PASS'
 
 
@@ -74,6 +76,70 @@ def test_four_dof_axial_gauge_is_not_claimed_observable(observations):
     for capture in observations[1:]:
         a = inverse(observations[0].base_T_tool) @ capture.base_T_tool
         assert np.allclose(inverse(TRUE_X) @ a @ TRUE_X, inverse(shifted) @ a @ shifted)
+
+
+def test_measured_camera_reference_is_composed_with_factory_optical_tf():
+    internal = transform(
+        Rotation.from_euler('xyz', [90, 0, -90], degrees=True).as_matrix(),
+        [0.012, -0.003, 0.004])
+    measured_xyz = np.array([-0.050, 0.0, -0.105])
+    seed_reference = transform(
+        Rotation.from_euler('xyz', [175, 3, 8], degrees=True).as_matrix(),
+        measured_xyz)
+    mount = Mount(seed_reference @ internal, 0.001, 0.15,
+                  'synthetic measured datum', 'factory-tf-test', internal)
+    solved_rotation = Rotation.from_euler('xyz', [180, 1, 4], degrees=True).as_matrix()
+    optical = mount.compose_optical(solved_rotation)
+    expected = transform(solved_rotation, measured_xyz) @ internal
+    np.testing.assert_allclose(optical, expected, atol=1e-12)
+    np.testing.assert_allclose(
+        (optical @ inverse(internal))[:3, 3], measured_xyz, atol=1e-12)
+
+
+def test_pending_rotation_mount_loader_uses_measurement_and_factory_tf(tmp_path):
+    import yaml
+    path = tmp_path / 'mount.yaml'
+    path.write_text(yaml.safe_dump({
+        'geometry_verified': False,
+        'translation_verified': True,
+        'rigid_to_rotating_tool': True,
+        'measurement_source': 'as-built fixture',
+        'translation_units': 'm',
+        'translation_error_bound_m': 0.003,
+        'envelope_radius_m': 0.15,
+        'initial_mount_constraint': {
+            'tool_to_camera_reference': [-0.05, 0.0, -0.105],
+        },
+    }))
+    internal = transform(
+        Rotation.from_euler('x', 90, degrees=True).as_matrix(), [0.01, 0, 0])
+    mount = Mount.load_translation_constraint(path, internal)
+    assert mount.rotation_seed_verified is False
+    np.testing.assert_allclose(
+        mount.tool_T_camera_reference[:3, 3], [-0.05, 0.0, -0.105])
+    np.testing.assert_allclose(mount.camera_reference_T_optical, internal)
+
+
+def test_pending_mount_preflight_names_only_missing_safety_inputs(tmp_path):
+    import yaml
+    path = tmp_path / 'mount.yaml'
+    path.write_text(yaml.safe_dump({
+        'geometry_verified': False,
+        'translation_verified': True,
+        'rigid_to_rotating_tool': True,
+        'measurement_source': 'as-built fixture',
+        'translation_units': 'm',
+        'translation_error_bound_m': None,
+        'envelope_radius_m': None,
+        'initial_mount_constraint': {
+            'tool_to_camera_reference': [-0.05, 0.0, -0.105],
+        },
+    }))
+    blockers = Mount.translation_constraint_blockers(path)
+    assert blockers == [
+        'translation_error_bound_m is missing or outside (0, 0.006]',
+        'envelope_radius_m must be greater than 0.116297 and below 0.30',
+    ]
 
 
 def test_insufficient_excitation_rejected(observations):
@@ -137,6 +203,20 @@ def test_motion_paths_and_held_out_poses(observations):
     far[0, 3] += 0.10
     with pytest.raises(CalibrationError, match='bounds'):
         check_path(START, far, observations[0], MOUNT)
+
+
+def test_calibration_origin_repairs_current_home_workspace_boundary():
+    current = transform(translation=[0.149924, 0.0, 0.100094])
+    origin = calibration_origin(current)
+    assert np.linalg.norm(origin[:3, 3] - current[:3, 3]) < 0.075
+    planned = [origin, *calibration_poses(origin),
+               *calibration_poses(origin, verification=True)]
+    for pose in planned:
+        radius = np.linalg.norm(pose[:2, 3])
+        assert radius >= 0.142 - 1e-12
+        assert radius <= 0.298 + 1e-12
+        assert pose[0, 3] >= 0.082 - 1e-12
+        assert 0.072 - 1e-12 <= pose[2, 3] <= 0.228 + 1e-12
 
 
 def test_settled_capture_rejects_stale_moving_or_gapped_telemetry():

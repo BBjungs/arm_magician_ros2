@@ -4,9 +4,9 @@
 
 #include <string.h>
 
+#include "orbbec_camera_msgs/msg/detail/imu_info__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "orbbec_camera_msgs/msg/detail/imu_info__struct.h"
-#include "orbbec_camera_msgs/msg/detail/imu_info__functions.h"
 #include "orbbec_camera_msgs/msg/detail/imu_info__type_support.h"
 
 #ifdef __cplusplus

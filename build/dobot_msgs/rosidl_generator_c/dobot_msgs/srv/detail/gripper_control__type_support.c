@@ -5,9 +5,9 @@
 #include <string.h>
 
 #include "rosidl_typesupport_interface/macros.h"
-#include "dobot_msgs/srv/detail/gripper_control__type_support.h"
-#include "dobot_msgs/srv/detail/gripper_control__struct.h"
 #include "dobot_msgs/srv/detail/gripper_control__functions.h"
+#include "dobot_msgs/srv/detail/gripper_control__struct.h"
+#include "dobot_msgs/srv/detail/gripper_control__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

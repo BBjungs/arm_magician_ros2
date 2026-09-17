@@ -348,6 +348,12 @@ ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ro
 # install(FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json" "DESTINATION" "share/dobot_msgs/srv")
 ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json" "DESTINATION" "share/dobot_msgs/srv")
 
+# install(FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json" "DESTINATION" "share/dobot_msgs/srv")
+ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json" "DESTINATION" "share/dobot_msgs/srv")
+
+# install(FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json" "DESTINATION" "share/dobot_msgs/srv")
+ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json" "DESTINATION" "share/dobot_msgs/srv")
+
 # install(DIRECTORY "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/" "DESTINATION" "include/dobot_msgs/dobot_msgs" "PATTERN" "*.h")
 ament_cmake_symlink_install_directory("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" DIRECTORY "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/" "DESTINATION" "include/dobot_msgs/dobot_msgs" "PATTERN" "*.h")
 
@@ -393,9 +399,6 @@ include("/home/bbcontact/magician_ros2/build/dobot_msgs/ament_cmake_symlink_inst
 # install("TARGETS" "dobot_msgs_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/dobot_msgs")
 include("/home/bbcontact/magician_ros2/build/dobot_msgs/ament_cmake_symlink_install_targets_2_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/ament_cmake_index/share/ament_index/resource_index/rust_packages/dobot_msgs" "DESTINATION" "share/ament_index/resource_index/rust_packages")
-ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/ament_cmake_index/share/ament_index/resource_index/rust_packages/dobot_msgs" "DESTINATION" "share/ament_index/resource_index/rust_packages")
-
 # install(DIRECTORY "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust" "DESTINATION" "share/dobot_msgs")
 ament_cmake_symlink_install_directory("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" DIRECTORY "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust" "DESTINATION" "share/dobot_msgs")
 
@@ -429,6 +432,12 @@ ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ro
 # install(FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl" "DESTINATION" "share/dobot_msgs/srv")
 ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl" "DESTINATION" "share/dobot_msgs/srv")
 
+# install(FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl" "DESTINATION" "share/dobot_msgs/srv")
+ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl" "DESTINATION" "share/dobot_msgs/srv")
+
+# install(FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl" "DESTINATION" "share/dobot_msgs/srv")
+ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl" "DESTINATION" "share/dobot_msgs/srv")
+
 # install(FILES "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/action/PointToPoint.action" "DESTINATION" "share/dobot_msgs/action")
 ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/action/PointToPoint.action" "DESTINATION" "share/dobot_msgs/action")
 
@@ -458,6 +467,12 @@ ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ro
 
 # install(FILES "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SuctionCupControl.srv" "DESTINATION" "share/dobot_msgs/srv")
 ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SuctionCupControl.srv" "DESTINATION" "share/dobot_msgs/srv")
+
+# install(FILES "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/GetPTPCommonParams.srv" "DESTINATION" "share/dobot_msgs/srv")
+ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/GetPTPCommonParams.srv" "DESTINATION" "share/dobot_msgs/srv")
+
+# install(FILES "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SetPTPCommonParams.srv" "DESTINATION" "share/dobot_msgs/srv")
+ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SetPTPCommonParams.srv" "DESTINATION" "share/dobot_msgs/srv")
 
 # install(FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/dobot_msgs" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs" FILES "/home/bbcontact/magician_ros2/build/dobot_msgs/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/dobot_msgs" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

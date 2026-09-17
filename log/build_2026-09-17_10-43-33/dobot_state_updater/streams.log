@@ -1,0 +1,17 @@
+[9.230s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_state_updater': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_state_updater/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_state_updater/build --no-deps symlink_data
+[11.194s] running develop
+[12.452s] running egg_info
+[12.585s] writing dobot_state_updater.egg-info/PKG-INFO
+[12.585s] writing dependency_links to dobot_state_updater.egg-info/dependency_links.txt
+[12.586s] writing entry points to dobot_state_updater.egg-info/entry_points.txt
+[12.586s] writing requirements to dobot_state_updater.egg-info/requires.txt
+[12.586s] writing top-level names to dobot_state_updater.egg-info/top_level.txt
+[12.849s] reading manifest file 'dobot_state_updater.egg-info/SOURCES.txt'
+[12.852s] writing manifest file 'dobot_state_updater.egg-info/SOURCES.txt'
+[13.049s] running build_ext
+[13.049s] Creating /home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages/dobot-state-updater.egg-link (link to .)
+[13.050s] Installing state_publisher script to /home/bbcontact/magician_ros2/install/dobot_state_updater/lib/dobot_state_updater
+[13.050s] 
+[13.073s] Installed /home/bbcontact/magician_ros2/build/dobot_state_updater
+[13.073s] running symlink_data
+[13.223s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_state_updater' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_state_updater/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_state_updater/build --no-deps symlink_data

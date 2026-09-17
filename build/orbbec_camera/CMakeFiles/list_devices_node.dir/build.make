@@ -341,7 +341,7 @@ list_devices_node: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
 list_devices_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
 list_devices_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
 list_devices_node: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
-list_devices_node: /opt/ros/jazzy/lib/libfastcdr.so.2.2.7
+list_devices_node: /opt/ros/jazzy/lib/libfastcdr.so.2.2.8
 list_devices_node: /opt/ros/jazzy/lib/librmw.so
 list_devices_node: /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
 list_devices_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so

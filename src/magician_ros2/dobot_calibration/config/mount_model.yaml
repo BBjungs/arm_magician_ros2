@@ -1,11 +1,49 @@
 # Machine/CAD data, not a user-entered calibration point. No invented defaults.
 geometry_verified: false
-rigid_to_rotating_tool: false
-measurement_source: ''
+rigid_to_rotating_tool: true
+translation_verified: true
+measurement_source: as_built_manual_measurement_2026_09_17_provenance_corrected
 translation_units: m
 # Maps registered optical coordinates into reported TCP; must rotate with yaw.
 tool_T_camera_optical: []
-# Standard uncertainty of the CAD/mount tool-Z offset; must be <= 2 mm.
-axial_sigma_m: null
+# Certified maximum absolute error of the measured tool-to-camera translation.
+translation_error_bound_m: 0.001
 # CAD bounding sphere about TCP enclosing attached tool/camera hardware.
-envelope_radius_m: null
+envelope_radius_m: 0.1526
+
+# Historical approximate-lens measurements are not a camera_link transform.
+# Populate this only from the validated measurement form.
+initial_mount_constraint:
+  source: as_built_manual_measurement_2026_09_17_provenance_corrected
+  estimate_type: fixed_measured_translation
+  measurement_form: config/eye-in-hand-mount-measurement-form.yaml
+  measurement_origin: suction_cup_mouth_center
+  measurement_endpoint: center_of_camera
+  reported_tcp_to_suction_tcp: [0.0, 0.0, -0.070]
+  suction_tcp_to_camera_link: [0.050, 0.0, 0.035]
+  tool_to_camera_reference: [0.050, 0.0, -0.035]
+  translation_mm:
+    tool_x: 50.0
+    tool_y: 0.0
+    tool_z: -35.0
+  direction: farther_from_robot_base_centered_above_suction_tcp
+  tool_axis_mapping_status: verified
+  tcp_to_suction_reference_status: as_built_measured
+  camera_link_rotation_status: pending_markerless_multi_pose_validation
+  rigid_to_rotating_tcp_status: verified_by_installation_inspection
+  translation_error_bound_mm: 1.0
+  envelope_radius_mm: 152.6
+  envelope_components_mm:
+    x: 130.0
+    z: 80.0
+  envelope_formula: sqrt(x^2 + z^2)
+  envelope_source: as_built_manual_measurement
+  safety_measurements: config/eye-in-hand-mount-measurement-form.yaml
+
+# Confirmed physical mounting; geometry is not verified until target validation.
+physical_attachment:
+  source: user_installation_inspection_2026_09_14
+  location: rigid_eye_in_hand_on_end_effector
+  rotates_with_joint_4: true
+  candidate_parent_frame: TCP
+  exact_parent_frame_verified: true

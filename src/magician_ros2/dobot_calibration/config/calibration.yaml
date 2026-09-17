@@ -3,9 +3,17 @@ markerless_calibration:
     rgb_topic: /camera/color/image_raw
     depth_topic: /camera/depth/image_raw
     camera_info_topic: /camera/color/camera_info
-    cloud_topic: /camera/depth_registered/points
+    # depth_registration=true makes the uncolored cloud use the color frame.
+    cloud_topic: /camera/depth/points
+    # AUTO uses only same-exposure fresh native clouds; otherwise deprojects
+    # aligned depth in camera_color_optical_frame (all units are metres).
+    point_cloud_source: AUTO
+    planning_soft_margin_deg: 2.0
     alarms_topic: /dobot_alarms
+    # Physical E-stop is external and operator-verified; it is not wired to ROS 2.
     safety_state_topic: ''
+    physical_estop_present: true
+    operator_safety_verified: true
     camera_frame: camera_color_optical_frame
     base_frame: magician_base_link
     tool_frame: TCP

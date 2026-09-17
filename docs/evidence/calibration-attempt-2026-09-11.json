@@ -1,0 +1,233 @@
+{
+  "requested_at_unix": 1789113065.8027704,
+  "before": {
+    "state": "FAIL",
+    "ready": false,
+    "available": false,
+    "reason": "A verified CAD/mount model rigid to the rotating TCP is required",
+    "stamp": 1789113064.6357691,
+    "result": "FAIL",
+    "architecture": "markerless_hand_eye",
+    "bundle_path": "/home/bbcontact/.ros/dobot/markerless_calibration.npz",
+    "bundle_loaded": false,
+    "context_digest": "",
+    "geometry_verified": false,
+    "samples_collected": 0,
+    "samples_accepted": 0,
+    "samples_rejected": 0,
+    "translation_residual_mm": null,
+    "rotation_residual_deg": null,
+    "verification_status": "FAIL",
+    "verification_samples": 0,
+    "reload_verification_status": "MISSING",
+    "mount_axial_uncertainty_mm": null,
+    "mount_envelope_mm": null,
+    "blockers": [
+      "A verified CAD/mount model rigid to the rotating TCP is required"
+    ],
+    "metrics": {},
+    "depth_quality": {
+      "status": "VALID_DEPTH",
+      "code": "",
+      "reason": "",
+      "depth_valid_ratio": 0.5372,
+      "source": "/camera/health"
+    },
+    "rgb_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 56.107,
+      "fps": 28.48,
+      "max_stamp_gap_ms": 135.959,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "expected_rate_ok": true
+    },
+    "depth_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 32.203,
+      "fps": 28.468,
+      "max_stamp_gap_ms": 97.708,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "expected_rate_ok": true,
+      "valid_ratio": 0.5372,
+      "valid": true
+    },
+    "tcp_fresh": true,
+    "joint_fresh": true,
+    "alarm_state": {
+      "fresh": true,
+      "codes": []
+    },
+    "safety_input_state": {
+      "supported": false,
+      "verified": false
+    },
+    "hardware_readiness": {
+      "state": "SAFETY_UNVERIFIED",
+      "ready": false,
+      "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+      "blockers": [
+        "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+      ],
+      "depth_fresh": true,
+      "depth_stable": true,
+      "tcp_fresh": true,
+      "joints_fresh": true,
+      "alarms_fresh": true,
+      "robot_connected": true,
+      "safety_supported": false,
+      "safety_verified": false
+    },
+    "ui": {
+      "language": "th",
+      "step": "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e23\u0e30\u0e1a\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22",
+      "status": "\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e2b\u0e49\u0e2b\u0e38\u0e48\u0e19\u0e22\u0e19\u0e15\u0e4c\u0e40\u0e04\u0e25\u0e37\u0e48\u0e2d\u0e19\u0e17\u0e35\u0e48",
+      "recommended_action": "\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e2a\u0e31\u0e0d\u0e0d\u0e32\u0e13\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22\u0e08\u0e32\u0e01\u0e2e\u0e32\u0e23\u0e4c\u0e14\u0e41\u0e27\u0e23\u0e4c\u0e17\u0e35\u0e48\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e44\u0e14\u0e49",
+      "motion_allowed": false
+    },
+    "age_sec": 0.15
+  },
+  "request": {
+    "accepted": true,
+    "architecture": "markerless_hand_eye",
+    "service": "/calibration/recalibrate",
+    "status_topic": "/calibration/status",
+    "message": "Markerless calibration requested; observe /calibration/status",
+    "request_pending": true
+  },
+  "after": {
+    "state": "FAIL",
+    "ready": false,
+    "available": false,
+    "reason": "A verified CAD/mount model rigid to the rotating TCP is required",
+    "stamp": 1789113065.6353102,
+    "result": "FAIL",
+    "architecture": "markerless_hand_eye",
+    "bundle_path": "/home/bbcontact/.ros/dobot/markerless_calibration.npz",
+    "bundle_loaded": false,
+    "context_digest": "",
+    "geometry_verified": false,
+    "samples_collected": 0,
+    "samples_accepted": 0,
+    "samples_rejected": 0,
+    "translation_residual_mm": null,
+    "rotation_residual_deg": null,
+    "verification_status": "FAIL",
+    "verification_samples": 0,
+    "reload_verification_status": "MISSING",
+    "mount_axial_uncertainty_mm": null,
+    "mount_envelope_mm": null,
+    "blockers": [
+      "A verified CAD/mount model rigid to the rotating TCP is required"
+    ],
+    "metrics": {},
+    "depth_quality": {
+      "status": "VALID_DEPTH",
+      "code": "",
+      "reason": "",
+      "depth_valid_ratio": 0.5372,
+      "source": "/camera/health"
+    },
+    "rgb_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 56.107,
+      "fps": 28.48,
+      "max_stamp_gap_ms": 135.959,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "expected_rate_ok": true
+    },
+    "depth_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 32.203,
+      "fps": 28.468,
+      "max_stamp_gap_ms": 97.708,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "expected_rate_ok": true,
+      "valid_ratio": 0.5372,
+      "valid": true
+    },
+    "tcp_fresh": true,
+    "joint_fresh": true,
+    "alarm_state": {
+      "fresh": true,
+      "codes": []
+    },
+    "safety_input_state": {
+      "supported": false,
+      "verified": false
+    },
+    "hardware_readiness": {
+      "state": "DEPTH_ERROR",
+      "ready": false,
+      "reason": "DEPTH_STALE: live depth timestamp is missing or stale",
+      "blockers": [
+        "DEPTH_STALE: live depth timestamp is missing or stale",
+        "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+      ],
+      "depth_fresh": false,
+      "depth_stable": true,
+      "tcp_fresh": true,
+      "joints_fresh": true,
+      "alarms_fresh": true,
+      "robot_connected": true,
+      "safety_supported": false,
+      "safety_verified": false
+    },
+    "ui": {
+      "language": "th",
+      "step": "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e01\u0e25\u0e49\u0e2d\u0e07",
+      "status": "Depth \u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21",
+      "recommended_action": "\u0e15\u0e23\u0e27\u0e08\u0e01\u0e32\u0e23\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e01\u0e25\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e48\u0e32 LDP \u0e41\u0e25\u0e49\u0e27\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48",
+      "motion_allowed": false
+    },
+    "age_sec": 0.15
+  },
+  "motion_after": {
+    "active_goal": false,
+    "last_goal_age_sec": 473.81,
+    "last_feedback": [
+      155.04,
+      5.0,
+      104.981,
+      0.018
+    ],
+    "last_result": {
+      "status": 4,
+      "achieved_pose": [
+        155.04,
+        5.0,
+        104.981,
+        0.001
+      ]
+    },
+    "joints_deg": [
+      -0.0,
+      3.04,
+      13.74,
+      0.0
+    ],
+    "joints_age_sec": 0.0,
+    "current_tcp_pose": [
+      149.9567108154297,
+      -4.4046942093700636e-08,
+      99.90151977539062,
+      -1.6829547533347977e-08
+    ],
+    "current_tcp_pose_source": "dobot_pose_raw",
+    "current_tcp_pose_age_sec": 0.0,
+    "homing_confirmed": true,
+    "vision_sequence_active": false,
+    "vision_sequence_age_sec": null
+  }
+}

@@ -63,6 +63,9 @@ def test_nonqueued_ptp_ack_is_empty_and_parseable(command_id):
 
 
 def test_verified_getter_payloads_and_lengths():
+    assert Message.parse(
+        response_frame(60, 0, struct.pack("<fff", 59.7, 0.0, -3.25))
+    ).params == pytest.approx((59.7, 0.0, -3.25))
     assert Message.parse(response_frame(62, 0, b"\x01\x01")).params == (
         True,
         True,

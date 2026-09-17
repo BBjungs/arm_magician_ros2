@@ -1,0 +1,17 @@
+[5.936s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_calibration': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_calibration/build --no-deps symlink_data
+[7.454s] running develop
+[8.496s] running egg_info
+[8.590s] writing dobot_calibration.egg-info/PKG-INFO
+[8.591s] writing dependency_links to dobot_calibration.egg-info/dependency_links.txt
+[8.591s] writing entry points to dobot_calibration.egg-info/entry_points.txt
+[8.591s] writing requirements to dobot_calibration.egg-info/requires.txt
+[8.592s] writing top-level names to dobot_calibration.egg-info/top_level.txt
+[8.826s] reading manifest file 'dobot_calibration.egg-info/SOURCES.txt'
+[8.829s] writing manifest file 'dobot_calibration.egg-info/SOURCES.txt'
+[8.966s] running build_ext
+[8.967s] Creating /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot-calibration.egg-link (link to .)
+[8.968s] Installing markerless_calibration script to /home/bbcontact/magician_ros2/install/dobot_calibration/lib/dobot_calibration
+[8.969s] 
+[8.969s] Installed /home/bbcontact/magician_ros2/build/dobot_calibration
+[8.970s] running symlink_data
+[9.091s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_calibration' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_calibration/build --no-deps symlink_data

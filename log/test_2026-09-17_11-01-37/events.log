@@ -1,0 +1,241 @@
+[0.000000] (-) TimerEvent: {}
+[0.000263] (dobot_vision_rgbd) JobQueued: {'identifier': 'dobot_vision_rgbd', 'dependencies': OrderedDict({'orbbec_camera_msgs': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs', 'dobot_vision_rgbd': '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd'})}
+[0.001662] (dobot_vision_rgbd) JobStarted: {'identifier': 'dobot_vision_rgbd'}
+[0.099489] (-) TimerEvent: {}
+[0.199726] (-) TimerEvent: {}
+[0.299937] (-) TimerEvent: {}
+[0.400137] (-) TimerEvent: {}
+[0.500362] (-) TimerEvent: {}
+[0.600587] (-) TimerEvent: {}
+[0.700824] (-) TimerEvent: {}
+[0.831599] (-) TimerEvent: {}
+[0.835766] (dobot_vision_rgbd) Command: {'cmd': ['/usr/bin/python3', '-m', 'pytest'], 'cwd': '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd', 'env': {'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.40.23 57253 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/0', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '--tb=short --junit-xml=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml --junit-prefix=dobot_vision_rgbd -o cache_dir=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8787/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '560', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0hvx0TU:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_VERSION': '0.154.0', 'CODEX_SESSION_ID': '01a09e16-2fa4-7523-bc39-e6c5dc22c9dd', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a09e16-2fa4-7523-bc39-e6c5dc22c9dd', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.40.23 57253 172.30.40.68 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/opt/gz_sim_vendor/lib/python:/opt/ros/jazzy/opt/sdformat_vendor/lib/python:/opt/ros/jazzy/opt/gz_transport_vendor/lib/python:/opt/ros/jazzy/opt/gz_msgs_vendor/lib/python:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'PYTHONDONTWRITEBYTECODE': '1'}, 'shell': False}
+[0.931780] (-) TimerEvent: {}
+[1.032044] (-) TimerEvent: {}
+[1.132292] (-) TimerEvent: {}
+[1.232505] (-) TimerEvent: {}
+[1.332753] (-) TimerEvent: {}
+[1.432998] (-) TimerEvent: {}
+[1.533257] (-) TimerEvent: {}
+[1.633520] (-) TimerEvent: {}
+[1.733781] (-) TimerEvent: {}
+[1.833969] (-) TimerEvent: {}
+[1.934227] (-) TimerEvent: {}
+[2.034438] (-) TimerEvent: {}
+[2.134722] (-) TimerEvent: {}
+[2.234981] (-) TimerEvent: {}
+[2.335248] (-) TimerEvent: {}
+[2.435458] (-) TimerEvent: {}
+[2.535699] (-) TimerEvent: {}
+[2.635896] (-) TimerEvent: {}
+[2.736075] (-) TimerEvent: {}
+[2.836283] (-) TimerEvent: {}
+[2.936467] (-) TimerEvent: {}
+[3.036651] (-) TimerEvent: {}
+[3.136907] (-) TimerEvent: {}
+[3.237127] (-) TimerEvent: {}
+[3.337294] (-) TimerEvent: {}
+[3.437491] (-) TimerEvent: {}
+[3.493920] (dobot_vision_rgbd) StdoutLine: {'line': b'============================= test session starts ==============================\n'}
+[3.494447] (dobot_vision_rgbd) StdoutLine: {'line': b'platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0\n'}
+[3.494761] (dobot_vision_rgbd) StdoutLine: {'line': b'cachedir: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache\n'}
+[3.495005] (dobot_vision_rgbd) StdoutLine: {'line': b'rootdir: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd\n'}
+[3.495326] (dobot_vision_rgbd) StdoutLine: {'line': b'plugins: ament-lint-0.17.5, ament-flake8-0.17.5, ament-pep257-0.17.5, ament-copyright-0.17.5, ament-xmllint-0.17.5, launch-testing-3.4.11, launch-testing-ros-0.26.12, anyio-4.14.2, colcon-core-0.21.1, typeguard-4.1.5, cov-4.1.0\n'}
+[3.495633] (dobot_vision_rgbd) StdoutLine: {'line': b'collected 54 items\n'}
+[3.495917] (dobot_vision_rgbd) StdoutLine: {'line': b'\n'}
+[3.537591] (-) TimerEvent: {}
+[3.637796] (-) TimerEvent: {}
+[3.738927] (-) TimerEvent: {}
+[3.839132] (-) TimerEvent: {}
+[3.939383] (-) TimerEvent: {}
+[4.039621] (-) TimerEvent: {}
+[4.139855] (-) TimerEvent: {}
+[4.240065] (-) TimerEvent: {}
+[4.340256] (-) TimerEvent: {}
+[4.440565] (-) TimerEvent: {}
+[4.513485] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py ............F.FFFFFFFFFFFFFFFFF               [ 57%]\n'}
+[4.529707] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_color_classifier.py ..                                         [ 61%]\n'}
+[4.533697] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_depth_diagnostic.py ..                                         [ 64%]\n'}
+[4.538823] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_depth_geometry.py ...                                          [ 70%]\n'}
+[4.540656] (-) TimerEvent: {}
+[4.540873] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_detection_schema.py .                                          [ 72%]\n'}
+[4.640808] (-) TimerEvent: {}
+[4.679930] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_object_fusion.py .....                                         [ 81%]\n'}
+[4.690792] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_object_fusion_health.py .....                                  [ 90%]\n'}
+[4.704832] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_shape_detector.py ....                                         [ 98%]\n'}
+[4.715626] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_visualization.py .                                             [100%]\n'}
+[4.716001] (dobot_vision_rgbd) StdoutLine: {'line': b'\n'}
+[4.716208] (dobot_vision_rgbd) StdoutLine: {'line': b'=================================== FAILURES ===================================\n'}
+[4.716426] (dobot_vision_rgbd) StdoutLine: {'line': b'___________ test_fresh_low_rate_is_degraded_warning_not_hard_blocker ___________\n'}
+[4.716574] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:122: in test_fresh_low_rate_is_degraded_warning_not_hard_blocker\n'}
+[4.716716] (dobot_vision_rgbd) StdoutLine: {'line': b'    result = report(healthy)\n'}
+[4.716930] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.717198] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.717402] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.717597] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.717743] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.717885] (dobot_vision_rgbd) StdoutLine: {'line': b'_____________ test_health_can_report_ready_for_complete_valid_data _____________\n'}
+[4.718023] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:163: in test_health_can_report_ready_for_complete_valid_data\n'}
+[4.718200] (dobot_vision_rgbd) StdoutLine: {'line': b"    assert report(healthy)['ready']\n"}
+[4.718527] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.718775] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.719026] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.719678] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.719850] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.719999] (dobot_vision_rgbd) StdoutLine: {'line': b'_____ test_usable_rate_is_ready_but_requested_rate_degradation_is_visible ______\n'}
+[4.720164] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:169: in test_usable_rate_is_ready_but_requested_rate_degradation_is_visible\n'}
+[4.720350] (dobot_vision_rgbd) StdoutLine: {'line': b'    result = report(healthy)\n'}
+[4.720499] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.720647] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.720793] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.720955] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.721104] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.721271] (dobot_vision_rgbd) StdoutLine: {'line': b'___________________ test_usb2_blocks_otherwise_valid_streams ___________________\n'}
+[4.721420] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:182: in test_usb2_blocks_otherwise_valid_streams\n'}
+[4.721572] (dobot_vision_rgbd) StdoutLine: {'line': b'    result = report(healthy)\n'}
+[4.721771] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.721941] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.722086] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.722271] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.722424] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.722583] (dobot_vision_rgbd) StdoutLine: {'line': b'______________________ test_stream_loss_clears_readiness _______________________\n'}
+[4.722725] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:189: in test_stream_loss_clears_readiness\n'}
+[4.722867] (dobot_vision_rgbd) StdoutLine: {'line': b"    assert not report(healthy)['ready']\n"}
+[4.723008] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.723149] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.723321] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.723468] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.723627] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.723797] (dobot_vision_rgbd) StdoutLine: {'line': b'_______________________ test_zero_depth_clears_readiness _______________________\n'}
+[4.723942] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:194: in test_zero_depth_clears_readiness\n'}
+[4.724085] (dobot_vision_rgbd) StdoutLine: {'line': b"    assert 'depth_data_invalid' in report(healthy)['blockers']\n"}
+[4.724288] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.724475] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.724619] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.724760] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.724900] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.725041] (dobot_vision_rgbd) StdoutLine: {'line': b'___________________ test_invalid_rgb_buffer_clears_readiness ___________________\n'}
+[4.725196] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:199: in test_invalid_rgb_buffer_clears_readiness\n'}
+[4.725356] (dobot_vision_rgbd) StdoutLine: {'line': b"    assert 'rgb_payload_invalid' in report(healthy)['blockers']\n"}
+[4.725499] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.725654] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.725828] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.725973] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.726116] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.726292] (dobot_vision_rgbd) StdoutLine: {'line': b'__________________ test_cloud_frame_mismatch_clears_readiness __________________\n'}
+[4.726439] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:204: in test_cloud_frame_mismatch_clears_readiness\n'}
+[4.726582] (dobot_vision_rgbd) StdoutLine: {'line': b"    assert 'point_cloud_frame_mismatch' in report(healthy)['blockers']\n"}
+[4.726724] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.726866] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.727029] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.727195] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.727366] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.727523] (dobot_vision_rgbd) StdoutLine: {'line': b'___________ test_active_or_unknown_protection_blocks_readiness[True] ___________\n'}
+[4.727707] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:210: in test_active_or_unknown_protection_blocks_readiness\n'}
+[4.727883] (dobot_vision_rgbd) StdoutLine: {'line': b'    result = report(healthy)\n'}
+[4.728036] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.728205] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.728377] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.728527] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.728677] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.728828] (dobot_vision_rgbd) StdoutLine: {'line': b'___________ test_active_or_unknown_protection_blocks_readiness[None] ___________\n'}
+[4.728979] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:210: in test_active_or_unknown_protection_blocks_readiness\n'}
+[4.729130] (dobot_vision_rgbd) StdoutLine: {'line': b'    result = report(healthy)\n'}
+[4.729316] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.729543] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.729845] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.730140] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.730453] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.730715] (dobot_vision_rgbd) StdoutLine: {'line': b'________________ test_stale_protection_status_blocks_readiness _________________\n'}
+[4.730877] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:217: in test_stale_protection_status_blocks_readiness\n'}
+[4.731029] (dobot_vision_rgbd) StdoutLine: {'line': b"    assert not report(healthy)['ready']\n"}
+[4.731198] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.731374] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.731527] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.731756] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.731974] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.732131] (dobot_vision_rgbd) StdoutLine: {'line': b'__________ test_forwarded_health_preserves_image_age[50.0-450.0-True] __________\n'}
+[4.732324] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age\n'}
+[4.732484] (dobot_vision_rgbd) StdoutLine: {'line': b"    result = report(healthy)['streams']['depth']\n"}
+[4.732639] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.732792] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.732964] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.733128] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.733326] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.733496] (dobot_vision_rgbd) StdoutLine: {'line': b'________ test_forwarded_health_preserves_image_age[700.0-1100.0-False] _________\n'}
+[4.733711] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age\n'}
+[4.733928] (dobot_vision_rgbd) StdoutLine: {'line': b"    result = report(healthy)['streams']['depth']\n"}
+[4.734095] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.734293] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.734466] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.734633] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.734796] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.734973] (dobot_vision_rgbd) StdoutLine: {'line': b'__________ test_forwarded_health_preserves_image_age[None-None-False] __________\n'}
+[4.735150] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age\n'}
+[4.735338] (dobot_vision_rgbd) StdoutLine: {'line': b"    result = report(healthy)['streams']['depth']\n"}
+[4.735495] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.735664] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.735843] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.736017] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.736196] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.736389] (dobot_vision_rgbd) StdoutLine: {'line': b'__________ test_forwarded_health_preserves_image_age[-1.0-None-False] __________\n'}
+[4.736557] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age\n'}
+[4.736723] (dobot_vision_rgbd) StdoutLine: {'line': b"    result = report(healthy)['streams']['depth']\n"}
+[4.736888] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.737063] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.737280] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.737455] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.737619] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.737834] (dobot_vision_rgbd) StdoutLine: {'line': b'__________ test_forwarded_health_preserves_image_age[nan-None-False] ___________\n'}
+[4.738000] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age\n'}
+[4.738163] (dobot_vision_rgbd) StdoutLine: {'line': b"    result = report(healthy)['streams']['depth']\n"}
+[4.738359] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.738529] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.738694] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.738858] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.739023] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.739199] (dobot_vision_rgbd) StdoutLine: {'line': b'____________ test_direct_images_do_not_depend_on_detector_heartbeat ____________\n'}
+[4.739386] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:247: in test_direct_images_do_not_depend_on_detector_heartbeat\n'}
+[4.739577] (dobot_vision_rgbd) StdoutLine: {'line': b'    result = report(healthy)\n'}
+[4.739894] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.740219] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.740550] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.740746] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.740961] (-) TimerEvent: {}
+[4.740998] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.741185] (dobot_vision_rgbd) StdoutLine: {'line': b'________ test_stopped_direct_depth_cannot_be_masked_by_detector_health _________\n'}
+[4.741385] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:260: in test_stopped_direct_depth_cannot_be_masked_by_detector_health\n'}
+[4.741551] (dobot_vision_rgbd) StdoutLine: {'line': b'    result = report(healthy)\n'}
+[4.741784] (dobot_vision_rgbd) StdoutLine: {'line': b'test/test_camera_health.py:158: in report\n'}
+[4.742085] (dobot_vision_rgbd) StdoutLine: {'line': b'    health.CameraHealthNode.publish_health(node)\n'}
+[4.742434] (dobot_vision_rgbd) StdoutLine: {'line': b'dobot_vision_rgbd/camera_health_node.py:318: in publish_health\n'}
+[4.742760] (dobot_vision_rgbd) StdoutLine: {'line': b'    key: dict(value) for key, value in self.callback_diagnostics.items()\n'}
+[4.742957] (dobot_vision_rgbd) StdoutLine: {'line': b"E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'\n"}
+[4.743171] (dobot_vision_rgbd) StdoutLine: {'line': b'- generated xml file: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml -\n'}
+[4.743478] (dobot_vision_rgbd) StdoutLine: {'line': b'=========================== short test summary info ============================\n'}
+[4.743740] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_fresh_low_rate_is_degraded_warning_not_hard_blocker\n'}
+[4.744010] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_health_can_report_ready_for_complete_valid_data\n'}
+[4.744300] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_usable_rate_is_ready_but_requested_rate_degradation_is_visible\n'}
+[4.744529] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_usb2_blocks_otherwise_valid_streams\n'}
+[4.744774] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_stream_loss_clears_readiness - Attrib...\n'}
+[4.745111] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_zero_depth_clears_readiness - Attribu...\n'}
+[4.745502] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_invalid_rgb_buffer_clears_readiness\n'}
+[4.745753] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_cloud_frame_mismatch_clears_readiness\n'}
+[4.745941] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_active_or_unknown_protection_blocks_readiness[True]\n'}
+[4.746291] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_active_or_unknown_protection_blocks_readiness[None]\n'}
+[4.746630] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_stale_protection_status_blocks_readiness\n'}
+[4.746954] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[50.0-450.0-True]\n'}
+[4.747316] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[700.0-1100.0-False]\n'}
+[4.747663] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[None-None-False]\n'}
+[4.747988] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[-1.0-None-False]\n'}
+[4.748373] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[nan-None-False]\n'}
+[4.748758] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_direct_images_do_not_depend_on_detector_heartbeat\n'}
+[4.749090] (dobot_vision_rgbd) StdoutLine: {'line': b'FAILED test/test_camera_health.py::test_stopped_direct_depth_cannot_be_masked_by_detector_health\n'}
+[4.749437] (dobot_vision_rgbd) StdoutLine: {'line': b'======================== 18 failed, 36 passed in 2.67s =========================\n'}
+[4.841208] (-) TimerEvent: {}
+[4.941536] (-) TimerEvent: {}
+[5.043277] (-) TimerEvent: {}
+[5.055558] (dobot_vision_rgbd) CommandEnded: {'returncode': 1}
+[5.057015] (dobot_vision_rgbd) TestFailure: {'identifier': 'dobot_vision_rgbd'}
+[5.057125] (dobot_vision_rgbd) JobEnded: {'identifier': 'dobot_vision_rgbd', 'rc': 0}
+[5.058431] (-) EventReactorShutdown: {}

@@ -1,0 +1,131 @@
+{
+  "captured_at_utc": "2026-09-11T07:27:52.995609+00:00",
+  "duration_s": 12,
+  "counts": {
+    "/tf_static": 1,
+    "/tf": 185
+  },
+  "edges": [
+    {
+      "parent": "camera_depth_frame",
+      "child": "camera_color_frame",
+      "translation_m": [
+        0.0005438049435615539,
+        -0.00992595100402832,
+        9.004256874322891e-05
+      ],
+      "quaternion_xyzw": [
+        -0.0001145979986176826,
+        -0.002255559666082263,
+        0.0027205096557736397,
+        0.9999937415122986
+      ],
+      "stamp_sec": 1789098506.3783324,
+      "topic": "/tf_static"
+    },
+    {
+      "parent": "camera_color_frame",
+      "child": "camera_color_optical_frame",
+      "translation_m": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "quaternion_xyzw": [
+        -0.5,
+        0.4999999999999999,
+        -0.5,
+        0.5000000000000001
+      ],
+      "stamp_sec": 1789098506.3783324,
+      "topic": "/tf_static"
+    },
+    {
+      "parent": "camera_depth_frame",
+      "child": "camera_depth_optical_frame",
+      "translation_m": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "quaternion_xyzw": [
+        -0.5,
+        0.4999999999999999,
+        -0.5,
+        0.5000000000000001
+      ],
+      "stamp_sec": 1789098506.3784902,
+      "topic": "/tf_static"
+    },
+    {
+      "parent": "camera_link",
+      "child": "camera_depth_frame",
+      "translation_m": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "stamp_sec": 1789098506.3785546,
+      "topic": "/tf_static"
+    },
+    {
+      "parent": "magician_base_link",
+      "child": "TCP",
+      "translation_m": [
+        0.14998487854003906,
+        -4.4055212811144886e-11,
+        0.09998656463623047
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        -1.468655080389062e-10,
+        1.0
+      ],
+      "stamp_sec": 1789111672.9446104,
+      "topic": "/tf"
+    }
+  ],
+  "latest": {
+    "dobot_TCP": {
+      "frame": "magician_base_link",
+      "xyz_m": [
+        0.14998487854003906,
+        -4.4055212811144886e-11,
+        0.09998656463623047
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        -1.468655080389062e-10,
+        1.0
+      ]
+    },
+    "dobot_pose_raw": [
+      0.14998487854003906,
+      -4.4055212811144886e-11,
+      0.09998656463623047,
+      -1.6829547533347977e-08
+    ]
+  },
+  "lookups": {
+    "magician_base_link <- TCP": {
+      "available": true
+    },
+    "TCP <- camera_link": {
+      "available": false,
+      "reason": "Could not find a connection between 'TCP' and 'camera_link' because they are not part of the same tree.Tf has two or more unconnected trees."
+    },
+    "TCP <- camera_color_optical_frame": {
+      "available": false,
+      "reason": "Could not find a connection between 'TCP' and 'camera_color_optical_frame' because they are not part of the same tree.Tf has two or more unconnected trees."
+    }
+  },
+  "ros_time_sec": 1789111672.9956582
+}

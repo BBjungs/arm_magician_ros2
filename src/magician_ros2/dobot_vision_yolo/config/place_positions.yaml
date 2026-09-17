@@ -1,12 +1,24 @@
 places:
-  tray_A:
+  Zone A:
+    zone_id: Zone A
     pose: [220.0, 160.0, -35.0, 0.0]
-  tray_B:
+    safe_z: 60.0
+    aliases: [tray_A]
+  Zone B:
+    zone_id: Zone B
     pose: [260.0, 160.0, -35.0, 0.0]
-  tray_C:
+    safe_z: 60.0
+    aliases: [tray_B]
+  Zone C:
+    zone_id: Zone C
     pose: [300.0, 160.0, -35.0, 0.0]
-  reject_box:
+    safe_z: 60.0
+    aliases: [tray_C]
+  Reject:
+    zone_id: Reject
     pose: [180.0, -160.0, -35.0, 0.0]
+    safe_z: 60.0
+    aliases: [reject_box]
 
 vision_pick_place_node:
   ros__parameters:

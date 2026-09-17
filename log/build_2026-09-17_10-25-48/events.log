@@ -1,0 +1,66 @@
+[0.000000] (-) TimerEvent: {}
+[0.000185] (-) JobUnselected: {'identifier': 'dobot_bringup'}
+[0.000302] (-) JobUnselected: {'identifier': 'dobot_control_panel'}
+[0.000375] (-) JobUnselected: {'identifier': 'dobot_demos'}
+[0.000434] (-) JobUnselected: {'identifier': 'dobot_description'}
+[0.000491] (-) JobUnselected: {'identifier': 'dobot_diagnostics'}
+[0.000558] (-) JobUnselected: {'identifier': 'dobot_driver'}
+[0.000622] (-) JobUnselected: {'identifier': 'dobot_end_effector'}
+[0.000679] (-) JobUnselected: {'identifier': 'dobot_homing'}
+[0.000738] (-) JobUnselected: {'identifier': 'dobot_motion'}
+[0.000794] (-) JobUnselected: {'identifier': 'dobot_object_vision'}
+[0.000851] (-) JobUnselected: {'identifier': 'dobot_state_updater'}
+[0.000909] (-) JobUnselected: {'identifier': 'dobot_vision_rgbd'}
+[0.000962] (-) JobUnselected: {'identifier': 'dobot_vision_yolo'}
+[0.001015] (-) JobUnselected: {'identifier': 'dobot_visualization_tools'}
+[0.001072] (-) JobUnselected: {'identifier': 'dobot_web_interface'}
+[0.001130] (-) JobUnselected: {'identifier': 'orbbec_camera'}
+[0.001223] (-) JobUnselected: {'identifier': 'orbbec_camera_msgs'}
+[0.001280] (-) JobUnselected: {'identifier': 'orbbec_description'}
+[0.001341] (dobot_msgs) JobQueued: {'identifier': 'dobot_msgs', 'dependencies': OrderedDict()}
+[0.001438] (dobot_calibration) JobQueued: {'identifier': 'dobot_calibration', 'dependencies': OrderedDict({'dobot_msgs': '/home/bbcontact/magician_ros2/install/dobot_msgs'})}
+[0.001693] (dobot_kinematics) JobQueued: {'identifier': 'dobot_kinematics', 'dependencies': OrderedDict({'dobot_description': '/home/bbcontact/magician_ros2/install/dobot_description', 'dobot_msgs': '/home/bbcontact/magician_ros2/install/dobot_msgs'})}
+[0.001786] (dobot_msgs) JobStarted: {'identifier': 'dobot_msgs'}
+[0.035974] (dobot_msgs) JobProgress: {'identifier': 'dobot_msgs', 'progress': 'cmake'}
+[0.038757] (dobot_msgs) JobProgress: {'identifier': 'dobot_msgs', 'progress': 'build'}
+[0.041239] (dobot_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bbcontact/magician_ros2/build/dobot_msgs', '--', '-j8', '-l8'], 'cwd': '/home/bbcontact/magician_ros2/build/dobot_msgs', 'env': OrderedDict({'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.40.23 57253 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/0', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8787/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '560', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0hvx0TU:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_VERSION': '0.154.0', 'CODEX_SESSION_ID': '01a09e16-2fa4-7523-bc39-e6c5dc22c9dd', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a09e16-2fa4-7523-bc39-e6c5dc22c9dd', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/dobot_msgs', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.40.23 57253 172.30.40.68 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib/python:/opt/ros/jazzy/opt/sdformat_vendor/lib/python:/opt/ros/jazzy/opt/gz_transport_vendor/lib/python:/opt/ros/jazzy/opt/gz_msgs_vendor/lib/python:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.097067] (-) TimerEvent: {}
+[0.197340] (-) TimerEvent: {}
+[0.240930] (dobot_msgs) StdoutLine: {'line': b'[  1%] Built target dobot_msgs__rs\n'}
+[0.297466] (-) TimerEvent: {}
+[0.319477] (dobot_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_symlink_dobot_msgs\n'}
+[0.379463] (dobot_msgs) StdoutLine: {'line': b'[  1%] Built target dobot_msgs__rosidl_generator_type_description\n'}
+[0.397646] (-) TimerEvent: {}
+[0.497896] (-) TimerEvent: {}
+[0.598116] (-) TimerEvent: {}
+[0.698366] (-) TimerEvent: {}
+[0.798636] (-) TimerEvent: {}
+[0.898871] (-) TimerEvent: {}
+[0.999060] (-) TimerEvent: {}
+[1.099265] (-) TimerEvent: {}
+[1.199516] (-) TimerEvent: {}
+[1.267625] (dobot_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[1.299648] (-) TimerEvent: {}
+[1.369972] (dobot_msgs) StdoutLine: {'line': b'writing dobot_msgs.egg-info/PKG-INFO\n'}
+[1.372095] (dobot_msgs) StdoutLine: {'line': b'writing dependency_links to dobot_msgs.egg-info/dependency_links.txt\n'}
+[1.372522] (dobot_msgs) StdoutLine: {'line': b'writing top-level names to dobot_msgs.egg-info/top_level.txt\n'}
+[1.399775] (-) TimerEvent: {}
+[1.499957] (-) TimerEvent: {}
+[1.600133] (-) TimerEvent: {}
+[1.623101] (dobot_msgs) StdoutLine: {'line': b"reading manifest file 'dobot_msgs.egg-info/SOURCES.txt'\n"}
+[1.626251] (dobot_msgs) StdoutLine: {'line': b"writing manifest file 'dobot_msgs.egg-info/SOURCES.txt'\n"}
+[1.700222] (-) TimerEvent: {}
+[1.702424] (dobot_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_build_dobot_msgs_egg\n'}
+[1.764597] (dobot_msgs) StdoutLine: {'line': b'[  1%] Built target dobot_msgs__cpp\n'}
+[1.800356] (-) TimerEvent: {}
+[1.874299] (dobot_msgs) StdoutLine: {'line': b'[ 27%] Built target dobot_msgs__rosidl_generator_c\n'}
+[1.900491] (-) TimerEvent: {}
+[1.957304] (dobot_msgs) StderrLine: {'line': b"gmake[2]: *** No rule to make target '/opt/ros/jazzy/lib/libfastcdr.so.2.2.7', needed by 'libdobot_msgs__rosidl_typesupport_fastrtps_c.so'.  Stop.\n"}
+[1.958392] (dobot_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:286: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/all] Error 2\n'}
+[1.959555] (dobot_msgs) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[1.964412] (dobot_msgs) CommandEnded: {'returncode': 2}
+[2.000946] (-) TimerEvent: {}
+[2.026212] (dobot_msgs) JobEnded: {'identifier': 'dobot_msgs', 'rc': 2}
+[2.037006] (dobot_calibration) JobSkipped: {'identifier': 'dobot_calibration'}
+[2.037098] (dobot_kinematics) JobSkipped: {'identifier': 'dobot_kinematics'}
+[2.037157] (-) EventReactorShutdown: {}

@@ -1,3 +1,4 @@
+import json
 import math
 import time
 
@@ -194,6 +195,47 @@ class PoseValidatorService(Node):
             < self.axis_4_range['max'] + joint_1_from_position
         )
 
+    def _cartesian_limit_diagnostic(self, angles, position, sample_index,
+                                    start_joint_vector, target_joint_vector):
+        """Return the first failing joint with all data needed for a dry-run audit.
+
+        `calc_inv_kin` presently exposes one analytic Dobot-convention branch;
+        reporting that explicitly avoids claiming that another IK branch was tried.
+        Start/target vectors are IK estimates from Cartesian telemetry, not a
+        substitute for measured joint-state telemetry.
+        """
+        yaw = math.degrees(math.atan2(position[1], position[0]))
+        ranges = [self.axis_1_range, self.axis_2_range, self.axis_3_range,
+                  {'min': self.axis_4_range['min'] + yaw,
+                   'max': self.axis_4_range['max'] + yaw}]
+        # The Dobot Cartesian validator additionally constrains axis 3 as a
+        # function of axis 2. Preserve the effective bound in the diagnostic.
+        ranges[2] = dict(ranges[2])
+        ranges[2]['min'] += max(0.0, angles[1] - 40.0)
+        violated = next((index for index, (angle, limit) in enumerate(zip(angles, ranges))
+                         if not limit['min'] < angle < limit['max']), None)
+        if violated is None:
+            return None
+        return {
+            'validator': 'dobot_kinematics.trajectory_validator_server.PoseValidatorService',
+            'ik_implementation': 'dobot_kinematics.dobot_inv_kin.calc_inv_kin',
+            'ik_branch': 'analytic_single_branch',
+            'sample_index': int(sample_index),
+            'cartesian_sample_xyzw_mm_deg': [float(value) for value in position],
+            'violated_joint': f'axis_{violated + 1}',
+            'sampled_joint_deg': float(angles[violated]),
+            'configured_min_deg': float(ranges[violated]['min']),
+            'configured_max_deg': float(ranges[violated]['max']),
+            'sampled_joint_vector_deg': [float(value) for value in angles],
+            'start_joint_vector_deg': [float(value) for value in start_joint_vector],
+            'target_joint_vector_deg': [float(value) for value in target_joint_vector],
+            'joint_vector_source': 'IK estimated from start/target Cartesian telemetry',
+        }
+
+    @staticmethod
+    def _diagnostic_message(prefix, diagnostic):
+        return prefix + ': ' + json.dumps(diagnostic, sort_keys=True)
+
     def _collision_safe(self, motion_type, target):
         if not self.enable_collision_check:
             return True, ''
@@ -267,13 +309,20 @@ class PoseValidatorService(Node):
                 waypoints = self._linear_waypoints(target)
             except ValueError as exc:
                 return False, str(exc)
-            for point in waypoints:
+            start_angles = calc_inv_kin(*self.dobot_pose)
+            target_angles = calc_inv_kin(*target)
+            if start_angles is False or target_angles is False:
+                return False, 'Inverse kinematics solving error for trajectory endpoint'
+            for sample_index, point in enumerate(waypoints):
                 point.append(target[3])
                 angles = calc_inv_kin(*point)
                 if angles is False:
                     return False, 'Inverse kinematics solving error'
                 if not self.are_angles_in_range_cartesian(angles, point):
-                    return False, 'Joint limits violated along trajectory'
+                    diagnostic = self._cartesian_limit_diagnostic(
+                        angles, point, sample_index, start_angles, target_angles)
+                    return False, self._diagnostic_message(
+                        'Joint limits violated along trajectory', diagnostic)
 
         else:
             return False, 'Unsupported trajectory type'

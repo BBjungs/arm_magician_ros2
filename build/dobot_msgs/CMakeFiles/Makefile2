@@ -232,12 +232,12 @@ CMakeFiles/dobot_msgs.dir/clean:
 CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/build.make CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/build.make CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num= "Built target dobot_msgs__rosidl_generator_type_description"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=37 "Built target dobot_msgs__rosidl_generator_type_description"
 .PHONY : CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/rule
@@ -263,7 +263,7 @@ CMakeFiles/dobot_msgs__rosidl_generator_c.dir/all: CMakeFiles/dobot_msgs__rosidl
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs__rosidl_generator_c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rule
@@ -284,12 +284,12 @@ CMakeFiles/dobot_msgs__rosidl_generator_c.dir/clean:
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/all: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=57,58,59,60,61,62,63,64,65 "Built target dobot_msgs__rosidl_typesupport_fastrtps_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=57,58,59,60,61,62,63,64,65,66 "Built target dobot_msgs__rosidl_typesupport_fastrtps_c"
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 37
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rule
@@ -310,12 +310,12 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/clean:
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/all: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=76,77,78,79,80,81,82,83,84 "Built target dobot_msgs__rosidl_typesupport_introspection_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=76,77,78,79,80,81,82,83,84,85 "Built target dobot_msgs__rosidl_typesupport_introspection_c"
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 37
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rule
@@ -336,7 +336,7 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/clean:
 CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/all: CMakeFiles/dobot_msgs__rosidl_generator_c.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=37,38,39,40,41,42,43,44,45,46 "Built target dobot_msgs__rosidl_typesupport_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=38,39,40,41,42,43,44,45,46 "Built target dobot_msgs__rosidl_typesupport_c"
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/all
 
 # Build rule for subdir invocation for target.
@@ -367,7 +367,7 @@ CMakeFiles/dobot_msgs__cpp.dir/all: CMakeFiles/dobot_msgs__rosidl_generator_type
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs__cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs__cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs__cpp.dir/rule
@@ -389,7 +389,7 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/all: CMakeFiles/dobot
 CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/all: CMakeFiles/dobot_msgs__cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=66,67,68,69,70,71,72,73,74,75 "Built target dobot_msgs__rosidl_typesupport_fastrtps_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=67,68,69,70,71,72,73,74,75 "Built target dobot_msgs__rosidl_typesupport_fastrtps_cpp"
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -416,12 +416,12 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/all: CMakeFiles/
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/all: CMakeFiles/dobot_msgs__cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=85,86,87,88,89,90,91,92,93,94 "Built target dobot_msgs__rosidl_typesupport_introspection_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=86,87,88,89,90,91,92,93,94,95 "Built target dobot_msgs__rosidl_typesupport_introspection_cpp"
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 37
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rule
@@ -448,7 +448,7 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/all: CMakeFiles/dobot_msgs__cp
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 37
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rule
@@ -553,12 +553,12 @@ CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/all: CMakeFiles/dobot
 CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/all: dobot_msgs__py/CMakeFiles/dobot_msgs__py.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=97,98 "Built target dobot_msgs_s__rosidl_typesupport_fastrtps_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=98 "Built target dobot_msgs_s__rosidl_typesupport_fastrtps_c"
 .PHONY : CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 97
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 96
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/rule
@@ -612,12 +612,12 @@ CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/all: CMakeFiles/dobot_msgs__ro
 CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/all: dobot_msgs__py/CMakeFiles/dobot_msgs__py.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/build.make CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/build.make CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=96 "Built target dobot_msgs_s__rosidl_typesupport_c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=96,97 "Built target dobot_msgs_s__rosidl_typesupport_c"
 .PHONY : CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 96
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 97
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/rule
@@ -664,12 +664,12 @@ dobot_msgs__py/CMakeFiles/dobot_msgs__py.dir/clean:
 dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/all:
 	$(MAKE) $(MAKESILENT) -f /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/build.make /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/depend
 	$(MAKE) $(MAKESILENT) -f /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/build.make /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=95 "Built target dobot_msgs__rs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num= "Built target dobot_msgs__rs"
 .PHONY : dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/all
 
 # Build rule for subdir invocation for target.
 dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles 0
 .PHONY : dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/rule

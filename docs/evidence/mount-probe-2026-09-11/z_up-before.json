@@ -1,0 +1,142 @@
+{
+  "camera": {
+    "raw_topic": "/camera/color/image_raw",
+    "compressed_topic": "/camera/color/image_raw/compressed",
+    "device": "",
+    "direct_camera_connected": false,
+    "frame_age_sec": 0.01,
+    "frame_source": "/camera/color/image_raw/compressed",
+    "has_frame": true,
+    "camera_info_topic": "/camera/color/camera_info",
+    "intrinsics_source": "camera_info",
+    "intrinsics_age_sec": 0.01
+  },
+  "ros": {
+    "ptp_action_ready": true,
+    "homing_ready": true,
+    "gripper_ready": false,
+    "suction_ready": true,
+    "tool_mapping": "canonical",
+    "alarm_state_fresh": true,
+    "no_critical_alarm": true,
+    "alarm_codes": []
+  },
+  "motion": {
+    "active_goal": false,
+    "last_goal_age_sec": null,
+    "last_feedback": null,
+    "last_result": null,
+    "joints_deg": [
+      -0.0,
+      3.07,
+      13.7,
+      0.0
+    ],
+    "joints_age_sec": 0.01,
+    "current_tcp_pose": [
+      150.0398406982422,
+      -4.407135989481503e-08,
+      99.98146057128906,
+      -1.6829547533347977e-08
+    ],
+    "current_tcp_pose_source": "dobot_pose_raw",
+    "current_tcp_pose_age_sec": 0.01,
+    "homing_confirmed": true,
+    "vision_sequence_active": false,
+    "vision_sequence_age_sec": null
+  },
+  "camera_health": {
+    "usb": {
+      "devices": [
+        {
+          "path": "2-4.2",
+          "product": "0614",
+          "role": "depth_data",
+          "serial": "",
+          "speed_mbps": 5000.0
+        },
+        {
+          "path": "1-4.1",
+          "product": "0511",
+          "role": "rgb_uvc",
+          "serial": "AY2A760003E",
+          "speed_mbps": 480.0
+        }
+      ],
+      "superspeed": true,
+      "camera_identity": "AY2A760003E",
+      "identity_valid": true
+    },
+    "streams": {
+      "rgb_info": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 1.97,
+        "fps": 22.87,
+        "timestamp_valid": true,
+        "estimated_missing_frames": 95,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "expected_rate_ok": true,
+        "intrinsics_valid": true
+      },
+      "depth_info": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 88.12,
+        "fps": 23.97,
+        "timestamp_valid": true,
+        "estimated_missing_frames": 76,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "expected_rate_ok": true,
+        "intrinsics_valid": true
+      },
+      "cloud": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 264.69,
+        "fps": 1.8,
+        "timestamp_valid": true,
+        "estimated_missing_frames": 4696,
+        "frame_id": "camera_color_optical_frame",
+        "valid_ratio": 1.0,
+        "valid": true,
+        "rate_ok": true,
+        "expected_rate_ok": true
+      },
+      "rgb": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 40.815,
+        "fps": 29.268,
+        "max_stamp_gap_ms": 68.053,
+        "timestamp_valid": true,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "expected_rate_ok": true
+      },
+      "depth": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 55.011,
+        "fps": 28.631,
+        "max_stamp_gap_ms": 99.43,
+        "timestamp_valid": true,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "expected_rate_ok": true,
+        "valid_ratio": 0.5365,
+        "valid": true
+      }
+    },
+    "ready": true,
+    "blockers": [],
+    "warnings": [],
+    "ldp_protection_active": false,
+    "alignment_metadata_consistent": true,
+    "rgb_payload_valid": true,
+    "rgb_depth_skew_ms": 30.0,
+    "age_sec": 1.06
+  }
+}

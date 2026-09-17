@@ -1,0 +1,17 @@
+[0.043s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/dobot_msgs -- -j8 -l8
+[0.239s] [  1%] Built target dobot_msgs__rs
+[0.318s] [  1%] Built target ament_cmake_python_symlink_dobot_msgs
+[0.378s] [  1%] Built target dobot_msgs__rosidl_generator_type_description
+[1.266s] running egg_info
+[1.369s] writing dobot_msgs.egg-info/PKG-INFO
+[1.371s] writing dependency_links to dobot_msgs.egg-info/dependency_links.txt
+[1.371s] writing top-level names to dobot_msgs.egg-info/top_level.txt
+[1.622s] reading manifest file 'dobot_msgs.egg-info/SOURCES.txt'
+[1.627s] writing manifest file 'dobot_msgs.egg-info/SOURCES.txt'
+[1.701s] [  1%] Built target ament_cmake_python_build_dobot_msgs_egg
+[1.763s] [  1%] Built target dobot_msgs__cpp
+[1.873s] [ 27%] Built target dobot_msgs__rosidl_generator_c
+[1.956s] gmake[2]: *** No rule to make target '/opt/ros/jazzy/lib/libfastcdr.so.2.2.7', needed by 'libdobot_msgs__rosidl_typesupport_fastrtps_c.so'.  Stop.
+[1.957s] gmake[1]: *** [CMakeFiles/Makefile2:286: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/all] Error 2
+[1.958s] gmake: *** [Makefile:146: all] Error 2
+[1.963s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_msgs' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/dobot_msgs -- -j8 -l8

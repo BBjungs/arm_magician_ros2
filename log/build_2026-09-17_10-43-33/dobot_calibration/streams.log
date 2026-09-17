@@ -1,0 +1,31 @@
+[9.259s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_calibration': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_calibration/build --no-deps symlink_data
+[11.198s] running develop
+[12.401s] running egg_info
+[12.404s] creating dobot_calibration.egg-info
+[12.536s] writing dobot_calibration.egg-info/PKG-INFO
+[12.537s] writing dependency_links to dobot_calibration.egg-info/dependency_links.txt
+[12.538s] writing entry points to dobot_calibration.egg-info/entry_points.txt
+[12.540s] writing requirements to dobot_calibration.egg-info/requires.txt
+[12.540s] writing top-level names to dobot_calibration.egg-info/top_level.txt
+[12.540s] writing manifest file 'dobot_calibration.egg-info/SOURCES.txt'
+[12.799s] reading manifest file 'dobot_calibration.egg-info/SOURCES.txt'
+[12.803s] writing manifest file 'dobot_calibration.egg-info/SOURCES.txt'
+[12.935s] running build_ext
+[12.935s] Creating /home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages/dobot-calibration.egg-link (link to .)
+[12.935s] Installing markerless_calibration script to /home/bbcontact/magician_ros2/install/dobot_calibration/lib/dobot_calibration
+[12.936s] 
+[12.936s] Installed /home/bbcontact/magician_ros2/build/dobot_calibration
+[12.937s] running symlink_data
+[12.938s] creating /home/bbcontact/magician_ros2/install/dobot_calibration/share/ament_index
+[12.939s] creating /home/bbcontact/magician_ros2/install/dobot_calibration/share/ament_index/resource_index
+[12.940s] creating /home/bbcontact/magician_ros2/install/dobot_calibration/share/ament_index/resource_index/packages
+[12.941s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_calibration/resource/dobot_calibration -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/ament_index/resource_index/packages
+[12.944s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_calibration/package.xml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration
+[12.944s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_calibration/README.md -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration
+[12.944s] creating /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/config
+[12.945s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_calibration/config/calibration.yaml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/config
+[12.945s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_calibration/config/mount_model.yaml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/config
+[12.945s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_calibration/config/carrier_mount.example.yaml -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/config
+[12.945s] creating /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/launch
+[12.949s] symbolically linking /home/bbcontact/magician_ros2/build/dobot_calibration/launch/markerless_calibration.launch.py -> /home/bbcontact/magician_ros2/install/dobot_calibration/share/dobot_calibration/launch
+[13.052s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_calibration' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_calibration/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_calibration/build --no-deps symlink_data

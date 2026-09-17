@@ -22,6 +22,13 @@ class Capture:
     cloud: np.ndarray
     plane: np.ndarray
     quality: dict = field(default_factory=dict)
+    base_T_carrier: np.ndarray | None = None
+
+    @property
+    def calibration_pose(self):
+        """Camera rigid parent pose; base_T_tool always remains the command TCP."""
+        return checked_transform(self.base_T_tool if self.base_T_carrier is None
+                                 else self.base_T_carrier)
 
 
 @dataclass
@@ -53,7 +60,8 @@ def depth_points(pixels, depth, intrinsics, limits=Limits()):
 
 
 def make_capture(stamp, base_T_tool, rgb, depth_m, intrinsics, cloud,
-                 tool_T_camera_hint, limits=Limits()):
+                 tool_T_camera_hint, limits=Limits(), *, base_T_carrier=None,
+                 arbitrary_plane=False):
     base_T_tool = checked_transform(base_T_tool)
     intrinsics = np.asarray(intrinsics, dtype=float).reshape(3, 3)
     depth = np.asarray(depth_m, dtype=float)
@@ -76,11 +84,61 @@ def make_capture(stamp, base_T_tool, rgb, depth_m, intrinsics, cloud,
     if np.mean(distance < limits.correspondence_m) < limits.min_registration_fitness:
         raise CalibrationError('PointCloud2 and aligned depth disagree')
     quality = {'depth_valid_ratio': ratio, **scene_geometry(points, limits)}
-    camera_up = (base_T_tool @ tool_T_camera_hint)[:3, :3].T @ np.array([0., 0., 1.])
-    plane, plane_quality = table_plane(points, camera_up, limits)
+    carrier = base_T_tool if base_T_carrier is None else checked_transform(base_T_carrier)
+    camera_up = (carrier @ tool_T_camera_hint)[:3, :3].T @ np.array([0., 0., 1.])
+    plane, plane_quality = (dominant_plane(points, limits) if arbitrary_plane
+                            else table_plane(points, camera_up, limits))
     quality.update(plane_quality)
     return Capture(float(stamp), base_T_tool.copy(), rgb.copy(), depth.copy(),
-                   intrinsics.copy(), points, plane, quality)
+                   intrinsics.copy(), points, plane, quality,
+                   None if base_T_carrier is None else carrier.copy())
+
+
+def dominant_plane(points, limits=Limits(), seed=0):
+    """Pre-calibration plane gate; no world-normal assumption is allowed."""
+    points = finite_cloud(points, limits)
+    rng = np.random.default_rng(seed)
+    best = np.zeros(len(points), dtype=bool)
+    best_normal = np.array([0., 0., 1.])
+    for _ in range(350):
+        a, b, c = points[rng.choice(len(points), 3, replace=False)]
+        normal = np.cross(b - a, c - a)
+        length = np.linalg.norm(normal)
+        if length < 1e-8:
+            continue
+        normal /= length
+        mask = np.abs((points - a) @ normal) < limits.plane_inlier_m
+        if mask.sum() > best.sum():
+            best, best_normal = mask, normal
+    if best.sum() < limits.min_points or best.mean() < limits.min_plane_ratio:
+        raise CalibrationError('No sufficiently supported dominant plane')
+    inliers = points[best]
+    center = inliers.mean(axis=0)
+    _, singular, vt = np.linalg.svd(inliers - center, full_matrices=False)
+    normal = vt[-1]
+    if normal @ best_normal < 0:
+        normal = -normal
+    coefficients = np.r_[normal, -normal @ center]
+    distances = np.abs(inliers @ normal + coefficients[3])
+    spread = singular / np.sqrt(len(inliers))
+    if spread[1] < 0.025:
+        raise CalibrationError('Dominant plane has insufficient spatial extent')
+    area = float(4.0 * spread[0] * spread[1])
+    return coefficients, {
+        'plane_gate': 'pre_calibration_dominant_plane',
+        'plane_inlier_count': int(best.sum()),
+        'plane_inlier_ratio': float(best.mean()),
+        'plane_normal_camera_optical': normal.tolist(),
+        'plane_rms_m': float(np.sqrt(np.mean(distances ** 2))),
+        'plane_median_distance_m': float(np.median(distances)),
+        'plane_spatial_spread_m': spread.tolist(),
+        'plane_area_estimate_m2': area,
+        'plane_inlier_depth_range_m': [float(inliers[:, 2].min()), float(inliers[:, 2].max())],
+        'plane_thresholds': {'min_points': limits.min_points,
+                             'min_inlier_ratio': limits.min_plane_ratio,
+                             'max_distance_m': limits.plane_inlier_m,
+                             'min_spatial_width_m': 0.025},
+    }
 
 
 def cloud_consistency(source, target, value, limits=Limits()):
@@ -168,4 +226,4 @@ def register(first, second, limits=Limits(), seed=0):
 
 
 def predicted_camera_motion(first, second, tool_T_camera):
-    return inverse(tool_T_camera) @ inverse(first.base_T_tool) @ second.base_T_tool @ tool_T_camera
+    return inverse(tool_T_camera) @ inverse(first.calibration_pose) @ second.calibration_pose @ tool_T_camera

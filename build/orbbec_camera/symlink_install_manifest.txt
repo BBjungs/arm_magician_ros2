@@ -16,6 +16,7 @@
 /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/ros_param_backend.h
 /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/synced_imu_publisher.h
 /home/bbcontact/magician_ros2/install/orbbec_camera/include/orbbec_camera/utils.h
+/home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/__pycache__/ob_camera.launch.cpython-312.pyc
 /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra.launch.py
 /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra2.launch.py
 /home/bbcontact/magician_ros2/install/orbbec_camera/share/orbbec_camera//launch/astra_adv.launch.py

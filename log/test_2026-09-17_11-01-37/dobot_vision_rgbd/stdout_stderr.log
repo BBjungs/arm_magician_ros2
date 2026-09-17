@@ -1,0 +1,183 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+cachedir: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache
+rootdir: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd
+plugins: ament-lint-0.17.5, ament-flake8-0.17.5, ament-pep257-0.17.5, ament-copyright-0.17.5, ament-xmllint-0.17.5, launch-testing-3.4.11, launch-testing-ros-0.26.12, anyio-4.14.2, colcon-core-0.21.1, typeguard-4.1.5, cov-4.1.0
+collected 54 items
+
+test/test_camera_health.py ............F.FFFFFFFFFFFFFFFFF               [ 57%]
+test/test_color_classifier.py ..                                         [ 61%]
+test/test_depth_diagnostic.py ..                                         [ 64%]
+test/test_depth_geometry.py ...                                          [ 70%]
+test/test_detection_schema.py .                                          [ 72%]
+test/test_object_fusion.py .....                                         [ 81%]
+test/test_object_fusion_health.py .....                                  [ 90%]
+test/test_shape_detector.py ....                                         [ 98%]
+test/test_visualization.py .                                             [100%]
+
+=================================== FAILURES ===================================
+___________ test_fresh_low_rate_is_degraded_warning_not_hard_blocker ___________
+test/test_camera_health.py:122: in test_fresh_low_rate_is_degraded_warning_not_hard_blocker
+    result = report(healthy)
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+_____________ test_health_can_report_ready_for_complete_valid_data _____________
+test/test_camera_health.py:163: in test_health_can_report_ready_for_complete_valid_data
+    assert report(healthy)['ready']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+_____ test_usable_rate_is_ready_but_requested_rate_degradation_is_visible ______
+test/test_camera_health.py:169: in test_usable_rate_is_ready_but_requested_rate_degradation_is_visible
+    result = report(healthy)
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+___________________ test_usb2_blocks_otherwise_valid_streams ___________________
+test/test_camera_health.py:182: in test_usb2_blocks_otherwise_valid_streams
+    result = report(healthy)
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+______________________ test_stream_loss_clears_readiness _______________________
+test/test_camera_health.py:189: in test_stream_loss_clears_readiness
+    assert not report(healthy)['ready']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+_______________________ test_zero_depth_clears_readiness _______________________
+test/test_camera_health.py:194: in test_zero_depth_clears_readiness
+    assert 'depth_data_invalid' in report(healthy)['blockers']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+___________________ test_invalid_rgb_buffer_clears_readiness ___________________
+test/test_camera_health.py:199: in test_invalid_rgb_buffer_clears_readiness
+    assert 'rgb_payload_invalid' in report(healthy)['blockers']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+__________________ test_cloud_frame_mismatch_clears_readiness __________________
+test/test_camera_health.py:204: in test_cloud_frame_mismatch_clears_readiness
+    assert 'point_cloud_frame_mismatch' in report(healthy)['blockers']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+___________ test_active_or_unknown_protection_blocks_readiness[True] ___________
+test/test_camera_health.py:210: in test_active_or_unknown_protection_blocks_readiness
+    result = report(healthy)
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+___________ test_active_or_unknown_protection_blocks_readiness[None] ___________
+test/test_camera_health.py:210: in test_active_or_unknown_protection_blocks_readiness
+    result = report(healthy)
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+________________ test_stale_protection_status_blocks_readiness _________________
+test/test_camera_health.py:217: in test_stale_protection_status_blocks_readiness
+    assert not report(healthy)['ready']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+__________ test_forwarded_health_preserves_image_age[50.0-450.0-True] __________
+test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+    result = report(healthy)['streams']['depth']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+________ test_forwarded_health_preserves_image_age[700.0-1100.0-False] _________
+test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+    result = report(healthy)['streams']['depth']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+__________ test_forwarded_health_preserves_image_age[None-None-False] __________
+test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+    result = report(healthy)['streams']['depth']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+__________ test_forwarded_health_preserves_image_age[-1.0-None-False] __________
+test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+    result = report(healthy)['streams']['depth']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+__________ test_forwarded_health_preserves_image_age[nan-None-False] ___________
+test/test_camera_health.py:235: in test_forwarded_health_preserves_image_age
+    result = report(healthy)['streams']['depth']
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+____________ test_direct_images_do_not_depend_on_detector_heartbeat ____________
+test/test_camera_health.py:247: in test_direct_images_do_not_depend_on_detector_heartbeat
+    result = report(healthy)
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+________ test_stopped_direct_depth_cannot_be_masked_by_detector_health _________
+test/test_camera_health.py:260: in test_stopped_direct_depth_cannot_be_masked_by_detector_health
+    result = report(healthy)
+test/test_camera_health.py:158: in report
+    health.CameraHealthNode.publish_health(node)
+dobot_vision_rgbd/camera_health_node.py:318: in publish_health
+    key: dict(value) for key, value in self.callback_diagnostics.items()
+E   AttributeError: 'types.SimpleNamespace' object has no attribute 'callback_diagnostics'
+- generated xml file: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml -
+=========================== short test summary info ============================
+FAILED test/test_camera_health.py::test_fresh_low_rate_is_degraded_warning_not_hard_blocker
+FAILED test/test_camera_health.py::test_health_can_report_ready_for_complete_valid_data
+FAILED test/test_camera_health.py::test_usable_rate_is_ready_but_requested_rate_degradation_is_visible
+FAILED test/test_camera_health.py::test_usb2_blocks_otherwise_valid_streams
+FAILED test/test_camera_health.py::test_stream_loss_clears_readiness - Attrib...
+FAILED test/test_camera_health.py::test_zero_depth_clears_readiness - Attribu...
+FAILED test/test_camera_health.py::test_invalid_rgb_buffer_clears_readiness
+FAILED test/test_camera_health.py::test_cloud_frame_mismatch_clears_readiness
+FAILED test/test_camera_health.py::test_active_or_unknown_protection_blocks_readiness[True]
+FAILED test/test_camera_health.py::test_active_or_unknown_protection_blocks_readiness[None]
+FAILED test/test_camera_health.py::test_stale_protection_status_blocks_readiness
+FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[50.0-450.0-True]
+FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[700.0-1100.0-False]
+FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[None-None-False]
+FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[-1.0-None-False]
+FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[nan-None-False]
+FAILED test/test_camera_health.py::test_direct_images_do_not_depend_on_detector_heartbeat
+FAILED test/test_camera_health.py::test_stopped_direct_depth_cannot_be_masked_by_detector_health
+======================== 18 failed, 36 passed in 2.67s =========================

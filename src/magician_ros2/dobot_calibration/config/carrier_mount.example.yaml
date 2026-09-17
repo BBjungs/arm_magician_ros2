@@ -1,0 +1,15 @@
+# Example contract only. No measured values are supplied by this template.
+geometry_verified: false
+rigid_to_camera_carrier: false
+camera_carrier_frame: ''
+measurement_source: ''
+translation_units: m
+# Maps registered optical coordinates into the independently tracked bracket.
+carrier_T_camera_optical: []
+# XYZ/yaw motion does not observe axial translation; independently measure it.
+# Certified maximum absolute error of the measured carrier-to-camera translation.
+translation_error_bound_m: null
+# Sphere about reported TCP enclosing the camera, bracket and tool for ALL
+# commanded joint configurations, including joint-4 rotation.
+envelope_reference_frame: TCP
+envelope_radius_m: null

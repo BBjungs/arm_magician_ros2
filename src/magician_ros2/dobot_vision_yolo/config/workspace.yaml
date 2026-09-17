@@ -22,12 +22,12 @@ vision_pick_place_node:
     workspace_y_max_mm: 180.0
     workspace_z_min_mm: -45.0
     workspace_z_max_mm: 120.0
-    max_velocity_ratio: 0.25
-    max_acceleration_ratio: 0.20
+    max_velocity_ratio: 0.20
+    max_acceleration_ratio: 0.15
     require_homing_before_motion: true
     allow_real_motion: false
-    velocity_ratio: 0.3
-    acceleration_ratio: 0.2
+    velocity_ratio: 0.20
+    acceleration_ratio: 0.15
     tool_type: suction
 
 safety_guard_node:

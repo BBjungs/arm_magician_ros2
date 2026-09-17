@@ -4,9 +4,9 @@
 
 #include <string.h>
 
-#include "dobot_msgs/action/detail/point_to_point__struct.h"
-#include "dobot_msgs/action/detail/point_to_point__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "dobot_msgs/action/detail/point_to_point__functions.h"
+#include "dobot_msgs/action/detail/point_to_point__struct.h"
 #include "dobot_msgs/action/detail/point_to_point__type_support.h"
 
 #ifdef __cplusplus

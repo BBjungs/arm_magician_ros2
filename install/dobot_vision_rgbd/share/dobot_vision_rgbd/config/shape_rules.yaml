@@ -1,17 +1,1 @@
-candidate:
-  min_area_px: 500
-  max_area_px: 50000
-  blur_kernel: 5
-  canny_low: 45
-  canny_high: 140
-  morph_kernel: 5
-  approx_epsilon_ratio: 0.035
-circle:
-  min_circularity: 0.72
-  min_aspect_ratio: 0.75
-  max_aspect_ratio: 1.25
-square:
-  min_aspect_ratio: 0.85
-  max_aspect_ratio: 1.15
-hough_verification:
-  enabled: false
+/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/config/shape_rules.yaml

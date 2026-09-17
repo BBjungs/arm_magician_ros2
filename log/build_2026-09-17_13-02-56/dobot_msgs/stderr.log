@@ -1,0 +1,7 @@
+CMake Error: failed to create symbolic link '/home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/package.dsv': File exists
+CMake Error at cmake_install.cmake:125 (file):
+  file INSTALL cannot set modification time on
+  "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_c.so":
+  No such file or directory.
+
+

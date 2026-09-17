@@ -28,9 +28,15 @@ CMakeFiles/dobot_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__functions.h
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__struct.h
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.h
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.h
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__struct.h
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.h
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__functions.h
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__struct.h
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.h
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.h
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__struct.h
+ /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.h
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__struct.h
  /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.h

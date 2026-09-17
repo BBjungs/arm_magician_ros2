@@ -1,0 +1,390 @@
+[0.090s] Invoking command in '/home/bbcontact/magician_ros2/build/orbbec_camera_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs
+[2.715s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[2.715s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.716s] -- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[2.716s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.717s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.717s] -- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[2.717s] -- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[3.834s] -- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[5.628s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.940s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.941s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[8.740s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[8.740s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[8.740s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[8.741s] -- Added test 'copyright' to check source files copyright and LICENSE
+[8.741s] -- Added test 'lint_cmake' to check CMake code style
+[8.741s] -- Added test 'xmllint' to check XML markup files
+[8.825s] -- Configuring done (8.6s)
+[10.087s] -- Generating done (0.4s)
+[10.087s] -- Build files have been written to: /home/bbcontact/magician_ros2/build/orbbec_camera_msgs
+[10.102s] Invoked command in '/home/bbcontact/magician_ros2/build/orbbec_camera_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs
+[10.105s] Invoking command in '/home/bbcontact/magician_ros2/build/orbbec_camera_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/orbbec_camera_msgs -- -j8 -l8
+[12.165s] [  1%] Built target orbbec_camera_msgs__rosidl_generator_type_description
+[12.165s] [  2%] Built target orbbec_camera_msgs__rs
+[12.165s] [  2%] Built target ament_cmake_python_symlink_orbbec_camera_msgs
+[12.165s] [  2%] Built target orbbec_camera_msgs__cpp
+[12.166s] [ 28%] Built target orbbec_camera_msgs__rosidl_generator_c
+[12.166s] [ 38%] Built target orbbec_camera_msgs__rosidl_typesupport_fastrtps_c
+[12.166s] [ 47%] Built target orbbec_camera_msgs__rosidl_typesupport_cpp
+[12.218s] running egg_info
+[12.366s] writing orbbec_camera_msgs.egg-info/PKG-INFO
+[12.368s] writing dependency_links to orbbec_camera_msgs.egg-info/dependency_links.txt
+[12.369s] writing top-level names to orbbec_camera_msgs.egg-info/top_level.txt
+[12.903s] reading manifest file 'orbbec_camera_msgs.egg-info/SOURCES.txt'
+[12.908s] writing manifest file 'orbbec_camera_msgs.egg-info/SOURCES.txt'
+[13.064s] [ 47%] Built target ament_cmake_python_build_orbbec_camera_msgs_egg
+[13.249s] [ 56%] Built target orbbec_camera_msgs__rosidl_typesupport_introspection_cpp
+[13.417s] [ 66%] Built target orbbec_camera_msgs__rosidl_typesupport_fastrtps_cpp
+[13.528s] [ 76%] Built target orbbec_camera_msgs__rosidl_typesupport_c
+[13.637s] [ 86%] Built target orbbec_camera_msgs__rosidl_typesupport_introspection_c
+[13.767s] [ 86%] Built target orbbec_camera_msgs
+[13.861s] [ 87%] Built target orbbec_camera_msgs__py
+[14.159s] [ 96%] Built target orbbec_camera_msgs__rosidl_generator_py
+[14.397s] [ 97%] Built target orbbec_camera_msgs_s__rosidl_typesupport_fastrtps_c
+[14.559s] [ 98%] Built target orbbec_camera_msgs_s__rosidl_typesupport_c
+[14.783s] [100%] Built target orbbec_camera_msgs_s__rosidl_typesupport_introspection_c
+[14.904s] Invoked command in '/home/bbcontact/magician_ros2/build/orbbec_camera_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/bbcontact/magician_ros2/build/orbbec_camera_msgs -- -j8 -l8
+[14.906s] Invoking command in '/home/bbcontact/magician_ros2/build/orbbec_camera_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/orbbec_camera_msgs
+[14.986s] -- Install configuration: ""
+[14.993s] -- Execute custom install script
+[14.994s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/ament_index/resource_index/rosidl_interfaces/orbbec_camera_msgs
+[15.001s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/DeviceInfo.json
+[15.002s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/Extrinsics.json
+[15.006s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/Metadata.json
+[15.013s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/IMUInfo.json
+[15.013s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/RGBD.json
+[15.021s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/StreamProfile.json
+[15.021s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetBool.json
+[15.022s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetDeviceInfo.json
+[15.024s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetCameraInfo.json
+[15.031s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetInt32.json
+[15.032s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetString.json
+[15.033s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetInt32.json
+[15.040s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetString.json
+[15.040s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetStreamProfile.json
+[15.049s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__functions.h
+[15.056s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__struct.h
+[15.056s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__type_support.h
+[15.057s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__functions.h
+[15.067s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__struct.h
+[15.068s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__type_support.h
+[15.068s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__functions.h
+[15.070s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__struct.h
+[15.070s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__type_support.h
+[15.071s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__functions.h
+[15.071s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__struct.h
+[15.077s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__type_support.h
+[15.077s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__functions.h
+[15.078s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__struct.h
+[15.097s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__type_support.h
+[15.097s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__functions.h
+[15.098s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__struct.h
+[15.098s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__type_support.h
+[15.102s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/device_info.h
+[15.103s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/extrinsics.h
+[15.103s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/imu_info.h
+[15.104s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/metadata.h
+[15.105s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/rgbd.h
+[15.105s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/rosidl_generator_c__visibility_control.h
+[15.106s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/stream_profile.h
+[15.106s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__functions.h
+[15.106s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__struct.h
+[15.107s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__type_support.h
+[15.107s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__functions.h
+[15.110s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__struct.h
+[15.111s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__type_support.h
+[15.112s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__functions.h
+[15.112s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__struct.h
+[15.115s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__type_support.h
+[15.116s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__functions.h
+[15.117s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__struct.h
+[15.117s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__type_support.h
+[15.118s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__functions.h
+[15.118s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__struct.h
+[15.118s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__type_support.h
+[15.119s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__functions.h
+[15.122s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__struct.h
+[15.123s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__type_support.h
+[15.124s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__functions.h
+[15.124s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__struct.h
+[15.125s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__type_support.h
+[15.125s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__functions.h
+[15.129s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__struct.h
+[15.129s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__type_support.h
+[15.130s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_bool.h
+[15.130s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_camera_info.h
+[15.133s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_device_info.h
+[15.134s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_int32.h
+[15.134s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_string.h
+[15.135s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/set_int32.h
+[15.135s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/set_stream_profile.h
+[15.135s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/set_string.h
+[15.136s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/environment/library_path.sh
+[15.136s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/environment/library_path.dsv
+[15.140s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__rosidl_typesupport_fastrtps_c.h
+[15.140s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__rosidl_typesupport_fastrtps_c.h
+[15.140s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__rosidl_typesupport_fastrtps_c.h
+[15.141s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__rosidl_typesupport_fastrtps_c.h
+[15.141s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__rosidl_typesupport_fastrtps_c.h
+[15.141s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__rosidl_typesupport_fastrtps_c.h
+[15.142s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[15.142s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__rosidl_typesupport_fastrtps_c.h
+[15.148s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__rosidl_typesupport_fastrtps_c.h
+[15.149s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__rosidl_typesupport_fastrtps_c.h
+[15.149s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__rosidl_typesupport_fastrtps_c.h
+[15.150s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__rosidl_typesupport_fastrtps_c.h
+[15.150s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__rosidl_typesupport_fastrtps_c.h
+[15.150s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__rosidl_typesupport_fastrtps_c.h
+[15.151s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__rosidl_typesupport_fastrtps_c.h
+[15.151s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__rosidl_typesupport_introspection_c.h
+[15.153s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__rosidl_typesupport_introspection_c.h
+[15.159s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__rosidl_typesupport_introspection_c.h
+[15.159s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__rosidl_typesupport_introspection_c.h
+[15.159s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__rosidl_typesupport_introspection_c.h
+[15.160s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__rosidl_typesupport_introspection_c.h
+[15.160s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[15.160s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__rosidl_typesupport_introspection_c.h
+[15.161s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__rosidl_typesupport_introspection_c.h
+[15.161s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__rosidl_typesupport_introspection_c.h
+[15.165s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__rosidl_typesupport_introspection_c.h
+[15.165s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__rosidl_typesupport_introspection_c.h
+[15.165s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__rosidl_typesupport_introspection_c.h
+[15.166s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__rosidl_typesupport_introspection_c.h
+[15.166s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__rosidl_typesupport_introspection_c.h
+[15.166s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__builder.hpp
+[15.167s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__struct.hpp
+[15.167s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__traits.hpp
+[15.171s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__type_support.hpp
+[15.172s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__builder.hpp
+[15.172s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__struct.hpp
+[15.172s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__traits.hpp
+[15.178s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__type_support.hpp
+[15.179s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__builder.hpp
+[15.179s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__struct.hpp
+[15.179s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__traits.hpp
+[15.180s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__type_support.hpp
+[15.180s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__builder.hpp
+[15.183s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__struct.hpp
+[15.183s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__traits.hpp
+[15.184s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__type_support.hpp
+[15.185s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__builder.hpp
+[15.186s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__struct.hpp
+[15.188s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__traits.hpp
+[15.189s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__type_support.hpp
+[15.189s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__builder.hpp
+[15.190s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__struct.hpp
+[15.190s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__traits.hpp
+[15.192s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__type_support.hpp
+[15.193s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/device_info.hpp
+[15.193s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/extrinsics.hpp
+[15.197s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/imu_info.hpp
+[15.197s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/metadata.hpp
+[15.197s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/rgbd.hpp
+[15.198s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[15.198s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/stream_profile.hpp
+[15.198s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__builder.hpp
+[15.199s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__struct.hpp
+[15.199s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__traits.hpp
+[15.203s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__type_support.hpp
+[15.203s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__builder.hpp
+[15.203s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__struct.hpp
+[15.204s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__traits.hpp
+[15.204s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__type_support.hpp
+[15.204s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__builder.hpp
+[15.205s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__struct.hpp
+[15.205s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__traits.hpp
+[15.209s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__type_support.hpp
+[15.209s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__builder.hpp
+[15.210s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__struct.hpp
+[15.210s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__traits.hpp
+[15.210s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__type_support.hpp
+[15.211s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__builder.hpp
+[15.211s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__struct.hpp
+[15.211s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__traits.hpp
+[15.212s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__type_support.hpp
+[15.213s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__builder.hpp
+[15.214s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__struct.hpp
+[15.216s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__traits.hpp
+[15.217s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__type_support.hpp
+[15.218s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__builder.hpp
+[15.218s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__struct.hpp
+[15.219s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__traits.hpp
+[15.219s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__type_support.hpp
+[15.220s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__builder.hpp
+[15.224s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__struct.hpp
+[15.224s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__traits.hpp
+[15.224s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__type_support.hpp
+[15.225s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_bool.hpp
+[15.225s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_camera_info.hpp
+[15.225s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_device_info.hpp
+[15.226s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_int32.hpp
+[15.226s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/get_string.hpp
+[15.226s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/set_int32.hpp
+[15.230s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/set_stream_profile.hpp
+[15.230s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/set_string.hpp
+[15.231s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__rosidl_typesupport_fastrtps_cpp.hpp
+[15.231s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__rosidl_typesupport_fastrtps_cpp.hpp
+[15.232s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__rosidl_typesupport_fastrtps_cpp.hpp
+[15.232s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__rosidl_typesupport_fastrtps_cpp.hpp
+[15.232s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__rosidl_typesupport_fastrtps_cpp.hpp
+[15.237s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__rosidl_typesupport_fastrtps_cpp.hpp
+[15.237s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[15.238s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__rosidl_typesupport_fastrtps_cpp.hpp
+[15.238s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__rosidl_typesupport_fastrtps_cpp.hpp
+[15.239s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__rosidl_typesupport_fastrtps_cpp.hpp
+[15.242s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__rosidl_typesupport_fastrtps_cpp.hpp
+[15.247s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__rosidl_typesupport_fastrtps_cpp.hpp
+[15.247s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__rosidl_typesupport_fastrtps_cpp.hpp
+[15.247s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__rosidl_typesupport_fastrtps_cpp.hpp
+[15.248s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__rosidl_typesupport_fastrtps_cpp.hpp
+[15.251s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/device_info__rosidl_typesupport_introspection_cpp.hpp
+[15.251s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/extrinsics__rosidl_typesupport_introspection_cpp.hpp
+[15.252s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/imu_info__rosidl_typesupport_introspection_cpp.hpp
+[15.256s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/metadata__rosidl_typesupport_introspection_cpp.hpp
+[15.256s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/rgbd__rosidl_typesupport_introspection_cpp.hpp
+[15.256s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/msg/detail/stream_profile__rosidl_typesupport_introspection_cpp.hpp
+[15.257s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_bool__rosidl_typesupport_introspection_cpp.hpp
+[15.260s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_camera_info__rosidl_typesupport_introspection_cpp.hpp
+[15.261s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_device_info__rosidl_typesupport_introspection_cpp.hpp
+[15.262s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_int32__rosidl_typesupport_introspection_cpp.hpp
+[15.265s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/get_string__rosidl_typesupport_introspection_cpp.hpp
+[15.265s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_int32__rosidl_typesupport_introspection_cpp.hpp
+[15.266s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_stream_profile__rosidl_typesupport_introspection_cpp.hpp
+[15.271s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/include/orbbec_camera_msgs/orbbec_camera_msgs/srv/detail/set_string__rosidl_typesupport_introspection_cpp.hpp
+[15.271s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/environment/pythonpath.sh
+[15.273s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/environment/pythonpath.dsv
+[15.275s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs-1.5.22-py3.12.egg-info/PKG-INFO
+[15.278s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs-1.5.22-py3.12.egg-info/SOURCES.txt
+[15.279s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs-1.5.22-py3.12.egg-info/dependency_links.txt
+[15.283s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs-1.5.22-py3.12.egg-info/top_level.txt
+[15.290s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/__init__.py
+[15.293s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/_orbbec_camera_msgs_s.ep.rosidl_typesupport_c.c
+[15.294s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/_orbbec_camera_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[15.298s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/_orbbec_camera_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[15.299s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/__init__.py
+[15.301s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_device_info.py
+[15.301s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_device_info_s.c
+[15.303s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_extrinsics.py
+[15.304s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_extrinsics_s.c
+[15.307s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_imu_info.py
+[15.310s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_imu_info_s.c
+[15.310s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_metadata.py
+[15.311s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_metadata_s.c
+[15.317s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_rgbd.py
+[15.317s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_rgbd_s.c
+[15.321s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_stream_profile.py
+[15.322s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg/_stream_profile_s.c
+[15.322s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_c.so
+[15.327s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_fastrtps_c.so
+[15.327s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_introspection_c.so
+[15.327s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/__init__.py
+[15.328s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_bool.py
+[15.328s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_bool_s.c
+[15.328s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_camera_info.py
+[15.329s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_camera_info_s.c
+[15.330s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_device_info.py
+[15.330s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_device_info_s.c
+[15.331s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_int32.py
+[15.331s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_int32_s.c
+[15.331s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_string.py
+[15.336s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_get_string_s.c
+[15.336s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_set_int32.py
+[15.337s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_set_int32_s.c
+[15.338s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_set_stream_profile.py
+[15.338s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_set_stream_profile_s.c
+[15.339s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_set_string.py
+[15.341s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv/_set_string_s.c
+[15.347s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_fastrtps_c.so
+[15.347s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_introspection_c.so
+[15.348s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/orbbec_camera_msgs_s__rosidl_typesupport_c.so
+[15.349s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/ament_index/resource_index/rust_packages/orbbec_camera_msgs
+[15.359s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/Cargo.toml
+[15.359s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/build.rs
+[15.359s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/src/lib.rs
+[15.360s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/src/msg.rs
+[15.360s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/src/msg/rmw.rs
+[15.363s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/src/srv.rs
+[15.364s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/rust/src/srv/rmw.rs
+[15.368s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/DeviceInfo.idl
+[15.368s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/Extrinsics.idl
+[15.368s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/Metadata.idl
+[15.372s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/IMUInfo.idl
+[15.373s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/RGBD.idl
+[15.373s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/StreamProfile.idl
+[15.374s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetBool.idl
+[15.374s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetDeviceInfo.idl
+[15.374s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetCameraInfo.idl
+[15.375s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetInt32.idl
+[15.378s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetString.idl
+[15.379s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetInt32.idl
+[15.380s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetString.idl
+[15.381s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetStreamProfile.idl
+[15.381s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/DeviceInfo.msg
+[15.381s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/Extrinsics.msg
+[15.382s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/Metadata.msg
+[15.382s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/IMUInfo.msg
+[15.382s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/RGBD.msg
+[15.384s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/msg/StreamProfile.msg
+[15.385s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetBool.srv
+[15.389s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetDeviceInfo.srv
+[15.390s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetCameraInfo.srv
+[15.390s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetInt32.srv
+[15.390s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/GetString.srv
+[15.391s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetInt32.srv
+[15.391s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetString.srv
+[15.394s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/srv/SetStreamProfile.srv
+[15.394s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/ament_index/resource_index/package_run_dependencies/orbbec_camera_msgs
+[15.394s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/ament_index/resource_index/parent_prefix_path/orbbec_camera_msgs
+[15.395s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/environment/ament_prefix_path.sh
+[15.400s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/environment/ament_prefix_path.dsv
+[15.400s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/environment/path.sh
+[15.402s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/environment/path.dsv
+[15.408s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/local_setup.bash
+[15.408s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/local_setup.sh
+[15.408s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/local_setup.zsh
+[15.409s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/local_setup.dsv
+[15.409s] -- Symlinking: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/package.dsv
+[15.468s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/ament_index/resource_index/packages/orbbec_camera_msgs
+[15.468s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/rosidl_cmake-extras.cmake
+[15.469s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[15.473s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[15.484s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[15.485s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[15.485s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[15.519s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[15.519s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[15.520s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgsConfig.cmake
+[15.520s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgsConfig-version.cmake
+[15.526s] -- Up-to-date symlink: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/package.xml
+[15.526s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/liborbbec_camera_msgs__rosidl_generator_c.so
+[15.526s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/liborbbec_camera_msgs__rosidl_typesupport_fastrtps_c.so
+[15.527s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/liborbbec_camera_msgs__rosidl_typesupport_introspection_c.so
+[15.527s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/liborbbec_camera_msgs__rosidl_typesupport_c.so
+[15.528s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/liborbbec_camera_msgs__rosidl_typesupport_fastrtps_cpp.so
+[15.529s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/liborbbec_camera_msgs__rosidl_typesupport_introspection_cpp.so
+[15.529s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/liborbbec_camera_msgs__rosidl_typesupport_cpp.so
+[15.811s] Listing '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs'...
+[15.811s] Compiling '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/__init__.py'...
+[15.812s] Listing '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/msg'...
+[15.812s] Listing '/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages/orbbec_camera_msgs/srv'...
+[15.812s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/liborbbec_camera_msgs__rosidl_generator_py.so
+[15.813s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_generator_cExport.cmake
+[15.813s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_generator_cExport-noconfig.cmake
+[15.819s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[15.820s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[15.820s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgs__rosidl_typesupport_introspection_cExport.cmake
+[15.820s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[15.821s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgs__rosidl_typesupport_cExport.cmake
+[15.821s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[15.821s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_generator_cppExport.cmake
+[15.822s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[15.822s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[15.834s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[15.834s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[15.834s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgs__rosidl_typesupport_cppExport.cmake
+[15.835s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/orbbec_camera_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[15.835s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_generator_pyExport.cmake
+[15.841s] -- Up-to-date: /home/bbcontact/magician_ros2/install/orbbec_camera_msgs/share/orbbec_camera_msgs/cmake/export_orbbec_camera_msgs__rosidl_generator_pyExport-noconfig.cmake
+[15.841s] Invoked command in '/home/bbcontact/magician_ros2/build/orbbec_camera_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/bbcontact/magician_ros2/build/orbbec_camera_msgs

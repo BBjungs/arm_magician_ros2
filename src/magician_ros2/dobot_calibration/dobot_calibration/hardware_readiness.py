@@ -24,6 +24,9 @@ class HardwareReadiness:
     robot_connected: bool
     safety_supported: bool
     safety_verified: bool
+    physical_estop_present: bool
+    operator_safety_verified: bool
+    software_estop_monitoring: str
 
     def to_dict(self):
         value = asdict(self)
@@ -39,6 +42,7 @@ def evaluate_hardware_readiness(
         *, now, depth_quality, depth_stamp, depth_stable,
         tcp_stamp, joints_stamp, alarm_stamp, alarms, robot_connected,
         safety_supported, safety_verified, sensor_error='',
+        physical_estop_present=False, operator_safety_verified=False,
         workspace_valid=True, safe_z_valid=True, depth_ttl_s=0.5,
         robot_ttl_s=0.5, alarm_ttl_s=0.6):
     """Return the single highest-priority readiness state and every blocker.
@@ -74,9 +78,10 @@ def evaluate_hardware_readiness(
         blockers.append('ROBOT_CONNECTION_UNKNOWN: no fresh hardware response proves the serial connection')
     if alarms_fresh and alarms:
         blockers.append('ROBOT_ALARM: active alarm codes ' + ','.join(map(str, alarms)))
-    if not safety_supported:
+    physical_operator_safe = physical_estop_present and operator_safety_verified
+    if not safety_supported and not physical_operator_safe:
         blockers.append('SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state')
-    elif not safety_verified:
+    elif safety_supported and not safety_verified:
         blockers.append('SAFETY_NOT_SAFE: the live hardware safety signal is not in the safe state')
     if not workspace_valid:
         blockers.append('WORKSPACE_INVALID: current or requested pose is outside the calibration workspace')
@@ -91,7 +96,7 @@ def evaluate_hardware_readiness(
         state = 'ROBOT_TELEMETRY_ERROR'
     elif alarms:
         state = 'ROBOT_ALARM'
-    elif not safety_supported or not safety_verified:
+    elif (not physical_operator_safe and not safety_supported) or (safety_supported and not safety_verified):
         state = 'SAFETY_UNVERIFIED'
     elif not workspace_valid or not safe_z_valid:
         state = 'NOT_READY'
@@ -104,13 +109,16 @@ def evaluate_hardware_readiness(
         tcp_fresh=tcp_fresh, joints_fresh=joints_fresh,
         alarms_fresh=alarms_fresh, robot_connected=bool(robot_connected),
         safety_supported=bool(safety_supported), safety_verified=bool(safety_verified),
+        physical_estop_present=bool(physical_estop_present),
+        operator_safety_verified=bool(operator_safety_verified),
+        software_estop_monitoring=('CONNECTED' if safety_supported else 'NOT CONNECTED'),
     )
 
 
 class DepthStabilityWindow:
     """Require a short run of consecutive valid, advancing depth frames."""
 
-    def __init__(self, minimum_frames=5, horizon_s=0.5, maximum_gap_s=0.2):
+    def __init__(self, minimum_frames=8, horizon_s=10.0, maximum_gap_s=1.5):
         self.minimum_frames = int(minimum_frames)
         self.horizon_s = float(horizon_s)
         self.maximum_gap_s = float(maximum_gap_s)

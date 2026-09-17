@@ -26,6 +26,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/ExecuteHomingProcedure.srv"
   "srv/GripperControl.srv"
   "srv/SuctionCupControl.srv"
+  "srv/GetPTPCommonParams.srv"
+  "srv/SetPTPCommonParams.srv"
   DEPENDENCIES std_msgs geometry_msgs
 )
 

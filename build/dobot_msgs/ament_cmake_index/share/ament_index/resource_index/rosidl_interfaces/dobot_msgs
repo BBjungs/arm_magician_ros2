@@ -14,7 +14,11 @@ srv/EvaluatePTPTrajectory.idl
 srv/EvaluatePTPTrajectory.srv
 srv/ExecuteHomingProcedure.idl
 srv/ExecuteHomingProcedure.srv
+srv/GetPTPCommonParams.idl
+srv/GetPTPCommonParams.srv
 srv/GripperControl.idl
 srv/GripperControl.srv
+srv/SetPTPCommonParams.idl
+srv/SetPTPCommonParams.srv
 srv/SuctionCupControl.idl
 srv/SuctionCupControl.srv

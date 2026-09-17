@@ -1,0 +1,104 @@
+:root {
+  color-scheme: dark;
+  --bg: #101820;
+  --panel: #192630;
+  --line: #354552;
+  --text: #f3f7f8;
+  --muted: #bbc7cd;
+  --green: #31b77b;
+  --red: #d65a5a;
+  --amber: #e2af43;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans Thai", "Segoe UI", system-ui, sans-serif;
+}
+
+button, select { font: inherit; }
+
+.operator-app {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(330px, .8fr);
+  grid-template-areas:
+    "header header"
+    "camera status"
+    "camera counts"
+    "camera job";
+  gap: 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.topbar {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+h1, h2, p { margin: 0; }
+h1 { font-size: clamp(22px, 3vw, 30px); }
+h2 { font-size: 18px; }
+.topbar p { color: var(--muted); margin-top: 3px; }
+
+.overall-status, .camera-live, .check, .progress {
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.overall-status {
+  padding: 12px 16px;
+  white-space: nowrap;
+  border: 1px solid var(--line);
+}
+.overall-status.ready, .check.ready { background: rgba(49, 183, 123, .16); border-color: var(--green); color: #c9f7df; }
+.overall-status.not-ready, .check.not-ready { background: rgba(214, 90, 90, .14); border-color: var(--red); color: #ffd5d5; }
+
+.camera-card, .status-card, .count-card, .job-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.camera-card { grid-area: camera; min-height: 480px; display: flex; flex-direction: column; }
+.status-card { grid-area: status; }
+.count-card { grid-area: counts; }
+.job-card { grid-area: job; }
+
+.section-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.camera-live { padding: 5px 8px; background: rgba(226, 175, 67, .15); color: #ffe4a5; font-size: 13px; }
+#annotatedCamera { display: block; width: 100%; flex: 1; min-height: 0; object-fit: contain; background: #080d11; border-radius: 8px; }
+
+.checks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.check { min-height: 66px; padding: 9px; border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; font-size: 13px; }
+.check span { color: var(--muted); }
+.check strong { font-size: 14px; }
+.check small { color: var(--muted); line-height: 1.35; overflow-wrap: anywhere; }
+
+.counts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.count { min-height: 78px; border-radius: 9px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; }
+.count span { color: var(--muted); font-size: 14px; }.count strong { font-size: 32px; }
+.count.black { background: #080b0d; border: 1px solid #52616a; }.count.white { background: #e8edef; color: #182127; }.count.white span { color: #52616a; }.count.yellow { background: #9b791b; color: #fff9e6; }
+
+.selectors { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 13px 0; }
+label { display: grid; gap: 6px; color: var(--muted); font-size: 14px; }
+select { min-height: 42px; background: #0f181f; border: 1px solid var(--line); color: var(--text); border-radius: 7px; padding: 7px; }
+.operation { min-height: 68px; background: #111b22; border-radius: 8px; padding: 10px; display: grid; gap: 3px; }.operation > span:first-child { color: var(--muted); font-size: 13px; }.progress { font-size: 13px; color: #ffe4a5; }
+.guidance-coordinates, .calibration-progress { display: grid; gap: 6px; margin-top: 10px; }
+.calibration-progress { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.buttons { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 10px; margin-top: 13px; }
+button { min-height: 46px; border: 1px solid transparent; border-radius: 8px; color: white; cursor: pointer; font-weight: 750; }.start { background: #197a55; }.stop { background: #a8373d; }.home { background: #3a5264; }button:disabled { opacity: .46; cursor: not-allowed; }
+.notice { color: var(--muted); font-size: 14px; min-height: 22px; margin-top: 10px; }.notice.error { color: #ffc3c3; }
+@media (max-width: 800px) {
+  .operator-app { grid-template-columns: 1fr; grid-template-areas: "header" "camera" "status" "counts" "job"; padding: 12px; }
+  .topbar { align-items: flex-start; flex-direction: column; }.camera-card { min-height: 300px; }.selectors, .buttons { grid-template-columns: 1fr; }.checks { grid-template-columns: 1fr 1fr; }
+}

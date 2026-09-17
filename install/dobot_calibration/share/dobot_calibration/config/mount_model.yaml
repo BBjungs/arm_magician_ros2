@@ -1,11 +1,1 @@
-# Machine/CAD data, not a user-entered calibration point. No invented defaults.
-geometry_verified: false
-rigid_to_rotating_tool: false
-measurement_source: ''
-translation_units: m
-# Maps registered optical coordinates into reported TCP; must rotate with yaw.
-tool_T_camera_optical: []
-# Standard uncertainty of the CAD/mount tool-Z offset; must be <= 2 mm.
-axial_sigma_m: null
-# CAD bounding sphere about TCP enclosing attached tool/camera hardware.
-envelope_radius_m: null
+/home/bbcontact/magician_ros2/build/dobot_calibration/config/mount_model.yaml

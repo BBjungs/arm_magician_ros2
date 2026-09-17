@@ -17,7 +17,12 @@ All translations use metres. RPY uses radians with column vectors and `R = Rz(ya
 Each parent-to-child transform maps coordinates expressed in the child into the parent.
 For an optical point, `p_base = T_base_tool T_tool_camera_link T_camera_link_optical p_optical`.
 
-Copy `eye_in_hand_mount.yaml` and fill it from physical measurements or validated CAD/calibration.
+Acquire geometry in this order: official DOBOT Magician CAD/dimension drawing,
+the as-built Dobot-Orbbec bracket CAD, then manual measurements only for
+dimensions absent from both CAD sources. The audit and evidence are recorded in
+`docs/evidence/official-dobot-magician/geometry-acquisition-report.md`.
+Copy `eye_in_hand_mount.yaml` and fill it only from verified CAD, permitted
+manual fallbacks, and target-calibrated rotation.
 The checked-in template is deliberately unverified with empty offsets. It cannot enable camera or suction TF.
 Existing invalid camera calibration and legacy RealSense offsets are not imported.
 

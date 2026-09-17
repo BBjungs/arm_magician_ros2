@@ -3,7 +3,6 @@ from pathlib import Path
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
@@ -20,13 +19,9 @@ def generate_launch_description():
     vision_mode = LaunchConfiguration("vision_mode")
     tcp_pose_topic = LaunchConfiguration("tcp_pose_topic")
     fallback_tcp_pose_topic = LaunchConfiguration("fallback_tcp_pose_topic")
-    start_calibration_tool = LaunchConfiguration("start_calibration_tool")
-    start_eye_in_hand_calibration = LaunchConfiguration("start_eye_in_hand_calibration")
+    calibration_bundle_path = LaunchConfiguration("calibration_bundle_path")
 
     yolo_config = str(config_dir / "yolo.yaml")
-    camera_config = str(config_dir / "camera_to_robot.yaml")
-    eye_in_hand_config = str(config_dir / "eye_in_hand.yaml")
-    intrinsics_config = str(config_dir / "camera_intrinsics.yaml")
     workspace_config = str(config_dir / "workspace.yaml")
     place_config = str(config_dir / "place_positions.yaml")
 
@@ -42,35 +37,19 @@ def generate_launch_description():
     transform_params = {
         "dry_run": ParameterValue(dry_run, value_type=bool),
         "vision_mode": ParameterValue(vision_mode, value_type=str),
-        "calibration_config_path": camera_config,
-        "eye_in_hand_config_path": eye_in_hand_config,
-        "camera_intrinsics_path": intrinsics_config,
+        "calibration_bundle_path": ParameterValue(calibration_bundle_path, value_type=str),
+        "calibration_status_topic": "/calibration/status",
         "tcp_pose_topic": ParameterValue(tcp_pose_topic, value_type=str),
         "fallback_tcp_pose_topic": ParameterValue(
             fallback_tcp_pose_topic,
             value_type=str,
         ),
-    }
-    fixed_calibration_params = {
-        "dry_run": ParameterValue(dry_run, value_type=bool),
-        "calibration_config_path": camera_config,
     }
     target_selector_params = dict(transform_params)
     target_selector_params["place_positions_path"] = place_config
     safety_params = {
         "dry_run": ParameterValue(dry_run, value_type=bool),
         "workspace_config_path": workspace_config,
-    }
-    eye_calibration_params = {
-        "dry_run": ParameterValue(dry_run, value_type=bool),
-        "eye_in_hand_config_path": eye_in_hand_config,
-        "camera_intrinsics_path": intrinsics_config,
-        "camera_device": ParameterValue(camera_device, value_type=str),
-        "tcp_pose_topic": ParameterValue(tcp_pose_topic, value_type=str),
-        "fallback_tcp_pose_topic": ParameterValue(
-            fallback_tcp_pose_topic,
-            value_type=str,
-        ),
     }
 
     return LaunchDescription(
@@ -82,9 +61,9 @@ def generate_launch_description():
             ),
             DeclareLaunchArgument(
                 "vision_mode",
-                default_value="fixed_camera",
+                default_value="eye_in_hand",
                 choices=["fixed_camera", "eye_in_hand"],
-                description="Pixel-to-robot mode.",
+                description="Camera mounting topology only; calibration is always markerless.",
             ),
             DeclareLaunchArgument(
                 "source_type",
@@ -112,14 +91,9 @@ def generate_launch_description():
                 description="Optional fallback Float64MultiArray TCP pose topic.",
             ),
             DeclareLaunchArgument(
-                "start_calibration_tool",
-                default_value="false",
-                description="Start fixed-camera calibration skeleton with the pipeline.",
-            ),
-            DeclareLaunchArgument(
-                "start_eye_in_hand_calibration",
-                default_value="false",
-                description="Start eye-in-hand ArUco calibration node with the pipeline.",
+                "calibration_bundle_path",
+                default_value="~/.ros/dobot/markerless_calibration.npz",
+                description="Verified bundle owned by dobot_calibration.",
             ),
             Node(
                 package="dobot_vision_yolo",
@@ -160,24 +134,6 @@ def generate_launch_description():
                 output="screen",
                 emulate_tty=True,
                 parameters=[safety_params],
-            ),
-            Node(
-                package="dobot_vision_yolo",
-                executable="camera_calibration_tool",
-                name="camera_calibration_tool",
-                output="screen",
-                emulate_tty=True,
-                condition=IfCondition(start_calibration_tool),
-                parameters=[fixed_calibration_params],
-            ),
-            Node(
-                package="dobot_vision_yolo",
-                executable="eye_in_hand_calibration_node",
-                name="eye_in_hand_calibration_node",
-                output="screen",
-                emulate_tty=True,
-                condition=IfCondition(start_eye_in_hand_calibration),
-                parameters=[eye_calibration_params],
             ),
         ]
     )

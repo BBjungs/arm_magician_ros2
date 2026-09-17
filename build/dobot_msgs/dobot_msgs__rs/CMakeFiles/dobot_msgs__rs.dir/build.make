@@ -69,17 +69,14 @@ include /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/build.rs
 /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/Cargo.toml
-/home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/msg.rs
-/home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/msg/rmw.rs
-/home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/srv.rs
-/home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/srv/rmw.rs
-/home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/action.rs
-/home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/action/rmw.rs
 
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/lib/rosidl_generator_rs/rosidl_generator_rs
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_rs/__init__.py
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/action.rs.em
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/action/rmw.rs.em
+rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/build.rs.em
+rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/Cargo.toml.em
+rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/lib.rs.em
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/msg.rs.em
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/msg/rmw.rs.em
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/rosidl_generator_rs/resource/srv.rs.em
@@ -98,16 +95,8 @@ rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/Ev
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/ExecuteHomingProcedure.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/GripperControl.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/action/PointToPoint.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/action/SlidingRail.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/msg/DobotAlarmCodes.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/msg/GripperStatus.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/msg/CircleTarget.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/msg/CircleTargetArray.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/EvaluatePTPTrajectory.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/ExecuteHomingProcedure.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/GripperControl.idl
-rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
+rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
+rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_generator_rs/dobot_msgs/rust/src/lib.rs: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -188,34 +177,10 @@ rosidl_generator_rs/dobot_msgs/rust/build.rs: rosidl_generator_rs/dobot_msgs/rus
 rosidl_generator_rs/dobot_msgs/rust/Cargo.toml: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/dobot_msgs/rust/Cargo.toml
 
-rosidl_generator_rs/dobot_msgs/rust/src/msg.rs: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/dobot_msgs/rust/src/msg.rs
-
-rosidl_generator_rs/dobot_msgs/rust/src/msg/rmw.rs: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/dobot_msgs/rust/src/msg/rmw.rs
-
-rosidl_generator_rs/dobot_msgs/rust/src/srv.rs: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/dobot_msgs/rust/src/srv.rs
-
-rosidl_generator_rs/dobot_msgs/rust/src/srv/rmw.rs: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/dobot_msgs/rust/src/srv/rmw.rs
-
-rosidl_generator_rs/dobot_msgs/rust/src/action.rs: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/dobot_msgs/rust/src/action.rs
-
-rosidl_generator_rs/dobot_msgs/rust/src/action/rmw.rs: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_rs/dobot_msgs/rust/src/action/rmw.rs
-
 dobot_msgs__rs: /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs
 dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/Cargo.toml
 dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/build.rs
-dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/action.rs
-dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/action/rmw.rs
 dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/lib.rs
-dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/msg.rs
-dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/msg/rmw.rs
-dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/srv.rs
-dobot_msgs__rs: rosidl_generator_rs/dobot_msgs/rust/src/srv/rmw.rs
 dobot_msgs__rs: /home/bbcontact/magician_ros2/build/dobot_msgs/dobot_msgs__rs/CMakeFiles/dobot_msgs__rs.dir/build.make
 .PHONY : dobot_msgs__rs
 

@@ -76,6 +76,8 @@ CMakeFiles/dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_
 CMakeFiles/dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/ExecuteHomingProcedure.json
 CMakeFiles/dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/GripperControl.json
 CMakeFiles/dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json
+CMakeFiles/dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json
+CMakeFiles/dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json
 
 rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json: /opt/ros/jazzy/lib/rosidl_generator_type_description/rosidl_generator_type_description
 rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json: /opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_type_description/__init__.py
@@ -89,6 +91,8 @@ rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json: rosidl_ad
 rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json: rosidl_adapter/dobot_msgs/srv/ExecuteHomingProcedure.idl
 rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json: rosidl_adapter/dobot_msgs/srv/GripperControl.idl
 rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
+rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
+rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating type hashes for ROS interfaces"
 	/usr/bin/python3 /opt/ros/jazzy/lib/rosidl_generator_type_description/rosidl_generator_type_description --generator-arguments-file /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description__arguments.json
 
@@ -119,6 +123,12 @@ rosidl_generator_type_description/dobot_msgs/srv/GripperControl.json: rosidl_gen
 rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json: rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json
 
+rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json: rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json
+
+rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json: rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json
+
 dobot_msgs__rosidl_generator_type_description: CMakeFiles/dobot_msgs__rosidl_generator_type_description
 dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/action/PointToPoint.json
 dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/action/SlidingRail.json
@@ -128,7 +138,9 @@ dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description
 dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/msg/GripperStatus.json
 dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/EvaluatePTPTrajectory.json
 dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/ExecuteHomingProcedure.json
+dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json
 dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/GripperControl.json
+dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json
 dobot_msgs__rosidl_generator_type_description: rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json
 dobot_msgs__rosidl_generator_type_description: CMakeFiles/dobot_msgs__rosidl_generator_type_description.dir/build.make
 .PHONY : dobot_msgs__rosidl_generator_type_description

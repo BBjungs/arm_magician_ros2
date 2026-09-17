@@ -482,51 +482,20 @@ class VisionPickPlaceNode(Node):
         self._publish_status(preview)
         self.get_logger().info("Published dry-run motion preview status.")
 
-    def _execute_real_target(self, target: Dict[str, Any]) -> Dict[str, Any]:
-        if not self.allow_real_motion:
-            return {
-                "source": "vision_pick_place_node",
-                "accepted": False,
-                "executed": False,
-                "reason": "allow_real_motion=false; real robot motion is disabled",
-            }
-        if self.dry_run or bool(target.get("dry_run", True)):
-            return {
-                "source": "vision_pick_place_node",
-                "accepted": False,
-                "executed": False,
-                "reason": "dry_run=true; real robot motion is disabled",
-            }
-        if not bool(target.get("confirm_real_motion", False)):
-            return {
-                "source": "vision_pick_place_node",
-                "accepted": False,
-                "executed": False,
-                "reason": "confirm_real_motion=true is required",
-            }
-
-        sequence = build_real_motion_sequence(
-            target,
-            self.safety_guard,
-            tool_type=target.get("tool_type", self.tool_type),
-        )
-        executor = HTTPMotionExecutor(
-            self.web_api_base_url,
-            velocity_ratio=float(target.get("velocity_ratio", self.velocity_ratio)),
-            acceleration_ratio=float(
-                target.get("acceleration_ratio", self.acceleration_ratio)
-            ),
-            tool_type=str(target.get("tool_type", self.tool_type)),
-            api_token=self.web_api_token,
-        )
-        execution_log = executor.execute(sequence)
+    def _execute_real_target(self, _target: Dict[str, Any]) -> Dict[str, Any]:
+        # This topic-only node has no authoritative detector snapshot or a way
+        # to wait for a new frame after approach.  Letting it run the legacy
+        # open-loop sequence would bypass the coarse-to-fine safety controller
+        # used by the web API, so refuse it even when real motion is enabled.
+        # The web operation owns both the motion lock and fresh detections.
         return {
             "source": "vision_pick_place_node",
-            "accepted": True,
-            "executed": True,
-            "transport": "http_api",
-            "motion_sequence": sequence,
-            "execution_log": execution_log,
+            "accepted": False,
+            "executed": False,
+            "reason": (
+                "direct robot_target execution is disabled because it cannot "
+                "re-detect/verify a pick; use /api/vision/pick_selected"
+            ),
         }
 
     def _extract_target(self, payload: str) -> Dict[str, Any]:

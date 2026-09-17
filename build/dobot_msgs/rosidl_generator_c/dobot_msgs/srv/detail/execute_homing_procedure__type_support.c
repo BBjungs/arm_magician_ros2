@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "dobot_msgs/srv/detail/execute_homing_procedure__struct.h"
 #include "rosidl_typesupport_interface/macros.h"
-#include "dobot_msgs/srv/detail/execute_homing_procedure__functions.h"
 #include "dobot_msgs/srv/detail/execute_homing_procedure__type_support.h"
+#include "dobot_msgs/srv/detail/execute_homing_procedure__struct.h"
+#include "dobot_msgs/srv/detail/execute_homing_procedure__functions.h"
 
 #ifdef __cplusplus
 extern "C"

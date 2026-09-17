@@ -1,0 +1,122 @@
+{
+  "tf_edges": [
+    {
+      "parent": "camera_color_frame",
+      "child": "camera_color_optical_frame",
+      "stamp": [
+        1789194382,
+        176199444
+      ],
+      "translation": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "rotation_xyzw": [
+        -0.5,
+        0.4999999999999999,
+        -0.5,
+        0.5000000000000001
+      ]
+    },
+    {
+      "parent": "camera_depth_frame",
+      "child": "camera_color_frame",
+      "stamp": [
+        1789194382,
+        176199444
+      ],
+      "translation": [
+        0.0005438049435615539,
+        -0.00992595100402832,
+        9.004256874322891e-05
+      ],
+      "rotation_xyzw": [
+        -0.0001145979986176826,
+        -0.002255559666082263,
+        0.0027205096557736397,
+        0.9999937415122986
+      ]
+    },
+    {
+      "parent": "camera_depth_frame",
+      "child": "camera_depth_optical_frame",
+      "stamp": [
+        1789194382,
+        176442117
+      ],
+      "translation": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "rotation_xyzw": [
+        -0.5,
+        0.4999999999999999,
+        -0.5,
+        0.5000000000000001
+      ]
+    },
+    {
+      "parent": "camera_link",
+      "child": "camera_depth_frame",
+      "stamp": [
+        1789194382,
+        176490645
+      ],
+      "translation": [
+        0.0,
+        -0.0,
+        -0.0
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "parent": "magician_base_link",
+      "child": "TCP",
+      "stamp": [
+        1789194464,
+        648504395
+      ],
+      "translation": [
+        0.15008029174804688,
+        -4.408324016935694e-11,
+        0.1000861053466797
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.0,
+        -1.468655080389062e-10,
+        1.0
+      ]
+    }
+  ],
+  "last_tcp": {
+    "frame": "magician_base_link",
+    "position_m": [
+      0.15008029174804688,
+      -4.408324016935694e-11,
+      0.1000861053466797
+    ],
+    "rotation_xyzw": [
+      0.0,
+      0.0,
+      -1.468655080389062e-10,
+      1.0
+    ]
+  },
+  "last_joints": {
+    "magician_joint_1": -2.937310160778124e-10,
+    "magician_joint_2": 0.053650229042243716,
+    "magician_joint_3": 0.23844105154941664,
+    "magician_joint_4": 0.0,
+    "magician_joint_prismatic_l": 0.0
+  },
+  "tcp_samples": 225,
+  "joint_samples": 225
+}

@@ -1,0 +1,18 @@
+[6.249s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build --no-deps symlink_data
+[7.796s] running develop
+[8.843s] running egg_info
+[8.977s] writing dobot_vision_rgbd.egg-info/PKG-INFO
+[8.979s] writing dependency_links to dobot_vision_rgbd.egg-info/dependency_links.txt
+[8.979s] writing entry points to dobot_vision_rgbd.egg-info/entry_points.txt
+[8.979s] writing requirements to dobot_vision_rgbd.egg-info/requires.txt
+[8.980s] writing top-level names to dobot_vision_rgbd.egg-info/top_level.txt
+[9.212s] reading manifest file 'dobot_vision_rgbd.egg-info/SOURCES.txt'
+[9.214s] writing manifest file 'dobot_vision_rgbd.egg-info/SOURCES.txt'
+[9.325s] running build_ext
+[9.325s] Creating /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot-vision-rgbd.egg-link (link to .)
+[9.330s] Installing camera_health_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd
+[9.331s] Installing object_fusion_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd
+[9.331s] 
+[9.332s] Installed /home/bbcontact/magician_ros2/build/dobot_vision_rgbd
+[9.333s] running symlink_data
+[9.493s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build --no-deps symlink_data

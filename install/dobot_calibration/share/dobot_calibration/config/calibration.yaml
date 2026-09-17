@@ -1,18 +1,1 @@
-markerless_calibration:
-  ros__parameters:
-    rgb_topic: /camera/color/image_raw
-    depth_topic: /camera/depth/image_raw
-    camera_info_topic: /camera/color/camera_info
-    cloud_topic: /camera/depth_registered/points
-    alarms_topic: /dobot_alarms
-    safety_state_topic: ''
-    camera_frame: camera_color_optical_frame
-    base_frame: magician_base_link
-    tool_frame: TCP
-    calibrated_frame: calibrated_camera_optical_frame
-    camera_id: ''
-    auto_start: false
-    recalibrate_on_failure: false
-    ready_ttl_s: 600.0
-    capture_timeout_s: 15.0
-    motion_timeout_s: 25.0
+/home/bbcontact/magician_ros2/build/dobot_calibration/config/calibration.yaml

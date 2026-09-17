@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ระบบหยิบและวางชิ้นงาน</title>
+    <link rel="stylesheet" href="/static/operator.css">
+  </head>
+  <body>
+    <main class="operator-app">
+      <header class="topbar">
+        <div>
+          <h1>ระบบหยิบและวางชิ้นงาน</h1>
+          <p>หน้าควบคุมผู้ปฏิบัติงาน</p>
+          <p id="motionMode">โหมดทดสอบ — ยังไม่อนุญาตการเคลื่อนไหวจริง</p>
+        </div>
+        <div id="overallStatus" class="overall-status not-ready" role="status">ไม่พร้อมใช้งาน</div>
+      </header>
+
+      <section class="camera-card" aria-labelledby="cameraTitle">
+        <div class="section-title">
+          <h2 id="cameraTitle">กล้อง</h2>
+          <span id="cameraLive" class="camera-live">กำลังรอภาพ</span>
+        </div>
+        <img id="annotatedCamera" alt="ภาพกล้องพร้อมผลการตรวจจับ" src="/api/vision/annotated">
+      </section>
+
+      <section class="status-card" aria-labelledby="healthTitle">
+        <h2 id="healthTitle">สถานะระบบ</h2>
+        <div id="checks" class="checks" aria-live="polite"></div>
+      </section>
+
+      <section class="status-card" aria-labelledby="guidanceTitle">
+        <h2 id="guidanceTitle">Passive Calibration Guidance</h2>
+        <strong id="guidanceState">กำลังรอแผน calibration</strong>
+        <div id="guidanceCoordinates" class="guidance-coordinates"></div>
+        <p id="guidanceDirections" class="notice"></p>
+        <div id="calibrationProgress" class="calibration-progress"></div>
+        <div class="buttons">
+          <button id="autoCalibrationStart" class="start" type="button">START AUTO CALIBRATION</button>
+          <button id="autoCalibrationPause" type="button">PAUSE</button>
+          <button id="autoCalibrationResume" type="button">RESUME</button>
+          <button id="autoCalibrationAbort" class="stop" type="button">ABORT</button>
+        </div>
+      </section>
+
+      <section class="count-card" aria-labelledby="objectsTitle">
+        <h2 id="objectsTitle">ชิ้นงานที่ตรวจพบ</h2>
+        <div class="counts">
+          <div class="count black"><span>สีดำ</span><strong id="blackCount">0</strong></div>
+          <div class="count white"><span>สีขาว</span><strong id="whiteCount">0</strong></div>
+          <div class="count yellow"><span>สีเหลือง</span><strong id="yellowCount">0</strong></div>
+        </div>
+      </section>
+
+      <section class="job-card" aria-labelledby="jobTitle">
+        <h2 id="jobTitle">เริ่มงาน</h2>
+        <div class="selectors">
+          <label for="jobSelect">เลือกชิ้นงาน
+            <select id="jobSelect" disabled></select>
+          </label>
+          <label for="placeSelect">ตำแหน่งวาง
+            <select id="placeSelect" disabled></select>
+          </label>
+        </div>
+        <div class="operation" aria-live="polite">
+          <span>สถานะการทำงาน</span>
+          <strong id="operationState">รอคำสั่ง</strong>
+          <span id="pickAllProgress" class="progress" hidden>หยิบทั้งหมด: 0 / 0</span>
+        </div>
+        <div class="buttons">
+          <button id="startupButton" class="home" type="button">ตรวจระบบ</button>
+          <button id="startButton" class="start" type="button" disabled>เริ่มทำงาน</button>
+          <button id="stopButton" class="stop" type="button">หยุด</button>
+          <button id="homeButton" class="home" type="button">HOME และจุดสังเกต</button>
+        </div>
+        <p id="notice" class="notice" aria-live="polite">กำลังตรวจสอบสถานะระบบ</p>
+      </section>
+
+    </main>
+    <script src="/static/operator.js" defer></script>
+  </body>
+</html>

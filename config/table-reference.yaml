@@ -1,0 +1,6 @@
+# Table coordinates have not been measured. This acknowledgement permits only
+# planning/dry-run; it is not evidence for clearance of a real robot motion.
+table_reference:
+  status: operator_confirmed
+  source: physical_operator_confirmation
+  z_mm: null

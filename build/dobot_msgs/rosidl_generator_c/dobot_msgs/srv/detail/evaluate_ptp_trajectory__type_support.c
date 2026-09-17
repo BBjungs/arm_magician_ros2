@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "dobot_msgs/srv/detail/evaluate_ptp_trajectory__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
-#include "dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.h"
+#include "dobot_msgs/srv/detail/evaluate_ptp_trajectory__functions.h"
 #include "dobot_msgs/srv/detail/evaluate_ptp_trajectory__struct.h"
+#include "dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

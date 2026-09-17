@@ -1,0 +1,63 @@
+# User-measured commissioning defaults. NOT a validated runtime mount model.
+schema_version: 1
+recorded_date: '2026-09-15'
+status: eye_in_hand_measured_translation_verified_rotation_and_multi_pose_validation_pending
+source: as_built_manual_measurement
+measurement_mm:
+  farther_from_robot_base: 50.0
+  lateral_centered: 0.0
+  above_suction_tcp: 35.0
+measurement_m:
+  farther_from_robot_base: 0.050
+  lateral_centered: 0.000
+  above_suction_tcp: 0.035
+# Preserve physical directions; do not assume these are TCP-local XYZ.
+reference_frame: null
+measurement_origin: suction_cup_mouth_center
+measurement_endpoint: center_of_camera
+estimate_type: as_built_manual_measurement
+safety_measurements:
+  translation_error_bound_mm: 1.0
+  translation_error_bound_m: 0.001
+  tool_origin_envelope_radius_mm: 152.6
+  tool_origin_envelope_radius_m: 0.1526
+  envelope_components_mm:
+    x: 130.0
+    z: 80.0
+  envelope_formula: sqrt(x^2 + z^2)
+  source: as_built_manual_measurement
+  provenance: user_confirmed_physical_hardware_measurement_2026-09-16
+endpoint_optical_stream: null
+endpoint_to_calibrated_optical_origin_m: null
+reported_tcp_to_suction_tcp: [0.0, 0.0, -0.070]
+suction_tcp_to_camera_link: [0.050, 0.0, 0.035]
+tcp_matches_measured_suction_tip: null
+camera_rotation_in_tcp_xyzw: null
+tool_T_camera: null
+geometry_verified: false
+publish_transform: false
+notes:
+  - User confirmed the origin is the cup mouth center used for picking.
+  - Camera reference is the measured physical center of camera; color versus depth optical center remains owned by factory TF.
+  - Do not equate housing or approximate lens center with a calibrated ROS origin.
+  - Verify outward/sideways/up against TCP axes before converting to XYZ.
+  - Determine camera rotation by physical measurement or calibration.
+  - Confirm mount envelope and table clearance before calibration motion.
+  - The installed Orbbec is confirmed rigid to the rotating end effector and
+    its optical face points toward the work table.
+  - Reuse the Orbbec driver's factory camera_link-to-optical transforms; do not
+    manually measure RGB or depth optical centres.
+
+mount_motion_observation:
+  evidence: docs/evidence/mount-probe-2026-09-11/image-analysis.json
+  rigid_to_rotating_tcp_supported: true
+  candidate_parent: tool
+  candidate_parent_verified: true
+  note: Superseded by the user's verified installation inspection on 2026-09-14.
+
+physical_attachment_confirmation:
+  source: user_confirmation
+  date: 2026-09-11
+  attachment: rigid_eye_in_hand_on_rotating_end_effector
+  rotates_with_joint_4: true
+  exact_urdf_parent_verified: true

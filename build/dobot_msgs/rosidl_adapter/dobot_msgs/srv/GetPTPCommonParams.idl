@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from dobot_msgs/srv/GetPTPCommonParams.srv
+// generated code does not contain a copyright notice
+
+
+module dobot_msgs {
+  module srv {
+    struct GetPTPCommonParams_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct GetPTPCommonParams_Response {
+      boolean success;
+
+      uint8 velocity_percent;
+
+      uint8 acceleration_percent;
+
+      uint8 raw_velocity_percent;
+
+      uint8 raw_acceleration_percent;
+
+      boolean timed_out;
+
+      string error;
+    };
+  };
+};

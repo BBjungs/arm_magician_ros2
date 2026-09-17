@@ -87,6 +87,8 @@ rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosi
 rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h: rosidl_adapter/dobot_msgs/srv/ExecuteHomingProcedure.idl
 rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h: rosidl_adapter/dobot_msgs/srv/GripperControl.idl
 rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h: rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl
+rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h: rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl
+rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h: rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl
 rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h: /opt/ros/jazzy/share/std_msgs/msg/Bool.idl
 rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h: /opt/ros/jazzy/share/std_msgs/msg/Byte.idl
 rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h: /opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl
@@ -188,6 +190,12 @@ rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/gripper_control__rosidl
 rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_c.h: rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_c.h
 
+rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_introspection_c.h: rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_introspection_c.h
+
+rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_introspection_c.h: rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_introspection_c.h
+
 rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__type_support.c: rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__type_support.c
 
@@ -217,6 +225,12 @@ rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/gripper_control__type_s
 
 rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c: rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c
+
+rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c: rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c
+
+rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c: rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c
 
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/flags.make
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__type_support.c.o: rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__type_support.c
@@ -358,6 +372,34 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c -o CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.s
 
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o -MF CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o.d -o CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c > CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.i
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c -o CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.s
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/flags.make
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o -MF CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o.d -o CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o -c /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c > CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.i
+
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c -o CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.s
+
 # Object files for target dobot_msgs__rosidl_typesupport_introspection_c
 dobot_msgs__rosidl_typesupport_introspection_c_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__type_support.c.o" \
@@ -369,7 +411,9 @@ dobot_msgs__rosidl_typesupport_introspection_c_OBJECTS = \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.c.o" \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.c.o" \
 "CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/gripper_control__type_support.c.o" \
-"CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o"
+"CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o" \
+"CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o"
 
 # External object files for target dobot_msgs__rosidl_typesupport_introspection_c
 dobot_msgs__rosidl_typesupport_introspection_c_EXTERNAL_OBJECTS =
@@ -384,6 +428,8 @@ libdobot_msgs__rosidl_typesupport_introspection_c.so: CMakeFiles/dobot_msgs__ros
 libdobot_msgs__rosidl_typesupport_introspection_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.c.o
 libdobot_msgs__rosidl_typesupport_introspection_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/gripper_control__type_support.c.o
 libdobot_msgs__rosidl_typesupport_introspection_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o
+libdobot_msgs__rosidl_typesupport_introspection_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o
+libdobot_msgs__rosidl_typesupport_introspection_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o
 libdobot_msgs__rosidl_typesupport_introspection_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/build.make
 libdobot_msgs__rosidl_typesupport_introspection_c.so: libdobot_msgs__rosidl_generator_c.so
 libdobot_msgs__rosidl_typesupport_introspection_c.so: /opt/ros/jazzy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
@@ -402,7 +448,7 @@ libdobot_msgs__rosidl_typesupport_introspection_c.so: /opt/ros/jazzy/lib/libuniq
 libdobot_msgs__rosidl_typesupport_introspection_c.so: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 libdobot_msgs__rosidl_typesupport_introspection_c.so: /opt/ros/jazzy/lib/librcutils.so
 libdobot_msgs__rosidl_typesupport_introspection_c.so: CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C shared library libdobot_msgs__rosidl_typesupport_introspection_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C shared library libdobot_msgs__rosidl_typesupport_introspection_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -429,8 +475,12 @@ CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typ
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.c
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_introspection_c.h
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.c
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_introspection_c.h
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_introspection_c.h
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/gripper_control__type_support.c
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_introspection_c.h
+CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_c.h
 CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c
 	cd /home/bbcontact/magician_ros2/build/dobot_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs /home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs /home/bbcontact/magician_ros2/build/dobot_msgs/CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/DependInfo.cmake "--color=$(COLOR)"

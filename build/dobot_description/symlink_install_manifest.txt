@@ -1,3 +1,4 @@
+/home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/launch/__pycache__/display.launch.cpython-312.pyc
 /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/launch/camera_view.launch.py
 /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/launch/display.launch.py
 /home/bbcontact/magician_ros2/install/dobot_description/share/dobot_description/meshes/collision/additional_elements/sliding_rail.dae

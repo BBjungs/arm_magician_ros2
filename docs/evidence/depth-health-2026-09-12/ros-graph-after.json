@@ -1,0 +1,1478 @@
+{
+  "publishers": {
+    "/calibration/status": [
+      {
+        "name": "markerless_calibration",
+        "namespace": "/",
+        "gid": [
+          1,
+          15,
+          16,
+          34,
+          240,
+          254,
+          70,
+          82,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          22,
+          3
+        ]
+      }
+    ],
+    "/camera/health": [
+      {
+        "name": "camera_health",
+        "namespace": "/",
+        "gid": [
+          1,
+          15,
+          16,
+          34,
+          242,
+          254,
+          158,
+          190,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          25,
+          3
+        ]
+      }
+    ],
+    "/camera/depth/image_raw": [
+      {
+        "name": "camera",
+        "namespace": "/camera",
+        "gid": [
+          1,
+          15,
+          16,
+          34,
+          239,
+          254,
+          17,
+          241,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          104,
+          3
+        ]
+      }
+    ]
+  },
+  "tf_edges": [
+    [
+      "camera_color_frame",
+      "camera_color_optical_frame"
+    ],
+    [
+      "camera_depth_frame",
+      "camera_color_frame"
+    ],
+    [
+      "camera_depth_frame",
+      "camera_depth_optical_frame"
+    ],
+    [
+      "camera_link",
+      "camera_depth_frame"
+    ],
+    [
+      "magician_base_link",
+      "TCP"
+    ]
+  ],
+  "statuses": [
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191886.740635,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191886.9395118,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191887.1356592,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191887.3355663,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191887.5363588,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191887.7359843,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191887.935559,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191888.1358109,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191888.3355572,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191888.5366395,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191888.7357674,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191888.9360235,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191889.135748,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191889.335662,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191889.5359464,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191889.7359874,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191889.9360511,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191890.1366646,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191890.3360038,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191890.538531,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191890.7377205,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191890.9369028,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "blockers": [
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191891.1354795,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "blockers": [
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191891.3403552,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "blockers": [
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191891.5380602,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "blockers": [
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191891.7364538,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_STALE: live depth timestamp is missing or stale",
+        "blockers": [
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191891.9395316,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_STALE: live depth timestamp is missing or stale",
+        "blockers": [
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191892.136421,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191892.3415835,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191892.5389967,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191892.7364032,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191892.938766,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191893.1374419,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191893.3387444,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191893.5375226,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191893.7383947,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191893.9364903,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191894.1375175,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191894.3380363,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191894.5355043,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_STALE: live depth timestamp is missing or stale",
+        "blockers": [
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191894.7381046,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191894.937378,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_STALE: live depth timestamp is missing or stale",
+        "blockers": [
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191895.1354232,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_STALE: live depth timestamp is missing or stale",
+        "blockers": [
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191895.3358727,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191895.5365932,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191895.7369297,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "UNCALIBRATED",
+      "stamp": 1789191895.9366038,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191896.135899,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191896.3358119,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_STALE: live depth timestamp is missing or stale",
+        "blockers": [
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191896.5390794,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_STALE: live depth timestamp is missing or stale",
+        "blockers": [
+          "DEPTH_STALE: live depth timestamp is missing or stale",
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": false,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191896.735935,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191896.9411635,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191897.1361215,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191897.3377209,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191897.5355155,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191897.7367618,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191897.9377632,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191898.1356707,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191898.337302,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191898.535801,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    },
+    {
+      "state": "FAIL",
+      "stamp": 1789191898.7355773,
+      "has_depth_health": true,
+      "hardware": {
+        "state": "SAFETY_UNVERIFIED",
+        "ready": false,
+        "reason": "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state",
+        "blockers": [
+          "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false
+      }
+    }
+  ]
+}

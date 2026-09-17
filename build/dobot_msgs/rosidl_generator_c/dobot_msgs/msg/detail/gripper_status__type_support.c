@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "dobot_msgs/msg/detail/gripper_status__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
-#include "dobot_msgs/msg/detail/gripper_status__type_support.h"
 #include "dobot_msgs/msg/detail/gripper_status__struct.h"
+#include "dobot_msgs/msg/detail/gripper_status__type_support.h"
+#include "dobot_msgs/msg/detail/gripper_status__functions.h"
 
 #ifdef __cplusplus
 extern "C"

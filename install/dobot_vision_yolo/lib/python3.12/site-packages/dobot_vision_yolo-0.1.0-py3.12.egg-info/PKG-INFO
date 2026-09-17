@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: dobot-vision-yolo
-Version: 0.1.0
-Summary: Dry-run YOLO vision pick-and-place skeleton for Dobot Magician.
-Maintainer: jetson
-Maintainer-email: jetson@example.com
-License: MIT

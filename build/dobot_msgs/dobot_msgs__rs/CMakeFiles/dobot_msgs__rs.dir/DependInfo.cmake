@@ -14,12 +14,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/Cargo.toml" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/lib.rs"
   "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/build.rs" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/lib.rs"
-  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/action.rs" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/lib.rs"
-  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/action/rmw.rs" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/lib.rs"
-  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/msg.rs" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/lib.rs"
-  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/msg/rmw.rs" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/lib.rs"
-  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/srv.rs" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/lib.rs"
-  "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/srv/rmw.rs" "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_rs/dobot_msgs/rust/src/lib.rs"
   )
 
 

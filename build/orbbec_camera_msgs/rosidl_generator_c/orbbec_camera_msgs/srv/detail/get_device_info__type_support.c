@@ -6,8 +6,8 @@
 
 #include "rosidl_typesupport_interface/macros.h"
 #include "orbbec_camera_msgs/srv/detail/get_device_info__struct.h"
-#include "orbbec_camera_msgs/srv/detail/get_device_info__functions.h"
 #include "orbbec_camera_msgs/srv/detail/get_device_info__type_support.h"
+#include "orbbec_camera_msgs/srv/detail/get_device_info__functions.h"
 
 #ifdef __cplusplus
 extern "C"

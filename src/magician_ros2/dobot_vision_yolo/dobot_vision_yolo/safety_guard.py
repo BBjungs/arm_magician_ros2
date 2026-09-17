@@ -326,8 +326,15 @@ class SafetyGuard:
         )
 
         yolo_status = yolo_status or {}
-        yolo_ok = bool(yolo_status.get("ok", False)) and bool(
-            yolo_status.get("model_loaded", False)
+        # ``/dobot_vision/status`` is shared by the YOLO and RGB-D pipelines.
+        # The latter is a rule-based detector and correctly reports no model
+        # file, so requiring ``model_loaded`` would make a healthy RGB-D cell
+        # permanently unpickable.  Both engines still require a fresh healthy
+        # detector status; only YOLO-family engines require a loaded model.
+        vision_engine = str(yolo_status.get("vision_engine", "") or "").lower()
+        model_required = vision_engine not in ("rgbd_shape", "rgbd", "")
+        yolo_ok = bool(yolo_status.get("ok", False)) and (
+            not model_required or bool(yolo_status.get("model_loaded", False))
         )
         add_check(
             "yolo",
@@ -344,34 +351,22 @@ class SafetyGuard:
             tcp_pose = tcp_pose or selected_target.get("tcp_pose")
 
         calibration_status = calibration_status or {}
-        validation_errors = calibration_status.get("validation_errors", [])
-        validation = calibration_status.get("validation", {}) or {}
-        calibration_warning = validation.get("warning", "")
-        calibration_ok = (
-            bool(calibration_status.get("is_complete", False))
-            and not validation_errors
-            and not calibration_warning
-        )
-        auto_position = calibration_status.get("auto_position", {}) or {}
-        auto_position_enabled = bool(
-            calibration_status.get(
-                "auto_position_enabled",
-                auto_position.get("enabled", False),
-            )
-        )
-        auto_position_ok = (
-            vision_mode == "eye_in_hand"
-            and auto_position_enabled
-            and bool(
-                calibration_status.get("position_available", False)
-                or calibration_status.get("can_estimate_position", False)
-            )
-            and effective_dry_run
+        blockers = [str(item) for item in calibration_status.get("blockers", [])]
+        calibration_ok = bool(
+            calibration_status.get("architecture") == "markerless_hand_eye"
+            and calibration_status.get("state") == "READY"
+            and calibration_status.get("result") == "PASS"
+            and calibration_status.get("ready") is True
+            and calibration_status.get("bundle_loaded") is True
+            and calibration_status.get("geometry_verified") is True
+            and calibration_status.get("verification_status") == "PASS"
+            and calibration_status.get("reload_verification_status") == "PASS"
+            and not blockers
         )
         calibration_reason = (
-            "; ".join(validation_errors)
-            or calibration_warning
-            or "Calibration is incomplete"
+            "; ".join(blockers)
+            or str(calibration_status.get("reason", ""))
+            or "Verified markerless calibration is incomplete"
         )
         if calibration_ok:
             add_check(
@@ -379,17 +374,6 @@ class SafetyGuard:
                 "Calibration OK",
                 True,
                 "Calibration is valid",
-            )
-        elif auto_position_ok:
-            add_check(
-                "calibration",
-                "Calibration Estimate",
-                False,
-                (
-                    "Using automatic position estimate from configured camera "
-                    f"mount; {calibration_reason}"
-                ),
-                severity="warning",
             )
         else:
             add_check(

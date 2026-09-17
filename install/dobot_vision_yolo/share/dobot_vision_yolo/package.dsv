@@ -4,3 +4,6 @@ source;share/dobot_vision_yolo/hook/pythonpath.sh
 source;share/dobot_vision_yolo/hook/ament_prefix_path.ps1
 source;share/dobot_vision_yolo/hook/ament_prefix_path.dsv
 source;share/dobot_vision_yolo/hook/ament_prefix_path.sh
+source;../../build/dobot_vision_yolo/share/dobot_vision_yolo/hook/pythonpath_develop.ps1
+source;../../build/dobot_vision_yolo/share/dobot_vision_yolo/hook/pythonpath_develop.dsv
+source;../../build/dobot_vision_yolo/share/dobot_vision_yolo/hook/pythonpath_develop.sh

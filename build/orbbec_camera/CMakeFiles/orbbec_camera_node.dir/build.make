@@ -143,7 +143,7 @@ orbbec_camera_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport
 orbbec_camera_node: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
 orbbec_camera_node: /opt/ros/jazzy/lib/librmw.so
 orbbec_camera_node: /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
-orbbec_camera_node: /opt/ros/jazzy/lib/libfastcdr.so.2.2.7
+orbbec_camera_node: /opt/ros/jazzy/lib/libfastcdr.so.2.2.8
 orbbec_camera_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
 orbbec_camera_node: /opt/ros/jazzy/lib/librosidl_typesupport_introspection_cpp.so
 orbbec_camera_node: /opt/ros/jazzy/lib/librosidl_typesupport_introspection_c.so

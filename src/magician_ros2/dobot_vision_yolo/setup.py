@@ -33,8 +33,6 @@ setup(
             "target_selector_node = dobot_vision_yolo.target_selector_node:main",
             "pixel_to_robot_node = dobot_vision_yolo.pixel_to_robot_node:main",
             "vision_pick_place_node = dobot_vision_yolo.vision_pick_place_node:main",
-            "camera_calibration_tool = dobot_vision_yolo.camera_calibration_tool:main",
-            "eye_in_hand_calibration_node = dobot_vision_yolo.eye_in_hand_calibration_node:main",
             "safety_guard_node = dobot_vision_yolo.safety_guard:main",
         ],
     },

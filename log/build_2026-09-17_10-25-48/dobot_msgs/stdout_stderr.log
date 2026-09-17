@@ -1,0 +1,15 @@
+[  1%] Built target dobot_msgs__rs
+[  1%] Built target ament_cmake_python_symlink_dobot_msgs
+[  1%] Built target dobot_msgs__rosidl_generator_type_description
+running egg_info
+writing dobot_msgs.egg-info/PKG-INFO
+writing dependency_links to dobot_msgs.egg-info/dependency_links.txt
+writing top-level names to dobot_msgs.egg-info/top_level.txt
+reading manifest file 'dobot_msgs.egg-info/SOURCES.txt'
+writing manifest file 'dobot_msgs.egg-info/SOURCES.txt'
+[  1%] Built target ament_cmake_python_build_dobot_msgs_egg
+[  1%] Built target dobot_msgs__cpp
+[ 27%] Built target dobot_msgs__rosidl_generator_c
+gmake[2]: *** No rule to make target '/opt/ros/jazzy/lib/libfastcdr.so.2.2.7', needed by 'libdobot_msgs__rosidl_typesupport_fastrtps_c.so'.  Stop.
+gmake[1]: *** [CMakeFiles/Makefile2:286: CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

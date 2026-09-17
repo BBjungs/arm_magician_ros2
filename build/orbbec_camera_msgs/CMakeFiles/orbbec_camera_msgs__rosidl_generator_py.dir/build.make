@@ -330,7 +330,7 @@ liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/librosidl_type
 liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
 liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
 liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
-liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/libfastcdr.so.2.2.7
+liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/libfastcdr.so.2.2.8
 liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/librmw.so
 liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
 liborbbec_camera_msgs__rosidl_generator_py.so: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so

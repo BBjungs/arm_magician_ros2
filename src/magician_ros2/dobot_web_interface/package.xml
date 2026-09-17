@@ -13,9 +13,11 @@
   <exec_depend>dobot_description</exec_depend>
   <exec_depend>dobot_vision_yolo</exec_depend>
   <exec_depend>dobot_vision_rgbd</exec_depend>
+  <exec_depend>dobot_calibration</exec_depend>
   <exec_depend>orbbec_camera</exec_depend>
   <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
   <depend>cv_bridge</depend>
   <exec_depend>python3-fastapi</exec_depend>
   <exec_depend>python3-numpy</exec_depend>

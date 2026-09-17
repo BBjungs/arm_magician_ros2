@@ -115,3 +115,29 @@ def test_depth_clock_regression_clears_old_evidence():
         window.add(stamp, valid_depth())
     window.add(9.0, valid_depth())
     assert not window.stable(9.0)
+
+
+def test_operator_verified_physical_estop_allows_missing_ros_feedback():
+    result = evaluate(
+        safety_supported=False,
+        safety_verified=False,
+        physical_estop_present=True,
+        operator_safety_verified=True,
+    )
+    assert result.ready
+    assert result.physical_estop_present
+    assert result.operator_safety_verified
+    assert result.software_estop_monitoring == 'NOT CONNECTED'
+    assert not any('SAFETY_SIGNAL_UNAVAILABLE' in item for item in result.blockers)
+
+
+def test_unsafe_connected_software_signal_still_blocks_motion():
+    result = evaluate(
+        safety_supported=True,
+        safety_verified=False,
+        physical_estop_present=True,
+        operator_safety_verified=True,
+    )
+    assert result.state == 'SAFETY_UNVERIFIED'
+    assert not result.ready
+    assert 'SAFETY_NOT_SAFE' in result.reason

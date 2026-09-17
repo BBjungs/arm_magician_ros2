@@ -27,9 +27,15 @@ CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/dobot_msgs
   rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__functions.h \
   rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__struct.h \
   rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.h \
+  rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.h \
+  rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__struct.h \
+  rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.h \
   rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__functions.h \
   rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__struct.h \
   rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.h \
+  rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.h \
+  rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__struct.h \
+  rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h \
   rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.h \
   rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__struct.h \
   rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.h \
@@ -368,21 +374,23 @@ CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/dobot_msgs
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
-/usr/include/python3.12/cpython/pymem.h:
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
-/usr/include/python3.12/cpython/genobject.h:
-
-/usr/include/python3.12/cpython/pyerrors.h:
-
-/usr/include/python3.12/cpython/longobject.h:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/python3.12/cpython/pyctype.h:
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.h:
 
 /usr/include/python3.12/memoryobject.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/python3.12/cpython/longobject.h:
+
+/usr/include/python3.12/cpython/pyerrors.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/python3.12/cpython/initconfig.h:
 
@@ -402,18 +410,6 @@ CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/dobot_msgs
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_hash.h:
 
-/usr/include/python3.12/ceval.h:
-
-/usr/include/python3.12/cpython/classobject.h:
-
-/usr/include/python3.12/enumobject.h:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
-
-rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__functions.h:
-
 /usr/include/python3.12/codecs.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
@@ -422,19 +418,29 @@ rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__functions.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
+/usr/include/python3.12/ceval.h:
+
+/usr/include/python3.12/cpython/classobject.h:
+
+/usr/include/python3.12/enumobject.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
 rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__functions.h:
 
 /usr/include/python3.12/boolobject.h:
 
-/usr/include/python3.12/cpython/bytesobject.h:
-
 rosidl_generator_c/dobot_msgs/msg/detail/circle_target__functions.h:
+
+/usr/include/python3.12/cpython/bytesobject.h:
 
 /usr/include/python3.12/abstract.h:
 
 /usr/include/x86_64-linux-gnu/bits/statx-generic.h:
 
-/usr/include/python3.12/cpython/pylifecycle.h:
+/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
+
+rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__functions.h:
 
 /usr/include/python3.12/cpython/picklebufobject.h:
 
@@ -458,6 +464,10 @@ rosidl_generator_c/dobot_msgs/msg/detail/circle_target__functions.h:
 
 /usr/include/python3.12/iterobject.h:
 
+/usr/include/python3.12/cpython/genobject.h:
+
+/usr/include/python3.12/cpython/pymem.h:
+
 /usr/include/assert.h:
 
 /usr/include/x86_64-linux-gnu/sys/stat.h:
@@ -474,17 +484,33 @@ rosidl_generator_c/dobot_msgs/msg/detail/circle_target_array__functions.h:
 
 /usr/include/asm-generic/errno-base.h:
 
-/usr/include/python3.12/cpython/memoryobject.h:
+/usr/include/inttypes.h:
 
-/usr/include/asm-generic/int-ll64.h:
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
-rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__functions.h:
+/usr/include/asm-generic/types.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/python3.12/cpython/longintrepr.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/python3.12/bytesobject.h:
+
+/opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/header__struct.h:
+
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__struct.h:
+
+/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/opt/ros/jazzy/include/rcutils/rcutils/types/rcutils_ret.h:
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_description/field__struct.h:
 
 rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.h:
-
-/usr/include/sched.h:
 
 rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__functions.h:
 
@@ -498,17 +524,19 @@ rosidl_generator_c/dobot_msgs/msg/rosidl_generator_c__visibility_control.h:
 
 rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__struct.h:
 
-/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_description/field_type__struct.h:
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
-/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/string.h:
+/usr/include/math.h:
+
+/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_description/field_type__struct.h:
 
 rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__struct.h:
 
 rosidl_generator_c/dobot_msgs/action/detail/point_to_point__struct.h:
 
-/opt/ros/jazzy/include/rcutils/rcutils/visibility_control.h:
+/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/string.h:
 
-/usr/include/python3.12/cpython/context.h:
+/opt/ros/jazzy/include/rcutils/rcutils/visibility_control.h:
 
 /usr/include/python3.12/cpython/object.h:
 
@@ -534,37 +562,7 @@ rosidl_generator_c/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.h:
 
 rosidl_generator_c/dobot_msgs/msg/detail/dobot_alarm_codes__functions.h:
 
-rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.h:
-
-/usr/include/linux/types.h:
-
-rosidl_generator_c/dobot_msgs/msg/detail/circle_target__struct.h:
-
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
-
-rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_c.c:
-
-rosidl_generator_c/dobot_msgs/action/detail/point_to_point__functions.h:
-
-/usr/include/python3.12/cpython/pydebug.h:
-
-/usr/include/python3.12/cpython/ceval.h:
-
-/usr/include/python3.12/pyerrors.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
-
-rosidl_generator_c/dobot_msgs/msg/detail/circle_target__type_support.h:
-
-/usr/include/python3.12/moduleobject.h:
-
 /opt/ros/jazzy/include/rcutils/rcutils/sha256.h:
-
-/opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h:
-
-/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/message_type_support_struct.h:
-
-/opt/ros/jazzy/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h:
 
 /usr/include/python3.12/floatobject.h:
 
@@ -578,53 +576,125 @@ rosidl_generator_c/dobot_msgs/msg/detail/circle_target_array__struct.h:
 
 /opt/ros/jazzy/include/service_msgs/service_msgs/msg/detail/service_event_info__struct.h:
 
+rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__struct.h:
+
+/usr/include/python3.12/cpython/floatobject.h:
+
+/opt/ros/jazzy/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__struct.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
+
+/usr/include/python3.12/cpython/unicodeobject.h:
+
+rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.h:
+
 /usr/include/python3.12/cpython/odictobject.h:
 
 /usr/include/alloca.h:
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/action_type_support_struct.h:
 
-/opt/ros/jazzy/include/rcutils/rcutils/types/rcutils_ret.h:
-
-/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h:
-
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.h:
 
 /usr/include/limits.h:
 
 /usr/include/linux/limits.h:
 
-/usr/include/endian.h:
-
-/usr/include/python3.12/cpython/listobject.h:
-
-rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__struct.h:
-
-/usr/include/stdint.h:
-
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
 rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__struct.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/python3.12/cpython/descrobject.h:
 
 /usr/include/python3.12/Python.h:
 
 /usr/include/python3.12/dictobject.h:
 
+/usr/include/python3.12/cpython/methodobject.h:
+
+/usr/include/python3.12/pyhash.h:
+
+/opt/ros/jazzy/include/rcutils/rcutils/allocator.h:
+
 /usr/include/python3.12/cpython/fileobject.h:
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
-/usr/include/python3.12/exports.h:
+/usr/include/x86_64-linux-gnu/bits/types.h:
 
-/usr/include/python3.12/cpython/pyframe.h:
-
-/usr/include/x86_64-linux-gnu/bits/timex.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__struct.h:
 
 /usr/include/python3.12/weakrefobject.h:
+
+rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_c.c:
+
+/usr/include/linux/types.h:
+
+rosidl_generator_c/dobot_msgs/msg/detail/circle_target__struct.h:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+rosidl_generator_c/dobot_msgs/action/detail/point_to_point__functions.h:
+
+/usr/include/python3.12/cpython/pydebug.h:
+
+/usr/include/endian.h:
+
+/usr/include/python3.12/cpython/listobject.h:
+
+/usr/include/stdint.h:
+
+rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__struct.h:
+
+/usr/include/python3.12/cpython/memoryobject.h:
+
+/usr/include/asm-generic/int-ll64.h:
+
+rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__functions.h:
+
+/usr/include/python3.12/cpython/ceval.h:
+
+rosidl_generator_c/dobot_msgs/msg/detail/circle_target__type_support.h:
+
+/usr/include/python3.12/moduleobject.h:
+
+/opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h:
+
+/opt/ros/jazzy/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h:
+
+/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/message_type_support_struct.h:
+
+/usr/include/python3.12/pyerrors.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
+
+/usr/include/python3.12/cpython/context.h:
+
+rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.h:
+
+/usr/include/sched.h:
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__struct.h:
+
+/usr/include/python3.12/pymacconfig.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/python3.12/cpython/code.h:
+
+/usr/include/python3.12/cpython/abstract.h:
+
+/usr/include/python3.12/bltinmodule.h:
+
+/opt/ros/jazzy/include/rcutils/rcutils/macros.h:
+
+/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence.h:
+
+/opt/ros/jazzy/include/rcutils/rcutils/visibility_control_macros.h:
+
+/usr/include/python3.12/fileobject.h:
 
 rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.h:
 
@@ -640,36 +710,6 @@ rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.h:
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h:
 
-/usr/include/python3.12/cpython/descrobject.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-/opt/ros/jazzy/include/rcutils/rcutils/macros.h:
-
-/usr/include/python3.12/cpython/code.h:
-
-/usr/include/python3.12/cpython/abstract.h:
-
-/usr/include/python3.12/bltinmodule.h:
-
-/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence.h:
-
-/opt/ros/jazzy/include/rcutils/rcutils/visibility_control_macros.h:
-
-/usr/include/python3.12/fileobject.h:
-
-/usr/include/inttypes.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
-/usr/include/asm-generic/types.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/python3.12/cpython/longintrepr.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
-
 /usr/include/ctype.h:
 
 rosidl_generator_c/dobot_msgs/action/detail/point_to_point__type_support.h:
@@ -682,25 +722,21 @@ rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__type_support.h:
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_description/type_description__struct.h:
 
-/usr/include/python3.12/bytesobject.h:
+rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.h:
 
-/opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/header__struct.h:
+/usr/include/python3.12/exports.h:
+
+/usr/include/python3.12/cpython/pyframe.h:
+
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/python3.12/cpython/pylifecycle.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/python3.12/cpython/pystate.h:
-
-rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__struct.h:
-
-/usr/include/python3.12/cpython/floatobject.h:
-
-rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.h:
-
-/opt/ros/jazzy/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__struct.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
-
-/usr/include/python3.12/cpython/unicodeobject.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
@@ -752,17 +788,7 @@ rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__functions.h:
 
 /usr/include/x86_64-linux-gnu/bits/stat.h:
 
-/usr/include/python3.12/cpython/methodobject.h:
-
-/opt/ros/jazzy/include/rcutils/rcutils/allocator.h:
-
-/usr/include/python3.12/pyhash.h:
-
 /usr/include/python3.12/pylifecycle.h:
-
-/usr/include/python3.12/pymacconfig.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
 /usr/include/python3.12/pymacro.h:
 
@@ -784,13 +810,11 @@ rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__functions.h:
 
 /usr/include/python3.12/pystats.h:
 
-/usr/include/math.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
 rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__type_support.h:
 
 /usr/include/python3.12/pythonrun.h:
+
+rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h:
 
 /usr/include/python3.12/pythread.h:
 
@@ -812,9 +836,9 @@ rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__type_support.h:
 
 /usr/include/python3.12/tracemalloc.h:
 
-/usr/include/x86_64-linux-gnu/asm/errno.h:
-
 /usr/include/python3.12/cpython/tupleobject.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/python3.12/longobject.h:
 
@@ -900,14 +924,8 @@ rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__type_support.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
-rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__struct.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
 /usr/include/python3.12/typeslots.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/timesize.h:

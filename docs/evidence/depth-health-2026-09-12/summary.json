@@ -1,0 +1,13 @@
+{
+  "samples": 60,
+  "hardware_states": {
+    "SAFETY_UNVERIFIED": 60
+  },
+  "depth_fresh_count": 60,
+  "depth_stable_count": 60,
+  "depth_fps_min": 22.72,
+  "depth_fps_max": 25.53,
+  "blockers": [
+    "SAFETY_SIGNAL_UNAVAILABLE: the driver exposes no hardware E-stop/safety state"
+  ]
+}

@@ -15,5 +15,7 @@ dobot_msgs/msg/_gripper_status.py
 dobot_msgs/srv/__init__.py
 dobot_msgs/srv/_evaluate_ptp_trajectory.py
 dobot_msgs/srv/_execute_homing_procedure.py
+dobot_msgs/srv/_get_ptp_common_params.py
 dobot_msgs/srv/_gripper_control.py
+dobot_msgs/srv/_set_ptp_common_params.py
 dobot_msgs/srv/_suction_cup_control.py

@@ -76,6 +76,6 @@ CMakeFiles/orbbec_camera_msgs__rosidl_generator_c.dir/rosidl_generator_c/orbbec_
  /usr/include/strings.h \
  /opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/time__functions.h \
  /opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/rosidl_generator_c__visibility_control.h \
+ /home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_generator_c/orbbec_camera_msgs/msg/detail/stream_profile__functions.h \
  /opt/ros/jazzy/include/service_msgs/service_msgs/msg/detail/service_event_info__functions.h \
- /opt/ros/jazzy/include/service_msgs/service_msgs/msg/rosidl_generator_c__visibility_control.h \
- /home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_generator_c/orbbec_camera_msgs/msg/detail/stream_profile__functions.h
+ /opt/ros/jazzy/include/service_msgs/service_msgs/msg/rosidl_generator_c__visibility_control.h

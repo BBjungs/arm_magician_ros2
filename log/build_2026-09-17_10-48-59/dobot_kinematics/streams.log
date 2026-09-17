@@ -1,0 +1,18 @@
+[9.668s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_kinematics': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_description:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_kinematics/build --no-deps symlink_data
+[11.680s] running develop
+[13.000s] running egg_info
+[13.129s] writing dobot_kinematics.egg-info/PKG-INFO
+[13.131s] writing dependency_links to dobot_kinematics.egg-info/dependency_links.txt
+[13.131s] writing entry points to dobot_kinematics.egg-info/entry_points.txt
+[13.135s] writing requirements to dobot_kinematics.egg-info/requires.txt
+[13.135s] writing top-level names to dobot_kinematics.egg-info/top_level.txt
+[13.380s] reading manifest file 'dobot_kinematics.egg-info/SOURCES.txt'
+[13.380s] writing manifest file 'dobot_kinematics.egg-info/SOURCES.txt'
+[13.613s] running build_ext
+[13.613s] Creating /home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages/dobot-kinematics.egg-link (link to .)
+[13.613s] Installing trajectory_validator_client script to /home/bbcontact/magician_ros2/install/dobot_kinematics/lib/dobot_kinematics
+[13.614s] Installing trajectory_validator_server script to /home/bbcontact/magician_ros2/install/dobot_kinematics/lib/dobot_kinematics
+[13.614s] 
+[13.615s] Installed /home/bbcontact/magician_ros2/build/dobot_kinematics
+[13.615s] running symlink_data
+[13.645s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_kinematics' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_description:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_kinematics/build --no-deps symlink_data

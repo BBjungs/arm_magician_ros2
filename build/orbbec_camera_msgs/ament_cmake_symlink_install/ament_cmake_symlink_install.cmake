@@ -405,9 +405,6 @@ include("/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/ament_cmake_syml
 # install("TARGETS" "orbbec_camera_msgs_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/orbbec_camera_msgs")
 include("/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/ament_cmake_symlink_install_targets_2_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(FILES "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/ament_cmake_index/share/ament_index/resource_index/rust_packages/orbbec_camera_msgs" "DESTINATION" "share/ament_index/resource_index/rust_packages")
-ament_cmake_symlink_install_files("/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs" FILES "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/ament_cmake_index/share/ament_index/resource_index/rust_packages/orbbec_camera_msgs" "DESTINATION" "share/ament_index/resource_index/rust_packages")
-
 # install(DIRECTORY "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_generator_rs/orbbec_camera_msgs/rust" "DESTINATION" "share/orbbec_camera_msgs")
 ament_cmake_symlink_install_directory("/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera_msgs" DIRECTORY "/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_generator_rs/orbbec_camera_msgs/rust" "DESTINATION" "share/orbbec_camera_msgs")
 

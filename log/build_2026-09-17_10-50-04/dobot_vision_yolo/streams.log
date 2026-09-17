@@ -1,0 +1,23 @@
+[3.055s] Invoking command in '/home/bbcontact/magician_ros2/build/dobot_vision_yolo': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_yolo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build --no-deps symlink_data
+[3.924s] running develop
+[4.582s] running egg_info
+[4.582s] creating dobot_vision_yolo.egg-info
+[4.655s] writing dobot_vision_yolo.egg-info/PKG-INFO
+[4.655s] writing dependency_links to dobot_vision_yolo.egg-info/dependency_links.txt
+[4.656s] writing entry points to dobot_vision_yolo.egg-info/entry_points.txt
+[4.656s] writing requirements to dobot_vision_yolo.egg-info/requires.txt
+[4.656s] writing top-level names to dobot_vision_yolo.egg-info/top_level.txt
+[4.657s] writing manifest file 'dobot_vision_yolo.egg-info/SOURCES.txt'
+[4.790s] reading manifest file 'dobot_vision_yolo.egg-info/SOURCES.txt'
+[4.791s] writing manifest file 'dobot_vision_yolo.egg-info/SOURCES.txt'
+[4.860s] running build_ext
+[4.860s] Creating /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot-vision-yolo.egg-link (link to .)
+[4.861s] Installing pixel_to_robot_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[4.862s] Installing safety_guard_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[4.862s] Installing target_selector_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[4.863s] Installing vision_pick_place_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[4.863s] Installing yolo_detector_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+[4.863s] 
+[4.863s] Installed /home/bbcontact/magician_ros2/build/dobot_vision_yolo
+[4.863s] running symlink_data
+[4.918s] Invoked command in '/home/bbcontact/magician_ros2/build/dobot_vision_yolo' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/dobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_yolo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/bbcontact/magician_ros2/build/dobot_vision_yolo/build --no-deps symlink_data

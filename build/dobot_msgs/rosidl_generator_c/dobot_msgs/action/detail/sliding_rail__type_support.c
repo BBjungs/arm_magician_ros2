@@ -5,9 +5,9 @@
 #include <string.h>
 
 #include "rosidl_typesupport_interface/macros.h"
-#include "dobot_msgs/action/detail/sliding_rail__functions.h"
 #include "dobot_msgs/action/detail/sliding_rail__type_support.h"
 #include "dobot_msgs/action/detail/sliding_rail__struct.h"
+#include "dobot_msgs/action/detail/sliding_rail__functions.h"
 
 #ifdef __cplusplus
 extern "C"

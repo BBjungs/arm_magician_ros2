@@ -9,6 +9,32 @@ Default safety state:
 - Real motion is blocked unless explicitly enabled.
 - Always use `Preview Pick` and `/api/vision/validate_pick` before real motion.
 
+## Full-system startup order
+
+For a commissioned system, `dobot_auto.launch.py` uses the web integration
+gate. The order is fixed: robot services and fresh joints, live camera,
+synchronized valid RGB-D, live calibration PASS, HOME, then the configured
+observation pose. Check it with:
+
+```bash
+curl http://localhost:8080/api/system/status
+curl -X POST http://localhost:8080/api/system/startup
+```
+
+The startup request verifies calibration but does not issue HOME by default.
+Use the operator screen's **HOME และจุดสังเกต** button once the workcell is
+clear. Enable automatic startup motion only with both explicit launch options:
+
+```text
+startup_auto:=true startup_auto_motion:=true
+```
+
+During `pick_all`, the backend verifies the release, returns to observation,
+and requests a new frame before selecting each subsequent part. It stops safely
+on stale depth, camera/robot loss, calibration loss, an occupied place, an
+unreachable pose, or an unverified pick/release. `POST /api/cancel` is a
+cell-wide STOP and also cancels live calibration.
+
 ## 1. Install Dependencies
 
 ```bash
@@ -128,10 +154,10 @@ Expected result:
 
 Follow [calibration.md](calibration.md). The short version:
 
-1. Print the ArUco board at 100% and verify its 30 mm check ruler.
-2. Place it against the configured table reference/fixture.
-3. Keep the camera, board, and robot still.
-4. Select the camera mode and press `Auto Calibrate` once.
+1. Prepare a textured, non-planar static tabletop scene without fiducials.
+2. Keep the scene unchanged through all training and held-out poses.
+3. Start the guarded markerless calibration workflow.
+4. Check that markerless multi-pose validation reaches PASS.
 
 The system fits and verifies on separate frame sets. A failed attempt preserves
 the last valid calibration.
@@ -149,7 +175,7 @@ curl -X POST http://localhost:8080/api/vision/select_target \
   -H 'Content-Type: application/json' \
   -d '{
     "object_class":"black_cap",
-    "place_id":"tray_A",
+    "place_id":"Zone A",
     "selection_mode":"highest_confidence",
     "manual_id":null,
     "dry_run":true
@@ -264,7 +290,8 @@ curl -X POST http://localhost:8080/api/vision/pick_selected \
     "confirm_real_motion":true,
     "tool_type":"suction",
     "velocity_ratio":0.3,
-    "acceleration_ratio":0.2
+    "acceleration_ratio":0.2,
+    "max_attempts":2
   }'
 ```
 
@@ -275,6 +302,49 @@ curl -X POST http://localhost:8080/api/vision/cancel
 ```
 
 The web page also has `Pick Selected` and `Cancel` buttons. `Pick Selected` stays disabled while `allow_real_motion=false`.
+
+### Automatic pick-and-place behaviour
+
+`/api/vision/pick_selected` performs a suction-only, coarse-to-fine pick. It
+selects the requested class and transforms it to the Dobot base frame, checks
+the safe approach pose, then executes these states:
+
+```text
+TARGET → APPROACH → FINE_ALIGN → DESCEND → SUCTION_ON → LIFT → VERIFY_PICK → DONE_OR_RETRY
+```
+
+After the safe approach, the detector must publish a new frame. The controller
+matches a same-class candidate by its calibrated base pose rather than its
+frame-local detector ID. Reliable depth is used for base-frame fine alignment;
+when depth is invalid or too close, the controller holds Z from robot
+kinematics and applies only a bounded 2-D X/Y visual correction. Corrections
+larger than 8 mm are rejected instead of being commanded.
+
+Descent is segmented into 5 mm moves at a fixed slow speed. After lifting, a
+fresh detection must show the target absent from (or moved away from) its pick
+location. Otherwise suction is disabled, the robot returns to its safe
+approach pose, and the pick is retried. `max_attempts` includes the first try,
+defaults to 2, and is capped at 5. The final failed attempt reports
+`aborted_safely:true`; it never makes an unsafe placement guess.
+
+After a verified pick, the selected zone is inspected with a fresh RGB-D
+observation before any placement descent. The configured canonical zones are
+`Zone A`, `Zone B`, `Zone C`, and `Reject`; legacy `tray_A`, `tray_B`,
+`tray_C`, and `reject_box` names are aliases. Nominal base-frame coordinates
+and safe approach heights are in `config/place_positions.yaml`.
+
+The inspection must explicitly report an unoccupied zone, a stable local
+surface height, and (when available) a bounded fine X/Y correction. Missing,
+stale, malformed, or occupied zone data is unsafe: the controller lifts and
+returns with the part under suction, without descending. A final release is
+accepted only after a fresh RGB-D record reports `release_verified:true`, or
+both `occupied:true` and `placed_object_detected:true`.
+
+The RGB-D detector payload provides this contract per zone:
+
+```json
+{"placement_inspections":{"Zone A":{"occupancy_valid":true,"occupied":false,"surface_valid":true,"surface_height_mm":-35.0,"surface_valid_ratio":0.92,"surface_stddev_mm":1.5,"alignment_valid":true,"fine_xy_correction_mm":[1.2,-0.4]}}}
+```
 
 ## System Inspection Commands
 
@@ -313,9 +383,9 @@ TensorRT engine fails:
 
 Calibration error is high:
 
-- Confirm all four ArUco markers are fully visible and the print ruler is 30 mm.
-- Keep the board, camera, and robot still during the multi-frame capture.
-- Place the board against the correct physical reference/fixture.
+- Keep the rigid natural scene, camera, and robot still during every synchronized capture.
+- Ensure the scene contains enough non-planar RGB-D texture and valid depth.
+- Spread X/Y/Z and J4 yaw across the guarded workspace.
 - Retry Auto Calibrate; a failed retry does not overwrite the last valid result.
 
 Coordinates are outside workspace:

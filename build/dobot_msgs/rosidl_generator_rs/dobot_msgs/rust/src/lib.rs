@@ -2,6 +2,13 @@
 #![allow(clippy::derive_partial_eq_without_eq)]
 #![allow(clippy::upper_case_acronyms)]
 
+#[path = "action.rs"]
+mod action_idiomatic;
+pub mod action {
+    pub use super::action_idiomatic::*;
+    pub mod rmw;
+}
+
 #[path = "msg.rs"]
 mod msg_idiomatic;
 pub mod msg {
@@ -16,9 +23,3 @@ pub mod srv {
     pub mod rmw;
 }
 
-#[path = "action.rs"]
-mod action_idiomatic;
-pub mod action {
-    pub use super::action_idiomatic::*;
-    pub mod rmw;
-}

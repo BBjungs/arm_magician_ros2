@@ -1,0 +1,32 @@
+running develop
+running egg_info
+writing dobot_control_panel.egg-info/PKG-INFO
+writing dependency_links to dobot_control_panel.egg-info/dependency_links.txt
+writing entry points to dobot_control_panel.egg-info/entry_points.txt
+writing requirements to dobot_control_panel.egg-info/requires.txt
+writing top-level names to dobot_control_panel.egg-info/top_level.txt
+reading manifest file 'dobot_control_panel.egg-info/SOURCES.txt'
+writing manifest file 'dobot_control_panel.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages/dobot-control-panel.egg-link (link to .)
+Installing dobot_control_panel script to /home/bbcontact/magician_ros2/install/dobot_control_panel/lib/dobot_control_panel
+
+Installed /home/bbcontact/magician_ros2/build/dobot_control_panel
+running symlink_data
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/dobot_control_panel -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/ament_index/resource_index/packages
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/package.xml -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/DobotControlPanel_layout.ui -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/plugin.xml -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/blue_house.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/cartesian_system.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/coordinate_system.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/dobot_joints_system.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/estop.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/gripper.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/info.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/magician_gui_image.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/settings.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/sliding_rail2.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/stop_rail.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/suction_cup.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_control_panel/resource/images/velocity.png -> /home/bbcontact/magician_ros2/install/dobot_control_panel/share/dobot_control_panel/resource/images

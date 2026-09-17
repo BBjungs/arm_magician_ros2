@@ -1,5 +1,6 @@
 import json
 import time
+from collections import deque
 from pathlib import Path
 
 import cv2
@@ -139,6 +140,10 @@ class ObjectFusionNode(Node):
         self.scale_16u = float(get('depth_scale_16uc1_to_mm'))
         self.minimum_frame_depth_valid_ratio = float(
             get('minimum_frame_depth_valid_ratio'))
+        self.processing_fps = float(get('processing_fps'))
+        if not np.isfinite(self.processing_fps) or self.processing_fps <= 0:
+            raise ValueError('processing_fps must be finite and positive')
+        self.last_processed = 0.0
         self.require_registered = bool(get('require_registered_depth'))
         self.debug = bool(get('debug_enabled'))
         self.annotated_path = str(get('annotated_output_path'))
@@ -149,6 +154,12 @@ class ObjectFusionNode(Node):
         self.detections_pub = self.create_publisher(String, str(get('detections_topic')), 10)
         self.status_pub = self.create_publisher(String, str(get('status_topic')), 10)
         self.last_rgb = self.last_depth = self.last_sync = None
+        self.last_detection_health = ([], self.max_delta + 1, False,
+                                      'waiting_for_synchronized_rgb_depth_camera_info')
+        self.stream_samples = {
+            key: deque(maxlen=300) for key in ('rgb', 'depth', 'info')
+        }
+        self.rgb_payload_valid = False
         self.depth_data_valid = False
         self.depth_frame_valid_ratio = 0.0
         self.count = 0
@@ -161,13 +172,63 @@ class ObjectFusionNode(Node):
         self.sync = message_filters.ApproximateTimeSynchronizer(
             [self.color_sub, self.depth_sub, self.info_sub], queue, self.max_delta / 1000.0)
         self.sync.registerCallback(self.callback)
-        self.create_timer(1.0, self.publish_health)
+        # The downstream calibration depth lease is only 0.5 seconds.
+        self.create_timer(0.1, self.publish_health)
 
-    def _mark_rgb(self, _message):
+    @staticmethod
+    def _stamp(message):
+        return message.header.stamp.sec + message.header.stamp.nanosec * 1e-9
+
+    def _record_stream(self, key, message):
+        self.stream_samples[key].append(
+            (time.monotonic(), self._stamp(message), message.header.frame_id)
+        )
+
+    def _mark_rgb(self, message):
         self.last_rgb = time.monotonic()
+        self._record_stream('rgb', message)
+        channels = {'rgb8': 3, 'bgr8': 3, 'rgba8': 4, 'bgra8': 4, 'mono8': 1}
+        self.rgb_payload_valid = bool(
+            message.width > 0 and message.height > 0
+            and message.encoding in channels
+            and message.step >= message.width * channels[message.encoding]
+            and len(message.data) == message.height * message.step
+        )
 
-    def _mark_depth(self, _message):
+    def _mark_depth(self, message):
         self.last_depth = time.monotonic()
+        self._record_stream('depth', message)
+        # Validate the live image even when synchronized detection stalls.
+        try:
+            raw = self.bridge.imgmsg_to_cv2(message, desired_encoding='passthrough')
+            depth_mm = depth_to_mm(raw, message.encoding, self.scale_16u)
+            valid = (np.isfinite(depth_mm)
+                     & (depth_mm >= float(self.fusion.reject['depth_minimum_mm']))
+                     & (depth_mm <= float(self.fusion.reject['depth_maximum_mm'])))
+            self.depth_frame_valid_ratio = float(np.mean(valid)) if valid.size else 0.0
+            self.depth_data_valid = (
+                self.depth_frame_valid_ratio >= self.minimum_frame_depth_valid_ratio)
+        except Exception:
+            self.depth_frame_valid_ratio = 0.0
+            self.depth_data_valid = False
+
+    def _stream_report(self, key):
+        samples = self.stream_samples[key]
+        if not samples:
+            return {'count': 0, 'fps': 0.0, 'max_gap_ms': None,
+                    'timestamp_valid': False, 'frame_id': ''}
+        arrivals = np.asarray([sample[0] for sample in samples], dtype=float)
+        stamps = np.asarray([sample[1] for sample in samples], dtype=float)
+        gaps = np.diff(stamps)
+        return {
+            'count': len(samples),
+            'fps': round(float((len(arrivals) - 1) / (arrivals[-1] - arrivals[0])), 3)
+            if len(arrivals) > 1 and arrivals[-1] > arrivals[0] else 0.0,
+            'max_gap_ms': round(float(gaps.max() * 1000.0), 3) if len(gaps) else None,
+            'timestamp_valid': bool(len(stamps) and np.all(stamps > 0)
+                                    and (not len(gaps) or np.all(gaps > 0))),
+            'frame_id': samples[-1][2],
+        }
 
     @staticmethod
     def _age_ms(last_seen):
@@ -178,6 +239,10 @@ class ObjectFusionNode(Node):
     def callback(self, color_msg, depth_msg, info_msg):
         now = time.monotonic()
         self.last_sync = now
+        self._record_stream('info', info_msg)
+        if now - self.last_processed < 1.0 / self.processing_fps:
+            return
+        self.last_processed = now
         delta = sync_delta_ms(color_msg, depth_msg, info_msg)
         registered = registered_geometry_ok(color_msg, depth_msg, info_msg)
         if delta > self.max_delta or (self.require_registered and not registered):
@@ -217,29 +282,46 @@ class ObjectFusionNode(Node):
         message = String()
         message.data = json.dumps({'stamp': stamp, 'vision_engine': 'rgbd_shape', 'detections': detections}, separators=(',', ':'))
         self.detections_pub.publish(message)
+        self.last_detection_health = (detections, delta, registered, error)
+        self._publish_status(detections, delta, registered, error)
+
+    def _publish_status(self, detections, delta, registered, error):
+        stamp = self.get_clock().now().nanoseconds / 1e9
         table_values = [item['table_depth_mm'] for item in detections if item.get('table_depth_mm') is not None]
+        rgb_age_ms = self._age_ms(self.last_rgb)
+        depth_age_ms = self._age_ms(self.last_depth)
+        rgb_fresh = rgb_age_ms is not None and rgb_age_ms <= 1000.0
+        depth_fresh = depth_age_ms is not None and depth_age_ms <= 1000.0
         status = {
             'stamp': stamp, 'vision_engine': 'rgbd_shape', 'detector_running': True,
-            'rgb_ok': self.last_rgb is not None,
-            'depth_stream_ok': self.last_depth is not None,
-            'depth_data_valid': self.depth_data_valid,
+            'rgb_ok': rgb_fresh,
+            'depth_stream_ok': depth_fresh,
+            'depth_data_valid': bool(self.depth_data_valid and depth_fresh),
             'depth_valid_ratio': round(self.depth_frame_valid_ratio, 4),
-            'depth_ok': self.last_depth is not None and self.depth_data_valid,
-            'camera_info_ok': self.last_sync is not None, 'sync_ok': delta <= self.max_delta and registered,
-            'rgb_age_ms': self._age_ms(self.last_rgb),
-            'depth_age_ms': self._age_ms(self.last_depth),
+            'depth_ok': bool(depth_fresh and self.depth_data_valid),
+            'camera_info_ok': self.last_sync is not None, 'sync_ok': bool(
+                rgb_fresh and depth_fresh and delta <= self.max_delta and registered),
+            'rgb_age_ms': rgb_age_ms,
+            'depth_age_ms': depth_age_ms,
             'sync_delta_ms': round(delta, 3), 'registered_depth': registered,
             'detection_count': len(detections),
             'table_depth_mm': round(float(np.median(table_values)), 3) if table_values else None,
             'dry_run': True, 'real_motion': False, 'model_loaded': False,
-            'source_ok': self.last_rgb is not None, 'error': error,
+            'source_ok': rgb_fresh, 'error': error,
             'annotated_image_path': self.annotated_path,
+            'rgb_stream': self._stream_report('rgb'),
+            'depth_stream': self._stream_report('depth'),
+            'camera_info_stream': self._stream_report('info'),
+            'rgb_payload_valid': self.rgb_payload_valid,
+            'rgb_frame_id': self.stream_samples['rgb'][-1][2] if self.stream_samples['rgb'] else '',
+            'depth_frame_id': self.stream_samples['depth'][-1][2] if self.stream_samples['depth'] else '',
         }
         msg = String(); msg.data = json.dumps(status, separators=(',', ':')); self.status_pub.publish(msg)
 
     def publish_health(self):
-        if self.last_sync is None:
-            self._publish([], self.max_delta + 1, False, 'waiting_for_synchronized_rgb_depth_camera_info')
+        # Stream liveness must not depend on completing object detection.
+        # Publish health only; never reissue cached detections as new targets.
+        self._publish_status(*self.last_detection_health)
 
 
 def main(args=None):

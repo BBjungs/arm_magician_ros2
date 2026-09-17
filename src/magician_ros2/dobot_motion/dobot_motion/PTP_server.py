@@ -5,7 +5,7 @@ import time
 from dobot_driver.dobot_handle import bot
 from dobot_msgs.action import PointToPoint
 from dobot_msgs.msg import DobotAlarmCodes
-from dobot_msgs.srv import EvaluatePTPTrajectory
+from dobot_msgs.srv import EvaluatePTPTrajectory, GetPTPCommonParams, SetPTPCommonParams
 import rclpy
 from rcl_interfaces.msg import SetParametersResult
 from rclpy.action import ActionServer, CancelResponse, GoalResponse
@@ -52,6 +52,10 @@ class DobotPTPServer(Node):
             goal_callback=self.goal_callback,
             cancel_callback=self.cancel_callback,
         )
+        self.create_service(GetPTPCommonParams, '/dobot/get_ptp_common_params',
+                            self.get_ptp_common_params_callback, callback_group=callback_group)
+        self.create_service(SetPTPCommonParams, '/dobot/set_ptp_common_params',
+                            self.set_ptp_common_params_callback, callback_group=callback_group)
 
         self.create_subscription(
             JointState,
@@ -240,6 +244,43 @@ class DobotPTPServer(Node):
     @staticmethod
     def is_ratio_valid(ratio):
         return 0.0 < ratio <= 1.0 and int(ratio * 100) != 0
+
+    def get_ptp_common_params_callback(self, request, response):
+        """Read-only command 83 through the existing locked driver transport."""
+        try:
+            values = bot.get_point_to_point_common_params()
+            if values is None or len(values) < 2:
+                raise TimeoutError('No PTP common-parameter response')
+            velocity, acceleration = int(values[0]), int(values[1])
+            if not (1 <= velocity <= 100 and 1 <= acceleration <= 100):
+                raise ValueError('Controller returned invalid PTP common parameters')
+            response.success = True
+            response.velocity_percent = response.raw_velocity_percent = velocity
+            response.acceleration_percent = response.raw_acceleration_percent = acceleration
+            response.timed_out, response.error = False, ''
+        except TimeoutError as error:
+            response.success, response.timed_out, response.error = False, True, str(error)
+        except Exception as error:
+            response.success, response.timed_out, response.error = False, False, str(error)
+        return response
+
+    def set_ptp_common_params_callback(self, request, response):
+        velocity, acceleration = int(request.velocity_percent), int(request.acceleration_percent)
+        if not (1 <= velocity <= 100 and 1 <= acceleration <= 100):
+            response.success = response.acknowledged = False
+            response.timed_out, response.error = False, 'velocity_percent and acceleration_percent must be 1..100'
+            return response
+        try:
+            bot.set_point_to_point_common_params(velocity, acceleration)
+            response.success = response.acknowledged = True
+            response.timed_out, response.error = False, ''
+        except TimeoutError as error:
+            response.success = response.acknowledged = False
+            response.timed_out, response.error = True, str(error)
+        except Exception as error:
+            response.success = response.acknowledged = False
+            response.timed_out, response.error = False, str(error)
+        return response
 
     def goal_callback(self, goal_request):
         """Accept one validated motion goal at a time."""

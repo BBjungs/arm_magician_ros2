@@ -1,14 +1,21 @@
 [Unit]
 Description=Dobot Magician control stack, Orbbec Gemini, and web interface
+StartLimitIntervalSec=120
+StartLimitBurst=3
 
 [Service]
 Type=simple
-WorkingDirectory=%h/magician_ros2
-EnvironmentFile=%h/magician_ros2/config/dobot-autostart.env
-ExecStart=%h/magician_ros2/scripts/start_dobot_autostart.sh
+WorkingDirectory=/home/bbcontact/magician_ros2
+EnvironmentFile=/home/bbcontact/magician_ros2/config/dobot-autostart.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/bbcontact/magician_ros2/scripts/start_dobot_autostart.sh
 Restart=on-failure
-RestartSec=5
-TimeoutStopSec=20
+RestartSec=10
+TimeoutStartSec=120
+TimeoutStopSec=30
+KillMode=control-group
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=default.target

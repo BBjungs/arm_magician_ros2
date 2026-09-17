@@ -20,12 +20,15 @@ class Solution:
     metrics: dict
     observability: dict
     training_poses: np.ndarray
+    command_training_poses: np.ndarray | None = None
 
 
 def excitation(captures, limits=Limits(), min_count=6):
     if len(captures) < min_count:
         raise CalibrationError('Insufficient independent robot poses')
-    poses = np.array([c.base_T_tool for c in captures])
+    if len({c.base_T_carrier is None for c in captures}) != 1:
+        raise CalibrationError("Mixed TCP and camera-carrier observations")
+    poses = np.array([c.calibration_pose for c in captures])
     stamps = [c.stamp for c in captures]
     if len(set(stamps)) != len(stamps):
         raise CalibrationError('Repeated capture timestamps')
@@ -41,9 +44,9 @@ def excitation(captures, limits=Limits(), min_count=6):
         raise CalibrationError('Insufficient translation/yaw excitation')
     if not np.allclose(poses[:, :3, 2], [0, 0, 1], atol=0.01):
         raise CalibrationError('Robot motion is not the expected Magician XYZ/yaw kinematics')
-    return {'rotation_axis_rank': 1, 'free_parameter_count': 5,
-            'unobservable_component': 'tool_translation_z',
-            'axial_constraint': 'verified_mount_model',
+    return {'rotation_axis_rank': 1, 'free_parameter_count': 3,
+            'fixed_parameters': 'tool_translation_xyz',
+            'translation_constraint': 'as_built_measured_mount',
             'translation_singular_values_m': spread.tolist(),
             'yaw_span_deg': float(np.rad2deg(np.ptp(yaw)))}
 
@@ -60,9 +63,9 @@ def collect_pairs(captures, limits=Limits()):
 def quality_metrics(captures, pairs, value, limits=Limits()):
     translations, rotations, clouds, fitness, registration_rmse = [], [], [], [], []
     plane_offsets, plane_angles = [], []
-    planes = [transform_plane(c.base_T_tool @ value, c.plane) for c in captures]
+    planes = [transform_plane(c.calibration_pose @ value, c.plane) for c in captures]
     for i, j, pair in pairs:
-        a = inverse(captures[i].base_T_tool) @ captures[j].base_T_tool
+        a = inverse(captures[i].calibration_pose) @ captures[j].calibration_pose
         delta = inverse(a @ value) @ (value @ pair.first_T_second)
         translations.append(np.linalg.norm(delta[:3, 3]))
         rotations.append(rotation_deg(delta[:3, :3]))
@@ -110,27 +113,34 @@ def require_quality(metrics, limits=Limits()):
 
 
 def require_mount_agreement(value, mount, limits=Limits()):
-    distance, angle = pose_distance(value, mount.tool_T_camera)
-    if (abs(value[2, 3] - mount.tool_T_camera[2, 3]) > 1e-9
-            or distance > limits.max_mount_deviation_m or angle > limits.max_mount_deviation_deg):
-        raise CalibrationError('Solution disagrees with the trusted mount constraint')
+    internal = getattr(mount, 'camera_reference_T_optical', np.eye(4))
+    measured_reference = (mount.tool_T_camera @ inverse(internal)
+                          if not hasattr(mount, 'tool_T_camera_reference')
+                          else mount.tool_T_camera_reference)
+    solved_reference = value @ inverse(internal)
+    if not np.allclose(
+            solved_reference[:3, 3], measured_reference[:3, 3], atol=1e-9):
+        raise CalibrationError('Solution disagrees with fixed measured translation')
 
 
 def solve(captures, mount, limits=Limits(), pairs=None):
     observable = excitation(captures, limits)
     pairs = collect_pairs(captures, limits) if pairs is None else pairs
-    initial = np.r_[Rotation.from_matrix(mount.tool_T_camera[:3, :3]).as_rotvec(),
-                    mount.tool_T_camera[:2, 3]]
+    internal = getattr(mount, 'camera_reference_T_optical', np.eye(4))
+    initial_reference = mount.tool_T_camera @ inverse(internal)
+    initial = Rotation.from_matrix(initial_reference[:3, :3]).as_rotvec()
 
     def unpack(parameters):
-        return transform(Rotation.from_rotvec(parameters[:3]).as_matrix(),
-                         np.r_[parameters[3:], mount.tool_T_camera[2, 3]])
+        rotation = Rotation.from_rotvec(parameters).as_matrix()
+        if hasattr(mount, 'compose_optical'):
+            return mount.compose_optical(rotation)
+        return transform(rotation, mount.tool_T_camera[:3, 3]) @ internal
 
     def residuals(parameters, refine=False):
         value = unpack(parameters)
         parts = []
         for i, j, pair in pairs:
-            a = inverse(captures[i].base_T_tool) @ captures[j].base_T_tool
+            a = inverse(captures[i].calibration_pose) @ captures[j].calibration_pose
             delta = inverse(a @ value) @ value @ pair.first_T_second
             parts.extend([delta[:3, 3] / 0.003,
                           Rotation.from_matrix(delta[:3, :3]).as_rotvec() / np.deg2rad(1)])
@@ -142,8 +152,8 @@ def solve(captures, mount, limits=Limits(), pairs=None):
                 indices = np.linspace(0, len(pair.source) - 1, count).astype(int)
                 errors = apply(predicted, pair.source[indices]) - pair.target[indices]
                 parts.append(errors.ravel() / (0.004 * np.sqrt(count)))
-                p1 = transform_plane(captures[i].base_T_tool @ value, captures[i].plane)
-                p2 = transform_plane(captures[j].base_T_tool @ value, captures[j].plane)
+                p1 = transform_plane(captures[i].calibration_pose @ value, captures[i].plane)
+                p2 = transform_plane(captures[j].calibration_pose @ value, captures[j].plane)
                 if p1[:3] @ p2[:3] < 0:
                     p2 = -p2
                 parts.extend([(p1[:3] - p2[:3]) / np.deg2rad(1),
@@ -156,24 +166,24 @@ def solve(captures, mount, limits=Limits(), pairs=None):
                         max_nfev=250, x_scale='jac') if fit.success else fit
     if not fit.success or not np.isfinite(fit.x).all():
         raise CalibrationError('Constrained hand-eye optimization did not converge')
-    # Scale translation columns to a 10 mm perturbation before testing conditioning. Compute
-    # rank from motion evidence alone so plane terms cannot hide a missing DOF.
+    # Translation is fixed by the as-built measurement. Compute rotation rank
+    # from motion evidence alone so plane terms cannot hide a missing DOF.
     eps = 1e-6
-    jacobian = np.column_stack([(residuals(fit.x + np.eye(5)[i] * eps)
-                                - residuals(fit.x - np.eye(5)[i] * eps)) / (2 * eps)
-                               for i in range(5)])
-    jacobian[:, 3:] *= 0.01
+    jacobian = np.column_stack([(residuals(fit.x + np.eye(3)[i] * eps)
+                                - residuals(fit.x - np.eye(3)[i] * eps)) / (2 * eps)
+                               for i in range(3)])
     singular = np.linalg.svd(jacobian, compute_uv=False)
     if singular[-1] < 1e-4 or singular[0] / singular[-1] > 10000:
-        raise CalibrationError('Remaining five calibration parameters are not observable')
+        raise CalibrationError('Mount rotation is not observable')
     value = unpack(fit.x)
     require_mount_agreement(value, mount, limits)
     metrics = quality_metrics(captures, pairs, value, limits)
     require_quality(metrics, limits)
     observable.update({'motion_jacobian_singular_values': singular.tolist(),
-                       'axial_sigma_m': mount.axial_sigma_m,
+                       'translation_error_bound_m': mount.translation_error_bound_m,
                        'mount_source': mount.source})
-    return Solution(value, metrics, observable, np.array([c.base_T_tool for c in captures]))
+    return Solution(value, metrics, observable, np.array([c.calibration_pose for c in captures]),
+                    np.array([c.base_T_tool for c in captures]))
 
 
 def verify(solution, anchor, captures, mount, limits=Limits(), pairs=None):
@@ -181,12 +191,14 @@ def verify(solution, anchor, captures, mount, limits=Limits(), pairs=None):
     metrics = {}
     try:
         require_mount_agreement(solution.tool_T_camera, mount, limits)
+        if any((c.base_T_carrier is None) != (anchor.base_T_carrier is None) for c in captures):
+            raise CalibrationError("Mixed TCP and camera-carrier verification observations")
         excitation(captures, limits, min_count=3)
         for capture in captures:
             if capture.stamp <= anchor.stamp:
                 raise CalibrationError('Verification must use fresh captures')
             for training in solution.training_poses:
-                distance, angle = pose_distance(capture.base_T_tool, training)
+                distance, angle = pose_distance(capture.calibration_pose, training)
                 if distance < 0.008 and angle < 4:
                     raise CalibrationError('Verification pose overlaps a calibration pose')
         observations = [anchor, *captures]

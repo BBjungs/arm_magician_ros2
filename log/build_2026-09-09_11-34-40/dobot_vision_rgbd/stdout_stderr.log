@@ -1,0 +1,23 @@
+running egg_info
+writing ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/PKG-INFO
+writing dependency_links to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/dependency_links.txt
+writing entry points to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/entry_points.txt
+writing requirements to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/requires.txt
+writing top-level names to ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/top_level.txt
+reading manifest file '../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/SOURCES.txt'
+writing manifest file '../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info/SOURCES.txt'
+running build
+running build_py
+copying dobot_vision_rgbd/object_fusion_node.py -> /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd
+running install
+running install_lib
+copying /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/build/lib/dobot_vision_rgbd/object_fusion_node.py -> /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd
+byte-compiling /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/object_fusion_node.py to object_fusion_node.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd-0.1.0-py3.12.egg-info' (and everything under it)
+Copying ../../../build/dobot_vision_rgbd/dobot_vision_rgbd.egg-info to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd-0.1.0-py3.12.egg-info
+running install_scripts
+Installing camera_health_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd
+Installing object_fusion_node script to /home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/dobot_vision_rgbd
+writing list of installed files to '/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/install.log'

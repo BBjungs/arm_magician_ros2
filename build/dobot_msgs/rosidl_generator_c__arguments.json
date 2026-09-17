@@ -12,7 +12,9 @@
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/EvaluatePTPTrajectory.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/ExecuteHomingProcedure.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/GripperControl.idl",
-    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SuctionCupControl.idl"
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SuctionCupControl.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/GetPTPCommonParams.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs:srv/SetPTPCommonParams.idl"
   ],
   "ros_interface_files": [
     "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/action/PointToPoint.action",
@@ -24,7 +26,9 @@
     "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/EvaluatePTPTrajectory.srv",
     "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/ExecuteHomingProcedure.srv",
     "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/GripperControl.srv",
-    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SuctionCupControl.srv"
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SuctionCupControl.srv",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/GetPTPCommonParams.srv",
+    "/home/bbcontact/magician_ros2/src/magician_ros2/dobot_msgs/srv/SetPTPCommonParams.srv"
   ],
   "ros_interface_dependencies": [
     "std_msgs:/opt/ros/jazzy/share/std_msgs/msg/Bool.idl",
@@ -129,6 +133,8 @@
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/ExecuteHomingProcedure.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/GripperControl.idl",
     "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/SuctionCupControl.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/GetPTPCommonParams.idl",
+    "/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_adapter/dobot_msgs/srv/SetPTPCommonParams.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/Bool.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/Byte.idl",
     "/opt/ros/jazzy/share/std_msgs/msg/ByteMultiArray.idl",
@@ -211,6 +217,8 @@
     "srv/EvaluatePTPTrajectory.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/EvaluatePTPTrajectory.json",
     "srv/ExecuteHomingProcedure.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/ExecuteHomingProcedure.json",
     "srv/GripperControl.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/GripperControl.json",
-    "srv/SuctionCupControl.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json"
+    "srv/SuctionCupControl.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json",
+    "srv/GetPTPCommonParams.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json",
+    "srv/SetPTPCommonParams.idl:/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json"
   ]
 }

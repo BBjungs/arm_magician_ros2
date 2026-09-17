@@ -5,8 +5,8 @@
 #include <string.h>
 
 #include "rosidl_typesupport_interface/macros.h"
-#include "orbbec_camera_msgs/msg/detail/extrinsics__type_support.h"
 #include "orbbec_camera_msgs/msg/detail/extrinsics__struct.h"
+#include "orbbec_camera_msgs/msg/detail/extrinsics__type_support.h"
 #include "orbbec_camera_msgs/msg/detail/extrinsics__functions.h"
 
 #ifdef __cplusplus

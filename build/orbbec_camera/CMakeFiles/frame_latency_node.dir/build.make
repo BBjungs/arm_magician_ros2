@@ -143,7 +143,7 @@ frame_latency_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport
 frame_latency_node: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
 frame_latency_node: /opt/ros/jazzy/lib/librmw.so
 frame_latency_node: /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
-frame_latency_node: /opt/ros/jazzy/lib/libfastcdr.so.2.2.7
+frame_latency_node: /opt/ros/jazzy/lib/libfastcdr.so.2.2.8
 frame_latency_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
 frame_latency_node: /opt/ros/jazzy/lib/librosidl_typesupport_introspection_cpp.so
 frame_latency_node: /opt/ros/jazzy/lib/librosidl_typesupport_introspection_c.so

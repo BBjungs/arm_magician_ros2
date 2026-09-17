@@ -1,0 +1,32 @@
+running develop
+running egg_info
+writing dobot_vision_yolo.egg-info/PKG-INFO
+writing dependency_links to dobot_vision_yolo.egg-info/dependency_links.txt
+writing entry points to dobot_vision_yolo.egg-info/entry_points.txt
+writing requirements to dobot_vision_yolo.egg-info/requires.txt
+writing top-level names to dobot_vision_yolo.egg-info/top_level.txt
+reading manifest file 'dobot_vision_yolo.egg-info/SOURCES.txt'
+writing manifest file 'dobot_vision_yolo.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages/dobot-vision-yolo.egg-link (link to .)
+Installing camera_calibration_tool script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing eye_in_hand_calibration_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing pixel_to_robot_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing safety_guard_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing target_selector_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing vision_pick_place_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+Installing yolo_detector_node script to /home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/dobot_vision_yolo
+
+Installed /home/bbcontact/magician_ros2/build/dobot_vision_yolo
+running symlink_data
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/resource/dobot_vision_yolo -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/ament_index/resource_index/packages
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/package.xml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/README.md -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/launch/vision_pick_place.launch.py -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/launch
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/config/camera_intrinsics.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/config/aruco_board.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/config/camera_to_robot.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/config/eye_in_hand.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/config/place_positions.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/config/workspace.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_vision_yolo/config/yolo.yaml -> /home/bbcontact/magician_ros2/install/dobot_vision_yolo/share/dobot_vision_yolo/config

@@ -10,8 +10,11 @@ The default mode is safe: `dry_run=true` and real motion remains disabled unless
 - `target_selector_node`: selects a detection by class/place/mode.
 - `pixel_to_robot_node`: adds calibrated `robot_xy`.
 - `vision_pick_place_node`: creates dry-run previews and guarded real execution when explicitly enabled.
-- `camera_calibration_tool`: performs multi-frame ArUco calibration, independent
-  holdout/cross-validation, and fail-safe homography persistence.
+- `automatic_pick`: transport-independent coarse-to-fine suction controller used by the real web pick path; it re-detects after approach, bounds visual X/Y corrections, descends slowly, verifies the lifted pick, and safely retries.
+- `automatic_placement`: fail-closed RGB-D placement controller; it rejects occupied, stale, or uncertain zones before descent and verifies release after lifting.
+- Calibration is not solved in this package. Production consumes the verified
+  markerless hand-eye bundle and live `/calibration/status` from
+  `dobot_calibration`.
 - `safety_guard_node`: validates workspace and safety state.
 
 ## Build

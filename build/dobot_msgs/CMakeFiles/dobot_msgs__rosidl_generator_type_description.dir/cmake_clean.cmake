@@ -8,7 +8,9 @@ file(REMOVE_RECURSE
   "rosidl_generator_type_description/dobot_msgs/msg/GripperStatus.json"
   "rosidl_generator_type_description/dobot_msgs/srv/EvaluatePTPTrajectory.json"
   "rosidl_generator_type_description/dobot_msgs/srv/ExecuteHomingProcedure.json"
+  "rosidl_generator_type_description/dobot_msgs/srv/GetPTPCommonParams.json"
   "rosidl_generator_type_description/dobot_msgs/srv/GripperControl.json"
+  "rosidl_generator_type_description/dobot_msgs/srv/SetPTPCommonParams.json"
   "rosidl_generator_type_description/dobot_msgs/srv/SuctionCupControl.json"
 )
 

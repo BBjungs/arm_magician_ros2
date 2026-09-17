@@ -1,0 +1,1310 @@
+[0.000000] (-) TimerEvent: {}
+[0.000144] (-) JobUnselected: {'identifier': 'dobot_bringup'}
+[0.000264] (-) JobUnselected: {'identifier': 'dobot_calibration'}
+[0.000333] (-) JobUnselected: {'identifier': 'dobot_control_panel'}
+[0.000403] (-) JobUnselected: {'identifier': 'dobot_demos'}
+[0.000458] (-) JobUnselected: {'identifier': 'dobot_description'}
+[0.000517] (-) JobUnselected: {'identifier': 'dobot_diagnostics'}
+[0.000570] (-) JobUnselected: {'identifier': 'dobot_driver'}
+[0.000618] (-) JobUnselected: {'identifier': 'dobot_end_effector'}
+[0.000663] (-) JobUnselected: {'identifier': 'dobot_homing'}
+[0.000705] (-) JobUnselected: {'identifier': 'dobot_kinematics'}
+[0.000743] (-) JobUnselected: {'identifier': 'dobot_object_vision'}
+[0.000781] (-) JobUnselected: {'identifier': 'dobot_state_updater'}
+[0.000816] (-) JobUnselected: {'identifier': 'dobot_vision_rgbd'}
+[0.000858] (-) JobUnselected: {'identifier': 'dobot_vision_yolo'}
+[0.000898] (-) JobUnselected: {'identifier': 'dobot_visualization_tools'}
+[0.000953] (-) JobUnselected: {'identifier': 'dobot_web_interface'}
+[0.000990] (-) JobUnselected: {'identifier': 'orbbec_camera'}
+[0.001031] (-) JobUnselected: {'identifier': 'orbbec_camera_msgs'}
+[0.001067] (-) JobUnselected: {'identifier': 'orbbec_description'}
+[0.001121] (dobot_msgs) JobQueued: {'identifier': 'dobot_msgs', 'dependencies': OrderedDict()}
+[0.001171] (dobot_motion) JobQueued: {'identifier': 'dobot_motion', 'dependencies': OrderedDict({'dobot_driver': '/home/bbcontact/magician_ros2/install/dobot_driver', 'dobot_msgs': '/home/bbcontact/magician_ros2/install/dobot_msgs'})}
+[0.001247] (dobot_msgs) JobStarted: {'identifier': 'dobot_msgs'}
+[0.028745] (dobot_msgs) JobProgress: {'identifier': 'dobot_msgs', 'progress': 'cmake'}
+[0.030263] (dobot_msgs) JobProgress: {'identifier': 'dobot_msgs', 'progress': 'build'}
+[0.031752] (dobot_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bbcontact/magician_ros2/build/dobot_msgs', '--', '-j8', '-l8'], 'cwd': '/home/bbcontact/magician_ros2/build/dobot_msgs', 'env': OrderedDict({'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.40.23 57253 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/0', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8787/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '560', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0XJVHOw:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_VERSION': '0.154.0', 'CODEX_SESSION_ID': '01a0ad95-e752-70b1-8cba-0fcb05f3e48c', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a0ad95-e752-70b1-8cba-0fcb05f3e48c', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/dobot_msgs', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.40.23 57253 172.30.40.68 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib/python:/opt/ros/jazzy/opt/sdformat_vendor/lib/python:/opt/ros/jazzy/opt/gz_transport_vendor/lib/python:/opt/ros/jazzy/opt/gz_msgs_vendor/lib/python:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.098615] (-) TimerEvent: {}
+[0.126035] (dobot_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.198696] (-) TimerEvent: {}
+[0.299378] (-) TimerEvent: {}
+[0.399671] (-) TimerEvent: {}
+[0.410435] (dobot_msgs) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.442664] (dobot_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.451428] (dobot_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.500878] (-) TimerEvent: {}
+[0.593886] (dobot_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.601036] (-) TimerEvent: {}
+[0.701235] (-) TimerEvent: {}
+[0.708224] (dobot_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[0.716331] (dobot_msgs) StdoutLine: {'line': b'-- Found std_msgs: 5.3.8 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[0.794741] (dobot_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[0.801326] (-) TimerEvent: {}
+[0.901519] (-) TimerEvent: {}
+[1.001743] (-) TimerEvent: {}
+[1.101966] (-) TimerEvent: {}
+[1.202166] (-) TimerEvent: {}
+[1.302378] (-) TimerEvent: {}
+[1.402551] (-) TimerEvent: {}
+[1.502726] (-) TimerEvent: {}
+[1.602979] (-) TimerEvent: {}
+[1.703183] (-) TimerEvent: {}
+[1.803414] (-) TimerEvent: {}
+[1.903629] (-) TimerEvent: {}
+[2.003849] (-) TimerEvent: {}
+[2.071523] (dobot_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[2.104001] (-) TimerEvent: {}
+[2.204249] (-) TimerEvent: {}
+[2.304432] (-) TimerEvent: {}
+[2.404687] (-) TimerEvent: {}
+[2.507262] (-) TimerEvent: {}
+[2.558489] (dobot_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.607370] (-) TimerEvent: {}
+[2.707626] (-) TimerEvent: {}
+[2.807834] (-) TimerEvent: {}
+[2.908028] (-) TimerEvent: {}
+[3.008252] (-) TimerEvent: {}
+[3.108451] (-) TimerEvent: {}
+[3.193053] (dobot_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.196742] (dobot_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[3.208569] (-) TimerEvent: {}
+[3.309056] (-) TimerEvent: {}
+[3.409364] (-) TimerEvent: {}
+[3.509549] (-) TimerEvent: {}
+[3.609792] (-) TimerEvent: {}
+[3.709950] (-) TimerEvent: {}
+[3.810165] (-) TimerEvent: {}
+[3.902423] (dobot_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[3.910260] (-) TimerEvent: {}
+[4.010479] (-) TimerEvent: {}
+[4.110685] (-) TimerEvent: {}
+[4.191888] (dobot_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[4.209287] (dobot_msgs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[4.211043] (-) TimerEvent: {}
+[4.251894] (dobot_msgs) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[4.258997] (dobot_msgs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[4.263512] (dobot_msgs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[4.273688] (dobot_msgs) StdoutLine: {'line': b'-- Configuring done (4.2s)\n'}
+[4.311155] (-) TimerEvent: {}
+[4.411361] (-) TimerEvent: {}
+[4.439652] (dobot_msgs) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[4.478343] (dobot_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/bbcontact/magician_ros2/build/dobot_msgs\n'}
+[4.511460] (-) TimerEvent: {}
+[4.572502] (dobot_msgs) StdoutLine: {'line': b'[  1%] Generating type hashes for ROS interfaces\n'}
+[4.574533] (dobot_msgs) StdoutLine: {'line': b'[  1%] Generating Rust code for ROS interfaces\n'}
+[4.594480] (dobot_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_symlink_dobot_msgs\n'}
+[4.611593] (-) TimerEvent: {}
+[4.712268] (-) TimerEvent: {}
+[4.813120] (-) TimerEvent: {}
+[4.914571] (-) TimerEvent: {}
+[5.015331] (-) TimerEvent: {}
+[5.115546] (-) TimerEvent: {}
+[5.215765] (-) TimerEvent: {}
+[5.315982] (-) TimerEvent: {}
+[5.416185] (-) TimerEvent: {}
+[5.476530] (dobot_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[5.516966] (-) TimerEvent: {}
+[5.579353] (dobot_msgs) StdoutLine: {'line': b'writing dobot_msgs.egg-info/PKG-INFO\n'}
+[5.579821] (dobot_msgs) StdoutLine: {'line': b'writing dependency_links to dobot_msgs.egg-info/dependency_links.txt\n'}
+[5.580271] (dobot_msgs) StdoutLine: {'line': b'writing top-level names to dobot_msgs.egg-info/top_level.txt\n'}
+[5.617075] (-) TimerEvent: {}
+[5.717265] (-) TimerEvent: {}
+[5.817468] (-) TimerEvent: {}
+[5.880436] (dobot_msgs) StdoutLine: {'line': b"reading manifest file 'dobot_msgs.egg-info/SOURCES.txt'\n"}
+[5.882007] (dobot_msgs) StdoutLine: {'line': b"writing manifest file 'dobot_msgs.egg-info/SOURCES.txt'\n"}
+[5.917663] (-) TimerEvent: {}
+[5.962522] (dobot_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_build_dobot_msgs_egg\n'}
+[6.017768] (-) TimerEvent: {}
+[6.119335] (-) TimerEvent: {}
+[6.219496] (-) TimerEvent: {}
+[6.320382] (-) TimerEvent: {}
+[6.415924] (dobot_msgs) StdoutLine: {'line': b'[  1%] Built target dobot_msgs__rosidl_generator_type_description\n'}
+[6.420478] (-) TimerEvent: {}
+[6.450712] (dobot_msgs) StdoutLine: {'line': b'[  2%] Generating C code for ROS interfaces\n'}
+[6.470180] (dobot_msgs) StdoutLine: {'line': b'[  2%] Generating C++ code for ROS interfaces\n'}
+[6.520598] (-) TimerEvent: {}
+[6.620831] (-) TimerEvent: {}
+[6.721154] (-) TimerEvent: {}
+[6.769953] (dobot_msgs) StdoutLine: {'line': b'[  2%] Built target dobot_msgs__rs\n'}
+[6.821278] (-) TimerEvent: {}
+[6.921495] (-) TimerEvent: {}
+[7.021701] (-) TimerEvent: {}
+[7.121900] (-) TimerEvent: {}
+[7.222109] (-) TimerEvent: {}
+[7.322339] (-) TimerEvent: {}
+[7.422542] (-) TimerEvent: {}
+[7.522756] (-) TimerEvent: {}
+[7.622966] (-) TimerEvent: {}
+[7.723294] (-) TimerEvent: {}
+[7.823499] (-) TimerEvent: {}
+[7.923706] (-) TimerEvent: {}
+[8.023908] (-) TimerEvent: {}
+[8.124112] (-) TimerEvent: {}
+[8.224327] (-) TimerEvent: {}
+[8.324524] (-) TimerEvent: {}
+[8.424755] (-) TimerEvent: {}
+[8.524941] (-) TimerEvent: {}
+[8.625154] (-) TimerEvent: {}
+[8.725391] (-) TimerEvent: {}
+[8.825657] (-) TimerEvent: {}
+[8.925874] (-) TimerEvent: {}
+[9.026089] (-) TimerEvent: {}
+[9.126263] (-) TimerEvent: {}
+[9.226477] (-) TimerEvent: {}
+[9.326722] (-) TimerEvent: {}
+[9.426961] (-) TimerEvent: {}
+[9.527208] (-) TimerEvent: {}
+[9.627417] (-) TimerEvent: {}
+[9.727608] (-) TimerEvent: {}
+[9.827808] (-) TimerEvent: {}
+[9.928011] (-) TimerEvent: {}
+[10.028184] (-) TimerEvent: {}
+[10.128405] (-) TimerEvent: {}
+[10.228612] (-) TimerEvent: {}
+[10.328841] (-) TimerEvent: {}
+[10.429081] (-) TimerEvent: {}
+[10.529689] (-) TimerEvent: {}
+[10.633554] (-) TimerEvent: {}
+[10.737001] (-) TimerEvent: {}
+[10.850275] (-) TimerEvent: {}
+[10.936651] (dobot_msgs) StdoutLine: {'line': b'[  2%] Built target dobot_msgs__cpp\n'}
+[10.950390] (-) TimerEvent: {}
+[11.050616] (-) TimerEvent: {}
+[11.150850] (-) TimerEvent: {}
+[11.251022] (-) TimerEvent: {}
+[11.353285] (-) TimerEvent: {}
+[11.457681] (-) TimerEvent: {}
+[11.559274] (-) TimerEvent: {}
+[11.659711] (-) TimerEvent: {}
+[11.759954] (-) TimerEvent: {}
+[11.837260] (dobot_msgs) StdoutLine: {'line': b'[  3%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__functions.c.o\n'}
+[11.841482] (dobot_msgs) StdoutLine: {'line': b'[  3%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__description.c.o\n'}
+[11.846127] (dobot_msgs) StdoutLine: {'line': b'[  4%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__type_support.c.o\n'}
+[11.846591] (dobot_msgs) StdoutLine: {'line': b'[  4%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/point_to_point__description.c.o\n'}
+[11.850305] (dobot_msgs) StdoutLine: {'line': b'[  5%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/dobot_alarm_codes__functions.c.o\n'}
+[11.860084] (-) TimerEvent: {}
+[11.860675] (dobot_msgs) StdoutLine: {'line': b'[  5%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/dobot_alarm_codes__description.c.o\n'}
+[11.863706] (dobot_msgs) StdoutLine: {'line': b'[  6%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__type_support.c.o\n'}
+[11.911595] (dobot_msgs) StdoutLine: {'line': b'[  7%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/action/detail/sliding_rail__functions.c.o\n'}
+[11.963233] (-) TimerEvent: {}
+[12.061214] (dobot_msgs) StdoutLine: {'line': b'[  8%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.c.o\n'}
+[12.070867] (-) TimerEvent: {}
+[12.095040] (dobot_msgs) StdoutLine: {'line': b'[  8%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__description.c.o\n'}
+[12.166548] (dobot_msgs) StdoutLine: {'line': b'[  9%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__functions.c.o\n'}
+[12.170993] (-) TimerEvent: {}
+[12.193715] (dobot_msgs) StdoutLine: {'line': b'[ 10%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target__description.c.o\n'}
+[12.194584] (dobot_msgs) StdoutLine: {'line': b'[ 11%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__type_support.c.o\n'}
+[12.234046] (dobot_msgs) StdoutLine: {'line': b'[ 12%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target__type_support.c.o\n'}
+[12.238784] (dobot_msgs) StdoutLine: {'line': b'[ 12%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target__functions.c.o\n'}
+[12.271109] (-) TimerEvent: {}
+[12.372227] (-) TimerEvent: {}
+[12.380530] (dobot_msgs) StdoutLine: {'line': b'[ 13%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target_array__description.c.o\n'}
+[12.443615] (dobot_msgs) StdoutLine: {'line': b'[ 13%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target_array__functions.c.o\n'}
+[12.459892] (dobot_msgs) StdoutLine: {'line': b'[ 14%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/msg/detail/circle_target_array__type_support.c.o\n'}
+[12.472343] (-) TimerEvent: {}
+[12.501645] (dobot_msgs) StdoutLine: {'line': b'[ 15%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__description.c.o\n'}
+[12.510166] (dobot_msgs) StdoutLine: {'line': b'[ 15%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__functions.c.o\n'}
+[12.517205] (dobot_msgs) StdoutLine: {'line': b'[ 16%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.c.o\n'}
+[12.572465] (-) TimerEvent: {}
+[12.579374] (dobot_msgs) StdoutLine: {'line': b'[ 17%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__description.c.o\n'}
+[12.612431] (dobot_msgs) StdoutLine: {'line': b'[ 17%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__functions.c.o\n'}
+[12.667253] (dobot_msgs) StdoutLine: {'line': b'[ 18%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.c.o\n'}
+[12.672589] (-) TimerEvent: {}
+[12.711087] (dobot_msgs) StdoutLine: {'line': b'[ 19%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__description.c.o\n'}
+[12.733468] (dobot_msgs) StdoutLine: {'line': b'[ 20%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__functions.c.o\n'}
+[12.773261] (-) TimerEvent: {}
+[12.778456] (dobot_msgs) StdoutLine: {'line': b'[ 20%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/gripper_control__type_support.c.o\n'}
+[12.791309] (dobot_msgs) StdoutLine: {'line': b'[ 21%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__description.c.o\n'}
+[12.818318] (dobot_msgs) StdoutLine: {'line': b'[ 22%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__functions.c.o\n'}
+[12.845981] (dobot_msgs) StdoutLine: {'line': b'[ 22%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o\n'}
+[12.873387] (-) TimerEvent: {}
+[12.910897] (dobot_msgs) StdoutLine: {'line': b'[ 23%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__description.c.o\n'}
+[12.976730] (-) TimerEvent: {}
+[13.035783] (dobot_msgs) StdoutLine: {'line': b'[ 24%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__functions.c.o\n'}
+[13.054313] (dobot_msgs) StdoutLine: {'line': b'[ 24%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o\n'}
+[13.077554] (-) TimerEvent: {}
+[13.095128] (dobot_msgs) StdoutLine: {'line': b'[ 25%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__description.c.o\n'}
+[13.154394] (dobot_msgs) StdoutLine: {'line': b'[ 26%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__functions.c.o\n'}
+[13.160887] (dobot_msgs) StdoutLine: {'line': b'[ 26%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_c.dir/rosidl_generator_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o\n'}
+[13.177682] (-) TimerEvent: {}
+[13.277943] (-) TimerEvent: {}
+[13.378125] (-) TimerEvent: {}
+[13.394289] (dobot_msgs) StdoutLine: {'line': b'[ 27%] Linking C shared library libdobot_msgs__rosidl_generator_c.so\n'}
+[13.478235] (-) TimerEvent: {}
+[13.503680] (dobot_msgs) StdoutLine: {'line': b'[ 27%] Built target dobot_msgs__rosidl_generator_c\n'}
+[13.541318] (dobot_msgs) StdoutLine: {'line': b'[ 27%] Generating C type support dispatch for ROS interfaces\n'}
+[13.542584] (dobot_msgs) StdoutLine: {'line': b'[ 28%] Generating C introspection for ROS interfaces\n'}
+[13.545202] (dobot_msgs) StdoutLine: {'line': b'[ 29%] Generating C type support for eProsima Fast-RTPS\n'}
+[13.547248] (dobot_msgs) StdoutLine: {'line': b'[ 30%] Generating C++ introspection for ROS interfaces\n'}
+[13.549806] (dobot_msgs) StdoutLine: {'line': b'[ 31%] Generating C++ type support dispatch for ROS interfaces\n'}
+[13.550467] (dobot_msgs) StdoutLine: {'line': b'[ 31%] Generating C++ type support for eProsima Fast-RTPS\n'}
+[13.578368] (-) TimerEvent: {}
+[13.681209] (-) TimerEvent: {}
+[13.781446] (-) TimerEvent: {}
+[13.883624] (-) TimerEvent: {}
+[13.983939] (-) TimerEvent: {}
+[14.085476] (-) TimerEvent: {}
+[14.185690] (-) TimerEvent: {}
+[14.288579] (-) TimerEvent: {}
+[14.389608] (-) TimerEvent: {}
+[14.489860] (-) TimerEvent: {}
+[14.590109] (-) TimerEvent: {}
+[14.690346] (-) TimerEvent: {}
+[14.790558] (-) TimerEvent: {}
+[14.890743] (-) TimerEvent: {}
+[14.991286] (-) TimerEvent: {}
+[15.094068] (-) TimerEvent: {}
+[15.194276] (-) TimerEvent: {}
+[15.294489] (-) TimerEvent: {}
+[15.394747] (-) TimerEvent: {}
+[15.497452] (-) TimerEvent: {}
+[15.597667] (-) TimerEvent: {}
+[15.697870] (-) TimerEvent: {}
+[15.798074] (-) TimerEvent: {}
+[15.898260] (-) TimerEvent: {}
+[15.999085] (-) TimerEvent: {}
+[16.099894] (-) TimerEvent: {}
+[16.200099] (-) TimerEvent: {}
+[16.301558] (-) TimerEvent: {}
+[16.402231] (-) TimerEvent: {}
+[16.506263] (-) TimerEvent: {}
+[16.606464] (-) TimerEvent: {}
+[16.706668] (-) TimerEvent: {}
+[16.806888] (-) TimerEvent: {}
+[16.907102] (-) TimerEvent: {}
+[17.008024] (-) TimerEvent: {}
+[17.108867] (-) TimerEvent: {}
+[17.209230] (-) TimerEvent: {}
+[17.309441] (-) TimerEvent: {}
+[17.413845] (-) TimerEvent: {}
+[17.514072] (-) TimerEvent: {}
+[17.614264] (-) TimerEvent: {}
+[17.661567] (dobot_msgs) StdoutLine: {'line': b'[ 32%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/action/point_to_point__type_support.cpp.o\n'}
+[17.672985] (dobot_msgs) StdoutLine: {'line': b'[ 32%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/action/sliding_rail__type_support.cpp.o\n'}
+[17.718265] (-) TimerEvent: {}
+[17.724066] (dobot_msgs) StdoutLine: {'line': b'[ 33%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/msg/dobot_alarm_codes__type_support.cpp.o\n'}
+[17.818383] (-) TimerEvent: {}
+[17.912833] (dobot_msgs) StdoutLine: {'line': b'[ 34%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/action/point_to_point__type_support.cpp.o\n'}
+[17.919256] (-) TimerEvent: {}
+[18.019458] (-) TimerEvent: {}
+[18.119673] (-) TimerEvent: {}
+[18.167578] (dobot_msgs) StdoutLine: {'line': b'[ 35%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/action/sliding_rail__type_support.cpp.o\n'}
+[18.220260] (-) TimerEvent: {}
+[18.320495] (-) TimerEvent: {}
+[18.420719] (-) TimerEvent: {}
+[18.496993] (dobot_msgs) StdoutLine: {'line': b'[ 36%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/msg/dobot_alarm_codes__type_support.cpp.o\n'}
+[18.520843] (-) TimerEvent: {}
+[18.622273] (-) TimerEvent: {}
+[18.708557] (dobot_msgs) StdoutLine: {'line': b'[ 36%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/msg/gripper_status__type_support.cpp.o\n'}
+[18.722430] (-) TimerEvent: {}
+[18.822671] (-) TimerEvent: {}
+[18.924260] (-) TimerEvent: {}
+[19.049295] (-) TimerEvent: {}
+[19.151282] (-) TimerEvent: {}
+[19.172791] (dobot_msgs) StdoutLine: {'line': b'[ 37%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/msg/circle_target__type_support.cpp.o\n'}
+[19.251406] (-) TimerEvent: {}
+[19.339341] (dobot_msgs) StdoutLine: {'line': b'[ 38%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/msg/circle_target_array__type_support.cpp.o\n'}
+[19.353316] (-) TimerEvent: {}
+[19.453552] (-) TimerEvent: {}
+[19.550309] (dobot_msgs) StdoutLine: {'line': b'[ 39%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/execute_homing_procedure__type_support.cpp.o\n'}
+[19.553710] (-) TimerEvent: {}
+[19.566549] (dobot_msgs) StdoutLine: {'line': b'[ 39%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/evaluate_ptp_trajectory__type_support.cpp.o\n'}
+[19.655408] (-) TimerEvent: {}
+[19.755654] (-) TimerEvent: {}
+[19.798972] (dobot_msgs) StdoutLine: {'line': b'[ 40%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/gripper_control__type_support.cpp.o\n'}
+[19.859321] (-) TimerEvent: {}
+[19.893386] (dobot_msgs) StdoutLine: {'line': b'[ 40%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/suction_cup_control__type_support.cpp.o\n'}
+[19.962296] (-) TimerEvent: {}
+[20.062553] (-) TimerEvent: {}
+[20.112720] (dobot_msgs) StdoutLine: {'line': b'[ 41%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/msg/gripper_status__type_support.cpp.o\n'}
+[20.162684] (-) TimerEvent: {}
+[20.234649] (dobot_msgs) StdoutLine: {'line': b'[ 42%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/get_ptp_common_params__type_support.cpp.o\n'}
+[20.262815] (-) TimerEvent: {}
+[20.363061] (-) TimerEvent: {}
+[20.463430] (-) TimerEvent: {}
+[20.477386] (dobot_msgs) StdoutLine: {'line': b'[ 43%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o\n'}
+[20.563557] (-) TimerEvent: {}
+[20.663800] (-) TimerEvent: {}
+[20.766038] (-) TimerEvent: {}
+[20.797679] (dobot_msgs) StdoutLine: {'line': b'[ 43%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/action/detail/point_to_point__type_support.cpp.o\n'}
+[20.868268] (-) TimerEvent: {}
+[20.968902] (-) TimerEvent: {}
+[20.999028] (dobot_msgs) StdoutLine: {'line': b'[ 43%] Linking CXX shared library libdobot_msgs__rosidl_typesupport_c.so\n'}
+[21.071267] (-) TimerEvent: {}
+[21.171707] (-) TimerEvent: {}
+[21.272714] (-) TimerEvent: {}
+[21.324316] (dobot_msgs) StdoutLine: {'line': b'[ 44%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/action/detail/point_to_point__type_support.c.o\n'}
+[21.379272] (-) TimerEvent: {}
+[21.381819] (dobot_msgs) StdoutLine: {'line': b'[ 45%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/action/detail/sliding_rail__type_support.cpp.o\n'}
+[21.391567] (dobot_msgs) StdoutLine: {'line': b'[ 45%] Built target dobot_msgs__rosidl_typesupport_c\n'}
+[21.464273] (dobot_msgs) StdoutLine: {'line': b'[ 46%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.cpp.o\n'}
+[21.479397] (-) TimerEvent: {}
+[21.579679] (-) TimerEvent: {}
+[21.679763] (dobot_msgs) StdoutLine: {'line': b'[ 46%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/action/detail/sliding_rail__type_support.c.o\n'}
+[21.681507] (-) TimerEvent: {}
+[21.781708] (-) TimerEvent: {}
+[21.883316] (-) TimerEvent: {}
+[21.983569] (-) TimerEvent: {}
+[22.038568] (dobot_msgs) StdoutLine: {'line': b'[ 47%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/msg/circle_target__type_support.cpp.o\n'}
+[22.083697] (-) TimerEvent: {}
+[22.183933] (-) TimerEvent: {}
+[22.216270] (dobot_msgs) StdoutLine: {'line': b'[ 47%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/msg/detail/gripper_status__type_support.cpp.o\n'}
+[22.225496] (dobot_msgs) StdoutLine: {'line': b'[ 48%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.c.o\n'}
+[22.284260] (-) TimerEvent: {}
+[22.386268] (-) TimerEvent: {}
+[22.486493] (-) TimerEvent: {}
+[22.494502] (dobot_msgs) StdoutLine: {'line': b'[ 49%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/msg/detail/gripper_status__type_support.c.o\n'}
+[22.586635] (-) TimerEvent: {}
+[22.686869] (-) TimerEvent: {}
+[22.787126] (-) TimerEvent: {}
+[22.823389] (dobot_msgs) StdoutLine: {'line': b'[ 50%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/msg/detail/circle_target__type_support.c.o\n'}
+[22.887279] (-) TimerEvent: {}
+[22.988663] (-) TimerEvent: {}
+[23.089131] (-) TimerEvent: {}
+[23.191378] (-) TimerEvent: {}
+[23.244306] (dobot_msgs) StdoutLine: {'line': b'[ 50%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/msg/detail/circle_target_array__type_support.c.o\n'}
+[23.294281] (-) TimerEvent: {}
+[23.394638] (-) TimerEvent: {}
+[23.494903] (-) TimerEvent: {}
+[23.526511] (dobot_msgs) StdoutLine: {'line': b'[ 51%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.c.o\n'}
+[23.595036] (-) TimerEvent: {}
+[23.639471] (dobot_msgs) StdoutLine: {'line': b'[ 52%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support.c.o\n'}
+[23.695171] (-) TimerEvent: {}
+[23.795428] (-) TimerEvent: {}
+[23.867045] (dobot_msgs) StdoutLine: {'line': b'[ 52%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/msg/circle_target_array__type_support.cpp.o\n'}
+[23.898287] (-) TimerEvent: {}
+[23.918042] (dobot_msgs) StdoutLine: {'line': b'[ 53%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/msg/detail/circle_target__type_support.cpp.o\n'}
+[23.998412] (-) TimerEvent: {}
+[24.032790] (dobot_msgs) StdoutLine: {'line': b'[ 53%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/gripper_control__type_support.c.o\n'}
+[24.054330] (dobot_msgs) StdoutLine: {'line': b'[ 54%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/evaluate_ptp_trajectory__type_support.cpp.o\n'}
+[24.099152] (-) TimerEvent: {}
+[24.199387] (-) TimerEvent: {}
+[24.298537] (dobot_msgs) StdoutLine: {'line': b'[ 55%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/suction_cup_control__type_support.c.o\n'}
+[24.302266] (-) TimerEvent: {}
+[24.403746] (-) TimerEvent: {}
+[24.504020] (-) TimerEvent: {}
+[24.604284] (-) TimerEvent: {}
+[24.677543] (dobot_msgs) StdoutLine: {'line': b'[ 56%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support.c.o\n'}
+[24.706919] (-) TimerEvent: {}
+[24.807814] (-) TimerEvent: {}
+[24.844597] (dobot_msgs) StdoutLine: {'line': b'[ 57%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/action/detail/dds_fastrtps/point_to_point__type_support.cpp.o\n'}
+[24.907945] (-) TimerEvent: {}
+[24.924820] (dobot_msgs) StdoutLine: {'line': b'[ 57%] Building C object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support.c.o\n'}
+[25.010270] (-) TimerEvent: {}
+[25.110520] (-) TimerEvent: {}
+[25.165531] (dobot_msgs) StdoutLine: {'line': b'[ 58%] Linking C shared library libdobot_msgs__rosidl_typesupport_introspection_c.so\n'}
+[25.210646] (-) TimerEvent: {}
+[25.310902] (-) TimerEvent: {}
+[25.412288] (-) TimerEvent: {}
+[25.453594] (dobot_msgs) StdoutLine: {'line': b'[ 58%] Built target dobot_msgs__rosidl_typesupport_introspection_c\n'}
+[25.500262] (dobot_msgs) StdoutLine: {'line': b'[ 59%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/msg/detail/circle_target_array__type_support.cpp.o\n'}
+[25.514279] (-) TimerEvent: {}
+[25.614679] (-) TimerEvent: {}
+[25.673258] (dobot_msgs) StdoutLine: {'line': b'[ 60%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.cpp.o\n'}
+[25.714884] (-) TimerEvent: {}
+[25.753892] (dobot_msgs) StdoutLine: {'line': b'[ 60%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/execute_homing_procedure__type_support.cpp.o\n'}
+[25.815006] (-) TimerEvent: {}
+[25.915257] (-) TimerEvent: {}
+[26.015503] (-) TimerEvent: {}
+[26.071403] (dobot_msgs) StdoutLine: {'line': b'[ 61%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/action/detail/dds_fastrtps/sliding_rail__type_support.cpp.o\n'}
+[26.108272] (dobot_msgs) StdoutLine: {'line': b'[ 61%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/point_to_point__type_support_c.cpp.o\n'}
+[26.116856] (-) TimerEvent: {}
+[26.217107] (-) TimerEvent: {}
+[26.317383] (-) TimerEvent: {}
+[26.417642] (-) TimerEvent: {}
+[26.518921] (-) TimerEvent: {}
+[26.601701] (dobot_msgs) StdoutLine: {'line': b'[ 62%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/action/detail/sliding_rail__type_support_c.cpp.o\n'}
+[26.619769] (-) TimerEvent: {}
+[26.720015] (-) TimerEvent: {}
+[26.824101] (-) TimerEvent: {}
+[26.925249] (-) TimerEvent: {}
+[27.025493] (-) TimerEvent: {}
+[27.097293] (dobot_msgs) StdoutLine: {'line': b'[ 63%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/execute_homing_procedure__type_support.cpp.o\n'}
+[27.127747] (-) TimerEvent: {}
+[27.227994] (-) TimerEvent: {}
+[27.328299] (-) TimerEvent: {}
+[27.428552] (-) TimerEvent: {}
+[27.529277] (-) TimerEvent: {}
+[27.629550] (-) TimerEvent: {}
+[27.730703] (-) TimerEvent: {}
+[27.833006] (dobot_msgs) StdoutLine: {'line': b'[ 64%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/msg/detail/dobot_alarm_codes__type_support_c.cpp.o\n'}
+[27.833599] (-) TimerEvent: {}
+[27.933812] (-) TimerEvent: {}
+[28.034079] (-) TimerEvent: {}
+[28.135384] (-) TimerEvent: {}
+[28.236296] (-) TimerEvent: {}
+[28.341811] (-) TimerEvent: {}
+[28.442242] (-) TimerEvent: {}
+[28.545291] (dobot_msgs) StdoutLine: {'line': b'[ 64%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/gripper_control__type_support.cpp.o\n'}
+[28.546154] (-) TimerEvent: {}
+[28.646475] (-) TimerEvent: {}
+[28.746753] (-) TimerEvent: {}
+[28.849295] (-) TimerEvent: {}
+[28.950942] (-) TimerEvent: {}
+[29.057271] (-) TimerEvent: {}
+[29.078678] (dobot_msgs) StdoutLine: {'line': b'[ 65%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/gripper_control__type_support.cpp.o\n'}
+[29.157486] (-) TimerEvent: {}
+[29.258981] (-) TimerEvent: {}
+[29.361365] (-) TimerEvent: {}
+[29.462583] (-) TimerEvent: {}
+[29.566754] (-) TimerEvent: {}
+[29.667019] (-) TimerEvent: {}
+[29.771765] (-) TimerEvent: {}
+[29.841944] (dobot_msgs) StdoutLine: {'line': b'[ 65%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/msg/detail/dds_fastrtps/dobot_alarm_codes__type_support.cpp.o\n'}
+[29.874373] (-) TimerEvent: {}
+[29.974633] (-) TimerEvent: {}
+[30.074930] (-) TimerEvent: {}
+[30.178175] (-) TimerEvent: {}
+[30.278509] (-) TimerEvent: {}
+[30.378781] (-) TimerEvent: {}
+[30.480283] (-) TimerEvent: {}
+[30.582273] (-) TimerEvent: {}
+[30.683755] (-) TimerEvent: {}
+[30.784029] (-) TimerEvent: {}
+[30.884750] (-) TimerEvent: {}
+[30.943329] (dobot_msgs) StdoutLine: {'line': b'[ 66%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/msg/detail/dds_fastrtps/gripper_status__type_support.cpp.o\n'}
+[30.966201] (dobot_msgs) StdoutLine: {'line': b'[ 67%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/msg/detail/gripper_status__type_support_c.cpp.o\n'}
+[30.992534] (-) TimerEvent: {}
+[31.092813] (-) TimerEvent: {}
+[31.194535] (-) TimerEvent: {}
+[31.294794] (-) TimerEvent: {}
+[31.390217] (dobot_msgs) StdoutLine: {'line': b'[ 67%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/msg/detail/circle_target__type_support_c.cpp.o\n'}
+[31.394924] (-) TimerEvent: {}
+[31.495805] (-) TimerEvent: {}
+[31.604292] (dobot_msgs) StdoutLine: {'line': b'[ 68%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/suction_cup_control__type_support.cpp.o\n'}
+[31.605281] (-) TimerEvent: {}
+[31.707330] (-) TimerEvent: {}
+[31.807590] (-) TimerEvent: {}
+[31.907838] (-) TimerEvent: {}
+[31.943439] (dobot_msgs) StdoutLine: {'line': b'[ 69%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/get_ptp_common_params__type_support.cpp.o\n'}
+[32.008267] (dobot_msgs) StdoutLine: {'line': b'[ 70%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/suction_cup_control__type_support.cpp.o\n'}
+[32.008801] (-) TimerEvent: {}
+[32.114307] (-) TimerEvent: {}
+[32.216160] (-) TimerEvent: {}
+[32.320275] (-) TimerEvent: {}
+[32.429796] (-) TimerEvent: {}
+[32.530054] (-) TimerEvent: {}
+[32.630279] (-) TimerEvent: {}
+[32.730534] (-) TimerEvent: {}
+[32.835249] (-) TimerEvent: {}
+[32.935608] (-) TimerEvent: {}
+[33.044741] (-) TimerEvent: {}
+[33.130308] (dobot_msgs) StdoutLine: {'line': b'[ 70%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dobot_msgs/srv/set_ptp_common_params__type_support.cpp.o\n'}
+[33.144885] (-) TimerEvent: {}
+[33.247278] (-) TimerEvent: {}
+[33.347533] (-) TimerEvent: {}
+[33.447783] (-) TimerEvent: {}
+[33.548081] (-) TimerEvent: {}
+[33.649467] (-) TimerEvent: {}
+[33.723776] (dobot_msgs) StdoutLine: {'line': b'[ 70%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/get_ptp_common_params__type_support.cpp.o\n'}
+[33.749602] (-) TimerEvent: {}
+[33.849864] (-) TimerEvent: {}
+[33.950117] (-) TimerEvent: {}
+[34.052935] (-) TimerEvent: {}
+[34.153235] (-) TimerEvent: {}
+[34.256386] (-) TimerEvent: {}
+[34.356637] (-) TimerEvent: {}
+[34.456909] (-) TimerEvent: {}
+[34.565300] (-) TimerEvent: {}
+[34.645105] (dobot_msgs) StdoutLine: {'line': b'[ 71%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/msg/detail/dds_fastrtps/circle_target__type_support.cpp.o\n'}
+[34.665551] (-) TimerEvent: {}
+[34.765808] (-) TimerEvent: {}
+[34.869931] (-) TimerEvent: {}
+[34.971877] (-) TimerEvent: {}
+[35.023735] (dobot_msgs) StdoutLine: {'line': b'[ 72%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/msg/detail/dds_fastrtps/circle_target_array__type_support.cpp.o\n'}
+[35.057857] (dobot_msgs) StdoutLine: {'line': b'[ 73%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/msg/detail/circle_target_array__type_support_c.cpp.o\n'}
+[35.071998] (-) TimerEvent: {}
+[35.172238] (-) TimerEvent: {}
+[35.227647] (dobot_msgs) StdoutLine: {'line': b'[ 74%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/set_ptp_common_params__type_support.cpp.o\n'}
+[35.272392] (-) TimerEvent: {}
+[35.372633] (-) TimerEvent: {}
+[35.473263] (-) TimerEvent: {}
+[35.559044] (dobot_msgs) StdoutLine: {'line': b'[ 75%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support_c.cpp.o\n'}
+[35.574277] (-) TimerEvent: {}
+[35.674511] (-) TimerEvent: {}
+[35.711059] (dobot_msgs) StdoutLine: {'line': b'[ 76%] Linking CXX shared library libdobot_msgs__rosidl_typesupport_cpp.so\n'}
+[35.774639] (-) TimerEvent: {}
+[35.877287] (-) TimerEvent: {}
+[35.977605] (-) TimerEvent: {}
+[36.077857] (-) TimerEvent: {}
+[36.178119] (-) TimerEvent: {}
+[36.180386] (dobot_msgs) StdoutLine: {'line': b'[ 76%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/evaluate_ptp_trajectory__type_support.cpp.o\n'}
+[36.278284] (-) TimerEvent: {}
+[36.380312] (-) TimerEvent: {}
+[36.480586] (-) TimerEvent: {}
+[36.510469] (dobot_msgs) StdoutLine: {'line': b'[ 10%] Built target dobot_msgs__rosidl_typesupport_cpp\n'}
+[36.581238] (-) TimerEvent: {}
+[36.641667] (dobot_msgs) StdoutLine: {'line': b'[ 11%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/execute_homing_procedure__type_support_c.cpp.o\n'}
+[36.683185] (-) TimerEvent: {}
+[36.783650] (-) TimerEvent: {}
+[36.885275] (-) TimerEvent: {}
+[36.985530] (-) TimerEvent: {}
+[37.085788] (-) TimerEvent: {}
+[37.186039] (-) TimerEvent: {}
+[37.290281] (-) TimerEvent: {}
+[37.395291] (-) TimerEvent: {}
+[37.495541] (-) TimerEvent: {}
+[37.597147] (-) TimerEvent: {}
+[37.697423] (-) TimerEvent: {}
+[37.797667] (-) TimerEvent: {}
+[37.804005] (dobot_msgs) StdoutLine: {'line': b'[ 48%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/gripper_control__type_support_c.cpp.o\n'}
+[37.897806] (-) TimerEvent: {}
+[37.998170] (-) TimerEvent: {}
+[38.101274] (-) TimerEvent: {}
+[38.201525] (-) TimerEvent: {}
+[38.301786] (-) TimerEvent: {}
+[38.402043] (-) TimerEvent: {}
+[38.502288] (-) TimerEvent: {}
+[38.602539] (-) TimerEvent: {}
+[38.702787] (-) TimerEvent: {}
+[38.776317] (dobot_msgs) StdoutLine: {'line': b'[ 49%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/suction_cup_control__type_support_c.cpp.o\n'}
+[38.785596] (dobot_msgs) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/execute_homing_procedure__type_support.cpp.o\n'}
+[38.805128] (-) TimerEvent: {}
+[38.805856] (dobot_msgs) StdoutLine: {'line': b'[ 51%] Linking CXX shared library libdobot_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[38.905723] (-) TimerEvent: {}
+[39.006290] (-) TimerEvent: {}
+[39.110715] (-) TimerEvent: {}
+[39.211303] (-) TimerEvent: {}
+[39.311654] (-) TimerEvent: {}
+[39.396932] (dobot_msgs) StdoutLine: {'line': b'[ 59%] Built target dobot_msgs__rosidl_typesupport_introspection_cpp\n'}
+[39.411827] (-) TimerEvent: {}
+[39.467530] (dobot_msgs) StdoutLine: {'line': b'[ 59%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/get_ptp_common_params__type_support_c.cpp.o\n'}
+[39.511963] (-) TimerEvent: {}
+[39.598930] (dobot_msgs) StdoutLine: {'line': b'[ 60%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dobot_msgs/srv/detail/set_ptp_common_params__type_support_c.cpp.o\n'}
+[39.612292] (-) TimerEvent: {}
+[39.712534] (-) TimerEvent: {}
+[39.815776] (-) TimerEvent: {}
+[39.916669] (-) TimerEvent: {}
+[40.017795] (-) TimerEvent: {}
+[40.118265] (-) TimerEvent: {}
+[40.219674] (-) TimerEvent: {}
+[40.323345] (-) TimerEvent: {}
+[40.425421] (-) TimerEvent: {}
+[40.527316] (-) TimerEvent: {}
+[40.627586] (-) TimerEvent: {}
+[40.727940] (-) TimerEvent: {}
+[40.828792] (-) TimerEvent: {}
+[40.929072] (-) TimerEvent: {}
+[41.032279] (-) TimerEvent: {}
+[41.132561] (-) TimerEvent: {}
+[41.239778] (-) TimerEvent: {}
+[41.340853] (-) TimerEvent: {}
+[41.442296] (-) TimerEvent: {}
+[41.543292] (-) TimerEvent: {}
+[41.643551] (-) TimerEvent: {}
+[41.746690] (-) TimerEvent: {}
+[41.846947] (-) TimerEvent: {}
+[41.947239] (-) TimerEvent: {}
+[42.047526] (-) TimerEvent: {}
+[42.147891] (-) TimerEvent: {}
+[42.248131] (-) TimerEvent: {}
+[42.348648] (-) TimerEvent: {}
+[42.448901] (-) TimerEvent: {}
+[42.549144] (-) TimerEvent: {}
+[42.649460] (-) TimerEvent: {}
+[42.736416] (dobot_msgs) StdoutLine: {'line': b'[ 61%] Linking CXX shared library libdobot_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[42.749814] (-) TimerEvent: {}
+[42.850087] (-) TimerEvent: {}
+[42.950393] (-) TimerEvent: {}
+[43.050110] (dobot_msgs) StdoutLine: {'line': b'[ 67%] Built target dobot_msgs__rosidl_typesupport_fastrtps_c\n'}
+[43.050561] (-) TimerEvent: {}
+[43.150771] (-) TimerEvent: {}
+[43.152358] (dobot_msgs) StdoutLine: {'line': b'[ 68%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/set_ptp_common_params__type_support.cpp.o\n'}
+[43.250911] (-) TimerEvent: {}
+[43.351152] (-) TimerEvent: {}
+[43.452334] (-) TimerEvent: {}
+[43.552910] (-) TimerEvent: {}
+[43.653260] (-) TimerEvent: {}
+[43.753492] (-) TimerEvent: {}
+[43.853702] (-) TimerEvent: {}
+[43.953882] (-) TimerEvent: {}
+[44.054083] (-) TimerEvent: {}
+[44.154256] (-) TimerEvent: {}
+[44.254452] (-) TimerEvent: {}
+[44.354683] (-) TimerEvent: {}
+[44.454919] (-) TimerEvent: {}
+[44.555127] (-) TimerEvent: {}
+[44.655348] (-) TimerEvent: {}
+[44.756347] (-) TimerEvent: {}
+[44.856599] (-) TimerEvent: {}
+[44.886260] (dobot_msgs) StdoutLine: {'line': b'[ 69%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/get_ptp_common_params__type_support.cpp.o\n'}
+[44.956708] (-) TimerEvent: {}
+[45.056907] (-) TimerEvent: {}
+[45.157092] (-) TimerEvent: {}
+[45.257279] (-) TimerEvent: {}
+[45.357475] (-) TimerEvent: {}
+[45.457675] (-) TimerEvent: {}
+[45.557917] (-) TimerEvent: {}
+[45.658122] (-) TimerEvent: {}
+[45.758380] (-) TimerEvent: {}
+[45.858724] (-) TimerEvent: {}
+[45.958945] (-) TimerEvent: {}
+[46.059142] (-) TimerEvent: {}
+[46.159474] (-) TimerEvent: {}
+[46.259712] (-) TimerEvent: {}
+[46.359983] (-) TimerEvent: {}
+[46.460216] (-) TimerEvent: {}
+[46.560467] (-) TimerEvent: {}
+[46.638994] (dobot_msgs) StdoutLine: {'line': b'[ 69%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/suction_cup_control__type_support.cpp.o\n'}
+[46.661270] (-) TimerEvent: {}
+[46.761491] (-) TimerEvent: {}
+[46.861705] (-) TimerEvent: {}
+[46.961927] (-) TimerEvent: {}
+[47.062181] (-) TimerEvent: {}
+[47.162469] (-) TimerEvent: {}
+[47.262691] (-) TimerEvent: {}
+[47.362891] (-) TimerEvent: {}
+[47.463125] (-) TimerEvent: {}
+[47.563879] (-) TimerEvent: {}
+[47.664110] (-) TimerEvent: {}
+[47.764349] (-) TimerEvent: {}
+[47.864574] (-) TimerEvent: {}
+[47.964755] (-) TimerEvent: {}
+[48.064915] (-) TimerEvent: {}
+[48.165133] (-) TimerEvent: {}
+[48.265386] (-) TimerEvent: {}
+[48.361955] (dobot_msgs) StdoutLine: {'line': b'[ 70%] Building CXX object CMakeFiles/dobot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dobot_msgs/srv/detail/dds_fastrtps/gripper_control__type_support.cpp.o\n'}
+[48.365529] (-) TimerEvent: {}
+[48.465756] (-) TimerEvent: {}
+[48.565944] (-) TimerEvent: {}
+[48.666143] (-) TimerEvent: {}
+[48.766375] (-) TimerEvent: {}
+[48.866641] (-) TimerEvent: {}
+[48.966902] (-) TimerEvent: {}
+[49.067139] (-) TimerEvent: {}
+[49.167434] (-) TimerEvent: {}
+[49.267649] (-) TimerEvent: {}
+[49.367881] (-) TimerEvent: {}
+[49.468110] (-) TimerEvent: {}
+[49.568315] (-) TimerEvent: {}
+[49.668511] (-) TimerEvent: {}
+[49.768750] (-) TimerEvent: {}
+[49.868940] (-) TimerEvent: {}
+[49.969150] (-) TimerEvent: {}
+[50.069364] (-) TimerEvent: {}
+[50.079041] (dobot_msgs) StdoutLine: {'line': b'[ 70%] Linking CXX shared library libdobot_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[50.169491] (-) TimerEvent: {}
+[50.269767] (-) TimerEvent: {}
+[50.370056] (-) TimerEvent: {}
+[50.373313] (dobot_msgs) StdoutLine: {'line': b'[ 75%] Built target dobot_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[50.434629] (dobot_msgs) StdoutLine: {'line': b'[ 75%] Built target dobot_msgs\n'}
+[50.470197] (-) TimerEvent: {}
+[50.489396] (dobot_msgs) StdoutLine: {'line': b'[ 76%] Generating Python code for ROS interfaces\n'}
+[50.570254] (-) TimerEvent: {}
+[50.670468] (-) TimerEvent: {}
+[50.770669] (-) TimerEvent: {}
+[50.870858] (-) TimerEvent: {}
+[50.971043] (-) TimerEvent: {}
+[51.071260] (-) TimerEvent: {}
+[51.171826] (-) TimerEvent: {}
+[51.272028] (-) TimerEvent: {}
+[51.372408] (-) TimerEvent: {}
+[51.472635] (-) TimerEvent: {}
+[51.572859] (-) TimerEvent: {}
+[51.673118] (-) TimerEvent: {}
+[51.773307] (-) TimerEvent: {}
+[51.873536] (-) TimerEvent: {}
+[51.973774] (-) TimerEvent: {}
+[52.073962] (-) TimerEvent: {}
+[52.174139] (-) TimerEvent: {}
+[52.274364] (-) TimerEvent: {}
+[52.374546] (-) TimerEvent: {}
+[52.474727] (-) TimerEvent: {}
+[52.574924] (-) TimerEvent: {}
+[52.675171] (-) TimerEvent: {}
+[52.775372] (-) TimerEvent: {}
+[52.875587] (-) TimerEvent: {}
+[52.975810] (-) TimerEvent: {}
+[53.076017] (-) TimerEvent: {}
+[53.176233] (-) TimerEvent: {}
+[53.276524] (-) TimerEvent: {}
+[53.376748] (-) TimerEvent: {}
+[53.476962] (-) TimerEvent: {}
+[53.577147] (-) TimerEvent: {}
+[53.677339] (-) TimerEvent: {}
+[53.777537] (-) TimerEvent: {}
+[53.877781] (-) TimerEvent: {}
+[53.978002] (-) TimerEvent: {}
+[54.078235] (-) TimerEvent: {}
+[54.178544] (-) TimerEvent: {}
+[54.278882] (-) TimerEvent: {}
+[54.379127] (-) TimerEvent: {}
+[54.479369] (-) TimerEvent: {}
+[54.579569] (-) TimerEvent: {}
+[54.679774] (-) TimerEvent: {}
+[54.779971] (-) TimerEvent: {}
+[54.880171] (-) TimerEvent: {}
+[54.980397] (-) TimerEvent: {}
+[55.080625] (-) TimerEvent: {}
+[55.180932] (-) TimerEvent: {}
+[55.281104] (-) TimerEvent: {}
+[55.381303] (-) TimerEvent: {}
+[55.481516] (-) TimerEvent: {}
+[55.581709] (-) TimerEvent: {}
+[55.681902] (-) TimerEvent: {}
+[55.782122] (-) TimerEvent: {}
+[55.882298] (-) TimerEvent: {}
+[55.982513] (-) TimerEvent: {}
+[56.082695] (-) TimerEvent: {}
+[56.182893] (-) TimerEvent: {}
+[56.283135] (-) TimerEvent: {}
+[56.383337] (-) TimerEvent: {}
+[56.483533] (-) TimerEvent: {}
+[56.583778] (-) TimerEvent: {}
+[56.683974] (-) TimerEvent: {}
+[56.784231] (-) TimerEvent: {}
+[56.884448] (-) TimerEvent: {}
+[56.984694] (-) TimerEvent: {}
+[57.084932] (-) TimerEvent: {}
+[57.185163] (-) TimerEvent: {}
+[57.285417] (-) TimerEvent: {}
+[57.385638] (-) TimerEvent: {}
+[57.486056] (-) TimerEvent: {}
+[57.586258] (-) TimerEvent: {}
+[57.686520] (-) TimerEvent: {}
+[57.786724] (-) TimerEvent: {}
+[57.886923] (-) TimerEvent: {}
+[57.987137] (-) TimerEvent: {}
+[58.087363] (-) TimerEvent: {}
+[58.187568] (-) TimerEvent: {}
+[58.287794] (-) TimerEvent: {}
+[58.388019] (-) TimerEvent: {}
+[58.488275] (-) TimerEvent: {}
+[58.588462] (-) TimerEvent: {}
+[58.688674] (-) TimerEvent: {}
+[58.788875] (-) TimerEvent: {}
+[58.828708] (dobot_msgs) StdoutLine: {'line': b'[ 86%] Built target dobot_msgs__py\n'}
+[58.888993] (-) TimerEvent: {}
+[58.905808] (dobot_msgs) StdoutLine: {'line': b'[ 87%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/action/_point_to_point_s.c.o\n'}
+[58.989165] (-) TimerEvent: {}
+[59.089571] (-) TimerEvent: {}
+[59.189880] (-) TimerEvent: {}
+[59.290125] (-) TimerEvent: {}
+[59.390370] (-) TimerEvent: {}
+[59.490611] (-) TimerEvent: {}
+[59.505408] (dobot_msgs) StdoutLine: {'line': b'[ 88%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_execute_homing_procedure_s.c.o\n'}
+[59.590759] (-) TimerEvent: {}
+[59.691001] (-) TimerEvent: {}
+[59.791241] (-) TimerEvent: {}
+[59.891470] (-) TimerEvent: {}
+[59.916052] (dobot_msgs) StdoutLine: {'line': b'[ 88%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_gripper_control_s.c.o\n'}
+[59.991575] (-) TimerEvent: {}
+[60.091769] (-) TimerEvent: {}
+[60.193635] (-) TimerEvent: {}
+[60.293860] (-) TimerEvent: {}
+[60.394058] (-) TimerEvent: {}
+[60.429591] (dobot_msgs) StdoutLine: {'line': b'[ 89%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_suction_cup_control_s.c.o\n'}
+[60.494172] (-) TimerEvent: {}
+[60.594418] (-) TimerEvent: {}
+[60.694677] (-) TimerEvent: {}
+[60.794895] (-) TimerEvent: {}
+[60.832467] (dobot_msgs) StdoutLine: {'line': b'[ 90%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_get_ptp_common_params_s.c.o\n'}
+[60.895002] (-) TimerEvent: {}
+[60.995244] (-) TimerEvent: {}
+[61.095435] (-) TimerEvent: {}
+[61.195632] (-) TimerEvent: {}
+[61.234410] (dobot_msgs) StdoutLine: {'line': b'[ 90%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_set_ptp_common_params_s.c.o\n'}
+[61.295895] (-) TimerEvent: {}
+[61.396570] (-) TimerEvent: {}
+[61.496835] (-) TimerEvent: {}
+[61.597041] (-) TimerEvent: {}
+[61.629231] (dobot_msgs) StdoutLine: {'line': b'[ 91%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/srv/_evaluate_ptp_trajectory_s.c.o\n'}
+[61.697169] (-) TimerEvent: {}
+[61.797410] (-) TimerEvent: {}
+[61.897640] (-) TimerEvent: {}
+[61.997860] (-) TimerEvent: {}
+[62.082260] (dobot_msgs) StdoutLine: {'line': b'[ 91%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/msg/_circle_target_array_s.c.o\n'}
+[62.098006] (-) TimerEvent: {}
+[62.198184] (-) TimerEvent: {}
+[62.298388] (-) TimerEvent: {}
+[62.398648] (-) TimerEvent: {}
+[62.434001] (dobot_msgs) StdoutLine: {'line': b'[ 92%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/msg/_circle_target_s.c.o\n'}
+[62.498778] (-) TimerEvent: {}
+[62.598972] (-) TimerEvent: {}
+[62.699178] (-) TimerEvent: {}
+[62.799406] (-) TimerEvent: {}
+[62.806944] (dobot_msgs) StdoutLine: {'line': b'[ 93%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/msg/_gripper_status_s.c.o\n'}
+[62.899543] (-) TimerEvent: {}
+[62.999856] (-) TimerEvent: {}
+[63.100077] (-) TimerEvent: {}
+[63.145619] (dobot_msgs) StdoutLine: {'line': b'[ 94%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/msg/_dobot_alarm_codes_s.c.o\n'}
+[63.200304] (-) TimerEvent: {}
+[63.300552] (-) TimerEvent: {}
+[63.400811] (-) TimerEvent: {}
+[63.493576] (dobot_msgs) StdoutLine: {'line': b'[ 94%] Building C object CMakeFiles/dobot_msgs__rosidl_generator_py.dir/rosidl_generator_py/dobot_msgs/action/_sliding_rail_s.c.o\n'}
+[63.502094] (-) TimerEvent: {}
+[63.602368] (-) TimerEvent: {}
+[63.703268] (-) TimerEvent: {}
+[63.803592] (-) TimerEvent: {}
+[63.904721] (-) TimerEvent: {}
+[64.004970] (-) TimerEvent: {}
+[64.065768] (dobot_msgs) StdoutLine: {'line': b'[ 95%] Linking C shared library libdobot_msgs__rosidl_generator_py.so\n'}
+[64.105087] (-) TimerEvent: {}
+[64.183792] (dobot_msgs) StdoutLine: {'line': b'[ 95%] Built target dobot_msgs__rosidl_generator_py\n'}
+[64.205207] (-) TimerEvent: {}
+[64.240003] (dobot_msgs) StdoutLine: {'line': b'[ 95%] Building C object CMakeFiles/dobot_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\n'}
+[64.305400] (-) TimerEvent: {}
+[64.406599] (-) TimerEvent: {}
+[64.506808] (-) TimerEvent: {}
+[64.607033] (-) TimerEvent: {}
+[64.707243] (-) TimerEvent: {}
+[64.807447] (-) TimerEvent: {}
+[64.907648] (-) TimerEvent: {}
+[64.912739] (dobot_msgs) StdoutLine: {'line': b'[ 96%] Linking C shared module rosidl_generator_py/dobot_msgs/dobot_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[65.006215] (dobot_msgs) StdoutLine: {'line': b'[ 96%] Built target dobot_msgs_s__rosidl_typesupport_fastrtps_c\n'}
+[65.007756] (-) TimerEvent: {}
+[65.066862] (dobot_msgs) StdoutLine: {'line': b'[ 97%] Building C object CMakeFiles/dobot_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_c.c.o\n'}
+[65.107874] (-) TimerEvent: {}
+[65.208089] (-) TimerEvent: {}
+[65.308276] (-) TimerEvent: {}
+[65.408473] (-) TimerEvent: {}
+[65.508797] (-) TimerEvent: {}
+[65.609062] (-) TimerEvent: {}
+[65.693049] (dobot_msgs) StdoutLine: {'line': b'[ 98%] Linking C shared module rosidl_generator_py/dobot_msgs/dobot_msgs_s__rosidl_typesupport_c.so\n'}
+[65.709312] (-) TimerEvent: {}
+[65.777386] (dobot_msgs) StdoutLine: {'line': b'[ 98%] Built target dobot_msgs_s__rosidl_typesupport_c\n'}
+[65.809427] (-) TimerEvent: {}
+[65.836821] (dobot_msgs) StdoutLine: {'line': b'[ 99%] Building C object CMakeFiles/dobot_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\n'}
+[65.909543] (-) TimerEvent: {}
+[66.009851] (-) TimerEvent: {}
+[66.110078] (-) TimerEvent: {}
+[66.210325] (-) TimerEvent: {}
+[66.310525] (-) TimerEvent: {}
+[66.410737] (-) TimerEvent: {}
+[66.510956] (-) TimerEvent: {}
+[66.514100] (dobot_msgs) StdoutLine: {'line': b'[100%] Linking C shared module rosidl_generator_py/dobot_msgs/dobot_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[66.599533] (dobot_msgs) StdoutLine: {'line': b'[100%] Built target dobot_msgs_s__rosidl_typesupport_introspection_c\n'}
+[66.611083] (-) TimerEvent: {}
+[66.629346] (dobot_msgs) CommandEnded: {'returncode': 0}
+[66.631186] (dobot_msgs) JobProgress: {'identifier': 'dobot_msgs', 'progress': 'install'}
+[66.651643] (dobot_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/bbcontact/magician_ros2/build/dobot_msgs'], 'cwd': '/home/bbcontact/magician_ros2/build/dobot_msgs', 'env': OrderedDict({'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.40.23 57253 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/0', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8787/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '560', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0XJVHOw:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_VERSION': '0.154.0', 'CODEX_SESSION_ID': '01a0ad95-e752-70b1-8cba-0fcb05f3e48c', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a0ad95-e752-70b1-8cba-0fcb05f3e48c', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/dobot_msgs', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.40.23 57253 172.30.40.68 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib/python:/opt/ros/jazzy/opt/sdformat_vendor/lib/python:/opt/ros/jazzy/opt/gz_transport_vendor/lib/python:/opt/ros/jazzy/opt/gz_msgs_vendor/lib/python:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[66.673928] (dobot_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[66.675421] (dobot_msgs) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[66.675946] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/rosidl_interfaces/dobot_msgs\n'}
+[66.676438] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/PointToPoint.json\n'}
+[66.676765] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/SlidingRail.json\n'}
+[66.677078] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/DobotAlarmCodes.json\n'}
+[66.677352] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/GripperStatus.json\n'}
+[66.677667] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTarget.json\n'}
+[66.678178] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTargetArray.json\n'}
+[66.678761] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/EvaluatePTPTrajectory.json\n'}
+[66.679257] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/ExecuteHomingProcedure.json\n'}
+[66.679791] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GripperControl.json\n'}
+[66.680277] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.json\n'}
+[66.680758] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GetPTPCommonParams.json\n'}
+[66.706037] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SetPTPCommonParams.json\n'}
+[66.711222] (-) TimerEvent: {}
+[66.730616] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__functions.h\n'}
+[66.731073] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__struct.h\n'}
+[66.731295] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__type_support.h\n'}
+[66.731603] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__functions.h\n'}
+[66.731906] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__struct.h\n'}
+[66.732280] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__type_support.h\n'}
+[66.732781] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/point_to_point.h\n'}
+[66.733144] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/sliding_rail.h\n'}
+[66.733464] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/circle_target.h\n'}
+[66.733785] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/circle_target_array.h\n'}
+[66.734283] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__functions.h\n'}
+[66.734704] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__struct.h\n'}
+[66.735174] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__type_support.h\n'}
+[66.735527] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__functions.h\n'}
+[66.735954] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__struct.h\n'}
+[66.736184] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__type_support.h\n'}
+[66.736650] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__functions.h\n'}
+[66.736878] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__struct.h\n'}
+[66.737999] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.h\n'}
+[66.738475] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__functions.h\n'}
+[66.738877] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__struct.h\n'}
+[66.739182] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__type_support.h\n'}
+[66.739774] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/dobot_alarm_codes.h\n'}
+[66.740089] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/gripper_status.h\n'}
+[66.740441] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[66.740740] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__functions.h\n'}
+[66.741029] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__struct.h\n'}
+[66.741688] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.h\n'}
+[66.741955] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__functions.h\n'}
+[66.742216] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__struct.h\n'}
+[66.742404] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__type_support.h\n'}
+[66.742551] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__functions.h\n'}
+[66.766012] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__struct.h\n'}
+[66.786366] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__type_support.h\n'}
+[66.809888] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__functions.h\n'}
+[66.810563] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__struct.h\n'}
+[66.811064] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__type_support.h\n'}
+[66.811534] (-) TimerEvent: {}
+[66.811600] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__functions.h\n'}
+[66.834615] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__struct.h\n'}
+[66.856148] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__type_support.h\n'}
+[66.879607] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__functions.h\n'}
+[66.880284] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__struct.h\n'}
+[66.880631] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__type_support.h\n'}
+[66.881167] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/evaluate_ptp_trajectory.h\n'}
+[66.881491] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/execute_homing_procedure.h\n'}
+[66.881766] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/get_ptp_common_params.h\n'}
+[66.907710] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/gripper_control.h\n'}
+[66.908520] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/set_ptp_common_params.h\n'}
+[66.911673] (-) TimerEvent: {}
+[66.935333] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/suction_cup_control.h\n'}
+[66.936144] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/library_path.sh\n'}
+[66.936635] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/library_path.dsv\n'}
+[66.938582] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_c.h\n'}
+[66.938995] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_fastrtps_c.h\n'}
+[66.939439] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__rosidl_typesupport_fastrtps_c.h\n'}
+[66.939834] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__rosidl_typesupport_fastrtps_c.h\n'}
+[66.940084] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__rosidl_typesupport_fastrtps_c.h\n'}
+[66.940514] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__rosidl_typesupport_fastrtps_c.h\n'}
+[66.940891] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[66.941125] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__rosidl_typesupport_fastrtps_c.h\n'}
+[66.941553] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_fastrtps_c.h\n'}
+[66.941730] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_fastrtps_c.h\n'}
+[66.966883] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_fastrtps_c.h\n'}
+[66.967550] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_fastrtps_c.h\n'}
+[66.989412] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_fastrtps_c.h\n'}
+[66.990560] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_c.h\n'}
+[66.990941] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_introspection_c.h\n'}
+[66.991476] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__rosidl_typesupport_introspection_c.h\n'}
+[66.992028] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__rosidl_typesupport_introspection_c.h\n'}
+[66.992445] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__rosidl_typesupport_introspection_c.h\n'}
+[66.992660] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__rosidl_typesupport_introspection_c.h\n'}
+[66.993277] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[66.993576] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__rosidl_typesupport_introspection_c.h\n'}
+[66.993836] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_introspection_c.h\n'}
+[66.994091] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_introspection_c.h\n'}
+[67.011790] (-) TimerEvent: {}
+[67.019620] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_introspection_c.h\n'}
+[67.020102] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_introspection_c.h\n'}
+[67.042420] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_c.h\n'}
+[67.044513] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__builder.hpp\n'}
+[67.045031] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__struct.hpp\n'}
+[67.045617] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__traits.hpp\n'}
+[67.045824] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__type_support.hpp\n'}
+[67.046243] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__builder.hpp\n'}
+[67.046675] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__struct.hpp\n'}
+[67.046898] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__traits.hpp\n'}
+[67.047312] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__type_support.hpp\n'}
+[67.047553] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/point_to_point.hpp\n'}
+[67.047765] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/sliding_rail.hpp\n'}
+[67.048647] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/circle_target.hpp\n'}
+[67.049179] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/circle_target_array.hpp\n'}
+[67.049453] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__builder.hpp\n'}
+[67.049727] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__struct.hpp\n'}
+[67.050316] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__traits.hpp\n'}
+[67.050676] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__type_support.hpp\n'}
+[67.050950] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__builder.hpp\n'}
+[67.053757] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__struct.hpp\n'}
+[67.054539] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__traits.hpp\n'}
+[67.055094] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__type_support.hpp\n'}
+[67.055668] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__builder.hpp\n'}
+[67.056042] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__struct.hpp\n'}
+[67.056752] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__traits.hpp\n'}
+[67.057496] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__type_support.hpp\n'}
+[67.058448] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__builder.hpp\n'}
+[67.058773] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__struct.hpp\n'}
+[67.059342] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__traits.hpp\n'}
+[67.059665] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__type_support.hpp\n'}
+[67.060000] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/dobot_alarm_codes.hpp\n'}
+[67.060547] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/gripper_status.hpp\n'}
+[67.061166] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[67.061591] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__builder.hpp\n'}
+[67.064507] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__struct.hpp\n'}
+[67.064805] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__traits.hpp\n'}
+[67.064997] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__type_support.hpp\n'}
+[67.065251] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__builder.hpp\n'}
+[67.065477] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__struct.hpp\n'}
+[67.065700] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__traits.hpp\n'}
+[67.066133] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__type_support.hpp\n'}
+[67.066536] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__builder.hpp\n'}
+[67.085651] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__struct.hpp\n'}
+[67.108097] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__traits.hpp\n'}
+[67.111914] (-) TimerEvent: {}
+[67.129687] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__type_support.hpp\n'}
+[67.156434] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__builder.hpp\n'}
+[67.157076] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__struct.hpp\n'}
+[67.157706] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__traits.hpp\n'}
+[67.158119] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__type_support.hpp\n'}
+[67.158572] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__builder.hpp\n'}
+[67.180616] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__struct.hpp\n'}
+[67.203366] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__traits.hpp\n'}
+[67.212027] (-) TimerEvent: {}
+[67.226569] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__type_support.hpp\n'}
+[67.249582] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__builder.hpp\n'}
+[67.250171] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__struct.hpp\n'}
+[67.251678] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__traits.hpp\n'}
+[67.252557] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__type_support.hpp\n'}
+[67.252919] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/evaluate_ptp_trajectory.hpp\n'}
+[67.253235] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/execute_homing_procedure.hpp\n'}
+[67.254004] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/get_ptp_common_params.hpp\n'}
+[67.280679] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/gripper_control.hpp\n'}
+[67.281315] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/set_ptp_common_params.hpp\n'}
+[67.304765] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/suction_cup_control.hpp\n'}
+[67.308475] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.309110] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.310332] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.310655] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.311214] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.311878] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.312262] (-) TimerEvent: {}
+[67.313721] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[67.314146] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.314504] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.314845] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.338419] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.338846] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.364239] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[67.364763] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/point_to_point__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.365152] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.365641] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.366002] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/circle_target_array__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.366426] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/dobot_alarm_codes__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.366930] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/msg/detail/gripper_status__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.367477] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/evaluate_ptp_trajectory__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.367960] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/execute_homing_procedure__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.368580] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/get_ptp_common_params__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.392426] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.392895] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/set_ptp_common_params__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.412409] (-) TimerEvent: {}
+[67.423438] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/include/dobot_msgs/dobot_msgs/srv/detail/suction_cup_control__rosidl_typesupport_introspection_cpp.hpp\n'}
+[67.424237] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/pythonpath.sh\n'}
+[67.425020] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/pythonpath.dsv\n'}
+[67.426108] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs-1.0.0-py3.12.egg-info/PKG-INFO\n'}
+[67.426940] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs-1.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[67.427323] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs-1.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[67.428668] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs-1.0.0-py3.12.egg-info/top_level.txt\n'}
+[67.430678] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/__init__.py\n'}
+[67.431340] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[67.431976] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[67.432372] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/_dobot_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[67.432932] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/__init__.py\n'}
+[67.433260] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_point_to_point.py\n'}
+[67.433784] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_point_to_point_s.c\n'}
+[67.434024] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_sliding_rail.py\n'}
+[67.434513] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_sliding_rail_s.c\n'}
+[67.434741] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_c.so\n'}
+[67.435458] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[67.435897] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[67.436526] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/__init__.py\n'}
+[67.436922] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target.py\n'}
+[67.437510] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target_array.py\n'}
+[67.438066] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target_array_s.c\n'}
+[67.438624] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target_s.c\n'}
+[67.438971] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_dobot_alarm_codes.py\n'}
+[67.439570] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_dobot_alarm_codes_s.c\n'}
+[67.440322] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_gripper_status.py\n'}
+[67.440855] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_gripper_status_s.c\n'}
+[67.441186] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py\n'}
+[67.442245] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_evaluate_ptp_trajectory.py\n'}
+[67.442671] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_evaluate_ptp_trajectory_s.c\n'}
+[67.443020] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_execute_homing_procedure.py\n'}
+[67.443374] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_execute_homing_procedure_s.c\n'}
+[67.443699] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_get_ptp_common_params.py\n'}
+[67.470531] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_get_ptp_common_params_s.c\n'}
+[67.495067] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_gripper_control.py\n'}
+[67.495703] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_gripper_control_s.c\n'}
+[67.496234] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_set_ptp_common_params.py\n'}
+[67.512548] (-) TimerEvent: {}
+[67.522262] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_set_ptp_common_params_s.c\n'}
+[67.544236] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_suction_cup_control.py\n'}
+[67.544778] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_suction_cup_control_s.c\n'}
+[67.545174] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[67.546445] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[67.546857] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/dobot_msgs_s__rosidl_typesupport_c.so\n'}
+[67.547875] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/Cargo.toml\n'}
+[67.548351] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/build.rs\n'}
+[67.549098] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/action.rs\n'}
+[67.549364] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/action/rmw.rs\n'}
+[67.549613] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/lib.rs\n'}
+[67.550428] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/msg.rs\n'}
+[67.551059] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/msg/rmw.rs\n'}
+[67.551430] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/srv.rs\n'}
+[67.551754] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/rust/src/srv/rmw.rs\n'}
+[67.552737] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/PointToPoint.idl\n'}
+[67.553504] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/SlidingRail.idl\n'}
+[67.553788] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/DobotAlarmCodes.idl\n'}
+[67.554019] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/GripperStatus.idl\n'}
+[67.554764] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTarget.idl\n'}
+[67.555147] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTargetArray.idl\n'}
+[67.555686] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/EvaluatePTPTrajectory.idl\n'}
+[67.556013] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/ExecuteHomingProcedure.idl\n'}
+[67.556639] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GripperControl.idl\n'}
+[67.556993] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.idl\n'}
+[67.557493] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GetPTPCommonParams.idl\n'}
+[67.579725] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SetPTPCommonParams.idl\n'}
+[67.600594] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/PointToPoint.action\n'}
+[67.602478] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/action/SlidingRail.action\n'}
+[67.602975] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/DobotAlarmCodes.msg\n'}
+[67.603716] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/GripperStatus.msg\n'}
+[67.604012] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTarget.msg\n'}
+[67.606461] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/msg/CircleTargetArray.msg\n'}
+[67.606946] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/EvaluatePTPTrajectory.srv\n'}
+[67.607260] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/ExecuteHomingProcedure.srv\n'}
+[67.607570] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GripperControl.srv\n'}
+[67.607834] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SuctionCupControl.srv\n'}
+[67.608090] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/GetPTPCommonParams.srv\n'}
+[67.612657] (-) TimerEvent: {}
+[67.630977] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SetPTPCommonParams.srv\n'}
+[67.649345] (dobot_msgs) StderrLine: {'line': b"CMake Error: failed to create symbolic link '/home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/srv/SetPTPCommonParams.srv': File exists\n"}
+[67.652592] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/package_run_dependencies/dobot_msgs\n'}
+[67.653277] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/parent_prefix_path/dobot_msgs\n'}
+[67.653885] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/ament_prefix_path.sh\n'}
+[67.654542] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/ament_prefix_path.dsv\n'}
+[67.655185] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/path.sh\n'}
+[67.655808] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/environment/path.dsv\n'}
+[67.656391] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/local_setup.bash\n'}
+[67.656992] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/local_setup.sh\n'}
+[67.657577] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/local_setup.zsh\n'}
+[67.658147] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/local_setup.dsv\n'}
+[67.658695] (dobot_msgs) StdoutLine: {'line': b'-- Symlinking: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/package.dsv\n'}
+[67.680670] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/ament_index/resource_index/packages/dobot_msgs\n'}
+[67.681424] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[67.681942] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[67.682444] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[67.682856] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[67.683317] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[67.683676] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[67.683883] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[67.684120] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[67.684613] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgsConfig.cmake\n'}
+[67.684872] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgsConfig-version.cmake\n'}
+[67.685059] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/package.xml\n'}
+[67.685554] (dobot_msgs) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_generator_c.so\n'}
+[67.686529] (dobot_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_generator_c.so" to ""\n'}
+[67.687095] (dobot_msgs) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[67.690496] (dobot_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[67.690929] (dobot_msgs) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_introspection_c.so\n'}
+[67.692971] (dobot_msgs) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_c.so\n'}
+[67.694973] (dobot_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_c.so" to ""\n'}
+[67.696019] (dobot_msgs) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[67.700281] (dobot_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[67.701487] (dobot_msgs) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[67.704891] (dobot_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[67.705506] (dobot_msgs) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_cpp.so\n'}
+[67.708391] (dobot_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[67.712793] (-) TimerEvent: {}
+[67.813048] (-) TimerEvent: {}
+[67.913277] (-) TimerEvent: {}
+[67.998130] (dobot_msgs) StdoutLine: {'line': b"Listing '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs'...\n"}
+[67.998458] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/__init__.py'...\n"}
+[67.998608] (dobot_msgs) StdoutLine: {'line': b"Listing '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action'...\n"}
+[67.998740] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/__init__.py'...\n"}
+[67.998869] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_point_to_point.py'...\n"}
+[67.998993] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/_sliding_rail.py'...\n"}
+[67.999117] (dobot_msgs) StdoutLine: {'line': b"Listing '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg'...\n"}
+[67.999297] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/__init__.py'...\n"}
+[67.999756] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target.py'...\n"}
+[68.000089] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_circle_target_array.py'...\n"}
+[68.000293] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_dobot_alarm_codes.py'...\n"}
+[68.000492] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/msg/_gripper_status.py'...\n"}
+[68.000672] (dobot_msgs) StdoutLine: {'line': b"Listing '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv'...\n"}
+[68.000883] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py'...\n"}
+[68.001075] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_evaluate_ptp_trajectory.py'...\n"}
+[68.001350] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_execute_homing_procedure.py'...\n"}
+[68.001618] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_get_ptp_common_params.py'...\n"}
+[68.001881] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_gripper_control.py'...\n"}
+[68.002131] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_set_ptp_common_params.py'...\n"}
+[68.002391] (dobot_msgs) StdoutLine: {'line': b"Compiling '/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/_suction_cup_control.py'...\n"}
+[68.013376] (-) TimerEvent: {}
+[68.014776] (dobot_msgs) StdoutLine: {'line': b'-- Installing: /home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_generator_py.so\n'}
+[68.015797] (dobot_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bbcontact/magician_ros2/install/dobot_msgs/lib/libdobot_msgs__rosidl_generator_py.so" to ""\n'}
+[68.016423] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_cExport.cmake\n'}
+[68.017205] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[68.017392] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[68.017931] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[68.018110] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[68.018299] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[68.018469] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_cExport.cmake\n'}
+[68.018635] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[68.018797] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_cppExport.cmake\n'}
+[68.018970] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[68.019138] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[68.019512] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[68.019710] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[68.019874] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[68.020026] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/dobot_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[68.020282] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_pyExport.cmake\n'}
+[68.020468] (dobot_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bbcontact/magician_ros2/install/dobot_msgs/share/dobot_msgs/cmake/export_dobot_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[68.021933] (dobot_msgs) CommandEnded: {'returncode': 0}
+[68.090780] (dobot_msgs) JobEnded: {'identifier': 'dobot_msgs', 'rc': 0}
+[68.092213] (dobot_motion) JobStarted: {'identifier': 'dobot_motion'}
+[68.113669] (-) TimerEvent: {}
+[68.213873] (-) TimerEvent: {}
+[68.314075] (-) TimerEvent: {}
+[68.414254] (-) TimerEvent: {}
+[68.514463] (-) TimerEvent: {}
+[68.614839] (-) TimerEvent: {}
+[68.715099] (-) TimerEvent: {}
+[68.815407] (-) TimerEvent: {}
+[68.915594] (-) TimerEvent: {}
+[69.015748] (-) TimerEvent: {}
+[69.115921] (-) TimerEvent: {}
+[69.216117] (-) TimerEvent: {}
+[69.316344] (-) TimerEvent: {}
+[69.416541] (-) TimerEvent: {}
+[69.516727] (-) TimerEvent: {}
+[69.616965] (-) TimerEvent: {}
+[69.717182] (-) TimerEvent: {}
+[69.817390] (-) TimerEvent: {}
+[69.917631] (-) TimerEvent: {}
+[70.017836] (-) TimerEvent: {}
+[70.118037] (-) TimerEvent: {}
+[70.218249] (-) TimerEvent: {}
+[70.318464] (-) TimerEvent: {}
+[70.418687] (-) TimerEvent: {}
+[70.518903] (-) TimerEvent: {}
+[70.619115] (-) TimerEvent: {}
+[70.719351] (-) TimerEvent: {}
+[70.821381] (-) TimerEvent: {}
+[70.921601] (-) TimerEvent: {}
+[71.021798] (-) TimerEvent: {}
+[71.122010] (-) TimerEvent: {}
+[71.222222] (-) TimerEvent: {}
+[71.322402] (-) TimerEvent: {}
+[71.422569] (-) TimerEvent: {}
+[71.522790] (-) TimerEvent: {}
+[71.622975] (-) TimerEvent: {}
+[71.723225] (-) TimerEvent: {}
+[71.823408] (-) TimerEvent: {}
+[71.923652] (-) TimerEvent: {}
+[71.929666] (dobot_motion) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/bbcontact/magician_ros2/build/dobot_motion/build', '--no-deps', 'symlink_data'], 'cwd': '/home/bbcontact/magician_ros2/build/dobot_motion', 'env': {'LINOROBOT2_BASE': '4wd', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'CODEX_CI': '1', 'CODEX_HOME': '/home/bbcontact/.codex', 'USER': 'bbcontact', 'SSH_CLIENT': '172.30.40.23 57253 22', 'LC_TIME': 'th_TH.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/bbcontact/magician_ros2/install/dobot_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'OPENAI_BASE_URL': 'http://127.0.0.1:8787/p/magician_ros2/v1', 'HOME': '/home/bbcontact', 'VIRTUALENVWRAPPER_PYTHON': '/usr/bin/python3', 'OLDPWD': '/home/bbcontact', 'HF_HUB_DISABLE_PROGRESS_BARS': '1', 'NVM_BIN': '/home/bbcontact/.nvm/versions/node/v22.22.2/bin', 'SSH_TTY': '/dev/pts/0', 'NVM_INC': '/home/bbcontact/.nvm/versions/node/v22.22.2/include/node', 'ROS_PYTHON_VERSION': '3', 'PAGER': 'cat', 'LC_MONETARY': 'th_TH.UTF-8', 'LC_CTYPE': 'C.UTF-8', 'NO_COLOR': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'PIP_QUIET': '1', 'COLORTERM': '', 'LIBVIRT_DEFAULT_URI': 'qemu:///system', 'PYTEST_ADDOPTS': '-q', 'NVM_DIR': '/home/bbcontact/.nvm', 'npm_config_progress': 'false', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'npm_config_audit': 'false', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'bbcontact', 'PIP_DISABLE_PIP_VERSION_CHECK': '1', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'HEADROOM_CODEX_UPSTREAM_BASE_URL': 'http://127.0.0.1:8787/v1', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '560', 'PATH': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/home/bbcontact/.codex/tmp/arg0/codex-arg0XJVHOw:/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/bbcontact/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/bbcontact/.local/bin:/home/bbcontact/.nvm/versions/node/v22.22.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/bbcontact/.platformio/penv/bin', 'CODEX_VERSION': '0.154.0', 'CODEX_SESSION_ID': '01a0ad95-e752-70b1-8cba-0fcb05f3e48c', 'LC_ADDRESS': 'th_TH.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'th_TH.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'GH_PAGER': 'cat', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'npm_config_fund': 'false', 'AMENT_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'th_TH.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CODEX_THREAD_ID': '01a0ad95-e752-70b1-8cba-0fcb05f3e48c', 'LC_MEASUREMENT': 'th_TH.UTF-8', 'LC_IDENTIFICATION': 'th_TH.UTF-8', 'HF_HUB_DISABLE_IMPLICIT_TOKEN': '1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'GIT_PAGER': 'cat', 'ORT_DYLIB_PATH': '/home/bbcontact/.local/share/uv/tools/headroom-ai/lib/python3.13/site-packages/onnxruntime/capi/libonnxruntime.so.1.29.0', 'HEADROOM_PROJECT': 'magician_ros2', 'PWD': '/home/bbcontact/magician_ros2/build/dobot_motion', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'CODEX_MANAGED_PACKAGE_ROOT': '/home/bbcontact/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex', 'SSH_CONNECTION': '172.30.40.23 57253 172.30.40.68 22', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/gnome:/home/bbcontact/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bbcontact/magician_ros2/build/dobot_motion/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:/opt/ros/jazzy/opt/gz_sim_vendor/lib/python:/opt/ros/jazzy/opt/sdformat_vendor/lib/python:/opt/ros/jazzy/opt/gz_transport_vendor/lib/python:/opt/ros/jazzy/opt/gz_msgs_vendor/lib/python:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'th_TH.UTF-8', 'LC_PAPER': 'th_TH.UTF-8', 'COLCON': '1', 'CODEX_MANAGED_BY_NPM': '1', 'LINOROBOT2_LASER_SENSOR': 'ydlidar', 'CMAKE_PREFIX_PATH': '/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[72.023808] (-) TimerEvent: {}
+[72.124028] (-) TimerEvent: {}
+[72.224243] (-) TimerEvent: {}
+[72.324401] (-) TimerEvent: {}
+[72.424650] (-) TimerEvent: {}
+[72.524885] (-) TimerEvent: {}
+[72.625072] (-) TimerEvent: {}
+[72.725278] (-) TimerEvent: {}
+[72.825465] (-) TimerEvent: {}
+[72.925660] (-) TimerEvent: {}
+[73.025886] (-) TimerEvent: {}
+[73.077042] (dobot_motion) StdoutLine: {'line': b'running develop\n'}
+[73.125987] (-) TimerEvent: {}
+[73.226175] (-) TimerEvent: {}
+[73.326381] (-) TimerEvent: {}
+[73.426564] (-) TimerEvent: {}
+[73.526792] (-) TimerEvent: {}
+[73.626964] (-) TimerEvent: {}
+[73.727178] (-) TimerEvent: {}
+[73.827371] (-) TimerEvent: {}
+[73.893182] (dobot_motion) StdoutLine: {'line': b'running egg_info\n'}
+[73.927505] (-) TimerEvent: {}
+[73.973378] (dobot_motion) StdoutLine: {'line': b'writing dobot_motion.egg-info/PKG-INFO\n'}
+[73.973817] (dobot_motion) StdoutLine: {'line': b'writing dependency_links to dobot_motion.egg-info/dependency_links.txt\n'}
+[73.974243] (dobot_motion) StdoutLine: {'line': b'writing entry points to dobot_motion.egg-info/entry_points.txt\n'}
+[73.974744] (dobot_motion) StdoutLine: {'line': b'writing requirements to dobot_motion.egg-info/requires.txt\n'}
+[73.974900] (dobot_motion) StdoutLine: {'line': b'writing top-level names to dobot_motion.egg-info/top_level.txt\n'}
+[74.027642] (-) TimerEvent: {}
+[74.127861] (-) TimerEvent: {}
+[74.147943] (dobot_motion) StdoutLine: {'line': b"reading manifest file 'dobot_motion.egg-info/SOURCES.txt'\n"}
+[74.149425] (dobot_motion) StdoutLine: {'line': b"writing manifest file 'dobot_motion.egg-info/SOURCES.txt'\n"}
+[74.224603] (dobot_motion) StdoutLine: {'line': b'running build_ext\n'}
+[74.224989] (dobot_motion) StdoutLine: {'line': b'Creating /home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages/dobot-motion.egg-link (link to .)\n'}
+[74.226005] (dobot_motion) StdoutLine: {'line': b'Installing PTP_server script to /home/bbcontact/magician_ros2/install/dobot_motion/lib/dobot_motion\n'}
+[74.226403] (dobot_motion) StdoutLine: {'line': b'Installing sliding_rail_server script to /home/bbcontact/magician_ros2/install/dobot_motion/lib/dobot_motion\n'}
+[74.226781] (dobot_motion) StdoutLine: {'line': b'\n'}
+[74.227102] (dobot_motion) StdoutLine: {'line': b'Installed /home/bbcontact/magician_ros2/build/dobot_motion\n'}
+[74.227316] (dobot_motion) StdoutLine: {'line': b'running symlink_data\n'}
+[74.227935] (-) TimerEvent: {}
+[74.315846] (dobot_motion) CommandEnded: {'returncode': 0}
+[74.328808] (-) TimerEvent: {}
+[74.334306] (dobot_motion) JobEnded: {'identifier': 'dobot_motion', 'rc': 0}
+[74.335358] (-) EventReactorShutdown: {}

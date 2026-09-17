@@ -47,7 +47,9 @@ parsers = {
     41: [lambda x: x[0] == 1, None, None, lambda x: list(struct.pack('<B', *x))],
     42: [lambda x: x[0] == 1, None, None, None],
     # End effector
-    60: [None, None, None, lambda x: list(struct.pack('<' + 'f' * 3, *x))], #BUG in original lib version was 4 instead of 3 !
+    # 60 GET: controller end-effector Cartesian bias (x, y, z), float32.
+    # This is controller state, not a physical suction-tip measurement.
+    60: [lambda x: struct.unpack('<fff', bytearray(x)), None, None, lambda x: list(struct.pack('<' + 'f' * 3, *x))], #BUG in original lib version was 4 instead of 3 !
     61: [lambda x: (x[0] == 1, x[1] == 2), None, lambda x: struct.unpack('<Q', bytearray(x))[0], lambda x: list(struct.pack('<BB', *x))],
     # 62 GET: 2 boolean bytes; non-queued SET: empty ACK; queued SET: uint64.
     62: [_parse_end_effector_state, None, lambda x: struct.unpack('<Q', bytearray(x))[0], lambda x: list(struct.pack('<BB', *x))],

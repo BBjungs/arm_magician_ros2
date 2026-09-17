@@ -341,7 +341,7 @@ topic_statistics_node: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_c.so
 topic_statistics_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
 topic_statistics_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
 topic_statistics_node: /opt/ros/jazzy/lib/librosidl_typesupport_fastrtps_cpp.so
-topic_statistics_node: /opt/ros/jazzy/lib/libfastcdr.so.2.2.7
+topic_statistics_node: /opt/ros/jazzy/lib/libfastcdr.so.2.2.8
 topic_statistics_node: /opt/ros/jazzy/lib/librmw.so
 topic_statistics_node: /opt/ros/jazzy/lib/librosidl_dynamic_typesupport.so
 topic_statistics_node: /opt/ros/jazzy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so

@@ -1,6 +1,8 @@
 import json
+import inspect
 import math
 import os
+import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
@@ -10,15 +12,12 @@ from ament_index_python.packages import PackageNotFoundError
 from ament_index_python.packages import get_package_share_directory
 from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
+from rclpy.qos import DurabilityPolicy, QoSProfile
 from std_msgs.msg import Float64MultiArray
 from std_msgs.msg import String
 
-from dobot_vision_yolo.camera_calibration_tool import CalibrationError
-from dobot_vision_yolo.camera_calibration_tool import CalibrationStore
-from dobot_vision_yolo.eye_in_hand_transform import CameraIntrinsicsStore
-from dobot_vision_yolo.eye_in_hand_transform import EyeInHandConfigStore
-from dobot_vision_yolo.eye_in_hand_transform import EyeInHandError
-from dobot_vision_yolo.eye_in_hand_transform import normalize_tcp_pose
+from dobot_calibration.bundle import VerifiedBundle
+from dobot_calibration.geometry import CalibrationError
 
 
 PACKAGE_NAME = "dobot_vision_yolo"
@@ -124,7 +123,44 @@ class PlaceStore:
                 pose = raw_place.get("pose")
             else:
                 pose = raw_place
-            places[str(place_id)] = {"pose": _as_pose(pose, f"places.{place_id}.pose")}
+            canonical_id = str(place_id)
+            entry = {"pose": _as_pose(pose, f"places.{place_id}.pose")}
+            if isinstance(raw_place, dict):
+                entry["zone_id"] = str(
+                    raw_place.get("zone_id", canonical_id) or canonical_id
+                )
+                if raw_place.get("safe_z") is not None:
+                    try:
+                        safe_z = float(raw_place["safe_z"])
+                    except (TypeError, ValueError) as exc:
+                        raise TargetSelectionError(
+                            f"places.{place_id}.safe_z must be numeric"
+                        ) from exc
+                    if not math.isfinite(safe_z):
+                        raise TargetSelectionError(
+                            f"places.{place_id}.safe_z must be finite"
+                        )
+                    entry["safe_z"] = safe_z
+                aliases = raw_place.get("aliases", [])
+                if aliases is None:
+                    aliases = []
+                if not isinstance(aliases, list):
+                    raise TargetSelectionError(
+                        f"places.{place_id}.aliases must be a list"
+                    )
+                entry["aliases"] = [str(alias) for alias in aliases if str(alias)]
+            else:
+                entry["zone_id"] = canonical_id
+                entry["aliases"] = []
+            if canonical_id in places:
+                raise TargetSelectionError(f"duplicate place_id '{canonical_id}'")
+            places[canonical_id] = entry
+            for alias in entry["aliases"]:
+                if alias in places:
+                    raise TargetSelectionError(f"duplicate place alias '{alias}'")
+                alias_entry = dict(entry)
+                alias_entry["alias_of"] = canonical_id
+                places[alias] = alias_entry
         return places
 
     def get_pose(self, place_id: str) -> List[float]:
@@ -134,6 +170,19 @@ class PlaceStore:
                 f"place_id '{place_id}' is not defined in {self.path}"
             )
         return list(places[place_id]["pose"])
+
+    def get_placement_zone(self, place_id: str) -> Dict[str, Any]:
+        """Return the canonical nominal zone used by automatic placement."""
+
+        places = self.load()
+        if place_id not in places:
+            raise TargetSelectionError(
+                f"place_id '{place_id}' is not defined in {self.path}"
+            )
+        entry = dict(places[place_id])
+        entry["place_id"] = str(place_id)
+        entry["nominal_pose"] = list(entry["pose"])
+        return entry
 
     def status(self) -> Dict[str, Any]:
         places = self.load()
@@ -255,7 +304,7 @@ def select_target_from_detections(
     detections_or_payload: Any,
     request: Dict[str, Any],
     place_store: PlaceStore,
-    calibration_store: CalibrationStore,
+    calibration_store=None,
     dry_run: bool = True,
     image_size: Tuple[int, int] = (640, 480),
     min_confidence: float = 0.0,
@@ -341,11 +390,15 @@ def select_target_from_detections(
 
     center_pixel = _as_point(selected.get("center_pixel"), "center_pixel")
     try:
-        if pixel_transformer is None:
+        if pixel_transformer is None and calibration_store is not None:
             calibration = calibration_store.test_point(center_pixel)
+        elif pixel_transformer is None:
+            raise CalibrationError("Markerless point transformer is unavailable")
         else:
-            calibration = pixel_transformer(center_pixel)
-    except (CalibrationError, EyeInHandError) as exc:
+            parameters = inspect.signature(pixel_transformer).parameters
+            calibration = (pixel_transformer(center_pixel, selected)
+                           if len(parameters) >= 2 else pixel_transformer(center_pixel))
+    except (CalibrationError, ValueError) as exc:
         return {
             "selected": False,
             "dry_run": True,
@@ -369,6 +422,22 @@ def select_target_from_detections(
         "center_pixel": center_pixel,
         "bbox": selected.get("bbox", []),
     }
+    # Preserve RGB-D quality metadata in the selected target.  The original
+    # detector payload remains authoritative, but carrying these values into
+    # the execution request lets a close-range controller decide whether it
+    # may use depth or must use a kinematic 2-D visual correction instead.
+    for key in (
+        "depth_mm",
+        "depth_valid",
+        "depth_valid_ratio",
+        "depth_stddev",
+        "table_depth_mm",
+        "object_height_mm",
+        "camera_xyz_mm",
+        "pick_eligible",
+    ):
+        if key in selected:
+            selected_detection[key] = selected.get(key)
 
     return {
         "selected": True,
@@ -391,6 +460,13 @@ def select_target_from_detections(
         "selection_mode": selection_mode,
         "vision_mode": request.get("vision_mode", "fixed_camera"),
         "detection": selected_detection,
+        "depth_mm": selected_detection.get("depth_mm"),
+        "depth_valid": selected_detection.get("depth_valid"),
+        "depth_valid_ratio": selected_detection.get("depth_valid_ratio"),
+        "depth_stddev": selected_detection.get("depth_stddev"),
+        "table_depth_mm": selected_detection.get("table_depth_mm"),
+        "object_height_mm": selected_detection.get("object_height_mm"),
+        "camera_xyz_mm": selected_detection.get("camera_xyz_mm"),
         "request": {
             "object_class": object_class,
             "place_id": place_id,
@@ -415,10 +491,10 @@ class TargetSelectorNode(Node):
         self.declare_parameter("image_width", 640)
         self.declare_parameter("image_height", 480)
         self.declare_parameter("place_positions_path", "")
-        self.declare_parameter("calibration_config_path", "")
+        self.declare_parameter("calibration_bundle_path", "~/.ros/dobot/markerless_calibration.npz")
+        self.declare_parameter("calibration_status_topic", "/calibration/status")
         self.declare_parameter("vision_mode", "fixed_camera")
-        self.declare_parameter("eye_in_hand_config_path", "")
-        self.declare_parameter("camera_intrinsics_path", "")
+        self.declare_parameter("safe_approach_z_mm", 60.0)
         self.declare_parameter("tcp_pose_topic", "dobot_pose_raw")
         self.declare_parameter("fallback_tcp_pose_topic", "")
         self.declare_parameter("status_period_sec", 5.0)
@@ -436,21 +512,21 @@ class TargetSelectorNode(Node):
             int(self.get_parameter("image_height").value),
         )
         self.place_store = PlaceStore(str(self.get_parameter("place_positions_path").value))
-        self.calibration_store = CalibrationStore(
-            str(self.get_parameter("calibration_config_path").value)
-        )
+        self.calibration_store = None
+        self.markerless = VerifiedBundle(
+            str(self.get_parameter("calibration_bundle_path").value))
+        self.calibration_status_topic = str(
+            self.get_parameter("calibration_status_topic").value)
+        self.safe_approach_z_mm = float(self.get_parameter("safe_approach_z_mm").value)
         self.vision_mode = str(self.get_parameter("vision_mode").value)
-        self.eye_store = EyeInHandConfigStore(
-            str(self.get_parameter("eye_in_hand_config_path").value)
-        )
-        self.intrinsics_store = CameraIntrinsicsStore(
-            str(self.get_parameter("camera_intrinsics_path").value)
-        )
         self.tcp_pose_topic = str(self.get_parameter("tcp_pose_topic").value)
         self.fallback_tcp_pose_topic = str(
             self.get_parameter("fallback_tcp_pose_topic").value
         )
         self.latest_tcp_pose = None
+        self.latest_tcp_time = None
+        self.calibration_status = None
+        self.calibration_status_time = None
         self.last_detections_payload = {"detections": []}
         self.last_selection = None
         self.last_error = ""
@@ -473,6 +549,9 @@ class TargetSelectorNode(Node):
             self._select_target_callback,
             10,
         )
+        self.calibration_subscription = self.create_subscription(
+            String, self.calibration_status_topic, self._calibration_status_callback,
+            QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL))
         self.tcp_subscription = self.create_subscription(
             Float64MultiArray,
             self.tcp_pose_topic,
@@ -498,12 +577,20 @@ class TargetSelectorNode(Node):
 
     def _tcp_pose_callback(self, msg, _source):
         try:
-            self.latest_tcp_pose = normalize_tcp_pose(
-                list(msg.data[:4]),
-                xyz_unit="m",
-            )
-        except EyeInHandError as exc:
+            values = [float(value) for value in msg.data[:4]]
+            if len(values) != 4 or not all(math.isfinite(value) for value in values):
+                raise ValueError("TCP pose must be finite [x, y, z, yaw]")
+            self.latest_tcp_pose = values
+            self.latest_tcp_time = time.monotonic()
+        except (TypeError, ValueError) as exc:
             self.last_error = str(exc)
+
+    def _calibration_status_callback(self, msg):
+        try:
+            self.calibration_status = json.loads(msg.data)
+            self.calibration_status_time = time.monotonic()
+        except (TypeError, json.JSONDecodeError) as exc:
+            self.last_error = f"Invalid markerless calibration status: {exc}"
 
     def _detections_callback(self, msg):
         try:
@@ -529,9 +616,7 @@ class TargetSelectorNode(Node):
                 min_confidence=self.min_confidence,
                 pixel_transformer=self._pixel_transformer(request),
                 calibration_label=(
-                    "Eye-in-hand calibration"
-                    if self._request_vision_mode(request) == "eye_in_hand"
-                    else "Calibration"
+                    "Markerless hand-eye calibration"
                 ),
             )
         except Exception as exc:
@@ -558,16 +643,25 @@ class TargetSelectorNode(Node):
 
     def _pixel_transformer(self, request):
         if self._request_vision_mode(request) != "eye_in_hand":
-            return None
+            raise CalibrationError("Production markerless calibration requires eye_in_hand topology")
 
-        def transform(center_pixel):
-            if self.latest_tcp_pose is None:
-                raise EyeInHandError("TCP pose is unavailable")
-            return self.eye_store.test_pixel(
-                center_pixel,
-                self.latest_tcp_pose,
-                self.intrinsics_store.load(),
-            )
+        def transform(_center_pixel, detection):
+            if self.latest_tcp_pose is None or self.latest_tcp_time is None:
+                raise CalibrationError("TCP pose is unavailable")
+            if time.monotonic() - self.latest_tcp_time > 0.5:
+                raise CalibrationError("TCP pose is stale")
+            if self.calibration_status_time is None or time.monotonic() - self.calibration_status_time > 2.0:
+                raise CalibrationError("Markerless /calibration/status is stale")
+            xyz = self.markerless.camera_point_to_base(
+                detection.get("camera_xyz_mm"), self.latest_tcp_pose,
+                self.calibration_status)
+            return {
+                "robot_xy": xyz[:2], "robot_xyz": xyz,
+                "pick_z": xyz[2], "safe_z": max(self.safe_approach_z_mm, xyz[2] + 30.0),
+                "calibration_valid": True, "position_available": True,
+                "position_estimate": False, "position_source": "markerless_verified_bundle",
+                "validation": {"result": "PASS", "source": "/calibration/status"},
+            }
 
         return transform
 
@@ -598,7 +692,7 @@ class TargetSelectorNode(Node):
             "place_ids": place_ids,
             "last_selection": self.last_selection,
             "vision_mode": self.vision_mode,
-            "eye_in_hand": self.eye_store.status(tcp_pose=self.latest_tcp_pose),
+            "calibration": dict(self.calibration_status or {}),
             "tcp_pose": self.latest_tcp_pose,
             "error": self.last_error,
         }

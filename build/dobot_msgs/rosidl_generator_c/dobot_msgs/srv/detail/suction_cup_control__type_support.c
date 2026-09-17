@@ -4,8 +4,8 @@
 
 #include <string.h>
 
-#include "dobot_msgs/srv/detail/suction_cup_control__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "dobot_msgs/srv/detail/suction_cup_control__functions.h"
 #include "dobot_msgs/srv/detail/suction_cup_control__type_support.h"
 #include "dobot_msgs/srv/detail/suction_cup_control__struct.h"
 

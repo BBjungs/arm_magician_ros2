@@ -1,0 +1,19 @@
+running develop
+running egg_info
+writing dobot_homing.egg-info/PKG-INFO
+writing dependency_links to dobot_homing.egg-info/dependency_links.txt
+writing entry points to dobot_homing.egg-info/entry_points.txt
+writing requirements to dobot_homing.egg-info/requires.txt
+writing top-level names to dobot_homing.egg-info/top_level.txt
+reading manifest file 'dobot_homing.egg-info/SOURCES.txt'
+writing manifest file 'dobot_homing.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages/dobot-homing.egg-link (link to .)
+Installing homing_server script to /home/bbcontact/magician_ros2/install/dobot_homing/lib/dobot_homing
+
+Installed /home/bbcontact/magician_ros2/build/dobot_homing
+running symlink_data
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_homing/resource/dobot_homing -> /home/bbcontact/magician_ros2/install/dobot_homing/share/ament_index/resource_index/packages
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_homing/package.xml -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_homing/launch/dobot_homing.launch.py -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing/launch
+symbolically linking /home/bbcontact/magician_ros2/build/dobot_homing/config/homing_params.yaml -> /home/bbcontact/magician_ros2/install/dobot_homing/share/dobot_homing/config
