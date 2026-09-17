@@ -242,7 +242,10 @@ def generate_launch_description():
         description='Start the live calibration verification node (idle until requested).',
     )
     calibration_camera_id_arg = DeclareLaunchArgument(
-        'calibration_camera_id', default_value=LaunchConfiguration('orbbec_serial_number'),
+        # Calibration resolves the active Orbbec driver's serial through
+        # get_device_info.  Do not turn the camera driver's optional selection
+        # argument into an unconditional calibration override.
+        'calibration_camera_id', default_value='auto',
         description='Immutable camera serial/device identity for live calibration.',
     )
     calibration_file_arg = DeclareLaunchArgument(

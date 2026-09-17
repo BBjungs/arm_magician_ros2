@@ -19,6 +19,7 @@ from rclpy.action import ActionClient
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
+from rclpy.parameter import Parameter
 from rclpy.qos import (
     DurabilityPolicy,
     HistoryPolicy,
@@ -39,6 +40,7 @@ from scipy.spatial import cKDTree
 from std_msgs.msg import Bool, String
 from std_srvs.srv import Trigger
 from tf2_ros import Buffer, TransformBroadcaster, TransformListener, TransformException
+from orbbec_camera_msgs.srv import GetDeviceInfo
 
 from .depth_health import depth_quality
 from .geometry import CalibrationError, Limits, Mount, fingerprint, pose_distance, transform
@@ -54,6 +56,10 @@ from .baseline_preflight import validate_authoritative_scene_baseline_for_prefli
 from .table_touchoff import TableTouchoff
 from .workflow import Workflow, check_path, settled_pose
 from .validation_status import live_acceptance_error
+from .camera_identity import CameraIdentity, resolve_camera_id
+from .bootstrap_geometry import (BootstrapGeometryEligibility,
+                                  validate_calibration_bootstrap_geometry)
+from .camera_freshness import evaluate_camera_freshness
 from dobot_kinematics.dobot_inv_kin import calc_inv_kin
 from dobot_kinematics.collision_detection_server import PyBulletCollisionServer
 
@@ -95,11 +101,16 @@ class CalibrationNode(Node):
             'camera_reference_frame': 'camera_link',
             'camera_frame': 'camera_color_optical_frame',
             'calibrated_frame': 'calibrated_camera_optical_frame',
-            'camera_id': '', 'mount_model': '',
+            'camera_id': '', 'camera_id_source': 'YAML', 'mount_model': '',
             'calibration_file': '~/.ros/dobot/markerless_calibration.npz',
             'auto_start': False, 'recalibrate_on_failure': False,
             'ready_ttl_s': 600.0, 'capture_timeout_s': 15.0,
             'motion_timeout_s': 25.0,
+            # Conservative shared leases exceed the observed 0.735/0.964 s
+            # driver gaps while retaining real stalled-camera detection.
+            'rgb_stale_timeout_s': 1.5,
+            'depth_stale_timeout_s': 1.5,
+            'camera_info_stale_timeout_s': 1.5,
             'passive_session_root': '~/.ros/dobot/calibration_sessions',
             'auto_real_motion_enabled': False,
             # An authorization is deliberately short-lived and is never a
@@ -117,11 +128,22 @@ class CalibrationNode(Node):
             'table_reference_source': 'physical_operator_confirmation',
         }
         for name, value in defaults.items():
-            self.declare_parameter(name, value, ParameterDescriptor(read_only=True))
+            # The resolved serial is published back through camera_id so an
+            # operator can audit it with `ros2 param get`.
+            descriptor = ParameterDescriptor(read_only=(name != 'camera_id'))
+            self.declare_parameter(name, value, descriptor)
         self.settings = {name: self.get_parameter(name).value for name in defaults}
+        self.group = ReentrantCallbackGroup()
+        self.camera_identity = CameraIdentity()
+        self._last_camera_resolution_monotonic = 0.0
+        self._camera_resolution_startup = True
+        self._resolve_camera_identity()
+        self._camera_resolution_startup = False
         if self.settings['carrier_frame'] in (self.settings['base_frame'], self.settings['tool_frame']):
             raise CalibrationError('Camera carrier must be a distinct moving bracket frame')
-        for name in ('ready_ttl_s', 'capture_timeout_s', 'motion_timeout_s'):
+        for name in ('ready_ttl_s', 'capture_timeout_s', 'motion_timeout_s',
+                     'rgb_stale_timeout_s', 'depth_stale_timeout_s',
+                     'camera_info_stale_timeout_s'):
             if not np.isfinite(self.settings[name]) or self.settings[name] <= 0:
                 raise CalibrationError(f'{name} must be finite and positive')
         for name, value in asdict(Limits()).items():
@@ -130,7 +152,6 @@ class CalibrationNode(Node):
                                for name in asdict(Limits())})
         # Quality limits are deployment configuration, not dynamically mutable
         # while a solution is being collected or used.
-        self.group = ReentrantCallbackGroup()
         self.lock, self.operation_lock = threading.Lock(), threading.Lock()
         self.stop = threading.Event()
         self.history = deque(maxlen=400)
@@ -182,6 +203,7 @@ class CalibrationNode(Node):
         self.full_auto_calibration_commissioned = False
         self.last_native_cloud = None
         self.last_native_cloud_receive_monotonic = None
+        self.last_valid_synchronized_capture_monotonic = None
         try:
             if self.settings['mount_model']:
                 with open(self.settings['mount_model'], encoding='utf-8') as stream:
@@ -207,6 +229,7 @@ class CalibrationNode(Node):
             self.auto_preflight, self.auto_validate_target,
             real_motion_enabled=bool(self.settings['auto_real_motion_enabled']))
         self.mount = None
+        self.bootstrap_geometry = BootstrapGeometryEligibility(False, ('BOOTSTRAP_GEOMETRY_NOT_VALIDATED',))
         self.calibration_context = None
         self.state, self.reason = 'UNCALIBRATED', 'Calibration has not been verified'
         try:
@@ -449,8 +472,14 @@ class CalibrationNode(Node):
 
     def on_camera(self, rgb, depth, info):
         self.on_depth(depth)
+        stamps = (stamp_seconds(rgb), stamp_seconds(depth), stamp_seconds(info))
+        valid_sync = (abs(stamps[0] - stamps[1]) <= 0.100
+                      and all(item.header.frame_id == self.settings['camera_frame']
+                              for item in (rgb, depth, info)))
         with self.lock:
             self.bundle = (rgb, depth, info)
+            if valid_sync:
+                self.last_valid_synchronized_capture_monotonic = time.monotonic()
 
     def on_native_cloud(self, cloud):
         """Keep only the newest native sample; decoding happens at capture."""
@@ -534,6 +563,7 @@ class CalibrationNode(Node):
                     return 'Camera-carrier TF is stale or not a dynamic kinematic frame'
             except TransformException as error:
                 return 'Camera-carrier TF unavailable: ' + str(error)
+        freshness = self.camera_freshness()
         with self.lock:
             if self.bundle is None:
                 return 'Waiting for synchronized RGB, depth and CameraInfo'
@@ -541,9 +571,11 @@ class CalibrationNode(Node):
                 return 'Depth quality has not been established'
             if self.live_depth_quality['status'] != 'VALID_DEPTH':
                 return self.live_depth_quality['code'] + ': ' + self.live_depth_quality['reason']
-            stamps = [stamp_seconds(message) for message in self.bundle]
-            if any(not 0 <= now - stamp < 0.5 for stamp in stamps):
+            if not (freshness.rgb_fresh and freshness.depth_fresh
+                    and freshness.rgb_info_fresh and freshness.depth_info_fresh):
                 return 'RGB-D telemetry is stale'
+            if not freshness.synchronized:
+                return 'RGB/Depth synchronization skew exceeds 100 ms'
             if any(message.header.frame_id != self.settings['camera_frame'] for message in self.bundle):
                 return 'RGB-D frames must all be the registered optical frame'
             if self.calibration_context is not None and self.camera_context(self.bundle[2]) != self.calibration_context:
@@ -552,6 +584,7 @@ class CalibrationNode(Node):
 
     def passive_health_error(self):
         """Capture-only health gate; never authorizes or accompanies motion."""
+        freshness = self.camera_freshness()
         now = self.now_s()
         with self.lock:
             if self.alarms:
@@ -563,10 +596,10 @@ class CalibrationNode(Node):
             if self.bundle is None:
                 return 'Waiting for synchronized RGB, depth and CameraInfo'
             rgb, depth, info = self.bundle
-            stamps = [stamp_seconds(message) for message in self.bundle]
-            if any(not 0 <= now - stamp < 1.5 for stamp in stamps):
+            if not (freshness.rgb_fresh and freshness.depth_fresh
+                    and freshness.rgb_info_fresh and freshness.depth_info_fresh):
                 return 'RGB-D telemetry is stale'
-            if abs(stamps[0] - stamps[1]) * 1000.0 > 100.0:
+            if not freshness.synchronized:
                 return 'RGB/Depth synchronization skew exceeds 100 ms'
             if any(message.header.frame_id != self.settings['camera_frame']
                    for message in self.bundle):
@@ -580,6 +613,19 @@ class CalibrationNode(Node):
             if self.calibration_context is not None and self.camera_context(info) != self.calibration_context:
                 return 'Camera identity or intrinsics changed'
         return ''
+
+    def camera_freshness(self):
+        with self.lock:
+            bundle = self.bundle
+            streams = dict((self.camera_health or {}).get('streams', {}))
+            last_valid_sync = self.last_valid_synchronized_capture_monotonic
+        return evaluate_camera_freshness(
+            now_s=self.now_s(), bundle=bundle, streams=streams,
+            rgb_lease_s=self.settings['rgb_stale_timeout_s'],
+            depth_lease_s=self.settings['depth_stale_timeout_s'],
+            camera_info_lease_s=self.settings['camera_info_stale_timeout_s'],
+            expected_frame=self.settings['camera_frame'], now_monotonic=time.monotonic(),
+            last_valid_sync_monotonic=last_valid_sync)
 
     def camera_context(self, info):
         return {
@@ -606,6 +652,69 @@ class CalibrationNode(Node):
 
     def status(self, state, reason=''):
         self.state, self.reason = state, reason
+
+    def _orbbec_devices(self):
+        """Enumerate active OrbbecSDK_ROS2 drivers via get_device_info.
+
+        The driver owns this service and returns its SDK device serial.  The
+        namespace must also own all three topics used by this calibration node;
+        this prevents accepting a valid serial from a different camera.
+        """
+        topics = {name for name, _types in self.get_topic_names_and_types()}
+        services = [name for name, types in self.get_service_names_and_types()
+                    if name.endswith('/get_device_info')
+                    and 'orbbec_camera_msgs/srv/GetDeviceInfo' in types]
+        devices = []
+        for service in services:
+            namespace = service[:-len('/get_device_info')]
+            expected = [namespace + suffix for suffix in (
+                '/color/image_raw', '/depth/image_raw', '/color/camera_info')]
+            topics_verified = (self.settings['rgb_topic'] in topics
+                               and self.settings['depth_topic'] in topics
+                               and self.settings['camera_info_topic'] in topics
+                               and all(topic in topics for topic in expected)
+                               and self.settings['rgb_topic'].startswith(namespace + '/')
+                               and self.settings['depth_topic'].startswith(namespace + '/')
+                               and self.settings['camera_info_topic'].startswith(namespace + '/'))
+            client = self.create_client(GetDeviceInfo, service, callback_group=self.group)
+            try:
+                if not client.wait_for_service(timeout_sec=0.15):
+                    continue
+                future = client.call_async(GetDeviceInfo.Request())
+                if self._camera_resolution_startup:
+                    rclpy.spin_until_future_complete(self, future, timeout_sec=0.75)
+                else:
+                    deadline = time.monotonic() + 0.75
+                    while not future.done() and time.monotonic() < deadline:
+                        time.sleep(0.01)
+                if future.done():
+                    response = future.result()
+                    serial = response.info.serial_number.strip() if response.success else ''
+                    if serial:
+                        devices.append({'serial': serial, 'topics_verified': topics_verified})
+            except Exception as error:
+                self.get_logger().debug('Orbbec identity query failed: %s' % error)
+            finally:
+                self.destroy_client(client)
+        return devices
+
+    def _resolve_camera_identity(self):
+        previous = self.camera_identity
+        identity = resolve_camera_id(self.settings['camera_id'],
+                                     self.settings['camera_id_source'],
+                                     self._orbbec_devices())
+        self.camera_identity = identity
+        self._last_camera_resolution_monotonic = time.monotonic()
+        if identity.resolution == 'PASS':
+            self.settings['camera_id'] = identity.serial
+            if self.get_parameter('camera_id').value != identity.serial:
+                self.set_parameters([Parameter('camera_id', value=identity.serial)])
+        if identity != previous:
+            self.get_logger().info('CAMERA_ID_RESOLUTION=%s CAMERA_ID_SOURCE=%s '
+                                   'CAMERA_ID=%s EXACT_GATE=%s' % (
+                                       identity.resolution, identity.source,
+                                       identity.serial, identity.gate))
+        return identity
 
     def is_ready(self):
         """REAL_MOTION_READY: verified calibration plus all live safety gates."""
@@ -658,7 +767,35 @@ class CalibrationNode(Node):
                 'native_cloud_state': (None if bundle is None else native_state),
                 'robot_stability': stability, 'blockers': blockers}
 
+    def _refresh_bootstrap_geometry(self, camera_reference_T_optical):
+        with open(self.settings['mount_model'], encoding='utf-8') as stream:
+            config = yaml.safe_load(stream)
+        self.bootstrap_geometry = validate_calibration_bootstrap_geometry(
+            config, camera_reference_T_optical,
+            camera_reference_frame=self.settings['camera_reference_frame'],
+            camera_frame=self.settings['camera_frame'],
+            expected_mount_fingerprint=self.passive_session.mount_fingerprint,
+            limits=self.limits, carrier_frame=self.settings['carrier_frame'])
+        if (self.bootstrap_geometry.eligible
+                and self.reason.startswith('Mount geometry unverified:')):
+            self.reason = ('Calibration bootstrap geometry eligible; full verified geometry '
+                           'remains required for production')
+        return self.bootstrap_geometry
+
     def supervise(self):
+        # ROS graph discovery can lag process startup.  Keep the startup gate
+        # current without ever guessing a device or selecting the first one.
+        if (self.camera_identity.resolution != 'PASS'
+                and time.monotonic() - self._last_camera_resolution_monotonic >= 1.0):
+            self._resolve_camera_identity()
+        if (not self.bootstrap_geometry.eligible
+                and self.bootstrap_geometry.blockers == ('BOOTSTRAP_GEOMETRY_NOT_VALIDATED',)):
+            try:
+                self._refresh_bootstrap_geometry(self.camera_reference_to_optical())
+            except Exception:
+                # The status remains fail-closed until the Orbbec factory TF
+                # exists; do not synthesize an optical transform.
+                pass
         self.authoritative_baseline_gate.update(self._authoritative_baseline_snapshot(), time.monotonic())
         # A hardware fault, STOP, alarm, session replacement, mount change, or
         # token expiry revokes authorization even while no caller is polling.
@@ -747,6 +884,8 @@ class CalibrationNode(Node):
         verification = report.get('result', 'FAIL')
         blockers = [] if ready else [self.reason or self.health_error()
                                      or 'markerless calibration verification missing']
+        if self.camera_identity.resolution != 'PASS':
+            blockers.insert(0, self.camera_identity.gate)
         guidance = self.passive_guidance()
         return {'state': self.state, 'ready': ready, 'available': available,
                 'reason': self.reason,
@@ -760,6 +899,13 @@ class CalibrationNode(Node):
                 'context_digest': fingerprint(workflow.context) if workflow else '',
                 'geometry_verified': bool(self.mount is not None
                                           and self.mount.rotation_seed_verified),
+                'CALIBRATION_BOOTSTRAP_GEOMETRY_ELIGIBLE': self.bootstrap_geometry.eligible,
+                'CALIBRATION_BOOTSTRAP_GEOMETRY_BLOCKERS': list(self.bootstrap_geometry.blockers),
+                'CAMERA_ID_SOURCE': self.camera_identity.source,
+                'CAMERA_ID': self.camera_identity.serial,
+                'CAMERA_ID_VERIFIED': self.camera_identity.verified,
+                'CAMERA_ID_RESOLUTION': self.camera_identity.resolution,
+                'EXACT_GATE': self.camera_identity.gate,
                 'readiness': {
                     'HARDWARE_READY': passive_readiness['hardware_ready'],
                     'PASSIVE_CAPTURE_READY': passive_readiness['passive_capture_ready'],
@@ -802,6 +948,13 @@ class CalibrationNode(Node):
                 'depth_quality': self.live_depth_quality,
                 'rgb_health': (self.camera_health or {}).get('streams', {}).get('rgb', {}),
                 'depth_health': (self.camera_health or {}).get('streams', {}).get('depth', {}),
+                'RGB_FRESH': self.camera_freshness().rgb_fresh,
+                'DEPTH_FRESH': self.camera_freshness().depth_fresh,
+                'RGB_CAMERAINFO_FRESH': self.camera_freshness().rgb_info_fresh,
+                'DEPTH_CAMERAINFO_FRESH': self.camera_freshness().depth_info_fresh,
+                'RGB_DEPTH_CAMERAINFO_SYNCHRONIZED': self.camera_freshness().synchronized,
+                'RGB_RATE_STATE': self.camera_freshness().rgb_rate_state,
+                'DEPTH_RATE_STATE': self.camera_freshness().depth_rate_state,
                 'tcp_fresh': hardware.tcp_fresh,
                 'joint_fresh': hardware.joints_fresh,
                 'alarm_state': {'fresh': hardware.alarms_fresh, 'codes': list(self.alarms)},
@@ -818,8 +971,10 @@ class CalibrationNode(Node):
                        'recommended_action': thai[2],
                        'motion_allowed': hardware.ready}}
 
-    def auto_preflight(self):
+    def auto_preflight(self, *, include_full_auto_commissioning=True):
         blockers = []
+        if include_full_auto_commissioning and not self.full_auto_calibration_commissioned:
+            blockers.append('FULL_AUTO_CALIBRATION_NOT_COMMISSIONED')
         hardware = self.hardware_readiness()
         if not hardware.ready:
             blockers.extend(hardware.blockers)
@@ -1074,6 +1229,10 @@ class CalibrationNode(Node):
             self.mount = Mount.load_translation_constraint(
                 self.settings['mount_model'], internal, self.limits,
                 carrier_frame=self.settings['carrier_frame'])
+            self._refresh_bootstrap_geometry(internal)
+        if not self.bootstrap_geometry.eligible:
+            raise CalibrationError('CALIBRATION_BOOTSTRAP_GEOMETRY_INELIGIBLE: '
+                                   + '; '.join(self.bootstrap_geometry.blockers))
         self.ensure_camera_sync()
         deadline = time.monotonic() + self.settings['capture_timeout_s']
         while time.monotonic() < deadline:
@@ -1240,12 +1399,13 @@ class CalibrationNode(Node):
 
     def _authoritative_baseline_snapshot(self):
         ready = self.passive_capture_readiness(); hardware = self.hardware_readiness()
-        with self.lock: bundle = self.bundle
-        healthy = not bool(self.health_error())
+        freshness = self.camera_freshness()
         return {'HARDWARE_READY':ready['hardware_ready'],'PASSIVE_CAPTURE_READY':ready['passive_capture_ready'],
-         'RGB_FRESH':healthy,'DEPTH_FRESH':healthy,'RGB_CAMERAINFO_FRESH':bundle is not None,
-         'DEPTH_CAMERAINFO_FRESH':bundle is not None,'DEPTH_STABLE':hardware.depth_stable,
-         'RGB_DEPTH_CAMERAINFO_SYNCHRONIZED':bundle is not None,'TCP_FRESH':hardware.tcp_fresh,
+         'RGB_FRESH':freshness.rgb_fresh,'DEPTH_FRESH':freshness.depth_fresh,
+         'RGB_CAMERAINFO_FRESH':freshness.rgb_info_fresh,'DEPTH_CAMERAINFO_FRESH':freshness.depth_info_fresh,
+         'DEPTH_STABLE':hardware.depth_stable,'RGB_DEPTH_CAMERAINFO_SYNCHRONIZED':freshness.synchronized,
+         'RGB_RATE_STATE':freshness.rgb_rate_state,'DEPTH_RATE_STATE':freshness.depth_rate_state,
+         'TCP_FRESH':hardware.tcp_fresh,
          'JOINTS_FRESH':hardware.joints_fresh,'ROBOT_STABLE':ready['robot_stability'].get('reason','')=='',
          'ALARM_FREE':not bool(self.alarms),'POINT_CLOUD_USABLE':ready['point_cloud_source_usable'],
          'SCENE_GEOMETRY_PASS':True,'DOMINANT_PLANE_PASS':True}
@@ -1721,7 +1881,10 @@ class CalibrationNode(Node):
         try:
             # FINAL_PREFLIGHT is fresh: include live hardware/session gates,
             # then remeasure the scene and validate the complete continuous plan.
-            blockers, _ = self.auto_preflight()
+            # The bounded two-pose commissioning transaction is not full auto.
+            # It still has every live safety, baseline, scene, plan and adapter
+            # gate below; it must not inherit the full-auto commissioning flag.
+            blockers, _ = self.auto_preflight(include_full_auto_commissioning=False)
             passive = self.passive_capture_readiness()
             if not passive['hardware_ready']:
                 blockers.append('HARDWARE_READY=false')
@@ -1822,6 +1985,9 @@ class CalibrationNode(Node):
             camera=self.settings['camera_id'], intrinsics=(baseline or {}).get('intrinsics_fingerprint'), live_verified=True)
         if baseline_error: return baseline_error
         passive = self.passive_capture_readiness()
+        if not self.bootstrap_geometry.eligible:
+            return 'CALIBRATION_BOOTSTRAP_GEOMETRY_INELIGIBLE:' + ';'.join(
+                self.bootstrap_geometry.blockers)
         if not passive['hardware_ready'] or not passive['passive_capture_ready']:
             return 'HARDWARE_OR_PASSIVE_CAPTURE_NOT_READY'
         if self.alarms:
@@ -2026,6 +2192,12 @@ class CalibrationNode(Node):
     def start_operation(self, recalibrate, verify_only=False):
         if not self.operation_lock.acquire(blocking=False):
             return False, 'Calibration is already running'
+        identity = self._resolve_camera_identity()
+        if identity.resolution != 'PASS':
+            self.operation_lock.release()
+            reason = identity.gate
+            self.status('FAIL', reason)
+            return False, reason
         self.stop.clear()
         self.workflow = None
         self.status('STARTING')
@@ -2035,8 +2207,8 @@ class CalibrationNode(Node):
 
     def run_operation(self, recalibrate, verify_only=False):
         try:
-            if not self.settings['camera_id']:
-                raise CalibrationError('camera_id must identify the connected camera serial/device')
+            if self.camera_identity.resolution != 'PASS':
+                raise CalibrationError(self.camera_identity.gate)
             self.calibration_context = None
             try:
                 self.mount = Mount.load(self.settings['mount_model'], self.limits,
@@ -2046,6 +2218,7 @@ class CalibrationNode(Node):
                 self.mount = Mount.load_translation_constraint(
                     self.settings['mount_model'], internal, self.limits,
                     carrier_frame=self.settings['carrier_frame'])
+                self._refresh_bootstrap_geometry(internal)
             self.ensure_camera_sync()
             deadline = time.monotonic() + self.settings['capture_timeout_s']
             while self.health_error():

@@ -8,7 +8,11 @@ config/mount_model.yaml
 dobot_calibration/__init__.py
 dobot_calibration/baseline_admission.py
 dobot_calibration/baseline_preflight.py
+dobot_calibration/bootstrap_geometry.py
 dobot_calibration/bundle.py
+dobot_calibration/camera_freshness.py
+dobot_calibration/camera_identity.py
+dobot_calibration/camera_launch.py
 dobot_calibration/depth_health.py
 dobot_calibration/geometry.py
 dobot_calibration/hardware_readiness.py

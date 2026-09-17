@@ -24,3 +24,7 @@ markerless_calibration:
     ready_ttl_s: 600.0
     capture_timeout_s: 15.0
     motion_timeout_s: 25.0
+    # Shared passive/admission leases: rate degradation is a warning, not stale.
+    rgb_stale_timeout_s: 1.5
+    depth_stale_timeout_s: 1.5
+    camera_info_stale_timeout_s: 1.5
