@@ -1,0 +1,185 @@
+[2.493s] Invoking command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/dobot_web_interface:/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/home/bbcontact/magician_ros2/install/orbbec_camera/lib:/home/bbcontact/magician_ros2/install/dobot_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib PYTEST_ADDOPTS=--tb=short --junit-xml=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml --junit-prefix=dobot_vision_rgbd -o cache_dir=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_web_interface:/home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_demos/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_object_vision/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:/opt/ros/jazzy/opt/gz_sim_vendor/lib/python:/opt/ros/jazzy/opt/sdformat_vendor/lib/python:/opt/ros/jazzy/opt/gz_transport_vendor/lib/python:/opt/ros/jazzy/opt/gz_msgs_vendor/lib/python:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -m pytest
+[7.023s] ============================= test session starts ==============================
+[7.023s] platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+[7.024s] cachedir: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache
+[7.024s] rootdir: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd
+[7.024s] plugins: ament-lint-0.17.5, ament-flake8-0.17.5, ament-pep257-0.17.5, ament-copyright-0.17.5, ament-xmllint-0.17.5, launch-testing-3.4.11, launch-testing-ros-0.26.12, anyio-4.14.2, colcon-core-0.21.1, typeguard-4.1.5, cov-4.1.0
+[7.025s] collected 55 items
+[7.025s] 
+[8.511s] test/test_camera_health.py .............F.FFFFFFFFFFFFFFFFF              [ 58%]
+[8.533s] test/test_color_classifier.py ..                                         [ 61%]
+[8.540s] test/test_depth_diagnostic.py ..                                         [ 65%]
+[8.550s] test/test_depth_geometry.py ...                                          [ 70%]
+[8.553s] test/test_detection_schema.py .                                          [ 72%]
+[8.747s] test/test_object_fusion.py .....                                         [ 81%]
+[8.767s] test/test_object_fusion_health.py .....                                  [ 90%]
+[8.788s] test/test_shape_detector.py ....                                         [ 98%]
+[8.803s] test/test_visualization.py .                                             [100%]
+[8.803s] 
+[8.807s] =================================== FAILURES ===================================
+[8.807s] ___________ test_fresh_low_rate_is_degraded_warning_not_hard_blocker ___________
+[8.808s] test/test_camera_health.py:131: in test_fresh_low_rate_is_degraded_warning_not_hard_blocker
+[8.808s]     result = report(healthy)
+[8.808s] test/test_camera_health.py:167: in report
+[8.809s]     health.CameraHealthNode.publish_health(node)
+[8.811s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.811s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.812s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.812s] _____________ test_health_can_report_ready_for_complete_valid_data _____________
+[8.812s] test/test_camera_health.py:172: in test_health_can_report_ready_for_complete_valid_data
+[8.813s]     assert report(healthy)['ready']
+[8.813s] test/test_camera_health.py:167: in report
+[8.814s]     health.CameraHealthNode.publish_health(node)
+[8.814s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.814s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.815s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.815s] _____ test_usable_rate_is_ready_but_requested_rate_degradation_is_visible ______
+[8.815s] test/test_camera_health.py:178: in test_usable_rate_is_ready_but_requested_rate_degradation_is_visible
+[8.816s]     result = report(healthy)
+[8.816s] test/test_camera_health.py:167: in report
+[8.817s]     health.CameraHealthNode.publish_health(node)
+[8.818s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.818s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.818s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.819s] ___________________ test_usb2_blocks_otherwise_valid_streams ___________________
+[8.819s] test/test_camera_health.py:191: in test_usb2_blocks_otherwise_valid_streams
+[8.819s]     result = report(healthy)
+[8.820s] test/test_camera_health.py:167: in report
+[8.821s]     health.CameraHealthNode.publish_health(node)
+[8.822s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.824s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.825s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.826s] ______________________ test_stream_loss_clears_readiness _______________________
+[8.827s] test/test_camera_health.py:198: in test_stream_loss_clears_readiness
+[8.827s]     assert not report(healthy)['ready']
+[8.828s] test/test_camera_health.py:167: in report
+[8.829s]     health.CameraHealthNode.publish_health(node)
+[8.830s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.831s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.832s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.832s] _______________________ test_zero_depth_clears_readiness _______________________
+[8.833s] test/test_camera_health.py:203: in test_zero_depth_clears_readiness
+[8.833s]     assert 'depth_data_invalid' in report(healthy)['blockers']
+[8.834s] test/test_camera_health.py:167: in report
+[8.834s]     health.CameraHealthNode.publish_health(node)
+[8.835s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.835s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.836s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.836s] ___________________ test_invalid_rgb_buffer_clears_readiness ___________________
+[8.837s] test/test_camera_health.py:208: in test_invalid_rgb_buffer_clears_readiness
+[8.837s]     assert 'rgb_payload_invalid' in report(healthy)['blockers']
+[8.838s] test/test_camera_health.py:167: in report
+[8.838s]     health.CameraHealthNode.publish_health(node)
+[8.839s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.839s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.840s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.840s] __________________ test_cloud_frame_mismatch_clears_readiness __________________
+[8.841s] test/test_camera_health.py:213: in test_cloud_frame_mismatch_clears_readiness
+[8.841s]     assert 'point_cloud_frame_mismatch' in report(healthy)['blockers']
+[8.841s] test/test_camera_health.py:167: in report
+[8.842s]     health.CameraHealthNode.publish_health(node)
+[8.842s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.843s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.844s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.845s] ___________ test_active_or_unknown_protection_blocks_readiness[True] ___________
+[8.845s] test/test_camera_health.py:219: in test_active_or_unknown_protection_blocks_readiness
+[8.846s]     result = report(healthy)
+[8.847s] test/test_camera_health.py:167: in report
+[8.847s]     health.CameraHealthNode.publish_health(node)
+[8.848s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.848s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.849s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.849s] ___________ test_active_or_unknown_protection_blocks_readiness[None] ___________
+[8.850s] test/test_camera_health.py:219: in test_active_or_unknown_protection_blocks_readiness
+[8.850s]     result = report(healthy)
+[8.851s] test/test_camera_health.py:167: in report
+[8.851s]     health.CameraHealthNode.publish_health(node)
+[8.852s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.852s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.853s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.853s] ________________ test_stale_protection_status_blocks_readiness _________________
+[8.854s] test/test_camera_health.py:226: in test_stale_protection_status_blocks_readiness
+[8.854s]     assert not report(healthy)['ready']
+[8.855s] test/test_camera_health.py:167: in report
+[8.855s]     health.CameraHealthNode.publish_health(node)
+[8.856s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.856s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.857s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.857s] __________ test_forwarded_health_preserves_image_age[50.0-450.0-True] __________
+[8.857s] test/test_camera_health.py:244: in test_forwarded_health_preserves_image_age
+[8.858s]     result = report(healthy)['streams']['depth']
+[8.858s] test/test_camera_health.py:167: in report
+[8.859s]     health.CameraHealthNode.publish_health(node)
+[8.860s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.861s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.862s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.862s] ________ test_forwarded_health_preserves_image_age[700.0-1100.0-False] _________
+[8.863s] test/test_camera_health.py:244: in test_forwarded_health_preserves_image_age
+[8.864s]     result = report(healthy)['streams']['depth']
+[8.864s] test/test_camera_health.py:167: in report
+[8.865s]     health.CameraHealthNode.publish_health(node)
+[8.865s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.866s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.866s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.867s] __________ test_forwarded_health_preserves_image_age[None-None-False] __________
+[8.867s] test/test_camera_health.py:244: in test_forwarded_health_preserves_image_age
+[8.868s]     result = report(healthy)['streams']['depth']
+[8.868s] test/test_camera_health.py:167: in report
+[8.869s]     health.CameraHealthNode.publish_health(node)
+[8.870s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.870s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.871s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.871s] __________ test_forwarded_health_preserves_image_age[-1.0-None-False] __________
+[8.872s] test/test_camera_health.py:244: in test_forwarded_health_preserves_image_age
+[8.872s]     result = report(healthy)['streams']['depth']
+[8.873s] test/test_camera_health.py:167: in report
+[8.874s]     health.CameraHealthNode.publish_health(node)
+[8.875s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.875s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.875s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.876s] __________ test_forwarded_health_preserves_image_age[nan-None-False] ___________
+[8.877s] test/test_camera_health.py:244: in test_forwarded_health_preserves_image_age
+[8.877s]     result = report(healthy)['streams']['depth']
+[8.878s] test/test_camera_health.py:167: in report
+[8.878s]     health.CameraHealthNode.publish_health(node)
+[8.879s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.879s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.880s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.880s] ____________ test_direct_images_do_not_depend_on_detector_heartbeat ____________
+[8.881s] test/test_camera_health.py:256: in test_direct_images_do_not_depend_on_detector_heartbeat
+[8.882s]     result = report(healthy)
+[8.883s] test/test_camera_health.py:167: in report
+[8.884s]     health.CameraHealthNode.publish_health(node)
+[8.884s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.885s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.886s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.886s] ________ test_stopped_direct_depth_cannot_be_masked_by_detector_health _________
+[8.887s] test/test_camera_health.py:269: in test_stopped_direct_depth_cannot_be_masked_by_detector_health
+[8.887s]     result = report(healthy)
+[8.888s] test/test_camera_health.py:167: in report
+[8.888s]     health.CameraHealthNode.publish_health(node)
+[8.889s] dobot_vision_rgbd/camera_health_node.py:360: in publish_health
+[8.889s]     if key == 'cloud' else self.freshness_timeout_s)
+[8.890s] E   AttributeError: 'types.SimpleNamespace' object has no attribute 'freshness_timeout_s'
+[8.890s] - generated xml file: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml -
+[8.891s] =========================== short test summary info ============================
+[8.891s] FAILED test/test_camera_health.py::test_fresh_low_rate_is_degraded_warning_not_hard_blocker
+[8.892s] FAILED test/test_camera_health.py::test_health_can_report_ready_for_complete_valid_data
+[8.894s] FAILED test/test_camera_health.py::test_usable_rate_is_ready_but_requested_rate_degradation_is_visible
+[8.897s] FAILED test/test_camera_health.py::test_usb2_blocks_otherwise_valid_streams
+[8.899s] FAILED test/test_camera_health.py::test_stream_loss_clears_readiness - Attrib...
+[8.899s] FAILED test/test_camera_health.py::test_zero_depth_clears_readiness - Attribu...
+[8.900s] FAILED test/test_camera_health.py::test_invalid_rgb_buffer_clears_readiness
+[8.900s] FAILED test/test_camera_health.py::test_cloud_frame_mismatch_clears_readiness
+[8.901s] FAILED test/test_camera_health.py::test_active_or_unknown_protection_blocks_readiness[True]
+[8.901s] FAILED test/test_camera_health.py::test_active_or_unknown_protection_blocks_readiness[None]
+[8.902s] FAILED test/test_camera_health.py::test_stale_protection_status_blocks_readiness
+[8.902s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[50.0-450.0-True]
+[8.903s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[700.0-1100.0-False]
+[8.903s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[None-None-False]
+[8.904s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[-1.0-None-False]
+[8.909s] FAILED test/test_camera_health.py::test_forwarded_health_preserves_image_age[nan-None-False]
+[8.910s] FAILED test/test_camera_health.py::test_direct_images_do_not_depend_on_detector_heartbeat
+[8.910s] FAILED test/test_camera_health.py::test_stopped_direct_depth_cannot_be_masked_by_detector_health
+[8.911s] ======================== 18 failed, 37 passed in 4.35s =========================
+[9.159s] Invoked command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd' returned '1': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/dobot_web_interface:/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_calibration:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:/home/bbcontact/magician_ros2/install/orbbec_description:/home/bbcontact/magician_ros2/install/orbbec_camera:/home/bbcontact/magician_ros2/install/dobot_msgs:/home/bbcontact/magician_ros2/install/dobot_driver:/home/bbcontact/magician_ros2/install/dobot_description:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:/home/bbcontact/magician_ros2/install/orbbec_camera/lib:/home/bbcontact/magician_ros2/install/dobot_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib PYTEST_ADDOPTS=--tb=short --junit-xml=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml --junit-prefix=dobot_vision_rgbd -o cache_dir=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_web_interface:/home/bbcontact/magician_ros2/install/dobot_web_interface/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_vision_yolo:/home/bbcontact/magician_ros2/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_demos:/home/bbcontact/magician_ros2/install/dobot_demos/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_calibration:/home/bbcontact/magician_ros2/install/dobot_calibration/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_visualization_tools:/home/bbcontact/magician_ros2/install/dobot_visualization_tools/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_bringup:/home/bbcontact/magician_ros2/install/dobot_bringup/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_state_updater:/home/bbcontact/magician_ros2/install/dobot_state_updater/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_object_vision:/home/bbcontact/magician_ros2/install/dobot_object_vision/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_motion:/home/bbcontact/magician_ros2/install/dobot_motion/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_kinematics:/home/bbcontact/magician_ros2/install/dobot_kinematics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_homing:/home/bbcontact/magician_ros2/install/dobot_homing/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_end_effector:/home/bbcontact/magician_ros2/install/dobot_end_effector/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_diagnostics:/home/bbcontact/magician_ros2/install/dobot_diagnostics/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_msgs/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/build/dobot_control_panel:/home/bbcontact/magician_ros2/install/dobot_control_panel/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/dobot_driver/lib/python3.12/site-packages:/opt/ros/jazzy/opt/gz_sim_vendor/lib/python:/opt/ros/jazzy/opt/sdformat_vendor/lib/python:/opt/ros/jazzy/opt/gz_transport_vendor/lib/python:/opt/ros/jazzy/opt/gz_msgs_vendor/lib/python:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -m pytest

@@ -54,6 +54,28 @@ def test_duplicate_timestamp_is_rejected():
 def test_regressed_timestamp_is_rejected():
     now,bundle,streams=inputs(); streams['depth']['regressed_timestamps']=1
     assert not evaluate_camera_freshness(now_s=now,bundle=bundle,streams=streams,rgb_lease_s=1.5,depth_lease_s=1.5,camera_info_lease_s=1.5,expected_frame='camera_color_optical_frame').depth_fresh
+
+def test_historical_duplicate_outside_lease_recovers_current_freshness():
+    now, bundle, streams = inputs()
+    streams['rgb'].update(current_timestamp_valid=True,
+                          current_duplicate_timestamps=0,
+                          historical_duplicate_timestamps=1,
+                          duplicate_timestamps=1)
+    value = evaluate_camera_freshness(now_s=now, bundle=bundle, streams=streams,
+                                      rgb_lease_s=1.5, depth_lease_s=1.5,
+                                      camera_info_lease_s=1.5,
+                                      expected_frame='camera_color_optical_frame')
+    assert value.rgb_fresh
+
+def test_duplicate_in_active_window_fails_closed():
+    now, bundle, streams = inputs()
+    streams['rgb'].update(current_timestamp_valid=False,
+                          current_duplicate_timestamps=1)
+    value = evaluate_camera_freshness(now_s=now, bundle=bundle, streams=streams,
+                                      rgb_lease_s=1.5, depth_lease_s=1.5,
+                                      camera_info_lease_s=1.5,
+                                      expected_frame='camera_color_optical_frame')
+    assert not value.rgb_fresh
 def test_raw_rate_does_not_override_valid_synchronized_capture(): assert evaluate().synchronized
 def test_sync_skew_over_threshold_is_rejected(): assert not evaluate(skew=.101).synchronized
 
@@ -61,6 +83,38 @@ def test_bad_instantaneous_pair_uses_recent_valid_synchronized_capture():
     now,bundle,streams=inputs(skew=.101)
     value=evaluate_camera_freshness(now_s=now,bundle=bundle,streams=streams,rgb_lease_s=1.5,depth_lease_s=1.5,camera_info_lease_s=1.5,expected_frame='camera_color_optical_frame',now_monotonic=50,last_valid_sync_monotonic=49)
     assert value.synchronized
+
+def test_health_sync_cannot_substitute_for_an_actual_payload():
+    now, bundle, streams = inputs(skew=.101)
+    streams['rgb_depth_sync_valid'] = True
+    value = evaluate_camera_freshness(now_s=now, bundle=bundle, streams=streams,
+                                      rgb_lease_s=1.5, depth_lease_s=1.5,
+                                      camera_info_lease_s=1.5,
+                                      expected_frame='camera_color_optical_frame')
+    assert not value.synchronized
+
+
+def test_recent_actual_payload_survives_an_unmatched_intermediate_frame():
+    now, bundle, streams = inputs(skew=.101)
+    value = evaluate_camera_freshness(now_s=now, bundle=bundle, streams=streams,
+                                      rgb_lease_s=1.5, depth_lease_s=1.5,
+                                      camera_info_lease_s=1.5,
+                                      expected_frame='camera_color_optical_frame',
+                                      now_monotonic=20.0,
+                                      last_valid_sync_monotonic=19.98)
+    assert value.synchronized
+
+
+def test_recent_actual_payload_expires_at_the_existing_lease():
+    now, bundle, streams = inputs(skew=.101)
+    value = evaluate_camera_freshness(now_s=now, bundle=bundle, streams=streams,
+                                      rgb_lease_s=1.5, depth_lease_s=1.5,
+                                      camera_info_lease_s=1.5,
+                                      expected_frame='camera_color_optical_frame',
+                                      now_monotonic=21.51,
+                                      last_valid_sync_monotonic=20.0)
+    assert not value.synchronized
+
 
 def test_all_fresh_for_ten_seconds_is_admitted():
     gate=AuthoritativeBaselineAdmissionGate(); item=snapshot(evaluate())

@@ -158,7 +158,109 @@ def test_duplicate_depth_stamp_is_decoded_once(node, monkeypatch):
     monkeypatch.setattr(node.bridge, 'imgmsg_to_cv2', decode)
     node.on_depth(depth)
     node.on_depth(depth)
+    node.depth_quality_worker.join(timeout=1)
     assert len(calls) == 1
+
+
+def _payload(node, stamp):
+    from sensor_msgs.msg import Image
+    value = Image()
+    value.header.frame_id = node.settings['camera_frame']
+    value.header.stamp.sec = int(stamp)
+    value.header.stamp.nanosec = int(round((stamp - int(stamp)) * 1e9))
+    return value
+
+
+def _cached_info(node, stamp=10.0):
+    from sensor_msgs.msg import CameraInfo
+    value = CameraInfo()
+    value.header.frame_id = node.settings['camera_frame']
+    value.header.stamp.sec = int(stamp)
+    value.header.stamp.nanosec = int(round((stamp - int(stamp)) * 1e9))
+    node.on_camera_info(value)
+
+
+def test_unmatched_new_rgb_retains_previous_valid_synchronized_payload(node):
+    _cached_info(node)
+    rgb1, depth1, rgb2 = _payload(node, 10.000), _payload(node, 10.012), _payload(node, 10.033)
+    node.on_rgb_payload(rgb1)
+    node._pair_raw_payload('depth', depth1)
+    assert node.bundle[:2] == (rgb1, depth1)
+    node.on_rgb_payload(rgb2)  # readiness may sample in this callback gap
+    assert node.bundle[:2] == (rgb1, depth1)
+    assert node.last_sync_pairing_reason == 'NO_DEPTH_SAMPLE'
+
+
+def test_nearest_queue_pairing_avoids_crossing_pairs(node):
+    _cached_info(node)
+    rgb1, rgb2, depth2 = _payload(node, 10.000), _payload(node, 10.033), _payload(node, 10.043)
+    node.on_rgb_payload(rgb1)
+    node.on_rgb_payload(rgb2)
+    node._pair_raw_payload('depth', depth2)
+    assert node.bundle[:2] == (rgb2, depth2)
+    assert node.last_sync_pair_skew_ms == pytest.approx(10.0)
+
+
+@pytest.mark.parametrize('skew,accepted', [(0.099, True), (0.101, False)])
+def test_raw_payload_pairing_keeps_the_100ms_contract(node, skew, accepted):
+    _cached_info(node)
+    node.on_rgb_payload(_payload(node, 10.0))
+    node._pair_raw_payload('depth', _payload(node, 10.0 + skew))
+    assert (node.bundle is not None) is accepted
+    if not accepted:
+        assert node.last_sync_pairing_reason == 'PAIR_SKEW_OVER_100MS'
+
+
+def test_invalid_candidate_cannot_overwrite_an_accepted_payload(node):
+    _cached_info(node)
+    rgb, depth = _payload(node, 10.0), _payload(node, 10.012)
+    node.on_rgb_payload(rgb)
+    node._pair_raw_payload('depth', depth)
+    node.on_rgb_payload(_payload(node, 20.0))
+    node._pair_raw_payload('depth', _payload(node, 20.101))
+    assert node.bundle[:2] == (rgb, depth)
+    assert node.last_sync_pairing_reason == 'PAIR_SKEW_OVER_100MS'
+
+
+def test_valid_pair_commit_advances_generation_and_refreshes_monotonic_age(node):
+    _cached_info(node)
+    node.on_rgb_payload(_payload(node, 10.000))
+    node._pair_raw_payload('depth', _payload(node, 10.020))
+    assert node.sync_pair_success_count == 1
+    assert node.sync_payload_generation == 1
+    assert node.last_sync_commit_monotonic is not None
+    assert node.last_valid_synchronized_capture_monotonic == node.last_sync_commit_monotonic
+    assert node.last_sync_commit_rgb_stamp == pytest.approx(10.000)
+    assert node.last_sync_commit_depth_stamp == pytest.approx(10.020)
+    assert node.last_sync_commit_skew_ms == pytest.approx(20.0)
+
+
+def test_impossible_pair_is_consumed_once_not_retried_indefinitely(node):
+    _cached_info(node)
+    node.on_rgb_payload(_payload(node, 10.000))
+    node._pair_raw_payload('depth', _payload(node, 10.500))
+    assert node.sync_pair_reject_count == 1
+    assert node.rgb_dropped_too_old_count == 1
+    assert not node.rgb_payload_queue
+    assert len(node.depth_payload_queue) == 1
+    node._pair_raw_payload('depth', _payload(node, 10.533))
+    assert node.sync_pair_reject_count == 1
+
+
+def test_explicit_activation_clears_stale_sync_state(node, monkeypatch):
+    node.bundle = (_payload(node, 1.0), _payload(node, 1.01), object())
+    node.last_valid_synchronized_capture_monotonic = time.monotonic()
+    node.sync_pair_success_count = 9
+    node.sync_payload_generation = 9
+    node.rgb_payload_queue.append(_payload(node, 1.0))
+    node.depth_payload_queue.append(_payload(node, 1.0))
+    monkeypatch.setattr(node, 'create_subscription', lambda *args, **kwargs: object())
+    node.ensure_camera_sync('passive_capture')
+    assert node.bundle is None
+    assert node.last_valid_synchronized_capture_monotonic is None
+    assert node.sync_pair_success_count == 0
+    assert node.sync_payload_generation == 0
+    assert not node.rgb_payload_queue and not node.depth_payload_queue
 
 
 def test_mathematical_pass_alone_does_not_authorize_live_picking(node, monkeypatch):

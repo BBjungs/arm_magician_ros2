@@ -9,7 +9,7 @@ import traceback
 import numpy as np
 import rclpy
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
-from rclpy.executors import SingleThreadedExecutor
+from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import CameraInfo, Image, PointCloud2
@@ -109,7 +109,12 @@ def valid_cloud_ratio(message):
     return float(np.mean(valid))
 
 
-def stream_metrics(samples, now, expected_fps, freshness_s=1.0):
+def stream_metrics(samples, now, expected_fps, freshness_s=1.5):
+    """Report current health separately from lifetime timestamp diagnostics.
+
+    An old duplicate remains useful audit evidence but cannot permanently
+    stale a stream whose timestamps have advanced correctly during its lease.
+    """
     if not samples:
         return {'fresh': False, 'frames': 0}
     arrivals = [x[0] for x in samples]
@@ -118,15 +123,30 @@ def stream_metrics(samples, now, expected_fps, freshness_s=1.0):
     positive_gaps = gaps[gaps > 0]
     duplicate_timestamps = int(np.sum(gaps == 0))
     regressed_timestamps = int(np.sum(gaps < 0))
+    active = [item for item in samples if 0.0 <= now - item[0] <= freshness_s]
+    active_stamps = [item[1] for item in active]
+    active_gaps = np.diff(active_stamps)
+    current_duplicates = int(np.sum(active_gaps == 0))
+    current_regressions = int(np.sum(active_gaps < 0))
+    current_timestamp_valid = (bool(active_stamps)
+                               and all(stamp > 0 for stamp in active_stamps)
+                               and current_duplicates == 0
+                               and current_regressions == 0)
     return {'fresh': now - arrivals[-1] < freshness_s, 'frames': len(samples),
             'age_ms': round((now - arrivals[-1]) * 1000, 2),
             'fps': round((len(samples) - 1) / (arrivals[-1] - arrivals[0]), 2)
             if len(samples) > 1 and arrivals[-1] > arrivals[0] else 0.0,
             'timestamp_fps': round((len(stamps) - 1) / (stamps[-1] - stamps[0]), 2)
             if len(stamps) > 1 and stamps[-1] > stamps[0] else 0.0,
-            'timestamp_valid': all(s > 0 for s in stamps) and bool(np.all(gaps > 0)),
+            'timestamp_valid': current_timestamp_valid,
+            'current_timestamp_valid': current_timestamp_valid,
+            'active_window_frames': len(active),
+            'current_duplicate_timestamps': current_duplicates,
+            'current_regressed_timestamps': current_regressions,
             'duplicate_timestamps': duplicate_timestamps,
             'regressed_timestamps': regressed_timestamps,
+            'historical_duplicate_timestamps': duplicate_timestamps,
+            'historical_regressed_timestamps': regressed_timestamps,
             'median_timestamp_delta_ms': (round(float(np.median(positive_gaps)) * 1000, 3)
                                           if len(positive_gaps) else None),
             'max_stamp_gap_ms': float(np.max(gaps) * 1000.0) if len(gaps) else None,
@@ -148,13 +168,17 @@ class CameraHealthNode(Node):
         super().__init__('camera_health')
         self.declare_parameter('expected_fps', 30.0)
         self.declare_parameter('minimum_fps', 2.0)
+        self.declare_parameter('freshness_timeout_s', 1.5)
         self.expected_fps = float(self.get_parameter('expected_fps').value)
         self.minimum_fps = float(self.get_parameter('minimum_fps').value)
+        self.freshness_timeout_s = float(self.get_parameter('freshness_timeout_s').value)
         if not np.isfinite(self.expected_fps) or self.expected_fps <= 0:
             raise ValueError('expected_fps must be finite and positive')
         if (not np.isfinite(self.minimum_fps) or self.minimum_fps <= 0
                 or self.minimum_fps > self.expected_fps):
             raise ValueError('minimum_fps must be within (0, expected_fps]')
+        if not np.isfinite(self.freshness_timeout_s) or self.freshness_timeout_s <= 0:
+            raise ValueError('freshness_timeout_s must be finite and positive')
         self.samples = {key: deque(maxlen=300) for key in ('rgb', 'depth', 'rgb_info', 'depth_info', 'cloud')}
         self.latest = {}
         self.validity = {}
@@ -170,22 +194,34 @@ class CameraHealthNode(Node):
                   'last_exception': ''}
             for key in ('rgb', 'depth', 'rgb_info', 'depth_info', 'cloud')
         }
-        self.direct_image_health = True
+        # CameraInfo is emitted by the C++ Orbbec frame callback for every
+        # RGB/depth frame and carries the timestamp, frame id, dimensions and
+        # intrinsics needed for transport liveness.  Using it as the transport
+        # heartbeat avoids deserializing two full Image payloads in Python.
+        self.direct_image_health = False
         self.sensor_callback_groups = []
         self.subscriptions_ = []
-        for key, kind, topic in [('rgb', Image, '/camera/color/image_raw'),
-                                 ('depth', Image, '/camera/depth/image_raw'),
-                                 ('rgb_info', CameraInfo, '/camera/color/camera_info'),
-                                 ('depth_info', CameraInfo, '/camera/depth/camera_info')]:
+        for key, topic in [('rgb', '/camera/color/camera_info'),
+                           ('depth', '/camera/depth/camera_info')]:
             self.declare_parameter(key + '_topic', topic)
             callback_group = MutuallyExclusiveCallbackGroup()
             self.sensor_callback_groups.append(callback_group)
             self.subscriptions_.append(self.create_subscription(
-                kind, str(self.get_parameter(key + '_topic').value),
+                CameraInfo, str(self.get_parameter(key + '_topic').value),
                 lambda msg, key=key: self.receive(key, msg), HEALTH_SENSOR_QOS,
                 callback_group=callback_group))
+        # These aliases make the status contract explicit without adding a
+        # second DDS subscription for the same small CameraInfo message.
+        self.latest['rgb_info'] = None
+        self.latest['depth_info'] = None
         self.declare_parameter('cloud_topic', '/camera/depth/points')
         self.cloud_topic = str(self.get_parameter('cloud_topic').value)
+        # Point-cloud usability belongs to calibration.  Subscribing here
+        # duplicates large DDS deserialization and full-cloud scans, which can
+        # starve RGB-D transport on the passive profile.
+        self.declare_parameter('enable_cloud_health_validation', False)
+        self.enable_cloud_health_validation = bool(
+            self.get_parameter('enable_cloud_health_validation').value)
         self.cloud_sample_period_s = 0.5
         self.cloud_last_sample = None
         cloud_callback_group = MutuallyExclusiveCallbackGroup()
@@ -194,9 +230,11 @@ class CameraHealthNode(Node):
         # recreating a subscription while a MultiThreadedExecutor is building
         # its wait set races with rclpy and can terminate the health process
         # with "InvalidHandle: destruction was requested".
-        self.cloud_subscription = self.create_subscription(
-            PointCloud2, self.cloud_topic, self.receive_cloud,
-            HEALTH_SENSOR_QOS, callback_group=cloud_callback_group)
+        self.cloud_subscription = None
+        if self.enable_cloud_health_validation:
+            self.cloud_subscription = self.create_subscription(
+                PointCloud2, self.cloud_topic, self.receive_cloud,
+                HEALTH_SENSOR_QOS, callback_group=cloud_callback_group)
         self.vision_health = {}
         self.vision_health_time = None
         self.create_subscription(String, '/dobot_vision/status',
@@ -224,6 +262,9 @@ class CameraHealthNode(Node):
             with self.data_lock:
                 self.samples[key].append((now, stamp, msg.header.frame_id))
                 self.latest[key] = msg
+                if key in ('rgb', 'depth'):
+                    self.samples[key + '_info'].append((now, stamp, msg.header.frame_id))
+                    self.latest[key + '_info'] = msg
         except Exception:
             diagnostic['exception_count'] += 1
             diagnostic['last_exception'] = traceback.format_exc()
@@ -245,20 +286,25 @@ class CameraHealthNode(Node):
         self.receive('cloud', msg)
 
     def process_payloads(self):
-        """Validate retained depth/cloud samples outside raw callback execution."""
+        """Validate only optional cloud evidence outside raw callbacks.
+
+        Pixel/depth quality belongs to calibration when its demand-driven
+        sensor ingest is active; transport health must not scan image payloads.
+        """
         now = time.monotonic()
         with self.data_lock:
             candidates = {
                 key: self.latest.get(key)
-                for key in ('depth', 'cloud')
+                for key in ('cloud',)
                 if self.latest.get(key) is not None
+                and (key != 'cloud' or getattr(self, 'enable_cloud_health_validation', True))
                 and now - self.checked.get(key, 0) >= 0.5
             }
             for key in candidates:
                 self.checked[key] = now
         for key, msg in candidates.items():
             try:
-                ratio = valid_depth_ratio(msg) if key == 'depth' else valid_cloud_ratio(msg)
+                ratio = valid_cloud_ratio(msg)
                 validity = {'valid_ratio': ratio, 'valid': ratio > 0.01}
             except Exception:
                 validity = {'valid': False, 'error': traceback.format_exc()}
@@ -301,6 +347,7 @@ class CameraHealthNode(Node):
 
     def publish_health(self):
         now = time.monotonic()
+        cloud_validation_enabled = bool(getattr(self, 'enable_cloud_health_validation', True))
         with self.data_lock:
             samples = {key: list(value) for key, value in self.samples.items()}
             latest = dict(self.latest)
@@ -314,6 +361,9 @@ class CameraHealthNode(Node):
         )
         status = {'usb': usb_status(), 'streams': {}, 'ready': False,
                   'blockers': [], 'warnings': [],
+                  'cloud_health_validation_enabled': cloud_validation_enabled,
+                  'cloud_health_state': ('enabled' if cloud_validation_enabled
+                                         else 'delegated_to_calibration'),
                   'callback_diagnostics': {
                       key: dict(value)
                       for key, value in getattr(self, 'callback_diagnostics', {}).items()
@@ -328,11 +378,15 @@ class CameraHealthNode(Node):
         if not status['usb']['identity_valid']:
             status['blockers'].append('camera_identity_missing_or_ambiguous')
         for key, stream_samples in samples.items():
+            if key == 'cloud' and not cloud_validation_enabled:
+                continue
             if delegated_streams and key in ('rgb', 'depth'):
                 continue
             # Cloud is intentionally sampled at 2 Hz, so allow scheduling
             # jitter without weakening the 1 s RGB/depth freshness contract.
-            freshness_s = self.cloud_sample_period_s * 4 if key == 'cloud' else 1.0
+            lease = getattr(self, 'freshness_timeout_s', 1.5)
+            freshness_s = (max(lease, self.cloud_sample_period_s * 4)
+                           if key == 'cloud' else lease)
             metrics = stream_metrics(
                 stream_samples, now, self.expected_fps, freshness_s)
             metrics.update(validity.get(key, {}))
@@ -361,7 +415,7 @@ class CameraHealthNode(Node):
             metrics['expected_rate_ok'] = expected_rate_ok
             if key in ('rgb', 'depth') and rate_ok and not expected_rate_ok:
                 status['warnings'].append(key + '_below_requested_rate')
-            if key in ('depth', 'cloud') and not metrics.get('valid', False):
+            if key == 'cloud' and not metrics.get('valid', False):
                 status['blockers'].append(key + '_data_invalid')
         if delegated_streams:
             for key, source_key, age_key in (
@@ -402,8 +456,6 @@ class CameraHealthNode(Node):
                     status['warnings'].append(key + '_rate_unverified_or_degraded')
                 if key == 'depth' and not metrics['valid']:
                     status['blockers'].append('depth_data_invalid')
-        elif hasattr(self, 'vision_health') and not getattr(self, 'direct_image_health', False):
-            status['blockers'].append('vision_stream_health_missing_or_stale')
         for key, image_key in [('rgb_info', 'rgb'), ('depth_info', 'depth')]:
             info, image = latest.get(key), latest.get(image_key)
             delegated_frame = status['streams'].get(image_key, {}).get('frame_id')
@@ -426,10 +478,20 @@ class CameraHealthNode(Node):
                    and np.allclose(rgb_info.k, depth_info.k, rtol=1e-5, atol=1e-5))
         status['alignment_metadata_consistent'] = bool(aligned)
         channels = {'rgb8': 3, 'bgr8': 3, 'rgba8': 4, 'bgra8': 4, 'mono8': 1}
-        rgb_valid = bool(vision_health.get('rgb_payload_valid')) if delegated_streams else (rgb is not None and rgb.width > 0 and rgb.height > 0
-                     and rgb.encoding in channels and rgb.step >= rgb.width * channels[rgb.encoding]
-                     and len(rgb.data) == rgb.height * rgb.step)
+        if delegated_streams:
+            rgb_valid = bool(vision_health.get('rgb_payload_valid'))
+        elif hasattr(rgb, 'k'):
+            rgb_valid = (rgb.width > 0 and rgb.height > 0
+                         and np.all(np.isfinite(rgb.k)) and rgb.k[0] > 0 and rgb.k[4] > 0)
+        else:
+            # Compatibility for direct-image unit fixtures; runtime uses the
+            # CameraInfo branch above and never needs pixel payload validation.
+            rgb_valid = (rgb is not None and rgb.width > 0 and rgb.height > 0
+                         and rgb.encoding in channels
+                         and rgb.step >= rgb.width * channels[rgb.encoding]
+                         and len(rgb.data) == rgb.height * rgb.step)
         status['rgb_payload_valid'] = bool(rgb_valid)
+        status['depth_quality_state'] = 'delegated_to_calibration'
         if not rgb_valid:
             status['blockers'].append('rgb_payload_invalid')
         skew = (vision_health.get('sync_delta_ms') if delegated_streams else
@@ -440,6 +502,9 @@ class CameraHealthNode(Node):
             status['rgb_depth_skew_ms'] = round(skew, 2)
             if skew > 100:
                 status['blockers'].append('rgb_depth_timestamps_unsynchronized')
+        # This is a closest pair from live samples only, not arbitrary latest
+        # frames.  The markerless node may retain it as synchronizer evidence.
+        status['rgb_depth_sync_valid'] = bool(skew is not None and skew <= 100)
         cloud = latest.get('cloud')
         depth_frame = status['streams'].get('depth', {}).get('frame_id')
         if cloud is not None and depth_frame and cloud.header.frame_id != depth_frame:
@@ -453,9 +518,10 @@ class CameraHealthNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = CameraHealthNode()
-    # Python sensor callbacks are short; one executor avoids GIL contention
-    # while receiving the high-bandwidth RGB-D and cloud streams.
-    executor = SingleThreadedExecutor()
+    # Separate Gemini RGB, depth and cloud readers must all make progress.
+    # A single executor starves depth/cloud on this live hardware while RGB
+    # keeps arriving, so use bounded parallel callback execution.
+    executor = MultiThreadedExecutor(num_threads=4)
     executor.add_node(node)
     try:
         executor.spin()

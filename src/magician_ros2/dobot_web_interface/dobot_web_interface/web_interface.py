@@ -178,6 +178,7 @@ class DobotWebNode(Node):
         )
         self.declare_parameter('camera_raw_topic', '/camera/color/image_raw')
         self.declare_parameter('camera_compressed_topic', '/camera/color/image_raw/compressed')
+        self.declare_parameter('enable_camera_preview', True)
         self.declare_parameter('camera_info_topic', '/camera/color/camera_info')
         self.declare_parameter('camera_device', '')
         self.declare_parameter('camera_width', 1280)
@@ -226,6 +227,9 @@ class DobotWebNode(Node):
         self.camera_raw_topic = str(self.get_parameter('camera_raw_topic').value)
         self.camera_compressed_topic = str(
             self.get_parameter('camera_compressed_topic').value
+        )
+        self.enable_camera_preview = bool(
+            self.get_parameter('enable_camera_preview').value
         )
         self.camera_info_topic = str(self.get_parameter('camera_info_topic').value)
         self.camera_device = str(self.get_parameter('camera_device').value)
@@ -411,14 +415,14 @@ class DobotWebNode(Node):
             for action in ('start', 'pause', 'resume', 'abort')
         }
 
-        if not self.camera_compressed_topic:
+        if self.enable_camera_preview and not self.camera_compressed_topic:
             self.create_subscription(
                 Image,
                 self.camera_raw_topic,
                 self._raw_image_callback,
                 qos_profile_sensor_data,
             )
-        if self.camera_compressed_topic:
+        if self.enable_camera_preview and self.camera_compressed_topic:
             self.create_subscription(
                 CompressedImage,
                 self.camera_compressed_topic,
@@ -502,6 +506,9 @@ class DobotWebNode(Node):
         )
         self.get_logger().info(
             f'Camera topics: {self.camera_raw_topic}, {self.camera_compressed_topic}'
+        )
+        self.get_logger().info(
+            f'Camera preview enabled: {self.enable_camera_preview}'
         )
         self.get_logger().info(
             'Vision topics: '

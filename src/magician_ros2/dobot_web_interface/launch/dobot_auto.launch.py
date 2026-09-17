@@ -92,6 +92,9 @@ def _maybe_start_vision(context, *args, **kwargs):
             launch_arguments={
                 'camera_expected_fps': LaunchConfiguration('camera_fps'),
                 'camera_minimum_fps': LaunchConfiguration('camera_minimum_fps'),
+                'camera_freshness_timeout_s': '1.5',
+                'start_object_fusion': LaunchConfiguration('start_object_fusion'),
+                'enable_cloud_health_validation': LaunchConfiguration('enable_cloud_health_validation'),
             }.items(),
         )]
     vision_launch = PathJoinSubstitution([
@@ -167,6 +170,10 @@ def generate_launch_description():
         default_value='/camera/color/image_raw/compressed',
         description='Native MJPG topic; empty falls back to throttled raw RGB.',
     )
+    enable_camera_preview_arg = DeclareLaunchArgument(
+        'enable_camera_preview', default_value='true', choices=['true', 'false'],
+        description='Subscribe to and retain camera frames for the web preview.',
+    )
     camera_info_topic_arg = DeclareLaunchArgument(
         'camera_info_topic',
         default_value='/camera/color/camera_info',
@@ -224,6 +231,10 @@ def generate_launch_description():
         'start_vision',
         default_value='true',
         description='Start the selected dry-run vision pipeline.',
+    )
+    start_object_fusion_arg = DeclareLaunchArgument(
+        'start_object_fusion', default_value='false', choices=['true', 'false'],
+        description='Start optional RGB-D object fusion after passive readiness.',
     )
     vision_engine_arg = DeclareLaunchArgument(
         'vision_engine', default_value='rgbd_shape',
@@ -300,6 +311,7 @@ def generate_launch_description():
                 'camera_compressed_topic': LaunchConfiguration(
                     'camera_compressed_topic'
                 ),
+                'enable_camera_preview': LaunchConfiguration('enable_camera_preview'),
                 'camera_info_topic': LaunchConfiguration('camera_info_topic'),
                 'camera_width': LaunchConfiguration('camera_width'),
                 'camera_height': LaunchConfiguration('camera_height'),
@@ -332,6 +344,7 @@ def generate_launch_description():
             camera_device_arg,
             camera_raw_topic_arg,
             camera_compressed_topic_arg,
+            enable_camera_preview_arg,
             camera_info_topic_arg,
             camera_width_arg,
             camera_height_arg,
@@ -349,10 +362,13 @@ def generate_launch_description():
                                   choices=['true', 'false']),
             DeclareLaunchArgument('enable_colored_point_cloud', default_value='false',
                                   choices=['true', 'false']),
+            DeclareLaunchArgument('enable_cloud_health_validation', default_value='false',
+                                  choices=['true', 'false']),
             orbbec_camera_name_arg,
             orbbec_serial_number_arg,
             orbbec_depth_registration_arg,
             start_vision_arg,
+            start_object_fusion_arg,
             vision_engine_arg,
             tool_mapping_arg,
             vision_annotated_path_arg,

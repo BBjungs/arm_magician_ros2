@@ -1,0 +1,21 @@
+[1.462s] Invoking command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTEST_ADDOPTS=--tb=short --junit-xml=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml --junit-prefix=dobot_vision_rgbd -o cache_dir=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -m pytest
+[3.865s] ============================= test session starts ==============================
+[3.866s] platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+[3.867s] cachedir: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache
+[3.867s] rootdir: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd
+[3.867s] plugins: ament-lint-0.17.5, ament-flake8-0.17.5, ament-pep257-0.17.5, ament-copyright-0.17.5, ament-xmllint-0.17.5, launch-testing-3.4.11, launch-testing-ros-0.26.12, anyio-4.14.2, colcon-core-0.21.1, typeguard-4.1.5, cov-4.1.0
+[3.868s] collected 56 items
+[3.868s] 
+[4.034s] test/test_camera_health.py .................................             [ 58%]
+[4.050s] test/test_color_classifier.py ..                                         [ 62%]
+[4.055s] test/test_depth_diagnostic.py ..                                         [ 66%]
+[4.064s] test/test_depth_geometry.py ...                                          [ 71%]
+[4.070s] test/test_detection_schema.py .                                          [ 73%]
+[4.194s] test/test_object_fusion.py .....                                         [ 82%]
+[4.204s] test/test_object_fusion_health.py .....                                  [ 91%]
+[4.214s] test/test_shape_detector.py ....                                         [ 98%]
+[4.220s] test/test_visualization.py .                                             [100%]
+[4.220s] 
+[4.220s] - generated xml file: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml -
+[4.221s] ============================== 56 passed in 1.69s ==============================
+[4.478s] Invoked command in '/home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd' returned '0': AMENT_PREFIX_PATH=/home/bbcontact/magician_ros2/install/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib:${LD_LIBRARY_PATH} PYTEST_ADDOPTS=--tb=short --junit-xml=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml --junit-prefix=dobot_vision_rgbd -o cache_dir=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/bbcontact/magician_ros2/build/dobot_vision_rgbd:/home/bbcontact/magician_ros2/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/bbcontact/magician_ros2/install/orbbec_camera_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -m pytest

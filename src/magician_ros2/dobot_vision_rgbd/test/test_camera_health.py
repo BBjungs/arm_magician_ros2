@@ -116,6 +116,15 @@ def test_metrics_report_staleness_gaps_and_repeated_timestamps():
     assert repeated['timestamp_fps'] == pytest.approx(20.0)
 
 
+def test_old_duplicate_does_not_block_current_lease():
+    samples = [(1.0, 100.0, 'camera'), (1.1, 100.0, 'camera'),
+               (9.8, 200.0, 'camera'), (10.0, 200.2, 'camera')]
+    result = health.stream_metrics(samples, 10.0, 30, freshness_s=1.5)
+    assert result['historical_duplicate_timestamps'] == 1
+    assert result['current_duplicate_timestamps'] == 0
+    assert result['current_timestamp_valid']
+
+
 def test_fresh_low_rate_is_degraded_warning_not_hard_blocker(healthy):
     samples = [(9.8, 100.0, 'color_optical'), (10.0, 100.2, 'color_optical')]
     healthy.samples['rgb'] = samples
@@ -130,6 +139,10 @@ def test_sync_uses_a_live_matching_pair_instead_of_unrelated_latest_frames():
     depth = [(9.7, 100.01, 'camera'), (10.0, 100.7, 'camera')]
     assert health.synchronized_skew_ms(rgb, depth, 10.0) == pytest.approx(10.0)
     assert health.synchronized_skew_ms(rgb, depth, 12.0) is None
+
+
+def test_health_reports_only_a_threshold_valid_live_sync_pair(healthy):
+    assert report(healthy)['rgb_depth_sync_valid'] is True
 
 
 @pytest.fixture
@@ -189,9 +202,11 @@ def test_stream_loss_clears_readiness(healthy):
     assert not report(healthy)['ready']
 
 
-def test_zero_depth_clears_readiness(healthy):
+def test_depth_quality_is_delegated_and_does_not_mask_transport_health(healthy):
     healthy.validity['depth'] = {'valid': False, 'valid_ratio': 0}
-    assert 'depth_data_invalid' in report(healthy)['blockers']
+    result = report(healthy)
+    assert 'depth_data_invalid' not in result['blockers']
+    assert result['depth_quality_state'] == 'delegated_to_calibration'
 
 
 def test_invalid_rgb_buffer_clears_readiness(healthy):

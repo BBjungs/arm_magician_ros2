@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+cachedir: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/.pytest_cache
+rootdir: /home/bbcontact/magician_ros2/src/magician_ros2/dobot_vision_rgbd
+plugins: ament-lint-0.17.5, ament-flake8-0.17.5, ament-pep257-0.17.5, ament-copyright-0.17.5, ament-xmllint-0.17.5, launch-testing-3.4.11, launch-testing-ros-0.26.12, anyio-4.14.2, colcon-core-0.21.1, typeguard-4.1.5, cov-4.1.0
+collected 55 items
+
+test/test_camera_health.py ................................              [ 58%]
+test/test_color_classifier.py ..                                         [ 61%]
+test/test_depth_diagnostic.py ..                                         [ 65%]
+test/test_depth_geometry.py ...                                          [ 70%]
+test/test_detection_schema.py .                                          [ 72%]
+test/test_object_fusion.py .....                                         [ 81%]
+test/test_object_fusion_health.py .....                                  [ 90%]
+test/test_shape_detector.py ....                                         [ 98%]
+test/test_visualization.py .                                             [100%]
+
+- generated xml file: /home/bbcontact/magician_ros2/build/dobot_vision_rgbd/pytest.xml -
+============================== 55 passed in 1.48s ==============================

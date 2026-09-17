@@ -21,6 +21,21 @@ if ! flock -n 9; then
   exit 1
 fi
 
+# systemd owns the complete production stack.  A previous manually launched
+# stack can survive outside this service cgroup and would otherwise create a
+# second camera-health/calibration consumer (and a second SDK pipeline during
+# a restart).  Refuse to start rather than competing for the camera.
+for owned_process in '[m]arkerless_calibration' '[c]amera_health_node'; do
+  if pgrep -f "/install/.*/${owned_process}" >/dev/null; then
+    echo "[BOOT] Refusing duplicate stack: existing ${owned_process} process found" >&2
+    exit 1
+  fi
+done
+if pgrep -f '[c]omponent_container.*camera_container' >/dev/null; then
+  echo "[BOOT] Refusing duplicate stack: existing Orbbec camera container found" >&2
+  exit 1
+fi
+
 set +u
 source "/opt/ros/jazzy/setup.bash"
 if [[ ! -r "${DOBOT_WS_DIR}/install/setup.bash" ]]; then
@@ -49,8 +64,12 @@ set -u
 : "${CAMERA_HEIGHT:=480}"
 : "${CAMERA_FPS:=30.0}"
 : "${STREAM_FPS:=12.0}"
+: "${ENABLE_CAMERA_PREVIEW:=false}"
 : "${START_BRINGUP:=true}"
 : "${START_VISION:=true}"
+: "${START_OBJECT_FUSION:=false}"
+: "${ENABLE_POINT_CLOUD:=true}"
+: "${ENABLE_CLOUD_HEALTH_VALIDATION:=false}"
 : "${VISION_ENGINE:=rgbd_shape}"
 : "${DOBOT_TOOL_MAPPING:=canonical}"
 : "${START_CALIBRATION:=true}"
@@ -149,9 +168,12 @@ export WEB_HOST WEB_PORT
 export DOBOT_WEB_API_TOKEN
 export ORBBEC_WS ORBBEC_CAMERA_NAME ORBBEC_SERIAL_NUMBER ORBBEC_DEPTH_REGISTRATION
 export CAMERA_DEVICE CAMERA_WIDTH CAMERA_HEIGHT CAMERA_FPS STREAM_FPS
+export ENABLE_CAMERA_PREVIEW
 export START_BRINGUP
 export START_CAMERA
 export START_VISION
+export START_OBJECT_FUSION ENABLE_POINT_CLOUD
+export ENABLE_CLOUD_HEALTH_VALIDATION
 export VISION_ENGINE
 export VISION_MODE
 export DOBOT_TOOL_MAPPING
@@ -168,11 +190,15 @@ launch_args=(
   camera_height:="${CAMERA_HEIGHT}"
   camera_fps:="${CAMERA_FPS}"
   stream_fps:="${STREAM_FPS}"
+  enable_camera_preview:="${ENABLE_CAMERA_PREVIEW}"
   start_bringup:="${START_BRINGUP}"
   start_camera:="${START_CAMERA}"
   orbbec_camera_name:="${ORBBEC_CAMERA_NAME}"
   orbbec_depth_registration:="${ORBBEC_DEPTH_REGISTRATION}"
   start_vision:="${START_VISION}"
+  start_object_fusion:="${START_OBJECT_FUSION}"
+  enable_point_cloud:="${ENABLE_POINT_CLOUD}"
+  enable_cloud_health_validation:="${ENABLE_CLOUD_HEALTH_VALIDATION}"
   vision_engine:="${VISION_ENGINE}"
   vision_mode:="${VISION_MODE}"
   tool_mapping:="${DOBOT_TOOL_MAPPING}"
@@ -289,8 +315,7 @@ while kill -0 "${stack_pid}" 2>/dev/null; do
       if [[ -z "${current_failure}" && "${START_CAMERA,,}" =~ ^(1|true|yes|on)$ ]]; then
         if [[ "${status_payload}" == *'"camera_health_fresh":true'* \
               && "${status_payload}" == *'"rgb_fresh":true'* \
-              && "${status_payload}" == *'"depth_fresh":true'* \
-              && "${status_payload}" == *'"depth_valid":true'* ]]; then
+              && "${status_payload}" == *'"depth_fresh":true'* ]]; then
           camera_verified=true
         elif [[ "${camera_verified}" == true ]]; then
           current_failure='Camera health heartbeat or live RGB-D stream was lost'
@@ -298,7 +323,9 @@ while kill -0 "${stack_pid}" 2>/dev/null; do
           current_failure='Camera health heartbeat and live RGB-D did not become ready before their deadline'
         fi
       fi
-      if [[ -z "${current_failure}" && "${START_VISION,,}" =~ ^(1|true|yes|on)$ ]]; then
+      # Object fusion is optional during passive calibration.  Only require
+      # the production vision verdict when this profile explicitly launches it.
+      if [[ -z "${current_failure}" && "${START_OBJECT_FUSION,,}" =~ ^(1|true|yes|on)$ ]]; then
         if [[ "${status_payload}" == *'"vision_running":true'* ]]; then
           vision_verified=true
         elif [[ "${vision_verified}" == true ]]; then

@@ -25,6 +25,10 @@ def generate_launch_description():
         default_value='/camera/color/image_raw/compressed',
         description='Compressed sensor_msgs/CompressedImage camera topic.',
     )
+    preview_arg = DeclareLaunchArgument(
+        'enable_camera_preview', default_value='true', choices=['true', 'false'],
+        description='Subscribe to and retain camera frames for the web preview.',
+    )
     camera_info_topic_arg = DeclareLaunchArgument(
         'camera_info_topic',
         default_value='/camera/color/camera_info',
@@ -84,6 +88,7 @@ def generate_launch_description():
                 'camera_compressed_topic': LaunchConfiguration(
                     'camera_compressed_topic'
                 ),
+                'enable_camera_preview': LaunchConfiguration('enable_camera_preview'),
                 'camera_info_topic': LaunchConfiguration('camera_info_topic'),
                 'camera_device': LaunchConfiguration('camera_device'),
                 'camera_width': LaunchConfiguration('camera_width'),
@@ -105,6 +110,7 @@ def generate_launch_description():
             port_arg,
             raw_topic_arg,
             compressed_topic_arg,
+            preview_arg,
             camera_info_topic_arg,
             camera_device_arg,
             camera_width_arg,

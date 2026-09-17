@@ -134,6 +134,11 @@ class CalibrationNode(Node):
             self.declare_parameter(name, value, descriptor)
         self.settings = {name: self.get_parameter(name).value for name in defaults}
         self.group = ReentrantCallbackGroup()
+        # Image pairing must not be queued behind full-frame depth validation.
+        # A separate reentrant group lets RGB and depth callbacks reach the
+        # short, locked pairing section concurrently on the multi-threaded
+        # executor; expensive conversion happens only after that section.
+        self.sensor_group = ReentrantCallbackGroup()
         self.camera_identity = CameraIdentity()
         self._last_camera_resolution_monotonic = 0.0
         self._camera_resolution_startup = True
@@ -157,13 +162,49 @@ class CalibrationNode(Node):
         self.history = deque(maxlen=400)
         self.table_touchoff = TableTouchoff(self.settings['table_touchoff_gauge_height_mm'])
         self.bundle = None
+        self.latest_camera_info = None
+        # These are deliberately independent of the health node.  A health
+        # verdict is useful corroborating evidence, but point-cloud capture
+        # must always originate from real Image payloads received here.
+        self.rgb_payload_queue = deque(maxlen=12)
+        self.depth_payload_queue = deque(maxlen=12)
+        self.sync_pair_success_count = 0
+        self.sync_pair_reject_count = 0
+        self.sync_pair_reject_reasons = deque(maxlen=200)
+        self.last_sync_pair_skew_ms = None
+        self.last_sync_pair_created_monotonic = None
+        self.last_sync_pairing_reason = 'NO_RGB_SAMPLE'
+        self.sync_payload_generation = 0
+        self.last_sync_commit_monotonic = None
+        self.last_sync_commit_rgb_stamp = None
+        self.last_sync_commit_depth_stamp = None
+        self.last_sync_commit_skew_ms = None
+        self.last_sync_commit_reason = 'NO_VALID_PAIR'
+        self.rgb_dropped_too_old_count = 0
+        self.depth_dropped_too_old_count = 0
         self.live_depth_quality = None
         self.camera_health = None
         self.live_depth_stamp = None
         self.live_depth_receive_stamp = None
         self.last_depth_processed_stamp = None
         self.last_depth_processed_monotonic = 0.0
+        self.last_depth_quality_enqueue_monotonic = 0.0
+        self.pending_depth_quality = None
+        self.depth_quality_worker = None
         self.depth_window = DepthStabilityWindow()
+        # Full RGB-D ingestion is deliberately demand-driven.  The process
+        # stays available in IDLE for telemetry, health and services without
+        # forcing rclpy to deserialize image payloads until passive readiness
+        # or a capture workflow explicitly arms it.
+        self.sensor_ingest_state = 'IDLE'
+        self.sensor_ingest_owner = 'NONE'
+        self.sensor_ingest_activation_reason = ''
+        self.sensor_ingest_activated_at = None
+        self.sensor_ingest_activation_count = 0
+        self.depth_subscription = None
+        self.rgb_payload_subscription = None
+        self.camera_info_subscription = None
+        self.cloud_subscription = None
         self.delegated_depth_stable = False
         self.tcp_stamp = None
         self.joints_stamp = None
@@ -342,24 +383,65 @@ class CalibrationNode(Node):
         self.create_timer(0.2, self.supervise, callback_group=self.group)
         self.auto_pending = self.settings['auto_start']
 
-    def ensure_camera_sync(self):
+    def ensure_camera_sync(self, reason):
+        if reason not in {'passive_capture', 'calibration_operation'}:
+            raise CalibrationError('SENSOR_INGEST_ACTIVATION_REASON_INVALID')
         if self.camera_sync is not None:
             return
+        # Every explicit ingest session starts fail-closed.  In particular a
+        # bundle or monotonic commit from a previous session must never make a
+        # newly armed passive workflow look synchronized.
+        with self.lock:
+            self.rgb_payload_queue.clear()
+            self.depth_payload_queue.clear()
+            self.bundle = None
+            self.last_valid_synchronized_capture_monotonic = None
+            self.last_sync_pair_created_monotonic = None
+            self.last_sync_pair_skew_ms = None
+            self.last_sync_pairing_reason = 'NO_RGB_SAMPLE'
+            self.sync_pair_success_count = 0
+            self.sync_pair_reject_count = 0
+            self.sync_pair_reject_reasons.clear()
+            self.sync_payload_generation = 0
+            self.last_sync_commit_monotonic = None
+            self.last_sync_commit_rgb_stamp = None
+            self.last_sync_commit_depth_stamp = None
+            self.last_sync_commit_skew_ms = None
+            self.last_sync_commit_reason = 'NO_VALID_PAIR'
+            self.rgb_dropped_too_old_count = 0
+            self.depth_dropped_too_old_count = 0
         self.delegated_depth_stable = False
         self.depth_subscription = self.create_subscription(
             Image, self.settings['depth_topic'], self.on_depth,
-            CALIBRATION_SENSOR_QOS)
-        self.camera_subscribers = [message_filters.Subscriber(
-            self, kind, self.settings[name], qos_profile=CALIBRATION_SENSOR_QOS)
-            for kind, name in [(Image, 'rgb_topic'), (Image, 'depth_topic'),
-                               (CameraInfo, 'camera_info_topic')]]
+            CALIBRATION_SENSOR_QOS, callback_group=self.sensor_group)
+        self.rgb_payload_subscription = self.create_subscription(
+            Image, self.settings['rgb_topic'], self.on_rgb_payload,
+            CALIBRATION_SENSOR_QOS, callback_group=self.sensor_group)
+        # CameraInfo is calibration metadata, not an exposure.  Synchronizing
+        # it at image cadence discards valid RGB/depth pairs when the driver
+        # publishes information more slowly.  Cache it independently and
+        # validate its frame/intrinsics/freshness in camera_freshness().
+        self.camera_info_subscription = self.create_subscription(
+            CameraInfo, self.settings['camera_info_topic'], self.on_camera_info,
+            CALIBRATION_SENSOR_QOS, callback_group=self.sensor_group)
         # Native cloud is deliberately not a member of RGB-D synchronization:
         # it may stop without invalidating aligned depth and intrinsics.
-        self.create_subscription(PointCloud2, self.settings['cloud_topic'],
-                                 self.on_native_cloud, CALIBRATION_SENSOR_QOS)
-        self.camera_sync = message_filters.ApproximateTimeSynchronizer(
-            self.camera_subscribers, queue_size=30, slop=0.5)
-        self.camera_sync.registerCallback(self.on_camera)
+        self.cloud_subscription = self.create_subscription(
+            PointCloud2, self.settings['cloud_topic'], self.on_native_cloud,
+            CALIBRATION_SENSOR_QOS, callback_group=self.sensor_group)
+        # RGB/depth payload pairing has one authoritative owner.  Keeping an
+        # ApproximateTimeSynchronizer here as a second writer caused a valid
+        # pair to race with an unmatched latest/latest candidate.  The bounded
+        # queues below pair by source stamp and retain the last valid capture
+        # through its existing 1.5 s freshness lease.
+        self.camera_sync = True
+        self.sensor_ingest_state = 'ACTIVE'
+        self.sensor_ingest_owner = reason
+        self.sensor_ingest_activation_reason = reason
+        self.sensor_ingest_activated_at = time.monotonic()
+        self.sensor_ingest_activation_count += 1
+        self.get_logger().info(
+            f'SENSOR_INGEST_ACTIVATED reason={reason} state_before=IDLE')
 
     def now_s(self):
         return self.get_clock().now().nanoseconds * 1e-9
@@ -470,16 +552,118 @@ class CalibrationNode(Node):
             self.status('FAIL', str(error))
             self.stop.set()
 
-    def on_camera(self, rgb, depth, info):
-        self.on_depth(depth)
-        stamps = (stamp_seconds(rgb), stamp_seconds(depth), stamp_seconds(info))
-        valid_sync = (abs(stamps[0] - stamps[1]) <= 0.100
-                      and all(item.header.frame_id == self.settings['camera_frame']
-                              for item in (rgb, depth, info)))
+    def on_camera_info(self, info):
         with self.lock:
+            self.latest_camera_info = info
+
+    def on_rgb_payload(self, rgb):
+        """Append a real RGB payload and attempt nearest-neighbour pairing."""
+        self._pair_raw_payload('rgb', rgb)
+
+    @staticmethod
+    def _payload_key(message):
+        return (stamp_seconds(message), message.header.frame_id)
+
+    def _record_sync_reject_locked(self, reason, skew_ms=None):
+        self.sync_pair_reject_count += 1
+        self.last_sync_pairing_reason = reason
+        self.sync_pair_reject_reasons.append({
+            'reason': reason,
+            'skew_ms': skew_ms,
+            'monotonic': time.monotonic(),
+        })
+
+    def _pair_raw_payload(self, kind, message):
+        """Pair this Image with the closest queued opposite Image by stamp.
+
+        An unmatched newest message is never allowed to erase ``bundle``.
+        That bundle is the most recent *accepted* capture and naturally ages
+        out through ``last_valid_synchronized_capture_monotonic``.
+        """
+        if kind not in ('rgb', 'depth'):
+            raise ValueError('kind must be rgb or depth')
+        with self.lock:
+            own = self.rgb_payload_queue if kind == 'rgb' else self.depth_payload_queue
+            other = self.depth_payload_queue if kind == 'rgb' else self.rgb_payload_queue
+            own.append(message)
+            if not other:
+                self.last_sync_pairing_reason = ('NO_DEPTH_SAMPLE' if kind == 'rgb'
+                                                 else 'NO_RGB_SAMPLE')
+                return False
+            candidate = min(other, key=lambda item: abs(stamp_seconds(message) - stamp_seconds(item)))
+            skew_s = abs(stamp_seconds(message) - stamp_seconds(candidate))
+            skew_ms = skew_s * 1000.0
+            if skew_s > 0.100:
+                self._record_sync_reject_locked('PAIR_SKEW_OVER_100MS', skew_ms)
+                # This is a decision about this newly arrived sample, not a
+                # retryable state.  Retaining the older member lets exactly
+                # the same impossible pairing be rejected on every following
+                # callback and turns a bounded queue into a stale backlog.
+                if stamp_seconds(message) < stamp_seconds(candidate):
+                    own.remove(message)
+                    if kind == 'rgb':
+                        self.rgb_dropped_too_old_count += 1
+                    else:
+                        self.depth_dropped_too_old_count += 1
+                else:
+                    other.remove(candidate)
+                    if kind == 'rgb':
+                        self.depth_dropped_too_old_count += 1
+                    else:
+                        self.rgb_dropped_too_old_count += 1
+                return False
+            # Consume a successful pair exactly once.  ``remove`` operates on
+            # object identity for ROS messages, so equal source stamps cannot
+            # accidentally consume a different queued frame.
+            own.remove(message)
+            other.remove(candidate)
+            rgb, depth = (message, candidate) if kind == 'rgb' else (candidate, message)
+        return self._store_synchronized_payload(rgb, depth, accepted_skew_ms=skew_ms)
+
+    def _store_synchronized_payload(self, rgb, depth, *, accepted_skew_ms=None):
+        """Atomically publish a usable RGB/depth/CameraInfo capture."""
+        with self.lock:
+            info = self.latest_camera_info
+        if info is None:
+            with self.lock:
+                self._record_sync_reject_locked('CAMERAINFO_MISSING', accepted_skew_ms)
+            return False
+        stamps = (stamp_seconds(rgb), stamp_seconds(depth), stamp_seconds(info))
+        skew_ms = abs(stamps[0] - stamps[1]) * 1000.0
+        if abs(stamps[0] - stamps[1]) > 0.100:
+            with self.lock:
+                self._record_sync_reject_locked('PAIR_SKEW_OVER_100MS', skew_ms)
+            return False
+        if any(item.header.frame_id != self.settings['camera_frame']
+               for item in (rgb, depth, info)):
+            with self.lock:
+                self._record_sync_reject_locked('FRAME_MISMATCH', skew_ms)
+            return False
+        with self.lock:
+            committed_at = time.monotonic()
             self.bundle = (rgb, depth, info)
-            if valid_sync:
-                self.last_valid_synchronized_capture_monotonic = time.monotonic()
+            self.last_valid_synchronized_capture_monotonic = committed_at
+            self.last_sync_pair_created_monotonic = committed_at
+            self.last_sync_pair_skew_ms = skew_ms
+            self.last_sync_pairing_reason = 'PASS'
+            self.sync_pair_success_count += 1
+            self.sync_payload_generation += 1
+            self.last_sync_commit_monotonic = committed_at
+            self.last_sync_commit_rgb_stamp = stamps[0]
+            self.last_sync_commit_depth_stamp = stamps[1]
+            self.last_sync_commit_skew_ms = skew_ms
+            self.last_sync_commit_reason = 'PASS'
+        return True
+
+    def on_camera(self, rgb, depth, info=None, cloud=None):
+        # Optional legacy arguments preserve the direct callback test seam;
+        # production synchronization supplies RGB+depth only.
+        if info is not None:
+            self.on_camera_info(info)
+        if cloud is not None:
+            self.on_native_cloud(cloud)
+        self.on_rgb_payload(rgb)
+        self.on_depth(depth)
 
     def on_native_cloud(self, cloud):
         """Keep only the newest native sample; decoding happens at capture."""
@@ -488,34 +672,56 @@ class CalibrationNode(Node):
             self.last_native_cloud_receive_monotonic = time.monotonic()
 
     def on_depth(self, depth):
+        self._pair_raw_payload('depth', depth)
         stamp = stamp_seconds(depth)
         now = time.monotonic()
         with self.lock:
             if stamp == self.last_depth_processed_stamp:
                 return
-            # Full-frame robust statistics include medians and MAD. Ten live
-            # checks per second retains a 100 ms fail-closed response while
-            # avoiding CPU starvation of the 30 Hz camera transport.
-            if now - self.last_depth_processed_monotonic < 0.1:
+            # Full-frame robust statistics include medians and MAD.  They are
+            # deliberately rate-limited so their CPU cost cannot starve the
+            # independent RGB callback and make a healthy exposure pair look
+            # absent.  Timestamp/freshness checks still run on every image;
+            # this only bounds repeated statistical work on the same stream.
+            if now - self.last_depth_quality_enqueue_monotonic < 0.75:
                 return
-            self.last_depth_processed_stamp = stamp
-            self.last_depth_processed_monotonic = now
-        try:
-            quality = depth_quality(self.bridge.imgmsg_to_cv2(depth, 'passthrough'),
-                                    depth.encoding, self.limits)
-        except Exception as error:
-            quality = {'status': 'SENSOR_ERROR', 'code': 'DEPTH_DECODE_FAILED',
-                       'reason': str(error), 'depth_valid_ratio': 0.}
-        with self.lock:
-            self.live_depth_quality = quality
-            self.live_depth_stamp = stamp
-            self.live_depth_receive_stamp = self.now_s()
-            self.depth_window.add(stamp, quality)
-        # Invalid depth must stop active calibration immediately, including
-        # motion between captures. A fresh timestamp alone is insufficient.
-        if quality['status'] != 'VALID_DEPTH' and self.state not in ('UNCALIBRATED', 'STARTING', 'FAIL'):
-            self.stop.set()
-            self.status('FAIL', quality['code'] + ': ' + quality['reason'])
+            self.last_depth_quality_enqueue_monotonic = now
+            # Keep only the newest sample.  Image pairing is a transport fast
+            # path; CvBridge and robust statistics must never hold its
+            # executor callback behind a full frame.
+            self.pending_depth_quality = (depth, stamp)
+            worker = self.depth_quality_worker
+            if worker is None or not worker.is_alive():
+                self.depth_quality_worker = threading.Thread(
+                    target=self._run_depth_quality_worker, daemon=True)
+                self.depth_quality_worker.start()
+
+    def _run_depth_quality_worker(self):
+        while True:
+            with self.lock:
+                pending = self.pending_depth_quality
+                self.pending_depth_quality = None
+            if pending is None:
+                return
+            depth, stamp = pending
+            try:
+                quality = depth_quality(self.bridge.imgmsg_to_cv2(depth, 'passthrough'),
+                                        depth.encoding, self.limits)
+            except Exception as error:
+                quality = {'status': 'SENSOR_ERROR', 'code': 'DEPTH_DECODE_FAILED',
+                           'reason': str(error), 'depth_valid_ratio': 0.}
+            with self.lock:
+                self.live_depth_quality = quality
+                self.live_depth_stamp = stamp
+                self.live_depth_receive_stamp = self.now_s()
+                self.last_depth_processed_stamp = stamp
+                self.last_depth_processed_monotonic = time.monotonic()
+                self.depth_window.add(stamp, quality)
+            # Invalid depth must stop active calibration immediately, including
+            # motion between captures. A fresh timestamp alone is insufficient.
+            if quality['status'] != 'VALID_DEPTH' and self.state not in ('UNCALIBRATED', 'STARTING', 'FAIL'):
+                self.stop.set()
+                self.status('FAIL', quality['code'] + ': ' + quality['reason'])
 
     def hardware_readiness(self):
         now = self.now_s()
@@ -617,7 +823,12 @@ class CalibrationNode(Node):
     def camera_freshness(self):
         with self.lock:
             bundle = self.bundle
-            streams = dict((self.camera_health or {}).get('streams', {}))
+            health = self.camera_health or {}
+            streams = dict(health.get('streams', {}))
+            # The health node publishes a validated closest live RGB/depth
+            # pair at the payload level.  Preserve that evidence when passing
+            # the stream map to the shared freshness evaluator.
+            streams['rgb_depth_sync_valid'] = bool(health.get('rgb_depth_sync_valid', False))
             last_valid_sync = self.last_valid_synchronized_capture_monotonic
         return evaluate_camera_freshness(
             now_s=self.now_s(), bundle=bundle, streams=streams,
@@ -855,6 +1066,40 @@ class CalibrationNode(Node):
             and getattr(workflow, 'anchor', None) is not None
         )
         hardware = self.hardware_readiness()
+        with self.lock:
+            pair_age_ms = (None if self.last_valid_synchronized_capture_monotonic is None
+                           else max(0.0, (time.monotonic()
+                                          - self.last_valid_synchronized_capture_monotonic) * 1000.0))
+            sync_payload_available = bool(pair_age_ms is not None and pair_age_ms <= 1500.0
+                                          and self.bundle is not None)
+            sync_diagnostics = {
+                'SENSOR_INGEST_STATE': self.sensor_ingest_state,
+                'SENSOR_INGEST_OWNER': self.sensor_ingest_owner,
+                'SENSOR_INGEST_ACTIVATION_REASON': self.sensor_ingest_activation_reason,
+                'SENSOR_INGEST_ACTIVATED_AT_MONOTONIC': self.sensor_ingest_activated_at,
+                'SENSOR_INGEST_ACTIVATION_COUNT': self.sensor_ingest_activation_count,
+                'RGB_SUBSCRIPTION_ACTIVE': self.rgb_payload_subscription is not None,
+                'DEPTH_SUBSCRIPTION_ACTIVE': self.depth_subscription is not None,
+                'CLOUD_SUBSCRIPTION_ACTIVE': self.cloud_subscription is not None,
+                'INTERNAL_SYNC_PAYLOAD_AVAILABLE': sync_payload_available,
+                'SYNC_PAYLOAD_AGE_MS': pair_age_ms,
+                'RGB_DEPTH_SKEW_MS': self.last_sync_pair_skew_ms,
+                'SYNC_PAIR_SUCCESS_COUNT': self.sync_pair_success_count,
+                'SYNC_PAIR_REJECT_COUNT': self.sync_pair_reject_count,
+                'SYNC_PAIR_LAST_REASON': self.last_sync_pairing_reason,
+                'SYNC_PAIR_RECENT_REJECTIONS': list(self.sync_pair_reject_reasons)[-10:],
+                'SYNC_PAYLOAD_GENERATION': self.sync_payload_generation,
+                'SYNC_LAST_COMMIT_MONOTONIC': self.last_sync_commit_monotonic,
+                'SYNC_LAST_COMMIT_RGB_STAMP': self.last_sync_commit_rgb_stamp,
+                'SYNC_LAST_COMMIT_DEPTH_STAMP': self.last_sync_commit_depth_stamp,
+                'SYNC_LAST_COMMIT_SKEW_MS': self.last_sync_commit_skew_ms,
+                'SYNC_LAST_COMMIT_REASON': self.last_sync_commit_reason,
+                'RGB_PAYLOAD_QUEUE_SIZE': len(self.rgb_payload_queue),
+                'DEPTH_PAYLOAD_QUEUE_SIZE': len(self.depth_payload_queue),
+                'RGB_DROPPED_TOO_OLD_COUNT': self.rgb_dropped_too_old_count,
+                'DEPTH_DROPPED_TOO_OLD_COUNT': self.depth_dropped_too_old_count,
+                'RGB_CAMERAINFO_CACHE': self.latest_camera_info is not None,
+            }
         thai = {
             'READY': ('ฮาร์ดแวร์พร้อมสำหรับการคาลิเบรต',
                       'ฮาร์ดแวร์ผ่านทุกเงื่อนไขความพร้อม', ''),
@@ -919,6 +1164,12 @@ class CalibrationNode(Node):
                 'AUTHORITATIVE_BASELINE_STABLE_FOR_S': baseline_gate['stable_for_s'],
                 'AUTHORITATIVE_BASELINE_REQUIRED_STABLE_S': baseline_gate['required_stable_s'],
                 'AUTHORITATIVE_BASELINE_BLOCKERS': baseline_gate['blockers'],
+                'AUTHORITATIVE_BASELINE_CURRENT_BLOCKERS': baseline_gate['current_blockers'],
+                'AUTHORITATIVE_BASELINE_LAST_RESET_GATE': baseline_gate['last_reset_gate'],
+                'AUTHORITATIVE_BASELINE_LAST_RESET_TIME': baseline_gate['last_reset_time'],
+                'AUTHORITATIVE_BASELINE_RESET_COUNT': baseline_gate['reset_count'],
+                'AUTHORITATIVE_BASELINE_EXACT_GATE': self.authoritative_baseline_gate.evaluate_for_baseline(
+                    time.monotonic())['exact_gate'],
                 'passive_mode': True,
                 'passive_pose_count': len(self.passive_captures),
                 'passive_pose_metadata': list(self.passive_capture_metadata),
@@ -953,6 +1204,7 @@ class CalibrationNode(Node):
                 'RGB_CAMERAINFO_FRESH': self.camera_freshness().rgb_info_fresh,
                 'DEPTH_CAMERAINFO_FRESH': self.camera_freshness().depth_info_fresh,
                 'RGB_DEPTH_CAMERAINFO_SYNCHRONIZED': self.camera_freshness().synchronized,
+                **sync_diagnostics,
                 'RGB_RATE_STATE': self.camera_freshness().rgb_rate_state,
                 'DEPTH_RATE_STATE': self.camera_freshness().depth_rate_state,
                 'tcp_fresh': hardware.tcp_fresh,
@@ -1208,7 +1460,9 @@ class CalibrationNode(Node):
     def ready_service(self, request, response):
         # This endpoint is intentionally passive-data readiness. Geometry is an
         # output of the collection/solve workflow, never an input to it.
-        self.ensure_camera_sync()
+        # Readiness is a pure inspection.  The explicit passive-capture
+        # services below own activation; polling this endpoint must never make
+        # the IDLE process deserialize RGB-D payloads.
         readiness = self.passive_capture_readiness()
         response.success = readiness['passive_capture_ready']
         response.message = json.dumps(readiness, allow_nan=False, separators=(',', ':'))
@@ -1233,7 +1487,7 @@ class CalibrationNode(Node):
         if not self.bootstrap_geometry.eligible:
             raise CalibrationError('CALIBRATION_BOOTSTRAP_GEOMETRY_INELIGIBLE: '
                                    + '; '.join(self.bootstrap_geometry.blockers))
-        self.ensure_camera_sync()
+        self.ensure_camera_sync('passive_capture')
         deadline = time.monotonic() + self.settings['capture_timeout_s']
         while time.monotonic() < deadline:
             with self.lock:
@@ -2219,7 +2473,7 @@ class CalibrationNode(Node):
                     self.settings['mount_model'], internal, self.limits,
                     carrier_frame=self.settings['carrier_frame'])
                 self._refresh_bootstrap_geometry(internal)
-            self.ensure_camera_sync()
+            self.ensure_camera_sync('calibration_operation')
             deadline = time.monotonic() + self.settings['capture_timeout_s']
             while self.health_error():
                 if self.stop.wait(0.03) or time.monotonic() > deadline:

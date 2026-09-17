@@ -1,0 +1,20 @@
+[0.602s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'test-result', '--verbose']
+[0.603s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='test-result', test_result_base='build', all=False, result_files_only=False, verbose=True, delete=False, delete_yes=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x753833107320>, verb_extension=<colcon_test_result.verb.test_result.TestResultVerb object at 0x753833105910>, main=<bound method TestResultVerb.main of <colcon_test_result.verb.test_result.TestResultVerb object at 0x753833105910>>, mixin_verb=('test-result',))
+[0.621s] Level 1:colcon.colcon_test_result.test_result:get_test_results(ctest)
+[0.700s] Level 1:colcon.colcon_test_result.test_result:get_test_results(xunit)
+[0.701s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_bringup/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.703s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_calibration/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.704s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_control_panel/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.705s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_control_panel/plugin.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.707s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_demos/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.709s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_diagnostics/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.713s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_end_effector/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.714s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_homing/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.715s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_kinematics/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.717s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_motion/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.732s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_object_vision/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.734s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_state_updater/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.735s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_vision_rgbd/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.738s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_vision_yolo/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.739s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_visualization_tools/package.xml': the root tag is neither 'testsuite' nor 'testsuites'
+[0.740s] DEBUG:colcon.colcon_test_result.test_result.xunit:Skipping 'build/dobot_web_interface/package.xml': the root tag is neither 'testsuite' nor 'testsuites'

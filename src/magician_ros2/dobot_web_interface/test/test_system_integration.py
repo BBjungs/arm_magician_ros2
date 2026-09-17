@@ -64,15 +64,21 @@ def test_camera_heartbeat_is_reported_separately_from_quality_readiness():
         calibration={}, homed=False, at_observation=False,
         camera_health={
             'ready': False, 'age_sec': 0.1,
-            'blockers': ['cloud_rate_unverified_or_degraded'],
+            'blockers': ['depth_quality_delegated_to_calibration'],
             'usb': {'identity_valid': True},
+            'streams': {
+                'rgb': {'fresh': True},
+                'depth': {'fresh': True},
+            },
         },
     )
 
     assert result['runtime']['camera_health_fresh'] is True
     assert result['runtime']['rgb_fresh'] is True
     assert result['runtime']['depth_fresh'] is True
-    assert result['runtime']['depth_valid'] is True
+    # Transport can be live while depth quality remains a separate,
+    # calibration-owned passive readiness decision.
+    assert result['runtime']['depth_valid'] is False
     assert result['runtime']['camera_connected'] is False
 
 

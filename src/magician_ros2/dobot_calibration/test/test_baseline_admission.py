@@ -6,3 +6,10 @@ def test_window_and_reset_are_monotonic():
 def test_each_required_gate_rejects():
  for key, enum in REQUIRED.items():
   g=AuthoritativeBaselineAdmissionGate(); g.update(ok(**{key:False}),1); assert g.evaluate_for_baseline(20)['exact_gate']==enum
+
+def test_reset_reports_exact_gate_and_time():
+ g=AuthoritativeBaselineAdmissionGate(); g.update(ok(), 1); g.update(ok(DEPTH_FRESH=False), 2)
+ status=g.status(2)
+ assert status['last_reset_gate']=='DEPTH_STALE'
+ assert status['last_reset_time']==2
+ assert status['reset_count']==1

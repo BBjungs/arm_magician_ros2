@@ -126,6 +126,12 @@ def aggregate_system_readiness(
         _mapping(camera_health.get("usb")).get("identity_valid")
     )
     camera_health_fresh = _finite_nonnegative(camera_health.get("age_sec"), 2.0)
+    health_streams = _mapping(camera_health.get("streams"))
+    health_depth = _mapping(health_streams.get("depth"))
+    health_rgb = _mapping(health_streams.get("rgb"))
+    health_rgb_fresh = bool(health_rgb.get("fresh"))
+    health_depth_fresh = bool(health_depth.get("fresh"))
+    health_depth_valid = bool(health_depth.get("valid"))
     camera_transport_ok = bool(
         camera_health.get("ready")
         and camera_health_fresh
@@ -167,9 +173,13 @@ def aggregate_system_readiness(
         "robot_state_fresh": robot_state_fresh,
         "camera_connected": camera_ok,
         "camera_health_fresh": camera_health_fresh,
-        "rgb_fresh": bool(camera.get("has_frame") and _finite_nonnegative(camera.get("frame_age_sec"), 2.0)),
-        "depth_fresh": bool(vision.get("depth_stream_ok", vision.get("depth_ok", False))),
-        "depth_valid": bool(vision.get("depth_data_valid", vision.get("depth_ok", False))),
+        # Transport liveness belongs to camera health, not optional object
+        # fusion.  Production vision still has its own ``vision_running``
+        # contract below; passive startup must not restart while fusion is
+        # intentionally absent.
+        "rgb_fresh": health_rgb_fresh,
+        "depth_fresh": health_depth_fresh,
+        "depth_valid": health_depth_valid,
         "camera_identity_valid": camera_identity_valid,
         "calibration_available": bool(calibration.get("available") is True),
         "calibration_verified": calibration_ok,
