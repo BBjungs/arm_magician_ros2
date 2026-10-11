@@ -1,0 +1,12 @@
+# Confirms the currently displayed, fully validated plan for ONE run only.
+string plan_fingerprint
+bool operator_confirmed
+bool estop_tested
+bool workspace_clear
+bool mount_secure
+bool workspace_measured
+bool collision_reviewed
+bool stop_tested
+---
+bool accepted
+string report

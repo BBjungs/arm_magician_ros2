@@ -32,13 +32,26 @@
 
       <section class="status-card" aria-labelledby="guidanceTitle">
         <h2 id="guidanceTitle">คาลิเบรตอัตโนมัติ</h2>
-        <p>ระบบจัดท่า เก็บภาพ 10 ท่า คำนวณ และตรวจผลให้เอง</p>
+        <p>ตรวจแผนก่อน รอผู้ควบคุมอนุญาตเฉพาะรอบ แล้วจึงเคลื่อนและเก็บภาพจริง</p>
         <div class="buttons">
+          <button id="automaticCommission" type="button">ตรวจแผน Commissioning 1 → 2</button>
           <button id="automaticStart" class="start" type="button">เริ่มคาลิเบรตอัตโนมัติจริง</button>
           <button id="automaticPause" type="button">พักเมื่อถึงท่า</button>
           <button id="automaticResume" type="button">ทำต่อ</button>
           <button id="automaticAbort" class="stop" type="button">หยุดคาลิเบรต</button>
         </div>
+        <div id="automaticPlan" aria-live="polite"></div>
+        <fieldset id="automaticAuthorization" hidden>
+          <legend>ยืนยัน ณ หน้าเครื่องสำหรับแผนรอบนี้</legend>
+          <label><input type="checkbox" data-calibration-ack="operator_confirmed"> อยู่หน้าเครื่องและอนุญาตรอบนี้</label><br>
+          <label><input type="checkbox" data-calibration-ack="estop_tested"> E-stop พร้อมและทดสอบแล้ว</label><br>
+          <label><input type="checkbox" data-calibration-ack="workspace_clear"> ไม่มีบุคคลหรือสิ่งกีดขวางในพื้นที่</label><br>
+          <label><input type="checkbox" data-calibration-ack="mount_secure"> กล้องและ TCP ยึดแน่นหนา</label><br>
+          <label><input type="checkbox" data-calibration-ack="workspace_measured"> Workspace วัดและตรวจสอบจริงแล้ว</label><br>
+          <label><input type="checkbox" data-calibration-ack="collision_reviewed"> ตรวจแผนที่แสดงและผล Collision Validation แล้ว</label><br>
+          <label><input type="checkbox" data-calibration-ack="stop_tested"> ทดสอบหยุดแขนจริงแล้วและสามารถหยุดได้</label><br>
+          <button id="automaticAuthorize" type="button" disabled>อนุญาตเคลื่อนตามแผนรอบนี้</button>
+        </fieldset>
         <p id="automaticResult" class="notice" aria-live="polite">พร้อมตรวจเงื่อนไขการติดตั้งก่อนเริ่ม</p>
         <details>
         <summary>เครื่องมือทดสอบและเก็บภาพด้วยผู้ควบคุม</summary>

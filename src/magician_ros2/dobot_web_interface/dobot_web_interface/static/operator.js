@@ -13,6 +13,8 @@ const autoCalibrationAbort = $('autoCalibrationAbort');
 const notice = $('notice');
 const annotatedCamera = $('annotatedCamera');
 let latestStatus = null;
+let automaticPlanFingerprint = null;
+let latestAutomatic = {};
 let cameraTimer = null;
 
 function setNotice(message, error = false) {
@@ -146,18 +148,40 @@ function renderCalibrationGuidance(guidance, supervisedAuto) {
 
 function renderAutomaticCalibration(auto) {
   const labels = {
-    IDLE: 'พร้อมเริ่ม', PREFLIGHT: 'กำลังตรวจความพร้อม', MOVING: 'กำลังจัดท่า',
+    WAITING_FOR_OPERATOR_AUTHORIZATION: 'รอผู้ควบคุมอนุญาตเฉพาะรอบ',
+    COMMISSIONING_COMPLETE: 'ทดสอบสองท่าจริงเสร็จแล้ว',
+    IDLE: 'พร้อมตรวจแผน', PREFLIGHT: 'กำลังตรวจความพร้อม', MOVING: 'กำลังจัดท่า',
     SETTLING: 'รอแขนหยุดนิ่ง', CAPTURING: 'กำลังเก็บภาพ',
     VALIDATING_CAPTURE: 'กำลังตรวจภาพ', NEXT_POSE: 'เตรียมท่าถัดไป',
     SOLVING: 'กำลังคำนวณและตรวจผล', PAUSED: 'พักการทำงาน',
     CANDIDATE_VERIFIED: 'คำนวณและตรวจผลผ่าน', FAULT: 'ยังดำเนินการไม่ได้', SAFE_STOP: 'หยุดแล้ว',
   };
-  const active = !['IDLE', 'FAULT', 'SAFE_STOP', 'CANDIDATE_VERIFIED'].includes(auto.state || 'IDLE');
-  $('automaticStart').disabled = active;
+  const active = !['IDLE', 'FAULT', 'SAFE_STOP', 'COMMISSIONING_COMPLETE', 'CANDIDATE_VERIFIED'].includes(auto.state || 'IDLE');
+  latestAutomatic = auto;
+  const compatible = auto.authorization_protocol === 2;
+  $('automaticStart').disabled = active || !compatible;
+  $('automaticCommission').disabled = active || !compatible;
+  if (automaticPlanFingerprint !== auto.plan_fingerprint) {
+    document.querySelectorAll('[data-calibration-ack]').forEach((box) => { box.checked = false; });
+    automaticPlanFingerprint = auto.plan_fingerprint;
+  }
+  $('automaticAuthorization').hidden = auto.state !== 'WAITING_FOR_OPERATOR_AUTHORIZATION';
+  updateAuthorizationButton();
+  const planView = $('automaticPlan');
+  planView.textContent = '';
+  (auto.plan || []).forEach((pose) => {
+    const row = document.createElement('div');
+    row.textContent = `Pose ${pose.pose_index}: XYZ ${(pose.xyz_mm || []).map((n) => Number(n).toFixed(1)).join(', ')} mm · J4 ${Number(pose.j4_deg).toFixed(1)}°`;
+    planView.appendChild(row);
+  });
   $('automaticPause').disabled = !active || auto.state === 'PAUSED';
   $('automaticResume').disabled = auto.state !== 'PAUSED';
   $('automaticAbort').disabled = !active;
-  let reason = auto.reason || '';
+  let reason = (auto.blockers || []).join(' · ') || auto.reason || '';
+  if (!compatible) reason = 'โปรเซสคาลิเบรตยังเป็นรุ่นเดิม ต้องโหลดรุ่นที่รองรับการอนุญาตเฉพาะรอบก่อน';
+  if (auto.commissioning_required && !auto.commissioning_available) {
+    reason += ' · ต้องผ่าน Commissioning สองท่าจริงก่อนรอบสิบท่า';
+  }
   if (reason.startsWith('WORKSPACE_NOT_CONFIGURED:')) {
     reason = 'ยังขาดค่าการติดตั้ง: ระดับโต๊ะและขอบเขตพื้นที่ว่างในพิกัดฐานหุ่นยนต์';
   }
@@ -262,7 +286,33 @@ autoCalibrationPause.addEventListener('click', () => autoCalibrationAction('paus
 autoCalibrationResume.addEventListener('click', () => autoCalibrationAction('resume'));
 autoCalibrationAbort.addEventListener('click', () => autoCalibrationAction('abort'));
 
-for (const [id, action] of [['automaticStart', 'start'], ['automaticPause', 'pause'],
+function updateAuthorizationButton() {
+  const boxes = [...document.querySelectorAll('[data-calibration-ack]')];
+  $('automaticAuthorize').disabled = latestAutomatic.state !== 'WAITING_FOR_OPERATOR_AUTHORIZATION'
+    || latestAutomatic.authorization_protocol !== 2
+    || !automaticPlanFingerprint || !boxes.every((box) => box.checked)
+    || (latestAutomatic.commissioning_required && !latestAutomatic.commissioning_available);
+}
+document.querySelectorAll('[data-calibration-ack]').forEach((box) => {
+  box.addEventListener('change', updateAuthorizationButton);
+});
+$('automaticAuthorize').addEventListener('click', async () => {
+  const body = { plan_fingerprint: automaticPlanFingerprint };
+  document.querySelectorAll('[data-calibration-ack]').forEach((box) => {
+    body[box.dataset.calibrationAck] = box.checked;
+  });
+  $('automaticAuthorize').disabled = true;
+  try {
+    const result = await request('/api/calibration/autonomous/authorize', body);
+    setNotice(result.message, !result.accepted);
+  } catch (error) {
+    setNotice(error.message, true);
+  } finally {
+    await refreshStatus();
+  }
+});
+
+for (const [id, action] of [['automaticStart', 'start'], ['automaticCommission', 'commission'], ['automaticPause', 'pause'],
                             ['automaticResume', 'resume'], ['automaticAbort', 'abort']]) {
   $(id).addEventListener('click', async () => {
     $(id).disabled = true;

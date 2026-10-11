@@ -15,7 +15,7 @@ import rclpy
 from cv_bridge import CvBridge
 from dobot_msgs.action import PointToPoint
 from dobot_msgs.msg import DobotAlarmCodes
-from dobot_msgs.srv import ExecuteHomingProcedure, GripperControl, SuctionCupControl
+from dobot_msgs.srv import ExecuteHomingProcedure, GripperControl, SuctionCupControl, AuthorizeCalibration
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import HTMLResponse, Response, StreamingResponse
@@ -420,8 +420,10 @@ class DobotWebNode(Node):
         }
         self.calibration_automatic_clients = {
             action: self.create_client(Trigger, f'/calibration/autonomous/{action}')
-            for action in ('start', 'pause', 'resume', 'abort')
+            for action in ('start', 'commission', 'pause', 'resume', 'abort')
         }
+        self.calibration_automatic_authorize = self.create_client(
+            AuthorizeCalibration, '/calibration/autonomous/authorize')
 
         if self.enable_camera_preview and not self.camera_compressed_topic:
             self.create_subscription(
@@ -2659,21 +2661,38 @@ class DobotWebNode(Node):
         payload = json.loads(result.message)
         return {'success': result.success, **payload, 'motion_command_sent': False}
 
-    def automatic_calibration_control(self, action):
-        if action not in self.calibration_automatic_clients:
+    def automatic_calibration_control(self, action, payload=None):
+        if action not in (*self.calibration_automatic_clients, 'authorize'):
             raise ValueError('Unknown automatic calibration action')
-        if action == 'start' and self._operation_is_active():
+        if action in ('start', 'commission', 'authorize') and self._operation_is_active():
             raise RuntimeError('Stop the active robot operation before starting calibration')
-        client = self.calibration_automatic_clients[action]
+        if action == 'authorize':
+            if not isinstance(payload, dict):
+                raise ValueError('Explicit plan authorization is required')
+            from dobot_calibration.motion_authorization import ACKNOWLEDGEMENTS
+            if any(payload.get(name) is not True for name in ACKNOWLEDGEMENTS):
+                raise ValueError('Confirm all on-site safety checks for this run')
+            if not isinstance(payload.get('plan_fingerprint'), str) or not payload['plan_fingerprint']:
+                raise ValueError('Validated plan fingerprint is required')
+            client = self.calibration_automatic_authorize
+            request = AuthorizeCalibration.Request()
+            request.plan_fingerprint = payload['plan_fingerprint']
+            for name in ACKNOWLEDGEMENTS:
+                setattr(request, name, True)
+        else:
+            client = self.calibration_automatic_clients[action]
+            request = Trigger.Request()
         if not client.service_is_ready():
             raise ConnectionError('Automatic calibration service is unavailable')
-        future = client.call_async(Trigger.Request())
+        future = client.call_async(request)
         done = threading.Event()
         future.add_done_callback(lambda _: done.set())
         if not done.wait(5):
             raise RuntimeError('Calibration request pending; inspect status before retrying')
         result = future.result()
-        return {'accepted': result.success, 'message': result.message, 'dry_run': False,
+        accepted = result.accepted if action == 'authorize' else result.success
+        message = json.loads(result.report)['message'] if action == 'authorize' else result.message
+        return {'accepted': accepted, 'message': message, 'dry_run': False,
                 'status_url': '/api/vision/calibration'}
 
     def vision_auto_calibrate(self, payload):
@@ -3190,8 +3209,8 @@ def create_app(node):
         return _call_api(node.passive_calibration_control, action, busy_status=409)
 
     @app.post('/api/calibration/autonomous/{action}')
-    def api_calibration_autonomous(action: str):
-        return _call_api(node.automatic_calibration_control, action, busy_status=409)
+    def api_calibration_autonomous(action: str, payload: dict | None = None):
+        return _call_api(node.automatic_calibration_control, action, payload, busy_status=409)
 
     @app.get('/api/system/status')
     def api_system_status():

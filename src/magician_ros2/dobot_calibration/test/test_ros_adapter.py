@@ -110,6 +110,28 @@ def test_automatic_start_cannot_overlap_operation(node):
         node.operation_lock.release()
 
 
+def test_actual_autonomous_ros_service_reports_missing_workspace_without_motion(node, tmp_path, monkeypatch):
+    import rclpy
+    node.settings['automatic_workspace_file'] = str(tmp_path / 'not-surveyed.yaml')
+    monkeypatch.setattr(node, '_execute_guarded_motion', lambda *args: pytest.fail('real transport entered'))
+    monkeypatch.setattr(node, '_set_ptp_common_params', lambda *args: pytest.fail('PTP changed before authorization'))
+    client = node.create_client(Trigger, '/calibration/autonomous/start')
+    try:
+        assert client.wait_for_service(timeout_sec=3)
+        future = client.call_async(Trigger.Request())
+        rclpy.spin_until_future_complete(node, future, timeout_sec=5)
+        assert future.done() and future.result().success
+        node.automatic.worker.join(3)
+        result = node.automatic.snapshot()
+        assert result['state'] == 'FAULT'
+        assert any('WORKSPACE_NOT_CONFIGURED' in b for b in result['blockers'])
+        assert result['pre_dispatch']['hardware_readiness']['ready'] is False
+        assert not result['motion_command_sent']
+        assert not node.operation_lock.locked()
+    finally:
+        node.destroy_client(client)
+
+
 def test_passive_solve_cannot_overlap_another_operation(node):
     node.operation_lock.acquire()
     try:

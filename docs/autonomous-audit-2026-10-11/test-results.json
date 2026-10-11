@@ -1,0 +1,61 @@
+{
+  "reference_commit": "da873298b23a6b44b5a8cc5749e7f74bbbc1d9bd",
+  "before_selected_functional_tests": {
+    "passed": 267,
+    "failed": 1,
+    "failure": "test_carrier_frames.py::test_clearance_uses_carrier_scene_and_tcp_swept_center"
+  },
+  "after_functional_tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "347",
+    "time": "272.566",
+    "timestamp": "2026-10-11T16:06:25.676853",
+    "hostname": "ROS",
+    "passed": 347
+  },
+  "after_stop_gate_regressions": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "55",
+    "time": "19.082",
+    "timestamp": "2026-10-11T16:05:16.211593",
+    "hostname": "ROS"
+  },
+  "excluded_preexisting_repository_lint": [
+    "dobot_motion/test/test_copyright.py",
+    "dobot_motion/test/test_flake8.py",
+    "dobot_motion/test/test_pep257.py"
+  ],
+  "lint_ran_and_failed_in_broad_run": true,
+  "broad_lint_run_xml": "/tmp/autonomous-after-tests.xml",
+  "build": {
+    "dobot_msgs": "PASS",
+    "dobot_calibration": "PASS",
+    "dobot_web_interface": "PASS",
+    "production_install_changed": false,
+    "isolated_install": "/tmp/autonomous-audit-install",
+    "isolated_build_matches_source": true
+  },
+  "node_js_syntax": "PASS",
+  "python_compileall": "PASS",
+  "git_diff_check": "PASS",
+  "software_source_sha256": {
+    "src/magician_ros2/dobot_calibration/dobot_calibration/node.py": "698d4de224f74befda9aecc318fc17869d95e5acee915c583a22c97eb793aa80",
+    "src/magician_ros2/dobot_web_interface/dobot_web_interface/web_interface.py": "d2d01c0ceb0546d9abd728cf4173e05651b8a4346ce47261a73e9806f8efa027"
+  },
+  "ros_test_domains": [
+    173,
+    174
+  ],
+  "actual_motion_command_sent": false,
+  "actual_two_pose_commissioning": "NOT_RUN",
+  "actual_ten_pose_calibration": "NOT_RUN",
+  "production_ready": false,
+  "junit_xml": "/tmp/autonomous-final-tests.xml",
+  "console_output": "/tmp/autonomous-final-tests.txt"
+}

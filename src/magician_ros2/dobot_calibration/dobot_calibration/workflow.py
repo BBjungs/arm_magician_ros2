@@ -118,7 +118,7 @@ def check_path(current, target, capture, mount, limits=Limits()):
     The enclosure radius comes from the mount model. The robot's trajectory
     service remains responsible for full-arm kinematic/collision validation.
     """
-    if not mount.rotation_seed_verified:
+    if not getattr(mount, 'rotation_seed_verified', False):
         raise CalibrationError(
             'MOUNT_ROTATION_UNVERIFIED: observed-scene clearance requires a '
             'verified camera orientation; complete supervised commissioning first')

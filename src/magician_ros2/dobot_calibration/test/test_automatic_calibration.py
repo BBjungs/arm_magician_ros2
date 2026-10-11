@@ -25,6 +25,10 @@ class Backend:
         self.event('prepare')
         return automatic_plan(transform(translation=[.15, 0, .10]))
 
+    def wait_for_authorization(self, checkpoint):
+        # Explicit test double: no hardware transport exists in this backend.
+        pass
+
     def validate(self, first, second):
         self.event('validate')
 
@@ -47,6 +51,9 @@ class Backend:
     def solve(self, checkpoint):
         self.event('solve')
         return {'state': 'CANDIDATE_VERIFIED'}
+
+    def persist_status(self, status):
+        pass
 
     def stop(self):
         self.event('stop')

@@ -68,7 +68,15 @@ class CalibrationWorkspace:
                 or np.any(points[:, 2] - margin < self.table_z)):
             raise CalibrationError('WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED')
         radial = np.linalg.norm(points[:, :2], axis=1)
+        # Exact closest approach of the continuous XY segment, rather than
+        # assuming the 2 mm samples cannot cross the inner reach boundary.
+        start_xy = current[:2, 3]
+        delta_xy = target[:2, 3] - start_xy
+        squared = float(delta_xy @ delta_xy)
+        ratio = 0. if squared == 0 else float(np.clip(-(start_xy @ delta_xy) / squared, 0., 1.))
+        closest_radial = float(np.linalg.norm(start_xy + ratio * delta_xy))
         if (np.any(radial < 0.14) or np.any(radial > 0.30)
+                or closest_radial < 0.14
                 or np.any(points[:, 0] < 0.08) or np.any(points[:, 2] < 0.07)
                 or np.any(points[:, 2] > 0.23)):
             raise CalibrationError('WORKSPACE_ROBOT_REACH_EXCEEDED')

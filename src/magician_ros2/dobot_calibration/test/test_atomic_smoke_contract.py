@@ -20,6 +20,8 @@ def _node(arm_ok=True, token_ok=True, run=None, restore='PASS'):
         'mount_fingerprint': 'test-mount', 'camera_serial': 'test-camera',
         'intrinsics_fingerprint': 'test-intrinsics',
     }
+    node.operation_lock = threading.Lock()
+    node.calibration_transaction_lock = threading.RLock()
     node.real_motion_arm = None
     lifecycle = SimpleNamespace(scope=(1, 2), event=lambda *_args, **_kwargs: None,
                                 activate=lambda: None)
@@ -27,8 +29,10 @@ def _node(arm_ok=True, token_ok=True, run=None, restore='PASS'):
         enable_authorized_commissioning_run=lambda: None,
         disable=lambda: None,
         mark_commissioned=lambda: None)
+    node.token_lifecycle = SimpleNamespace(activate=lambda token: None)
     node.real_motion_adapter_commissioned = False
     node.ptp_param_state_uncertain = False
+    node.hardware_readiness = lambda: SimpleNamespace(to_dict=lambda: {'ready': True, 'blockers': []})
     node.stop = threading.Event()
     node.active_goal = None
     node.status = lambda *_args: None

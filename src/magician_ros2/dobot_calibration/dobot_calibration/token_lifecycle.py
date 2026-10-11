@@ -33,7 +33,7 @@ class TokenLifecycle:
         if abort: return 'ABORT_ACTIVE'
         if pause: return 'PAUSE_ACTIVE'
         if safe_stop: return 'SAFE_STOP_ACTIVE'
-        if token.state == 'WAITING_START' and time.monotonic() >= token.arm_deadline: return 'TOKEN_EXPIRED'
+        if time.monotonic() >= token.arm_deadline: return 'TOKEN_EXPIRED'
         if token.state not in ('WAITING_START','ACTIVE_RUN'): return 'TOKEN_REVOKED'
         return ''
     def activate(self, token): token.state='ACTIVE_RUN'; token.event('POSE_1_ACTIVE_RUN')

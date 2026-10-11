@@ -1,0 +1,677 @@
+{
+  "reference_commit": "da873298b23a6b44b5a8cc5749e7f74bbbc1d9bd",
+  "live_ros_domain": 0,
+  "test_ros_domains": [
+    173,
+    174
+  ],
+  "actual_motion_command_sent": false,
+  "workspace_exists": false,
+  "live_samples": [
+    {
+      "stamp": 1791708138.119918,
+      "automatic_calibration": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": ""
+      },
+      "passive_pose_count": 1,
+      "supervised_auto": {
+        "state": "IDLE",
+        "dry_run": true,
+        "real_motion_enabled": false,
+        "current_pose": 0,
+        "total_poses": 10,
+        "target": null,
+        "readiness": "",
+        "safety_status": "",
+        "motion_progress": 0.0,
+        "capture_result": "",
+        "registration_quality": {},
+        "blockers": [],
+        "history": []
+      },
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED"
+      },
+      "software_estop_monitoring": "NOT CONNECTED",
+      "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+      "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+      "verification_status": "FAIL",
+      "reload_verification_status": "MISSING",
+      "metrics": {},
+      "passive_guidance": {
+        "state": "GUIDE_TO_TARGET",
+        "current": {
+          "xyz_mm": [
+            149.92153930664062,
+            -4.4036610802322684e-08,
+            100.06853485107422
+          ],
+          "j4_deg": 0.0
+        },
+        "target": {
+          "pose_index": 2,
+          "xyz_mm": [
+            185.0,
+            0.0,
+            100.0
+          ],
+          "j4_deg": 0.0
+        },
+        "delta": {
+          "xyz_mm": [
+            35.078460693359375,
+            4.4036610802322684e-08,
+            -0.06853485107421875
+          ],
+          "j4_deg": 0.0
+        },
+        "automatic_capture": false
+      }
+    },
+    {
+      "stamp": 1791708139.1071212,
+      "automatic_calibration": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": ""
+      },
+      "passive_pose_count": 1,
+      "supervised_auto": {
+        "state": "IDLE",
+        "dry_run": true,
+        "real_motion_enabled": false,
+        "current_pose": 0,
+        "total_poses": 10,
+        "target": null,
+        "readiness": "",
+        "safety_status": "",
+        "motion_progress": 0.0,
+        "capture_result": "",
+        "registration_quality": {},
+        "blockers": [],
+        "history": []
+      },
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED"
+      },
+      "software_estop_monitoring": "NOT CONNECTED",
+      "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+      "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+      "verification_status": "FAIL",
+      "reload_verification_status": "MISSING",
+      "metrics": {},
+      "passive_guidance": {
+        "state": "GUIDE_TO_TARGET",
+        "current": {
+          "xyz_mm": [
+            149.92153930664062,
+            -4.4036610802322684e-08,
+            100.06853485107422
+          ],
+          "j4_deg": 0.0
+        },
+        "target": {
+          "pose_index": 2,
+          "xyz_mm": [
+            185.0,
+            0.0,
+            100.0
+          ],
+          "j4_deg": 0.0
+        },
+        "delta": {
+          "xyz_mm": [
+            35.078460693359375,
+            4.4036610802322684e-08,
+            -0.06853485107421875
+          ],
+          "j4_deg": 0.0
+        },
+        "automatic_capture": false
+      }
+    },
+    {
+      "stamp": 1791708140.2936654,
+      "automatic_calibration": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": ""
+      },
+      "passive_pose_count": 1,
+      "supervised_auto": {
+        "state": "IDLE",
+        "dry_run": true,
+        "real_motion_enabled": false,
+        "current_pose": 0,
+        "total_poses": 10,
+        "target": null,
+        "readiness": "",
+        "safety_status": "",
+        "motion_progress": 0.0,
+        "capture_result": "",
+        "registration_quality": {},
+        "blockers": [],
+        "history": []
+      },
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED"
+      },
+      "software_estop_monitoring": "NOT CONNECTED",
+      "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+      "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+      "verification_status": "FAIL",
+      "reload_verification_status": "MISSING",
+      "metrics": {},
+      "passive_guidance": {
+        "state": "GUIDE_TO_TARGET",
+        "current": {
+          "xyz_mm": [
+            149.92153930664062,
+            -4.4036610802322684e-08,
+            100.06853485107422
+          ],
+          "j4_deg": 0.0
+        },
+        "target": {
+          "pose_index": 2,
+          "xyz_mm": [
+            185.0,
+            0.0,
+            100.0
+          ],
+          "j4_deg": 0.0
+        },
+        "delta": {
+          "xyz_mm": [
+            35.078460693359375,
+            4.4036610802322684e-08,
+            -0.06853485107421875
+          ],
+          "j4_deg": 0.0
+        },
+        "automatic_capture": false
+      }
+    },
+    {
+      "stamp": 1791708141.31746,
+      "automatic_calibration": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": ""
+      },
+      "passive_pose_count": 1,
+      "supervised_auto": {
+        "state": "IDLE",
+        "dry_run": true,
+        "real_motion_enabled": false,
+        "current_pose": 0,
+        "total_poses": 10,
+        "target": null,
+        "readiness": "",
+        "safety_status": "",
+        "motion_progress": 0.0,
+        "capture_result": "",
+        "registration_quality": {},
+        "blockers": [],
+        "history": []
+      },
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED"
+      },
+      "software_estop_monitoring": "NOT CONNECTED",
+      "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+      "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+      "verification_status": "FAIL",
+      "reload_verification_status": "MISSING",
+      "metrics": {},
+      "passive_guidance": {
+        "state": "GUIDE_TO_TARGET",
+        "current": {
+          "xyz_mm": [
+            149.92153930664062,
+            -4.4036610802322684e-08,
+            100.06853485107422
+          ],
+          "j4_deg": 0.0
+        },
+        "target": {
+          "pose_index": 2,
+          "xyz_mm": [
+            185.0,
+            0.0,
+            100.0
+          ],
+          "j4_deg": 0.0
+        },
+        "delta": {
+          "xyz_mm": [
+            35.078460693359375,
+            4.4036610802322684e-08,
+            -0.06853485107421875
+          ],
+          "j4_deg": 0.0
+        },
+        "automatic_capture": false
+      }
+    },
+    {
+      "stamp": 1791708142.3242795,
+      "automatic_calibration": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": ""
+      },
+      "passive_pose_count": 1,
+      "supervised_auto": {
+        "state": "IDLE",
+        "dry_run": true,
+        "real_motion_enabled": false,
+        "current_pose": 0,
+        "total_poses": 10,
+        "target": null,
+        "readiness": "",
+        "safety_status": "",
+        "motion_progress": 0.0,
+        "capture_result": "",
+        "registration_quality": {},
+        "blockers": [],
+        "history": []
+      },
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED"
+      },
+      "software_estop_monitoring": "NOT CONNECTED",
+      "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+      "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+      "verification_status": "FAIL",
+      "reload_verification_status": "MISSING",
+      "metrics": {},
+      "passive_guidance": {
+        "state": "GUIDE_TO_TARGET",
+        "current": {
+          "xyz_mm": [
+            149.92153930664062,
+            -4.4036610802322684e-08,
+            100.06853485107422
+          ],
+          "j4_deg": 0.0
+        },
+        "target": {
+          "pose_index": 2,
+          "xyz_mm": [
+            185.0,
+            0.0,
+            100.0
+          ],
+          "j4_deg": 0.0
+        },
+        "delta": {
+          "xyz_mm": [
+            35.078460693359375,
+            4.4036610802322684e-08,
+            -0.06853485107421875
+          ],
+          "j4_deg": 0.0
+        },
+        "automatic_capture": false
+      }
+    },
+    {
+      "stamp": 1791708143.299627,
+      "automatic_calibration": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": ""
+      },
+      "passive_pose_count": 1,
+      "supervised_auto": {
+        "state": "IDLE",
+        "dry_run": true,
+        "real_motion_enabled": false,
+        "current_pose": 0,
+        "total_poses": 10,
+        "target": null,
+        "readiness": "",
+        "safety_status": "",
+        "motion_progress": 0.0,
+        "capture_result": "",
+        "registration_quality": {},
+        "blockers": [],
+        "history": []
+      },
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED"
+      },
+      "software_estop_monitoring": "NOT CONNECTED",
+      "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+      "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+      "verification_status": "FAIL",
+      "reload_verification_status": "MISSING",
+      "metrics": {},
+      "passive_guidance": {
+        "state": "GUIDE_TO_TARGET",
+        "current": {
+          "xyz_mm": [
+            149.92153930664062,
+            -4.4036610802322684e-08,
+            100.06853485107422
+          ],
+          "j4_deg": 0.0
+        },
+        "target": {
+          "pose_index": 2,
+          "xyz_mm": [
+            185.0,
+            0.0,
+            100.0
+          ],
+          "j4_deg": 0.0
+        },
+        "delta": {
+          "xyz_mm": [
+            35.078460693359375,
+            4.4036610802322684e-08,
+            -0.06853485107421875
+          ],
+          "j4_deg": 0.0
+        },
+        "automatic_capture": false
+      }
+    },
+    {
+      "stamp": 1791708144.312069,
+      "automatic_calibration": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": ""
+      },
+      "passive_pose_count": 1,
+      "supervised_auto": {
+        "state": "IDLE",
+        "dry_run": true,
+        "real_motion_enabled": false,
+        "current_pose": 0,
+        "total_poses": 10,
+        "target": null,
+        "readiness": "",
+        "safety_status": "",
+        "motion_progress": 0.0,
+        "capture_result": "",
+        "registration_quality": {},
+        "blockers": [],
+        "history": []
+      },
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED"
+      },
+      "software_estop_monitoring": "NOT CONNECTED",
+      "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+      "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+      "verification_status": "FAIL",
+      "reload_verification_status": "MISSING",
+      "metrics": {},
+      "passive_guidance": {
+        "state": "GUIDE_TO_TARGET",
+        "current": {
+          "xyz_mm": [
+            149.92153930664062,
+            -4.4036610802322684e-08,
+            100.06853485107422
+          ],
+          "j4_deg": 0.0
+        },
+        "target": {
+          "pose_index": 2,
+          "xyz_mm": [
+            185.0,
+            0.0,
+            100.0
+          ],
+          "j4_deg": 0.0
+        },
+        "delta": {
+          "xyz_mm": [
+            35.078460693359375,
+            4.4036610802322684e-08,
+            -0.06853485107421875
+          ],
+          "j4_deg": 0.0
+        },
+        "automatic_capture": false
+      }
+    },
+    {
+      "stamp": 1791708145.3199358,
+      "automatic_calibration": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": ""
+      },
+      "passive_pose_count": 1,
+      "supervised_auto": {
+        "state": "IDLE",
+        "dry_run": true,
+        "real_motion_enabled": false,
+        "current_pose": 0,
+        "total_poses": 10,
+        "target": null,
+        "readiness": "",
+        "safety_status": "",
+        "motion_progress": 0.0,
+        "capture_result": "",
+        "registration_quality": {},
+        "blockers": [],
+        "history": []
+      },
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED"
+      },
+      "software_estop_monitoring": "NOT CONNECTED",
+      "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+      "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+      "verification_status": "FAIL",
+      "reload_verification_status": "MISSING",
+      "metrics": {},
+      "passive_guidance": {
+        "state": "GUIDE_TO_TARGET",
+        "current": {
+          "xyz_mm": [
+            149.92153930664062,
+            -4.4036610802322684e-08,
+            100.06853485107422
+          ],
+          "j4_deg": 0.0
+        },
+        "target": {
+          "pose_index": 2,
+          "xyz_mm": [
+            185.0,
+            0.0,
+            100.0
+          ],
+          "j4_deg": 0.0
+        },
+        "delta": {
+          "xyz_mm": [
+            35.078460693359375,
+            4.4036610802322684e-08,
+            -0.06853485107421875
+          ],
+          "j4_deg": 0.0
+        },
+        "automatic_capture": false
+      }
+    }
+  ],
+  "final_live_check": {
+    "stamp": 1791709707.7106225,
+    "automatic_calibration": {
+      "state": "IDLE",
+      "accepted_pose_count": 0,
+      "total_poses": 10,
+      "dry_run": false,
+      "production_ready": false,
+      "reason": ""
+    },
+    "passive_pose_count": 1,
+    "hardware_readiness": {
+      "state": "READY",
+      "ready": true,
+      "reason": "",
+      "blockers": [],
+      "depth_fresh": true,
+      "depth_stable": true,
+      "tcp_fresh": true,
+      "joints_fresh": true,
+      "alarms_fresh": true,
+      "robot_connected": true,
+      "safety_supported": false,
+      "safety_verified": false,
+      "physical_estop_present": true,
+      "operator_safety_verified": true,
+      "software_estop_monitoring": "NOT CONNECTED"
+    },
+    "software_source_digest": null,
+    "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+    "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+    "new_authorization_protocol_loaded": false
+  }
+}

@@ -51,7 +51,7 @@ def test_bracket_plan_excites_base_azimuth_but_preserves_tcp_orientation():
 
 def test_clearance_uses_carrier_scene_and_tcp_swept_center():
     # Table at base Z=.10 via carrier, while commanded TCP is at .18.
-    c=capture(pose(),pose(z=0.));mount=SimpleNamespace(tool_T_camera=np.eye(4),translation_error_bound_m=.003,envelope_radius_m=.03)
+    c=capture(pose(),pose(z=0.));mount=SimpleNamespace(tool_T_camera=np.eye(4),translation_error_bound_m=.003,envelope_radius_m=.03,rotation_seed_verified=True)
     check_path(pose(),pose(x=.205),c,mount)
     # Raising only the carrier/table by .10 brings the table above the TCP.
     with pytest.raises(CalibrationError,match='table clearance'):

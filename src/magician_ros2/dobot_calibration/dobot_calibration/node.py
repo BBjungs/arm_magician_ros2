@@ -1,5 +1,6 @@
 """ROS adapter for guarded markerless calibration; no hardware access on import."""
 
+from contextlib import nullcontext
 from collections import deque
 from dataclasses import asdict
 import json
@@ -28,11 +29,12 @@ from rclpy.qos import (
 )
 from action_msgs.msg import GoalStatus
 from rcl_interfaces.msg import ParameterDescriptor
+from rcl_interfaces.srv import GetParameters
 from cv_bridge import CvBridge
 from dobot_msgs.action import PointToPoint
 from dobot_msgs.msg import DobotAlarmCodes
 from dobot_msgs.srv import (EvaluatePTPTrajectory, GetPTPCommonParams, SetPTPCommonParams,
-                            StartSmokeTest)
+                            StartSmokeTest, AuthorizeCalibration)
 from geometry_msgs.msg import PoseStamped, TransformStamped
 from sensor_msgs.msg import CameraInfo, Image, JointState, PointCloud2
 from sensor_msgs_py import point_cloud2
@@ -231,6 +233,12 @@ class CalibrationNode(Node):
         self.last_capture_stamp = 0.0
         self.last_capture = None
         self.active_goal = None
+        self.motion_dispatch_lock = threading.Lock()
+        self.calibration_transaction_lock = threading.RLock()
+        self.motion_acceptance_future = None
+        self.motion_stop_confirmation_required = False
+        self.motion_stop_result = None
+        self.motion_stop_terminal_stamp = None
         self.worker = None
         self.workflow = None
         self.passive_captures = []
@@ -288,6 +296,11 @@ class CalibrationNode(Node):
             self.auto_validate_target,
             real_motion_enabled=False)
         self.automatic = AutomaticCalibration(AutomaticBackend(self))
+        self.automatic_commissioning = None
+        # Captured once: source edits on a symlink install do not upgrade a
+        # running Python process. Status identifies the code at process start.
+        self.software_source_digest = fingerprint({
+            p.name: p.read_text() for p in Path(__file__).parent.glob('*.py')})
         self.mount = None
         self.bootstrap_geometry = BootstrapGeometryEligibility(False, ('BOOTSTRAP_GEOMETRY_NOT_VALIDATED',))
         self.calibration_context = None
@@ -340,6 +353,8 @@ class CalibrationNode(Node):
         self.validator = self.create_client(EvaluatePTPTrajectory,
                                             '/dobot_PTP_validation_service',
                                              callback_group=self.group)
+        self.validator_parameters = self.create_client(
+            GetParameters, '/dobot_trajectory_validation_server/get_parameters', callback_group=self.group)
         self.motion = ActionClient(self, PointToPoint, '/PTP_action', callback_group=self.group)
         self.ptp_get = self.create_client(GetPTPCommonParams,
                                           '/dobot/get_ptp_common_params', callback_group=self.group)
@@ -377,6 +392,10 @@ class CalibrationNode(Node):
                             callback_group=self.group)
         self.create_service(Trigger, '/calibration/auto/start', self.auto_start_service,
                             callback_group=self.group)
+        self.create_service(AuthorizeCalibration, '/calibration/autonomous/authorize',
+                            self.automatic_authorize_service, callback_group=self.group)
+        self.create_service(Trigger, '/calibration/autonomous/commission',
+                            self.automatic_commission_service, callback_group=self.group)
         self.create_service(Trigger, '/calibration/autonomous/start', self.automatic_start_service,
                             callback_group=self.group)
         for action in ('pause', 'resume', 'abort'):
@@ -1048,6 +1067,7 @@ class CalibrationNode(Node):
             if expired or identity_changed or unsafe:
                 reason = ('TOKEN_EXPIRED' if expired else 'SESSION_OR_MOUNT_CHANGED'
                           if identity_changed else 'READINESS_ALARM_OR_SAFE_STOP_CHANGED')
+                self._adapter_safe_stop()
                 self._disarm_real_motion(reason)
         if self.auto_pending:
             self.auto_pending = False
@@ -1061,9 +1081,14 @@ class CalibrationNode(Node):
                 self.stop.set()
                 self.status('FAIL', reason)
         active_goal = self.active_goal
-        if active_goal is not None and (self.health_error() or self.stop.is_set()):
-            active_goal.cancel_goal_async()
-            self.stop.set()
+        automatic_error = ''
+        if self.automatic.backend.owned and self.automatic.backend.authorization is not None:
+            try:
+                self.automatic.backend.check()
+            except Exception as error:
+                automatic_error = str(error)
+        if active_goal is not None and (self.health_error() or self.stop.is_set() or automatic_error):
+            self._adapter_safe_stop()
         workflow = self.workflow
         ready = self.is_ready()
         passive_readiness = self.passive_capture_readiness()
@@ -1202,6 +1227,8 @@ class CalibrationNode(Node):
                 'passive_pose_count': len(self.passive_captures),
                 'passive_solve': self.passive_solve_status,
                 'automatic_calibration': self.automatic.snapshot(),
+                'automatic_commissioning': self.automatic_commissioning,
+                'software_source_digest': self.software_source_digest,
                 'passive_pose_metadata': list(self.passive_capture_metadata),
                 'passive_guidance': guidance,
                 'supervised_auto': self.supervised_auto.snapshot(),
@@ -1462,6 +1489,9 @@ class CalibrationNode(Node):
         return result
 
     def checkpoint(self):
+        automatic = getattr(self, 'automatic', None)
+        if automatic is not None and automatic.backend.owned:
+            automatic.backend.check()
         if self.stop.is_set():
             raise CalibrationError('Calibration cancelled')
         reason = self.health_error()
@@ -2112,6 +2142,22 @@ class CalibrationNode(Node):
             response.success, response.message = self.automatic.start()
         return response
 
+    def automatic_commission_service(self, request, response):
+        if self.operation_lock.locked() or self.real_motion_arm is not None:
+            response.success, response.message = False, 'Another calibration operation or permit is active'
+        else:
+            response.success, response.message = self.automatic.start('COMMISSIONING_TWO_POSES')
+        return response
+
+    def automatic_authorize_service(self, request, response):
+        from .motion_authorization import ACKNOWLEDGEMENTS
+        payload = {name: getattr(request, name) for name in ACKNOWLEDGEMENTS}
+        payload['plan_fingerprint'] = request.plan_fingerprint
+        response.accepted, message = self.automatic.authorize(payload)
+        response.report = json.dumps({'accepted': response.accepted, 'message': message,
+            'run_id': self.automatic.run_id, 'motion_command_sent': False})
+        return response
+
     def automatic_control_service(self, action, response):
         response.success, response.message = getattr(self.automatic, action)()
         return response
@@ -2170,6 +2216,7 @@ class CalibrationNode(Node):
         if original is None:
             return True, None
         try:
+            self._confirm_motion_stopped_before_restore()
             self._set_ptp_common_params(original['velocity_percent'], original['acceleration_percent'])
             readback = self._get_ptp_common_params()
             if readback != original:
@@ -2186,6 +2233,7 @@ class CalibrationNode(Node):
             self.token_lifecycle.revoke(arm.get('lifecycle'), reason)
         if arm is None:
             return {'disarmed': True, 'restore': 'NOT_REQUIRED', 'reason': reason}
+        self._adapter_safe_stop()
         restored, detail = self._restore_arm_ptp(arm)
         self.real_motion_arm = None
         return {'disarmed': True, 'restore': 'PASS' if restored else 'FAIL',
@@ -2210,6 +2258,16 @@ class CalibrationNode(Node):
         }
 
     def arm_real_motion_service(self, request, response):
+        if not self.calibration_transaction_lock.acquire(blocking=False):
+            response.success = False
+            response.message = json.dumps({'reason': 'CALIBRATION_TRANSACTION_ACTIVE', 'MOTION_SENT': False})
+            return response
+        try:
+            return self._arm_real_motion_service_locked(request, response)
+        finally:
+            self.calibration_transaction_lock.release()
+
+    def _arm_real_motion_service_locked(self, request, response):
         """Audit and issue one non-dispatching, two-pose smoke-test permit."""
         baseline = self._authoritative_baseline_record()
         baseline_gate = validate_authoritative_scene_baseline_for_preflight(
@@ -2220,6 +2278,10 @@ class CalibrationNode(Node):
         if baseline_gate:
             response.success = False
             response.message = json.dumps({**self._real_motion_snapshot(), 'reason': baseline_gate}, separators=(',', ':'))
+            return response
+        if self.operation_lock.locked():
+            response.success = False
+            response.message = json.dumps({'reason': 'CALIBRATION_OPERATION_ACTIVE', 'MOTION_SENT': False})
             return response
         if self.ptp_param_state_uncertain:
             response.success = False
@@ -2256,6 +2318,7 @@ class CalibrationNode(Node):
                 blockers.append('SESSION_FINGERPRINT_MISMATCH')
             if blockers:
                 raise CalibrationError('; '.join(dict.fromkeys(blockers)))
+            legacy_segments = self._validate_legacy_smoke_plan()
             before = self._get_ptp_common_params()
             self._set_ptp_common_params(5, 5)
             readback = self._get_ptp_common_params()
@@ -2265,6 +2328,8 @@ class CalibrationNode(Node):
                 'token': uuid.uuid4().hex, 'scope': 'SMOKE_TEST_POSE_1_TO_2_ONLY',
                 'session_id': session_id,
                 'mount_fingerprint': self.passive_session.mount_fingerprint,
+                'plan_validation': json.loads(plan_response.message),
+                'legacy_movl_segments': legacy_segments,
                 'ptp_before': before, 'expires_monotonic': time.monotonic() + float(self.settings['real_motion_arm_ttl_s']),
             }
             self.real_motion_arm['lifecycle'] = self.token_lifecycle.create(
@@ -2283,6 +2348,27 @@ class CalibrationNode(Node):
             response.message = json.dumps({**self._real_motion_snapshot(),
                                            'FINAL_PREFLIGHT': 'FAIL', 'reason': str(error)}, separators=(',', ':'))
         return response
+
+    def _validate_legacy_smoke_plan(self):
+        from .calibration_workspace import CalibrationWorkspace
+        workspace = CalibrationWorkspace.load(self.settings['automatic_workspace_file'],
+            base_frame=self.settings['base_frame'], camera_id=self.settings['camera_id'],
+            mount_fingerprint=self.passive_session.mount_fingerprint)
+        with self.lock:
+            current = self.history[-1][1].copy()
+        segments = []
+        collision = PyBulletCollisionServer()
+        for xyz in ([150.0406, 0., 99.8972], [185., 0., 100.]):
+            target = self._smoke_target(xyz, 0.)
+            workspace.check_segment(current, target, self.mount)
+            check_path(current, target, self.last_capture, self.mount, self.limits)
+            yaw = float(np.rad2deg(np.arctan2(current[1, 0], current[0, 0])))
+            first = (current[:3, 3] * 1000).tolist() + [yaw]
+            if not collision.validate_trajectory(2, first, xyz + [0.], True, step_len=2.):
+                raise CalibrationError('LEGACY_SMOKE_MOVL_COLLISION_REJECTED')
+            segments.append({'start': first, 'target': xyz + [0.], 'motion_type': 'MOVL', 'validated': True})
+            current = target
+        return segments
 
     def disarm_real_motion_service(self, request, response):
         result = self._disarm_real_motion('OPERATOR_DISARM')
@@ -2315,20 +2401,28 @@ class CalibrationNode(Node):
         token = None if arm is None else arm.get('lifecycle')
         error = self.token_lifecycle.validate(token, manifest.get('session_id'),
             self.passive_session.mount_fingerprint, pose, abort=self.stop.is_set(), safe_stop=bool(self.alarms))
+        hardware = self.hardware_readiness().to_dict()
         passive = self.passive_capture_readiness(); scene = self.scene_verify_service(Trigger.Request(), Trigger.Response())
-        ptp = self._get_ptp_common_params()
+        ptp_error = ''
+        try:
+            ptp = self._get_ptp_common_params()
+        except Exception as error:
+            ptp, ptp_error = None, str(error)
         values = {'token_exists': token is not None, 'token_id': None if token is None else token.token_id,
           'token_scope': [] if token is None else list(token.scope), 'token_consumed': False if token is None else token.consumed,
           'token_revoked': False if token is None else token.revoked, 'token_expired': error == 'TOKEN_EXPIRED',
           'token_session_match': error != 'TOKEN_SESSION_MISMATCH', 'token_mount_fingerprint_match': error != 'TOKEN_FINGERPRINT_MISMATCH',
           'token_pose_allowed': error != 'POSE_NOT_ALLOWED', 'token_generation': None if token is None else token.generation,
           'current_session_generation': self.token_lifecycle.generation, 'hardware_ready': passive['hardware_ready'],
-          'readiness_blockers': list(passive.get('blockers', [])),
+          'hardware_readiness': hardware,
+          'snapshot_monotonic': time.monotonic(), 'ptp_readback': ptp, 'ptp_readback_error': ptp_error,
+          'readiness_blockers': list(dict.fromkeys(hardware['blockers'] + list(passive.get('blockers', [])))),
           'passive_capture_ready': passive['passive_capture_ready'], 'scene_verify': scene.success,
           'alarm_free': not bool(self.alarms), 'ptp_readback_match': ptp == {'velocity_percent':5,'acceleration_percent':5},
-          'plan_validation': True, 'collision_validation': True, 'abort_requested': self.stop.is_set(),
+          'plan_validation': bool(arm and arm.get('plan_validation', {}).get('plan_sequence_validation') == 'PASS'),
+          'collision_validation': bool(arm and len(arm.get('legacy_movl_segments', [])) == 2), 'abort_requested': self.stop.is_set(),
           'pause_requested': False, 'safe_stop_active': bool(self.alarms)}
-        exact = error or ('' if values['hardware_ready'] else 'HARDWARE_NOT_READY') or ('' if values['passive_capture_ready'] else 'PASSIVE_CAPTURE_NOT_READY') or ('' if scene.success else 'SCENE_CHANGED') or ('' if values['alarm_free'] else 'ALARM_ACTIVE') or ('' if values['ptp_readback_match'] else 'PTP_MISMATCH')
+        exact = error or ('' if values['hardware_ready'] else 'HARDWARE_NOT_READY') or ('' if values['passive_capture_ready'] else 'PASSIVE_CAPTURE_NOT_READY') or ('' if scene.success else 'SCENE_CHANGED') or ('' if values['alarm_free'] else 'ALARM_ACTIVE') or ('' if values['ptp_readback_match'] else 'PTP_MISMATCH') or ('' if values['plan_validation'] and values['collision_validation'] else 'PLAN_NOT_VALIDATED')
         return values, exact
 
     def _adapter_hard_gates(self, pose_index):
@@ -2358,10 +2452,66 @@ class CalibrationNode(Node):
         try: return yaml.safe_load(path.read_text(encoding='utf-8'))
         except Exception: return {'quality_status':'INCOMPATIBLE'}
 
+    def _request_goal_stop(self, handle):
+        if handle is None:
+            return  # Missing acceptance evidence must remain fail-closed.
+        if not handle.accepted:
+            self.motion_stop_confirmation_required = False
+            return
+        self.motion_stop_confirmation_required = True
+        handle.cancel_goal_async()
+        if self.motion_stop_result is not None:
+            return
+        try:
+            self.motion_stop_result = handle.get_result_async()
+            def terminal(completed):
+                try:
+                    result = completed.result()
+                    if result.status in (GoalStatus.STATUS_SUCCEEDED, GoalStatus.STATUS_CANCELED,
+                                         GoalStatus.STATUS_ABORTED):
+                        self.motion_stop_terminal_stamp = self.now_s()
+                except Exception:
+                    pass
+            self.motion_stop_result.add_done_callback(terminal)
+        except Exception:
+            # Cancellation may have been sent, but physical stop is unproven.
+            pass
+
     def _adapter_safe_stop(self):
         self.stop.set()
         if self.active_goal is not None:
-            self.active_goal.cancel_goal_async()
+            self._request_goal_stop(self.active_goal)
+        elif self.motion_acceptance_future is not None:
+            self.motion_stop_confirmation_required = True
+            def late(completed):
+                try:
+                    self._request_goal_stop(completed.result())
+                except Exception:
+                    pass
+            self.motion_acceptance_future.add_done_callback(late)
+
+    def _confirm_motion_stopped_before_restore(self):
+        if not self.motion_stop_confirmation_required:
+            return
+        # Reuse the existing five-second settling bound and 0.7-second robot
+        # stability window. Never restore faster PTP parameters on cancel ACK
+        # alone, or while a timed-out acceptance can still arrive.
+        deadline = time.monotonic() + 5.
+        while time.monotonic() < deadline:
+            if not self.motion_stop_confirmation_required:
+                return  # Server rejected the request; no goal could execute.
+            terminal = self.motion_stop_terminal_stamp
+            now = self.now_s()
+            if terminal is not None and now - terminal >= .7:
+                stable, _, _ = self._table_touchoff_stability()
+                fresh = all(stamp is not None and 0 <= now - stamp <= .5
+                            for stamp in (self.tcp_stamp, self.joints_stamp))
+                if stable and fresh:
+                    self.motion_stop_confirmation_required = False
+                    self.motion_acceptance_future = None
+                    return
+            time.sleep(.02)
+        raise CalibrationError('PHYSICAL_STOP_UNVERIFIED: PTP restore withheld')
 
     def _adapter_dispatch_ptp(self, pose_index, target):
         """Only adapter-owned dispatch hook; `move` retains the verified PTP transport."""
@@ -2404,7 +2554,7 @@ class CalibrationNode(Node):
             while time.monotonic() < settle_deadline:
                 if not self._smoke_token_is_valid(arm):
                     raise CalibrationError('TOKEN_OR_HARD_GATE_INVALID_DURING_SETTLING')
-                if time.monotonic() - self.after_motion_stamp >= 0.7:
+                if self.now_s() - self.after_motion_stamp >= 0.7:
                     break
                 time.sleep(0.03)
             settled = settled_pose(list(self.history), self.now_s(), self.after_motion_stamp)
@@ -2422,11 +2572,25 @@ class CalibrationNode(Node):
         return reports
 
     def start_smoke_test_service(self, request, response):
+        if not self.calibration_transaction_lock.acquire(blocking=False):
+            response.accepted = False
+            response.report = json.dumps({'reason': 'CALIBRATION_TRANSACTION_ACTIVE', 'MOTION_SENT': False})
+            return response
+        try:
+            return self._start_smoke_test_service_locked(request, response)
+        finally:
+            self.calibration_transaction_lock.release()
+
+    def _start_smoke_test_service_locked(self, request, response):
         """Single explicit operator authorization; it never queues pose 3."""
         if not request.operator_confirmed:
             response.accepted = False
             response.report = json.dumps({'accepted': False, 'reason': 'OPERATOR_CONFIRMATION_REQUIRED',
                                            'MOTION_SENT': False, 'POSE_SCOPE': [1, 2]})
+            return response
+        if self.operation_lock.locked():
+            response.accepted = False
+            response.report = json.dumps({'reason': 'CALIBRATION_OPERATION_ACTIVE', 'MOTION_SENT': False})
             return response
         baseline = self._authoritative_baseline_record()
         baseline_gate = validate_authoritative_scene_baseline_for_preflight(
@@ -2463,7 +2627,7 @@ class CalibrationNode(Node):
             arm['lifecycle'].event('T5_PRE_DISPATCH_ENTERED', gates=forensic)
             if exact_gate:
                 raise CalibrationError(exact_gate)
-            arm['lifecycle'].activate()
+            self.token_lifecycle.activate(arm['lifecycle'])
             readback = self._get_ptp_common_params()
             if readback != {'velocity_percent': 5, 'acceleration_percent': 5}:
                 raise CalibrationError('PTP_READBACK_NOT_5_5_BEFORE_FIRST_MOTION')
@@ -2474,6 +2638,8 @@ class CalibrationNode(Node):
             self.status('PAUSED_AFTER_SMOKE_TEST')
         except Exception as error:
             reason = str(error)
+            forensic['failure_hardware_readiness'] = self.hardware_readiness().to_dict()
+            forensic['failure_monotonic'] = time.monotonic()
             self.stop.set()
             if self.active_goal is not None:
                 self.active_goal.cancel_goal_async()
@@ -2493,7 +2659,7 @@ class CalibrationNode(Node):
             'POSE_SCOPE': [1, 2], 'pose_reports': reports,
             'accepted_pose_count': len(reports), 'PTP_RESTORE': cleanup['restore'],
             'PTP_PARAM_STATE_UNCERTAIN': self.ptp_param_state_uncertain,
-            'ARM_TOKEN_REVOKED': True, 'MOTION_SENT': motion_sent,
+            'ARM_TOKEN_REVOKED': True, 'MOTION_SENT': bool(motion_sent or self._atomic_motion_sent),
             'geometry_verified': False}, allow_nan=False, separators=(',', ':'))
         return response
 
@@ -2508,7 +2674,7 @@ class CalibrationNode(Node):
         arm['scope'], arm['lifecycle'].scope = 'POSE_1_TO_2_ONLY', (1, 2)
         report, exact = self._pre_dispatch_forensics(arm, 1)
         if not exact:
-            arm['lifecycle'].activate()
+            self.token_lifecycle.activate(arm['lifecycle'])
             report['PRE_DISPATCH_POSE1'] = 'PASS'
         else:
             report['PRE_DISPATCH_POSE1'] = 'FAIL'
@@ -2790,14 +2956,15 @@ class CalibrationNode(Node):
         raise CalibrationError('Capture timeout: ' + reason)
 
     def wait_future(self, future, timeout):
+        self.checkpoint()
         deadline = time.monotonic() + timeout
         while not future.done():
             if self.stop.wait(0.02):
                 raise CalibrationError('Calibration cancelled')
             if time.monotonic() > deadline:
                 raise CalibrationError('Motion/validation service timed out')
-            if self.health_error():
-                raise CalibrationError(self.health_error())
+            self.checkpoint()
+        self.checkpoint()
         result = future.result()
         if result is None:
             raise CalibrationError('Motion/validation service returned no result')
@@ -2813,7 +2980,44 @@ class CalibrationNode(Node):
             current, target,
             lambda start, end: check_path(start, end, self.last_capture, self.mount, self.limits))
 
+    def _automatic_validator_policy(self):
+        names = [f'axis_{i}_range' for i in range(1, 5)] + [
+            'enable_collision_check', 'detect_ground_collision', 'collision_step_mm',
+            'collision_joint_step_deg']
+        if not self.validator_parameters.wait_for_service(timeout_sec=2.):
+            raise CalibrationError('TRAJECTORY_VALIDATOR_POLICY_UNAVAILABLE')
+        request = GetParameters.Request()
+        request.names = names
+        response = self.wait_future(self.validator_parameters.call_async(request), 8.)
+        if len(response.values) != len(names):
+            raise CalibrationError('TRAJECTORY_VALIDATOR_POLICY_INVALID')
+        policy = {}
+        for name, value in zip(names, response.values):
+            if name.startswith('axis_'):
+                policy[name] = list(value.integer_array_value or value.double_array_value)
+            elif name in ('enable_collision_check', 'detect_ground_collision'):
+                policy[name] = value.bool_value
+            else:
+                policy[name] = value.double_value
+        bounds = np.asarray([policy[f'axis_{i}_range'] for i in range(1, 5)], dtype=float)
+        if (bounds.shape != (4, 2) or not np.isfinite(bounds).all()
+                or np.any(bounds[:, 0] >= bounds[:, 1])
+                or not policy['enable_collision_check'] or not policy['detect_ground_collision']
+                or not 0 < policy['collision_step_mm'] <= 2.
+                or not 0 < policy['collision_joint_step_deg'] <= 2.):
+            raise CalibrationError('TRAJECTORY_VALIDATOR_POLICY_UNSAFE')
+        return policy
+
     def _execute_guarded_motion(self, current, target, path_guard):
+        # All calibration paths share the same exclusion, including legacy smoke.
+        if not self.motion_dispatch_lock.acquire(blocking=False):
+            raise CalibrationError('CALIBRATION_MOTION_ALREADY_ACTIVE')
+        try:
+            return self._execute_guarded_motion_locked(current, target, path_guard)
+        finally:
+            self.motion_dispatch_lock.release()
+
+    def _execute_guarded_motion_locked(self, current, target, path_guard):
         """Shared MOVL transport; require the caller's geometry guard twice."""
         path_guard(current, target)
         if not self.validator.wait_for_service(timeout_sec=2) or not self.motion.wait_for_server(timeout_sec=2):
@@ -2835,11 +3039,29 @@ class CalibrationNode(Node):
         goal.velocity_ratio, goal.acceleration_ratio = 0.05, 0.05
         path_guard(current, target)
         self.checkpoint()
-        future = self.motion.send_goal_async(goal)
+        automatic = self.automatic if self.automatic.backend.owned else None
+        guard = automatic.dispatch_guard() if automatic else nullcontext()
+        with guard:
+            path_guard(current, target)
+            self.checkpoint()
+            with self.lock:
+                distance, angle = pose_distance(current, self.history[-1][1])
+            if distance > .001 or angle > .3:
+                raise CalibrationError('Robot moved before dispatch')
+            future = self.motion.send_goal_async(goal)
+            self.motion_acceptance_future = future
+            self.motion_stop_result = None
+            self.motion_stop_terminal_stamp = None
+            # Record the SEND, even if acceptance, result, or cleanup fails.
+            self._atomic_motion_sent = True
+            if automatic:
+                automatic.trace('_execute_guarded_motion.send_goal_async')
+                automatic.update(automatic.snapshot()['state'], motion_command_sent=True)
         try:
             self.active_goal = self.wait_future(future, 5)
             if not self.active_goal.accepted:
                 raise CalibrationError('Calibration motion was rejected')
+            self.checkpoint()
             result = self.wait_future(self.active_goal.get_result_async(), self.settings['motion_timeout_s'])
             if result.status != GoalStatus.STATUS_SUCCEEDED:
                 raise CalibrationError('Calibration motion did not succeed')
@@ -2848,19 +3070,20 @@ class CalibrationNode(Node):
             if distance > 0.002 or angle > 0.5:
                 raise CalibrationError('Motion result disagrees with measured TCP')
             self.after_motion_stamp = self.now_s()
+            self.motion_acceptance_future = None
         except Exception:
             # A delayed goal acceptance must not leave the robot moving after
             # a timeout or cancellation has already failed calibration.
             def cancel_late(completed):
                 try:
                     handle = completed.result()
-                    if handle and handle.accepted:
-                        handle.cancel_goal_async()
+                    self._request_goal_stop(handle)
                 except Exception:
                     pass
+            self.motion_stop_confirmation_required = True
             future.add_done_callback(cancel_late)
             if self.active_goal is not None and self.active_goal.accepted:
-                self.active_goal.cancel_goal_async()
+                self._request_goal_stop(self.active_goal)
             self.stop.set()
             raise
         finally:

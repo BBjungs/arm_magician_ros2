@@ -2,6 +2,7 @@
 
 from collections import deque
 from dataclasses import asdict, dataclass
+import math
 
 
 READINESS_STATES = (
@@ -27,6 +28,10 @@ class HardwareReadiness:
     physical_estop_present: bool
     operator_safety_verified: bool
     software_estop_monitoring: str
+    depth_age_s: float | None
+    tcp_age_s: float | None
+    joints_age_s: float | None
+    alarms_age_s: float | None
 
     def to_dict(self):
         value = asdict(self)
@@ -36,6 +41,11 @@ class HardwareReadiness:
 
 def _fresh(now, stamp, ttl):
     return stamp is not None and 0.0 <= now - stamp <= ttl
+
+
+def _age(now, stamp):
+    age = None if stamp is None else now - stamp
+    return age if age is not None and math.isfinite(age) else None
 
 
 def evaluate_hardware_readiness(
@@ -112,6 +122,8 @@ def evaluate_hardware_readiness(
         physical_estop_present=bool(physical_estop_present),
         operator_safety_verified=bool(operator_safety_verified),
         software_estop_monitoring=('CONNECTED' if safety_supported else 'NOT CONNECTED'),
+        depth_age_s=_age(now, depth_stamp), tcp_age_s=_age(now, tcp_stamp),
+        joints_age_s=_age(now, joints_stamp), alarms_age_s=_age(now, alarm_stamp),
     )
 
 
