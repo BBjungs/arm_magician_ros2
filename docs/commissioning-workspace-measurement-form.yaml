@@ -1,0 +1,57 @@
+# แบบบันทึกหน้างาน ไม่ใช่ไฟล์ configuration ที่ได้รับอนุญาต
+# กรอกหน่วยเมตร เว้น null หากยังไม่มีผลวัด ห้ามยืนยันจาก CAD เพียงอย่างเดียว
+schema_version: 1
+installation_verified: false
+whole_robot_environment_verified: false
+measurement_source: null
+base_frame: magician_base_link
+camera_id: null
+mount_fingerprint: null
+table_surface_z_m: null
+free_volume_min_m: [null, null, null]
+free_volume_max_m: [null, null, null]
+minimum_clearance_m: 0.025  # safety policy เดิม ไม่ใช่ค่าที่วัด
+
+# ส่วนหลักฐานเพิ่มเติม; loader เดิมอ่านเฉพาะ field workspace ด้านบน
+measurement_record:
+  operator_name: null
+  measured_at: null
+  installation_id: null
+  robot_serial_or_asset_id: null
+  camera_serial_observed: null
+  tool_and_bracket_description: null
+  evidence_references: []
+  instrument_and_uncertainty_m: null
+  robot_bottom_directly_on_table_observed: null
+  feet_spacers_or_supports: null
+  controller_end_effector_params_observed: null
+  controller_reported_tcp_reference: null
+  suction_mouth_relative_to_reported_tcp_m: [null, null, null]
+  base_origin_physical_datum_description: null
+  joint_1_axis_location_method: null
+  joint_2_axis_center_location_method: null
+  axis_intersection_or_offset_evidence: null
+  controller_to_urdf_datum_crosscheck: null
+  base_axes_level_alignment_evidence: null
+  origin_height_above_table_m: null
+  table_points_in_base_m: []
+  table_level_and_nonplanarity_bound_m: null
+  table_z_derivation_and_conservative_bound: null
+  free_volume_boundary_evidence:
+    x_min: null
+    x_max: null
+    y_min: null
+    y_max: null
+    z_min: null
+    z_max: null
+  obstacles_people_exclusion_and_keepout_description: null
+  whole_robot_sweep_survey_method: null
+  whole_robot_sweep_evidence_by_segment: []  # anchor + ทั้งสิบ segments
+  camera_tool_bracket_hoses_cables_envelope_evidence: null
+  mount_translation_rotation_rigidity_and_uncertainty_evidence: null
+  collision_model_external_obstacles_and_ground_crosscheck: null
+  planned_ten_poses_in_base: []  # คัดลอกจาก validated plan เท่านั้น
+  plan_fingerprint: null
+  reviewer_name: null
+  reviewed_at: null
+  remaining_uncertainties: []
