@@ -1,5 +1,5 @@
 # แบบบันทึกหน้างาน ไม่ใช่ไฟล์ configuration ที่ได้รับอนุญาต
-# กรอกหน่วยเมตร เว้น null หากยังไม่มีผลวัด ห้ามยืนยันจาก CAD เพียงอย่างเดียว
+# กรอกหน่วยเมตร เว้น null หากยังไม่มีหลักฐาน; ใช้แบบโรงงานได้เมื่อ datum และการติดตั้งตรงกัน
 schema_version: 1
 installation_verified: false
 whole_robot_environment_verified: false
@@ -7,7 +7,7 @@ measurement_source: caretaker_confirmation_in_conversation_pending_method_and_ge
 base_frame: magician_base_link
 camera_id: null
 mount_fingerprint: null
-table_surface_z_m: 0.0  # ค่าที่ผู้ควบคุมยืนยัน; ยังไม่ผ่าน geometry review
+table_surface_z_m: -0.058  # ผู้ควบคุมยืนยันค่า signed Z; ยังต้องเทียบ datum กับ magician_base_link
 free_volume_min_m: [-0.0086, -0.2486, 0.0014]  # ผู้ดูแลยืนยันตัวเลขชุดล่าสุด; ยังไม่ผ่าน geometry review
 free_volume_max_m: [0.4086, 0.2486, 0.3986]
 minimum_clearance_m: 0.025  # safety policy เดิม ไม่ใช่ค่าที่วัด
@@ -28,7 +28,10 @@ measurement_record:
     table_clearance_validated: false
     note: ช่วง TCP Z180-220 mm เป็นช่วงเป้าหมายตัวอย่าง ไม่ใช่ตำแหน่ง Anchor ที่วัดจริง; ต้องตรวจเส้นทางจาก Anchor จริงก่อน
   operator_statement:
-    controller_origin_at_table_surface_confirmed: true
+    controller_origin_at_table_surface_confirmed: false
+    table_surface_z_m_confirmed: -0.058
+    table_surface_statement_source: conversation_user_explicit_signed_value
+    superseded_table_surface_z_m: 0.0
     camera_and_suction_tool_no_collision_along_path_confirmed: true
     camera_and_suction_tool_statement_source: conversation_user_confirmation
     free_volume_values_reported_as_actual: false
@@ -55,21 +58,21 @@ measurement_record:
   tool_and_bracket_description: null
   evidence_references: []
   instrument_and_uncertainty_m: null
-  robot_bottom_directly_on_table_observed: null
+  robot_bottom_directly_on_table_observed: true  # ผู้ควบคุมรายงาน; ไม่ใช่การตรวจหน้างานโดย AI
   feet_spacers_or_supports: null
   controller_end_effector_params_observed: null
   controller_reported_tcp_reference: null
   suction_mouth_relative_to_reported_tcp_m: [null, null, null]
-  base_origin_physical_datum_description: ผู้ควบคุมยืนยันว่า origin ของ Controller อยู่ตรงผิวโต๊ะ; ยังขาดวิธีระบุ datum และหลักฐานเทียบ magician_base_link
+  base_origin_physical_datum_description: ผู้ควบคุมยืนยัน table_surface_z_m=-0.058 แทนค่าเดิม 0; origin สูงกว่าผิวโต๊ะ 58 mm ตามคำรายงาน ยังต้องเทียบ datum กับ magician_base_link
   joint_1_axis_location_method: null
   joint_2_axis_center_location_method: null
   axis_intersection_or_offset_evidence: null
   controller_to_urdf_datum_crosscheck: null
   base_axes_level_alignment_evidence: null
-  origin_height_above_table_m: null
+  origin_height_above_table_m: 0.058
   table_points_in_base_m: []
   table_level_and_nonplanarity_bound_m: null
-  table_z_derivation_and_conservative_bound: null
+  table_z_derivation_and_conservative_bound: ผู้ควบคุมระบุ signed table Z=-0.058 m โดยตรง; ยังไม่ระบุความคลาดเคลื่อน
   free_volume_boundary_evidence:
     x_min: null
     x_max: null
