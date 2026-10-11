@@ -8,8 +8,8 @@ base_frame: magician_base_link
 camera_id: null
 mount_fingerprint: null
 table_surface_z_m: -0.058  # ผู้ควบคุมยืนยันค่า signed Z; ยังต้องเทียบ datum กับ magician_base_link
-free_volume_min_m: [-0.0086, -0.2486, 0.0014]  # ผู้ดูแลยืนยันตัวเลขชุดล่าสุด; ยังไม่ผ่าน geometry review
-free_volume_max_m: [0.4086, 0.2486, 0.3986]
+free_volume_min_m: [0.170, -0.070, 0.050]  # ผู้ใช้ส่งล่าสุด; ยังไม่ยืนยันว่าเป็น TCP range หรือ whole-environment volume
+free_volume_max_m: [0.230, 0.070, 0.120]
 minimum_clearance_m: 0.025  # safety policy เดิม ไม่ใช่ค่าที่วัด
 
 # ส่วนหลักฐานเพิ่มเติม; loader เดิมอ่านเฉพาะ field workspace ด้านบน
@@ -51,10 +51,14 @@ measurement_record:
     camera_and_suction_tool_statement_source: conversation_user_confirmation
     free_volume_values_reported_as_actual: false
     latest_calculated_dimensions_confirmed_correct_by_caretaker: true
-    free_volume_statement_source: conversation_caretaker_confirmed_latest_numbers_correct
-    free_volume_current_status: CARETAKER_CONFIRMED_NUMBERS_PENDING_PHYSICAL_SURVEY_AND_PATH_REVIEW
+    free_volume_statement_source: conversation_user_resubmitted_xyz_bounds_after_geometry_audit
+    free_volume_current_status: OPERATOR_REPORTED_BOUNDS_PENDING_SCOPE_RECONCILIATION
+    latest_reported_min_mm: [170, -70, 50]
+    latest_reported_max_mm: [230, 70, 120]
+    superseded_calculated_free_volume_min_m: [-0.0086, -0.2486, 0.0014]
+    superseded_calculated_free_volume_max_m: [0.4086, 0.2486, 0.3986]
     retracted_free_volume_record:
-      status: INVALID_DO_NOT_USE
+      status: HISTORICAL_RETRACTION_SAME_NUMBERS_RESUBMITTED_LATER_SCOPE_UNRESOLVED
       reason: ผู้ใช้ระบุว่าข้อมูลขอบเขตเดิมไม่ถูกต้อง
       previous_min_mm: [170, -70, 50]
       previous_max_mm: [230, 70, 120]
