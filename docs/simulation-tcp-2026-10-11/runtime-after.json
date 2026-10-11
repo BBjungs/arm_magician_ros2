@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-11T11:46:00.362590+00:00",
+  "method": "READ_ONLY_HTTP_GET_AFTER_SIMULATION",
+  "motion": {
+    "active_goal": false,
+    "last_goal_age_sec": null,
+    "last_feedback": null,
+    "last_result": null,
+    "joints_deg": [
+      -0.0,
+      3.03,
+      13.74,
+      0.0
+    ],
+    "joints_age_sec": 0.02,
+    "current_tcp_pose": [
+      149.93003845214844,
+      -4.40391048073252e-08,
+      99.88899230957031,
+      -1.6829547533347977e-08
+    ],
+    "current_tcp_pose_source": "dobot_pose_raw",
+    "current_tcp_pose_age_sec": 0.02,
+    "homing_confirmed": false,
+    "vision_sequence_active": false,
+    "vision_sequence_age_sec": null
+  },
+  "ros": {
+    "ptp_action_ready": true,
+    "homing_ready": true,
+    "gripper_ready": false,
+    "suction_ready": true,
+    "tool_mapping": "canonical",
+    "alarm_state_fresh": true,
+    "no_critical_alarm": true,
+    "alarm_codes": []
+  },
+  "readiness": {
+    "HARDWARE_READY": true,
+    "PASSIVE_CAPTURE_READY": true,
+    "REAL_MOTION_READY": false,
+    "GEOMETRY_VERIFIED": false,
+    "point_cloud_source_usable": true,
+    "native_cloud_state": "stale",
+    "blockers": []
+  },
+  "automatic_calibration": {
+    "state": "FAULT",
+    "accepted_pose_count": 0,
+    "total_poses": 10,
+    "dry_run": false,
+    "production_ready": false,
+    "reason": "WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml",
+    "purpose": "COMMISSIONING_TWO_POSES",
+    "run_id": "4289fc2c605b41858dcc880fa0b04eb7",
+    "motion_command_sent": false,
+    "blockers": [
+      "WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml"
+    ],
+    "trace": [
+      {
+        "function": "AutomaticBackend.prepare",
+        "monotonic": 531357.762472445
+      },
+      {
+        "function": "AutomaticBackend.prepare.enter",
+        "monotonic": 531357.762511531
+      }
+    ],
+    "authorization_protocol": 2,
+    "pre_dispatch": {
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.14115500450134277,
+        "tcp_age_s": 0.04689741134643555,
+        "joints_age_s": 0.04689741134643555,
+        "alarms_age_s": 0.03852581977844238
+      },
+      "workspace": "WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml",
+      "baseline_gate": "",
+      "blockers": [
+        "WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml"
+      ],
+      "motion_command_sent": false,
+      "monotonic": 531357.792780056
+    },
+    "PTP_RESTORE": "NOT_REQUIRED",
+    "authorization_revoked": true
+  },
+  "runtime_workspace_exists": false
+}

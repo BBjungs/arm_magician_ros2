@@ -1,0 +1,15 @@
+simulation_only: true
+source: user_explicit_hypothetical_tcp_bounds_not_measured_free_volume
+tcp_min_mm: [170, -70, 50]
+tcp_max_mm: [230, 70, 120]
+# Chosen inside the hypothetical range so nominal automatic_plan fits.
+# Not a measurement, authorized target, or instruction to reposition the robot.
+simulated_anchor_xyz_j4_mm_deg: [190, 0, 85, 0]
+reported_table_z_m: -0.058
+sampling_step_mm: 2.0
+sampling_step_deg: 2.0
+controller_joint_limits_deg: [[-120, 120], [-5, 90], [-15, 90], [-140, 140]]
+joint_limits_source: trajectory_validator_server_defaults_matches_previous_runtime_audit
+planning_soft_margin_deg: 2.0
+minimum_clearance_m: 0.025
+mount_model: src/magician_ros2/dobot_calibration/config/mount_model.yaml
