@@ -1,0 +1,729 @@
+{
+  "nodes": [
+    [
+      "dobot_diagnostic_talker",
+      "/"
+    ],
+    [
+      "_ros2cli_daemon_0_9bcb556f5a194582988934278e0dc6e2",
+      "/"
+    ],
+    [
+      "markerless_calibration",
+      "/"
+    ],
+    [
+      "camera_readonly_audit",
+      "/"
+    ],
+    [
+      "launch_ros_26355",
+      "/"
+    ],
+    [
+      "camera_container",
+      "/camera"
+    ],
+    [
+      "camera",
+      "/camera"
+    ],
+    [
+      "dobot_trajectory_validation_server",
+      "/"
+    ],
+    [
+      "dobot_suction_cup_srv",
+      "/"
+    ],
+    [
+      "dobot_PTP_server",
+      "/"
+    ],
+    [
+      "dobot_web_interface",
+      "/"
+    ],
+    [
+      "dobot_homing_srv",
+      "/"
+    ],
+    [
+      "camera_health",
+      "/"
+    ],
+    [
+      "dobot_state_publisher",
+      "/"
+    ]
+  ],
+  "topics": [
+    [
+      "/camera/color/camera_info",
+      [
+        "sensor_msgs/msg/CameraInfo"
+      ]
+    ],
+    [
+      "/camera/color/image_raw",
+      [
+        "sensor_msgs/msg/Image"
+      ]
+    ],
+    [
+      "/camera/color/image_raw/compressed",
+      [
+        "sensor_msgs/msg/CompressedImage"
+      ]
+    ],
+    [
+      "/camera/depth/camera_info",
+      [
+        "sensor_msgs/msg/CameraInfo"
+      ]
+    ],
+    [
+      "/camera/depth/image_raw",
+      [
+        "sensor_msgs/msg/Image"
+      ]
+    ],
+    [
+      "/camera/depth/points",
+      [
+        "sensor_msgs/msg/PointCloud2"
+      ]
+    ],
+    [
+      "/camera/depth_filter_status",
+      [
+        "std_msgs/msg/String"
+      ]
+    ],
+    [
+      "/camera/depth_to_color",
+      [
+        "orbbec_camera_msgs/msg/Extrinsics"
+      ]
+    ],
+    [
+      "/camera/health",
+      [
+        "std_msgs/msg/String"
+      ]
+    ]
+  ],
+  "parameters": {
+    "/camera/camera": {
+      "align_mode": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "HW"
+      },
+      "align_target_stream": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "COLOR"
+      },
+      "camera_depth_frame_id": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "camera_depth_frame"
+      },
+      "camera_ir_frame_id": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "camera_ir_frame"
+      },
+      "camera_left_ir_frame_id": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "camera_left_ir_frame"
+      },
+      "camera_right_ir_frame_id": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "camera_right_ir_frame"
+      },
+      "color_ae_max_exposure": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "color_ae_max_gain": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "color_exposure": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "color_gain": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth.image_raw.enable_pub_plugins": {
+        "type": 9,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_ae_roi_bottom": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_ae_roi_left": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_ae_roi_right": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_ae_roi_top": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_camera_info_qos": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "default"
+      },
+      "depth_delay_us": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_filter_config": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_format": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "Y11"
+      },
+      "depth_fps": {
+        "type": 2,
+        "bool": false,
+        "int": 30,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_height": {
+        "type": 2,
+        "bool": false,
+        "int": 400,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_optical_frame_id": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "camera_depth_optical_frame"
+      },
+      "depth_precision": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_qos": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "default"
+      },
+      "depth_registration": {
+        "type": 1,
+        "bool": true,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_rotation": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_width": {
+        "type": 2,
+        "bool": false,
+        "int": 640,
+        "double": 0.0,
+        "string": ""
+      },
+      "depth_work_mode": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_color_auto_exposure": {
+        "type": 1,
+        "bool": true,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_color_auto_exposure_priority": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_depth": {
+        "type": 1,
+        "bool": true,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_depth_scale": {
+        "type": 1,
+        "bool": true,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_frame_sync": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_ir": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_ir_auto_exposure": {
+        "type": 1,
+        "bool": true,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_ir_long_exposure": {
+        "type": 1,
+        "bool": true,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_laser": {
+        "type": 1,
+        "bool": true,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_ldp": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_left_ir": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_right_ir": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_sync_host_time": {
+        "type": 1,
+        "bool": true,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "enable_sync_output_accel_gyro": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "flip_depth": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "flip_ir": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "flip_left_ir": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "flip_right_ir": {
+        "type": 1,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "hdr_merge_exposure_1": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "hdr_merge_exposure_2": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "hdr_merge_gain_1": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "hdr_merge_gain_2": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "ir_ae_max_exposure": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "ir_brightness": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "ir_camera_info_qos": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "default"
+      },
+      "ir_exposure": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "ir_format": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "Y8"
+      },
+      "ir_fps": {
+        "type": 2,
+        "bool": false,
+        "int": 30,
+        "double": 0.0,
+        "string": ""
+      },
+      "ir_gain": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "ir_height": {
+        "type": 2,
+        "bool": false,
+        "int": 400,
+        "double": 0.0,
+        "string": ""
+      },
+      "ir_info_url": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "ir_optical_frame_id": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "camera_ir_optical_frame"
+      },
+      "ir_qos": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "default"
+      },
+      "ir_width": {
+        "type": 2,
+        "bool": false,
+        "int": 640,
+        "double": 0.0,
+        "string": ""
+      },
+      "laser_energy_level": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "laser_on_off_mode": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "left_ir_camera_info_qos": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "default"
+      },
+      "left_ir_format": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "Y16"
+      },
+      "left_ir_fps": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "left_ir_height": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "left_ir_optical_frame_id": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "camera_left_ir_optical_frame"
+      },
+      "left_ir_qos": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "default"
+      },
+      "left_ir_rotation": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "left_ir_width": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "max_depth_limit": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "min_depth_limit": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "qos_overrides./parameter_events.publisher.depth": {
+        "type": 2,
+        "bool": false,
+        "int": 1000,
+        "double": 0.0,
+        "string": ""
+      },
+      "qos_overrides./tf.publisher.depth": {
+        "type": 2,
+        "bool": false,
+        "int": 100,
+        "double": 0.0,
+        "string": ""
+      },
+      "qos_overrides./tf_static.publisher.depth": {
+        "type": 2,
+        "bool": false,
+        "int": 1,
+        "double": 0.0,
+        "string": ""
+      },
+      "right_ir_camera_info_qos": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "default"
+      },
+      "right_ir_format": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "Y16"
+      },
+      "right_ir_fps": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "right_ir_height": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "right_ir_optical_frame_id": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "camera_right_ir_optical_frame"
+      },
+      "right_ir_qos": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "default"
+      },
+      "right_ir_rotation": {
+        "type": 2,
+        "bool": false,
+        "int": -1,
+        "double": 0.0,
+        "string": ""
+      },
+      "right_ir_width": {
+        "type": 2,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      },
+      "serial_number": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": "AY2A760003E"
+      },
+      "sync_mode": {
+        "type": 4,
+        "bool": false,
+        "int": 0,
+        "double": 0.0,
+        "string": ""
+      }
+    }
+  }
+}

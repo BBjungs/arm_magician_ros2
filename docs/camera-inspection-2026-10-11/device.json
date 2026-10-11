@@ -1,0 +1,439 @@
+{
+  "/camera/get_device_info": {
+    "info": {
+      "header": {
+        "stamp": {
+          "sec": 0,
+          "nanosec": 0
+        },
+        "frame_id": ""
+      },
+      "name": "SV1301S_U3",
+      "serial_number": "AY2A760003E",
+      "firmware_version": "RD3013",
+      "supported_min_sdk_version": "",
+      "hardware_version": ""
+    },
+    "success": true,
+    "message": ""
+  },
+  "/camera/get_sdk_version": {
+    "data": "{\n  \"firmware_version\": \"RD3013\",\n  \"ob_sdk_version\": \"1.10.37\",\n  \"ros_sdk_version\": \"1.5.22\",\n  \"supported_min_sdk_version\": \"\"\n}",
+    "success": true,
+    "message": ""
+  },
+  "/camera/get_laser_status": {
+    "data": true,
+    "success": true,
+    "message": ""
+  },
+  "/camera/get_ldp_status": {
+    "data": false,
+    "success": true,
+    "message": ""
+  },
+  "/camera/get_ldp_protection_status": {
+    "data": false,
+    "success": true,
+    "message": ""
+  },
+  "/camera/get_depth_exposure": {
+    "data": 1052,
+    "success": true,
+    "message": ""
+  },
+  "/camera/get_depth_gain": {
+    "data": 2000,
+    "success": true,
+    "message": ""
+  },
+  "rgb_snapshot_saved": true,
+  "calibration_status": {
+    "state": "UNCALIBRATED",
+    "ready": false,
+    "available": false,
+    "reason": "Calibration bootstrap geometry eligible; full verified geometry remains required for production",
+    "stamp": 1791715455.542327,
+    "result": "FAIL",
+    "architecture": "markerless_hand_eye",
+    "command_frame": "TCP",
+    "calibration_parent_frame": "TCP",
+    "tcp_only_consumer_supported": true,
+    "bundle_path": "/home/bbcontact/.ros/dobot/markerless_calibration.npz",
+    "bundle_loaded": false,
+    "context_digest": "",
+    "geometry_verified": false,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_ELIGIBLE": true,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_BLOCKERS": [],
+    "CAMERA_ID_SOURCE": "AUTO_DETECTED",
+    "CAMERA_ID": "AY2A760003E",
+    "CAMERA_ID_VERIFIED": true,
+    "CAMERA_ID_RESOLUTION": "PASS",
+    "EXACT_GATE": "",
+    "readiness": {
+      "HARDWARE_READY": false,
+      "PASSIVE_CAPTURE_READY": false,
+      "REAL_MOTION_READY": false,
+      "GEOMETRY_VERIFIED": false,
+      "point_cloud_source_usable": false,
+      "native_cloud_state": null,
+      "blockers": [
+        "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED"
+      ]
+    },
+    "AUTHORITATIVE_BASELINE_READY": false,
+    "AUTHORITATIVE_BASELINE_STABLE_FOR_S": 0.0,
+    "AUTHORITATIVE_BASELINE_REQUIRED_STABLE_S": 10.0,
+    "AUTHORITATIVE_BASELINE_BLOCKERS": [
+      "HARDWARE_NOT_READY",
+      "PASSIVE_CAPTURE_NOT_READY",
+      "DEPTH_UNSTABLE",
+      "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED",
+      "POINT_CLOUD_UNUSABLE"
+    ],
+    "AUTHORITATIVE_BASELINE_CURRENT_BLOCKERS": [
+      "HARDWARE_NOT_READY",
+      "PASSIVE_CAPTURE_NOT_READY",
+      "DEPTH_UNSTABLE",
+      "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED",
+      "POINT_CLOUD_UNUSABLE"
+    ],
+    "AUTHORITATIVE_BASELINE_LAST_RESET_GATE": "HARDWARE_NOT_READY",
+    "AUTHORITATIVE_BASELINE_LAST_RESET_TIME": 529333.641930174,
+    "AUTHORITATIVE_BASELINE_RESET_COUNT": 3,
+    "AUTHORITATIVE_BASELINE_EXACT_GATE": "HARDWARE_NOT_READY",
+    "passive_mode": true,
+    "passive_pose_count": 1,
+    "passive_solve": {
+      "state": "IDLE",
+      "production_ready": false
+    },
+    "automatic_calibration": {
+      "state": "IDLE",
+      "accepted_pose_count": 0,
+      "total_poses": 10,
+      "dry_run": false,
+      "production_ready": false,
+      "reason": "",
+      "authorization_protocol": 2
+    },
+    "automatic_commissioning": null,
+    "software_source_digest": "46fd5af2f5f1397b921119a8a5f84ba57dea7fa6c38d5150e432f50ab9ba4d57",
+    "passive_pose_metadata": [
+      {
+        "pose_index": 1,
+        "XYZ_mm": [
+          150.00619506835938,
+          -4.406147624536061e-08,
+          99.9019546508789
+        ],
+        "J4_yaw_deg": 0.0,
+        "rgb_fps": 17.787,
+        "health_node_rgb_fps": 17.787,
+        "depth_fps": 18.194,
+        "sync_skew_ms": 153.1057357788086,
+        "depth_valid_ratio": 0.5316927083333334,
+        "point_cloud_source": "DEPTH_DEPROJECTION",
+        "cloud_point_count": 4000,
+        "cloud_frame_id": "camera_color_optical_frame",
+        "cloud_timestamp": 1791523690.987864,
+        "native_cross_validation": {
+          "native_reference": "unavailable"
+        },
+        "blur_score": 89.71711166253621,
+        "pose_stability": {
+          "tcp_span_mm": 0.0,
+          "joint_span_deg": 0.0
+        },
+        "scene_overlap": null,
+        "registration_quality": {
+          "status": "ANCHOR"
+        },
+        "plane_diagnostics": {
+          "plane_gate": "pre_calibration_dominant_plane",
+          "plane_inlier_count": 3398,
+          "plane_inlier_ratio": 0.8495,
+          "plane_normal_camera_optical": [
+            -0.010465971900476358,
+            -0.12139033831502816,
+            -0.9925496708960925
+          ],
+          "plane_rms_m": 0.0004912815467136938,
+          "plane_median_distance_m": 0.0003368195861305767,
+          "plane_spatial_spread_m": [
+            0.07580897711880047,
+            0.04759074611573711,
+            0.0004912815467136945
+          ],
+          "plane_area_estimate_m2": 0.014431223133418228,
+          "plane_inlier_depth_range_m": [
+            0.203,
+            0.229
+          ],
+          "plane_thresholds": {
+            "min_points": 200,
+            "min_inlier_ratio": 0.3,
+            "max_distance_m": 0.004,
+            "min_spatial_width_m": 0.025
+          },
+          "total_valid_cloud_points": 163336,
+          "filtered_cloud_points": 4000,
+          "debug_artifact": "/home/bbcontact/.ros/dobot/passive_pose_1_debug.npz"
+        },
+        "rejection_reasons": [],
+        "geometry_verified": false
+      }
+    ],
+    "passive_guidance": {
+      "state": "GUIDE_TO_TARGET",
+      "current": {
+        "xyz_mm": [
+          149.93003845214844,
+          -4.40391048073252e-08,
+          99.88899230957031
+        ],
+        "j4_deg": 0.0
+      },
+      "target": {
+        "pose_index": 2,
+        "xyz_mm": [
+          185.0,
+          0.0,
+          100.0
+        ],
+        "j4_deg": 0.0
+      },
+      "delta": {
+        "xyz_mm": [
+          35.06996154785156,
+          4.40391048073252e-08,
+          0.1110076904296875
+        ],
+        "j4_deg": 0.0
+      },
+      "directions": {
+        "X": "+X",
+        "Y": "OK",
+        "Z": "OK",
+        "J4": "OK"
+      },
+      "distance_to_target_mm": 35.07013723490574,
+      "xyz_tolerance_mm": 5.0,
+      "j4_tolerance_deg": 2.0,
+      "robot_stable": true,
+      "hardware_ready": false,
+      "capture_enabled": false,
+      "automatic_capture": false,
+      "progress": [
+        {
+          "pose_index": 1,
+          "state": "ACCEPTED"
+        },
+        {
+          "pose_index": 2,
+          "state": "GUIDE_TO_TARGET"
+        },
+        {
+          "pose_index": 3,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 4,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 5,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 6,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 7,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 8,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 9,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 10,
+          "state": "PENDING"
+        }
+      ],
+      "pose_stability": {
+        "tcp_span_mm": 0.0,
+        "joint_span_deg": 0.0
+      }
+    },
+    "supervised_auto": {
+      "state": "IDLE",
+      "dry_run": true,
+      "real_motion_enabled": false,
+      "current_pose": 0,
+      "total_poses": 10,
+      "target": null,
+      "readiness": "",
+      "safety_status": "",
+      "motion_progress": 0.0,
+      "capture_result": "",
+      "registration_quality": {},
+      "blockers": [],
+      "history": []
+    },
+    "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+    "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+    "samples_collected": 1,
+    "samples_accepted": 1,
+    "samples_rejected": 0,
+    "translation_residual_mm": null,
+    "rotation_residual_deg": null,
+    "verification_status": "FAIL",
+    "verification_samples": 0,
+    "reload_verification_status": "MISSING",
+    "mount_translation_error_bound_mm": null,
+    "mount_envelope_mm": null,
+    "blockers": [
+      "Calibration bootstrap geometry eligible; full verified geometry remains required for production"
+    ],
+    "metrics": {},
+    "depth_quality": {
+      "status": "SENSOR_ERROR",
+      "code": "DEPTH_HEALTH_REJECTED",
+      "reason": "Independent camera health rejected live depth",
+      "depth_valid_ratio": 0.0,
+      "source": "/camera/health"
+    },
+    "rgb_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 3.78,
+      "fps": 30.04,
+      "timestamp_fps": 30.01,
+      "timestamp_valid": true,
+      "current_timestamp_valid": true,
+      "active_window_frames": 45,
+      "current_duplicate_timestamps": 0,
+      "current_regressed_timestamps": 0,
+      "duplicate_timestamps": 0,
+      "regressed_timestamps": 0,
+      "historical_duplicate_timestamps": 0,
+      "historical_regressed_timestamps": 0,
+      "median_timestamp_delta_ms": 32.024,
+      "max_stamp_gap_ms": 67.24023818969727,
+      "estimated_missing_frames": 1,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "state": "READY",
+      "expected_rate_ok": true
+    },
+    "depth_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 10.93,
+      "fps": 29.97,
+      "timestamp_fps": 29.97,
+      "timestamp_valid": true,
+      "current_timestamp_valid": true,
+      "active_window_frames": 44,
+      "current_duplicate_timestamps": 0,
+      "current_regressed_timestamps": 0,
+      "duplicate_timestamps": 0,
+      "regressed_timestamps": 0,
+      "historical_duplicate_timestamps": 0,
+      "historical_regressed_timestamps": 0,
+      "median_timestamp_delta_ms": 34.301,
+      "max_stamp_gap_ms": 68.47214698791504,
+      "estimated_missing_frames": 1,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "state": "READY",
+      "expected_rate_ok": true
+    },
+    "RGB_FRESH": true,
+    "DEPTH_FRESH": true,
+    "RGB_CAMERAINFO_FRESH": true,
+    "DEPTH_CAMERAINFO_FRESH": true,
+    "RGB_DEPTH_CAMERAINFO_SYNCHRONIZED": false,
+    "SENSOR_INGEST_STATE": "IDLE",
+    "SENSOR_INGEST_OWNER": "NONE",
+    "SENSOR_INGEST_ACTIVATION_REASON": "",
+    "SENSOR_INGEST_ACTIVATED_AT_MONOTONIC": null,
+    "SENSOR_INGEST_ACTIVATION_COUNT": 0,
+    "RGB_SUBSCRIPTION_ACTIVE": false,
+    "DEPTH_SUBSCRIPTION_ACTIVE": false,
+    "CLOUD_SUBSCRIPTION_ACTIVE": false,
+    "INTERNAL_SYNC_PAYLOAD_AVAILABLE": false,
+    "SYNC_PAYLOAD_AGE_MS": null,
+    "RGB_DEPTH_SKEW_MS": null,
+    "SYNC_PAIR_SUCCESS_COUNT": 0,
+    "SYNC_PAIR_REJECT_COUNT": 0,
+    "SYNC_PAIR_LAST_REASON": "NO_RGB_SAMPLE",
+    "SYNC_PAIR_RECENT_REJECTIONS": [],
+    "SYNC_PAYLOAD_GENERATION": 0,
+    "SYNC_LAST_COMMIT_MONOTONIC": null,
+    "SYNC_LAST_COMMIT_RGB_STAMP": null,
+    "SYNC_LAST_COMMIT_DEPTH_STAMP": null,
+    "SYNC_LAST_COMMIT_SKEW_MS": null,
+    "SYNC_LAST_COMMIT_REASON": "NO_VALID_PAIR",
+    "RGB_PAYLOAD_QUEUE_SIZE": 0,
+    "DEPTH_PAYLOAD_QUEUE_SIZE": 0,
+    "RGB_DROPPED_TOO_OLD_COUNT": 0,
+    "DEPTH_DROPPED_TOO_OLD_COUNT": 0,
+    "RGB_CAMERAINFO_CACHE": false,
+    "RGB_RATE_STATE": "READY",
+    "DEPTH_RATE_STATE": "READY",
+    "tcp_fresh": true,
+    "joint_fresh": true,
+    "alarm_state": {
+      "fresh": true,
+      "codes": []
+    },
+    "physical_estop": "PRESENT",
+    "hardware_safety": "OPERATOR VERIFIED",
+    "software_estop_monitoring": "NOT CONNECTED",
+    "safety_input_state": {
+      "supported": false,
+      "verified": false
+    },
+    "hardware_readiness": {
+      "state": "DEPTH_ERROR",
+      "ready": false,
+      "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+      "blockers": [
+        "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+      ],
+      "depth_fresh": true,
+      "depth_stable": false,
+      "tcp_fresh": true,
+      "joints_fresh": true,
+      "alarms_fresh": true,
+      "robot_connected": true,
+      "safety_supported": false,
+      "safety_verified": false,
+      "physical_estop_present": true,
+      "operator_safety_verified": true,
+      "software_estop_monitoring": "NOT CONNECTED",
+      "depth_age_s": 0.12779474258422852,
+      "tcp_age_s": 0.0666966438293457,
+      "joints_age_s": 0.016916751861572266,
+      "alarms_age_s": 0.05967998504638672
+    },
+    "ui": {
+      "language": "th",
+      "step": "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e01\u0e25\u0e49\u0e2d\u0e07",
+      "status": "Depth \u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21",
+      "recommended_action": "\u0e15\u0e23\u0e27\u0e08\u0e01\u0e32\u0e23\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e01\u0e25\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e48\u0e32 LDP \u0e41\u0e25\u0e49\u0e27\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48",
+      "motion_allowed": false
+    },
+    "age_sec": 0.11
+  }
+}

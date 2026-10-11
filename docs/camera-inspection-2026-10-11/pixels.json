@@ -1,0 +1,244 @@
+{
+  "depth": [
+    {
+      "stamp": 1791715405.728127,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "16UC1",
+      "step": 1280,
+      "bigendian": 0,
+      "bytes": 614400,
+      "zero": 143296,
+      "nonzero": 163904,
+      "min": 181.0,
+      "max": 229.0,
+      "median": 213.0
+    },
+    {
+      "stamp": 1791715405.762419,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "16UC1",
+      "step": 1280,
+      "bigendian": 0,
+      "bytes": 614400,
+      "zero": 143028,
+      "nonzero": 164172,
+      "min": 176.0,
+      "max": 229.0,
+      "median": 213.0
+    },
+    {
+      "stamp": 1791715405.7969549,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "16UC1",
+      "step": 1280,
+      "bigendian": 0,
+      "bytes": 614400,
+      "zero": 143152,
+      "nonzero": 164048,
+      "min": 177.0,
+      "max": 229.0,
+      "median": 213.0
+    },
+    {
+      "stamp": 1791715405.827599,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "16UC1",
+      "step": 1280,
+      "bigendian": 0,
+      "bytes": 614400,
+      "zero": 143416,
+      "nonzero": 163784,
+      "min": 181.0,
+      "max": 229.0,
+      "median": 213.0
+    },
+    {
+      "stamp": 1791715405.8620212,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "16UC1",
+      "step": 1280,
+      "bigendian": 0,
+      "bytes": 614400,
+      "zero": 143528,
+      "nonzero": 163672,
+      "min": 177.0,
+      "max": 229.0,
+      "median": 213.0
+    }
+  ],
+  "rgb": [
+    {
+      "stamp": 1791715405.691283,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "rgb8",
+      "step": 1920,
+      "bigendian": 0,
+      "bytes": 921600,
+      "min": 0,
+      "max": 255,
+      "mean": 126.06479709201389
+    },
+    {
+      "stamp": 1791715405.791321,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "rgb8",
+      "step": 1920,
+      "bigendian": 0,
+      "bytes": 921600,
+      "min": 0,
+      "max": 255,
+      "mean": 125.98761284722222
+    },
+    {
+      "stamp": 1791715405.827361,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "rgb8",
+      "step": 1920,
+      "bigendian": 0,
+      "bytes": 921600,
+      "min": 0,
+      "max": 255,
+      "mean": 126.08438368055556
+    },
+    {
+      "stamp": 1791715405.859359,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "rgb8",
+      "step": 1920,
+      "bigendian": 0,
+      "bytes": 921600,
+      "min": 0,
+      "max": 255,
+      "mean": 125.99571397569444
+    },
+    {
+      "stamp": 1791715405.891319,
+      "frame": "camera_color_optical_frame",
+      "width": 640,
+      "height": 480,
+      "encoding": "rgb8",
+      "step": 1920,
+      "bigendian": 0,
+      "bytes": 921600,
+      "min": 0,
+      "max": 255,
+      "mean": 126.05379665798611
+    }
+  ],
+  "device_read_services": [
+    [
+      "/camera/camera/get_parameter_types",
+      [
+        "rcl_interfaces/srv/GetParameterTypes"
+      ]
+    ],
+    [
+      "/camera/camera/get_parameters",
+      [
+        "rcl_interfaces/srv/GetParameters"
+      ]
+    ],
+    [
+      "/camera/camera/get_type_description",
+      [
+        "type_description_interfaces/srv/GetTypeDescription"
+      ]
+    ],
+    [
+      "/camera/camera_container/get_type_description",
+      [
+        "type_description_interfaces/srv/GetTypeDescription"
+      ]
+    ],
+    [
+      "/camera/get_auto_white_balance",
+      [
+        "orbbec_camera_msgs/srv/GetInt32"
+      ]
+    ],
+    [
+      "/camera/get_color_exposure",
+      [
+        "orbbec_camera_msgs/srv/GetInt32"
+      ]
+    ],
+    [
+      "/camera/get_color_gain",
+      [
+        "orbbec_camera_msgs/srv/GetInt32"
+      ]
+    ],
+    [
+      "/camera/get_depth_exposure",
+      [
+        "orbbec_camera_msgs/srv/GetInt32"
+      ]
+    ],
+    [
+      "/camera/get_depth_gain",
+      [
+        "orbbec_camera_msgs/srv/GetInt32"
+      ]
+    ],
+    [
+      "/camera/get_device_info",
+      [
+        "orbbec_camera_msgs/srv/GetDeviceInfo"
+      ]
+    ],
+    [
+      "/camera/get_laser_status",
+      [
+        "orbbec_camera_msgs/srv/GetBool"
+      ]
+    ],
+    [
+      "/camera/get_ldp_measure_distance",
+      [
+        "orbbec_camera_msgs/srv/GetInt32"
+      ]
+    ],
+    [
+      "/camera/get_ldp_protection_status",
+      [
+        "orbbec_camera_msgs/srv/GetBool"
+      ]
+    ],
+    [
+      "/camera/get_ldp_status",
+      [
+        "orbbec_camera_msgs/srv/GetBool"
+      ]
+    ],
+    [
+      "/camera/get_sdk_version",
+      [
+        "orbbec_camera_msgs/srv/GetString"
+      ]
+    ],
+    [
+      "/camera/get_white_balance",
+      [
+        "orbbec_camera_msgs/srv/GetInt32"
+      ]
+    ]
+  ]
+}
