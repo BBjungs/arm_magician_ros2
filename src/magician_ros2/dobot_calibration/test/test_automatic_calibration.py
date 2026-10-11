@@ -171,6 +171,53 @@ def test_automatic_plan_tracks_current_pose_not_old_pose_two():
     np.testing.assert_allclose(plan[1][:3, 3], [.240, .01, .08])
 
 
+def test_clearance_diagnostics_identify_independent_anchor_blockers(tmp_path):
+    data = workspace_data()
+    data.update(table_surface_z_m=-.058, free_volume_min_m=[-.0086, -.2486, .0014],
+                free_volume_max_m=[.4086, .2486, .3986])
+    workspace = load_workspace(tmp_path, data)
+    mount = SimpleNamespace(envelope_radius_m=.1526, translation_error_bound_m=.001)
+    anchor = transform(translation=[.14993, 0, .09989])
+    report = workspace.clearance_diagnostics(anchor, anchor, mount)
+    deficits = {v['boundary']: v['deficit_m'] for v in report['violations']}
+    assert deficits == pytest.approx({'volume_x_min': .02007, 'volume_z_min': .08011,
+                                     'table': .02071})
+    assert report['table_min_center_z_m'] == pytest.approx(.1206)
+    with pytest.raises(CalibrationError, match='volume_x_min.*volume_z_min.*table'):
+        workspace.check_segment(anchor, anchor, mount)
+
+
+def test_table_correction_does_not_hide_volume_failure(tmp_path):
+    data = workspace_data()
+    data.update(table_surface_z_m=-.2, free_volume_min_m=[-.0086, -.2486, .0014],
+                free_volume_max_m=[.4086, .2486, .3986])
+    workspace = load_workspace(tmp_path, data)
+    mount = SimpleNamespace(envelope_radius_m=.1526, translation_error_bound_m=.001)
+    anchor = transform(translation=[.15, 0, .10])
+    report = workspace.clearance_diagnostics(anchor, anchor, mount)
+    assert report['signed_margins_m']['table'] > 0
+    assert {v['boundary'] for v in report['violations']} == {'volume_x_min', 'volume_z_min'}
+    with pytest.raises(CalibrationError, match='CLEARANCE'):
+        workspace.check_segment(anchor, anchor, mount)
+
+
+def test_clearance_diagnostics_cover_both_segment_endpoints(tmp_path):
+    data = workspace_data()
+    data['free_volume_max_m'] = [.36, .4, .6]
+    workspace = load_workspace(tmp_path, data)
+    mount = SimpleNamespace(envelope_radius_m=.1526, translation_error_bound_m=.001)
+    start = transform(translation=[.15, 0, .1])
+    target = transform(translation=[.185, 0, .1])
+    workspace.check_segment(start, start, mount)
+    forward = workspace.clearance_diagnostics(start, target, mount)
+    reverse = workspace.clearance_diagnostics(target, start, mount)
+    assert forward == reverse
+    assert forward['violations'] == [{'boundary': 'volume_x_max',
+                                     'deficit_m': pytest.approx(.0036)}]
+    with pytest.raises(CalibrationError, match='volume_x_max deficit_mm=3.600'):
+        workspace.check_segment(start, target, mount)
+
+
 def test_planner_selects_feasible_variant_around_joint_limit(tmp_path):
     backend = AutomaticBackend(SimpleNamespace(
         mount=SimpleNamespace(envelope_radius_m=.105, translation_error_bound_m=.001),

@@ -1,0 +1,234 @@
+{
+  "utc": "2026-10-11T11:21:29.179064+00:00",
+  "scope": "UNVERIFIED_FORM_DIAGNOSTIC_ONLY",
+  "telemetry_source": "LIVE_HTTP_GET",
+  "motion": {
+    "active_goal": false,
+    "last_goal_age_sec": null,
+    "last_feedback": null,
+    "last_result": null,
+    "joints_deg": [
+      -0.0,
+      3.03,
+      13.74,
+      0.0
+    ],
+    "joints_age_sec": 0.05,
+    "current_tcp_pose": [
+      149.93003845214844,
+      -4.40391048073252e-08,
+      99.88899230957031,
+      -1.6829547533347977e-08
+    ],
+    "current_tcp_pose_source": "dobot_pose_raw",
+    "current_tcp_pose_age_sec": 0.05,
+    "homing_confirmed": false,
+    "vision_sequence_active": false,
+    "vision_sequence_age_sec": null
+  },
+  "form_fingerprint": "b58c7430d2e509859043a27285455c3f3663e4d4bebcba4c6e91306c295f9241",
+  "mount_fingerprint": "0d3c21088fa2bba7a89ecc8784f705c29a5be55ba9b20855395985e5169d434b",
+  "form_installation_verified": false,
+  "form_whole_robot_environment_verified": false,
+  "anchor_clearance": {
+    "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+    "padding_m": 0.1786,
+    "signed_margins_m": {
+      "volume_x_min": -0.020069961547851563,
+      "volume_y_min": 0.06999999995596087,
+      "volume_z_min": -0.0801110076904297,
+      "volume_x_max": 0.08006996154785159,
+      "volume_y_max": 0.07000000004403908,
+      "volume_z_max": 0.12011100769042968,
+      "table": -0.020711007690429696
+    },
+    "violations": [
+      {
+        "boundary": "volume_x_min",
+        "deficit_m": 0.020069961547851563
+      },
+      {
+        "boundary": "volume_z_min",
+        "deficit_m": 0.0801110076904297
+      },
+      {
+        "boundary": "table",
+        "deficit_m": 0.020711007690429696
+      }
+    ],
+    "allowed_center_min_m": [
+      0.17,
+      -0.06999999999999998,
+      0.18000000000000002
+    ],
+    "allowed_center_max_m": [
+      0.23,
+      0.06999999999999998,
+      0.22
+    ],
+    "table_min_center_z_m": 0.12060000000000001
+  },
+  "feasible_geometry_variants": 0,
+  "collision_checked": false,
+  "plan_authorized": false,
+  "motion_command_sent": false,
+  "runtime_workspace_written": false,
+  "variant_failures": [
+    {
+      "scale": 1.0,
+      "x_sign": 1,
+      "z_sign": 1,
+      "failed_pose_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "first_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.070, volume_z_min deficit_mm=80.111, table deficit_mm=20.711"
+    },
+    {
+      "scale": 1.0,
+      "x_sign": -1,
+      "z_sign": 1,
+      "failed_pose_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "first_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.070, volume_z_min deficit_mm=80.111, table deficit_mm=20.711"
+    },
+    {
+      "scale": 1.0,
+      "x_sign": 1,
+      "z_sign": -1,
+      "failed_pose_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "first_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.070, volume_z_min deficit_mm=80.111, table deficit_mm=20.711"
+    },
+    {
+      "scale": 1.0,
+      "x_sign": -1,
+      "z_sign": -1,
+      "failed_pose_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "first_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.070, volume_z_min deficit_mm=80.111, table deficit_mm=20.711"
+    },
+    {
+      "scale": 0.85,
+      "x_sign": 1,
+      "z_sign": 1,
+      "failed_pose_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "first_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.070, volume_z_min deficit_mm=80.111, table deficit_mm=20.711"
+    },
+    {
+      "scale": 0.85,
+      "x_sign": -1,
+      "z_sign": 1,
+      "failed_pose_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "first_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.070, volume_z_min deficit_mm=80.111, table deficit_mm=20.711"
+    },
+    {
+      "scale": 0.85,
+      "x_sign": 1,
+      "z_sign": -1,
+      "failed_pose_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "first_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.070, volume_z_min deficit_mm=80.111, table deficit_mm=20.711"
+    },
+    {
+      "scale": 0.85,
+      "x_sign": -1,
+      "z_sign": -1,
+      "failed_pose_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "first_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.070, volume_z_min deficit_mm=80.111, table deficit_mm=20.711"
+    }
+  ],
+  "tests": [
+    {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "110",
+      "time": "45.468",
+      "timestamp": "2026-10-11T18:20:09.370991",
+      "hostname": "ROS"
+    }
+  ]
+}

@@ -47,6 +47,39 @@ class CalibrationWorkspace:
         except (OSError, TypeError, ValueError, KeyError, yaml.YAMLError) as error:
             raise CalibrationError('WORKSPACE_INVALID: ' + str(error)) from error
 
+    def clearance_diagnostics(self, current, target, mount):
+        """Explain sphere clearances; this is not a workspace or motion approval.
+
+        For a straight MOVL the component extrema occur at the endpoints.
+        Keep signed margins so a negative value identifies the exact boundary
+        violated, including for a stationary anchor before the first move.
+        """
+        checked_transform(current)
+        checked_transform(target)
+        radius = float(mount.envelope_radius_m + mount.translation_error_bound_m)
+        if not np.isfinite(radius) or radius <= 0:
+            raise CalibrationError('WORKSPACE_MOUNT_ENVELOPE_INVALID')
+        padding = radius + self.clearance
+        minimum = np.minimum(current[:3, 3], target[:3, 3])
+        maximum = np.maximum(current[:3, 3], target[:3, 3])
+        lower_margin = minimum - padding - self.lower
+        upper_margin = self.upper - maximum - padding
+        margins = {f'volume_{axis}_min': float(lower_margin[i])
+                   for i, axis in enumerate('xyz')}
+        margins.update({f'volume_{axis}_max': float(upper_margin[i])
+                        for i, axis in enumerate('xyz')})
+        margins['table'] = float(minimum[2] - padding - self.table_z)
+        return {
+            'scope': 'SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION',
+            'padding_m': padding,
+            'signed_margins_m': margins,
+            'violations': [{'boundary': boundary, 'deficit_m': -value}
+                           for boundary, value in margins.items() if value < 0],
+            'allowed_center_min_m': (self.lower + padding).tolist(),
+            'allowed_center_max_m': (self.upper - padding).tolist(),
+            'table_min_center_z_m': float(self.table_z + padding),
+        }
+
     def check_segment(self, current, target, mount):
         """Bound a straight MOVL using the rotation-independent attachment sphere.
 
@@ -66,7 +99,10 @@ class CalibrationWorkspace:
                              max(2, int(np.ceil(distance / 0.002)) + 1))
         if (np.any(points - margin < self.lower) or np.any(points + margin > self.upper)
                 or np.any(points[:, 2] - margin < self.table_z)):
-            raise CalibrationError('WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED')
+            report = self.clearance_diagnostics(current, target, mount)
+            details = ', '.join(f"{v['boundary']} deficit_mm={v['deficit_m'] * 1000:.3f}"
+                                for v in report['violations'])
+            raise CalibrationError('WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: ' + details)
         radial = np.linalg.norm(points[:, :2], axis=1)
         # Exact closest approach of the continuous XY segment, rather than
         # assuming the 2 mm samples cannot cross the inner reach boundary.

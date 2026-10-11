@@ -14,6 +14,16 @@ minimum_clearance_m: 0.025  # safety policy เดิม ไม่ใช่ค�
 
 # ส่วนหลักฐานเพิ่มเติม; loader เดิมอ่านเฉพาะ field workspace ด้านบน
 measurement_record:
+  reused_mount_measurements:
+    source: config/eye-in-hand-mount-measurement-form.yaml
+    reported_tcp_to_suction_tcp_mm: [0.0, 0.0, -70.0]
+    suction_tcp_to_camera_reference_mm: [50.0, 0.0, 35.0]
+    tool_to_camera_reference_mm: [50.0, 0.0, -35.0]
+    translation_error_bound_mm: 1.0
+    envelope_radius_mm: 152.6
+    radius_derivation_components_mm: {x: 130.0, z: 80.0}
+    components_are_certified_signed_axis_extrema: false
+    note: ใช้ข้อมูลที่ผู้ควบคุมส่งไว้แล้ว ไม่ขอวัดซ้ำ; องค์ประกอบรัศมีไม่ได้ระบุ min/max ของทุกชิ้นส่วน
   calculated_volume_requirement:
     status: DESIGN_REQUIREMENT_NOT_MEASURED_NOT_AUTHORIZED
     source: user_requested_calculated_dimensions
@@ -61,7 +71,11 @@ measurement_record:
   robot_serial_or_asset_id: null
   camera_serial_observed: null
   tool_and_bracket_description: null
-  evidence_references: []
+  evidence_references:
+    - config/eye-in-hand-mount-measurement-form.yaml
+    - config/camera-mount-measurements.yaml
+    - docs/commissioning-confirmed-datum-2026-10-11.json
+    - docs/commissioning-geometry-reconciliation-2026-10-11.md
   instrument_and_uncertainty_m: null
   robot_bottom_directly_on_table_observed: true  # ผู้ควบคุมรายงาน; ไม่ใช่การตรวจหน้างานโดย AI
   feet_spacers_or_supports: null
@@ -95,4 +109,7 @@ measurement_record:
   plan_fingerprint: null
   reviewer_name: null
   reviewed_at: null
-  remaining_uncertainties: []
+  remaining_uncertainties:
+    - ขอบเขต free_volume เดิมคำนวณจากช่วง TCP ตัวอย่าง ไม่ใช่หลักฐานขอบเขตสิ่งกีดขวางทั้งตัว
+    - ค่า x=130 z=80 mm เป็นองค์ประกอบรัศมี ไม่ได้ยืนยันขอบเขต signed XYZ ของชุดติดตั้งทั้งหมด
+    - การใช้รัศมีทรงกลมเดิมยังปฏิเสธ Anchor ทั้งขอบเขต X/Z และระยะโต๊ะ แม้ยืนยัน table Z แล้ว
