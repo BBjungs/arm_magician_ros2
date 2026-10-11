@@ -1,0 +1,23 @@
+{
+  "reference_commit": "bcdc766ea357226f21c88f211e07a9eff733f004",
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "147",
+    "time": "69.859",
+    "timestamp": "2026-10-11T16:33:13.828713",
+    "hostname": "ROS"
+  },
+  "passed": 147,
+  "ros_domain": 173,
+  "real_motion_command_sent": false,
+  "commissioning": "BLOCKED",
+  "runtime_protocol": null,
+  "workspace_exists": false,
+  "production_install_changed": false,
+  "operator_authorization_obtained": false,
+  "ptp_parameters_changed": false,
+  "ten_pose_run_started": false
+}
