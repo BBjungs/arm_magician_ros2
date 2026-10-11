@@ -1,0 +1,400 @@
+{
+  "utc": "2026-10-11T10:49:03Z",
+  "motion_command_sent": false,
+  "actual_anchor_mm_deg": [
+    149.93003845214844,
+    -4.40391048073252e-08,
+    99.88899230957031,
+    -1.6829547533347977e-08
+  ],
+  "telemetry_age_sec": 0.04,
+  "workspace_present": false,
+  "plan_authorized": false,
+  "candidate_ten_poses": [
+    {
+      "index": 1,
+      "xyz_mm": [
+        149.93003845214844,
+        -4.40391048073252e-08,
+        99.88899230957031
+      ],
+      "j4_deg": -1.6829547533347977e-08
+    },
+    {
+      "index": 2,
+      "xyz_mm": [
+        184.93003845214844,
+        -4.40391048073252e-08,
+        99.88899230957031
+      ],
+      "j4_deg": -1.6829547533347977e-08
+    },
+    {
+      "index": 3,
+      "xyz_mm": [
+        164.93003845214844,
+        29.99999995596089,
+        109.8889923095703
+      ],
+      "j4_deg": -1.6829547533347977e-08
+    },
+    {
+      "index": 4,
+      "xyz_mm": [
+        164.93003845214844,
+        -30.000000044039105,
+        114.88899230957031
+      ],
+      "j4_deg": -1.6829547533347977e-08
+    },
+    {
+      "index": 5,
+      "xyz_mm": [
+        179.93003845214844,
+        19.999999955960895,
+        119.88899230957031
+      ],
+      "j4_deg": 14.999999983170456
+    },
+    {
+      "index": 6,
+      "xyz_mm": [
+        179.93003845214844,
+        -20.000000044039105,
+        124.88899230957031
+      ],
+      "j4_deg": -15.000000016829551
+    },
+    {
+      "index": 7,
+      "xyz_mm": [
+        144.93003845214844,
+        24.999999955960895,
+        109.8889923095703
+      ],
+      "j4_deg": 9.999999983170452
+    },
+    {
+      "index": 8,
+      "xyz_mm": [
+        159.93003845214847,
+        -25.00000004403911,
+        129.88899230957028
+      ],
+      "j4_deg": -10.000000016829548
+    },
+    {
+      "index": 9,
+      "xyz_mm": [
+        184.93003845214844,
+        14.999999955960895,
+        114.88899230957031
+      ],
+      "j4_deg": 19.999999983170454
+    },
+    {
+      "index": 10,
+      "xyz_mm": [
+        144.93003845214844,
+        -25.00000004403911,
+        124.88899230957031
+      ],
+      "j4_deg": -20.000000016829546
+    }
+  ],
+  "candidate_note": "Nominal planner candidate; not selected/authorized; service tests actual anchor to Pose 2 only.",
+  "validator_policy": {
+    "axis_1_range": {
+      "type": 7,
+      "bool": false,
+      "double": 0.0,
+      "integer": 0,
+      "double_array": [],
+      "integer_array": [
+        -120,
+        120
+      ]
+    },
+    "axis_2_range": {
+      "type": 7,
+      "bool": false,
+      "double": 0.0,
+      "integer": 0,
+      "double_array": [],
+      "integer_array": [
+        -5,
+        90
+      ]
+    },
+    "axis_3_range": {
+      "type": 7,
+      "bool": false,
+      "double": 0.0,
+      "integer": 0,
+      "double_array": [],
+      "integer_array": [
+        -15,
+        90
+      ]
+    },
+    "axis_4_range": {
+      "type": 7,
+      "bool": false,
+      "double": 0.0,
+      "integer": 0,
+      "double_array": [],
+      "integer_array": [
+        -140,
+        140
+      ]
+    },
+    "enable_collision_check": {
+      "type": 1,
+      "bool": true,
+      "double": 0.0,
+      "integer": 0,
+      "double_array": [],
+      "integer_array": []
+    },
+    "detect_ground_collision": {
+      "type": 1,
+      "bool": true,
+      "double": 0.0,
+      "integer": 0,
+      "double_array": [],
+      "integer_array": []
+    },
+    "collision_step_mm": {
+      "type": 3,
+      "bool": false,
+      "double": 2.0,
+      "integer": 0,
+      "double_array": [],
+      "integer_array": []
+    },
+    "collision_joint_step_deg": {
+      "type": 3,
+      "bool": false,
+      "double": 2.0,
+      "integer": 0,
+      "double_array": [],
+      "integer_array": []
+    }
+  },
+  "ros_collision_result": {
+    "valid": true,
+    "message": "Trajectory passed kinematics, limits, and collision checks"
+  },
+  "nominal_segments_model_checks": [
+    {
+      "target_pose": 1,
+      "from_xyz_j4": [
+        149.93003845214844,
+        -4.40391048073252e-08,
+        99.88899230957031,
+        -1.6829547533347977e-08
+      ],
+      "to_xyz_j4": [
+        149.93003845214844,
+        -4.40391048073252e-08,
+        99.88899230957031,
+        -1.6829547533347977e-08
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 2,
+      "from_xyz_j4": [
+        149.93003845214844,
+        -4.40391048073252e-08,
+        99.88899230957031,
+        -1.6829547533347977e-08
+      ],
+      "to_xyz_j4": [
+        184.93003845214844,
+        -4.40391048073252e-08,
+        99.88899230957031,
+        -1.6829547533347977e-08
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 3,
+      "from_xyz_j4": [
+        184.93003845214844,
+        -4.40391048073252e-08,
+        99.88899230957031,
+        -1.6829547533347977e-08
+      ],
+      "to_xyz_j4": [
+        164.93003845214844,
+        29.99999995596089,
+        109.8889923095703,
+        -1.6829547533347977e-08
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 4,
+      "from_xyz_j4": [
+        164.93003845214844,
+        29.99999995596089,
+        109.8889923095703,
+        -1.6829547533347977e-08
+      ],
+      "to_xyz_j4": [
+        164.93003845214844,
+        -30.000000044039105,
+        114.88899230957031,
+        -1.6829547533347977e-08
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 5,
+      "from_xyz_j4": [
+        164.93003845214844,
+        -30.000000044039105,
+        114.88899230957031,
+        -1.6829547533347977e-08
+      ],
+      "to_xyz_j4": [
+        179.93003845214844,
+        19.999999955960895,
+        119.88899230957031,
+        14.999999983170456
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 6,
+      "from_xyz_j4": [
+        179.93003845214844,
+        19.999999955960895,
+        119.88899230957031,
+        14.999999983170456
+      ],
+      "to_xyz_j4": [
+        179.93003845214844,
+        -20.000000044039105,
+        124.88899230957031,
+        -15.000000016829551
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 7,
+      "from_xyz_j4": [
+        179.93003845214844,
+        -20.000000044039105,
+        124.88899230957031,
+        -15.000000016829551
+      ],
+      "to_xyz_j4": [
+        144.93003845214844,
+        24.999999955960895,
+        109.8889923095703,
+        9.999999983170452
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 8,
+      "from_xyz_j4": [
+        144.93003845214844,
+        24.999999955960895,
+        109.8889923095703,
+        9.999999983170452
+      ],
+      "to_xyz_j4": [
+        159.93003845214847,
+        -25.00000004403911,
+        129.88899230957028,
+        -10.000000016829548
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 9,
+      "from_xyz_j4": [
+        159.93003845214847,
+        -25.00000004403911,
+        129.88899230957028,
+        -10.000000016829548
+      ],
+      "to_xyz_j4": [
+        184.93003845214844,
+        14.999999955960895,
+        114.88899230957031,
+        19.999999983170454
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    },
+    {
+      "target_pose": 10,
+      "from_xyz_j4": [
+        184.93003845214844,
+        14.999999955960895,
+        114.88899230957031,
+        19.999999983170454
+      ],
+      "to_xyz_j4": [
+        144.93003845214844,
+        -25.00000004403911,
+        124.88899230957031,
+        -20.000000016829546
+      ],
+      "ik_hard_limits_pass": true,
+      "collision_model_pass": true,
+      "error": null,
+      "ik_failure": null
+    }
+  ],
+  "unverified_form_anchor_clearance_blocker": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED",
+  "minimum_tcp_table_height_mm": 178.60000000000002,
+  "model_scope": "Configured suction URDF/self/ground pairs, 2mm/2deg samples; not verified camera or external obstacle survey",
+  "full_automatic_plan_authorized": false,
+  "configured_volume_allowed_tcp_center_mm": {
+    "min": [
+      170.0,
+      -70.0,
+      180.0
+    ],
+    "max": [
+      230.0,
+      70.0,
+      220.0
+    ]
+  },
+  "anchor_outside_allowed_center_axes": [
+    "X",
+    "Z"
+  ]
+}
