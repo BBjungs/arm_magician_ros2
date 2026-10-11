@@ -31,6 +31,11 @@ measurement_record:
     controller_origin_at_table_surface_confirmed: false
     table_surface_z_m_confirmed: -0.058
     table_surface_statement_source: conversation_user_explicit_signed_value
+    table_datum_confirmed_by_operator: true
+    table_datum_confirmation_source: conversation_user_confirmed_58_mm_reference
+    onsite_commissioning_permission_reported: true
+    authorization_bound_to_validated_plan: false
+    path_validation_requested: true
     superseded_table_surface_z_m: 0.0
     camera_and_suction_tool_no_collision_along_path_confirmed: true
     camera_and_suction_tool_statement_source: conversation_user_confirmation
@@ -63,7 +68,7 @@ measurement_record:
   controller_end_effector_params_observed: null
   controller_reported_tcp_reference: null
   suction_mouth_relative_to_reported_tcp_m: [null, null, null]
-  base_origin_physical_datum_description: ผู้ควบคุมยืนยัน table_surface_z_m=-0.058 แทนค่าเดิม 0; origin สูงกว่าผิวโต๊ะ 58 mm ตามคำรายงาน ยังต้องเทียบ datum กับ magician_base_link
+  base_origin_physical_datum_description: ผู้ควบคุมยืนยันระยะ 58 mm อ้างอิงศูนย์พิกัดหุ่นยนต์เหนือผิวโต๊ะ และ table_surface_z_m=-0.058; เป็นหลักฐานคำยืนยันผู้ควบคุม ไม่ใช่การวัดโดย AI
   joint_1_axis_location_method: null
   joint_2_axis_center_location_method: null
   axis_intersection_or_offset_evidence: null
