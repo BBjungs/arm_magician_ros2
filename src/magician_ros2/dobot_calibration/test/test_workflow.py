@@ -31,6 +31,24 @@ class SimulatedBackend:
         self.states.append(state)
 
 
+def test_unverified_mount_rotation_rejected_before_capture_or_motion(tmp_path):
+    from unittest.mock import Mock
+    from dobot_calibration.workflow import check_path
+
+    mount = replace(MOUNT, rotation_seed_verified=False)
+    backend = Mock()
+    path = tmp_path / 'unverified.npz'
+    workflow = Workflow(backend, mount, path, {})
+    report = workflow.run()
+    assert report['result'] == 'FAIL'
+    assert 'MOUNT_ROTATION_UNVERIFIED' in report['reason']
+    backend.capture.assert_not_called()
+    backend.move.assert_not_called()
+    assert not path.exists()
+    with pytest.raises(CalibrationError, match='MOUNT_ROTATION_UNVERIFIED'):
+        check_path(START, START, None, mount)
+
+
 def test_automatic_calibrate_save_load_verify_ready(tmp_path, monkeypatch):
     path = tmp_path / 'automatic.npz'
     backend = SimulatedBackend()

@@ -13,9 +13,10 @@ import rclpy
 import yaml
 from ament_index_python.packages import get_package_share_directory
 from cv_bridge import CvBridge
-from rclpy.executors import ExternalShutdownException
+from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
+from rclpy.executors import ExternalShutdownException, MultiThreadedExecutor
 from rclpy.node import Node
-from rclpy.qos import qos_profile_sensor_data
+from rclpy.qos import QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import CameraInfo, Image
 from std_msgs.msg import String
 
@@ -26,6 +27,11 @@ from .rgbd_sync_node import registered_geometry_ok, sync_delta_ms
 from .shape_detector import ShapeDetector
 from .table_estimator import local_ring_depth
 from .visualization import annotate
+
+
+# Raw RGB-D frames exceed a UDP packet. Reliable delivery lets DDS repair
+# missing fragments instead of losing whole images on the local camera link.
+RGBD_QOS = QoSProfile(depth=1, reliability=ReliabilityPolicy.RELIABLE)
 
 
 def load_yaml(path):
@@ -164,9 +170,18 @@ class ObjectFusionNode(Node):
         self.depth_frame_valid_ratio = 0.0
         self.count = 0
         queue = int(get('sync_queue_size'))
-        self.color_sub = message_filters.Subscriber(self, Image, str(get('color_topic')), qos_profile=qos_profile_sensor_data)
-        self.depth_sub = message_filters.Subscriber(self, Image, str(get('depth_topic')), qos_profile=qos_profile_sensor_data)
-        self.info_sub = message_filters.Subscriber(self, CameraInfo, str(get('camera_info_topic')), qos_profile=qos_profile_sensor_data)
+        # Give each high-rate stream a worker, as in camera_health_node.
+        # A single executor can stop delivering depth while RGB stays queued.
+        # The synchronizer serializes detection callbacks with its own lock.
+        self.color_sub = message_filters.Subscriber(
+            self, Image, str(get('color_topic')), qos_profile=RGBD_QOS,
+            callback_group=MutuallyExclusiveCallbackGroup())
+        self.depth_sub = message_filters.Subscriber(
+            self, Image, str(get('depth_topic')), qos_profile=RGBD_QOS,
+            callback_group=MutuallyExclusiveCallbackGroup())
+        self.info_sub = message_filters.Subscriber(
+            self, CameraInfo, str(get('camera_info_topic')), qos_profile=RGBD_QOS,
+            callback_group=MutuallyExclusiveCallbackGroup())
         self.color_sub.registerCallback(self._mark_rgb)
         self.depth_sub.registerCallback(self._mark_depth)
         self.sync = message_filters.ApproximateTimeSynchronizer(
@@ -213,7 +228,7 @@ class ObjectFusionNode(Node):
             self.depth_data_valid = False
 
     def _stream_report(self, key):
-        samples = self.stream_samples[key]
+        samples = list(self.stream_samples[key])
         if not samples:
             return {'count': 0, 'fps': 0.0, 'max_gap_ms': None,
                     'timestamp_valid': False, 'frame_id': ''}
@@ -327,11 +342,14 @@ class ObjectFusionNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = ObjectFusionNode()
+    executor = MultiThreadedExecutor(num_threads=4)
+    executor.add_node(node)
     try:
-        rclpy.spin(node)
+        executor.spin()
     except (KeyboardInterrupt, ExternalShutdownException):
         pass
     finally:
+        executor.shutdown(timeout_sec=2)
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()

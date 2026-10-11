@@ -27,11 +27,14 @@ def node():
         rclpy.shutdown()
 
 
-def test_startup_and_missing_mount_fail_closed_without_motion(node):
+def test_startup_and_missing_mount_fail_closed_without_motion(node, monkeypatch):
+    from dobot_calibration.camera_identity import CameraIdentity
     assert not node.is_ready()
     response = node.ready_service(Trigger.Request(), Trigger.Response())
     assert response.success is False
     node.settings['camera_id'] = 'test-only-device'
+    node.camera_identity = CameraIdentity('test-only-device', 'YAML', True, 'PASS', '')
+    monkeypatch.setattr(node, '_resolve_camera_identity', lambda: node.camera_identity)
     node.settings['mount_model'] = str(Path(__file__).resolve().parents[1] / 'config/mount_model.yaml')
     started, _ = node.start_operation(False)
     assert started
@@ -60,6 +63,89 @@ def test_passive_capture_services_have_no_motion_calls(node):
         assert forbidden not in capture_source
         assert forbidden not in prepare_source
     assert node.status_payload()['geometry_verified'] is False
+
+
+def test_passive_solve_requires_ten_real_poses_and_releases_lock(node):
+    response = node.solve_passive_service(Trigger.Request(), Trigger.Response())
+    assert not response.success
+    assert '0/10' in response.message
+    assert not node.operation_lock.locked()
+    assert node.active_goal is None
+    assert not node.is_ready()
+
+
+def test_baseline_rejection_preserves_gate_diagnostics(node):
+    import json
+    response = node.scene_baseline_service(Trigger.Request(), Trigger.Response())
+    payload = json.loads(response.message)
+    assert not response.success
+    assert payload['accepted'] is False
+    assert payload['quality_status'] == 'REJECTED'
+    assert payload['eligible_for_preflight'] is False
+    assert not node.operation_lock.locked()
+
+
+def test_automatic_start_without_workspace_never_dispatches(node, tmp_path, monkeypatch):
+    node.settings['automatic_workspace_file'] = str(tmp_path / 'not-surveyed.yaml')
+    monkeypatch.setattr(node, '_execute_guarded_motion', lambda *args: pytest.fail('must not move'))
+    count = len(node.passive_captures)
+    response = node.automatic_start_service(Trigger.Request(), Trigger.Response())
+    assert response.success
+    node.automatic.worker.join(3)
+    assert not node.automatic.worker.is_alive()
+    status = node.automatic.snapshot()
+    assert status['state'] == 'FAULT'
+    assert 'WORKSPACE_NOT_CONFIGURED' in status['reason']
+    assert len(node.passive_captures) == count
+    assert not node.operation_lock.locked()
+
+
+def test_automatic_start_cannot_overlap_operation(node):
+    node.operation_lock.acquire()
+    try:
+        response = node.automatic_start_service(Trigger.Request(), Trigger.Response())
+        assert not response.success
+        assert node.automatic.worker is None
+    finally:
+        node.operation_lock.release()
+
+
+def test_passive_solve_cannot_overlap_another_operation(node):
+    node.operation_lock.acquire()
+    try:
+        response = node.solve_passive_service(Trigger.Request(), Trigger.Response())
+        assert not response.success
+        assert node.operation_lock.locked()
+    finally:
+        node.operation_lock.release()
+
+
+def test_first_passive_pose_creates_plan_and_saves_exact_exposure(node, tmp_path, monkeypatch):
+    from test_passive_session import sample_capture
+    from dobot_calibration.passive_session import PassiveSessionStore
+    capture = sample_capture()
+    capture.quality.update({
+        'point_cloud_source': 'DEPTH_DEPROJECTION', 'filtered_cloud_points': 3,
+        'cloud_frame_id': 'optical', 'cloud_timestamp': 123.494,
+        'native_cross_validation': {},
+        'exposure': {'rgb_stamp': 123.49, 'depth_stamp': 123.494,
+                     'joints': [0., 0., 0., 0.], 'tcp_span_mm': 0., 'joint_span_deg': 0.,
+                     'intrinsics_fingerprint': 'exact-exposure', 'camera_info': {'width': 5}},
+    })
+    node.passive_captures, node.passive_capture_metadata = [], []
+    node.passive_session = PassiveSessionStore(tmp_path, 'mount', 'camera')
+    monkeypatch.setattr(node, '_prepare_passive_capture', lambda: None)
+    monkeypatch.setattr(node, 'capture', lambda: capture)
+    monkeypatch.setattr(node, 'passive_guidance', lambda: {})
+    monkeypatch.setattr('dobot_calibration.node.cv2.Laplacian', lambda *args: np.array([-100., 100.]))
+    response = node.capture_pose_service(Trigger.Request(), Trigger.Response())
+    assert response.success, response.message
+    assert len(node.passive_session.manifest['target_poses']) == 10
+    with np.load(node.passive_session.session_dir / 'pose_001.npz') as data:
+        assert float(data['rgb_timestamp']) == 123.49
+        assert str(data['intrinsics_fingerprint']) == 'exact-exposure'
+        assert float(data['rgb_depth_sync_skew_ms']) == pytest.approx(4.)
+    assert not node.operation_lock.locked()
 
 
 def test_failed_status_cannot_reuse_an_earlier_pass(node):
@@ -128,6 +214,8 @@ def test_invalid_depth_during_motion_or_verification_is_latched(node, state):
     rgb = bridge.cv2_to_imgmsg(np.zeros((48, 64, 3), np.uint8), 'bgr8')
     node.status(state)
     node.on_camera(rgb, depth, CameraInfo(), PointCloud2())
+    node.depth_quality_worker.join(timeout=2)
+    assert not node.depth_quality_worker.is_alive()
     assert node.stop.is_set()
     assert node.state == 'FAIL'
     assert 'DEPTH_ALL_ZERO' in node.reason
@@ -141,6 +229,8 @@ def test_invalid_depth_stops_calibration_even_without_a_point_cloud(node):
     node.status('CALIBRATING')
     node.on_depth(depth)
     assert node.bundle is None
+    node.depth_quality_worker.join(timeout=2)
+    assert not node.depth_quality_worker.is_alive()
     assert node.stop.is_set()
     assert node.state == 'FAIL'
     assert node.live_depth_quality['code'] == 'DEPTH_ALL_ZERO'
@@ -261,6 +351,64 @@ def test_explicit_activation_clears_stale_sync_state(node, monkeypatch):
     assert node.sync_pair_success_count == 0
     assert node.sync_payload_generation == 0
     assert not node.rgb_payload_queue and not node.depth_payload_queue
+
+
+@pytest.mark.parametrize('service', [
+    'capture_pose_service', 'passive_capture_test_service',
+    'scene_baseline_service', 'scene_verify_service',
+])
+def test_passive_requests_cannot_change_an_active_operation(node, service, monkeypatch):
+    monkeypatch.setattr(node, 'capture', lambda: pytest.fail('Unexpected capture'))
+    node.stop.set()
+    node.operation_lock.acquire()
+    try:
+        response = getattr(node, service)(Trigger.Request(), Trigger.Response())
+        assert not response.success
+        assert 'already running' in response.message
+        assert not node.passive_capture_active
+        assert node.stop.is_set()
+        assert node.operation_lock.locked()
+    finally:
+        node.operation_lock.release()
+
+
+def test_passive_failure_releases_operation_and_allows_explicit_retry(node, monkeypatch):
+    from dobot_calibration.geometry import CalibrationError
+
+    def fail_capture():
+        assert node.operation_lock.locked()
+        assert node.passive_capture_active
+        assert not node.stop.is_set()
+        accepted, reason = node.start_operation(False)
+        assert not accepted and 'already running' in reason
+        raise CalibrationError('No fresh exposure')
+
+    monkeypatch.setattr(node, '_prepare_passive_capture', fail_capture)
+    monkeypatch.setattr(node, '_scene_geometry_diagnostic', lambda: {})
+    node.stop.set()
+    response = node.passive_capture_test_service(Trigger.Request(), Trigger.Response())
+    assert not response.success
+    assert 'No fresh exposure' in response.message
+    assert not node.passive_capture_active
+    assert not node.operation_lock.locked()
+
+
+def test_plan_dry_run_does_not_require_real_motion_commissioning(node, monkeypatch):
+    calls = []
+
+    def preflight(*, include_full_auto_commissioning=True):
+        calls.append(include_full_auto_commissioning)
+        return (['FULL_AUTO_CALIBRATION_NOT_COMMISSIONED']
+                if include_full_auto_commissioning else []), 'READY'
+
+    monkeypatch.setattr(node, 'auto_preflight', preflight)
+    node.supervised_auto.validate_target = lambda target: []
+    assert node.supervised_auto.start([{'pose_index': 1}], dry_run=True)[0]
+    node.supervised_auto.worker.join(timeout=2)
+    assert node.supervised_auto.snapshot()['state'] == 'COMPLETE'
+    assert calls == [False]
+    assert not node.full_auto_calibration_commissioned
+    assert not node.supervised_auto.start([{'pose_index': 1}], dry_run=False)[0]
 
 
 def test_mathematical_pass_alone_does_not_authorize_live_picking(node, monkeypatch):

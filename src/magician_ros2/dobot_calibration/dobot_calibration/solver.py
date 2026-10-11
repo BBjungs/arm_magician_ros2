@@ -129,6 +129,23 @@ def solve(captures, mount, limits=Limits(), pairs=None):
     internal = getattr(mount, 'camera_reference_T_optical', np.eye(4))
     initial_reference = mount.tool_T_camera @ inverse(internal)
     initial = Rotation.from_matrix(initial_reference[:3, :3]).as_rotvec()
+    if not getattr(mount, 'rotation_seed_verified', True):
+        # AX=XB with measured reference translation t gives
+        # R * b_translation = (A_rotation - I) * t + A_translation.
+        # Align these measured vectors to bootstrap even a 180-degree mount;
+        # identity-seeded local optimization can converge to the wrong basin.
+        robot_vectors, camera_vectors = [], []
+        for i, j, pair in pairs:
+            a = inverse(captures[i].calibration_pose) @ captures[j].calibration_pose
+            b = internal @ pair.first_T_second @ inverse(internal)
+            target = (a[:3, :3] - np.eye(3)) @ initial_reference[:3, 3] + a[:3, 3]
+            if min(np.linalg.norm(target), np.linalg.norm(b[:3, 3])) > 0.001:
+                robot_vectors.append(target)
+                camera_vectors.append(b[:3, 3])
+        if (len(robot_vectors) < 2 or np.linalg.matrix_rank(robot_vectors, tol=0.001) < 2
+                or np.linalg.matrix_rank(camera_vectors, tol=0.001) < 2):
+            raise CalibrationError('Insufficient translation evidence to initialize mount rotation')
+        initial = Rotation.align_vectors(robot_vectors, camera_vectors)[0].as_rotvec()
 
     def unpack(parameters):
         rotation = Rotation.from_rotvec(parameters).as_matrix()

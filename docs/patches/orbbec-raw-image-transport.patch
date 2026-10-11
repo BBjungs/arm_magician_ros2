@@ -1,0 +1,20 @@
+diff --git a/orbbec_camera/launch/ob_camera.launch.py b/orbbec_camera/launch/ob_camera.launch.py
+index 25e31399..8f365c8e 100644
+--- a/orbbec_camera/launch/ob_camera.launch.py
++++ b/orbbec_camera/launch/ob_camera.launch.py
+@@ -72,6 +72,15 @@ def generate_launch_description():
+ 
+     # Node configuration
+     parameters = [{arg.name: LaunchConfiguration(arg.name)} for arg in args]
++    # This workcell consumes the raw RGB-D topics directly.  Explicitly limit
++    # image_transport here: loading every installed codec makes the camera
++    # container encode depth as JPEG/theora/zstd even though no consumer uses
++    # those topics, which can starve the safety subscribers of live frames.
++    parameters.append({
++        'color.image_raw.enable_pub_plugins': ['image_transport/raw'],
++        'depth.image_raw.enable_pub_plugins': ['image_transport/raw'],
++        'ir.image_raw.enable_pub_plugins': ['image_transport/raw'],
++    })
+     # Define the ComposableNode
+     compose_node = ComposableNode(
+         package='orbbec_camera',

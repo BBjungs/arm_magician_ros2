@@ -47,6 +47,9 @@ from .geometry import CalibrationError, Limits, Mount, fingerprint, pose_distanc
 from .hardware_readiness import DepthStabilityWindow, evaluate_hardware_readiness
 from .registration import make_capture, register
 from .passive_session import PassiveSessionStore
+from .passive_solver import solve_session
+from .autonomous import AutomaticCalibration
+from .autonomous_backend import AutomaticBackend
 from .passive_guidance import calibration_plan, compute_guidance
 from .supervised_auto import SupervisedAutoCalibration
 from .real_motion_adapter import RealMotionAdapter
@@ -71,6 +74,16 @@ CALIBRATION_SENSOR_QOS = QoSProfile(
     history=HistoryPolicy.KEEP_LAST,
     depth=1,
     reliability=ReliabilityPolicy.BEST_EFFORT,
+    durability=DurabilityPolicy.VOLATILE,
+)
+
+# Match the Orbbec image publishers' reliable QoS. Whole RGB-D images span
+# many DDS fragments; best-effort delivery can leave the capture queues stale
+# even while the small CameraInfo/health messages continue at full rate.
+CALIBRATION_IMAGE_QOS = QoSProfile(
+    history=HistoryPolicy.KEEP_LAST,
+    depth=1,
+    reliability=ReliabilityPolicy.RELIABLE,
     durability=DurabilityPolicy.VOLATILE,
 )
 
@@ -112,6 +125,7 @@ class CalibrationNode(Node):
             'depth_stale_timeout_s': 1.5,
             'camera_info_stale_timeout_s': 1.5,
             'passive_session_root': '~/.ros/dobot/calibration_sessions',
+            'automatic_workspace_file': '~/.ros/dobot/calibration_workspace.yaml',
             'auto_real_motion_enabled': False,
             # An authorization is deliberately short-lived and is never a
             # general motion permit.  It is only consumed by the future smoke
@@ -257,6 +271,7 @@ class CalibrationNode(Node):
             self.settings['passive_session_root'], mount_config_fingerprint,
             self.settings['camera_id'])
         self.passive_session_error = ''
+        self.passive_solve_status = {'state': 'IDLE', 'production_ready': False}
         try:
             self.passive_captures, self.passive_capture_metadata = self.passive_session.restore()
             if self.passive_captures:
@@ -267,8 +282,12 @@ class CalibrationNode(Node):
             self.passive_session_error = str(error)
         self._restore_scene_baseline()
         self.supervised_auto = SupervisedAutoCalibration(
-            self.auto_preflight, self.auto_validate_target,
-            real_motion_enabled=bool(self.settings['auto_real_motion_enabled']))
+            # This state machine only simulates the plan. Hardware commissioning
+            # is a prerequisite of real dispatch, not of this nonmoving audit.
+            lambda: self.auto_preflight(include_full_auto_commissioning=False),
+            self.auto_validate_target,
+            real_motion_enabled=False)
+        self.automatic = AutomaticCalibration(AutomaticBackend(self))
         self.mount = None
         self.bootstrap_geometry = BootstrapGeometryEligibility(False, ('BOOTSTRAP_GEOMETRY_NOT_VALIDATED',))
         self.calibration_context = None
@@ -334,6 +353,8 @@ class CalibrationNode(Node):
         self.create_service(Trigger, '/calibration/cancel', self.cancel_service, callback_group=self.group)
         self.create_service(Trigger, '/calibration/capture_pose', self.capture_pose_service,
                             callback_group=self.group)
+        self.create_service(Trigger, '/calibration/solve_passive', self.solve_passive_service,
+                            callback_group=self.group)
         self.create_service(Trigger, '/calibration/passive_capture_test',
                             self.passive_capture_test_service, callback_group=self.group)
         self.create_service(Trigger, '/calibration/auto/validate_plan',
@@ -356,6 +377,13 @@ class CalibrationNode(Node):
                             callback_group=self.group)
         self.create_service(Trigger, '/calibration/auto/start', self.auto_start_service,
                             callback_group=self.group)
+        self.create_service(Trigger, '/calibration/autonomous/start', self.automatic_start_service,
+                            callback_group=self.group)
+        for action in ('pause', 'resume', 'abort'):
+            self.create_service(
+                Trigger, '/calibration/autonomous/' + action,
+                lambda request, response, action=action: self.automatic_control_service(action, response),
+                callback_group=self.group)
         self.create_service(Trigger, '/calibration/auto/pause', self.auto_pause_service,
                             callback_group=self.group)
         self.create_service(Trigger, '/calibration/auto/resume', self.auto_resume_service,
@@ -413,10 +441,10 @@ class CalibrationNode(Node):
         self.delegated_depth_stable = False
         self.depth_subscription = self.create_subscription(
             Image, self.settings['depth_topic'], self.on_depth,
-            CALIBRATION_SENSOR_QOS, callback_group=self.sensor_group)
+            CALIBRATION_IMAGE_QOS, callback_group=self.sensor_group)
         self.rgb_payload_subscription = self.create_subscription(
             Image, self.settings['rgb_topic'], self.on_rgb_payload,
-            CALIBRATION_SENSOR_QOS, callback_group=self.sensor_group)
+            CALIBRATION_IMAGE_QOS, callback_group=self.sensor_group)
         # CameraInfo is calibration metadata, not an exposure.  Synchronizing
         # it at image cadence discards valid RGB/depth pairs when the driver
         # publishes information more slowly.  Cache it independently and
@@ -1172,6 +1200,8 @@ class CalibrationNode(Node):
                     time.monotonic())['exact_gate'],
                 'passive_mode': True,
                 'passive_pose_count': len(self.passive_captures),
+                'passive_solve': self.passive_solve_status,
+                'automatic_calibration': self.automatic.snapshot(),
                 'passive_pose_metadata': list(self.passive_capture_metadata),
                 'passive_guidance': guidance,
                 'supervised_auto': self.supervised_auto.snapshot(),
@@ -1221,7 +1251,8 @@ class CalibrationNode(Node):
                 'hardware_readiness': hardware.to_dict(),
                 'ui': {'language': 'th', 'step': thai[0], 'status': thai[1],
                        'recommended_action': thai[2],
-                       'motion_allowed': hardware.ready}}
+                       'motion_allowed': bool(hardware.ready and self.is_ready()
+                                              and self.full_auto_calibration_commissioned)}}
 
     def auto_preflight(self, *, include_full_auto_commissioning=True):
         blockers = []
@@ -1476,7 +1507,7 @@ class CalibrationNode(Node):
 
     def _prepare_passive_capture(self):
         """Enable capture inputs and measured mount constraint without motion."""
-        if self.operation_lock.locked():
+        if self.operation_lock.locked() and not self.passive_capture_active:
             raise CalibrationError('An automatic calibration operation is active')
         if self.mount is None:
             internal = self.camera_reference_to_optical()
@@ -1501,8 +1532,12 @@ class CalibrationNode(Node):
 
     def capture_pose_service(self, request, response):
         """Capture one operator-positioned pose; this method has no motion path."""
+        if not self.operation_lock.acquire(blocking=False):
+            return self._passive_reply(response, False,
+                                       rejection_reasons=['Calibration is already running'])
         reasons = []
         try:
+            self.stop.clear()
             guidance = self.passive_guidance()
             if self.passive_captures and not guidance.get('capture_enabled', False):
                 return self._passive_reply(
@@ -1531,23 +1566,16 @@ class CalibrationNode(Node):
                 registration_quality = {'status': 'PASS', **registration.quality}
                 overlap = float(registration.quality['registration_fitness'])
 
-            with self.lock:
-                nearest = min(self.history, key=lambda item: abs(item[0] - capture.stamp))
-                history = [item for item in self.history
-                           if capture.stamp - 0.68 <= item[0] <= capture.stamp + 0.08]
-                bundle = self.bundle
-            if not history:
-                reasons.append('robot_pose_history_missing_at_exposure')
-            tcp_span_mm = (max(np.linalg.norm(item[1][:3, 3] - nearest[1][:3, 3])
-                               for item in history) * 1000.0 if history else None)
-            joint_span_deg = (max(np.linalg.norm(item[2] - nearest[2])
-                                  for item in history) * 180.0 / np.pi if history else None)
-            stamps = [stamp_seconds(message) for message in bundle]
-            sync_skew_ms = float((max(stamps) - min(stamps)) * 1000.0)
+            exposure = capture.quality['exposure']
+            joints = np.asarray(exposure['joints'])
+            tcp_span_mm = exposure['tcp_span_mm']
+            joint_span_deg = exposure['joint_span_deg']
+            stamps = [exposure['rgb_stamp'], exposure['depth_stamp']]
+            sync_skew_ms = abs(stamps[0] - stamps[1]) * 1000.0
             rgb_health = (self.camera_health or {}).get('streams', {}).get('rgb', {})
             depth_health = (self.camera_health or {}).get('streams', {}).get('depth', {})
             xyz_mm = [float(value * 1000.0) for value in capture.base_T_tool[:3, 3]]
-            j4_yaw_deg = float(np.rad2deg(nearest[2][3]))
+            j4_yaw_deg = float(np.rad2deg(joints[3]))
             fields = {
                 'pose_index': len(self.passive_captures) + 1,
                 'XYZ_mm': xyz_mm,
@@ -1575,22 +1603,21 @@ class CalibrationNode(Node):
             }
             if reasons:
                 return self._passive_reply(response, False, **fields)
+            # Validate/create the plan before persisting this accepted sample.
+            # Existing commissioned targets remain authoritative when the
+            # measured Pose 1 differs only by normal telemetry jitter.
+            if len(self.passive_captures) == 0:
+                if self.passive_session.manifest is None:
+                    self.passive_session.new()
+                self.passive_session.ensure_plan(
+                    calibration_plan(xyz_mm, j4_yaw_deg))
             self.passive_session.save_pose(
-                capture, nearest[2], fields, stamps[0], stamps[1],
-                self.intrinsics_fingerprint(bundle[2]),
-                camera_info={
-                    'width': int(bundle[2].width), 'height': int(bundle[2].height),
-                    'k': list(bundle[2].k), 'p': list(bundle[2].p),
-                    'd': list(bundle[2].d),
-                    'distortion_model': bundle[2].distortion_model,
-                    'frame_id': bundle[2].header.frame_id,
-                },
+                capture, joints, fields, stamps[0], stamps[1],
+                exposure['intrinsics_fingerprint'],
+                camera_info=exposure['camera_info'],
                 joint_names=[f'magician_joint_{i}' for i in range(1, 5)])
             self.passive_captures.append(capture)
             self.passive_capture_metadata.append(fields)
-            if len(self.passive_captures) == 1:
-                self.passive_session.ensure_plan(
-                    calibration_plan(xyz_mm, j4_yaw_deg))
             fields['pose_index'] = len(self.passive_captures)
             fields['next_guidance'] = self.passive_guidance()
             return self._passive_reply(response, True, **fields)
@@ -1600,11 +1627,57 @@ class CalibrationNode(Node):
                 rejection_reasons=[str(error)], geometry_verified=False)
         finally:
             self.passive_capture_active = False
+            self.operation_lock.release()
+
+    def solve_passive_service(self, request, response):
+        """Solve the actual ten-pose dataset; never dispatch robot motion."""
+        if not self.operation_lock.acquire(blocking=False):
+            return self._passive_reply(response, False, reason='Calibration is already running')
+        try:
+            count = len(self.passive_captures)
+            if count != 10:
+                raise CalibrationError(f'REAL_POSES_REQUIRED: {count}/10 accepted poses')
+            self.stop.clear()
+            self.passive_capture_active = True
+            self._prepare_passive_capture()
+            captures, _ = self.passive_session.restore(
+                self.intrinsics_fingerprint(self.bundle[2]))
+            context = dict(self.calibration_context)
+            path = self.passive_session.session_dir / 'calibration_candidate.npz'
+            self.passive_solve_status = {'state': 'SOLVING', 'production_ready': False}
+
+            def run():
+                try:
+                    def checkpoint():
+                        if self.stop.is_set():
+                            raise CalibrationError('Calibration cancelled')
+                    self.passive_solve_status = solve_session(
+                        captures, self.mount, context, path, self.limits, checkpoint)
+                except Exception as error:
+                    self.passive_solve_status = {
+                        'state': 'FAIL', 'reason': str(error), 'production_ready': False}
+                finally:
+                    self.passive_capture_active = False
+                    self.operation_lock.release()
+
+            self.worker = threading.Thread(target=run, daemon=True)
+            self.worker.start()
+            return self._passive_reply(response, True, state='SOLVING', motion_command_sent=False)
+        except Exception as error:
+            self.passive_capture_active = False
+            self.operation_lock.release()
+            self.passive_solve_status = {
+                'state': 'BLOCKED', 'reason': str(error), 'production_ready': False}
+            return self._passive_reply(response, False, **self.passive_solve_status)
 
     def passive_capture_test_service(self, request, response):
         """Three non-persistent passive captures. This service never commands motion."""
+        if not self.operation_lock.acquire(blocking=False):
+            return self._passive_reply(response, False,
+                                       rejection_reasons=['Calibration is already running'])
         reports = []
         try:
+            self.stop.clear()
             self.passive_capture_active = True
             self._prepare_passive_capture()
             for _ in range(3):
@@ -1649,6 +1722,7 @@ class CalibrationNode(Node):
                                            'geometry_verified': False}, allow_nan=False)
         finally:
             self.passive_capture_active = False
+            self.operation_lock.release()
         return response
 
     def _authoritative_baseline_snapshot(self):
@@ -1783,7 +1857,10 @@ class CalibrationNode(Node):
         return response
 
     def scene_baseline_service(self, request, response):
-        """Create a robust, non-persistent scene baseline; this has no motion path."""
+        """Create a robust scene baseline without commanding motion."""
+        if not self.operation_lock.acquire(blocking=False):
+            return self._passive_reply(response, False,
+                                       rejection_reasons=['Calibration is already running'])
         try:
             ready = self.passive_capture_readiness(); hardware = self.hardware_readiness()
             with self.lock: bundle = self.bundle
@@ -1797,7 +1874,9 @@ class CalibrationNode(Node):
             self.authoritative_baseline_gate.update(snapshot, time.monotonic())
             admission=self.authoritative_baseline_gate.evaluate_for_baseline(time.monotonic())
             if not admission['accepted']:
-                return self._passive_reply(response, False, quality_status='REJECTED', eligible_for_preflight=False, **admission)
+                return self._passive_reply(
+                    response, False, quality_status='REJECTED', eligible_for_preflight=False,
+                    **{key: value for key, value in admission.items() if key != 'accepted'})
             self.passive_capture_active = True
             self._prepare_passive_capture()
             capture = self.capture()
@@ -1815,9 +1894,13 @@ class CalibrationNode(Node):
                                            'persisted_pose': False, 'motion_command_sent': False})
         finally:
             self.passive_capture_active = False
+            self.operation_lock.release()
         return response
 
     def scene_verify_service(self, request, response):
+        if not self.operation_lock.acquire(blocking=False):
+            return self._passive_reply(response, False,
+                                       rejection_reasons=['Calibration is already running'])
         try:
             if self.scene_baseline is None:
                 raise CalibrationError('Scene baseline is missing')
@@ -1848,6 +1931,7 @@ class CalibrationNode(Node):
                                            'geometry_verified': False, 'motion_command_sent': False})
         finally:
             self.passive_capture_active = False
+            self.operation_lock.release()
         return response
 
     def _scene_geometry_diagnostic(self):
@@ -2013,9 +2097,23 @@ class CalibrationNode(Node):
                                        geometry_verified=False)
 
     def auto_start_service(self, request, response):
+        if self.operation_lock.locked():
+            response.success, response.message = False, 'Another calibration operation is active'
+            return response
         targets = list((self.passive_session.manifest or {}).get('target_poses') or [])
         response.success, response.message = self.supervised_auto.start(
             targets, accepted_count=len(self.passive_captures), dry_run=True)
+        return response
+
+    def automatic_start_service(self, request, response):
+        if self.operation_lock.locked():
+            response.success, response.message = False, 'Another calibration operation is active'
+        else:
+            response.success, response.message = self.automatic.start()
+        return response
+
+    def automatic_control_service(self, action, response):
+        response.success, response.message = getattr(self.automatic, action)()
         return response
 
     def auto_pause_service(self, request, response):
@@ -2225,6 +2323,7 @@ class CalibrationNode(Node):
           'token_session_match': error != 'TOKEN_SESSION_MISMATCH', 'token_mount_fingerprint_match': error != 'TOKEN_FINGERPRINT_MISMATCH',
           'token_pose_allowed': error != 'POSE_NOT_ALLOWED', 'token_generation': None if token is None else token.generation,
           'current_session_generation': self.token_lifecycle.generation, 'hardware_ready': passive['hardware_ready'],
+          'readiness_blockers': list(passive.get('blockers', [])),
           'passive_capture_ready': passive['passive_capture_ready'], 'scene_verify': scene.success,
           'alarm_free': not bool(self.alarms), 'ptp_readback_match': ptp == {'velocity_percent':5,'acceleration_percent':5},
           'plan_validation': True, 'collision_validation': True, 'abort_requested': self.stop.is_set(),
@@ -2358,6 +2457,7 @@ class CalibrationNode(Node):
         reports = []
         outcome = 'FAIL'
         reason = ''
+        forensic = {}
         try:
             forensic, exact_gate = self._pre_dispatch_forensics(arm, 1)
             arm['lifecycle'].event('T5_PRE_DISPATCH_ENTERED', gates=forensic)
@@ -2389,6 +2489,7 @@ class CalibrationNode(Node):
             self.real_motion_adapter_commissioned = True
         response.accepted = outcome == 'PASS'
         response.report = json.dumps({'REAL_MOTION_SMOKE_TEST': outcome, 'reason': reason,
+            'pre_dispatch': forensic,
             'POSE_SCOPE': [1, 2], 'pose_reports': reports,
             'accepted_pose_count': len(reports), 'PTP_RESTORE': cleanup['restore'],
             'PTP_PARAM_STATE_UNCERTAIN': self.ptp_param_state_uncertain,
@@ -2431,6 +2532,7 @@ class CalibrationNode(Node):
         return response
 
     def cancel_service(self, request, response):
+        self.automatic.abort()
         self._disarm_real_motion('SAFE_STOP')
         self.stop.set()
         # Do not erase a specific terminal diagnosis (identity mismatch,
@@ -2642,6 +2744,24 @@ class CalibrationNode(Node):
             result.quality['cloud_frame_id'] = self.settings['camera_frame']
             result.quality['cloud_timestamp'] = stamp_seconds(depth) if source == 'DEPTH_DEPROJECTION' else stamp_seconds(native)
             result.quality['rgb_depth_skew_ms'] = abs(stamp_seconds(rgb) - stamp_seconds(depth)) * 1000.0
+            # Persist the exact exposure, not self.bundle which advances while
+            # point-cloud processing and feature registration are running.
+            nearest = min(history, key=lambda item: abs(item[0] - stamp))
+            exposure_history = [item for item in history if stamp - 0.68 <= item[0] <= stamp + 0.08]
+            result.quality['exposure'] = {
+                'rgb_stamp': stamp_seconds(rgb), 'depth_stamp': stamp_seconds(depth),
+                'joints': np.asarray(nearest[2]).tolist(),
+                'tcp_span_mm': float(max(np.linalg.norm(item[1][:3, 3] - nearest[1][:3, 3])
+                                         for item in exposure_history) * 1000.0),
+                'joint_span_deg': float(max(np.linalg.norm(item[2] - nearest[2])
+                                           for item in exposure_history) * 180.0 / np.pi),
+                'intrinsics_fingerprint': self.intrinsics_fingerprint(info),
+                'camera_info': {
+                    'width': int(info.width), 'height': int(info.height),
+                    'k': list(info.k), 'p': list(info.p), 'd': list(info.d),
+                    'distortion_model': info.distortion_model, 'frame_id': info.header.frame_id,
+                },
+            }
             result.quality['depth_cloud_skew_ms'] = abs(
                 stamp_seconds(depth) - result.quality['cloud_timestamp']) * 1000.0
             result.quality['nan_inf_ratio'] = float(1.0 - raw_point_count / depth_array.size) if source == 'DEPTH_DEPROJECTION' else None
@@ -2689,6 +2809,13 @@ class CalibrationNode(Node):
         with self.lock:
             current = self.history[-1][1].copy()
         check_path(current, target, self.last_capture, self.mount, self.limits)
+        self._execute_guarded_motion(
+            current, target,
+            lambda start, end: check_path(start, end, self.last_capture, self.mount, self.limits))
+
+    def _execute_guarded_motion(self, current, target, path_guard):
+        """Shared MOVL transport; require the caller's geometry guard twice."""
+        path_guard(current, target)
         if not self.validator.wait_for_service(timeout_sec=2) or not self.motion.wait_for_server(timeout_sec=2):
             raise CalibrationError('Collision validator or PTP motion server is unavailable')
         yaw = float(np.rad2deg(np.arctan2(target[1, 0], target[0, 0])))
@@ -2706,6 +2833,7 @@ class CalibrationNode(Node):
         goal.motion_type, goal.target_pose = 2, target_raw
         # Commissioning moves use the operator-authorized low-speed limit.
         goal.velocity_ratio, goal.acceleration_ratio = 0.05, 0.05
+        path_guard(current, target)
         self.checkpoint()
         future = self.motion.send_goal_async(goal)
         try:
@@ -2750,6 +2878,9 @@ def main(args=None):
         pass
     finally:
         node.stop.set()
+        node.automatic.abort()
+        if node.automatic.worker:
+            node.automatic.worker.join(timeout=5)
         if node.active_goal is not None:
             node.active_goal.cancel_goal_async()
         if node.worker is not None:

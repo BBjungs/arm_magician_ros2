@@ -31,17 +31,31 @@
       </section>
 
       <section class="status-card" aria-labelledby="guidanceTitle">
-        <h2 id="guidanceTitle">Passive Calibration Guidance</h2>
+        <h2 id="guidanceTitle">คาลิเบรตอัตโนมัติ</h2>
+        <p>ระบบจัดท่า เก็บภาพ 10 ท่า คำนวณ และตรวจผลให้เอง</p>
+        <div class="buttons">
+          <button id="automaticStart" class="start" type="button">เริ่มคาลิเบรตอัตโนมัติจริง</button>
+          <button id="automaticPause" type="button">พักเมื่อถึงท่า</button>
+          <button id="automaticResume" type="button">ทำต่อ</button>
+          <button id="automaticAbort" class="stop" type="button">หยุดคาลิเบรต</button>
+        </div>
+        <p id="automaticResult" class="notice" aria-live="polite">พร้อมตรวจเงื่อนไขการติดตั้งก่อนเริ่ม</p>
+        <details>
+        <summary>เครื่องมือทดสอบและเก็บภาพด้วยผู้ควบคุม</summary>
         <strong id="guidanceState">กำลังรอแผน calibration</strong>
         <div id="guidanceCoordinates" class="guidance-coordinates"></div>
         <p id="guidanceDirections" class="notice"></p>
         <div id="calibrationProgress" class="calibration-progress"></div>
         <div class="buttons">
-          <button id="autoCalibrationStart" class="start" type="button">START AUTO CALIBRATION</button>
+          <button id="passiveCapture" type="button">เก็บท่าจริง (ไม่สั่งขยับแขน)</button>
+          <button id="passiveSolve" type="button">คำนวณคาลิเบรตจาก 10 ท่าจริง</button>
+          <button id="autoCalibrationStart" class="start" type="button">ทดสอบลำดับ AUTO (DRY-RUN)</button>
           <button id="autoCalibrationPause" type="button">PAUSE</button>
           <button id="autoCalibrationResume" type="button">RESUME</button>
           <button id="autoCalibrationAbort" class="stop" type="button">ABORT</button>
         </div>
+        <p id="passiveResult" class="notice" aria-live="polite">การเก็บท่าต้องมีผู้ดูแลหน้าเครื่อง ผล Dry-run ไม่ใช่ผลคาลิเบรตจริง</p>
+        </details>
       </section>
 
       <section class="count-card" aria-labelledby="objectsTitle">

@@ -414,6 +414,14 @@ class DobotWebNode(Node):
             action: self.create_client(Trigger, f'/calibration/auto/{action}')
             for action in ('start', 'pause', 'resume', 'abort')
         }
+        self.calibration_passive_clients = {
+            action: self.create_client(Trigger, f'/calibration/{service}')
+            for action, service in (('capture', 'capture_pose'), ('solve', 'solve_passive'))
+        }
+        self.calibration_automatic_clients = {
+            action: self.create_client(Trigger, f'/calibration/autonomous/{action}')
+            for action in ('start', 'pause', 'resume', 'abort')
+        }
 
         if self.enable_camera_preview and not self.camera_compressed_topic:
             self.create_subscription(
@@ -1604,9 +1612,13 @@ class DobotWebNode(Node):
             calibration_runtime = self.calibration_runtime_status()
             calibration_guidance = calibration_runtime.get('passive_guidance', {})
             supervised_auto = calibration_runtime.get('supervised_auto', {})
+            passive_solve = calibration_runtime.get('passive_solve', {})
+            automatic_calibration = calibration_runtime.get('automatic_calibration', {})
         except AttributeError:
             calibration_guidance = {}
             supervised_auto = {}
+            passive_solve = {}
+            automatic_calibration = {}
         return {
             'ready': bool(preflight['ready'] and not active and command_idle),
             'overall_status': (
@@ -1627,6 +1639,8 @@ class DobotWebNode(Node):
             'motion_mode': motion_mode,
             'calibration_guidance': calibration_guidance,
             'supervised_auto': supervised_auto,
+            'passive_solve': passive_solve,
+            'automatic_calibration': automatic_calibration,
             'fault_message': (
                 '' if preflight['ready'] else
                 self._operator_fault_message(preflight.get('system'))
@@ -2628,6 +2642,40 @@ class DobotWebNode(Node):
                 'request_pending': not future.done(), 'dry_run': True,
                 'motion_command_sent': False}
 
+    def passive_calibration_control(self, action):
+        if action not in self.calibration_passive_clients:
+            raise ValueError('Unknown passive calibration action')
+        if self._operation_is_active():
+            raise RuntimeError('Stop active robot/vision operations before calibration')
+        client = self.calibration_passive_clients[action]
+        if not client.service_is_ready():
+            raise ConnectionError('Passive calibration service is unavailable')
+        future = client.call_async(Trigger.Request())
+        done = threading.Event()
+        future.add_done_callback(lambda _: done.set())
+        if not done.wait(60.0):
+            raise RuntimeError('Request still pending; inspect calibration status before retrying')
+        result = future.result()
+        payload = json.loads(result.message)
+        return {'success': result.success, **payload, 'motion_command_sent': False}
+
+    def automatic_calibration_control(self, action):
+        if action not in self.calibration_automatic_clients:
+            raise ValueError('Unknown automatic calibration action')
+        if action == 'start' and self._operation_is_active():
+            raise RuntimeError('Stop the active robot operation before starting calibration')
+        client = self.calibration_automatic_clients[action]
+        if not client.service_is_ready():
+            raise ConnectionError('Automatic calibration service is unavailable')
+        future = client.call_async(Trigger.Request())
+        done = threading.Event()
+        future.add_done_callback(lambda _: done.set())
+        if not done.wait(5):
+            raise RuntimeError('Calibration request pending; inspect status before retrying')
+        result = future.result()
+        return {'accepted': result.success, 'message': result.message, 'dry_run': False,
+                'status_url': '/api/vision/calibration'}
+
     def vision_auto_calibrate(self, payload):
         if not isinstance(payload, dict):
             raise ValueError('auto calibration payload must be an object')
@@ -3136,6 +3184,14 @@ def create_app(node):
     @app.post('/api/calibration/auto/{action}')
     def api_calibration_auto(action: str):
         return _call_api(node.supervised_calibration_control, action, busy_status=409)
+
+    @app.post('/api/calibration/passive/{action}')
+    def api_calibration_passive(action: str):
+        return _call_api(node.passive_calibration_control, action, busy_status=409)
+
+    @app.post('/api/calibration/autonomous/{action}')
+    def api_calibration_autonomous(action: str):
+        return _call_api(node.automatic_calibration_control, action, busy_status=409)
 
     @app.get('/api/system/status')
     def api_system_status():

@@ -9,6 +9,7 @@ setup(
         ('share/dobot_calibration', ['package.xml', 'README.md']),
         ('share/dobot_calibration/config', [
             'config/calibration.yaml', 'config/mount_model.yaml',
+        'config/calibration_workspace.example.yaml',
             'config/carrier_mount.example.yaml',
         ]),
         ('share/dobot_calibration/launch', ['launch/markerless_calibration.launch.py']),

@@ -118,6 +118,10 @@ def check_path(current, target, capture, mount, limits=Limits()):
     The enclosure radius comes from the mount model. The robot's trajectory
     service remains responsible for full-arm kinematic/collision validation.
     """
+    if not mount.rotation_seed_verified:
+        raise CalibrationError(
+            'MOUNT_ROTATION_UNVERIFIED: observed-scene clearance requires a '
+            'verified camera orientation; complete supervised commissioning first')
     checked_transform(current)
     checked_transform(target)
     distance, angle = pose_distance(current, target)
@@ -271,7 +275,7 @@ def load_bundle(path, context, mount, limits=Limits()):
             raise CalibrationError('Corrupt calibration reference data')
         # Recompute reference quality rather than trusting serialized summaries.
         anchor = make_capture(anchor.stamp, anchor.base_T_tool, anchor.rgb, anchor.depth,
-                              anchor.intrinsics, anchor.cloud, mount.tool_T_camera, limits,
+                              anchor.intrinsics, anchor.cloud, solution.tool_T_camera, limits,
                               base_T_carrier=anchor.base_T_carrier)
         return solution, anchor
     except (OSError, KeyError, TypeError, ValueError, EOFError) as error:
@@ -324,6 +328,11 @@ class Workflow:
         self.solution, self.anchor = None, None
         self.transition('CAPTURING')
         try:
+            if not self.mount.rotation_seed_verified:
+                raise CalibrationError(
+                    'MOUNT_ROTATION_UNVERIFIED: automatic calibration cannot use '
+                    'the translation-only mount as a table-normal or motion-safety '
+                    'reference; complete supervised commissioning first')
             if verify_only and (recalibrate or not Path(self.path).expanduser().is_file()):
                 raise CalibrationError('No saved calibration to verify')
             self.checkpoint()

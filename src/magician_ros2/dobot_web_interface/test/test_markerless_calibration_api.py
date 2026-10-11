@@ -1,7 +1,36 @@
 from unittest.mock import Mock
+from concurrent.futures import Future
+from types import SimpleNamespace
+import pytest
 
 from dobot_web_interface.system_integration import calibration_is_ready
 from dobot_web_interface.web_interface import DobotWebNode
+
+
+def test_passive_solve_returns_actual_rejection_not_request_acceptance():
+    node = Mock()
+    node._operation_is_active.return_value = False
+    future = Future()
+    future.set_result(SimpleNamespace(success=False, message=
+                      '{"accepted":false,"reason":"REAL_POSES_REQUIRED: 1/10"}'))
+    client = Mock()
+    client.service_is_ready.return_value = True
+    client.call_async.return_value = future
+    node.calibration_passive_clients = {'solve': client}
+    result = DobotWebNode.passive_calibration_control(node, 'solve')
+    assert not result['success'] and not result['accepted']
+    assert '1/10' in result['reason']
+    assert not result['motion_command_sent']
+
+
+def test_passive_capture_rejects_active_robot_operation():
+    node = Mock()
+    client = Mock()
+    node.calibration_passive_clients = {'capture': client}
+    node._operation_is_active.return_value = True
+    with pytest.raises(RuntimeError, match='Stop active'):
+        DobotWebNode.passive_calibration_control(node, 'capture')
+    client.call_async.assert_not_called()
 
 
 def _ready_status(**updates):

@@ -39,7 +39,10 @@ def test_readiness_is_fail_closed_for_a_stale_calibration_or_camera():
         homed=True,
         at_observation=True,
         camera_health={
-            'ready': True,
+            # A stale display frame is harmless only while the independent
+            # transport health contract remains ready.  Here that contract is
+            # deliberately unavailable as well.
+            'ready': False,
             'age_sec': 0.1,
             'usb': {'identity_valid': True},
         },
@@ -80,6 +83,30 @@ def test_camera_heartbeat_is_reported_separately_from_quality_readiness():
     # calibration-owned passive readiness decision.
     assert result['runtime']['depth_valid'] is False
     assert result['runtime']['camera_connected'] is False
+
+
+def test_camera_health_is_authoritative_when_ui_preview_is_disabled():
+    result = aggregate_system_readiness(
+        status={
+            'ros': {},
+            # The status payload still contains its empty display cache when
+            # preview is intentionally disabled.
+            'camera': {'has_frame': False, 'frame_age_sec': None},
+            'motion': {},
+        },
+        vision={}, calibration={}, homed=False, at_observation=False,
+        camera_health={
+            'ready': True,
+            'age_sec': 0.1,
+            'usb': {'identity_valid': True},
+            'streams': {
+                'rgb': {'fresh': True},
+                'depth': {'fresh': True},
+            },
+        },
+    )
+
+    assert result['runtime']['camera_connected'] is True
 
 
 def test_startup_actions_follow_the_fixed_order_once_each():

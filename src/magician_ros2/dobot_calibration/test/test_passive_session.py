@@ -85,3 +85,26 @@ def test_corrupt_manifest_is_not_silently_loaded(tmp_path):
     (store.session_dir / 'manifest.yaml').write_text(yaml.safe_dump(manifest))
     with pytest.raises(CalibrationError, match='schema/status is incompatible'):
         PassiveSessionStore(tmp_path, 'mount-a', 'camera-a').restore()
+
+
+def test_existing_pose_plan_accepts_small_pose_one_telemetry_jitter(tmp_path):
+    store = PassiveSessionStore(tmp_path, 'mount-a', 'camera-a')
+    original = [{'pose_index': 1, 'xyz_mm': [150., 0., 100.], 'j4_deg': 0.},
+                {'pose_index': 2, 'xyz_mm': [185., 0., 100.], 'j4_deg': 0.}]
+    store.new()
+    store.ensure_plan(original)
+    measured = [{'pose_index': 1, 'xyz_mm': [150.04, 0., 99.97], 'j4_deg': 0.1},
+                {'pose_index': 2, 'xyz_mm': [185., 0., 100.], 'j4_deg': 0.}]
+    assert store.ensure_plan(measured) == original
+
+
+def test_existing_pose_plan_rejects_large_anchor_change(tmp_path):
+    store = PassiveSessionStore(tmp_path, 'mount-a', 'camera-a')
+    original = [{'pose_index': 1, 'xyz_mm': [150., 0., 100.], 'j4_deg': 0.},
+                {'pose_index': 2, 'xyz_mm': [185., 0., 100.], 'j4_deg': 0.}]
+    store.new()
+    store.ensure_plan(original)
+    changed = [{'pose_index': 1, 'xyz_mm': [152., 0., 100.], 'j4_deg': 0.},
+               original[1]]
+    with pytest.raises(CalibrationError, match='differs from measured pose'):
+        store.ensure_plan(changed)

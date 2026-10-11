@@ -9,6 +9,17 @@ from dobot_calibration.node import CalibrationNode
 
 def _node(arm_ok=True, token_ok=True, run=None, restore='PASS'):
     node = object.__new__(CalibrationNode)
+    # These transaction tests start after the separately tested baseline gate.
+    node.passive_session = SimpleNamespace(
+        manifest={'session_id': 'test-session'}, mount_fingerprint='test-mount')
+    node.settings = {'camera_id': 'test-camera'}
+    node.scene_baseline = {'intrinsics_fingerprint': 'test-intrinsics'}
+    node._authoritative_baseline_record = lambda: {
+        'schema_version': 1, 'quality_status': 'VALID',
+        'eligible_for_preflight': True, 'session_id': 'test-session',
+        'mount_fingerprint': 'test-mount', 'camera_serial': 'test-camera',
+        'intrinsics_fingerprint': 'test-intrinsics',
+    }
     node.real_motion_arm = None
     lifecycle = SimpleNamespace(scope=(1, 2), event=lambda *_args, **_kwargs: None,
                                 activate=lambda: None)

@@ -77,6 +77,11 @@ function renderStatus(status) {
   replaceOptions(placeSelect, status.places || []);
   renderChecks(status.checks || []);
   renderCalibrationGuidance(status.calibration_guidance || {}, status.supervised_auto || {});
+  renderAutomaticCalibration(status.automatic_calibration || {});
+  const solve = status.passive_solve || {};
+  if (solve.state && solve.state !== 'IDLE') {
+    $('passiveResult').textContent = `${solve.state}: ${solve.reason || 'กำลังคำนวณจากข้อมูลจริง'}`;
+  }
 
   const counts = status.counts || {};
   $('blackCount').textContent = counts.black || 0;
@@ -137,6 +142,27 @@ function renderCalibrationGuidance(guidance, supervisedAuto) {
     item.textContent = `Pose ${pose.pose_index} ${icon} ${pose.state}`;
     progress.appendChild(item);
   });
+}
+
+function renderAutomaticCalibration(auto) {
+  const labels = {
+    IDLE: 'พร้อมเริ่ม', PREFLIGHT: 'กำลังตรวจความพร้อม', MOVING: 'กำลังจัดท่า',
+    SETTLING: 'รอแขนหยุดนิ่ง', CAPTURING: 'กำลังเก็บภาพ',
+    VALIDATING_CAPTURE: 'กำลังตรวจภาพ', NEXT_POSE: 'เตรียมท่าถัดไป',
+    SOLVING: 'กำลังคำนวณและตรวจผล', PAUSED: 'พักการทำงาน',
+    CANDIDATE_VERIFIED: 'คำนวณและตรวจผลผ่าน', FAULT: 'ยังดำเนินการไม่ได้', SAFE_STOP: 'หยุดแล้ว',
+  };
+  const active = !['IDLE', 'FAULT', 'SAFE_STOP', 'CANDIDATE_VERIFIED'].includes(auto.state || 'IDLE');
+  $('automaticStart').disabled = active;
+  $('automaticPause').disabled = !active || auto.state === 'PAUSED';
+  $('automaticResume').disabled = auto.state !== 'PAUSED';
+  $('automaticAbort').disabled = !active;
+  let reason = auto.reason || '';
+  if (reason.startsWith('WORKSPACE_NOT_CONFIGURED:')) {
+    reason = 'ยังขาดค่าการติดตั้ง: ระดับโต๊ะและขอบเขตพื้นที่ว่างในพิกัดฐานหุ่นยนต์';
+  }
+  const progress = `${auto.accepted_pose_count || 0}/${auto.total_poses || 10} ท่า`;
+  $('automaticResult').textContent = `${labels[auto.state] || 'พร้อมเริ่ม'} · ${progress}${reason ? ' · ' + reason : ''}`;
 }
 
 async function refreshStatus() {
@@ -235,6 +261,40 @@ autoCalibrationStart.addEventListener('click', () => autoCalibrationAction('star
 autoCalibrationPause.addEventListener('click', () => autoCalibrationAction('pause'));
 autoCalibrationResume.addEventListener('click', () => autoCalibrationAction('resume'));
 autoCalibrationAbort.addEventListener('click', () => autoCalibrationAction('abort'));
+
+for (const [id, action] of [['automaticStart', 'start'], ['automaticPause', 'pause'],
+                            ['automaticResume', 'resume'], ['automaticAbort', 'abort']]) {
+  $(id).addEventListener('click', async () => {
+    $(id).disabled = true;
+    try {
+      const result = await request(`/api/calibration/autonomous/${action}`);
+      setNotice(result.message, !result.accepted);
+    } catch (error) {
+      setNotice(error.message, true);
+    } finally {
+      refreshStatus();
+    }
+  });
+}
+
+for (const [id, action] of [['passiveCapture', 'capture'], ['passiveSolve', 'solve']]) {
+  $(id).addEventListener('click', async () => {
+    $(id).disabled = true;
+    try {
+      const result = await request(`/api/calibration/passive/${action}`);
+      const message = result.reason || (result.rejection_reasons || []).join('; ')
+        || (action === 'capture' ? `เก็บท่าจริง ${result.pose_index}/10 แล้ว`
+          : 'กำลังคำนวณข้อมูลจริง ผลจะอยู่ที่ /api/vision/calibration → passive_solve');
+      $('passiveResult').textContent = message;
+      setNotice(message, !result.success);
+    } catch (error) {
+      setNotice(error.message, true);
+    } finally {
+      $(id).disabled = false;
+      refreshStatus();
+    }
+  });
+}
 
 refreshStatus();
 refreshCamera();

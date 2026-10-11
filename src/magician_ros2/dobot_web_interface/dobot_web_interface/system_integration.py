@@ -136,11 +136,13 @@ def aggregate_system_readiness(
         camera_health.get("ready")
         and camera_health_fresh
     )
-    camera_ok = bool(
-        camera.get("has_frame")
-        and _finite_nonnegative(camera.get("frame_age_sec"), 2.0)
-        and camera_transport_ok
-    )
+    # The production profile can intentionally disable the UI's MJPEG frame
+    # retention (``enable_camera_preview:=false``).  In that mode there is no
+    # local web-frame cache, but camera_health still observes both live ROS
+    # streams, validates their timestamps/intrinsics, USB topology, and RGB-D
+    # alignment.  Do not turn that display-only choice into a false camera
+    # disconnect; camera health is the authoritative transport contract.
+    camera_ok = camera_transport_ok
     vision_ok = bool(
         vision.get("ok")
         and vision.get("source_ok", vision.get("rgb_ok", False))

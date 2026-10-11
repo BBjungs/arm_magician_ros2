@@ -2,6 +2,7 @@
 
 from datetime import datetime, timezone
 import json
+import math
 import os
 from pathlib import Path
 import tempfile
@@ -94,11 +95,30 @@ class PassiveSessionStore:
     def ensure_plan(self, targets):
         if self.manifest is None:
             raise CalibrationError('No active passive session')
+        targets = list(targets)
         if 'target_poses' not in self.manifest:
-            self.manifest['target_poses'] = list(targets)
+            self.manifest['target_poses'] = targets
             self._write_manifest()
-        elif self.manifest['target_poses'] != list(targets):
-            raise CalibrationError('Stored passive calibration plan changed')
+        elif self.manifest['target_poses'] != targets:
+            stored = self.manifest['target_poses']
+            if not isinstance(stored, list) or len(stored) != len(targets):
+                raise CalibrationError('Stored passive calibration plan is malformed')
+            try:
+                for index, (actual, candidate) in enumerate(zip(stored, targets), 1):
+                    xyz = np.asarray(actual['xyz_mm'], dtype=float)
+                    j4 = float(actual['j4_deg'])
+                    if (actual.get('pose_index') != index or xyz.shape != (3,)
+                            or not np.isfinite(xyz).all() or not math.isfinite(j4)):
+                        raise ValueError
+                    if index == 1 and (
+                            np.linalg.norm(xyz - np.asarray(candidate['xyz_mm'], dtype=float)) > 1.0
+                            or abs(j4 - float(candidate['j4_deg'])) > 0.5):
+                        raise CalibrationError(
+                            'Stored plan anchor differs from measured pose by more than 1 mm/0.5 deg')
+            except CalibrationError:
+                raise
+            except (KeyError, TypeError, ValueError) as error:
+                raise CalibrationError('Stored passive calibration plan is malformed') from error
         return self.manifest['target_poses']
 
     def discover(self):

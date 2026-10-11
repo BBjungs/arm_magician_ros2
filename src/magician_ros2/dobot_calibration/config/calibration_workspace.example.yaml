@@ -1,0 +1,14 @@
+# Installation input, not a camera calibration result. Keep unverified values
+# null until supplied by the measured workcell layout in the controller frame.
+schema_version: 1
+installation_verified: false
+whole_robot_environment_verified: false
+measurement_source: null
+base_frame: magician_base_link
+camera_id: null
+mount_fingerprint: null
+table_surface_z_m: null
+# Volume known clear of obstacles; the ENTIRE tool/camera envelope must fit.
+free_volume_min_m: [null, null, null]
+free_volume_max_m: [null, null, null]
+minimum_clearance_m: 0.025
