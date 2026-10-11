@@ -78,3 +78,19 @@ RUNTIME: protocol/service/build ตรงกันแล้ว; preflight admiss
 GEOMETRY VERIFIED: NO; MOTION VERIFIED: NO; COMMISSIONING COMPLETE: NO
 Motion Command Sent by task: FALSE; PTP Restore: NOT_REQUIRED
 มี E-stop ตามผู้ควบคุม แต่การทดสอบ stop จริง/round authorization ยังต้องยืนยันแยก
+
+## ทดสอบ Acquisition จริงแบบไม่เคลื่อนแขนต่อจาก Runtime Repair
+
+หลังผู้ใช้ขอให้ปลด blockers ไม่ได้ลบ Safety Gate หรือแก้ผลเป็น PASS
+เรียก service เดิม `/calibration/passive_capture_test` ซึ่งไม่มี motion path
+เพื่อเปิด demand-driven ingest และอ่าน RGB-D จริง SENSOR_INGEST_STATE เปลี่ยนเป็น ACTIVE
+แต่ capture test success=false: `Capture timeout: DEPTH_ALL_ZERO`
+ตรวจ payload ได้ 307,200 pixels, valid_count=0, zero_count=307,200,
+depth_valid_ratio=0.0 และ finite_cloud_points=0 จึงยังไม่มี measured depth/scene
+ก่อนหน้านี้ ratio default 0 จาก inactive ingest ไม่พิสูจน์ sensor fault;
+ผลใหม่นี้เป็นการตรวจ Image payload จริงและยืนยันว่าเป็นศูนย์ทั้งหมด
+ดู [หลักฐานทดสอบ](commissioning-runtime-repair-2026-10-11/nonmoving-rgbd-preflight-test.json)
+Motion Command Sent by task=FALSE ไม่มีการทดลองเคลื่อนที่หรือ retry motion
+ต้องตรวจ depth sensor/IR, การตั้งค่า และระยะฉากจริงก่อนเก็บใหม่
+ไม่สั่งยกหรือขยับแขนจากตำแหน่งต่ำเพื่อแก้ scene โดยไม่มีแผน/authorization
+Workspace, Collision และ commissioning authorization ยังคงจำเป็น

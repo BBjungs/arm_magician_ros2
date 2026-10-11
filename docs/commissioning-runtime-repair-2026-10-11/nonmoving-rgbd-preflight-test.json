@@ -1,0 +1,112 @@
+{
+  "success": false,
+  "report": "{\"markerless_capture_data_path\": \"NOT_READY\", \"captures\": [{\"capture\": \"REJECTED\", \"rejection_reason\": \"Capture timeout: DEPTH_ALL_ZERO: Every depth pixel is zero; no measured distance is available\", \"scene_geometry_diagnostic\": {\"available\": true, \"point_cloud_source\": \"DEPTH_DEPROJECTION\", \"native_cloud_state\": \"missing\", \"cloud_frame\": \"camera_color_optical_frame\", \"finite_cloud_points\": 0, \"nan_inf_ratio\": 1.0, \"thresholds\": {\"min_points\": 200, \"min_scene_width_m\": 0.025, \"min_scene_thickness_m\": 0.004, \"depth_range_m\": [0.15, 1.5]}, \"failed_thresholds\": [\"finite_cloud_points < min_points\"]}}], \"auto_real_motion_enabled\": false, \"geometry_verified\": false}",
+  "motion_goal_sent_by_task": false,
+  "utc": "2026-10-11T10:37:39Z",
+  "hardware_readiness": {
+    "state": "DEPTH_ERROR",
+    "ready": false,
+    "reason": "DEPTH_ALL_ZERO: Every depth pixel is zero; no measured distance is available",
+    "blockers": [
+      "DEPTH_ALL_ZERO: Every depth pixel is zero; no measured distance is available",
+      "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+    ],
+    "depth_fresh": true,
+    "depth_stable": false,
+    "tcp_fresh": true,
+    "joints_fresh": true,
+    "alarms_fresh": true,
+    "robot_connected": true,
+    "safety_supported": false,
+    "safety_verified": false,
+    "physical_estop_present": true,
+    "operator_safety_verified": true,
+    "software_estop_monitoring": "NOT CONNECTED",
+    "depth_age_s": 0.6663751602172852,
+    "tcp_age_s": 0.04579734802246094,
+    "joints_age_s": 0.04579734802246094,
+    "alarms_age_s": 0.08834052085876465
+  },
+  "sensor_ingest_state": "ACTIVE",
+  "depth_quality": {
+    "status": "SENSOR_ERROR",
+    "code": "DEPTH_ALL_ZERO",
+    "reason": "Every depth pixel is zero; no measured distance is available",
+    "pixel_count": 307200,
+    "valid_count": 0,
+    "depth_valid_ratio": 0.0,
+    "median_m": null,
+    "mad_m": null,
+    "stddev_m": null,
+    "minimum_m": null,
+    "maximum_m": null,
+    "zero_count": 307200,
+    "nonfinite_count": 0,
+    "outside_range_count": 307200
+  },
+  "automatic": {
+    "state": "FAULT",
+    "accepted_pose_count": 0,
+    "total_poses": 10,
+    "dry_run": false,
+    "production_ready": false,
+    "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth; DEPTH_UNSTABLE: insufficient consecutive valid depth frames; WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml",
+    "purpose": "COMMISSIONING_TWO_POSES",
+    "run_id": "2e680b2ae6ce4750963b69b76f79c534",
+    "motion_command_sent": false,
+    "blockers": [
+      "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+      "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+      "WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml",
+      "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth; DEPTH_UNSTABLE: insufficient consecutive valid depth frames; WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml"
+    ],
+    "trace": [
+      {
+        "function": "AutomaticBackend.prepare",
+        "monotonic": 528837.015412625
+      },
+      {
+        "function": "AutomaticBackend.prepare.enter",
+        "monotonic": 528837.015465943
+      }
+    ],
+    "authorization_protocol": 2,
+    "pre_dispatch": {
+      "hardware_readiness": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.08212971687316895,
+        "tcp_age_s": 0.030103683471679688,
+        "joints_age_s": 0.030103683471679688,
+        "alarms_age_s": 0.07439041137695312
+      },
+      "workspace": "WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml",
+      "baseline_gate": "",
+      "blockers": [
+        "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "WORKSPACE_NOT_CONFIGURED: /home/bbcontact/.ros/dobot/calibration_workspace.yaml"
+      ],
+      "motion_command_sent": false,
+      "monotonic": 528837.132339667
+    },
+    "PTP_RESTORE": "NOT_REQUIRED",
+    "authorization_revoked": true
+  }
+}
