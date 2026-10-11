@@ -1,0 +1,2939 @@
+{
+  "utc": "2026-10-11T10:26:04Z",
+  "motion_command_sent_by_task": false,
+  "workspace_exists": false,
+  "services": [
+    [
+      "/calibration/autonomous/abort",
+      [
+        "std_srvs/srv/Trigger"
+      ]
+    ],
+    [
+      "/calibration/autonomous/authorize",
+      [
+        "dobot_msgs/srv/AuthorizeCalibration"
+      ]
+    ],
+    [
+      "/calibration/autonomous/commission",
+      [
+        "std_srvs/srv/Trigger"
+      ]
+    ],
+    [
+      "/calibration/autonomous/pause",
+      [
+        "std_srvs/srv/Trigger"
+      ]
+    ],
+    [
+      "/calibration/autonomous/resume",
+      [
+        "std_srvs/srv/Trigger"
+      ]
+    ],
+    [
+      "/calibration/autonomous/start",
+      [
+        "std_srvs/srv/Trigger"
+      ]
+    ]
+  ],
+  "parameters": {
+    "/dobot_web_interface": {
+      "startup_auto": {
+        "type": 1,
+        "bool": false,
+        "string": ""
+      },
+      "startup_auto_motion": {
+        "type": 1,
+        "bool": false,
+        "string": ""
+      }
+    },
+    "/markerless_calibration": {
+      "auto_start": {
+        "type": 1,
+        "bool": false,
+        "string": ""
+      },
+      "recalibrate_on_failure": {
+        "type": 1,
+        "bool": false,
+        "string": ""
+      },
+      "automatic_workspace_file": {
+        "type": 4,
+        "bool": false,
+        "string": "~/.ros/dobot/calibration_workspace.yaml"
+      }
+    }
+  },
+  "vision/calibration": {
+    "state": "UNCALIBRATED",
+    "ready": false,
+    "available": false,
+    "reason": "Calibration bootstrap geometry eligible; full verified geometry remains required for production",
+    "stamp": 1791714364.440739,
+    "result": "FAIL",
+    "architecture": "markerless_hand_eye",
+    "command_frame": "TCP",
+    "calibration_parent_frame": "TCP",
+    "tcp_only_consumer_supported": true,
+    "bundle_path": "/home/bbcontact/.ros/dobot/markerless_calibration.npz",
+    "bundle_loaded": false,
+    "context_digest": "",
+    "geometry_verified": false,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_ELIGIBLE": true,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_BLOCKERS": [],
+    "CAMERA_ID_SOURCE": "AUTO_DETECTED",
+    "CAMERA_ID": "AY2A760003E",
+    "CAMERA_ID_VERIFIED": true,
+    "CAMERA_ID_RESOLUTION": "PASS",
+    "EXACT_GATE": "",
+    "readiness": {
+      "HARDWARE_READY": false,
+      "PASSIVE_CAPTURE_READY": false,
+      "REAL_MOTION_READY": false,
+      "GEOMETRY_VERIFIED": false,
+      "point_cloud_source_usable": false,
+      "native_cloud_state": null,
+      "blockers": [
+        "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED"
+      ]
+    },
+    "AUTHORITATIVE_BASELINE_READY": false,
+    "AUTHORITATIVE_BASELINE_STABLE_FOR_S": 0.0,
+    "AUTHORITATIVE_BASELINE_REQUIRED_STABLE_S": 10.0,
+    "AUTHORITATIVE_BASELINE_BLOCKERS": [
+      "HARDWARE_NOT_READY",
+      "PASSIVE_CAPTURE_NOT_READY",
+      "DEPTH_UNSTABLE",
+      "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED",
+      "POINT_CLOUD_UNUSABLE"
+    ],
+    "AUTHORITATIVE_BASELINE_CURRENT_BLOCKERS": [
+      "HARDWARE_NOT_READY",
+      "PASSIVE_CAPTURE_NOT_READY",
+      "DEPTH_UNSTABLE",
+      "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED",
+      "POINT_CLOUD_UNUSABLE"
+    ],
+    "AUTHORITATIVE_BASELINE_LAST_RESET_GATE": "HARDWARE_NOT_READY",
+    "AUTHORITATIVE_BASELINE_LAST_RESET_TIME": 528377.747247602,
+    "AUTHORITATIVE_BASELINE_RESET_COUNT": 3,
+    "AUTHORITATIVE_BASELINE_EXACT_GATE": "HARDWARE_NOT_READY",
+    "passive_mode": true,
+    "passive_pose_count": 1,
+    "passive_solve": {
+      "state": "IDLE",
+      "production_ready": false
+    },
+    "automatic_calibration": {
+      "state": "IDLE",
+      "accepted_pose_count": 0,
+      "total_poses": 10,
+      "dry_run": false,
+      "production_ready": false,
+      "reason": "",
+      "authorization_protocol": 2
+    },
+    "automatic_commissioning": null,
+    "software_source_digest": "46fd5af2f5f1397b921119a8a5f84ba57dea7fa6c38d5150e432f50ab9ba4d57",
+    "passive_pose_metadata": [
+      {
+        "pose_index": 1,
+        "XYZ_mm": [
+          150.00619506835938,
+          -4.406147624536061e-08,
+          99.9019546508789
+        ],
+        "J4_yaw_deg": 0.0,
+        "rgb_fps": 17.787,
+        "health_node_rgb_fps": 17.787,
+        "depth_fps": 18.194,
+        "sync_skew_ms": 153.1057357788086,
+        "depth_valid_ratio": 0.5316927083333334,
+        "point_cloud_source": "DEPTH_DEPROJECTION",
+        "cloud_point_count": 4000,
+        "cloud_frame_id": "camera_color_optical_frame",
+        "cloud_timestamp": 1791523690.987864,
+        "native_cross_validation": {
+          "native_reference": "unavailable"
+        },
+        "blur_score": 89.71711166253621,
+        "pose_stability": {
+          "tcp_span_mm": 0.0,
+          "joint_span_deg": 0.0
+        },
+        "scene_overlap": null,
+        "registration_quality": {
+          "status": "ANCHOR"
+        },
+        "plane_diagnostics": {
+          "plane_gate": "pre_calibration_dominant_plane",
+          "plane_inlier_count": 3398,
+          "plane_inlier_ratio": 0.8495,
+          "plane_normal_camera_optical": [
+            -0.010465971900476358,
+            -0.12139033831502816,
+            -0.9925496708960925
+          ],
+          "plane_rms_m": 0.0004912815467136938,
+          "plane_median_distance_m": 0.0003368195861305767,
+          "plane_spatial_spread_m": [
+            0.07580897711880047,
+            0.04759074611573711,
+            0.0004912815467136945
+          ],
+          "plane_area_estimate_m2": 0.014431223133418228,
+          "plane_inlier_depth_range_m": [
+            0.203,
+            0.229
+          ],
+          "plane_thresholds": {
+            "min_points": 200,
+            "min_inlier_ratio": 0.3,
+            "max_distance_m": 0.004,
+            "min_spatial_width_m": 0.025
+          },
+          "total_valid_cloud_points": 163336,
+          "filtered_cloud_points": 4000,
+          "debug_artifact": "/home/bbcontact/.ros/dobot/passive_pose_1_debug.npz"
+        },
+        "rejection_reasons": [],
+        "geometry_verified": false
+      }
+    ],
+    "passive_guidance": {
+      "state": "GUIDE_TO_TARGET",
+      "current": {
+        "xyz_mm": [
+          190.76058959960938,
+          -2.0270936489105225,
+          9.663726806640625
+        ],
+        "j4_deg": 0.0
+      },
+      "target": {
+        "pose_index": 2,
+        "xyz_mm": [
+          185.0,
+          0.0,
+          100.0
+        ],
+        "j4_deg": 0.0
+      },
+      "delta": {
+        "xyz_mm": [
+          -5.760589599609375,
+          2.0270936489105225,
+          90.33627319335938
+        ],
+        "j4_deg": 0.0
+      },
+      "directions": {
+        "X": "-X",
+        "Y": "OK",
+        "Z": "+Z",
+        "J4": "OK"
+      },
+      "distance_to_target_mm": 90.54245278134363,
+      "xyz_tolerance_mm": 5.0,
+      "j4_tolerance_deg": 2.0,
+      "robot_stable": true,
+      "hardware_ready": false,
+      "capture_enabled": false,
+      "automatic_capture": false,
+      "progress": [
+        {
+          "pose_index": 1,
+          "state": "ACCEPTED"
+        },
+        {
+          "pose_index": 2,
+          "state": "GUIDE_TO_TARGET"
+        },
+        {
+          "pose_index": 3,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 4,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 5,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 6,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 7,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 8,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 9,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 10,
+          "state": "PENDING"
+        }
+      ],
+      "pose_stability": {
+        "tcp_span_mm": 0.0,
+        "joint_span_deg": 0.0
+      }
+    },
+    "supervised_auto": {
+      "state": "IDLE",
+      "dry_run": true,
+      "real_motion_enabled": false,
+      "current_pose": 0,
+      "total_poses": 10,
+      "target": null,
+      "readiness": "",
+      "safety_status": "",
+      "motion_progress": 0.0,
+      "capture_result": "",
+      "registration_quality": {},
+      "blockers": [],
+      "history": []
+    },
+    "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+    "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+    "samples_collected": 1,
+    "samples_accepted": 1,
+    "samples_rejected": 0,
+    "translation_residual_mm": null,
+    "rotation_residual_deg": null,
+    "verification_status": "FAIL",
+    "verification_samples": 0,
+    "reload_verification_status": "MISSING",
+    "mount_translation_error_bound_mm": null,
+    "mount_envelope_mm": null,
+    "blockers": [
+      "Calibration bootstrap geometry eligible; full verified geometry remains required for production"
+    ],
+    "metrics": {},
+    "depth_quality": {
+      "status": "SENSOR_ERROR",
+      "code": "DEPTH_HEALTH_REJECTED",
+      "reason": "Independent camera health rejected live depth",
+      "depth_valid_ratio": 0.0,
+      "source": "/camera/health"
+    },
+    "rgb_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 53.43458399946988,
+      "fps": 24.818,
+      "max_stamp_gap_ms": 167.946,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "state": "READY",
+      "expected_rate_ok": true
+    },
+    "depth_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 107.47358399946987,
+      "fps": 23.659,
+      "max_stamp_gap_ms": 198.866,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "state": "READY",
+      "expected_rate_ok": false,
+      "valid_ratio": 0.0,
+      "valid": false
+    },
+    "RGB_FRESH": true,
+    "DEPTH_FRESH": true,
+    "RGB_CAMERAINFO_FRESH": true,
+    "DEPTH_CAMERAINFO_FRESH": true,
+    "RGB_DEPTH_CAMERAINFO_SYNCHRONIZED": false,
+    "SENSOR_INGEST_STATE": "IDLE",
+    "SENSOR_INGEST_OWNER": "NONE",
+    "SENSOR_INGEST_ACTIVATION_REASON": "",
+    "SENSOR_INGEST_ACTIVATED_AT_MONOTONIC": null,
+    "SENSOR_INGEST_ACTIVATION_COUNT": 0,
+    "RGB_SUBSCRIPTION_ACTIVE": false,
+    "DEPTH_SUBSCRIPTION_ACTIVE": false,
+    "CLOUD_SUBSCRIPTION_ACTIVE": false,
+    "INTERNAL_SYNC_PAYLOAD_AVAILABLE": false,
+    "SYNC_PAYLOAD_AGE_MS": null,
+    "RGB_DEPTH_SKEW_MS": null,
+    "SYNC_PAIR_SUCCESS_COUNT": 0,
+    "SYNC_PAIR_REJECT_COUNT": 0,
+    "SYNC_PAIR_LAST_REASON": "NO_RGB_SAMPLE",
+    "SYNC_PAIR_RECENT_REJECTIONS": [],
+    "SYNC_PAYLOAD_GENERATION": 0,
+    "SYNC_LAST_COMMIT_MONOTONIC": null,
+    "SYNC_LAST_COMMIT_RGB_STAMP": null,
+    "SYNC_LAST_COMMIT_DEPTH_STAMP": null,
+    "SYNC_LAST_COMMIT_SKEW_MS": null,
+    "SYNC_LAST_COMMIT_REASON": "NO_VALID_PAIR",
+    "RGB_PAYLOAD_QUEUE_SIZE": 0,
+    "DEPTH_PAYLOAD_QUEUE_SIZE": 0,
+    "RGB_DROPPED_TOO_OLD_COUNT": 0,
+    "DEPTH_DROPPED_TOO_OLD_COUNT": 0,
+    "RGB_CAMERAINFO_CACHE": false,
+    "RGB_RATE_STATE": "READY",
+    "DEPTH_RATE_STATE": "READY",
+    "tcp_fresh": true,
+    "joint_fresh": true,
+    "alarm_state": {
+      "fresh": true,
+      "codes": []
+    },
+    "physical_estop": "PRESENT",
+    "hardware_safety": "OPERATOR VERIFIED",
+    "software_estop_monitoring": "NOT CONNECTED",
+    "safety_input_state": {
+      "supported": false,
+      "verified": false
+    },
+    "hardware_readiness": {
+      "state": "DEPTH_ERROR",
+      "ready": false,
+      "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+      "blockers": [
+        "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+      ],
+      "depth_fresh": true,
+      "depth_stable": false,
+      "tcp_fresh": true,
+      "joints_fresh": true,
+      "alarms_fresh": true,
+      "robot_connected": true,
+      "safety_supported": false,
+      "safety_verified": false,
+      "physical_estop_present": true,
+      "operator_safety_verified": true,
+      "software_estop_monitoring": "NOT CONNECTED",
+      "depth_age_s": 0.11211991310119629,
+      "tcp_age_s": 0.029276132583618164,
+      "joints_age_s": 0.029276132583618164,
+      "alarms_age_s": 0.07205438613891602
+    },
+    "ui": {
+      "language": "th",
+      "step": "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e01\u0e25\u0e49\u0e2d\u0e07",
+      "status": "Depth \u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21",
+      "recommended_action": "\u0e15\u0e23\u0e27\u0e08\u0e01\u0e32\u0e23\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e01\u0e25\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e48\u0e32 LDP \u0e41\u0e25\u0e49\u0e27\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48",
+      "motion_allowed": false
+    },
+    "age_sec": 0.18
+  },
+  "status": {
+    "camera": {
+      "raw_topic": "/camera/color/image_raw",
+      "compressed_topic": "/camera/color/image_raw/compressed",
+      "device": "",
+      "direct_camera_connected": false,
+      "frame_age_sec": 0.03,
+      "frame_source": "/camera/color/image_raw/compressed",
+      "has_frame": true,
+      "camera_info_topic": "/camera/color/camera_info",
+      "intrinsics_source": "camera_info",
+      "intrinsics_age_sec": 0.03
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    },
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -0.61,
+        37.03,
+        41.87,
+        0.0
+      ],
+      "joints_age_sec": 0.02,
+      "current_tcp_pose": [
+        190.76058959960938,
+        -2.0270936489105225,
+        9.663726806640625,
+        -0.6088235378265381
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.02,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "camera_health": {
+      "usb": {
+        "devices": [
+          {
+            "path": "2-4.2",
+            "product": "0614",
+            "role": "depth_data",
+            "serial": "",
+            "speed_mbps": 5000.0
+          },
+          {
+            "path": "1-4.1",
+            "product": "0511",
+            "role": "rgb_uvc",
+            "serial": "AY2A760003E",
+            "speed_mbps": 480.0
+          }
+        ],
+        "superspeed": true,
+        "camera_identity": "AY2A760003E",
+        "identity_valid": true
+      },
+      "streams": {
+        "rgb_info": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 7.99,
+          "fps": 30.06,
+          "timestamp_fps": 30.12,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 32.037,
+          "max_stamp_gap_ms": 37.56999969482422,
+          "estimated_missing_frames": 0,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true,
+          "intrinsics_valid": true
+        },
+        "depth_info": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 16.27,
+          "fps": 30.07,
+          "timestamp_fps": 30.07,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 34.29,
+          "max_stamp_gap_ms": 37.531137466430664,
+          "estimated_missing_frames": 0,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true,
+          "intrinsics_valid": true
+        },
+        "rgb": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 97.83885799411684,
+          "fps": 24.835,
+          "max_stamp_gap_ms": 167.946,
+          "timestamp_valid": true,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true
+        },
+        "depth": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 73.36485799411685,
+          "fps": 23.722,
+          "max_stamp_gap_ms": 198.866,
+          "timestamp_valid": true,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": false,
+          "valid_ratio": 0.0,
+          "valid": false
+        }
+      },
+      "ready": false,
+      "blockers": [
+        "depth_data_invalid"
+      ],
+      "warnings": [],
+      "cloud_health_validation_enabled": false,
+      "cloud_health_state": "delegated_to_calibration",
+      "callback_diagnostics": {
+        "rgb": {
+          "enter_count": 973,
+          "exit_count": 973,
+          "exception_count": 0,
+          "last_enter_monotonic": 528405.14335996,
+          "last_exit_monotonic": 528405.143384219,
+          "last_exception": ""
+        },
+        "depth": {
+          "enter_count": 977,
+          "exit_count": 977,
+          "exception_count": 0,
+          "last_enter_monotonic": 528405.135084073,
+          "last_exit_monotonic": 528405.135110716,
+          "last_exception": ""
+        },
+        "rgb_info": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        },
+        "depth_info": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        },
+        "cloud": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        }
+      },
+      "ldp_protection_active": false,
+      "alignment_metadata_consistent": true,
+      "rgb_payload_valid": true,
+      "depth_quality_state": "delegated_to_calibration",
+      "rgb_depth_skew_ms": 21.55,
+      "rgb_depth_sync_valid": true,
+      "age_sec": 0.01
+    }
+  },
+  "system/status": {
+    "ready": false,
+    "components": {
+      "robot": true,
+      "camera": false,
+      "vision": false,
+      "calibration": false,
+      "home": false,
+      "observation": false,
+      "motion_idle": true,
+      "real_motion": false
+    },
+    "blockers": [
+      "CAMERA_NOT_READY",
+      "VISION_NOT_READY",
+      "CALIBRATION_NOT_READY",
+      "HOME_NOT_READY",
+      "OBSERVATION_NOT_READY",
+      "REAL_MOTION_NOT_READY"
+    ],
+    "calibration_required": true,
+    "runtime": {
+      "robot_connected": true,
+      "robot_state_fresh": true,
+      "camera_connected": false,
+      "camera_health_fresh": true,
+      "rgb_fresh": true,
+      "depth_fresh": true,
+      "depth_valid": false,
+      "camera_identity_valid": true,
+      "calibration_available": false,
+      "calibration_verified": false,
+      "vision_running": false,
+      "web_running": true,
+      "port_8080": true,
+      "no_critical_alarm": true,
+      "real_motion_enabled": false
+    },
+    "startup": {
+      "state": "WAITING_FOR_CAMERA",
+      "action": null,
+      "reason": "waiting for live camera frame"
+    },
+    "observation_pose_configured": [
+      220.0,
+      0.0,
+      80.0,
+      0.0
+    ],
+    "motion_mode": "DRY_RUN"
+  },
+  "source_digest_matches": true,
+  "expected_source_digest": "46fd5af2f5f1397b921119a8a5f84ba57dea7fa6c38d5150e432f50ab9ba4d57",
+  "commissioning_profile_samples": [
+    {
+      "utc": "2026-10-11T10:27:51Z",
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.08210563659667969,
+        "tcp_age_s": 0.017578840255737305,
+        "joints_age_s": 0.017578840255737305,
+        "alarms_age_s": 0.059392452239990234
+      },
+      "depth_quality": {
+        "status": "SENSOR_ERROR",
+        "code": "DEPTH_HEALTH_REJECTED",
+        "reason": "Independent camera health rejected live depth",
+        "depth_valid_ratio": 0.0,
+        "source": "/camera/health"
+      },
+      "depth_health": {
+        "fresh": true,
+        "frames": 271,
+        "age_ms": 1.45,
+        "fps": 30.17,
+        "timestamp_fps": 29.96,
+        "timestamp_valid": true,
+        "current_timestamp_valid": true,
+        "active_window_frames": 46,
+        "current_duplicate_timestamps": 0,
+        "current_regressed_timestamps": 0,
+        "duplicate_timestamps": 0,
+        "regressed_timestamps": 0,
+        "historical_duplicate_timestamps": 0,
+        "historical_regressed_timestamps": 0,
+        "median_timestamp_delta_ms": 34.293,
+        "max_stamp_gap_ms": 66.84398651123047,
+        "estimated_missing_frames": 1,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "state": "READY",
+        "expected_rate_ok": true
+      },
+      "automatic": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": "",
+        "authorization_protocol": 2
+      },
+      "motion": {
+        "active_goal": false,
+        "last_goal_age_sec": null,
+        "last_feedback": null,
+        "last_result": null,
+        "joints_deg": [
+          -0.61,
+          37.03,
+          41.87,
+          0.0
+        ],
+        "joints_age_sec": 0.02,
+        "current_tcp_pose": [
+          190.76058959960938,
+          -2.0270936489105225,
+          9.663726806640625,
+          -0.6088235378265381
+        ],
+        "current_tcp_pose_source": "dobot_pose_raw",
+        "current_tcp_pose_age_sec": 0.02,
+        "homing_confirmed": false,
+        "vision_sequence_active": false,
+        "vision_sequence_age_sec": null
+      },
+      "camera_health": {
+        "usb": {
+          "devices": [
+            {
+              "path": "2-4.2",
+              "product": "0614",
+              "role": "depth_data",
+              "serial": "",
+              "speed_mbps": 5000.0
+            },
+            {
+              "path": "1-4.1",
+              "product": "0511",
+              "role": "rgb_uvc",
+              "serial": "AY2A760003E",
+              "speed_mbps": 480.0
+            }
+          ],
+          "superspeed": true,
+          "camera_identity": "AY2A760003E",
+          "identity_valid": true
+        },
+        "streams": {
+          "rgb": {
+            "fresh": true,
+            "frames": 273,
+            "age_ms": 2.43,
+            "fps": 30.11,
+            "timestamp_fps": 30.1,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 46,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.022,
+            "max_stamp_gap_ms": 36.14091873168945,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "depth": {
+            "fresh": true,
+            "frames": 277,
+            "age_ms": 1.24,
+            "fps": 30.16,
+            "timestamp_fps": 29.95,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 46,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.295,
+            "max_stamp_gap_ms": 66.84398651123047,
+            "estimated_missing_frames": 1,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "rgb_info": {
+            "fresh": true,
+            "frames": 273,
+            "age_ms": 2.43,
+            "fps": 30.11,
+            "timestamp_fps": 30.1,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 46,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.022,
+            "max_stamp_gap_ms": 36.14091873168945,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          },
+          "depth_info": {
+            "fresh": true,
+            "frames": 277,
+            "age_ms": 1.24,
+            "fps": 30.16,
+            "timestamp_fps": 29.95,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 46,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.295,
+            "max_stamp_gap_ms": 66.84398651123047,
+            "estimated_missing_frames": 1,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          }
+        },
+        "ready": true,
+        "blockers": [],
+        "warnings": [],
+        "cloud_health_validation_enabled": false,
+        "cloud_health_state": "delegated_to_calibration",
+        "callback_diagnostics": {
+          "rgb": {
+            "enter_count": 273,
+            "exit_count": 273,
+            "exception_count": 0,
+            "last_enter_monotonic": 528512.304859587,
+            "last_exit_monotonic": 528512.304881693,
+            "last_exception": ""
+          },
+          "depth": {
+            "enter_count": 277,
+            "exit_count": 277,
+            "exception_count": 0,
+            "last_enter_monotonic": 528512.306049014,
+            "last_exit_monotonic": 528512.306068138,
+            "last_exception": ""
+          },
+          "rgb_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "depth_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "cloud": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          }
+        },
+        "ldp_protection_active": false,
+        "alignment_metadata_consistent": true,
+        "rgb_payload_valid": true,
+        "depth_quality_state": "delegated_to_calibration",
+        "rgb_depth_skew_ms": 8.56,
+        "rgb_depth_sync_valid": true,
+        "age_sec": 0.03
+      }
+    },
+    {
+      "utc": "2026-10-11T10:27:56Z",
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.11660289764404297,
+        "tcp_age_s": 0.0407261848449707,
+        "joints_age_s": 0.0407261848449707,
+        "alarms_age_s": 0.0832669734954834
+      },
+      "depth_quality": {
+        "status": "SENSOR_ERROR",
+        "code": "DEPTH_HEALTH_REJECTED",
+        "reason": "Independent camera health rejected live depth",
+        "depth_valid_ratio": 0.0,
+        "source": "/camera/health"
+      },
+      "depth_health": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 20.01,
+        "fps": 30.11,
+        "timestamp_fps": 30.07,
+        "timestamp_valid": true,
+        "current_timestamp_valid": true,
+        "active_window_frames": 45,
+        "current_duplicate_timestamps": 0,
+        "current_regressed_timestamps": 0,
+        "duplicate_timestamps": 0,
+        "regressed_timestamps": 0,
+        "historical_duplicate_timestamps": 0,
+        "historical_regressed_timestamps": 0,
+        "median_timestamp_delta_ms": 34.308,
+        "max_stamp_gap_ms": 35.5069637298584,
+        "estimated_missing_frames": 0,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "state": "READY",
+        "expected_rate_ok": true
+      },
+      "automatic": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": "",
+        "authorization_protocol": 2
+      },
+      "motion": {
+        "active_goal": false,
+        "last_goal_age_sec": null,
+        "last_feedback": null,
+        "last_result": null,
+        "joints_deg": [
+          -0.61,
+          37.03,
+          41.87,
+          0.0
+        ],
+        "joints_age_sec": 0.03,
+        "current_tcp_pose": [
+          190.76058959960938,
+          -2.0270936489105225,
+          9.663726806640625,
+          -0.6088235378265381
+        ],
+        "current_tcp_pose_source": "dobot_pose_raw",
+        "current_tcp_pose_age_sec": 0.03,
+        "homing_confirmed": false,
+        "vision_sequence_active": false,
+        "vision_sequence_age_sec": null
+      },
+      "camera_health": {
+        "usb": {
+          "devices": [
+            {
+              "path": "2-4.2",
+              "product": "0614",
+              "role": "depth_data",
+              "serial": "",
+              "speed_mbps": 5000.0
+            },
+            {
+              "path": "1-4.1",
+              "product": "0511",
+              "role": "rgb_uvc",
+              "serial": "AY2A760003E",
+              "speed_mbps": 480.0
+            }
+          ],
+          "superspeed": true,
+          "camera_identity": "AY2A760003E",
+          "identity_valid": true
+        },
+        "streams": {
+          "rgb": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 19.94,
+            "fps": 30.1,
+            "timestamp_fps": 30.1,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.027,
+            "max_stamp_gap_ms": 36.14091873168945,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "depth": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 19.64,
+            "fps": 30.1,
+            "timestamp_fps": 30.06,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.309,
+            "max_stamp_gap_ms": 35.5069637298584,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "rgb_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 19.94,
+            "fps": 30.1,
+            "timestamp_fps": 30.1,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.027,
+            "max_stamp_gap_ms": 36.14091873168945,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          },
+          "depth_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 19.64,
+            "fps": 30.1,
+            "timestamp_fps": 30.06,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.309,
+            "max_stamp_gap_ms": 35.5069637298584,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          }
+        },
+        "ready": true,
+        "blockers": [],
+        "warnings": [],
+        "cloud_health_validation_enabled": false,
+        "cloud_health_state": "delegated_to_calibration",
+        "callback_diagnostics": {
+          "rgb": {
+            "enter_count": 423,
+            "exit_count": 423,
+            "exception_count": 0,
+            "last_enter_monotonic": 528517.285981227,
+            "last_exit_monotonic": 528517.286030019,
+            "last_exception": ""
+          },
+          "depth": {
+            "enter_count": 427,
+            "exit_count": 427,
+            "exception_count": 0,
+            "last_enter_monotonic": 528517.286285338,
+            "last_exit_monotonic": 528517.286300776,
+            "last_exception": ""
+          },
+          "rgb_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "depth_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "cloud": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          }
+        },
+        "ldp_protection_active": false,
+        "alignment_metadata_consistent": true,
+        "rgb_payload_valid": true,
+        "depth_quality_state": "delegated_to_calibration",
+        "rgb_depth_skew_ms": 1.33,
+        "rgb_depth_sync_valid": true,
+        "age_sec": 0.05
+      }
+    },
+    {
+      "utc": "2026-10-11T10:28:01Z",
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.1232607364654541,
+        "tcp_age_s": 0.029383182525634766,
+        "joints_age_s": 0.029383182525634766,
+        "alarms_age_s": 0.07179665565490723
+      },
+      "depth_quality": {
+        "status": "SENSOR_ERROR",
+        "code": "DEPTH_HEALTH_REJECTED",
+        "reason": "Independent camera health rejected live depth",
+        "depth_valid_ratio": 0.0,
+        "source": "/camera/health"
+      },
+      "depth_health": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 35.43,
+        "fps": 30.1,
+        "timestamp_fps": 30.07,
+        "timestamp_valid": true,
+        "current_timestamp_valid": true,
+        "active_window_frames": 45,
+        "current_duplicate_timestamps": 0,
+        "current_regressed_timestamps": 0,
+        "duplicate_timestamps": 0,
+        "regressed_timestamps": 0,
+        "historical_duplicate_timestamps": 0,
+        "historical_regressed_timestamps": 0,
+        "median_timestamp_delta_ms": 34.309,
+        "max_stamp_gap_ms": 36.51881217956543,
+        "estimated_missing_frames": 0,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "state": "READY",
+        "expected_rate_ok": true
+      },
+      "automatic": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": "",
+        "authorization_protocol": 2
+      },
+      "motion": {
+        "active_goal": false,
+        "last_goal_age_sec": null,
+        "last_feedback": null,
+        "last_result": null,
+        "joints_deg": [
+          -0.61,
+          37.03,
+          41.87,
+          0.0
+        ],
+        "joints_age_sec": 0.05,
+        "current_tcp_pose": [
+          190.76058959960938,
+          -2.0270936489105225,
+          9.663726806640625,
+          -0.6088235378265381
+        ],
+        "current_tcp_pose_source": "dobot_pose_raw",
+        "current_tcp_pose_age_sec": 0.05,
+        "homing_confirmed": false,
+        "vision_sequence_active": false,
+        "vision_sequence_age_sec": null
+      },
+      "camera_health": {
+        "usb": {
+          "devices": [
+            {
+              "path": "2-4.2",
+              "product": "0614",
+              "role": "depth_data",
+              "serial": "",
+              "speed_mbps": 5000.0
+            },
+            {
+              "path": "1-4.1",
+              "product": "0511",
+              "role": "rgb_uvc",
+              "serial": "AY2A760003E",
+              "speed_mbps": 480.0
+            }
+          ],
+          "superspeed": true,
+          "camera_identity": "AY2A760003E",
+          "identity_valid": true
+        },
+        "streams": {
+          "rgb": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 1.4,
+            "fps": 29.99,
+            "timestamp_fps": 30.1,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.036,
+            "max_stamp_gap_ms": 36.96799278259277,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "depth": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 1.11,
+            "fps": 29.99,
+            "timestamp_fps": 29.97,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.312,
+            "max_stamp_gap_ms": 65.90414047241211,
+            "estimated_missing_frames": 1,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "rgb_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 1.4,
+            "fps": 29.99,
+            "timestamp_fps": 30.1,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.036,
+            "max_stamp_gap_ms": 36.96799278259277,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          },
+          "depth_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 1.11,
+            "fps": 29.99,
+            "timestamp_fps": 29.97,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.312,
+            "max_stamp_gap_ms": 65.90414047241211,
+            "estimated_missing_frames": 1,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          }
+        },
+        "ready": true,
+        "blockers": [],
+        "warnings": [],
+        "cloud_health_validation_enabled": false,
+        "cloud_health_state": "delegated_to_calibration",
+        "callback_diagnostics": {
+          "rgb": {
+            "enter_count": 573,
+            "exit_count": 573,
+            "exception_count": 0,
+            "last_enter_monotonic": 528522.306233483,
+            "last_exit_monotonic": 528522.306255916,
+            "last_exception": ""
+          },
+          "depth": {
+            "enter_count": 577,
+            "exit_count": 577,
+            "exception_count": 0,
+            "last_enter_monotonic": 528522.306520586,
+            "last_exit_monotonic": 528522.306537769,
+            "last_exception": ""
+          },
+          "rgb_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "depth_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "cloud": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          }
+        },
+        "ldp_protection_active": false,
+        "alignment_metadata_consistent": true,
+        "rgb_payload_valid": true,
+        "depth_quality_state": "delegated_to_calibration",
+        "rgb_depth_skew_ms": 0.15,
+        "rgb_depth_sync_valid": true,
+        "age_sec": 0.06
+      }
+    },
+    {
+      "utc": "2026-10-11T10:28:06Z",
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.12204265594482422,
+        "tcp_age_s": 0.054052114486694336,
+        "joints_age_s": 0.054052114486694336,
+        "alarms_age_s": 0.09695148468017578
+      },
+      "depth_quality": {
+        "status": "SENSOR_ERROR",
+        "code": "DEPTH_HEALTH_REJECTED",
+        "reason": "Independent camera health rejected live depth",
+        "depth_valid_ratio": 0.0,
+        "source": "/camera/health"
+      },
+      "depth_health": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 9.09,
+        "fps": 29.98,
+        "timestamp_fps": 29.96,
+        "timestamp_valid": true,
+        "current_timestamp_valid": true,
+        "active_window_frames": 45,
+        "current_duplicate_timestamps": 0,
+        "current_regressed_timestamps": 0,
+        "duplicate_timestamps": 0,
+        "regressed_timestamps": 0,
+        "historical_duplicate_timestamps": 0,
+        "historical_regressed_timestamps": 0,
+        "median_timestamp_delta_ms": 34.3,
+        "max_stamp_gap_ms": 65.90414047241211,
+        "estimated_missing_frames": 1,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "state": "READY",
+        "expected_rate_ok": true
+      },
+      "automatic": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": "",
+        "authorization_protocol": 2
+      },
+      "motion": {
+        "active_goal": false,
+        "last_goal_age_sec": null,
+        "last_feedback": null,
+        "last_result": null,
+        "joints_deg": [
+          -0.61,
+          37.03,
+          41.87,
+          0.0
+        ],
+        "joints_age_sec": 0.02,
+        "current_tcp_pose": [
+          190.76058959960938,
+          -2.0270936489105225,
+          9.663726806640625,
+          -0.6088235378265381
+        ],
+        "current_tcp_pose_source": "dobot_pose_raw",
+        "current_tcp_pose_age_sec": 0.03,
+        "homing_confirmed": false,
+        "vision_sequence_active": false,
+        "vision_sequence_age_sec": null
+      },
+      "camera_health": {
+        "usb": {
+          "devices": [
+            {
+              "path": "2-4.2",
+              "product": "0614",
+              "role": "depth_data",
+              "serial": "",
+              "speed_mbps": 5000.0
+            },
+            {
+              "path": "1-4.1",
+              "product": "0511",
+              "role": "rgb_uvc",
+              "serial": "AY2A760003E",
+              "speed_mbps": 480.0
+            }
+          ],
+          "superspeed": true,
+          "camera_identity": "AY2A760003E",
+          "identity_valid": true
+        },
+        "streams": {
+          "rgb": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 9.47,
+            "fps": 29.98,
+            "timestamp_fps": 30.12,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.04,
+            "max_stamp_gap_ms": 37.336111068725586,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "depth": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 7.15,
+            "fps": 29.97,
+            "timestamp_fps": 29.96,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.3,
+            "max_stamp_gap_ms": 65.90414047241211,
+            "estimated_missing_frames": 1,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "rgb_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 9.47,
+            "fps": 29.98,
+            "timestamp_fps": 30.12,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.04,
+            "max_stamp_gap_ms": 37.336111068725586,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          },
+          "depth_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 7.15,
+            "fps": 29.97,
+            "timestamp_fps": 29.96,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.3,
+            "max_stamp_gap_ms": 65.90414047241211,
+            "estimated_missing_frames": 1,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          }
+        },
+        "ready": true,
+        "blockers": [],
+        "warnings": [],
+        "cloud_health_validation_enabled": false,
+        "cloud_health_state": "delegated_to_calibration",
+        "callback_diagnostics": {
+          "rgb": {
+            "enter_count": 723,
+            "exit_count": 723,
+            "exception_count": 0,
+            "last_enter_monotonic": 528527.296740265,
+            "last_exit_monotonic": 528527.2967741,
+            "last_exception": ""
+          },
+          "depth": {
+            "enter_count": 727,
+            "exit_count": 727,
+            "exception_count": 0,
+            "last_enter_monotonic": 528527.299063641,
+            "last_exit_monotonic": 528527.299096876,
+            "last_exception": ""
+          },
+          "rgb_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "depth_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "cloud": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          }
+        },
+        "ldp_protection_active": false,
+        "alignment_metadata_consistent": true,
+        "rgb_payload_valid": true,
+        "depth_quality_state": "delegated_to_calibration",
+        "rgb_depth_skew_ms": 5.99,
+        "rgb_depth_sync_valid": true,
+        "age_sec": 0.09
+      }
+    },
+    {
+      "utc": "2026-10-11T10:28:11Z",
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.1122593879699707,
+        "tcp_age_s": 0.03205537796020508,
+        "joints_age_s": 0.03205537796020508,
+        "alarms_age_s": 0.07513928413391113
+      },
+      "depth_quality": {
+        "status": "SENSOR_ERROR",
+        "code": "DEPTH_HEALTH_REJECTED",
+        "reason": "Independent camera health rejected live depth",
+        "depth_valid_ratio": 0.0,
+        "source": "/camera/health"
+      },
+      "depth_health": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 21.8,
+        "fps": 29.97,
+        "timestamp_fps": 29.96,
+        "timestamp_valid": true,
+        "current_timestamp_valid": true,
+        "active_window_frames": 45,
+        "current_duplicate_timestamps": 0,
+        "current_regressed_timestamps": 0,
+        "duplicate_timestamps": 0,
+        "regressed_timestamps": 0,
+        "historical_duplicate_timestamps": 0,
+        "historical_regressed_timestamps": 0,
+        "median_timestamp_delta_ms": 34.295,
+        "max_stamp_gap_ms": 65.90414047241211,
+        "estimated_missing_frames": 1,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "state": "READY",
+        "expected_rate_ok": true
+      },
+      "automatic": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": "",
+        "authorization_protocol": 2
+      },
+      "motion": {
+        "active_goal": false,
+        "last_goal_age_sec": null,
+        "last_feedback": null,
+        "last_result": null,
+        "joints_deg": [
+          -0.61,
+          37.03,
+          41.87,
+          0.0
+        ],
+        "joints_age_sec": 0.05,
+        "current_tcp_pose": [
+          190.76058959960938,
+          -2.0270936489105225,
+          9.663726806640625,
+          -0.6088235378265381
+        ],
+        "current_tcp_pose_source": "dobot_pose_raw",
+        "current_tcp_pose_age_sec": 0.05,
+        "homing_confirmed": false,
+        "vision_sequence_active": false,
+        "vision_sequence_age_sec": null
+      },
+      "camera_health": {
+        "usb": {
+          "devices": [
+            {
+              "path": "2-4.2",
+              "product": "0614",
+              "role": "depth_data",
+              "serial": "",
+              "speed_mbps": 5000.0
+            },
+            {
+              "path": "1-4.1",
+              "product": "0511",
+              "role": "rgb_uvc",
+              "serial": "AY2A760003E",
+              "speed_mbps": 480.0
+            }
+          ],
+          "superspeed": true,
+          "camera_identity": "AY2A760003E",
+          "identity_valid": true
+        },
+        "streams": {
+          "rgb": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 18.28,
+            "fps": 30.07,
+            "timestamp_fps": 30.1,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.042,
+            "max_stamp_gap_ms": 37.336111068725586,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "depth": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 19.85,
+            "fps": 30.07,
+            "timestamp_fps": 30.07,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.292,
+            "max_stamp_gap_ms": 36.99302673339844,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "rgb_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 18.28,
+            "fps": 30.07,
+            "timestamp_fps": 30.1,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.042,
+            "max_stamp_gap_ms": 37.336111068725586,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          },
+          "depth_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 19.85,
+            "fps": 30.07,
+            "timestamp_fps": 30.07,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.292,
+            "max_stamp_gap_ms": 36.99302673339844,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          }
+        },
+        "ready": true,
+        "blockers": [],
+        "warnings": [],
+        "cloud_health_validation_enabled": false,
+        "cloud_health_state": "delegated_to_calibration",
+        "callback_diagnostics": {
+          "rgb": {
+            "enter_count": 876,
+            "exit_count": 876,
+            "exception_count": 0,
+            "last_enter_monotonic": 528532.388037134,
+            "last_exit_monotonic": 528532.388071821,
+            "last_exception": ""
+          },
+          "depth": {
+            "enter_count": 880,
+            "exit_count": 880,
+            "exception_count": 0,
+            "last_enter_monotonic": 528532.386468784,
+            "last_exit_monotonic": 528532.38650709,
+            "last_exception": ""
+          },
+          "rgb_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "depth_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "cloud": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          }
+        },
+        "ldp_protection_active": false,
+        "alignment_metadata_consistent": true,
+        "rgb_payload_valid": true,
+        "depth_quality_state": "delegated_to_calibration",
+        "rgb_depth_skew_ms": 12.36,
+        "rgb_depth_sync_valid": true,
+        "age_sec": 0.01
+      }
+    },
+    {
+      "utc": "2026-10-11T10:28:16Z",
+      "hardware": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "blockers": [
+          "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.11987161636352539,
+        "tcp_age_s": 0.03511548042297363,
+        "joints_age_s": 0.03511548042297363,
+        "alarms_age_s": 0.07836484909057617
+      },
+      "depth_quality": {
+        "status": "SENSOR_ERROR",
+        "code": "DEPTH_HEALTH_REJECTED",
+        "reason": "Independent camera health rejected live depth",
+        "depth_valid_ratio": 0.0,
+        "source": "/camera/health"
+      },
+      "depth_health": {
+        "fresh": true,
+        "frames": 300,
+        "age_ms": 31.2,
+        "fps": 30.07,
+        "timestamp_fps": 30.07,
+        "timestamp_valid": true,
+        "current_timestamp_valid": true,
+        "active_window_frames": 45,
+        "current_duplicate_timestamps": 0,
+        "current_regressed_timestamps": 0,
+        "duplicate_timestamps": 0,
+        "regressed_timestamps": 0,
+        "historical_duplicate_timestamps": 0,
+        "historical_regressed_timestamps": 0,
+        "median_timestamp_delta_ms": 34.302,
+        "max_stamp_gap_ms": 36.99302673339844,
+        "estimated_missing_frames": 0,
+        "frame_id": "camera_color_optical_frame",
+        "rate_ok": true,
+        "state": "READY",
+        "expected_rate_ok": true
+      },
+      "automatic": {
+        "state": "IDLE",
+        "accepted_pose_count": 0,
+        "total_poses": 10,
+        "dry_run": false,
+        "production_ready": false,
+        "reason": "",
+        "authorization_protocol": 2
+      },
+      "motion": {
+        "active_goal": false,
+        "last_goal_age_sec": null,
+        "last_feedback": null,
+        "last_result": null,
+        "joints_deg": [
+          -0.61,
+          37.03,
+          41.87,
+          0.0
+        ],
+        "joints_age_sec": 0.03,
+        "current_tcp_pose": [
+          190.76058959960938,
+          -2.0270936489105225,
+          9.663726806640625,
+          -0.6088235378265381
+        ],
+        "current_tcp_pose_source": "dobot_pose_raw",
+        "current_tcp_pose_age_sec": 0.03,
+        "homing_confirmed": false,
+        "vision_sequence_active": false,
+        "vision_sequence_age_sec": null
+      },
+      "camera_health": {
+        "usb": {
+          "devices": [
+            {
+              "path": "2-4.2",
+              "product": "0614",
+              "role": "depth_data",
+              "serial": "",
+              "speed_mbps": 5000.0
+            },
+            {
+              "path": "1-4.1",
+              "product": "0511",
+              "role": "rgb_uvc",
+              "serial": "AY2A760003E",
+              "speed_mbps": 480.0
+            }
+          ],
+          "superspeed": true,
+          "camera_identity": "AY2A760003E",
+          "identity_valid": true
+        },
+        "streams": {
+          "rgb": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 30.82,
+            "fps": 30.06,
+            "timestamp_fps": 30.12,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.036,
+            "max_stamp_gap_ms": 37.15991973876953,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "depth": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 32.4,
+            "fps": 30.07,
+            "timestamp_fps": 30.07,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.305,
+            "max_stamp_gap_ms": 36.99302673339844,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true
+          },
+          "rgb_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 30.82,
+            "fps": 30.06,
+            "timestamp_fps": 30.12,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 32.036,
+            "max_stamp_gap_ms": 37.15991973876953,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          },
+          "depth_info": {
+            "fresh": true,
+            "frames": 300,
+            "age_ms": 32.4,
+            "fps": 30.07,
+            "timestamp_fps": 30.07,
+            "timestamp_valid": true,
+            "current_timestamp_valid": true,
+            "active_window_frames": 45,
+            "current_duplicate_timestamps": 0,
+            "current_regressed_timestamps": 0,
+            "duplicate_timestamps": 0,
+            "regressed_timestamps": 0,
+            "historical_duplicate_timestamps": 0,
+            "historical_regressed_timestamps": 0,
+            "median_timestamp_delta_ms": 34.305,
+            "max_stamp_gap_ms": 36.99302673339844,
+            "estimated_missing_frames": 0,
+            "frame_id": "camera_color_optical_frame",
+            "rate_ok": true,
+            "state": "READY",
+            "expected_rate_ok": true,
+            "intrinsics_valid": true
+          }
+        },
+        "ready": true,
+        "blockers": [],
+        "warnings": [],
+        "cloud_health_validation_enabled": false,
+        "cloud_health_state": "delegated_to_calibration",
+        "callback_diagnostics": {
+          "rgb": {
+            "enter_count": 1027,
+            "exit_count": 1027,
+            "exception_count": 0,
+            "last_enter_monotonic": 528537.409821294,
+            "last_exit_monotonic": 528537.409848932,
+            "last_exception": ""
+          },
+          "depth": {
+            "enter_count": 1031,
+            "exit_count": 1031,
+            "exception_count": 0,
+            "last_enter_monotonic": 528537.410328234,
+            "last_exit_monotonic": 528537.410353162,
+            "last_exception": ""
+          },
+          "rgb_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "depth_info": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          },
+          "cloud": {
+            "enter_count": 0,
+            "exit_count": 0,
+            "exception_count": 0,
+            "last_enter_monotonic": null,
+            "last_exit_monotonic": null,
+            "last_exception": ""
+          }
+        },
+        "ldp_protection_active": false,
+        "alignment_metadata_consistent": true,
+        "rgb_payload_valid": true,
+        "depth_quality_state": "delegated_to_calibration",
+        "rgb_depth_skew_ms": 7.45,
+        "rgb_depth_sync_valid": true,
+        "age_sec": 0.03
+      }
+    }
+  ],
+  "optional_object_fusion_disabled": true,
+  "final_systemd": "MainPID=15899\nNRestarts=0\nActiveState=active\nSubState=running\n",
+  "final_vision/calibration": {
+    "state": "UNCALIBRATED",
+    "ready": false,
+    "available": false,
+    "reason": "Calibration bootstrap geometry eligible; full verified geometry remains required for production",
+    "stamp": 1791714671.4812417,
+    "result": "FAIL",
+    "architecture": "markerless_hand_eye",
+    "command_frame": "TCP",
+    "calibration_parent_frame": "TCP",
+    "tcp_only_consumer_supported": true,
+    "bundle_path": "/home/bbcontact/.ros/dobot/markerless_calibration.npz",
+    "bundle_loaded": false,
+    "context_digest": "",
+    "geometry_verified": false,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_ELIGIBLE": true,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_BLOCKERS": [],
+    "CAMERA_ID_SOURCE": "AUTO_DETECTED",
+    "CAMERA_ID": "AY2A760003E",
+    "CAMERA_ID_VERIFIED": true,
+    "CAMERA_ID_RESOLUTION": "PASS",
+    "EXACT_GATE": "",
+    "readiness": {
+      "HARDWARE_READY": false,
+      "PASSIVE_CAPTURE_READY": false,
+      "REAL_MOTION_READY": false,
+      "GEOMETRY_VERIFIED": false,
+      "point_cloud_source_usable": false,
+      "native_cloud_state": null,
+      "blockers": [
+        "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED"
+      ]
+    },
+    "AUTHORITATIVE_BASELINE_READY": false,
+    "AUTHORITATIVE_BASELINE_STABLE_FOR_S": 0.0,
+    "AUTHORITATIVE_BASELINE_REQUIRED_STABLE_S": 10.0,
+    "AUTHORITATIVE_BASELINE_BLOCKERS": [
+      "HARDWARE_NOT_READY",
+      "PASSIVE_CAPTURE_NOT_READY",
+      "DEPTH_UNSTABLE",
+      "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED",
+      "POINT_CLOUD_UNUSABLE"
+    ],
+    "AUTHORITATIVE_BASELINE_CURRENT_BLOCKERS": [
+      "HARDWARE_NOT_READY",
+      "PASSIVE_CAPTURE_NOT_READY",
+      "DEPTH_UNSTABLE",
+      "RGB_DEPTH_CAMERAINFO_NOT_SYNCHRONIZED",
+      "POINT_CLOUD_UNUSABLE"
+    ],
+    "AUTHORITATIVE_BASELINE_LAST_RESET_GATE": "HARDWARE_NOT_READY",
+    "AUTHORITATIVE_BASELINE_LAST_RESET_TIME": 528507.575681733,
+    "AUTHORITATIVE_BASELINE_RESET_COUNT": 2,
+    "AUTHORITATIVE_BASELINE_EXACT_GATE": "HARDWARE_NOT_READY",
+    "passive_mode": true,
+    "passive_pose_count": 1,
+    "passive_solve": {
+      "state": "IDLE",
+      "production_ready": false
+    },
+    "automatic_calibration": {
+      "state": "IDLE",
+      "accepted_pose_count": 0,
+      "total_poses": 10,
+      "dry_run": false,
+      "production_ready": false,
+      "reason": "",
+      "authorization_protocol": 2
+    },
+    "automatic_commissioning": null,
+    "software_source_digest": "46fd5af2f5f1397b921119a8a5f84ba57dea7fa6c38d5150e432f50ab9ba4d57",
+    "passive_pose_metadata": [
+      {
+        "pose_index": 1,
+        "XYZ_mm": [
+          150.00619506835938,
+          -4.406147624536061e-08,
+          99.9019546508789
+        ],
+        "J4_yaw_deg": 0.0,
+        "rgb_fps": 17.787,
+        "health_node_rgb_fps": 17.787,
+        "depth_fps": 18.194,
+        "sync_skew_ms": 153.1057357788086,
+        "depth_valid_ratio": 0.5316927083333334,
+        "point_cloud_source": "DEPTH_DEPROJECTION",
+        "cloud_point_count": 4000,
+        "cloud_frame_id": "camera_color_optical_frame",
+        "cloud_timestamp": 1791523690.987864,
+        "native_cross_validation": {
+          "native_reference": "unavailable"
+        },
+        "blur_score": 89.71711166253621,
+        "pose_stability": {
+          "tcp_span_mm": 0.0,
+          "joint_span_deg": 0.0
+        },
+        "scene_overlap": null,
+        "registration_quality": {
+          "status": "ANCHOR"
+        },
+        "plane_diagnostics": {
+          "plane_gate": "pre_calibration_dominant_plane",
+          "plane_inlier_count": 3398,
+          "plane_inlier_ratio": 0.8495,
+          "plane_normal_camera_optical": [
+            -0.010465971900476358,
+            -0.12139033831502816,
+            -0.9925496708960925
+          ],
+          "plane_rms_m": 0.0004912815467136938,
+          "plane_median_distance_m": 0.0003368195861305767,
+          "plane_spatial_spread_m": [
+            0.07580897711880047,
+            0.04759074611573711,
+            0.0004912815467136945
+          ],
+          "plane_area_estimate_m2": 0.014431223133418228,
+          "plane_inlier_depth_range_m": [
+            0.203,
+            0.229
+          ],
+          "plane_thresholds": {
+            "min_points": 200,
+            "min_inlier_ratio": 0.3,
+            "max_distance_m": 0.004,
+            "min_spatial_width_m": 0.025
+          },
+          "total_valid_cloud_points": 163336,
+          "filtered_cloud_points": 4000,
+          "debug_artifact": "/home/bbcontact/.ros/dobot/passive_pose_1_debug.npz"
+        },
+        "rejection_reasons": [],
+        "geometry_verified": false
+      }
+    ],
+    "passive_guidance": {
+      "state": "GUIDE_TO_TARGET",
+      "current": {
+        "xyz_mm": [
+          190.76058959960938,
+          -2.0270936489105225,
+          9.663726806640625
+        ],
+        "j4_deg": 0.0
+      },
+      "target": {
+        "pose_index": 2,
+        "xyz_mm": [
+          185.0,
+          0.0,
+          100.0
+        ],
+        "j4_deg": 0.0
+      },
+      "delta": {
+        "xyz_mm": [
+          -5.760589599609375,
+          2.0270936489105225,
+          90.33627319335938
+        ],
+        "j4_deg": 0.0
+      },
+      "directions": {
+        "X": "-X",
+        "Y": "OK",
+        "Z": "+Z",
+        "J4": "OK"
+      },
+      "distance_to_target_mm": 90.54245278134363,
+      "xyz_tolerance_mm": 5.0,
+      "j4_tolerance_deg": 2.0,
+      "robot_stable": true,
+      "hardware_ready": false,
+      "capture_enabled": false,
+      "automatic_capture": false,
+      "progress": [
+        {
+          "pose_index": 1,
+          "state": "ACCEPTED"
+        },
+        {
+          "pose_index": 2,
+          "state": "GUIDE_TO_TARGET"
+        },
+        {
+          "pose_index": 3,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 4,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 5,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 6,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 7,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 8,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 9,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 10,
+          "state": "PENDING"
+        }
+      ],
+      "pose_stability": {
+        "tcp_span_mm": 0.0,
+        "joint_span_deg": 0.0
+      }
+    },
+    "supervised_auto": {
+      "state": "IDLE",
+      "dry_run": true,
+      "real_motion_enabled": false,
+      "current_pose": 0,
+      "total_poses": 10,
+      "target": null,
+      "readiness": "",
+      "safety_status": "",
+      "motion_progress": 0.0,
+      "capture_result": "",
+      "registration_quality": {},
+      "blockers": [],
+      "history": []
+    },
+    "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+    "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+    "samples_collected": 1,
+    "samples_accepted": 1,
+    "samples_rejected": 0,
+    "translation_residual_mm": null,
+    "rotation_residual_deg": null,
+    "verification_status": "FAIL",
+    "verification_samples": 0,
+    "reload_verification_status": "MISSING",
+    "mount_translation_error_bound_mm": null,
+    "mount_envelope_mm": null,
+    "blockers": [
+      "Calibration bootstrap geometry eligible; full verified geometry remains required for production"
+    ],
+    "metrics": {},
+    "depth_quality": {
+      "status": "SENSOR_ERROR",
+      "code": "DEPTH_HEALTH_REJECTED",
+      "reason": "Independent camera health rejected live depth",
+      "depth_valid_ratio": 0.0,
+      "source": "/camera/health"
+    },
+    "rgb_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 19.64,
+      "fps": 30.07,
+      "timestamp_fps": 30.12,
+      "timestamp_valid": true,
+      "current_timestamp_valid": true,
+      "active_window_frames": 45,
+      "current_duplicate_timestamps": 0,
+      "current_regressed_timestamps": 0,
+      "duplicate_timestamps": 0,
+      "regressed_timestamps": 0,
+      "historical_duplicate_timestamps": 0,
+      "historical_regressed_timestamps": 0,
+      "median_timestamp_delta_ms": 32.043,
+      "max_stamp_gap_ms": 36.11111640930176,
+      "estimated_missing_frames": 0,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "state": "READY",
+      "expected_rate_ok": true
+    },
+    "depth_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 21.22,
+      "fps": 30.07,
+      "timestamp_fps": 30.07,
+      "timestamp_valid": true,
+      "current_timestamp_valid": true,
+      "active_window_frames": 45,
+      "current_duplicate_timestamps": 0,
+      "current_regressed_timestamps": 0,
+      "duplicate_timestamps": 0,
+      "regressed_timestamps": 0,
+      "historical_duplicate_timestamps": 0,
+      "historical_regressed_timestamps": 0,
+      "median_timestamp_delta_ms": 34.292,
+      "max_stamp_gap_ms": 36.63301467895508,
+      "estimated_missing_frames": 0,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": true,
+      "state": "READY",
+      "expected_rate_ok": true
+    },
+    "RGB_FRESH": true,
+    "DEPTH_FRESH": true,
+    "RGB_CAMERAINFO_FRESH": true,
+    "DEPTH_CAMERAINFO_FRESH": true,
+    "RGB_DEPTH_CAMERAINFO_SYNCHRONIZED": false,
+    "SENSOR_INGEST_STATE": "IDLE",
+    "SENSOR_INGEST_OWNER": "NONE",
+    "SENSOR_INGEST_ACTIVATION_REASON": "",
+    "SENSOR_INGEST_ACTIVATED_AT_MONOTONIC": null,
+    "SENSOR_INGEST_ACTIVATION_COUNT": 0,
+    "RGB_SUBSCRIPTION_ACTIVE": false,
+    "DEPTH_SUBSCRIPTION_ACTIVE": false,
+    "CLOUD_SUBSCRIPTION_ACTIVE": false,
+    "INTERNAL_SYNC_PAYLOAD_AVAILABLE": false,
+    "SYNC_PAYLOAD_AGE_MS": null,
+    "RGB_DEPTH_SKEW_MS": null,
+    "SYNC_PAIR_SUCCESS_COUNT": 0,
+    "SYNC_PAIR_REJECT_COUNT": 0,
+    "SYNC_PAIR_LAST_REASON": "NO_RGB_SAMPLE",
+    "SYNC_PAIR_RECENT_REJECTIONS": [],
+    "SYNC_PAYLOAD_GENERATION": 0,
+    "SYNC_LAST_COMMIT_MONOTONIC": null,
+    "SYNC_LAST_COMMIT_RGB_STAMP": null,
+    "SYNC_LAST_COMMIT_DEPTH_STAMP": null,
+    "SYNC_LAST_COMMIT_SKEW_MS": null,
+    "SYNC_LAST_COMMIT_REASON": "NO_VALID_PAIR",
+    "RGB_PAYLOAD_QUEUE_SIZE": 0,
+    "DEPTH_PAYLOAD_QUEUE_SIZE": 0,
+    "RGB_DROPPED_TOO_OLD_COUNT": 0,
+    "DEPTH_DROPPED_TOO_OLD_COUNT": 0,
+    "RGB_CAMERAINFO_CACHE": false,
+    "RGB_RATE_STATE": "READY",
+    "DEPTH_RATE_STATE": "READY",
+    "tcp_fresh": true,
+    "joint_fresh": true,
+    "alarm_state": {
+      "fresh": true,
+      "codes": []
+    },
+    "physical_estop": "PRESENT",
+    "hardware_safety": "OPERATOR VERIFIED",
+    "software_estop_monitoring": "NOT CONNECTED",
+    "safety_input_state": {
+      "supported": false,
+      "verified": false
+    },
+    "hardware_readiness": {
+      "state": "DEPTH_ERROR",
+      "ready": false,
+      "reason": "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+      "blockers": [
+        "DEPTH_HEALTH_REJECTED: Independent camera health rejected live depth",
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+      ],
+      "depth_fresh": true,
+      "depth_stable": false,
+      "tcp_fresh": true,
+      "joints_fresh": true,
+      "alarms_fresh": true,
+      "robot_connected": true,
+      "safety_supported": false,
+      "safety_verified": false,
+      "physical_estop_present": true,
+      "operator_safety_verified": true,
+      "software_estop_monitoring": "NOT CONNECTED",
+      "depth_age_s": 0.11449241638183594,
+      "tcp_age_s": 0.041404008865356445,
+      "joints_age_s": 0.041404008865356445,
+      "alarms_age_s": 0.08423018455505371
+    },
+    "ui": {
+      "language": "th",
+      "step": "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e01\u0e25\u0e49\u0e2d\u0e07",
+      "status": "Depth \u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21",
+      "recommended_action": "\u0e15\u0e23\u0e27\u0e08\u0e01\u0e32\u0e23\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e01\u0e25\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e48\u0e32 LDP \u0e41\u0e25\u0e49\u0e27\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48",
+      "motion_allowed": false
+    },
+    "age_sec": 0.15
+  },
+  "final_status": {
+    "camera": {
+      "raw_topic": "/camera/color/image_raw",
+      "compressed_topic": "/camera/color/image_raw/compressed",
+      "device": "",
+      "direct_camera_connected": false,
+      "frame_age_sec": 0.03,
+      "frame_source": "/camera/color/image_raw/compressed",
+      "has_frame": true,
+      "camera_info_topic": "/camera/color/camera_info",
+      "intrinsics_source": "camera_info",
+      "intrinsics_age_sec": 0.03
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    },
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -0.61,
+        37.03,
+        41.87,
+        0.0
+      ],
+      "joints_age_sec": 0.05,
+      "current_tcp_pose": [
+        190.76058959960938,
+        -2.0270936489105225,
+        9.663726806640625,
+        -0.6088235378265381
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.05,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "camera_health": {
+      "usb": {
+        "devices": [
+          {
+            "path": "2-4.2",
+            "product": "0614",
+            "role": "depth_data",
+            "serial": "",
+            "speed_mbps": 5000.0
+          },
+          {
+            "path": "1-4.1",
+            "product": "0511",
+            "role": "rgb_uvc",
+            "serial": "AY2A760003E",
+            "speed_mbps": 480.0
+          }
+        ],
+        "superspeed": true,
+        "camera_identity": "AY2A760003E",
+        "identity_valid": true
+      },
+      "streams": {
+        "rgb": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 21.85,
+          "fps": 30.06,
+          "timestamp_fps": 30.1,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 32.043,
+          "max_stamp_gap_ms": 36.11111640930176,
+          "estimated_missing_frames": 0,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true
+        },
+        "depth": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 20.34,
+          "fps": 30.05,
+          "timestamp_fps": 30.07,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 34.299,
+          "max_stamp_gap_ms": 36.63301467895508,
+          "estimated_missing_frames": 0,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true
+        },
+        "rgb_info": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 21.85,
+          "fps": 30.06,
+          "timestamp_fps": 30.1,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 32.043,
+          "max_stamp_gap_ms": 36.11111640930176,
+          "estimated_missing_frames": 0,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true,
+          "intrinsics_valid": true
+        },
+        "depth_info": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 20.34,
+          "fps": 30.05,
+          "timestamp_fps": 30.07,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 34.299,
+          "max_stamp_gap_ms": 36.63301467895508,
+          "estimated_missing_frames": 0,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true,
+          "intrinsics_valid": true
+        }
+      },
+      "ready": true,
+      "blockers": [],
+      "warnings": [],
+      "cloud_health_validation_enabled": false,
+      "cloud_health_state": "delegated_to_calibration",
+      "callback_diagnostics": {
+        "rgb": {
+          "enter_count": 6281,
+          "exit_count": 6281,
+          "exception_count": 0,
+          "last_enter_monotonic": 528712.087253186,
+          "last_exit_monotonic": 528712.08729087,
+          "last_exception": ""
+        },
+        "depth": {
+          "enter_count": 6281,
+          "exit_count": 6281,
+          "exception_count": 0,
+          "last_enter_monotonic": 528712.088760257,
+          "last_exit_monotonic": 528712.088792652,
+          "last_exception": ""
+        },
+        "rgb_info": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        },
+        "depth_info": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        },
+        "cloud": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        }
+      },
+      "ldp_protection_active": false,
+      "alignment_metadata_consistent": true,
+      "rgb_payload_valid": true,
+      "depth_quality_state": "delegated_to_calibration",
+      "rgb_depth_skew_ms": 5.73,
+      "rgb_depth_sync_valid": true,
+      "age_sec": 0.04
+    }
+  },
+  "final_system/status": {
+    "ready": false,
+    "components": {
+      "robot": true,
+      "camera": true,
+      "vision": false,
+      "calibration": false,
+      "home": false,
+      "observation": false,
+      "motion_idle": true,
+      "real_motion": false
+    },
+    "blockers": [
+      "VISION_NOT_READY",
+      "CALIBRATION_NOT_READY",
+      "HOME_NOT_READY",
+      "OBSERVATION_NOT_READY",
+      "REAL_MOTION_NOT_READY"
+    ],
+    "calibration_required": true,
+    "runtime": {
+      "robot_connected": true,
+      "robot_state_fresh": true,
+      "camera_connected": true,
+      "camera_health_fresh": true,
+      "rgb_fresh": true,
+      "depth_fresh": true,
+      "depth_valid": false,
+      "camera_identity_valid": true,
+      "calibration_available": false,
+      "calibration_verified": false,
+      "vision_running": false,
+      "web_running": true,
+      "port_8080": true,
+      "no_critical_alarm": true,
+      "real_motion_enabled": false
+    },
+    "startup": {
+      "state": "WAITING_FOR_VISION",
+      "action": null,
+      "reason": "waiting for valid synchronized RGB-D vision"
+    },
+    "observation_pose_configured": [
+      220.0,
+      0.0,
+      80.0,
+      0.0
+    ],
+    "motion_mode": "DRY_RUN"
+  }
+}

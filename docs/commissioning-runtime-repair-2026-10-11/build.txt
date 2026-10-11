@@ -1,0 +1,19 @@
+[0.796s] WARNING:colcon.colcon_core.package_selection:Some selected packages are already built in one or more underlay workspaces:
+	'dobot_msgs' is in: /home/bbcontact/magician_ros2/install/dobot_msgs
+	'dobot_calibration' is in: /home/bbcontact/magician_ros2/install/dobot_calibration
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding dobot_calibration dobot_msgs
+
+This may be promoted to an error in a future release of colcon-override-check.
+Starting >>> dobot_msgs
+[Processing: dobot_msgs]
+Finished <<< dobot_msgs [41.8s]
+Starting >>> dobot_calibration
+Finished <<< dobot_calibration [5.65s]
+Starting >>> dobot_web_interface
+Finished <<< dobot_web_interface [5.42s]
+
+Summary: 3 packages finished [53.3s]
