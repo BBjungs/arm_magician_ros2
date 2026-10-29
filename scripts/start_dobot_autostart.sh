@@ -53,6 +53,7 @@ set -u
 : "${VISION_MODE:=eye_in_hand}"
 : "${DOBOT_SERIAL_PORT:=/dev/ttyUSB0}"
 : "${DOBOT_SERIAL_TIMEOUT:=1.0}"
+: "${DOBOT_SERIAL_LOCK_PATH:=/run/user/$(id -u)/dobot-magician-serial.lock}"
 : "${WEB_HOST:=127.0.0.1}"
 : "${WEB_PORT:=8080}"
 : "${DOBOT_WEB_API_TOKEN:=}"
@@ -162,7 +163,7 @@ echo "[BOOT] Workspace=${DOBOT_WS_DIR} ROS=jazzy"
 echo "[BOOT] Dobot=${DOBOT_SERIAL_PORT} Orbbec=${ORBBEC_SERIAL_NUMBER:-disabled}"
 
 export MAGICIAN_TOOL
-export DOBOT_SERIAL_PORT DOBOT_SERIAL_TIMEOUT
+export DOBOT_SERIAL_PORT DOBOT_SERIAL_TIMEOUT DOBOT_SERIAL_LOCK_PATH
 export ROS_LOG_DIR
 export WEB_HOST WEB_PORT
 export DOBOT_WEB_API_TOKEN

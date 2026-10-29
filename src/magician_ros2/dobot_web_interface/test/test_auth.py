@@ -1,22 +1,28 @@
-import base64
 from types import SimpleNamespace
+from unittest.mock import Mock
 
-from dobot_web_interface.web_interface import _basic_auth_valid
+from fastapi.testclient import TestClient
+import pytest
 
-
-def request_with_credentials(username, password):
-    encoded = base64.b64encode(f"{username}:{password}".encode()).decode()
-    return SimpleNamespace(headers={"authorization": f"Basic {encoded}"})
-
-
-def test_basic_auth_accepts_expected_credentials():
-    assert _basic_auth_valid(request_with_credentials("dobot", "secret"), "secret")
+from dobot_web_interface.web_interface import create_app
 
 
-def test_basic_auth_rejects_wrong_user_or_token():
-    assert not _basic_auth_valid(request_with_credentials("admin", "secret"), "secret")
-    assert not _basic_auth_valid(request_with_credentials("dobot", "wrong"), "secret")
+@pytest.mark.parametrize('legacy_token', ['', 'previously-configured-token'])
+def test_web_and_api_are_accessible_without_credentials(legacy_token):
+    node = SimpleNamespace(
+        api_token=legacy_token,
+        operator_status=Mock(return_value={'state': 'IDLE'}),
+        operator_stop=Mock(return_value={'accepted': True}),
+    )
+    with TestClient(create_app(node)) as client:
+        for path in ('/', '/static/operator.html', '/api/operator/status'):
+            response = client.get(path)
+            assert response.status_code == 200
+            assert 'www-authenticate' not in response.headers
+        response = client.post('/api/operator/stop')
+        assert response.status_code == 200
+        assert response.json() == {'accepted': True}
+        assert 'www-authenticate' not in response.headers
 
-
-def test_basic_auth_rejects_missing_header():
-    assert not _basic_auth_valid(SimpleNamespace(headers={}), "secret")
+    node.operator_status.assert_called_once_with({'job': 'black', 'place_id': 'Zone A'})
+    node.operator_stop.assert_called_once_with()

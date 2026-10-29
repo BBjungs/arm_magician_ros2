@@ -5,7 +5,7 @@ Browser control panel for Dobot Magician with a live MJPEG camera view.
 ## Run
 
 ```bash
-cd /home/bbcontact/magician_ros2
+cd /home/jetson/arm_magician_ws
 source /opt/ros/jazzy/setup.bash
 source install/setup.bash
 
@@ -62,7 +62,7 @@ in a safe state.
 Run the Dobot control stack in another terminal before using motion or tool buttons:
 
 ```bash
-cd /home/bbcontact/magician_ros2
+cd /home/jetson/arm_magician_ws
 source /opt/ros/jazzy/setup.bash
 source install/setup.bash
 
@@ -97,16 +97,34 @@ ros2 launch dobot_web_interface dobot_web_interface.launch.py \
 Autostart settings live in:
 
 ```text
-/home/bbcontact/magician_ros2/config/dobot-autostart.env
+/home/jetson/arm_magician_ws/config/dobot-autostart.env
 ```
 
 The user service file is:
 
 ```text
-/home/bbcontact/magician_ros2/systemd/dobot-magician.service
+/home/jetson/arm_magician_ws/systemd/dobot-magician.service
 ```
 
-After installing the user service:
+On the Jetson, install Cyclone DDS, USB permissions and the user service:
+
+```bash
+cd /home/jetson/arm_magician_ws
+sudo apt-get install ros-jazzy-rmw-cyclonedds-cpp
+sudo install -m 0644 systemd/99-dobot-devices.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+sudo udevadm trigger --action=change --subsystem-match=tty --sysname-match=ttyUSB0
+sudo udevadm trigger --action=change --subsystem-match=usb --attr-match=idVendor=2bc5
+sudo udevadm settle
+install -D -m 0644 systemd/dobot-magician.service ~/.config/systemd/user/dobot-magician.service
+sudo loginctl enable-linger jetson
+systemctl --user daemon-reload
+systemctl --user enable --now dobot-magician.service
+```
+
+The device rules grant access through `plugdev`, which the Jetson operator
+belongs to. The serial lock path is resolved from the running user's UID.
+Inspect the service with:
 
 ```bash
 systemctl --user status dobot-magician.service
@@ -156,6 +174,6 @@ Factory lens calibration is read automatically from
 fall back to the configured intrinsics YAML.
 
 The default bind address is `127.0.0.1`. To expose the control API on the LAN,
-set `DOBOT_WEB_API_TOKEN` to a long random value and launch with `host:=0.0.0.0`.
-The browser uses HTTP Basic Authentication with username `dobot` and the token
-as its password. Startup fails closed when a non-loopback host has no token.
+launch with `host:=0.0.0.0` and open `http://<robot-ip>:8080`.
+The web interface and API are available directly without a username or password,
+including when a legacy `DOBOT_WEB_API_TOKEN` value is configured.

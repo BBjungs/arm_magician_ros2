@@ -12,6 +12,9 @@ const autoCalibrationResume = $('autoCalibrationResume');
 const autoCalibrationAbort = $('autoCalibrationAbort');
 const notice = $('notice');
 const annotatedCamera = $('annotatedCamera');
+const cameraPanel = $('cameraPanel');
+const cameraFullscreen = $('cameraFullscreen');
+const checkViews = new Map();
 let latestStatus = null;
 let automaticPlanFingerprint = null;
 let latestAutomatic = {};
@@ -50,19 +53,36 @@ function replaceOptions(select, values) {
 
 function renderChecks(checks) {
   const container = $('checks');
-  container.textContent = '';
+  const currentKeys = new Set();
   checks.forEach((check) => {
-    const item = document.createElement('div');
+    const key = check.key || check.label;
+    currentKeys.add(key);
+    let view = checkViews.get(key);
+    if (!view) {
+      const item = document.createElement('details');
+      const summary = document.createElement('summary');
+      const label = document.createElement('span');
+      const value = document.createElement('strong');
+      const reason = document.createElement('small');
+      summary.append(label, value);
+      item.append(summary, reason);
+      container.appendChild(item);
+      view = { item, label, value, reason };
+      checkViews.set(key, view);
+    }
+    // Reuse each disclosure so polling preserves keyboard focus and open state.
+    const { item, label, value, reason } = view;
     item.className = `check ${check.ok ? 'ready' : 'not-ready'}`;
-    const label = document.createElement('span');
     label.textContent = check.label;
-    const value = document.createElement('strong');
     value.textContent = check.status;
-    const reason = document.createElement('small');
     reason.textContent = `เหตุผล: ${check.reason || 'ไม่มีรายละเอียด'}`;
-    item.append(label, value, reason);
-    container.appendChild(item);
   });
+  for (const [key, { item }] of checkViews) {
+    if (!currentKeys.has(key)) {
+      item.remove();
+      checkViews.delete(key);
+    }
+  }
 }
 
 function renderStatus(status) {
@@ -161,7 +181,8 @@ function renderAutomaticCalibration(auto) {
   const compatible = auto.authorization_protocol === 2;
   $('automaticStart').disabled = active || !compatible;
   $('automaticCommission').disabled = active || !compatible;
-  if (automaticPlanFingerprint !== auto.plan_fingerprint) {
+  const planChanged = automaticPlanFingerprint !== auto.plan_fingerprint;
+  if (planChanged) {
     document.querySelectorAll('[data-calibration-ack]').forEach((box) => { box.checked = false; });
     automaticPlanFingerprint = auto.plan_fingerprint;
   }
@@ -182,11 +203,138 @@ function renderAutomaticCalibration(auto) {
   if (auto.commissioning_required && !auto.commissioning_available) {
     reason += ' · ต้องผ่าน Commissioning สองท่าจริงก่อนรอบสิบท่า';
   }
-  if (reason.startsWith('WORKSPACE_NOT_CONFIGURED:')) {
-    reason = 'ยังขาดค่าการติดตั้ง: ระดับโต๊ะและขอบเขตพื้นที่ว่างในพิกัดฐานหุ่นยนต์';
-  }
   const progress = `${auto.accepted_pose_count || 0}/${auto.total_poses || 10} ท่า`;
-  $('automaticResult').textContent = `${labels[auto.state] || 'พร้อมเริ่ม'} · ${progress}${reason ? ' · ' + reason : ''}`;
+  $('automaticResult').textContent = `${labels[auto.state] || 'รอสถานะจากระบบ'} · ${progress}`;
+  $('calibrationTechnicalReason').textContent = reason || 'ยังไม่มีรายละเอียดเพิ่มเติมจากระบบ';
+  renderCalibrationWizard(auto, planChanged);
+}
+
+function calibrationInstructions(reasons) {
+  const messages = [
+    ['WORKSPACE_NOT_CONFIGURED', 'กำหนดพื้นที่ทำงานก่อน', 'ให้ผู้ติดตั้งวัดระดับโต๊ะและขอบเขตพื้นที่ว่างในพิกัดฐานหุ่นยนต์ แล้วบันทึกค่าพื้นที่คาลิเบรต'],
+    ['SCENE_BASELINE_MISSING', 'ยังไม่มีข้อมูลฉากอ้างอิง', 'ให้ผู้ติดตั้งเก็บและตรวจสอบฉากอ้างอิงของพื้นที่ทำงานก่อนตรวจแผนอีกครั้ง'],
+    ['MOUNT_ROTATION_UNVERIFIED', 'ยังไม่ยืนยันมุมติดตั้งกล้อง', 'ให้ผู้ติดตั้งทำขั้นตอนคาลิเบรตแบบมีผู้ดูแล เพื่อยืนยันมุมกล้องกับแขนกล'],
+    ['DEPTH_INSUFFICIENT_VALID_PIXELS', 'กล้องเห็นความลึกไม่เพียงพอ', 'ตรวจว่ากล้องเห็นพื้นผิวพื้นที่ทำงานชัดเจนและอยู่ในระยะวัด แล้วกดตรวจระบบอีกครั้ง'],
+    ['DEPTH_ALL_ZERO', 'กล้องยังไม่มีข้อมูลความลึก', 'ตรวจสาย USB 3 และภาพความลึกในสถานะระบบก่อนทำต่อ'],
+    ['TWO_POSE_COMMISSIONING_REQUIRED', 'ต้องทดสอบ 2 ท่าก่อน', 'ตรวจแผนทดสอบ 2 ท่า ยืนยันรอบนั้น และรอผลผ่านก่อนตรวจแผนคาลิเบรต 10 ท่า'],
+    ['OPERATOR_AUTHORIZATION_EXPIRED', 'หมดเวลายืนยันแผน', 'ตรวจแผนใหม่และยืนยันเงื่อนไขหน้าเครื่องอีกครั้งสำหรับรอบใหม่'],
+    ['ROBOT_MOVED_SINCE_PLAN_VALIDATION', 'ตำแหน่งแขนเปลี่ยนหลังตรวจแผน', 'รอให้แขนหยุดนิ่ง แล้วตรวจแผนใหม่ก่อนยืนยัน'],
+  ];
+  const raw = reasons.filter(Boolean).join('; ');
+  const known = messages.filter(([code]) => raw.includes(code));
+  if (raw && !known.length) {
+    return [['OTHER', 'ยังมีเงื่อนไขที่ต้องตรวจสอบ', 'ดูสถานะระบบและเปิดรายละเอียดสำหรับผู้ติดตั้งด้านล่าง แก้สาเหตุแล้วจึงตรวจแผนอีกครั้ง']];
+  }
+  return known;
+}
+
+function renderCalibrationWizard(auto, planChanged) {
+  const state = auto.state || 'IDLE';
+  const waiting = state === 'WAITING_FOR_OPERATOR_AUTHORIZATION';
+  const fault = state === 'FAULT';
+  const capturing = ['MOVING', 'SETTLING', 'CAPTURING', 'VALIDATING_CAPTURE', 'NEXT_POSE', 'PAUSED'].includes(state);
+  const complete = ['COMMISSIONING_COMPLETE', 'CANDIDATE_VERIFIED'].includes(state);
+  const step = waiting ? 2 : capturing ? 3 : state === 'SOLVING' || complete ? 4 : 1;
+  for (let i = 1; i <= 4; i += 1) {
+    const element = $(`calibrationStep${i}`);
+    element.classList.toggle('completed', i < step && !fault);
+    if (i === step) element.setAttribute('aria-current', 'step');
+    else element.removeAttribute('aria-current');
+  }
+
+  let title = 'เริ่มจากตรวจแผนทดสอบ 2 ท่า';
+  let help = 'ครั้งแรกให้ทดสอบ 2 ท่าก่อน แล้วจึงคาลิเบรตครบ 10 ท่า การตรวจแผนยังไม่สั่งแขนเคลื่อนที่';
+  let badge = 'เตรียมคาลิเบรต';
+  const total = Math.max(1, Number(auto.total_poses) || 10);
+  const accepted = Math.max(0, Math.min(total, Number(auto.accepted_pose_count) || 0));
+  if (state === 'PREFLIGHT') {
+    title = 'กำลังตรวจอุปกรณ์และแผนการเคลื่อนที่';
+    help = 'รอผลตรวจ หากผ่าน ระบบจะแสดงแผนและรายการให้คุณยืนยันก่อนเคลื่อนที่';
+    badge = 'กำลังตรวจแผน';
+  } else if (waiting) {
+    title = 'ตรวจแผน แล้วติ๊กยืนยันทีละข้อ';
+    help = 'อ่านแผนด้านล่างและตรวจพื้นที่จริงให้ครบ เมื่อกดอนุญาต แขนจะเริ่มเคลื่อนตามแผนรอบนี้';
+    badge = 'รอคุณยืนยัน';
+  } else if (capturing) {
+    title = state === 'PAUSED' ? 'พักการคาลิเบรตแล้ว' : `กำลังเก็บภาพ · ผ่านแล้ว ${accepted} / ${total} ท่า`;
+    help = state === 'PAUSED'
+      ? 'กดทำต่อเมื่อพร้อม ระบบจะตรวจการอนุญาตและเงื่อนไขอีกครั้ง หรือกดหยุดคาลิเบรตเพื่อยุติรอบนี้'
+      : 'ติดตามภาพกล้องและความคืบหน้า ปุ่มพักจะพักเมื่อแขนหยุดนิ่ง ส่วนปุ่มหยุดใช้ขอยุติรอบนี้';
+    badge = state === 'PAUSED' ? 'พักอยู่' : 'กำลังทำงาน';
+  } else if (state === 'SOLVING') {
+    title = 'เก็บภาพแล้ว กำลังคำนวณและตรวจผล';
+    help = 'รอผลตรวจจากระบบก่อนเริ่มงาน ขั้นตอนนี้ยังไม่ใช่การยืนยันว่าพร้อมหยิบชิ้นงาน';
+    badge = 'กำลังตรวจผล';
+  } else if (state === 'COMMISSIONING_COMPLETE') {
+    title = 'ทดสอบ 2 ท่าผ่านแล้ว';
+    help = 'ต่อไปกดตรวจแผนคาลิเบรต 10 ท่า แล้วตรวจและยืนยันแผนรอบใหม่ให้ครบ';
+    badge = 'ทดสอบผ่าน';
+  } else if (state === 'CANDIDATE_VERIFIED') {
+    title = 'ผลคำนวณผ่านแล้ว';
+    help = 'กดตรวจระบบเพื่อยืนยันผลคาลิเบรตกับอุปกรณ์ปัจจุบัน จากนั้นทำตามสถานะ HOME และจุดสังเกตก่อนเริ่มงาน';
+    badge = 'รอตรวจระบบ';
+  } else if (state === 'SAFE_STOP') {
+    title = 'ยุติรอบคาลิเบรตแล้ว';
+    help = 'ตรวจว่าแขนหยุดจริงและพื้นที่พร้อม ก่อนตรวจแผนใหม่ ข้อมูลที่เก็บบางส่วนยังไม่ถือเป็นผลคาลิเบรตที่ผ่าน';
+    badge = 'หยุดแล้ว';
+  } else if (fault) {
+    title = 'แก้เงื่อนไขด้านล่าง แล้วตรวจแผนอีกครั้ง';
+    help = 'ระบบยังไม่ผ่านการคาลิเบรต รายการด้านล่างบอกสิ่งที่ต้องเตรียมก่อนทำต่อ';
+    badge = 'ต้องตรวจสอบ';
+  } else if (state !== 'IDLE') {
+    title = 'รอสถานะล่าสุดจากระบบคาลิเบรต';
+    help = 'ดูรายละเอียดจากระบบด้านล่างก่อนดำเนินการต่อ';
+    badge = 'รอสถานะ';
+  }
+  if (auto.authorization_protocol !== 2) {
+    title = 'ยังเชื่อมต่อระบบคาลิเบรตรุ่นที่รองรับไม่ได้';
+    help = 'ให้ผู้ดูแลตรวจบริการคาลิเบรต ปุ่มตรวจแผนจะใช้งานได้เมื่อระบบรองรับการยืนยันก่อนเคลื่อนที่';
+    badge = 'รอระบบ';
+  }
+
+  const reasons = [...(auto.blockers || [])];
+  if (fault && auto.reason) reasons.push(auto.reason);
+  if (auto.commissioning_required && !auto.commissioning_available) reasons.push('TWO_POSE_COMMISSIONING_REQUIRED');
+  const guidance = calibrationInstructions(reasons);
+  const blockers = $('calibrationBlockers');
+  blockers.textContent = '';
+  blockers.hidden = !guidance.length;
+  guidance.forEach(([, heading, instruction]) => {
+    const item = document.createElement('li');
+    const label = document.createElement('strong');
+    const detail = document.createElement('p');
+    label.textContent = heading;
+    detail.textContent = instruction;
+    item.append(label, detail);
+    blockers.appendChild(item);
+  });
+  if (waiting && auto.commissioning_required && !auto.commissioning_available) {
+    title = 'รอบ 10 ท่ายังขาดผลทดสอบ 2 ท่า';
+    help = 'หยุดคาลิเบรตรอบที่รออยู่นี้ก่อน แล้วตรวจแผนทดสอบ 2 ท่าและทำให้ผ่าน จึงกลับมาตรวจแผน 10 ท่า';
+  }
+  $('calibrationNextTitle').textContent = title;
+  $('calibrationNextHelp').textContent = help;
+  $('calibrationStateLabel').textContent = badge;
+  $('calibrationStateLabel').classList.toggle('error', fault);
+  $('calibrationStateLabel').classList.toggle('success', state === 'COMMISSIONING_COMPLETE');
+  $('calibrationRunProgress').hidden = !capturing && state !== 'SOLVING' && !complete;
+  $('calibrationProgressBar').max = total;
+  $('calibrationProgressBar').value = accepted;
+  $('calibrationProgressLabel').textContent = `เก็บภาพที่ผ่านตรวจแล้ว ${accepted} / ${total} ท่า`;
+
+  const details = $('calibrationPlanDetails');
+  details.hidden = !(auto.plan || []).length;
+  if (waiting && planChanged) details.open = true;
+  $('calibrationPlanHelp').textContent = auto.purpose === 'COMMISSIONING_TWO_POSES'
+    ? 'รอบทดสอบนี้ใช้ 2 ท่าแรกจากแผน ด้านล่างแสดงแผนเต็มที่ระบบตรวจสอบ'
+    : 'ตรวจพิกัดและพื้นที่เคลื่อนที่ของแผนนี้ก่อนยืนยันเงื่อนไขหน้าเครื่อง';
+}
+
+function setCalibrationFeedback(message, error = false) {
+  const feedback = $('calibrationFeedback');
+  feedback.hidden = !message;
+  feedback.textContent = message;
+  feedback.classList.toggle('error', error);
 }
 
 async function refreshStatus() {
@@ -212,12 +360,78 @@ function refreshCamera() {
   annotatedCamera.src = `/api/vision/annotated?t=${Date.now()}`;
 }
 
+function updateCameraAspectRatio() {
+  if (annotatedCamera.naturalWidth > 0 && annotatedCamera.naturalHeight > 0) {
+    cameraPanel.style.setProperty(
+      '--camera-ratio', annotatedCamera.naturalWidth / annotatedCamera.naturalHeight,
+    );
+  }
+}
+
+function cameraIsExpanded() {
+  return document.fullscreenElement === cameraPanel || cameraPanel.classList.contains('camera-expanded');
+}
+
+function updateFullscreenButton() {
+  const expanded = cameraIsExpanded();
+  cameraFullscreen.setAttribute('aria-pressed', String(expanded));
+  cameraFullscreen.setAttribute('aria-label', expanded ? 'ออกจากภาพกล้องเต็มจอ' : 'ขยายภาพกล้องเต็มจอ');
+  $('fullscreenLabel').textContent = expanded ? 'ออกจากเต็มจอ' : 'เต็มจอ';
+}
+
+function setExpandedCameraFallback(expanded) {
+  cameraPanel.classList.toggle('camera-expanded', expanded);
+  document.body.classList.toggle('camera-expanded', expanded);
+  // Keep keyboard navigation within the expanded camera panel.
+  document.querySelectorAll('.topbar, .count-card, .control-panel').forEach((element) => {
+    element.inert = expanded;
+  });
+  updateFullscreenButton();
+  cameraFullscreen.focus();
+}
+
+cameraFullscreen.addEventListener('click', async () => {
+  const displayNotice = $('cameraDisplayNotice');
+  displayNotice.hidden = true;
+  try {
+    if (document.fullscreenElement === cameraPanel) {
+      await document.exitFullscreen();
+    } else if (cameraPanel.classList.contains('camera-expanded')) {
+      setExpandedCameraFallback(false);
+    } else if (document.fullscreenEnabled && cameraPanel.requestFullscreen) {
+      await cameraPanel.requestFullscreen();
+    } else {
+      setExpandedCameraFallback(true);
+    }
+  } catch (error) {
+    if (!document.fullscreenElement) {
+      setExpandedCameraFallback(true);
+      displayNotice.textContent = 'แสดงเต็มพื้นที่เบราว์เซอร์ · กด Esc หรือออกจากเต็มจอเพื่อกลับ';
+    } else {
+      displayNotice.textContent = 'กด Esc เพื่อออกจากภาพกล้องเต็มจอ';
+    }
+    displayNotice.hidden = false;
+  }
+  updateFullscreenButton();
+});
+window.addEventListener('fullscreenchange', updateFullscreenButton);
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && cameraPanel.classList.contains('camera-expanded')) {
+    setExpandedCameraFallback(false);
+    $('cameraDisplayNotice').hidden = true;
+  }
+});
+
 annotatedCamera.addEventListener('load', () => {
+  updateCameraAspectRatio();
   $('cameraLive').textContent = 'กำลังแสดงภาพสด';
+  $('cameraLive').classList.add('live');
 });
 annotatedCamera.addEventListener('error', () => {
   $('cameraLive').textContent = 'กำลังรอภาพ';
+  $('cameraLive').classList.remove('live');
 });
+updateCameraAspectRatio();
 
 jobSelect.addEventListener('change', refreshStatus);
 placeSelect.addEventListener('change', refreshStatus);
@@ -288,6 +502,7 @@ autoCalibrationAbort.addEventListener('click', () => autoCalibrationAction('abor
 
 function updateAuthorizationButton() {
   const boxes = [...document.querySelectorAll('[data-calibration-ack]')];
+  $('calibrationAckProgress').textContent = `ยืนยันแล้ว ${boxes.filter((box) => box.checked).length} / ${boxes.length} ข้อ`;
   $('automaticAuthorize').disabled = latestAutomatic.state !== 'WAITING_FOR_OPERATOR_AUTHORIZATION'
     || latestAutomatic.authorization_protocol !== 2
     || !automaticPlanFingerprint || !boxes.every((box) => box.checked)
@@ -302,11 +517,16 @@ $('automaticAuthorize').addEventListener('click', async () => {
     body[box.dataset.calibrationAck] = box.checked;
   });
   $('automaticAuthorize').disabled = true;
+  setCalibrationFeedback('กำลังส่งการยืนยันสำหรับแผนรอบนี้…');
   try {
     const result = await request('/api/calibration/autonomous/authorize', body);
     setNotice(result.message, !result.accepted);
+    setCalibrationFeedback(result.accepted
+      ? 'ส่งการยืนยันแล้ว ติดตามสถานะการเคลื่อนที่และการเก็บภาพด้านบน'
+      : result.message || 'ระบบไม่รับการยืนยัน กรุณาตรวจสถานะและแผนรอบนี้', !result.accepted);
   } catch (error) {
     setNotice(error.message, true);
+    setCalibrationFeedback(`ส่งการยืนยันไม่สำเร็จ: ${error.message}`, true);
   } finally {
     await refreshStatus();
   }
@@ -316,11 +536,21 @@ for (const [id, action] of [['automaticStart', 'start'], ['automaticCommission',
                             ['automaticResume', 'resume'], ['automaticAbort', 'abort']]) {
   $(id).addEventListener('click', async () => {
     $(id).disabled = true;
+    setCalibrationFeedback('กำลังส่งคำขอ…');
     try {
       const result = await request(`/api/calibration/autonomous/${action}`);
       setNotice(result.message, !result.accepted);
+      const messages = {
+        start: 'ส่งคำขอตรวจแผน 10 ท่าแล้ว รอผลและตรวจแผนก่อนยืนยันการเคลื่อนที่',
+        commission: 'ส่งคำขอตรวจแผนทดสอบ 2 ท่าแล้ว รอผลและตรวจแผนก่อนยืนยันการเคลื่อนที่',
+        pause: 'ส่งคำขอพักแล้ว รอให้สถานะแสดงว่าพักการทำงาน',
+        resume: 'ส่งคำขอทำต่อแล้ว ติดตามสถานะด้านบน',
+        abort: 'ส่งคำขอหยุดแล้ว ตรวจว่าแขนหยุดจริงจากสถานะและหน้าเครื่อง',
+      };
+      setCalibrationFeedback(result.accepted ? messages[action] : result.message || 'ระบบไม่รับคำขอ กรุณาตรวจสถานะ', !result.accepted);
     } catch (error) {
       setNotice(error.message, true);
+      setCalibrationFeedback(`ส่งคำขอไม่สำเร็จ: ${error.message}`, true);
     } finally {
       refreshStatus();
     }

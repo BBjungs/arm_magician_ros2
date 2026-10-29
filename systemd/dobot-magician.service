@@ -5,10 +5,10 @@ StartLimitBurst=3
 
 [Service]
 Type=simple
-WorkingDirectory=/home/bbcontact/magician_ros2
-EnvironmentFile=/home/bbcontact/magician_ros2/config/dobot-autostart.env
+WorkingDirectory=/home/jetson/arm_magician_ws
+EnvironmentFile=/home/jetson/arm_magician_ws/config/dobot-autostart.env
 Environment=PYTHONUNBUFFERED=1
-ExecStart=/home/bbcontact/magician_ros2/scripts/start_dobot_autostart.sh
+ExecStart=/home/jetson/arm_magician_ws/scripts/start_dobot_autostart.sh
 Restart=on-failure
 RestartSec=10
 TimeoutStartSec=120

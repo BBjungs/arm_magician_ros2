@@ -17,6 +17,8 @@ class Element {
   constructor() { this.listeners = {}; this.children = []; this.value = ''; this.checked = false;
     this.classList = { toggle() {}, add() {}, remove() {} }; }
   addEventListener(name, callback) { this.listeners[name] = callback; }
+  setAttribute(name, value) { this[name] = value; }
+  removeAttribute(name) { delete this[name]; }
   get options() { return this.children; }
   append(...elements) { this.children.push(...elements); }
   appendChild(element) { this.children.push(element); }
@@ -40,6 +42,14 @@ vm.runInContext(fs.readFileSync(process.argv[1], 'utf8'), context);
   await vm.runInContext('refreshStatus()', context);
   assert(get('automaticResult').textContent.includes('พร้อมตรวจแผน'));
   assert(!get('automaticResult').textContent.includes('GUIDE_TO_TARGET'));
+  assert(get('calibrationNextTitle').textContent.includes('2 ท่า'));
+  vm.runInContext('renderAutomaticCalibration({ state: "FAULT", authorization_protocol: 2, blockers: ["WORKSPACE_NOT_CONFIGURED: /tmp/measured.yaml", "SCENE_BASELINE_MISSING"] })', context);
+  assert(get('calibrationBlockers').children.some((row) => row.children[0].textContent.includes('พื้นที่ทำงาน')));
+  assert(get('calibrationBlockers').children.some((row) => row.children[0].textContent.includes('ฉากอ้างอิง')));
+  assert(get('calibrationTechnicalReason').textContent.includes('WORKSPACE_NOT_CONFIGURED'));
+  vm.runInContext('renderAutomaticCalibration({ state: "CANDIDATE_VERIFIED", authorization_protocol: 2, production_ready: false })', context);
+  assert(get('calibrationNextHelp').textContent.includes('ตรวจระบบ'));
+  assert(get('calibrationStateLabel').textContent === 'รอตรวจระบบ');
   vm.runInContext('renderAutomaticCalibration({ state: "IDLE" })', context);
   assert(get('automaticStart').disabled, 'old backend must not accept new start UI');
   const render = (plan, extra = {}) => vm.runInContext('renderAutomaticCalibration(' + JSON.stringify({
@@ -47,16 +57,23 @@ vm.runInContext(fs.readFileSync(process.argv[1], 'utf8'), context);
     plan_fingerprint: plan, plan: [{ pose_index: 2, xyz_mm: [190, 10, 105], j4_deg: 5 }], ...extra
   }) + ')', context);
   render('plan-one');
+  assert(get('calibrationPlanDetails').open, 'new plan must be visible for review');
+  assert(get('calibrationStep2')['aria-current'] === 'step');
   assert(get('automaticAuthorize').disabled);
   boxes.forEach((box) => box.checked = true);
   vm.runInContext('updateAuthorizationButton()', context);
   assert(!get('automaticAuthorize').disabled);
+  assert(get('calibrationAckProgress').textContent === 'ยืนยันแล้ว 7 / 7 ข้อ');
+  render('plan-one');
+  assert(boxes.every((box) => box.checked), 'polling the same plan preserves confirmations');
   assert(get('automaticPlan').children.some((row) => row.textContent.includes('190.0, 10.0, 105.0')));
   render('plan-two');
   assert(boxes.every((box) => !box.checked), 'new plan invalidates old confirmations');
+  assert(get('calibrationAckProgress').textContent === 'ยืนยันแล้ว 0 / 7 ข้อ');
   boxes.forEach((box) => box.checked = true);
   render('plan-two', { commissioning_required: true, commissioning_available: false });
   assert(get('automaticAuthorize').disabled, 'dry-run cannot authorize ten poses');
+  assert(get('calibrationNextHelp').textContent.includes('หยุดคาลิเบรตรอบที่รออยู่นี้ก่อน'));
   render('plan-two', { commissioning_required: false });
   await get('automaticAuthorize').listeners.click();
   const authorized = requests.find((r) => r.url.endsWith('/autonomous/authorize'));

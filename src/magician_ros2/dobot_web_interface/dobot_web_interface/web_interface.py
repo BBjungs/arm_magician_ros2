@@ -1,5 +1,3 @@
-import base64
-import hmac
 import math
 import os
 import threading
@@ -3168,17 +3166,6 @@ def create_app(node):
     app = FastAPI(title='Dobot Web Interface')
     static_dir = Path(__file__).with_name('static')
 
-    if node.api_token:
-        @app.middleware('http')
-        async def require_authentication(request, call_next):
-            if not _basic_auth_valid(request, node.api_token):
-                return Response(
-                    content='Authentication required',
-                    status_code=401,
-                    headers={'WWW-Authenticate': 'Basic realm="Dobot Magician"'},
-                )
-            return await call_next(request)
-
     app.mount('/static', StaticFiles(directory=str(static_dir)), name='static')
 
     @app.get('/', response_class=HTMLResponse)
@@ -3376,24 +3363,6 @@ def create_app(node):
         return _call_api(node.vision_eye_in_hand_test_pixel, await request.json())
 
     return app
-
-
-def _basic_auth_valid(request, expected_token):
-    authorization = request.headers.get('authorization', '')
-    if not authorization.startswith('Basic '):
-        return False
-    try:
-        decoded = base64.b64decode(
-            authorization[6:],
-            validate=True,
-        ).decode('utf-8')
-        username, token = decoded.split(':', 1)
-    except (ValueError, UnicodeDecodeError):
-        return False
-    return hmac.compare_digest(username, 'dobot') and hmac.compare_digest(
-        token,
-        expected_token,
-    )
 
 
 def _call_api(func, *args, busy_status=400):
