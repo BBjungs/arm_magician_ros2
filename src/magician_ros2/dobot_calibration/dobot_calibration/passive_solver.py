@@ -7,7 +7,8 @@ from .solver import solve, verify
 from .workflow import load_bundle, save_bundle
 
 
-def solve_session(captures, mount, context, path, limits=Limits(), checkpoint=lambda: None):
+def solve_session(captures, mount, context, path, limits=Limits(), checkpoint=lambda: None,
+                  phase=lambda state: None):
     # The last three poses are held out BEFORE fitting, never used to tune it.
     if len(captures) != 10:
         raise CalibrationError(f'REAL_POSES_REQUIRED: {len(captures)}/10 accepted poses')
@@ -16,15 +17,19 @@ def solve_session(captures, mount, context, path, limits=Limits(), checkpoint=la
     checkpoint()
     solution = solve(captures[:7], mount, limits)
     checkpoint()
+    phase('VERIFYING')
     report = verify(solution, captures[0], captures[7:], mount, limits)
     if report['result'] != 'PASS':
         raise CalibrationError('Independent verification failed: ' + report['reason'])
     checkpoint()
+    report['verification_poses'] = [capture.base_T_tool.tolist() for capture in captures[7:]]
+    phase('SAVING')
     # This is a session candidate, NOT the production calibration path.
     save_bundle(path, solution, captures[0], context, report, limits)
     restored, anchor = load_bundle(path, context, mount, limits)
     if not np.allclose(restored.tool_T_camera, solution.tool_T_camera, atol=1e-12):
         raise CalibrationError('Reloaded transform differs from fitted transform')
+    phase('VERIFYING')
     reloaded_report = verify(restored, anchor, captures[7:], mount, limits)
     if reloaded_report['result'] != 'PASS':
         raise CalibrationError('Reload verification failed: ' + reloaded_report['reason'])

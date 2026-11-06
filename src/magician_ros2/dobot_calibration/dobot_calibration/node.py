@@ -45,7 +45,7 @@ from tf2_ros import Buffer, TransformBroadcaster, TransformListener, TransformEx
 from orbbec_camera_msgs.srv import GetDeviceInfo
 
 from .depth_health import depth_quality
-from .geometry import CalibrationError, Limits, Mount, fingerprint, pose_distance, transform
+from .geometry import CalibrationError, RetryableCaptureError, Limits, Mount, fingerprint, pose_distance, transform
 from .hardware_readiness import DepthStabilityWindow, evaluate_hardware_readiness
 from .registration import make_capture, register
 from .passive_session import PassiveSessionStore
@@ -59,6 +59,7 @@ from .token_lifecycle import TokenLifecycle
 from .baseline_admission import AuthoritativeBaselineAdmissionGate
 from .baseline_preflight import validate_authoritative_scene_baseline_for_preflight
 from .table_touchoff import TableTouchoff
+from .workspace_proposal import WorkspaceProposal
 from .workflow import Workflow, check_path, settled_pose
 from .validation_status import live_acceptance_error
 from .camera_identity import CameraIdentity, resolve_camera_id
@@ -296,7 +297,9 @@ class CalibrationNode(Node):
             self.auto_validate_target,
             real_motion_enabled=False)
         self.automatic = AutomaticCalibration(AutomaticBackend(self))
+        self.automatic_followup_run_id = None
         self.automatic_commissioning = None
+        self.workspace_proposal = WorkspaceProposal(self)
         # Captured once: source edits on a symlink install do not upgrade a
         # running Python process. Status identifies the code at process start.
         self.software_source_digest = fingerprint({
@@ -427,11 +430,13 @@ class CalibrationNode(Node):
                             self.table_touchoff_status_service, callback_group=self.group)
         self.create_service(Trigger, '/calibration/table_touchoff/clear',
                             self.table_touchoff_clear_service, callback_group=self.group)
+        self.create_service(Trigger, '/calibration/workspace/propose',
+                            self.workspace_proposal_service, callback_group=self.group)
         self.create_timer(0.2, self.supervise, callback_group=self.group)
         self.auto_pending = self.settings['auto_start']
 
     def ensure_camera_sync(self, reason):
-        if reason not in {'passive_capture', 'calibration_operation'}:
+        if reason not in {'passive_capture', 'calibration_operation', 'workspace_proposal'}:
             raise CalibrationError('SENSOR_INGEST_ACTIVATION_REASON_INVALID')
         if self.camera_sync is not None:
             return
@@ -1072,6 +1077,15 @@ class CalibrationNode(Node):
         if self.auto_pending:
             self.auto_pending = False
             self.start_operation(False)
+        # Completing commissioning prepares the full plan once. Its new run ID
+        # still requires a separate, explicit authorization in Maintenance.
+        automatic = self.automatic.snapshot()
+        if (automatic['state'] == 'COMMISSIONING_COMPLETE'
+                and not self.stop.is_set()
+                and self.automatic_followup_run_id != automatic.get('run_id')
+                and self.automatic.worker is not None and not self.automatic.worker.is_alive()):
+            self.automatic_followup_run_id = automatic.get('run_id')
+            self.automatic.start()
         if self.state == 'READY' and not self.is_ready():
             acceptance = live_acceptance_error(self.workflow.report) if self.workflow else ''
             self.status('FAIL', self.health_error() or acceptance or 'Verification expired or was cancelled')
@@ -1227,6 +1241,7 @@ class CalibrationNode(Node):
                 'passive_pose_count': len(self.passive_captures),
                 'passive_solve': self.passive_solve_status,
                 'automatic_calibration': self.automatic.snapshot(),
+                'workspace_proposal': self.workspace_proposal.snapshot(),
                 'automatic_commissioning': self.automatic_commissioning,
                 'software_source_digest': self.software_source_digest,
                 'passive_pose_metadata': list(self.passive_capture_metadata),
@@ -1365,6 +1380,10 @@ class CalibrationNode(Node):
                         blockers.append('JOINT_OR_PATH_VALIDATION_FAILED: '
                                         + future.result().message)
         return blockers
+
+    def workspace_proposal_service(self, request, response):
+        response.success, response.message = self.workspace_proposal.start()
+        return response
 
     def table_height_m(self):
         """Prefer a qualified passive touch-off over an unset launch parameter."""
@@ -1539,6 +1558,8 @@ class CalibrationNode(Node):
         """Enable capture inputs and measured mount constraint without motion."""
         if self.operation_lock.locked() and not self.passive_capture_active:
             raise CalibrationError('An automatic calibration operation is active')
+        if self.stop.is_set():
+            raise CalibrationError('Calibration cancelled')
         if self.mount is None:
             internal = self.camera_reference_to_optical()
             self.mount = Mount.load_translation_constraint(
@@ -1551,6 +1572,8 @@ class CalibrationNode(Node):
         self.ensure_camera_sync('passive_capture')
         deadline = time.monotonic() + self.settings['capture_timeout_s']
         while time.monotonic() < deadline:
+            if self.stop.is_set():
+                raise CalibrationError('Calibration cancelled')
             with self.lock:
                 bundle = self.bundle
             if bundle is not None:
@@ -2503,7 +2526,7 @@ class CalibrationNode(Node):
             terminal = self.motion_stop_terminal_stamp
             now = self.now_s()
             if terminal is not None and now - terminal >= .7:
-                stable, _, _ = self._table_touchoff_stability()
+                stable, _ = self._table_touchoff_stability()
                 fresh = all(stamp is not None and 0 <= now - stamp <= .5
                             for stamp in (self.tcp_stamp, self.joints_stamp))
                 if stable and fresh:
@@ -2698,6 +2721,7 @@ class CalibrationNode(Node):
         return response
 
     def cancel_service(self, request, response):
+        self.workspace_proposal.cancel()
         self.automatic.abort()
         self._disarm_real_motion('SAFE_STOP')
         self.stop.set()
@@ -2712,20 +2736,20 @@ class CalibrationNode(Node):
         return response
 
     def start_operation(self, recalibrate, verify_only=False):
-        if not self.operation_lock.acquire(blocking=False):
+        # Startup and maintenance use the same ten-pose worker and its scoped
+        # authorization. Never let startup enter the legacy motion workflow.
+        if self.operation_lock.locked():
             return False, 'Calibration is already running'
+        if self.stop.is_set():
+            return False, 'STOP latched; inspect in Maintenance'
         identity = self._resolve_camera_identity()
         if identity.resolution != 'PASS':
-            self.operation_lock.release()
             reason = identity.gate
             self.status('FAIL', reason)
             return False, reason
-        self.stop.clear()
-        self.workflow = None
-        self.status('STARTING')
-        self.worker = threading.Thread(target=self.run_operation, args=(recalibrate, verify_only), daemon=True)
-        self.worker.start()
-        return True, 'Started; observe /calibration/status for PASS/FAIL'
+        result = self.automatic.start(force_recalibrate=recalibrate, verify_only=verify_only)
+        self.worker = self.automatic.worker
+        return result
 
     def run_operation(self, recalibrate, verify_only=False):
         try:
@@ -2900,10 +2924,17 @@ class CalibrationNode(Node):
             else:
                 points = self._deproject_depth(depth_array, intrinsics)
             raw_point_count = int(len(points))
-            result = make_capture(stamp, pose, rgb_array, depth_array, intrinsics, points,
-                                  self.mount.tool_T_camera, self.limits,
-                                  base_T_carrier=carrier,
-                                  arbitrary_plane=self.passive_capture_active)
+            try:
+                result = make_capture(stamp, pose, rgb_array, depth_array, intrinsics, points,
+                                      self.mount.tool_T_camera, self.limits,
+                                      base_T_carrier=carrier,
+                                      arbitrary_plane=self.passive_capture_active)
+            except CalibrationError as error:
+                # Consume a rejected exposure: the bounded retry must wait for
+                # a new RGB-D frame, never accept the same image repeatedly.
+                self.last_capture_stamp = max(stamps)
+                self.checkpoint()
+                raise RetryableCaptureError(str(error)) from error
             result.quality['total_valid_cloud_points'] = raw_point_count
             result.quality['filtered_cloud_points'] = int(len(result.cloud))
             result.quality['point_cloud_source'] = source
@@ -3101,6 +3132,9 @@ def main(args=None):
         pass
     finally:
         node.stop.set()
+        node.workspace_proposal.cancel()
+        if node.workspace_proposal.worker:
+            node.workspace_proposal.worker.join(timeout=2)
         node.automatic.abort()
         if node.automatic.worker:
             node.automatic.worker.join(timeout=5)

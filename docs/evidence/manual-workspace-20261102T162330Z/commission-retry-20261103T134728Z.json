@@ -1,0 +1,127 @@
+{
+  "utc": "2026-11-03T13:47:28.261974+00:00",
+  "automatic_calibration": {
+    "state": "FAULT",
+    "accepted_pose_count": 0,
+    "total_poses": 10,
+    "last_completed_unix_s": null,
+    "dry_run": false,
+    "production_ready": false,
+    "reason": "SCENE_VERIFY_FAILED: extent_change_m,depth_histogram_l1,voxel_change_ratio",
+    "purpose": "COMMISSIONING_TWO_POSES",
+    "run_id": "953e176a19384676a9fb4986daefd886",
+    "motion_command_sent": false,
+    "blockers": [
+      "SCENE_VERIFY_FAILED: extent_change_m,depth_histogram_l1,voxel_change_ratio"
+    ],
+    "trace": [
+      {
+        "function": "AutomaticBackend.prepare",
+        "monotonic": 78629.831481336
+      },
+      {
+        "function": "AutomaticBackend.prepare.enter",
+        "monotonic": 78629.831562652
+      }
+    ],
+    "authorization_protocol": 2,
+    "pre_dispatch": {
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.28623485565185547,
+        "tcp_age_s": 0.09857010841369629,
+        "joints_age_s": 0.09857010841369629,
+        "alarms_age_s": 0.08637738227844238
+      },
+      "workspace": "fcde7f4a974f4df8199a48ea889415bdff4d5209e879119454ee1bab43188ca4",
+      "baseline_gate": "",
+      "blockers": [],
+      "motion_command_sent": false,
+      "monotonic": 78630.059573001
+    },
+    "scene_verify": {
+      "passed": false,
+      "blockers": [
+        "extent_change_m",
+        "depth_histogram_l1",
+        "voxel_change_ratio"
+      ],
+      "plane_angle_deg": 0.8361968840857559,
+      "extent_change_m": 0.0624149769422736,
+      "depth_histogram_l1": 1.3547532722458564,
+      "voxel_change_ratio": 1.7972972972972974,
+      "feature_change_ratio": 0.2809917355371901
+    },
+    "PTP_RESTORE": "NOT_REQUIRED",
+    "authorization_revoked": true
+  },
+  "hardware_readiness": {
+    "state": "READY",
+    "ready": true,
+    "reason": "",
+    "blockers": [],
+    "depth_fresh": true,
+    "depth_stable": true,
+    "tcp_fresh": true,
+    "joints_fresh": true,
+    "alarms_fresh": true,
+    "robot_connected": true,
+    "safety_supported": false,
+    "safety_verified": false,
+    "physical_estop_present": true,
+    "operator_safety_verified": true,
+    "software_estop_monitoring": "NOT CONNECTED",
+    "depth_age_s": 0.14551305770874023,
+    "tcp_age_s": 0.06993579864501953,
+    "joints_age_s": 0.06993579864501953,
+    "alarms_age_s": 0.0567927360534668
+  },
+  "motion": {
+    "active_goal": false,
+    "last_goal_age_sec": null,
+    "last_feedback": null,
+    "last_result": null,
+    "joints_deg": [
+      52.89,
+      24.36,
+      3.22,
+      0.0
+    ],
+    "joints_age_sec": 0.0,
+    "current_tcp_pose": [
+      122.1502685546875,
+      161.44271850585938,
+      114.7382583618164,
+      52.88823699951172
+    ],
+    "current_tcp_pose_source": "dobot_pose_raw",
+    "current_tcp_pose_age_sec": 0.0,
+    "homing_confirmed": false,
+    "vision_sequence_active": false,
+    "vision_sequence_age_sec": null
+  },
+  "ros": {
+    "ptp_action_ready": true,
+    "homing_ready": true,
+    "gripper_ready": false,
+    "suction_ready": true,
+    "tool_mapping": "canonical",
+    "alarm_state_fresh": true,
+    "no_critical_alarm": true,
+    "alarm_codes": []
+  }
+}

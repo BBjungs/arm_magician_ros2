@@ -1,0 +1,16 @@
+[Unit]
+Description=Headroom monitoring dashboard on LAN port 8787
+Wants=headroom-proxy.service
+After=headroom-proxy.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=%h/arm_magician_ws
+ExecStart=%h/.local/share/uv/tools/headroom-ai/bin/python %h/arm_magician_ws/scripts/headroom_dashboard_lan.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target

@@ -77,7 +77,7 @@ set -u
 : "${CALIBRATION_CARRIER_FRAME:=}"
 : "${CALIBRATION_MOUNT_MODEL:=}"
 : "${REQUIRE_INTEGRATED_STARTUP:=true}"
-: "${STARTUP_AUTO:=false}"
+: "${STARTUP_AUTO:=true}"
 : "${STARTUP_AUTO_RECALIBRATE:=false}"
 : "${STARTUP_AUTO_MOTION:=false}"
 : "${ROS_LOG_DIR:=/tmp/dobot_ros_logs}"
@@ -254,7 +254,7 @@ required = {
     "robot_connected", "robot_state_fresh", "camera_connected",
     "camera_health_fresh", "rgb_fresh", "depth_fresh", "depth_valid",
     "camera_identity_valid",
-    "calibration_available", "calibration_verified", "vision_running",
+    "calibration_available", "calibration_verified", "vision_running", "vision_process_alive",
     "web_running", "port_8080", "no_critical_alarm",
 }
 payload = json.load(sys.stdin)
@@ -324,10 +324,10 @@ while kill -0 "${stack_pid}" 2>/dev/null; do
           current_failure='Camera health heartbeat and live RGB-D did not become ready before their deadline'
         fi
       fi
-      # Object fusion is optional during passive calibration.  Only require
-      # the production vision verdict when this profile explicitly launches it.
+      # Monitor the detector heartbeat. Invalid scene depth blocks production
+      # readiness but must not repeatedly restart the robot and operator UI.
       if [[ -z "${current_failure}" && "${START_OBJECT_FUSION,,}" =~ ^(1|true|yes|on)$ ]]; then
-        if [[ "${status_payload}" == *'"vision_running":true'* ]]; then
+        if [[ "${status_payload}" == *'"vision_process_alive":true'* ]]; then
           vision_verified=true
         elif [[ "${vision_verified}" == true ]]; then
           current_failure='Vision runtime status was lost'

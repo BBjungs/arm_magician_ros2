@@ -1,0 +1,33 @@
+{
+  "classification": "SPACE_REQUIREMENT_ONLY_NOT_MEASURED_WORKSPACE",
+  "requested_change": "adjust_values_as_previously_described",
+  "confirmed_actual_volume_size_mm": [
+    60.0,
+    140.0,
+    70.0
+  ],
+  "attachment_model_radius_mm": 152.60000000000002,
+  "translation_uncertainty_mm": 1.0,
+  "clearance_each_side_mm": 25.0,
+  "padding_each_side_mm": 178.60000000000002,
+  "stationary_minimum_volume_size_mm": [
+    357.20000000000005,
+    357.20000000000005,
+    357.20000000000005
+  ],
+  "additional_width_required_mm": [
+    297.2,
+    217.2,
+    287.2
+  ],
+  "moving_volume_dimension_rule": "TCP path span on each axis + 2 * padding_each_side_mm",
+  "minimum_tcp_z_from_existing_table_datum_mm": 120.6,
+  "actual_rearranged_bounds_provided": false,
+  "runtime_workspace_modified": false,
+  "motion_command_sent": false,
+  "notes": [
+    "The 70 mm example was for a standard 20 mm cup plus clearance only, not the complete mounted assembly.",
+    "357.2 mm per axis is a necessary stationary size under the configured sphere model, not a complete ten-pose motion plan.",
+    "Do not replace measured boundaries with these design dimensions without physically establishing the corresponding free space."
+  ]
+}

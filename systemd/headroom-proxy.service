@@ -1,0 +1,14 @@
+[Unit]
+Description=Headroom local optimization proxy
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=%h/arm_magician_ws
+ExecStart=/usr/bin/python3 %h/arm_magician_ws/scripts/start_headroom_service.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

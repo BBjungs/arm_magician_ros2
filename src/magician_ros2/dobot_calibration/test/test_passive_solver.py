@@ -8,7 +8,7 @@ from dobot_calibration import passive_solver as module
 
 
 def samples():
-    return [SimpleNamespace(stamp=float(i)) for i in range(10)]
+    return [SimpleNamespace(stamp=float(i), base_T_tool=np.eye(4)) for i in range(10)]
 
 
 def test_insufficient_real_data_cannot_solve(tmp_path):

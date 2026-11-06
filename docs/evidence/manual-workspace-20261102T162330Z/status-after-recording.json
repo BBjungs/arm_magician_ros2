@@ -1,0 +1,36 @@
+{
+  "ros": {
+    "ptp_action_ready": true,
+    "homing_ready": true,
+    "gripper_ready": false,
+    "suction_ready": true,
+    "tool_mapping": "canonical",
+    "alarm_state_fresh": true,
+    "no_critical_alarm": true,
+    "alarm_codes": []
+  },
+  "motion": {
+    "active_goal": false,
+    "last_goal_age_sec": null,
+    "last_feedback": null,
+    "last_result": null,
+    "joints_deg": [
+      -2.06,
+      36.55,
+      29.63,
+      0.0
+    ],
+    "joints_age_sec": 0.02,
+    "current_tcp_pose": [
+      208.0347137451172,
+      -7.4999680519104,
+      35.77903747558594,
+      -2.0647058486938477
+    ],
+    "current_tcp_pose_source": "dobot_pose_raw",
+    "current_tcp_pose_age_sec": 0.02,
+    "homing_confirmed": false,
+    "vision_sequence_active": false,
+    "vision_sequence_age_sec": null
+  }
+}

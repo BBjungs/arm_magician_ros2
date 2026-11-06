@@ -1,0 +1,355 @@
+{
+  "mode": "OFFLINE_NO_MOTION",
+  "proposed_home_mm_deg": [
+    187.25,
+    0,
+    137.25,
+    0
+  ],
+  "workspace_digest": "fcde7f4a974f4df8199a48ea889415bdff4d5209e879119454ee1bab43188ca4",
+  "plan_validated": true,
+  "segments": [
+    {
+      "pose": 1,
+      "xyz_mm": [
+        176.75000000000003,
+        0.0,
+        126.75
+      ],
+      "yaw_deg": 0.0,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.006500000000000009,
+          "volume_y_min": 0.025499999999999995,
+          "volume_z_min": 0.002249999999999995,
+          "volume_x_max": 0.017000000000000015,
+          "volume_y_max": 0.025499999999999995,
+          "volume_z_max": 0.012749999999999984,
+          "table": 0.006149999999999996
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 2,
+      "xyz_mm": [
+        201.25,
+        0.0,
+        126.75
+      ],
+      "yaw_deg": 0.0,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.006500000000000009,
+          "volume_y_min": 0.025499999999999995,
+          "volume_z_min": 0.002249999999999995,
+          "volume_x_max": 0.0030000000000000027,
+          "volume_y_max": 0.025499999999999995,
+          "volume_z_max": 0.023249999999999993,
+          "table": 0.006149999999999996
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 3,
+      "xyz_mm": [
+        187.25000000000003,
+        21.0,
+        133.75
+      ],
+      "yaw_deg": 0.0,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.01700000000000002,
+          "volume_y_min": 0.025499999999999995,
+          "volume_z_min": 0.002249999999999995,
+          "volume_x_max": 0.0030000000000000027,
+          "volume_y_max": 0.004500000000000004,
+          "volume_z_max": 0.016249999999999987,
+          "table": 0.006149999999999996
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 4,
+      "xyz_mm": [
+        187.25000000000003,
+        -21.0,
+        137.25
+      ],
+      "yaw_deg": 0.0,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.01700000000000002,
+          "volume_y_min": 0.004500000000000004,
+          "volume_z_min": 0.009250000000000001,
+          "volume_x_max": 0.016999999999999987,
+          "volume_y_max": 0.004500000000000004,
+          "volume_z_max": 0.012749999999999984,
+          "table": 0.013150000000000002
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 5,
+      "xyz_mm": [
+        197.75,
+        14.0,
+        140.75
+      ],
+      "yaw_deg": 15.000000000000002,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.01700000000000002,
+          "volume_y_min": 0.004500000000000004,
+          "volume_z_min": 0.012750000000000004,
+          "volume_x_max": 0.006500000000000006,
+          "volume_y_max": 0.011499999999999982,
+          "volume_z_max": 0.00924999999999998,
+          "table": 0.016650000000000005
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 6,
+      "xyz_mm": [
+        197.75,
+        -14.0,
+        144.25
+      ],
+      "yaw_deg": -15.000000000000002,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.0275,
+          "volume_y_min": 0.011499999999999982,
+          "volume_z_min": 0.016250000000000007,
+          "volume_x_max": 0.006500000000000006,
+          "volume_y_max": 0.011499999999999982,
+          "volume_z_max": 0.005750000000000005,
+          "table": 0.020150000000000008
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 7,
+      "xyz_mm": [
+        173.25000000000003,
+        17.5,
+        133.75
+      ],
+      "yaw_deg": 9.999999999999998,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.003000000000000006,
+          "volume_y_min": 0.011499999999999982,
+          "volume_z_min": 0.009250000000000001,
+          "volume_x_max": 0.006500000000000006,
+          "volume_y_max": 0.00799999999999998,
+          "volume_z_max": 0.005750000000000005,
+          "table": 0.013150000000000002
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 8,
+      "xyz_mm": [
+        183.75000000000003,
+        -17.5,
+        147.75
+      ],
+      "yaw_deg": -9.999999999999998,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.003000000000000006,
+          "volume_y_min": 0.008000000000000007,
+          "volume_z_min": 0.009250000000000001,
+          "volume_x_max": 0.02049999999999999,
+          "volume_y_max": 0.00799999999999998,
+          "volume_z_max": 0.002250000000000002,
+          "table": 0.013150000000000002
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 9,
+      "xyz_mm": [
+        201.25,
+        10.5,
+        137.25
+      ],
+      "yaw_deg": 19.999999999999996,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.013500000000000015,
+          "volume_y_min": 0.008000000000000007,
+          "volume_z_min": 0.012750000000000004,
+          "volume_x_max": 0.0030000000000000027,
+          "volume_y_max": 0.014999999999999986,
+          "volume_z_max": 0.002250000000000002,
+          "table": 0.016650000000000005
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    },
+    {
+      "pose": 10,
+      "xyz_mm": [
+        173.25000000000003,
+        -17.5,
+        144.25
+      ],
+      "yaw_deg": -19.999999999999996,
+      "clearance": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": 0.003000000000000006,
+          "volume_y_min": 0.008000000000000007,
+          "volume_z_min": 0.012750000000000004,
+          "volume_x_max": 0.0030000000000000027,
+          "volume_y_max": 0.014999999999999986,
+          "volume_z_max": 0.005750000000000005,
+          "table": 0.016650000000000005
+        },
+        "violations": [],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001
+      }
+    }
+  ],
+  "home_procedure_path_validated": false,
+  "runtime_configuration_changed": false
+}

@@ -1,0 +1,19 @@
+schema_version: 1
+installation_verified: false
+whole_robot_environment_verified: false
+measurement_source: DIAGNOSTIC_ONLY_TCP_BOUNDING_BOX_NOT_SURVEYED_FREE_VOLUME
+base_frame: magician_base_link
+camera_id: AY2A760003E
+mount_fingerprint: null
+table_surface_z_m: -0.058
+minimum_clearance_m: 0.025
+free_volume_min_m:
+- -0.07963062286376953
+- -0.19235389709472656
+- -0.06794533538818359
+free_volume_max_m:
+- 0.2558642120361328
+- 0.22178448486328126
+- 0.09345005798339844
+note: Hypothetical geometry check only. These extrema do not certify free space or
+  its interior.

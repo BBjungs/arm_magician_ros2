@@ -278,7 +278,7 @@ def generate_launch_description():
         description='Require live robot/camera/vision/calibration/HOME readiness for picks.',
     )
     startup_auto_arg = DeclareLaunchArgument(
-        'startup_auto', default_value='false', choices=['true', 'false'],
+        'startup_auto', default_value='true', choices=['true', 'false'],
         description='Automatically request calibration verification once prerequisites are ready.',
     )
     startup_auto_recalibrate_arg = DeclareLaunchArgument(

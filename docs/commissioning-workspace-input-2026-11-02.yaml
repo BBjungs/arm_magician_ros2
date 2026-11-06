@@ -1,0 +1,25 @@
+# User-confirmed bounds of the entire free volume, including camera and tool.
+# Diagnostic input only; not installed as an authorized runtime workspace.
+schema_version: 1
+installation_verified: false
+whole_robot_environment_verified: false
+measurement_source: user_supplied_xyz_bounds_in_conversation_2026_11_02
+base_frame: magician_base_link
+camera_id: AY2A760003E
+mount_fingerprint: null
+table_surface_z_m: -0.058  # Previously operator-confirmed datum, reused unchanged.
+free_volume_min_m: [0.170, -0.070, 0.050]
+free_volume_max_m: [0.230, 0.070, 0.120]
+minimum_clearance_m: 0.025
+input_record:
+  min_mm: [170, -70, 50]
+  max_mm: [230, 70, 120]
+  units_and_frame: inherited_from_assistant_requested_format
+  scope: entire_free_volume_including_camera_and_suction_tool
+  scope_source: explicit_user_confirmation_in_conversation
+  numeric_bounds_confirmed_actual_by_operator: true
+  operator_reports_installation_area_verified: true
+  interpretation_for_diagnostic: entire_free_volume
+  geometry_validation: REJECTED_CONFIGURED_ENVELOPE_DOES_NOT_FIT
+  manufacturer_reference: https://www.dobot-robots.com/products/education/magician.html
+  manufacturer_reference_scope: robot_reach_and_joint_limits_only

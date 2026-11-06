@@ -1,0 +1,27 @@
+{
+  "source": "live_feedback_after_explicitly_requested_home",
+  "recorded_utc": "2026-11-05T06:02:50.018375+00:00",
+  "configured_home_mm_deg": [
+    150.0,
+    0.0,
+    100.0,
+    0.0
+  ],
+  "tcp_xyz_mm_r_deg": [
+    150.0,
+    0.0,
+    100.0,
+    0.0
+  ],
+  "joints_deg": [
+    0.0,
+    3.05,
+    13.7,
+    0.0
+  ],
+  "base_frame": "magician_base_link",
+  "stationary_at_home_verified": true,
+  "reference_scope": "calibration_start_pose_only",
+  "workspace_or_mount_geometry_changed": false,
+  "production_calibration_verified": false
+}

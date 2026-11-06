@@ -61,14 +61,13 @@
             <strong id="operationState">รอคำสั่ง</strong>
             <span id="pickAllProgress" class="progress" hidden>หยิบทั้งหมด: 0 / 0</span>
           </div>
-          <div class="buttons job-buttons" role="group" aria-label="เริ่มและหยุดงาน">
+          <div class="buttons job-buttons" role="group" aria-label="ควบคุมงานและกลับจุดเริ่มต้น">
             <button id="startButton" class="start" type="button" disabled>เริ่มทำงาน</button>
-            <button id="stopButton" class="stop" type="button">หยุด</button>
+            <button id="homeButton" class="home" type="button" aria-describedby="homeHelp" disabled>Home · กลับจุดเริ่มต้น</button>
+            <button id="stopButton" class="stop" type="button">STOP · หยุด</button>
           </div>
-          <div class="buttons setup-buttons" role="group" aria-label="เตรียมระบบ">
-            <button id="startupButton" class="home" type="button">ตรวจระบบ</button>
-            <button id="homeButton" class="home" type="button">HOME และจุดสังเกต</button>
-          </div>
+          <p id="homeHelp" class="notice">Home จะกลับจุดเริ่มต้นแล้วไปจุดสังเกต · กดได้เมื่อไม่มีงานหรือการคาลิเบรตกำลังทำงาน</p>
+          <p id="homeFeedback" class="notice" role="status" aria-live="polite" hidden></p>
           <p id="notice" class="notice" aria-live="polite">กำลังตรวจสอบสถานะระบบ</p>
         </section>
 
@@ -80,83 +79,37 @@
           <div id="checks" class="checks"></div>
         </section>
 
-        <section id="calibrationPanel" class="calibration-card" aria-labelledby="guidanceTitle">
-          <div class="section-title">
-            <h2 id="guidanceTitle">ตั้งค่ากล้องกับแขนกล</h2>
-            <span id="calibrationStateLabel" class="calibration-badge">คาลิเบรต</span>
-          </div>
-          <ol class="calibration-steps" aria-label="ขั้นตอนคาลิเบรต">
-            <li id="calibrationStep1" aria-current="step"><span>1</span>ตรวจแผน</li>
-            <li id="calibrationStep2"><span>2</span>ยืนยัน</li>
-            <li id="calibrationStep3"><span>3</span>เก็บภาพ</li>
-            <li id="calibrationStep4"><span>4</span>ตรวจผล</li>
-          </ol>
-          <div class="calibration-next" aria-live="polite">
-            <strong id="calibrationNextTitle">เริ่มจากตรวจแผนทดสอบ 2 ท่า</strong>
-            <p id="calibrationNextHelp">ครั้งแรกให้ทดสอบ 2 ท่าก่อน แล้วจึงคาลิเบรตครบ 10 ท่า การตรวจแผนยังไม่สั่งแขนเคลื่อนที่</p>
-          </div>
-          <ul id="calibrationBlockers" class="calibration-blockers" aria-label="สิ่งที่ต้องแก้ก่อนทำต่อ" hidden></ul>
-          <p class="section-description">ดูภาพกล้องให้เห็นพื้นที่ทำงาน ตรวจการยึดกล้องและพื้นที่รอบแขนก่อนเริ่ม</p>
-          <div class="buttons calibration-primary" role="group" aria-label="เตรียมคาลิเบรตอัตโนมัติ">
-            <button id="automaticCommission" type="button">ตรวจแผนทดสอบ 2 ท่า</button>
-            <button id="automaticStart" class="start" type="button">ตรวจแผนคาลิเบรต 10 ท่า</button>
-          </div>
-          <p id="calibrationFeedback" class="notice" role="status" hidden></p>
-          <div id="calibrationRunProgress" class="calibration-run-progress" hidden>
-            <label for="calibrationProgressBar" id="calibrationProgressLabel">เก็บภาพที่ผ่านตรวจแล้ว 0 / 10 ท่า</label>
-            <progress id="calibrationProgressBar" max="10" value="0">0 / 10</progress>
-          </div>
-          <div class="buttons calibration-actions" role="group" aria-label="พัก ทำต่อ และหยุดคาลิเบรต">
-            <button id="automaticPause" type="button">พักเมื่อแขนหยุดนิ่ง</button>
-            <button id="automaticResume" type="button">ทำต่อ</button>
-            <button id="automaticAbort" class="stop" type="button">หยุดคาลิเบรต</button>
-          </div>
-          <details id="calibrationPlanDetails" class="calibration-plan" hidden>
-            <summary>ตรวจแผนการเคลื่อนที่และพิกัด</summary>
-            <p id="calibrationPlanHelp" class="section-description"></p>
-            <div id="automaticPlan"></div>
-          </details>
-          <fieldset id="automaticAuthorization" hidden>
-            <legend>ตรวจทีละข้อ ณ หน้าเครื่องก่อนอนุญาต</legend>
-            <p class="section-description">ปุ่มด้านล่างจะอนุญาตให้แขนเริ่มเคลื่อนตามแผนรอบนี้</p>
-            <label><input type="checkbox" data-calibration-ack="operator_confirmed"> อยู่หน้าเครื่องและอนุญาตรอบนี้</label><br>
-            <label><input type="checkbox" data-calibration-ack="estop_tested"> E-stop พร้อมและทดสอบแล้ว</label><br>
-            <label><input type="checkbox" data-calibration-ack="workspace_clear"> ไม่มีบุคคลหรือสิ่งกีดขวางในพื้นที่</label><br>
-            <label><input type="checkbox" data-calibration-ack="mount_secure"> กล้องและ TCP ยึดแน่นหนา</label><br>
-            <label><input type="checkbox" data-calibration-ack="workspace_measured"> Workspace วัดและตรวจสอบจริงแล้ว</label><br>
-            <label><input type="checkbox" data-calibration-ack="collision_reviewed"> ตรวจแผนที่แสดงและผล Collision Validation แล้ว</label><br>
-            <label><input type="checkbox" data-calibration-ack="stop_tested"> ทดสอบหยุดแขนจริงแล้วและสามารถหยุดได้</label><br>
-            <p id="calibrationAckProgress" class="notice" aria-live="polite">ยืนยันแล้ว 0 / 7 ข้อ</p>
-            <button id="automaticAuthorize" class="start" type="button" disabled>ยืนยันและอนุญาตให้แขนเริ่มเคลื่อนที่</button>
-          </fieldset>
-          <p id="automaticResult" class="notice" aria-live="polite">พร้อมตรวจเงื่อนไขการติดตั้งก่อนเริ่ม</p>
-          <details class="calibration-technical">
-            <summary>รายละเอียดสำหรับผู้ติดตั้ง</summary>
-            <p id="calibrationTechnicalReason" class="notice"></p>
-          </details>
-          <details class="advanced-tools">
-            <summary>ขั้นสูง: เก็บภาพเอง / ทดสอบโดยไม่เคลื่อนที่</summary>
-            <strong id="guidanceState">กำลังรอแผน calibration</strong>
-            <div id="guidanceCoordinates" class="guidance-coordinates"></div>
-            <p id="guidanceDirections" class="notice"></p>
-            <div id="calibrationProgress" class="calibration-progress"></div>
-            <div class="buttons passive-buttons" role="group" aria-label="เก็บภาพและคำนวณคาลิเบรต">
-              <button id="passiveCapture" type="button">เก็บท่าจริง (ไม่สั่งขยับแขน)</button>
-              <button id="passiveSolve" type="button">คำนวณคาลิเบรตจาก 10 ท่าจริง</button>
-            </div>
-            <div class="buttons dry-run-buttons" role="group" aria-label="ทดสอบลำดับ AUTO">
-              <button id="autoCalibrationStart" class="start" type="button">ทดสอบลำดับ AUTO (DRY-RUN)</button>
-              <button id="autoCalibrationPause" type="button">PAUSE</button>
-              <button id="autoCalibrationResume" type="button">RESUME</button>
-              <button id="autoCalibrationAbort" class="stop" type="button">ABORT</button>
-            </div>
-            <p id="passiveResult" class="notice" aria-live="polite">การเก็บท่าต้องมีผู้ดูแลหน้าเครื่อง ผล Dry-run ไม่ใช่ผลคาลิเบรตจริง</p>
-          </details>
+        <section id="calibrationPanel" class="calibration-card" aria-labelledby="calibrationTitle">
+          <div class="section-title"><h2 id="calibrationTitle">Auto Calibration</h2>
+            <span id="calibrationStateLabel" class="calibration-badge">กำลังรอสถานะ</span></div>
+          <p id="calibrationSummary" role="status" aria-live="polite">กำลังตรวจสอบ Calibration</p>
+          <label for="calibrationProgressBar" id="calibrationProgressLabel">0%</label>
+          <progress id="calibrationProgressBar" max="100" value="0">0%</progress>
+          <dl class="calibration-status">
+            <div><dt>Pose ปัจจุบัน</dt><dd id="calibrationPose">0/10</dd></div>
+            <div><dt>การเก็บภาพ RGB-D</dt><dd id="calibrationCapture">รอข้อมูล</dd></div>
+            <div><dt>Pose ที่เก็บสำเร็จ</dt><dd id="calibrationAccepted">0/10</dd></div>
+            <div><dt>ผล Calibration</dt><dd id="calibrationResult">ยังไม่มีผล</dd></div>
+            <div><dt>สำเร็จล่าสุด</dt><dd id="calibrationCompleted">—</dd></div>
+          </dl>
+          <p id="calibrationError" class="notice error" role="alert" hidden></p>
+          <a href="/maintenance">Maintenance · สำหรับผู้ได้รับอนุญาต</a>
         </section>
+<section class="calibration-card" aria-labelledby="workspaceTitle">
+<h2 id="workspaceTitle">เสนอพื้นที่จากกล้อง</h2>
+<p>อ่านภาพ 3 เฟรมขณะแขนหยุดนิ่ง เพื่อเสนอพื้นที่ที่กล้องมองเห็น โดยไม่สั่งเคลื่อนแขน</p>
+<button id="workspacePropose" type="button" disabled>เสนอพื้นที่จากกล้อง</button>
+<p id="workspaceStatus" class="notice" role="status" aria-live="polite">กำลังตรวจการเชื่อมต่อเซนเซอร์</p>
+<canvas id="workspacePreview" width="320" height="240" style="width:100%;max-width:640px;height:auto" aria-label="ภาพที่ใช้เสนอพื้นที่ กรอบสีเขียวแสดงบริเวณที่มีข้อมูลความลึกครบทุกเฟรม" hidden></canvas>
+<p>ภาพที่บันทึกขณะวัด · กรอบสีเขียวคือบริเวณที่มีข้อมูลความลึกครบทุกเฟรม</p>
+<div id="workspaceResult"></div>
+<button id="workspaceDownload" type="button" disabled>ดาวน์โหลดข้อเสนอ</button>
+</section>
 
       </div>
 
     </main>
-    <script src="/static/operator.js" defer></script>
+    <script src="/static/operator.js?v=20261106-camera-1" defer></script>
+<script src="/static/workspace.js" defer></script>
   </body>
 </html>

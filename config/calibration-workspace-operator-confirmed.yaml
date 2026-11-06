@@ -1,0 +1,27 @@
+schema_version: 1
+installation_verified: true
+whole_robot_environment_verified: true
+measurement_source: operator_confirmed_physical_expansion_and_exact_base_frame_bounds_in_conversation_2026_11_02
+base_frame: magician_base_link
+camera_id: AY2A760003E
+mount_fingerprint: 0d3c21088fa2bba7a89ecc8784f705c29a5be55ba9b20855395985e5169d434b
+table_surface_z_m: -0.058
+free_volume_min_m:
+- -0.00835
+- -0.2041
+- -0.0541
+free_volume_max_m:
+- 0.38285
+- 0.2041
+- 0.3286
+minimum_clearance_m: 0.025
+provenance:
+  recorded_utc: '2026-11-02T16:49:07.699825+00:00'
+  verification_source: operator_attestation
+  operator_confirmed_exact_proposed_bounds: true
+  reference: docs/evidence/manual-workspace-20261102T162330Z/expanded-area-placement-variants.json
+  whole_robot_inspection_source: operator_reports_installation_area_verified_in_prior_conversation
+  independent_physical_survey_by_assistant: false
+  production_calibration_verified: false
+  note: This config records the operator-confirmed installation bounds. It does not
+    certify a motion plan, the current pose, sensor readiness or calibration.

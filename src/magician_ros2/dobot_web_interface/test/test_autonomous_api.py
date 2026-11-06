@@ -23,7 +23,7 @@ def client_for(result):
 
 def node_for_api():
     node = object.__new__(DobotWebNode)
-    node.api_token = ''
+    node.api_token = 'test-maintenance'
     node._operation_is_active = lambda: False
     node.calibration_automatic_clients = {
         action: client_for(SimpleNamespace(success=True, message='Plan validation requested'))
@@ -36,7 +36,7 @@ def node_for_api():
 @pytest.mark.parametrize('action', ('start', 'commission', 'pause', 'resume', 'abort'))
 def test_http_controls_route_to_their_autonomous_ros_clients(action):
     node = node_for_api()
-    response = TestClient(create_app(node)).post('/api/calibration/autonomous/' + action)
+    response = TestClient(create_app(node), headers={'Authorization': 'Bearer ' + node.api_token}).post('/api/calibration/autonomous/' + action)
     assert response.status_code == 200
     assert response.json()['accepted']
     node.calibration_automatic_clients[action].call_async.assert_called_once()
@@ -47,7 +47,7 @@ def test_http_controls_route_to_their_autonomous_ros_clients(action):
 
 def test_authorization_missing_checks_never_calls_ros():
     node = node_for_api()
-    response = TestClient(create_app(node)).post('/api/calibration/autonomous/authorize', json={
+    response = TestClient(create_app(node), headers={'Authorization': 'Bearer ' + node.api_token}).post('/api/calibration/autonomous/authorize', json={
         'plan_fingerprint': 'test-plan', 'operator_confirmed': True})
     assert response.status_code == 400
     node.calibration_automatic_authorize.call_async.assert_not_called()
@@ -56,7 +56,7 @@ def test_authorization_missing_checks_never_calls_ros():
 def test_http_authorization_preserves_the_exact_plan_and_typed_confirmations():
     node = node_for_api()
     body = {**dict.fromkeys(ACKNOWLEDGEMENTS, True), 'plan_fingerprint': 'test-plan'}
-    response = TestClient(create_app(node)).post('/api/calibration/autonomous/authorize', json=body)
+    response = TestClient(create_app(node), headers={'Authorization': 'Bearer ' + node.api_token}).post('/api/calibration/autonomous/authorize', json=body)
     assert response.status_code == 200
     request = node.calibration_automatic_authorize.call_async.call_args.args[0]
     assert isinstance(request, AuthorizeCalibration.Request)
@@ -76,6 +76,6 @@ def test_ros_rejection_is_not_reported_as_accepted_motion():
 def test_active_operator_motion_prevents_authorization():
     node = node_for_api()
     node._operation_is_active = lambda: True
-    response = TestClient(create_app(node)).post('/api/calibration/autonomous/authorize', json={})
+    response = TestClient(create_app(node), headers={'Authorization': 'Bearer ' + node.api_token}).post('/api/calibration/autonomous/authorize', json={})
     assert response.status_code == 409
     node.calibration_automatic_authorize.call_async.assert_not_called()

@@ -13,6 +13,10 @@ class CalibrationError(ValueError):
     """An observation, movement or solution cannot be trusted."""
 
 
+class RetryableCaptureError(CalibrationError):
+    """Image quality rejected before any pose was accepted or persisted."""
+
+
 @dataclass(frozen=True)
 class Limits:
     min_depth_m: float = 0.15

@@ -1,0 +1,1186 @@
+[
+  {
+    "elapsed_s": 0.027657016995362937,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        53.65,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.04,
+      "current_tcp_pose": [
+        115.73661804199219,
+        159.57321166992188,
+        117.80823516845703,
+        54.047054290771484
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.04,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 0.5438856309920084,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        42.85,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        143.58773803710938,
+        135.0597381591797,
+        117.80823516845703,
+        43.247013092041016
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.02,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 1.0536363970022649,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        32.85,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.02,
+      "current_tcp_pose": [
+        164.8592529296875,
+        108.07403564453125,
+        117.80823516845703,
+        33.24697494506836
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.02,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 1.5900004649884067,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        22.45,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.03,
+      "current_tcp_pose": [
+        181.66029357910156,
+        76.53829193115234,
+        117.80823516845703,
+        22.84697914123535
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.03,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 2.1034065209969413,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        11.65,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.02,
+      "current_tcp_pose": [
+        192.78443908691406,
+        41.14287185668945,
+        117.80823516845703,
+        12.046989440917969
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.02,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 2.635964190005325,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        1.65,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.06,
+      "current_tcp_pose": [
+        196.99998474121094,
+        7.041164875030518,
+        117.80823516845703,
+        2.0469918251037598
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.06,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 3.1462263010034803,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -9.15,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.02,
+      "current_tcp_pose": [
+        194.8299560546875,
+        -29.9976749420166,
+        117.80823516845703,
+        -8.753008842468262
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.02,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 3.670865274994867,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -19.15,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.04,
+      "current_tcp_pose": [
+        186.66102600097656,
+        -63.373775482177734,
+        117.80823516845703,
+        -18.753000259399414
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.03,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 4.189654774003429,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -30.35,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        170.79673767089844,
+        -98.42279052734375,
+        117.80823516845703,
+        -29.95298957824707
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 4.759021412988659,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -40.35,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.02,
+      "current_tcp_pose": [
+        151.1109619140625,
+        -126.58615112304689,
+        117.80823516845703,
+        -39.95301818847656
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 5.27553889999399,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -51.15,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.04,
+      "current_tcp_pose": [
+        124.7143783569336,
+        -152.659423828125,
+        117.80823516845703,
+        -50.75305938720703
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.05,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 5.816190118988743,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -61.51,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.02,
+      "current_tcp_pose": [
+        93.960205078125,
+        -173.29180908203125,
+        117.80823516845703,
+        -61.53310012817383
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.02,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 6.331021277990658,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -61.01,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.05,
+      "current_tcp_pose": [
+        95.46888732910156,
+        -172.46524047851562,
+        117.80823516845703,
+        -61.03308868408203
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.05,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 6.841256507992512,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -60.45,
+        21.88,
+        2.91,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        97.14999389648438,
+        -171.52389526367188,
+        117.80823516845703,
+        -60.47307586669922
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 7.3534453389875125,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -134.59,
+        21.75,
+        2.99,
+        0.0
+      ],
+      "joints_age_sec": 0.02,
+      "current_tcp_pose": [
+        -138.65928649902344,
+        -139.73960876464844,
+        117.7385482788086,
+        -134.7776641845703
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.02,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 7.889448403002461,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -125.89,
+        21.04,
+        3.39,
+        0.0
+      ],
+      "joints_age_sec": 0.05,
+      "current_tcp_pose": [
+        -112.9725341796875,
+        -159.07568359375,
+        117.27110290527344,
+        -125.38164520263672
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.0,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 8.41232459800085,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -110.12,
+        19.58,
+        4.23,
+        0.0
+      ],
+      "joints_age_sec": 0.03,
+      "current_tcp_pose": [
+        -67.92118072509766,
+        -179.5806427001953,
+        116.39659881591797,
+        -110.7176742553711
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.03,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 8.930661633989075,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -93.32,
+        17.31,
+        5.53,
+        0.0
+      ],
+      "joints_age_sec": 0.0,
+      "current_tcp_pose": [
+        -12.757070541381836,
+        -186.2782745361328,
+        114.79374694824219,
+        -93.91771697998047
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.0,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 9.452515618992038,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -78.32,
+        14.64,
+        7.06,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        34.65530014038086,
+        -176.92984008789062,
+        112.65202331542969,
+        -78.91775512695312
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 9.969431648001773,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -63.32,
+        11.41,
+        8.91,
+        0.0
+      ],
+      "joints_age_sec": 0.04,
+      "current_tcp_pose": [
+        75.73738861083984,
+        -154.72084045410156,
+        109.69499969482422,
+        -63.91779327392578
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.04,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 10.494018972007325,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -47.12,
+        8.31,
+        10.68,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        110.4898452758789,
+        -121.50272369384766,
+        106.44134521484375,
+        -47.71783447265625
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 11.015939006989356,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -32.12,
+        6.08,
+        11.96,
+        0.0
+      ],
+      "joints_age_sec": 0.03,
+      "current_tcp_pose": [
+        133.1857147216797,
+        -85.56239318847656,
+        103.86133575439453,
+        -32.717872619628906
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.03,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 11.532074593997095,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -15.32,
+        4.3,
+        12.98,
+        0.0
+      ],
+      "joints_age_sec": 0.0,
+      "current_tcp_pose": [
+        147.61981201171875,
+        -42.10037612915039,
+        101.6654052734375,
+        -15.917863845825195
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.0,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 12.050328042998444,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -3.91,
+        3.37,
+        13.51,
+        0.0
+      ],
+      "joints_age_sec": 0.02,
+      "current_tcp_pose": [
+        150.52276611328125,
+        -11.111129760742188,
+        100.44778442382812,
+        -4.221742153167725
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.02,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 12.561985848005861,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        -0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.03,
+      "current_tcp_pose": [
+        150.00341796875,
+        -0.03381168842315674,
+        100.00164794921875,
+        -0.012914817780256271
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.04,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 13.080250241997419,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.05,
+      "current_tcp_pose": [
+        150.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.05,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 13.62441962599405,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.04,
+      "current_tcp_pose": [
+        150.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.04,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 14.138156091998098,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        150.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 14.657010584982345,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.03,
+      "current_tcp_pose": [
+        150.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.03,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 15.175853141990956,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.04,
+      "current_tcp_pose": [
+        150.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.04,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 15.696712885983288,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        150.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  },
+  {
+    "elapsed_s": 16.231622953986516,
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.04,
+      "current_tcp_pose": [
+        150.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.04,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    }
+  }
+]

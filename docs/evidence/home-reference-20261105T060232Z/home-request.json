@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "instruction": "The homing procedure has started. Wait until the arm stops moving and the led stops flashing blue and turns green.",
+  "configured_target_mm_deg": [
+    150.0,
+    0.0,
+    100.0,
+    0.0
+  ]
+}

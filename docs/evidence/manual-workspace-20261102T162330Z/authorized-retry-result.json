@@ -1,0 +1,110 @@
+{
+  "stamp": 1793637063.6060863,
+  "automatic_calibration": {
+    "state": "FAULT",
+    "accepted_pose_count": 0,
+    "total_poses": 10,
+    "last_completed_unix_s": null,
+    "dry_run": false,
+    "production_ready": false,
+    "reason": "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+    "purpose": "COMMISSIONING_TWO_POSES",
+    "run_id": "82d2c14ee3ac4352ab80166c7c05b8a2",
+    "motion_command_sent": false,
+    "blockers": [
+      "DEPTH_INSUFFICIENT_VALID_PIXELS: Depth-valid ratio is below the configured calibration threshold",
+      "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+      "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+      "SCENE_BASELINE_MISSING"
+    ],
+    "trace": [
+      {
+        "function": "AutomaticBackend.prepare",
+        "monotonic": 2033.178532408
+      },
+      {
+        "function": "AutomaticBackend.prepare.enter",
+        "monotonic": 2033.178564889
+      }
+    ],
+    "authorization_protocol": 2,
+    "pre_dispatch": {
+      "hardware_readiness": {
+        "state": "DEPTH_ERROR",
+        "ready": false,
+        "reason": "DEPTH_INSUFFICIENT_VALID_PIXELS: Depth-valid ratio is below the configured calibration threshold",
+        "blockers": [
+          "DEPTH_INSUFFICIENT_VALID_PIXELS: Depth-valid ratio is below the configured calibration threshold",
+          "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+        ],
+        "depth_fresh": true,
+        "depth_stable": false,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.7274730205535889,
+        "tcp_age_s": 0.04037070274353027,
+        "joints_age_s": 0.04037070274353027,
+        "alarms_age_s": 0.03248143196105957
+      },
+      "workspace": "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+      "baseline_gate": "SCENE_BASELINE_MISSING",
+      "blockers": [
+        "DEPTH_INSUFFICIENT_VALID_PIXELS: Depth-valid ratio is below the configured calibration threshold",
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+        "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+        "SCENE_BASELINE_MISSING"
+      ],
+      "motion_command_sent": false,
+      "monotonic": 2033.229753512
+    },
+    "PTP_RESTORE": "NOT_REQUIRED",
+    "authorization_revoked": true
+  },
+  "hardware_readiness": {
+    "state": "DEPTH_ERROR",
+    "ready": false,
+    "reason": "DEPTH_INSUFFICIENT_VALID_PIXELS: Depth-valid ratio is below the configured calibration threshold",
+    "blockers": [
+      "DEPTH_INSUFFICIENT_VALID_PIXELS: Depth-valid ratio is below the configured calibration threshold",
+      "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+    ],
+    "depth_fresh": true,
+    "depth_stable": false,
+    "tcp_fresh": true,
+    "joints_fresh": true,
+    "alarms_fresh": true,
+    "robot_connected": true,
+    "safety_supported": false,
+    "safety_verified": false,
+    "physical_estop_present": true,
+    "operator_safety_verified": true,
+    "software_estop_monitoring": "NOT CONNECTED",
+    "depth_age_s": 0.5706384181976318,
+    "tcp_age_s": 0.03860211372375488,
+    "joints_age_s": 0.03860211372375488,
+    "alarms_age_s": 0.024568796157836914
+  },
+  "depth_quality": {
+    "status": "SENSOR_ERROR",
+    "code": "DEPTH_INSUFFICIENT_VALID_PIXELS",
+    "reason": "Depth-valid ratio is below the configured calibration threshold",
+    "pixel_count": 307200,
+    "valid_count": 22736,
+    "depth_valid_ratio": 0.07401041666666666,
+    "median_m": 0.262,
+    "mad_m": 0.0029652000000000025,
+    "stddev_m": 0.008489510782487962,
+    "minimum_m": 0.224,
+    "maximum_m": 0.271,
+    "zero_count": 284464,
+    "nonfinite_count": 0,
+    "outside_range_count": 284464
+  }
+}

@@ -1,0 +1,1024 @@
+{
+  "utc": "2026-11-05T06:02:50.018375+00:00",
+  "status": {
+    "camera": {
+      "raw_topic": "/camera/color/image_raw",
+      "compressed_topic": "/camera/color/image_raw/compressed",
+      "device": "",
+      "direct_camera_connected": false,
+      "frame_age_sec": 0.01,
+      "frame_source": "/camera/color/image_raw/compressed",
+      "has_frame": true,
+      "camera_info_topic": "/camera/color/camera_info",
+      "intrinsics_source": "camera_info",
+      "intrinsics_age_sec": 0.01
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    },
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        3.05,
+        13.7,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        150.0,
+        0.0,
+        100.0,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "camera_health": {
+      "usb": {
+        "devices": [
+          {
+            "path": "2-1.2.2",
+            "product": "0614",
+            "role": "depth_data",
+            "serial": "",
+            "speed_mbps": 5000.0
+          },
+          {
+            "path": "1-2.2.1",
+            "product": "0511",
+            "role": "rgb_uvc",
+            "serial": "AY2A760003E",
+            "speed_mbps": 480.0
+          }
+        ],
+        "superspeed": true,
+        "camera_identity": "AY2A760003E",
+        "identity_valid": true
+      },
+      "streams": {
+        "rgb_info": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 36.51,
+          "fps": 30.08,
+          "timestamp_fps": 30.1,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 32.092,
+          "max_stamp_gap_ms": 41.54706001281738,
+          "estimated_missing_frames": 0,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true,
+          "intrinsics_valid": true
+        },
+        "depth_info": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 9.04,
+          "fps": 30.05,
+          "timestamp_fps": 30.06,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 34.251,
+          "max_stamp_gap_ms": 36.90195083618164,
+          "estimated_missing_frames": 0,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true,
+          "intrinsics_valid": true
+        },
+        "rgb": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 92.01820997757838,
+          "fps": 17.457,
+          "max_stamp_gap_ms": 300.881,
+          "timestamp_valid": true,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": false,
+          "state": "DEGRADED_RATE",
+          "expected_rate_ok": false
+        },
+        "depth": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 229.24220997757837,
+          "fps": 19.279,
+          "max_stamp_gap_ms": 264.784,
+          "timestamp_valid": true,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": false,
+          "state": "DEGRADED_RATE",
+          "expected_rate_ok": false,
+          "valid_ratio": 0.486,
+          "valid": true
+        }
+      },
+      "ready": true,
+      "blockers": [],
+      "warnings": [
+        "rgb_rate_unverified_or_degraded",
+        "depth_rate_unverified_or_degraded"
+      ],
+      "cloud_health_validation_enabled": false,
+      "cloud_health_state": "delegated_to_calibration",
+      "callback_diagnostics": {
+        "rgb": {
+          "enter_count": 11194,
+          "exit_count": 11194,
+          "exception_count": 0,
+          "last_enter_monotonic": 223554.916090524,
+          "last_exit_monotonic": 223554.916138653,
+          "last_exception": ""
+        },
+        "depth": {
+          "enter_count": 11194,
+          "exit_count": 11194,
+          "exception_count": 0,
+          "last_enter_monotonic": 223554.943555118,
+          "last_exit_monotonic": 223554.9436012,
+          "last_exception": ""
+        },
+        "rgb_info": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        },
+        "depth_info": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        },
+        "cloud": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        }
+      },
+      "ldp_protection_active": false,
+      "alignment_metadata_consistent": true,
+      "rgb_payload_valid": true,
+      "depth_quality_state": "delegated_to_calibration",
+      "rgb_depth_skew_ms": 9.32,
+      "rgb_depth_sync_valid": true,
+      "age_sec": 0.03
+    }
+  },
+  "calibration": {
+    "state": "FAIL",
+    "ready": false,
+    "available": false,
+    "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956",
+    "stamp": 1793858570.0289686,
+    "result": "FAIL",
+    "architecture": "markerless_hand_eye",
+    "command_frame": "TCP",
+    "calibration_parent_frame": "TCP",
+    "tcp_only_consumer_supported": true,
+    "bundle_path": "/home/jetson/.ros/dobot/markerless_calibration.npz",
+    "bundle_loaded": false,
+    "context_digest": "",
+    "geometry_verified": false,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_ELIGIBLE": true,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_BLOCKERS": [],
+    "CAMERA_ID_SOURCE": "YAML",
+    "CAMERA_ID": "AY2A760003E",
+    "CAMERA_ID_VERIFIED": true,
+    "CAMERA_ID_RESOLUTION": "PASS",
+    "EXACT_GATE": "",
+    "readiness": {
+      "HARDWARE_READY": false,
+      "PASSIVE_CAPTURE_READY": false,
+      "REAL_MOTION_READY": false,
+      "GEOMETRY_VERIFIED": false,
+      "point_cloud_source_usable": true,
+      "native_cloud_state": "stale",
+      "blockers": [
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+      ]
+    },
+    "AUTHORITATIVE_BASELINE_READY": false,
+    "AUTHORITATIVE_BASELINE_STABLE_FOR_S": 0.0,
+    "AUTHORITATIVE_BASELINE_REQUIRED_STABLE_S": 10.0,
+    "AUTHORITATIVE_BASELINE_BLOCKERS": [
+      "HARDWARE_NOT_READY",
+      "PASSIVE_CAPTURE_NOT_READY",
+      "DEPTH_UNSTABLE"
+    ],
+    "AUTHORITATIVE_BASELINE_CURRENT_BLOCKERS": [
+      "HARDWARE_NOT_READY",
+      "PASSIVE_CAPTURE_NOT_READY",
+      "DEPTH_UNSTABLE"
+    ],
+    "AUTHORITATIVE_BASELINE_LAST_RESET_GATE": "HARDWARE_NOT_READY",
+    "AUTHORITATIVE_BASELINE_LAST_RESET_TIME": 223553.317916571,
+    "AUTHORITATIVE_BASELINE_RESET_COUNT": 18,
+    "AUTHORITATIVE_BASELINE_EXACT_GATE": "HARDWARE_NOT_READY",
+    "passive_mode": true,
+    "passive_pose_count": 0,
+    "passive_solve": {
+      "state": "IDLE",
+      "production_ready": false
+    },
+    "automatic_calibration": {
+      "state": "FAULT",
+      "accepted_pose_count": 0,
+      "total_poses": 10,
+      "last_completed_unix_s": null,
+      "dry_run": false,
+      "production_ready": false,
+      "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956",
+      "purpose": "AUTONOMOUS_10_POSES",
+      "run_id": "3dd99e14082448299318560ed784b538",
+      "motion_command_sent": false,
+      "blockers": [
+        "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956"
+      ],
+      "trace": [
+        {
+          "function": "AutomaticBackend.prepare",
+          "monotonic": 223190.379964414
+        },
+        {
+          "function": "AutomaticBackend.prepare.enter",
+          "monotonic": 223190.380088771
+        }
+      ],
+      "authorization_protocol": 2,
+      "pre_dispatch": {
+        "hardware_readiness": {
+          "state": "READY",
+          "ready": true,
+          "reason": "",
+          "blockers": [],
+          "depth_fresh": true,
+          "depth_stable": true,
+          "tcp_fresh": true,
+          "joints_fresh": true,
+          "alarms_fresh": true,
+          "robot_connected": true,
+          "safety_supported": false,
+          "safety_verified": false,
+          "physical_estop_present": true,
+          "operator_safety_verified": true,
+          "software_estop_monitoring": "NOT CONNECTED",
+          "depth_age_s": 0.04329824447631836,
+          "tcp_age_s": 0.028021812438964844,
+          "joints_age_s": 0.028021812438964844,
+          "alarms_age_s": 0.015805482864379883
+        },
+        "workspace": "fcde7f4a974f4df8199a48ea889415bdff4d5209e879119454ee1bab43188ca4",
+        "baseline_gate": "",
+        "blockers": [],
+        "motion_command_sent": false,
+        "monotonic": 223194.885654768
+      },
+      "start_pose_check": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": -0.11250821685791017,
+          "volume_y_min": 0.025499999999999995,
+          "volume_z_min": -0.13985643005371093,
+          "volume_x_max": 0.14650821685791018,
+          "volume_y_max": 0.025499999999999995,
+          "volume_z_max": 0.16535643005371095,
+          "table": -0.13595643005371094
+        },
+        "violations": [
+          {
+            "boundary": "volume_x_min",
+            "deficit_m": 0.11250821685791017
+          },
+          {
+            "boundary": "volume_z_min",
+            "deficit_m": 0.13985643005371093
+          },
+          {
+            "boundary": "table",
+            "deficit_m": 0.13595643005371094
+          }
+        ],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001,
+        "current_xyz_mm": [
+          57.741783142089844,
+          0.0,
+          -15.356430053710938
+        ]
+      },
+      "PTP_RESTORE": "NOT_REQUIRED",
+      "authorization_revoked": true
+    },
+    "workspace_proposal": {
+      "schema_version": 1,
+      "state": "INSUFFICIENT_OBSERVATION",
+      "motion_authorized": false,
+      "installation_verified": false,
+      "whole_robot_environment_verified": false,
+      "frame": "camera_optical",
+      "image_size": [
+        640,
+        480
+      ],
+      "frame_count": 3,
+      "stable_valid_ratio": 0.49318359375,
+      "unknown_or_unstable_ratio": 0.50681640625,
+      "minimum_clearance_m": 0.025,
+      "assumed_depth_margin_m": 0.01,
+      "camera_volume": null,
+      "base_volume": null,
+      "dominant_surface": {
+        "plane_camera": [
+          -0.001702370874042748,
+          0.08575105328048793,
+          -0.9963151403018495,
+          0.22154390025355988
+        ],
+        "quality": {
+          "plane_gate": "pre_calibration_dominant_plane",
+          "plane_inlier_count": 2773,
+          "plane_inlier_ratio": 0.69325,
+          "plane_normal_camera_optical": [
+            -0.001702370874042748,
+            0.08575105328048793,
+            -0.9963151403018495
+          ],
+          "plane_rms_m": 0.0007249620683993022,
+          "plane_median_distance_m": 0.0004890640123889345,
+          "plane_spatial_spread_m": [
+            0.07528734450408553,
+            0.04069246931121853,
+            0.0007249620683993041
+          ],
+          "plane_area_estimate_m2": 0.01225451182302255,
+          "plane_inlier_depth_range_m": [
+            0.214,
+            0.229
+          ],
+          "plane_thresholds": {
+            "min_points": 200,
+            "min_inlier_ratio": 0.3,
+            "max_distance_m": 0.004,
+            "min_spatial_width_m": 0.025
+          }
+        },
+        "confirmed_table": false
+      },
+      "observed_surface": {
+        "frame": "camera_optical",
+        "min_m": [
+          0.06346161813261815,
+          -0.07050945593507212,
+          0.215
+        ],
+        "max_m": [
+          0.11906981015471074,
+          0.07821203793891791,
+          0.229
+        ],
+        "size_mm": [
+          55.608192022092595,
+          148.72149387399003,
+          14.000000000000012
+        ],
+        "depth_range_m": [
+          0.215,
+          0.229
+        ],
+        "classification": "MEASURED_SURFACE_NOT_FREE_VOLUME"
+      },
+      "blockers": [
+        "CAMERA_TO_BASE_UNVERIFIED",
+        "WHOLE_ROBOT_ENVIRONMENT_NOT_OBSERVED",
+        "OPERATOR_REVIEW_REQUIRED",
+        "OBSERVED_REGION_TOO_SMALL_FOR_CLEARANCE",
+        "DEPTH_CLEARANCE_TOO_SMALL"
+      ],
+      "observed_roi_px": [
+        460,
+        96,
+        564,
+        400
+      ],
+      "camera_frame": "camera_color_optical_frame",
+      "base_frame": "magician_base_link",
+      "camera_id": "AY2A760003E",
+      "transform_source": "UNVERIFIED",
+      "depth_stamps": [
+        1793858428.880901,
+        1793858429.079936,
+        1793858429.3473148
+      ],
+      "intrinsics_fingerprint": "902c4a463b3c2a078b752132fa836907db738da35b6a7f683f5178876fa6ca4b",
+      "observed_unix_s": 1793858430.731598,
+      "motion_command_sent": false,
+      "preview_jpeg": "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"
+    },
+    "automatic_commissioning": null,
+    "software_source_digest": "31d83ca3bb410fd47bf69f3627a98f725dd92d839006722a99a4f30dd69ee03d",
+    "passive_pose_metadata": [],
+    "passive_guidance": {
+      "state": "PLAN_UNAVAILABLE",
+      "capture_enabled": false,
+      "automatic_capture": false,
+      "progress": [
+        {
+          "pose_index": 1,
+          "state": "GUIDE_TO_TARGET"
+        },
+        {
+          "pose_index": 2,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 3,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 4,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 5,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 6,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 7,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 8,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 9,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 10,
+          "state": "PENDING"
+        }
+      ]
+    },
+    "supervised_auto": {
+      "state": "IDLE",
+      "dry_run": true,
+      "real_motion_enabled": false,
+      "current_pose": 0,
+      "total_poses": 10,
+      "target": null,
+      "readiness": "",
+      "safety_status": "",
+      "motion_progress": 0.0,
+      "capture_result": "",
+      "registration_quality": {},
+      "blockers": [],
+      "history": []
+    },
+    "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+    "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+    "samples_collected": 0,
+    "samples_accepted": 0,
+    "samples_rejected": 0,
+    "translation_residual_mm": null,
+    "rotation_residual_deg": null,
+    "verification_status": "FAIL",
+    "verification_samples": 0,
+    "reload_verification_status": "MISSING",
+    "mount_translation_error_bound_mm": 1.0,
+    "mount_envelope_mm": 152.60000000000002,
+    "blockers": [
+      "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956"
+    ],
+    "metrics": {},
+    "depth_quality": {
+      "status": "VALID_DEPTH",
+      "code": "",
+      "reason": "",
+      "pixel_count": 307200,
+      "valid_count": 150420,
+      "depth_valid_ratio": 0.4896484375,
+      "median_m": 0.202,
+      "mad_m": 0.0044478000000000035,
+      "stddev_m": 0.3013784691043234,
+      "minimum_m": 0.165,
+      "maximum_m": 1.212,
+      "zero_count": 156780,
+      "nonfinite_count": 0,
+      "outside_range_count": 156780
+    },
+    "rgb_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 51.25043598935008,
+      "fps": 17.291,
+      "max_stamp_gap_ms": 300.881,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": false,
+      "state": "DEGRADED_RATE",
+      "expected_rate_ok": false
+    },
+    "depth_health": {
+      "fresh": true,
+      "frames": 300,
+      "age_ms": 126.28543598935008,
+      "fps": 19.279,
+      "max_stamp_gap_ms": 264.784,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": false,
+      "state": "DEGRADED_RATE",
+      "expected_rate_ok": false,
+      "valid_ratio": 0.486,
+      "valid": true
+    },
+    "RGB_FRESH": true,
+    "DEPTH_FRESH": true,
+    "RGB_CAMERAINFO_FRESH": true,
+    "DEPTH_CAMERAINFO_FRESH": true,
+    "RGB_DEPTH_CAMERAINFO_SYNCHRONIZED": true,
+    "SENSOR_INGEST_STATE": "ACTIVE",
+    "SENSOR_INGEST_OWNER": "passive_capture",
+    "SENSOR_INGEST_ACTIVATION_REASON": "passive_capture",
+    "SENSOR_INGEST_ACTIVATED_AT_MONOTONIC": 223190.492722441,
+    "SENSOR_INGEST_ACTIVATION_COUNT": 1,
+    "RGB_SUBSCRIPTION_ACTIVE": true,
+    "DEPTH_SUBSCRIPTION_ACTIVE": true,
+    "CLOUD_SUBSCRIPTION_ACTIVE": true,
+    "INTERNAL_SYNC_PAYLOAD_AVAILABLE": true,
+    "SYNC_PAYLOAD_AGE_MS": 24.804506014334038,
+    "RGB_DEPTH_SKEW_MS": 76.84898376464844,
+    "SYNC_PAIR_SUCCESS_COUNT": 4601,
+    "SYNC_PAIR_REJECT_COUNT": 2042,
+    "SYNC_PAIR_LAST_REASON": "PAIR_SKEW_OVER_100MS",
+    "SYNC_PAIR_RECENT_REJECTIONS": [
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 1200.1421451568604,
+        "monotonic": 223551.620309195
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 160.36581993103027,
+        "monotonic": 223552.433089379
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 226.0458469390869,
+        "monotonic": 223552.56099463
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 208.31823348999023,
+        "monotonic": 223552.59654375
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 140.90418815612793,
+        "monotonic": 223552.846034522
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 109.00616645812988,
+        "monotonic": 223554.016560795
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 220.5948829650879,
+        "monotonic": 223554.881295061
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 352.4200916290283,
+        "monotonic": 223554.88978472
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 558.6581230163574,
+        "monotonic": 223554.922088355
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 144.6058750152588,
+        "monotonic": 223554.995527793
+      }
+    ],
+    "SYNC_PAYLOAD_GENERATION": 4601,
+    "SYNC_LAST_COMMIT_MONOTONIC": 223554.97166927,
+    "SYNC_LAST_COMMIT_RGB_STAMP": 1793858569.891423,
+    "SYNC_LAST_COMMIT_DEPTH_STAMP": 1793858569.968272,
+    "SYNC_LAST_COMMIT_SKEW_MS": 76.84898376464844,
+    "SYNC_LAST_COMMIT_REASON": "PASS",
+    "RGB_PAYLOAD_QUEUE_SIZE": 0,
+    "DEPTH_PAYLOAD_QUEUE_SIZE": 5,
+    "RGB_DROPPED_TOO_OLD_COUNT": 1104,
+    "DEPTH_DROPPED_TOO_OLD_COUNT": 938,
+    "RGB_CAMERAINFO_CACHE": true,
+    "RGB_RATE_STATE": "DEGRADED_RATE",
+    "DEPTH_RATE_STATE": "DEGRADED_RATE",
+    "tcp_fresh": true,
+    "joint_fresh": true,
+    "alarm_state": {
+      "fresh": true,
+      "codes": []
+    },
+    "physical_estop": "PRESENT",
+    "hardware_safety": "OPERATOR VERIFIED",
+    "software_estop_monitoring": "NOT CONNECTED",
+    "safety_input_state": {
+      "supported": false,
+      "verified": false
+    },
+    "hardware_readiness": {
+      "state": "DEPTH_ERROR",
+      "ready": false,
+      "reason": "DEPTH_UNSTABLE: insufficient consecutive valid depth frames",
+      "blockers": [
+        "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+      ],
+      "depth_fresh": true,
+      "depth_stable": false,
+      "tcp_fresh": true,
+      "joints_fresh": true,
+      "alarms_fresh": true,
+      "robot_connected": true,
+      "safety_supported": false,
+      "safety_verified": false,
+      "physical_estop_present": true,
+      "operator_safety_verified": true,
+      "software_estop_monitoring": "NOT CONNECTED",
+      "depth_age_s": 0.5388123989105225,
+      "tcp_age_s": 0.027605533599853516,
+      "joints_age_s": 0.027605533599853516,
+      "alarms_age_s": 0.0658566951751709
+    },
+    "ui": {
+      "language": "th",
+      "step": "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e01\u0e25\u0e49\u0e2d\u0e07",
+      "status": "Depth \u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21",
+      "recommended_action": "\u0e15\u0e23\u0e27\u0e08\u0e01\u0e32\u0e23\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e01\u0e25\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e04\u0e48\u0e32 LDP \u0e41\u0e25\u0e49\u0e27\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48",
+      "motion_allowed": false
+    },
+    "age_sec": 0.01
+  },
+  "operator": {
+    "ready": false,
+    "overall_status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+    "checks": [
+      {
+        "key": "robot",
+        "label": "\u0e2b\u0e38\u0e48\u0e19\u0e22\u0e19\u0e15\u0e4c",
+        "ok": true,
+        "status": "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "action server \u0e1e\u0e23\u0e49\u0e2d\u0e21 \u0e44\u0e21\u0e48\u0e21\u0e35 alarm \u0e41\u0e25\u0e30\u0e44\u0e21\u0e48\u0e21\u0e35 motion \u0e04\u0e49\u0e32\u0e07"
+      },
+      {
+        "key": "camera",
+        "label": "\u0e01\u0e25\u0e49\u0e2d\u0e07",
+        "ok": true,
+        "status": "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "Camera frame is available; YOLO detector is ready"
+      },
+      {
+        "key": "depth",
+        "label": "\u0e04\u0e27\u0e32\u0e21\u0e25\u0e36\u0e01",
+        "ok": true,
+        "status": "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "depth_stream_ok=True, depth_data_valid=True, valid_ratio=0.4904"
+      },
+      {
+        "key": "calibration",
+        "label": "\u0e01\u0e32\u0e23\u0e04\u0e32\u0e25\u0e34\u0e40\u0e1a\u0e23\u0e15",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956"
+      },
+      {
+        "key": "suction",
+        "label": "\u0e2b\u0e31\u0e27\u0e14\u0e39\u0e14",
+        "ok": true,
+        "status": "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "service \u0e1e\u0e23\u0e49\u0e2d\u0e21"
+      },
+      {
+        "key": "objects",
+        "label": "\u0e0a\u0e34\u0e49\u0e19\u0e07\u0e32\u0e19\u0e17\u0e35\u0e48\u0e15\u0e23\u0e27\u0e08\u0e1e\u0e1a",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "No detections found for class 'black_cap'"
+      },
+      {
+        "key": "place",
+        "label": "\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07\u0e27\u0e32\u0e07",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "Zone A: \u0e23\u0e2d calibration/target \u0e17\u0e35\u0e48 valid \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19 trajectory \u0e41\u0e1a\u0e1a live"
+      },
+      {
+        "key": "safety",
+        "label": "\u0e01\u0e32\u0e23\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956; No selected target is available; confidence is below 0.7; place_id 'None' is not configured; No target pose to validate; Real motion is disabled by safety config; Robot homing is not confirmed"
+      },
+      {
+        "key": "system",
+        "label": "\u0e23\u0e30\u0e1a\u0e1a\u0e23\u0e27\u0e21",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "FAULT: CALIBRATION_FAILED: START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956; CALIBRATION_NOT_READY; HOME_NOT_READY; OBSERVATION_NOT_READY; REAL_MOTION_NOT_READY"
+      }
+    ],
+    "counts": {
+      "black": 0,
+      "white": 0,
+      "yellow": 0
+    },
+    "jobs": [
+      {
+        "id": "black",
+        "label": "\u0e2a\u0e35\u0e14\u0e33"
+      },
+      {
+        "id": "white",
+        "label": "\u0e2a\u0e35\u0e02\u0e32\u0e27"
+      },
+      {
+        "id": "yellow",
+        "label": "\u0e2a\u0e35\u0e40\u0e2b\u0e25\u0e37\u0e2d\u0e07"
+      },
+      {
+        "id": "pick_all",
+        "label": "\u0e2b\u0e22\u0e34\u0e1a\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14"
+      }
+    ],
+    "places": [
+      {
+        "id": "Zone A",
+        "label": "\u0e42\u0e0b\u0e19 A"
+      },
+      {
+        "id": "Zone B",
+        "label": "\u0e42\u0e0b\u0e19 B"
+      },
+      {
+        "id": "Zone C",
+        "label": "\u0e42\u0e0b\u0e19 C"
+      },
+      {
+        "id": "Reject",
+        "label": "\u0e04\u0e31\u0e14\u0e17\u0e34\u0e49\u0e07"
+      }
+    ],
+    "selected_job": "\u0e2a\u0e35\u0e14\u0e33",
+    "selected_place": "\u0e42\u0e0b\u0e19 A",
+    "operation": {
+      "active": false,
+      "state": "IDLE",
+      "message": "\u0e23\u0e2d\u0e04\u0e33\u0e2a\u0e31\u0e48\u0e07",
+      "job": "",
+      "place": "",
+      "completed": 0,
+      "total": 0,
+      "failed": 0
+    },
+    "control": {
+      "state": "FAULT",
+      "owner": "",
+      "stop_acknowledged": true
+    },
+    "motion_mode": "DRY_RUN",
+    "calibration_guidance": {
+      "state": "PLAN_UNAVAILABLE",
+      "capture_enabled": false,
+      "automatic_capture": false,
+      "progress": [
+        {
+          "pose_index": 1,
+          "state": "GUIDE_TO_TARGET"
+        },
+        {
+          "pose_index": 2,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 3,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 4,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 5,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 6,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 7,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 8,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 9,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 10,
+          "state": "PENDING"
+        }
+      ]
+    },
+    "supervised_auto": {
+      "state": "IDLE",
+      "dry_run": true,
+      "real_motion_enabled": false,
+      "current_pose": 0,
+      "total_poses": 10,
+      "target": null,
+      "readiness": "",
+      "safety_status": "",
+      "motion_progress": 0.0,
+      "capture_result": "",
+      "registration_quality": {},
+      "blockers": [],
+      "history": []
+    },
+    "passive_solve": {
+      "state": "IDLE",
+      "production_ready": false
+    },
+    "automatic_calibration": {
+      "state": "FAULT",
+      "accepted_pose_count": 0,
+      "total_poses": 10,
+      "last_completed_unix_s": null,
+      "dry_run": false,
+      "production_ready": false,
+      "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956",
+      "purpose": "AUTONOMOUS_10_POSES",
+      "run_id": "3dd99e14082448299318560ed784b538",
+      "motion_command_sent": false,
+      "blockers": [
+        "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956"
+      ],
+      "trace": [
+        {
+          "function": "AutomaticBackend.prepare",
+          "monotonic": 223190.379964414
+        },
+        {
+          "function": "AutomaticBackend.prepare.enter",
+          "monotonic": 223190.380088771
+        }
+      ],
+      "authorization_protocol": 2,
+      "pre_dispatch": {
+        "hardware_readiness": {
+          "state": "READY",
+          "ready": true,
+          "reason": "",
+          "blockers": [],
+          "depth_fresh": true,
+          "depth_stable": true,
+          "tcp_fresh": true,
+          "joints_fresh": true,
+          "alarms_fresh": true,
+          "robot_connected": true,
+          "safety_supported": false,
+          "safety_verified": false,
+          "physical_estop_present": true,
+          "operator_safety_verified": true,
+          "software_estop_monitoring": "NOT CONNECTED",
+          "depth_age_s": 0.04329824447631836,
+          "tcp_age_s": 0.028021812438964844,
+          "joints_age_s": 0.028021812438964844,
+          "alarms_age_s": 0.015805482864379883
+        },
+        "workspace": "fcde7f4a974f4df8199a48ea889415bdff4d5209e879119454ee1bab43188ca4",
+        "baseline_gate": "",
+        "blockers": [],
+        "motion_command_sent": false,
+        "monotonic": 223194.885654768
+      },
+      "start_pose_check": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": -0.11250821685791017,
+          "volume_y_min": 0.025499999999999995,
+          "volume_z_min": -0.13985643005371093,
+          "volume_x_max": 0.14650821685791018,
+          "volume_y_max": 0.025499999999999995,
+          "volume_z_max": 0.16535643005371095,
+          "table": -0.13595643005371094
+        },
+        "violations": [
+          {
+            "boundary": "volume_x_min",
+            "deficit_m": 0.11250821685791017
+          },
+          {
+            "boundary": "volume_z_min",
+            "deficit_m": 0.13985643005371093
+          },
+          {
+            "boundary": "table",
+            "deficit_m": 0.13595643005371094
+          }
+        ],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001,
+        "current_xyz_mm": [
+          57.741783142089844,
+          0.0,
+          -15.356430053710938
+        ]
+      },
+      "PTP_RESTORE": "NOT_REQUIRED",
+      "authorization_revoked": true
+    },
+    "calibration": {
+      "state": "FAIL",
+      "ready": false,
+      "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956",
+      "last_completed_unix_s": null
+    },
+    "fault_message": "\u0e23\u0e30\u0e1a\u0e1a\u0e2b\u0e22\u0e38\u0e14\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22 \u0e01\u0e23\u0e38\u0e13\u0e32\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e2e\u0e32\u0e23\u0e4c\u0e14\u0e41\u0e27\u0e23\u0e4c\u0e41\u0e25\u0e30\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e23\u0e27\u0e08\u0e23\u0e30\u0e1a\u0e1a\u0e43\u0e2b\u0e21\u0e48",
+    "pick_all": {
+      "completed": 0,
+      "total": 0,
+      "failed": 0
+    }
+  }
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "index": 0,
+    "valid_ratio": 0.4876432291666667,
+    "cloud_points": 4000,
+    "maximum_plane_inliers": 1135,
+    "maximum_plane_ratio": 0.28375,
+    "scene": {
+      "scene_spread_m": [
+        0.46139677838915355,
+        0.14488669982488167,
+        0.080626751811556
+      ],
+      "point_count": 4000
+    },
+    "result": "FAIL",
+    "reason": "No sufficiently supported dominant plane"
+  },
+  {
+    "index": 1,
+    "valid_ratio": 0.48541666666666666,
+    "cloud_points": 4000,
+    "maximum_plane_inliers": 1179,
+    "maximum_plane_ratio": 0.29475,
+    "scene": {
+      "scene_spread_m": [
+        0.4618968365643877,
+        0.14418932715181576,
+        0.08025399277721379
+      ],
+      "point_count": 4000
+    },
+    "result": "FAIL",
+    "reason": "No sufficiently supported dominant plane"
+  },
+  {
+    "index": 2,
+    "valid_ratio": 0.49040364583333335,
+    "cloud_points": 4000,
+    "maximum_plane_inliers": 1104,
+    "maximum_plane_ratio": 0.276,
+    "scene": {
+      "scene_spread_m": [
+        0.4680747088044433,
+        0.144741918250956,
+        0.08132759850073633
+      ],
+      "point_count": 4000
+    },
+    "result": "FAIL",
+    "reason": "No sufficiently supported dominant plane"
+  }
+]

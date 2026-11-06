@@ -1,0 +1,5190 @@
+{
+  "utc": "2026-11-02T16:18:43.899490+00:00",
+  "scope": "UNVERIFIED_FORM_DIAGNOSTIC_ONLY",
+  "telemetry_source": "LIVE_HTTP_GET",
+  "motion": {
+    "active_goal": false,
+    "last_goal_age_sec": null,
+    "last_feedback": null,
+    "last_result": null,
+    "joints_deg": [
+      8.07,
+      30.67,
+      15.88,
+      0.0
+    ],
+    "joints_age_sec": 0.0,
+    "current_tcp_pose": [
+      208.1590576171875,
+      29.527311325073242,
+      75.89265441894531,
+      8.073529243469238
+    ],
+    "current_tcp_pose_source": "dobot_pose_raw",
+    "current_tcp_pose_age_sec": 0.01,
+    "homing_confirmed": false,
+    "vision_sequence_active": false,
+    "vision_sequence_age_sec": null
+  },
+  "form_fingerprint": "4b617efbbf8c78423f664cef8edafdc57ab4da00b4b0cba207a23bb67b3a85c6",
+  "mount_fingerprint": "0d3c21088fa2bba7a89ecc8784f705c29a5be55ba9b20855395985e5169d434b",
+  "form_installation_verified": false,
+  "form_whole_robot_environment_verified": false,
+  "anchor_clearance": {
+    "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+    "padding_m": 0.1786,
+    "signed_margins_m": {
+      "volume_x_min": -0.14044094238281252,
+      "volume_y_min": -0.07907268867492676,
+      "volume_z_min": -0.1527073455810547,
+      "volume_x_max": -0.1567590576171875,
+      "volume_y_max": -0.13812731132507325,
+      "volume_z_max": -0.1344926544189453,
+      "table": -0.04470734558105469
+    },
+    "violations": [
+      {
+        "boundary": "volume_x_min",
+        "deficit_m": 0.14044094238281252
+      },
+      {
+        "boundary": "volume_y_min",
+        "deficit_m": 0.07907268867492676
+      },
+      {
+        "boundary": "volume_z_min",
+        "deficit_m": 0.1527073455810547
+      },
+      {
+        "boundary": "volume_x_max",
+        "deficit_m": 0.1567590576171875
+      },
+      {
+        "boundary": "volume_y_max",
+        "deficit_m": 0.13812731132507325
+      },
+      {
+        "boundary": "volume_z_max",
+        "deficit_m": 0.1344926544189453
+      },
+      {
+        "boundary": "table",
+        "deficit_m": 0.04470734558105469
+      }
+    ],
+    "allowed_center_min_m": [
+      0.3486,
+      0.1086,
+      0.22860000000000003
+    ],
+    "allowed_center_max_m": [
+      0.0514,
+      -0.1086,
+      -0.05860000000000001
+    ],
+    "table_min_center_z_m": 0.12060000000000001
+  },
+  "variants": [
+    {
+      "scale": 1.0,
+      "x_sign": 1,
+      "z_sign": 1,
+      "segments": [
+        {
+          "pose_index": 1,
+          "target_xyz_mm": [
+            208.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 2,
+          "target_xyz_mm": [
+            243.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=191.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1917590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1917590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 3,
+          "target_xyz_mm": [
+            223.15905761718753,
+            59.52731132507324,
+            85.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=125.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=191.759, volume_y_max deficit_mm=168.127, volume_z_max deficit_mm=144.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1254409423828125,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1917590576171875,
+              "volume_y_max": -0.16812731132507325,
+              "volume_z_max": -0.14449265441894532,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1254409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1917590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.14449265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 4,
+          "target_xyz_mm": [
+            223.15905761718753,
+            -0.4726886749267557,
+            90.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=125.441, volume_y_min deficit_mm=109.073, volume_z_min deficit_mm=142.707, volume_x_max deficit_mm=171.759, volume_y_max deficit_mm=168.127, volume_z_max deficit_mm=149.493, table deficit_mm=34.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1254409423828125,
+              "volume_y_min": -0.10907268867492675,
+              "volume_z_min": -0.1427073455810547,
+              "volume_x_max": -0.17175905761718752,
+              "volume_y_max": -0.16812731132507325,
+              "volume_z_max": -0.14949265441894533,
+              "table": -0.0347073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1254409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1427073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.17175905761718752
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.14949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0347073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 5,
+          "target_xyz_mm": [
+            238.1590576171875,
+            49.52731132507324,
+            95.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=125.441, volume_y_min deficit_mm=109.073, volume_z_min deficit_mm=137.707, volume_x_max deficit_mm=186.759, volume_y_max deficit_mm=158.127, volume_z_max deficit_mm=154.493, table deficit_mm=29.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1254409423828125,
+              "volume_y_min": -0.10907268867492675,
+              "volume_z_min": -0.13770734558105469,
+              "volume_x_max": -0.1867590576171875,
+              "volume_y_max": -0.15812731132507324,
+              "volume_z_max": -0.15449265441894533,
+              "table": -0.029707345581054694
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1254409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13770734558105469
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1867590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15812731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15449265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.029707345581054694
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 6,
+          "target_xyz_mm": [
+            238.1590576171875,
+            9.527311325073242,
+            100.89265441894533
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=110.441, volume_y_min deficit_mm=99.073, volume_z_min deficit_mm=132.707, volume_x_max deficit_mm=186.759, volume_y_max deficit_mm=158.127, volume_z_max deficit_mm=159.493, table deficit_mm=24.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.11044094238281252,
+              "volume_y_min": -0.09907268867492675,
+              "volume_z_min": -0.13270734558105468,
+              "volume_x_max": -0.1867590576171875,
+              "volume_y_max": -0.15812731132507324,
+              "volume_z_max": -0.15949265441894533,
+              "table": -0.02470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.11044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13270734558105468
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1867590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15812731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.02470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 7,
+          "target_xyz_mm": [
+            203.1590576171875,
+            54.52731132507324,
+            85.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=145.441, volume_y_min deficit_mm=99.073, volume_z_min deficit_mm=142.707, volume_x_max deficit_mm=186.759, volume_y_max deficit_mm=163.127, volume_z_max deficit_mm=159.493, table deficit_mm=34.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14544094238281252,
+              "volume_y_min": -0.09907268867492675,
+              "volume_z_min": -0.1427073455810547,
+              "volume_x_max": -0.1867590576171875,
+              "volume_y_max": -0.16312731132507324,
+              "volume_z_max": -0.15949265441894533,
+              "table": -0.0347073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1427073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1867590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16312731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0347073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 8,
+          "target_xyz_mm": [
+            218.1590576171875,
+            4.527311325073242,
+            105.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=145.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=142.707, volume_x_max deficit_mm=166.759, volume_y_max deficit_mm=163.127, volume_z_max deficit_mm=164.493, table deficit_mm=34.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14544094238281252,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.1427073455810547,
+              "volume_x_max": -0.1667590576171875,
+              "volume_y_max": -0.16312731132507324,
+              "volume_z_max": -0.16449265441894534,
+              "table": -0.0347073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1427073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1667590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16312731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.16449265441894534
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0347073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 9,
+          "target_xyz_mm": [
+            243.1590576171875,
+            44.52731132507325,
+            90.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=130.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=137.707, volume_x_max deficit_mm=191.759, volume_y_max deficit_mm=153.127, volume_z_max deficit_mm=164.493, table deficit_mm=29.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1304409423828125,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.13770734558105469,
+              "volume_x_max": -0.1917590576171875,
+              "volume_y_max": -0.15312731132507323,
+              "volume_z_max": -0.16449265441894534,
+              "table": -0.029707345581054694
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1304409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13770734558105469
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1917590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15312731132507323
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.16449265441894534
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.029707345581054694
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 10,
+          "target_xyz_mm": [
+            203.1590576171875,
+            4.527311325073242,
+            100.89265441894533
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=145.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=137.707, volume_x_max deficit_mm=191.759, volume_y_max deficit_mm=153.127, volume_z_max deficit_mm=159.493, table deficit_mm=29.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14544094238281252,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.13770734558105469,
+              "volume_x_max": -0.1917590576171875,
+              "volume_y_max": -0.15312731132507323,
+              "volume_z_max": -0.15949265441894533,
+              "table": -0.029707345581054694
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13770734558105469
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1917590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15312731132507323
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.029707345581054694
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "x_sign": -1,
+      "z_sign": 1,
+      "segments": [
+        {
+          "pose_index": 1,
+          "target_xyz_mm": [
+            208.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 2,
+          "target_xyz_mm": [
+            173.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=175.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17544094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 3,
+          "target_xyz_mm": [
+            193.1590576171875,
+            59.52731132507324,
+            85.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=175.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=141.759, volume_y_max deficit_mm=168.127, volume_z_max deficit_mm=144.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17544094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1417590576171875,
+              "volume_y_max": -0.16812731132507325,
+              "volume_z_max": -0.14449265441894532,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1417590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.14449265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 4,
+          "target_xyz_mm": [
+            193.1590576171875,
+            -0.4726886749267557,
+            90.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=155.441, volume_y_min deficit_mm=109.073, volume_z_min deficit_mm=142.707, volume_x_max deficit_mm=141.759, volume_y_max deficit_mm=168.127, volume_z_max deficit_mm=149.493, table deficit_mm=34.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.15544094238281253,
+              "volume_y_min": -0.10907268867492675,
+              "volume_z_min": -0.1427073455810547,
+              "volume_x_max": -0.1417590576171875,
+              "volume_y_max": -0.16812731132507325,
+              "volume_z_max": -0.14949265441894533,
+              "table": -0.0347073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.15544094238281253
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1427073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1417590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.14949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0347073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 5,
+          "target_xyz_mm": [
+            178.1590576171875,
+            49.52731132507324,
+            95.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.441, volume_y_min deficit_mm=109.073, volume_z_min deficit_mm=137.707, volume_x_max deficit_mm=141.759, volume_y_max deficit_mm=158.127, volume_z_max deficit_mm=154.493, table deficit_mm=29.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17044094238281252,
+              "volume_y_min": -0.10907268867492675,
+              "volume_z_min": -0.13770734558105469,
+              "volume_x_max": -0.1417590576171875,
+              "volume_y_max": -0.15812731132507324,
+              "volume_z_max": -0.15449265441894533,
+              "table": -0.029707345581054694
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13770734558105469
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1417590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15812731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15449265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.029707345581054694
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 6,
+          "target_xyz_mm": [
+            178.1590576171875,
+            9.527311325073242,
+            100.89265441894533
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.441, volume_y_min deficit_mm=99.073, volume_z_min deficit_mm=132.707, volume_x_max deficit_mm=126.759, volume_y_max deficit_mm=158.127, volume_z_max deficit_mm=159.493, table deficit_mm=24.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17044094238281252,
+              "volume_y_min": -0.09907268867492675,
+              "volume_z_min": -0.13270734558105468,
+              "volume_x_max": -0.1267590576171875,
+              "volume_y_max": -0.15812731132507324,
+              "volume_z_max": -0.15949265441894533,
+              "table": -0.02470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13270734558105468
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1267590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15812731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.02470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 7,
+          "target_xyz_mm": [
+            213.1590576171875,
+            54.52731132507324,
+            85.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.441, volume_y_min deficit_mm=99.073, volume_z_min deficit_mm=142.707, volume_x_max deficit_mm=161.759, volume_y_max deficit_mm=163.127, volume_z_max deficit_mm=159.493, table deficit_mm=34.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17044094238281252,
+              "volume_y_min": -0.09907268867492675,
+              "volume_z_min": -0.1427073455810547,
+              "volume_x_max": -0.1617590576171875,
+              "volume_y_max": -0.16312731132507324,
+              "volume_z_max": -0.15949265441894533,
+              "table": -0.0347073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1427073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1617590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16312731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0347073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 8,
+          "target_xyz_mm": [
+            198.1590576171875,
+            4.527311325073242,
+            105.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=150.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=142.707, volume_x_max deficit_mm=161.759, volume_y_max deficit_mm=163.127, volume_z_max deficit_mm=164.493, table deficit_mm=34.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.15044094238281253,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.1427073455810547,
+              "volume_x_max": -0.1617590576171875,
+              "volume_y_max": -0.16312731132507324,
+              "volume_z_max": -0.16449265441894534,
+              "table": -0.0347073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.15044094238281253
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1427073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1617590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16312731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.16449265441894534
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0347073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 9,
+          "target_xyz_mm": [
+            173.1590576171875,
+            44.52731132507325,
+            90.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=175.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=137.707, volume_x_max deficit_mm=146.759, volume_y_max deficit_mm=153.127, volume_z_max deficit_mm=164.493, table deficit_mm=29.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17544094238281252,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.13770734558105469,
+              "volume_x_max": -0.1467590576171875,
+              "volume_y_max": -0.15312731132507323,
+              "volume_z_max": -0.16449265441894534,
+              "table": -0.029707345581054694
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13770734558105469
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1467590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15312731132507323
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.16449265441894534
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.029707345581054694
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 10,
+          "target_xyz_mm": [
+            213.1590576171875,
+            4.527311325073242,
+            100.89265441894533
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=175.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=137.707, volume_x_max deficit_mm=161.759, volume_y_max deficit_mm=153.127, volume_z_max deficit_mm=159.493, table deficit_mm=29.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17544094238281252,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.13770734558105469,
+              "volume_x_max": -0.1617590576171875,
+              "volume_y_max": -0.15312731132507323,
+              "volume_z_max": -0.15949265441894533,
+              "table": -0.029707345581054694
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13770734558105469
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1617590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15312731132507323
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.029707345581054694
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "x_sign": 1,
+      "z_sign": -1,
+      "segments": [
+        {
+          "pose_index": 1,
+          "target_xyz_mm": [
+            208.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 2,
+          "target_xyz_mm": [
+            243.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=191.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1917590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1917590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 3,
+          "target_xyz_mm": [
+            223.15905761718753,
+            59.52731132507324,
+            65.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=125.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=162.707, volume_x_max deficit_mm=191.759, volume_y_max deficit_mm=168.127, volume_z_max deficit_mm=134.493, table deficit_mm=54.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1254409423828125,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1627073455810547,
+              "volume_x_max": -0.1917590576171875,
+              "volume_y_max": -0.16812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.05470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1254409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1627073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1917590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.05470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 4,
+          "target_xyz_mm": [
+            223.15905761718753,
+            -0.4726886749267557,
+            60.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=125.441, volume_y_min deficit_mm=109.073, volume_z_min deficit_mm=167.707, volume_x_max deficit_mm=171.759, volume_y_max deficit_mm=168.127, volume_z_max deficit_mm=124.493, table deficit_mm=59.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1254409423828125,
+              "volume_y_min": -0.10907268867492675,
+              "volume_z_min": -0.1677073455810547,
+              "volume_x_max": -0.17175905761718752,
+              "volume_y_max": -0.16812731132507325,
+              "volume_z_max": -0.12449265441894533,
+              "table": -0.05970734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1254409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1677073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.17175905761718752
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12449265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.05970734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 5,
+          "target_xyz_mm": [
+            238.1590576171875,
+            49.52731132507324,
+            55.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=125.441, volume_y_min deficit_mm=109.073, volume_z_min deficit_mm=172.707, volume_x_max deficit_mm=186.759, volume_y_max deficit_mm=158.127, volume_z_max deficit_mm=119.493, table deficit_mm=64.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1254409423828125,
+              "volume_y_min": -0.10907268867492675,
+              "volume_z_min": -0.17270734558105472,
+              "volume_x_max": -0.1867590576171875,
+              "volume_y_max": -0.15812731132507324,
+              "volume_z_max": -0.11949265441894533,
+              "table": -0.0647073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1254409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17270734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1867590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15812731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0647073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 6,
+          "target_xyz_mm": [
+            238.1590576171875,
+            9.527311325073242,
+            50.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=110.441, volume_y_min deficit_mm=99.073, volume_z_min deficit_mm=177.707, volume_x_max deficit_mm=186.759, volume_y_max deficit_mm=158.127, volume_z_max deficit_mm=114.493, table deficit_mm=69.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.11044094238281252,
+              "volume_y_min": -0.09907268867492675,
+              "volume_z_min": -0.17770734558105472,
+              "volume_x_max": -0.1867590576171875,
+              "volume_y_max": -0.15812731132507324,
+              "volume_z_max": -0.11449265441894532,
+              "table": -0.06970734558105471
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.11044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17770734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1867590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15812731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11449265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.06970734558105471
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 7,
+          "target_xyz_mm": [
+            203.1590576171875,
+            54.52731132507324,
+            65.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=145.441, volume_y_min deficit_mm=99.073, volume_z_min deficit_mm=177.707, volume_x_max deficit_mm=186.759, volume_y_max deficit_mm=163.127, volume_z_max deficit_mm=124.493, table deficit_mm=69.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14544094238281252,
+              "volume_y_min": -0.09907268867492675,
+              "volume_z_min": -0.17770734558105472,
+              "volume_x_max": -0.1867590576171875,
+              "volume_y_max": -0.16312731132507324,
+              "volume_z_max": -0.12449265441894533,
+              "table": -0.06970734558105471
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17770734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1867590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16312731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12449265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.06970734558105471
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 8,
+          "target_xyz_mm": [
+            218.1590576171875,
+            4.527311325073242,
+            45.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=145.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=182.707, volume_x_max deficit_mm=166.759, volume_y_max deficit_mm=163.127, volume_z_max deficit_mm=124.493, table deficit_mm=74.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14544094238281252,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.18270734558105467,
+              "volume_x_max": -0.1667590576171875,
+              "volume_y_max": -0.16312731132507324,
+              "volume_z_max": -0.12449265441894533,
+              "table": -0.07470734558105468
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.18270734558105467
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1667590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16312731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12449265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.07470734558105468
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 9,
+          "target_xyz_mm": [
+            243.1590576171875,
+            44.52731132507325,
+            60.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=130.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=182.707, volume_x_max deficit_mm=191.759, volume_y_max deficit_mm=153.127, volume_z_max deficit_mm=119.493, table deficit_mm=74.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1304409423828125,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.18270734558105467,
+              "volume_x_max": -0.1917590576171875,
+              "volume_y_max": -0.15312731132507323,
+              "volume_z_max": -0.11949265441894533,
+              "table": -0.07470734558105468
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1304409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.18270734558105467
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1917590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15312731132507323
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.07470734558105468
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 10,
+          "target_xyz_mm": [
+            203.1590576171875,
+            4.527311325073242,
+            50.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=145.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=177.707, volume_x_max deficit_mm=191.759, volume_y_max deficit_mm=153.127, volume_z_max deficit_mm=119.493, table deficit_mm=69.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14544094238281252,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.17770734558105472,
+              "volume_x_max": -0.1917590576171875,
+              "volume_y_max": -0.15312731132507323,
+              "volume_z_max": -0.11949265441894533,
+              "table": -0.06970734558105471
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17770734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1917590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15312731132507323
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.06970734558105471
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        }
+      ]
+    },
+    {
+      "scale": 1.0,
+      "x_sign": -1,
+      "z_sign": -1,
+      "segments": [
+        {
+          "pose_index": 1,
+          "target_xyz_mm": [
+            208.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 2,
+          "target_xyz_mm": [
+            173.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=175.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17544094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 3,
+          "target_xyz_mm": [
+            193.1590576171875,
+            59.52731132507324,
+            65.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=175.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=162.707, volume_x_max deficit_mm=141.759, volume_y_max deficit_mm=168.127, volume_z_max deficit_mm=134.493, table deficit_mm=54.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17544094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1627073455810547,
+              "volume_x_max": -0.1417590576171875,
+              "volume_y_max": -0.16812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.05470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1627073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1417590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.05470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 4,
+          "target_xyz_mm": [
+            193.1590576171875,
+            -0.4726886749267557,
+            60.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=155.441, volume_y_min deficit_mm=109.073, volume_z_min deficit_mm=167.707, volume_x_max deficit_mm=141.759, volume_y_max deficit_mm=168.127, volume_z_max deficit_mm=124.493, table deficit_mm=59.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.15544094238281253,
+              "volume_y_min": -0.10907268867492675,
+              "volume_z_min": -0.1677073455810547,
+              "volume_x_max": -0.1417590576171875,
+              "volume_y_max": -0.16812731132507325,
+              "volume_z_max": -0.12449265441894533,
+              "table": -0.05970734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.15544094238281253
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1677073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1417590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12449265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.05970734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 5,
+          "target_xyz_mm": [
+            178.1590576171875,
+            49.52731132507324,
+            55.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.441, volume_y_min deficit_mm=109.073, volume_z_min deficit_mm=172.707, volume_x_max deficit_mm=141.759, volume_y_max deficit_mm=158.127, volume_z_max deficit_mm=119.493, table deficit_mm=64.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17044094238281252,
+              "volume_y_min": -0.10907268867492675,
+              "volume_z_min": -0.17270734558105472,
+              "volume_x_max": -0.1417590576171875,
+              "volume_y_max": -0.15812731132507324,
+              "volume_z_max": -0.11949265441894533,
+              "table": -0.0647073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17270734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1417590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15812731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0647073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 6,
+          "target_xyz_mm": [
+            178.1590576171875,
+            9.527311325073242,
+            50.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.441, volume_y_min deficit_mm=99.073, volume_z_min deficit_mm=177.707, volume_x_max deficit_mm=126.759, volume_y_max deficit_mm=158.127, volume_z_max deficit_mm=114.493, table deficit_mm=69.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17044094238281252,
+              "volume_y_min": -0.09907268867492675,
+              "volume_z_min": -0.17770734558105472,
+              "volume_x_max": -0.1267590576171875,
+              "volume_y_max": -0.15812731132507324,
+              "volume_z_max": -0.11449265441894532,
+              "table": -0.06970734558105471
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17770734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1267590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15812731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11449265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.06970734558105471
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 7,
+          "target_xyz_mm": [
+            213.1590576171875,
+            54.52731132507324,
+            65.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.441, volume_y_min deficit_mm=99.073, volume_z_min deficit_mm=177.707, volume_x_max deficit_mm=161.759, volume_y_max deficit_mm=163.127, volume_z_max deficit_mm=124.493, table deficit_mm=69.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17044094238281252,
+              "volume_y_min": -0.09907268867492675,
+              "volume_z_min": -0.17770734558105472,
+              "volume_x_max": -0.1617590576171875,
+              "volume_y_max": -0.16312731132507324,
+              "volume_z_max": -0.12449265441894533,
+              "table": -0.06970734558105471
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09907268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17770734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1617590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16312731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12449265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.06970734558105471
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 8,
+          "target_xyz_mm": [
+            198.1590576171875,
+            4.527311325073242,
+            45.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=150.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=182.707, volume_x_max deficit_mm=161.759, volume_y_max deficit_mm=163.127, volume_z_max deficit_mm=124.493, table deficit_mm=74.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.15044094238281253,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.18270734558105467,
+              "volume_x_max": -0.1617590576171875,
+              "volume_y_max": -0.16312731132507324,
+              "volume_z_max": -0.12449265441894533,
+              "table": -0.07470734558105468
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.15044094238281253
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.18270734558105467
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1617590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16312731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12449265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.07470734558105468
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 9,
+          "target_xyz_mm": [
+            173.1590576171875,
+            44.52731132507325,
+            60.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=175.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=182.707, volume_x_max deficit_mm=146.759, volume_y_max deficit_mm=153.127, volume_z_max deficit_mm=119.493, table deficit_mm=74.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17544094238281252,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.18270734558105467,
+              "volume_x_max": -0.1467590576171875,
+              "volume_y_max": -0.15312731132507323,
+              "volume_z_max": -0.11949265441894533,
+              "table": -0.07470734558105468
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.18270734558105467
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1467590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15312731132507323
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.07470734558105468
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 10,
+          "target_xyz_mm": [
+            213.1590576171875,
+            4.527311325073242,
+            50.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=175.441, volume_y_min deficit_mm=104.073, volume_z_min deficit_mm=177.707, volume_x_max deficit_mm=161.759, volume_y_max deficit_mm=153.127, volume_z_max deficit_mm=119.493, table deficit_mm=69.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17544094238281252,
+              "volume_y_min": -0.10407268867492675,
+              "volume_z_min": -0.17770734558105472,
+              "volume_x_max": -0.1617590576171875,
+              "volume_y_max": -0.15312731132507323,
+              "volume_z_max": -0.11949265441894533,
+              "table": -0.06970734558105471
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17544094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10407268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17770734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1617590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15312731132507323
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11949265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.06970734558105471
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        }
+      ]
+    },
+    {
+      "scale": 0.85,
+      "x_sign": 1,
+      "z_sign": 1,
+      "segments": [
+        {
+          "pose_index": 1,
+          "target_xyz_mm": [
+            208.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 2,
+          "target_xyz_mm": [
+            237.9090576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=186.509, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1865090576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1865090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 3,
+          "target_xyz_mm": [
+            220.90905761718753,
+            55.02731132507324,
+            84.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=127.691, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=186.509, volume_y_max deficit_mm=163.627, volume_z_max deficit_mm=142.993, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1276909423828125,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1865090576171875,
+              "volume_y_max": -0.16362731132507324,
+              "volume_z_max": -0.14299265441894532,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1276909423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1865090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16362731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.14299265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 4,
+          "target_xyz_mm": [
+            220.90905761718753,
+            4.027311325073245,
+            88.64265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=127.691, volume_y_min deficit_mm=104.573, volume_z_min deficit_mm=144.207, volume_x_max deficit_mm=169.509, volume_y_max deficit_mm=163.627, volume_z_max deficit_mm=147.243, table deficit_mm=36.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1276909423828125,
+              "volume_y_min": -0.10457268867492675,
+              "volume_z_min": -0.1442073455810547,
+              "volume_x_max": -0.16950905761718751,
+              "volume_y_max": -0.16362731132507324,
+              "volume_z_max": -0.14724265441894532,
+              "table": -0.0362073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1276909423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10457268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1442073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.16950905761718751
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16362731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.14724265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0362073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 5,
+          "target_xyz_mm": [
+            233.6590576171875,
+            46.52731132507325,
+            92.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=127.691, volume_y_min deficit_mm=104.573, volume_z_min deficit_mm=139.957, volume_x_max deficit_mm=182.259, volume_y_max deficit_mm=155.127, volume_z_max deficit_mm=151.493, table deficit_mm=31.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1276909423828125,
+              "volume_y_min": -0.10457268867492675,
+              "volume_z_min": -0.13995734558105472,
+              "volume_x_max": -0.1822590576171875,
+              "volume_y_max": -0.15512731132507324,
+              "volume_z_max": -0.15149265441894533,
+              "table": -0.031957345581054696
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1276909423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10457268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13995734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1822590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15512731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15149265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.031957345581054696
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 6,
+          "target_xyz_mm": [
+            233.6590576171875,
+            12.527311325073242,
+            97.14265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=114.941, volume_y_min deficit_mm=96.073, volume_z_min deficit_mm=135.707, volume_x_max deficit_mm=182.259, volume_y_max deficit_mm=155.127, volume_z_max deficit_mm=155.743, table deficit_mm=27.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.11494094238281252,
+              "volume_y_min": -0.09607268867492677,
+              "volume_z_min": -0.13570734558105468,
+              "volume_x_max": -0.1822590576171875,
+              "volume_y_max": -0.15512731132507324,
+              "volume_z_max": -0.15574265441894533,
+              "table": -0.027707345581054692
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.11494094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09607268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13570734558105468
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1822590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15512731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15574265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.027707345581054692
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 7,
+          "target_xyz_mm": [
+            203.9090576171875,
+            50.77731132507324,
+            84.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=144.691, volume_y_min deficit_mm=96.073, volume_z_min deficit_mm=144.207, volume_x_max deficit_mm=182.259, volume_y_max deficit_mm=159.377, volume_z_max deficit_mm=155.743, table deficit_mm=36.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14469094238281252,
+              "volume_y_min": -0.09607268867492677,
+              "volume_z_min": -0.1442073455810547,
+              "volume_x_max": -0.1822590576171875,
+              "volume_y_max": -0.15937731132507324,
+              "volume_z_max": -0.15574265441894533,
+              "table": -0.0362073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14469094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09607268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1442073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1822590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15937731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15574265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0362073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 8,
+          "target_xyz_mm": [
+            216.6590576171875,
+            8.277311325073242,
+            101.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=144.691, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=144.207, volume_x_max deficit_mm=165.259, volume_y_max deficit_mm=159.377, volume_z_max deficit_mm=159.993, table deficit_mm=36.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14469094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.1442073455810547,
+              "volume_x_max": -0.1652590576171875,
+              "volume_y_max": -0.15937731132507324,
+              "volume_z_max": -0.15999265441894533,
+              "table": -0.0362073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14469094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1442073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1652590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15937731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15999265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0362073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 9,
+          "target_xyz_mm": [
+            237.9090576171875,
+            42.27731132507324,
+            88.64265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=131.941, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=139.957, volume_x_max deficit_mm=186.509, volume_y_max deficit_mm=150.877, volume_z_max deficit_mm=159.993, table deficit_mm=31.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1319409423828125,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.13995734558105472,
+              "volume_x_max": -0.1865090576171875,
+              "volume_y_max": -0.15087731132507326,
+              "volume_z_max": -0.15999265441894533,
+              "table": -0.031957345581054696
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1319409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13995734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1865090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15087731132507326
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15999265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.031957345581054696
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 10,
+          "target_xyz_mm": [
+            203.9090576171875,
+            8.277311325073242,
+            97.14265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=144.691, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=139.957, volume_x_max deficit_mm=186.509, volume_y_max deficit_mm=150.877, volume_z_max deficit_mm=155.743, table deficit_mm=31.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14469094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.13995734558105472,
+              "volume_x_max": -0.1865090576171875,
+              "volume_y_max": -0.15087731132507326,
+              "volume_z_max": -0.15574265441894533,
+              "table": -0.031957345581054696
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14469094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13995734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1865090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15087731132507326
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15574265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.031957345581054696
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        }
+      ]
+    },
+    {
+      "scale": 0.85,
+      "x_sign": -1,
+      "z_sign": 1,
+      "segments": [
+        {
+          "pose_index": 1,
+          "target_xyz_mm": [
+            208.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 2,
+          "target_xyz_mm": [
+            178.4090576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.191, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17019094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17019094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 3,
+          "target_xyz_mm": [
+            195.4090576171875,
+            55.02731132507324,
+            84.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.191, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=144.009, volume_y_max deficit_mm=163.627, volume_z_max deficit_mm=142.993, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17019094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1440090576171875,
+              "volume_y_max": -0.16362731132507324,
+              "volume_z_max": -0.14299265441894532,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17019094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1440090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16362731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.14299265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 4,
+          "target_xyz_mm": [
+            195.4090576171875,
+            4.027311325073245,
+            88.64265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=153.191, volume_y_min deficit_mm=104.573, volume_z_min deficit_mm=144.207, volume_x_max deficit_mm=144.009, volume_y_max deficit_mm=163.627, volume_z_max deficit_mm=147.243, table deficit_mm=36.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.15319094238281253,
+              "volume_y_min": -0.10457268867492675,
+              "volume_z_min": -0.1442073455810547,
+              "volume_x_max": -0.1440090576171875,
+              "volume_y_max": -0.16362731132507324,
+              "volume_z_max": -0.14724265441894532,
+              "table": -0.0362073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.15319094238281253
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10457268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1442073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1440090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16362731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.14724265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0362073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 5,
+          "target_xyz_mm": [
+            182.6590576171875,
+            46.52731132507325,
+            92.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=165.941, volume_y_min deficit_mm=104.573, volume_z_min deficit_mm=139.957, volume_x_max deficit_mm=144.009, volume_y_max deficit_mm=155.127, volume_z_max deficit_mm=151.493, table deficit_mm=31.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1659409423828125,
+              "volume_y_min": -0.10457268867492675,
+              "volume_z_min": -0.13995734558105472,
+              "volume_x_max": -0.1440090576171875,
+              "volume_y_max": -0.15512731132507324,
+              "volume_z_max": -0.15149265441894533,
+              "table": -0.031957345581054696
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1659409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10457268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13995734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1440090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15512731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15149265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.031957345581054696
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 6,
+          "target_xyz_mm": [
+            182.6590576171875,
+            12.527311325073242,
+            97.14265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=165.941, volume_y_min deficit_mm=96.073, volume_z_min deficit_mm=135.707, volume_x_max deficit_mm=131.259, volume_y_max deficit_mm=155.127, volume_z_max deficit_mm=155.743, table deficit_mm=27.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1659409423828125,
+              "volume_y_min": -0.09607268867492677,
+              "volume_z_min": -0.13570734558105468,
+              "volume_x_max": -0.1312590576171875,
+              "volume_y_max": -0.15512731132507324,
+              "volume_z_max": -0.15574265441894533,
+              "table": -0.027707345581054692
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1659409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09607268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13570734558105468
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1312590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15512731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15574265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.027707345581054692
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 7,
+          "target_xyz_mm": [
+            212.4090576171875,
+            50.77731132507324,
+            84.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=165.941, volume_y_min deficit_mm=96.073, volume_z_min deficit_mm=144.207, volume_x_max deficit_mm=161.009, volume_y_max deficit_mm=159.377, volume_z_max deficit_mm=155.743, table deficit_mm=36.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1659409423828125,
+              "volume_y_min": -0.09607268867492677,
+              "volume_z_min": -0.1442073455810547,
+              "volume_x_max": -0.1610090576171875,
+              "volume_y_max": -0.15937731132507324,
+              "volume_z_max": -0.15574265441894533,
+              "table": -0.0362073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1659409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09607268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1442073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1610090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15937731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15574265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0362073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 8,
+          "target_xyz_mm": [
+            199.6590576171875,
+            8.277311325073242,
+            101.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=148.941, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=144.207, volume_x_max deficit_mm=161.009, volume_y_max deficit_mm=159.377, volume_z_max deficit_mm=159.993, table deficit_mm=36.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14894094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.1442073455810547,
+              "volume_x_max": -0.1610090576171875,
+              "volume_y_max": -0.15937731132507324,
+              "volume_z_max": -0.15999265441894533,
+              "table": -0.0362073455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14894094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1442073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1610090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15937731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15999265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0362073455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 9,
+          "target_xyz_mm": [
+            178.4090576171875,
+            42.27731132507324,
+            88.64265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.191, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=139.957, volume_x_max deficit_mm=148.259, volume_y_max deficit_mm=150.877, volume_z_max deficit_mm=159.993, table deficit_mm=31.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17019094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.13995734558105472,
+              "volume_x_max": -0.1482590576171875,
+              "volume_y_max": -0.15087731132507326,
+              "volume_z_max": -0.15999265441894533,
+              "table": -0.031957345581054696
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17019094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13995734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1482590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15087731132507326
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15999265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.031957345581054696
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 10,
+          "target_xyz_mm": [
+            212.4090576171875,
+            8.277311325073242,
+            97.14265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.191, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=139.957, volume_x_max deficit_mm=161.009, volume_y_max deficit_mm=150.877, volume_z_max deficit_mm=155.743, table deficit_mm=31.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17019094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.13995734558105472,
+              "volume_x_max": -0.1610090576171875,
+              "volume_y_max": -0.15087731132507326,
+              "volume_z_max": -0.15574265441894533,
+              "table": -0.031957345581054696
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17019094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.13995734558105472
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1610090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15087731132507326
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.15574265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.031957345581054696
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        }
+      ]
+    },
+    {
+      "scale": 0.85,
+      "x_sign": 1,
+      "z_sign": -1,
+      "segments": [
+        {
+          "pose_index": 1,
+          "target_xyz_mm": [
+            208.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 2,
+          "target_xyz_mm": [
+            237.9090576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=186.509, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1865090576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1865090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 3,
+          "target_xyz_mm": [
+            220.90905761718753,
+            55.02731132507324,
+            67.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=127.691, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=161.207, volume_x_max deficit_mm=186.509, volume_y_max deficit_mm=163.627, volume_z_max deficit_mm=134.493, table deficit_mm=53.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1276909423828125,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1612073455810547,
+              "volume_x_max": -0.1865090576171875,
+              "volume_y_max": -0.16362731132507324,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.05320734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1276909423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1612073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1865090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16362731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.05320734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 4,
+          "target_xyz_mm": [
+            220.90905761718753,
+            4.027311325073245,
+            63.14265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=127.691, volume_y_min deficit_mm=104.573, volume_z_min deficit_mm=165.457, volume_x_max deficit_mm=169.509, volume_y_max deficit_mm=163.627, volume_z_max deficit_mm=125.993, table deficit_mm=57.457",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1276909423828125,
+              "volume_y_min": -0.10457268867492675,
+              "volume_z_min": -0.16545734558105468,
+              "volume_x_max": -0.16950905761718751,
+              "volume_y_max": -0.16362731132507324,
+              "volume_z_max": -0.12599265441894533,
+              "table": -0.05745734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1276909423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10457268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.16545734558105468
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.16950905761718751
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16362731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12599265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.05745734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 5,
+          "target_xyz_mm": [
+            233.6590576171875,
+            46.52731132507325,
+            58.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=127.691, volume_y_min deficit_mm=104.573, volume_z_min deficit_mm=169.707, volume_x_max deficit_mm=182.259, volume_y_max deficit_mm=155.127, volume_z_max deficit_mm=121.743, table deficit_mm=61.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1276909423828125,
+              "volume_y_min": -0.10457268867492675,
+              "volume_z_min": -0.1697073455810547,
+              "volume_x_max": -0.1822590576171875,
+              "volume_y_max": -0.15512731132507324,
+              "volume_z_max": -0.12174265441894533,
+              "table": -0.061707345581054694
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1276909423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10457268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1697073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1822590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15512731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12174265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.061707345581054694
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 6,
+          "target_xyz_mm": [
+            233.6590576171875,
+            12.527311325073242,
+            54.642654418945305
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=114.941, volume_y_min deficit_mm=96.073, volume_z_min deficit_mm=173.957, volume_x_max deficit_mm=182.259, volume_y_max deficit_mm=155.127, volume_z_max deficit_mm=117.493, table deficit_mm=65.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.11494094238281252,
+              "volume_y_min": -0.09607268867492677,
+              "volume_z_min": -0.1739573455810547,
+              "volume_x_max": -0.1822590576171875,
+              "volume_y_max": -0.15512731132507324,
+              "volume_z_max": -0.11749265441894532,
+              "table": -0.0659573455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.11494094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09607268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1739573455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1822590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15512731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11749265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0659573455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 7,
+          "target_xyz_mm": [
+            203.9090576171875,
+            50.77731132507324,
+            67.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=144.691, volume_y_min deficit_mm=96.073, volume_z_min deficit_mm=173.957, volume_x_max deficit_mm=182.259, volume_y_max deficit_mm=159.377, volume_z_max deficit_mm=125.993, table deficit_mm=65.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14469094238281252,
+              "volume_y_min": -0.09607268867492677,
+              "volume_z_min": -0.1739573455810547,
+              "volume_x_max": -0.1822590576171875,
+              "volume_y_max": -0.15937731132507324,
+              "volume_z_max": -0.12599265441894533,
+              "table": -0.0659573455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14469094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09607268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1739573455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1822590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15937731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12599265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0659573455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 8,
+          "target_xyz_mm": [
+            216.6590576171875,
+            8.277311325073242,
+            50.39265441894532
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=144.691, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=178.207, volume_x_max deficit_mm=165.259, volume_y_max deficit_mm=159.377, volume_z_max deficit_mm=125.993, table deficit_mm=70.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14469094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.17820734558105467,
+              "volume_x_max": -0.1652590576171875,
+              "volume_y_max": -0.15937731132507324,
+              "volume_z_max": -0.12599265441894533,
+              "table": -0.07020734558105468
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14469094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17820734558105467
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1652590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15937731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12599265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.07020734558105468
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 9,
+          "target_xyz_mm": [
+            237.9090576171875,
+            42.27731132507324,
+            63.14265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=131.941, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=178.207, volume_x_max deficit_mm=186.509, volume_y_max deficit_mm=150.877, volume_z_max deficit_mm=121.743, table deficit_mm=70.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1319409423828125,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.17820734558105467,
+              "volume_x_max": -0.1865090576171875,
+              "volume_y_max": -0.15087731132507326,
+              "volume_z_max": -0.12174265441894533,
+              "table": -0.07020734558105468
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1319409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17820734558105467
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1865090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15087731132507326
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12174265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.07020734558105468
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 10,
+          "target_xyz_mm": [
+            203.9090576171875,
+            8.277311325073242,
+            54.642654418945305
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=144.691, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=173.957, volume_x_max deficit_mm=186.509, volume_y_max deficit_mm=150.877, volume_z_max deficit_mm=121.743, table deficit_mm=65.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14469094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.1739573455810547,
+              "volume_x_max": -0.1865090576171875,
+              "volume_y_max": -0.15087731132507326,
+              "volume_z_max": -0.12174265441894533,
+              "table": -0.0659573455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14469094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1739573455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1865090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15087731132507326
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12174265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0659573455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        }
+      ]
+    },
+    {
+      "scale": 0.85,
+      "x_sign": -1,
+      "z_sign": -1,
+      "segments": [
+        {
+          "pose_index": 1,
+          "target_xyz_mm": [
+            208.1590576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=140.441, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14044094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14044094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 2,
+          "target_xyz_mm": [
+            178.4090576171875,
+            29.527311325073242,
+            75.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.191, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=152.707, volume_x_max deficit_mm=156.759, volume_y_max deficit_mm=138.127, volume_z_max deficit_mm=134.493, table deficit_mm=44.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17019094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1527073455810547,
+              "volume_x_max": -0.1567590576171875,
+              "volume_y_max": -0.13812731132507325,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.04470734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17019094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1527073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1567590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.13812731132507325
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.04470734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 3,
+          "target_xyz_mm": [
+            195.4090576171875,
+            55.02731132507324,
+            67.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.191, volume_y_min deficit_mm=79.073, volume_z_min deficit_mm=161.207, volume_x_max deficit_mm=144.009, volume_y_max deficit_mm=163.627, volume_z_max deficit_mm=134.493, table deficit_mm=53.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17019094238281252,
+              "volume_y_min": -0.07907268867492676,
+              "volume_z_min": -0.1612073455810547,
+              "volume_x_max": -0.1440090576171875,
+              "volume_y_max": -0.16362731132507324,
+              "volume_z_max": -0.1344926544189453,
+              "table": -0.05320734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17019094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.07907268867492676
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1612073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1440090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16362731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.1344926544189453
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.05320734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 4,
+          "target_xyz_mm": [
+            195.4090576171875,
+            4.027311325073245,
+            63.14265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=153.191, volume_y_min deficit_mm=104.573, volume_z_min deficit_mm=165.457, volume_x_max deficit_mm=144.009, volume_y_max deficit_mm=163.627, volume_z_max deficit_mm=125.993, table deficit_mm=57.457",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.15319094238281253,
+              "volume_y_min": -0.10457268867492675,
+              "volume_z_min": -0.16545734558105468,
+              "volume_x_max": -0.1440090576171875,
+              "volume_y_max": -0.16362731132507324,
+              "volume_z_max": -0.12599265441894533,
+              "table": -0.05745734558105469
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.15319094238281253
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10457268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.16545734558105468
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1440090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.16362731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12599265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.05745734558105469
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 5,
+          "target_xyz_mm": [
+            182.6590576171875,
+            46.52731132507325,
+            58.89265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=165.941, volume_y_min deficit_mm=104.573, volume_z_min deficit_mm=169.707, volume_x_max deficit_mm=144.009, volume_y_max deficit_mm=155.127, volume_z_max deficit_mm=121.743, table deficit_mm=61.707",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1659409423828125,
+              "volume_y_min": -0.10457268867492675,
+              "volume_z_min": -0.1697073455810547,
+              "volume_x_max": -0.1440090576171875,
+              "volume_y_max": -0.15512731132507324,
+              "volume_z_max": -0.12174265441894533,
+              "table": -0.061707345581054694
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1659409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10457268867492675
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1697073455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1440090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15512731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12174265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.061707345581054694
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 6,
+          "target_xyz_mm": [
+            182.6590576171875,
+            12.527311325073242,
+            54.642654418945305
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=165.941, volume_y_min deficit_mm=96.073, volume_z_min deficit_mm=173.957, volume_x_max deficit_mm=131.259, volume_y_max deficit_mm=155.127, volume_z_max deficit_mm=117.493, table deficit_mm=65.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1659409423828125,
+              "volume_y_min": -0.09607268867492677,
+              "volume_z_min": -0.1739573455810547,
+              "volume_x_max": -0.1312590576171875,
+              "volume_y_max": -0.15512731132507324,
+              "volume_z_max": -0.11749265441894532,
+              "table": -0.0659573455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1659409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09607268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1739573455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1312590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15512731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.11749265441894532
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0659573455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 7,
+          "target_xyz_mm": [
+            212.4090576171875,
+            50.77731132507324,
+            67.39265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=165.941, volume_y_min deficit_mm=96.073, volume_z_min deficit_mm=173.957, volume_x_max deficit_mm=161.009, volume_y_max deficit_mm=159.377, volume_z_max deficit_mm=125.993, table deficit_mm=65.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.1659409423828125,
+              "volume_y_min": -0.09607268867492677,
+              "volume_z_min": -0.1739573455810547,
+              "volume_x_max": -0.1610090576171875,
+              "volume_y_max": -0.15937731132507324,
+              "volume_z_max": -0.12599265441894533,
+              "table": -0.0659573455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.1659409423828125
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.09607268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1739573455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1610090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15937731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12599265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0659573455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 8,
+          "target_xyz_mm": [
+            199.6590576171875,
+            8.277311325073242,
+            50.39265441894532
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=148.941, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=178.207, volume_x_max deficit_mm=161.009, volume_y_max deficit_mm=159.377, volume_z_max deficit_mm=125.993, table deficit_mm=70.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.14894094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.17820734558105467,
+              "volume_x_max": -0.1610090576171875,
+              "volume_y_max": -0.15937731132507324,
+              "volume_z_max": -0.12599265441894533,
+              "table": -0.07020734558105468
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.14894094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17820734558105467
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1610090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15937731132507324
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12599265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.07020734558105468
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 9,
+          "target_xyz_mm": [
+            178.4090576171875,
+            42.27731132507324,
+            63.14265441894531
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.191, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=178.207, volume_x_max deficit_mm=148.259, volume_y_max deficit_mm=150.877, volume_z_max deficit_mm=121.743, table deficit_mm=70.207",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17019094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.17820734558105467,
+              "volume_x_max": -0.1482590576171875,
+              "volume_y_max": -0.15087731132507326,
+              "volume_z_max": -0.12174265441894533,
+              "table": -0.07020734558105468
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17019094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.17820734558105467
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1482590576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15087731132507326
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12174265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.07020734558105468
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        },
+        {
+          "pose_index": 10,
+          "target_xyz_mm": [
+            212.4090576171875,
+            8.277311325073242,
+            54.642654418945305
+          ],
+          "error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=170.191, volume_y_min deficit_mm=100.323, volume_z_min deficit_mm=173.957, volume_x_max deficit_mm=161.009, volume_y_max deficit_mm=150.877, volume_z_max deficit_mm=121.743, table deficit_mm=65.957",
+          "clearance": {
+            "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+            "padding_m": 0.1786,
+            "signed_margins_m": {
+              "volume_x_min": -0.17019094238281252,
+              "volume_y_min": -0.10032268867492677,
+              "volume_z_min": -0.1739573455810547,
+              "volume_x_max": -0.1610090576171875,
+              "volume_y_max": -0.15087731132507326,
+              "volume_z_max": -0.12174265441894533,
+              "table": -0.0659573455810547
+            },
+            "violations": [
+              {
+                "boundary": "volume_x_min",
+                "deficit_m": 0.17019094238281252
+              },
+              {
+                "boundary": "volume_y_min",
+                "deficit_m": 0.10032268867492677
+              },
+              {
+                "boundary": "volume_z_min",
+                "deficit_m": 0.1739573455810547
+              },
+              {
+                "boundary": "volume_x_max",
+                "deficit_m": 0.1610090576171875
+              },
+              {
+                "boundary": "volume_y_max",
+                "deficit_m": 0.15087731132507326
+              },
+              {
+                "boundary": "volume_z_max",
+                "deficit_m": 0.12174265441894533
+              },
+              {
+                "boundary": "table",
+                "deficit_m": 0.0659573455810547
+              }
+            ],
+            "allowed_center_min_m": [
+              0.3486,
+              0.1086,
+              0.22860000000000003
+            ],
+            "allowed_center_max_m": [
+              0.0514,
+              -0.1086,
+              -0.05860000000000001
+            ],
+            "table_min_center_z_m": 0.12060000000000001
+          }
+        }
+      ]
+    }
+  ],
+  "feasible_geometry_variants": 0,
+  "collision_checked": false,
+  "plan_authorized": false,
+  "motion_command_sent": false,
+  "runtime_workspace_written": false
+}

@@ -1,3 +1,6 @@
+# Joint ranges cross-checked against DOBOT's Magician specification, 2026-11-02:
+# https://www.dobot-robots.com/products/education/magician.html
+# Manufacturer reach/joint limits do not define surveyed obstacle-free volume.
 /dobot_trajectory_validation_server:
   ros__parameters:
     axis_1_range: [-120, 120]

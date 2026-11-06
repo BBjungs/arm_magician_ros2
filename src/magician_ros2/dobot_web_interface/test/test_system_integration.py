@@ -1,3 +1,5 @@
+import pytest
+
 from dobot_web_interface.system_integration import StartupState
 from dobot_web_interface.system_integration import StartupStateMachine
 from dobot_web_interface.system_integration import aggregate_system_readiness
@@ -83,6 +85,22 @@ def test_camera_heartbeat_is_reported_separately_from_quality_readiness():
     # calibration-owned passive readiness decision.
     assert result['runtime']['depth_valid'] is False
     assert result['runtime']['camera_connected'] is False
+
+
+@pytest.mark.parametrize('age, running, expected', [
+    (0.1, True, True), (5.1, True, False), (None, True, False), (0.1, False, False),
+])
+def test_live_detector_with_invalid_depth_does_not_request_stack_restart(age, running, expected):
+    result = aggregate_system_readiness(
+        status={}, calibration={}, homed=False, at_observation=False,
+        vision={'detector_running': running, 'age_sec': age, 'ok': True,
+                'source_ok': True, 'rgb_ok': True, 'depth_stream_ok': True,
+                'depth_data_valid': False, 'sync_ok': True},
+    )
+    assert result['runtime']['vision_process_alive'] is expected
+    assert result['runtime']['vision_running'] is False
+    assert result['ready'] is False
+    assert 'VISION_NOT_READY' in result['blockers']
 
 
 def test_camera_health_is_authoritative_when_ui_preview_is_disabled():

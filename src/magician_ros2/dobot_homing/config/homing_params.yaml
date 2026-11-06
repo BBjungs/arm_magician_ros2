@@ -1,3 +1,4 @@
 /dobot_homing_srv:
   ros__parameters:
-    homing_position: [150.0, 0.0, 100.0, 0.0]
+    # Operator-authorized calibration start; verified by live HOME feedback.
+    homing_position: [187.25, 0.0, 137.25, 0.0]

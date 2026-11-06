@@ -1,0 +1,81 @@
+{
+  "utc": "2026-11-02T16:39:54.503724+00:00",
+  "operator_reports_physical_area_expanded": true,
+  "source_statement": "ขยายตามค่าที่แจ้งแล้ว",
+  "expanded_area_absolute_bounds": null,
+  "ros": {
+    "ptp_action_ready": true,
+    "homing_ready": true,
+    "gripper_ready": false,
+    "suction_ready": true,
+    "tool_mapping": "canonical",
+    "alarm_state_fresh": true,
+    "no_critical_alarm": true,
+    "alarm_codes": []
+  },
+  "motion": {
+    "active_goal": false,
+    "last_goal_age_sec": null,
+    "last_feedback": null,
+    "last_result": null,
+    "joints_deg": [
+      -2.06,
+      36.55,
+      29.63,
+      0.0
+    ],
+    "joints_age_sec": 0.0,
+    "current_tcp_pose": [
+      208.0347137451172,
+      -7.4999680519104,
+      35.77903747558594,
+      -2.0647058486938477
+    ],
+    "current_tcp_pose_source": "dobot_pose_raw",
+    "current_tcp_pose_age_sec": 0.0,
+    "homing_confirmed": false,
+    "vision_sequence_active": false,
+    "vision_sequence_age_sec": null
+  },
+  "hardware_readiness": {
+    "state": "DEPTH_ERROR",
+    "ready": false,
+    "reason": "DEPTH_INSUFFICIENT_VALID_PIXELS: Depth-valid ratio is below the configured calibration threshold",
+    "blockers": [
+      "DEPTH_INSUFFICIENT_VALID_PIXELS: Depth-valid ratio is below the configured calibration threshold",
+      "DEPTH_UNSTABLE: insufficient consecutive valid depth frames"
+    ],
+    "depth_fresh": true,
+    "depth_stable": false,
+    "tcp_fresh": true,
+    "joints_fresh": true,
+    "alarms_fresh": true,
+    "robot_connected": true,
+    "safety_supported": false,
+    "safety_verified": false,
+    "physical_estop_present": true,
+    "operator_safety_verified": true,
+    "software_estop_monitoring": "NOT CONNECTED",
+    "depth_age_s": 0.24246644973754883,
+    "tcp_age_s": 0.02738332748413086,
+    "joints_age_s": 0.02738332748413086,
+    "alarms_age_s": 0.06609916687011719
+  },
+  "depth_quality": {
+    "status": "SENSOR_ERROR",
+    "code": "DEPTH_INSUFFICIENT_VALID_PIXELS",
+    "reason": "Depth-valid ratio is below the configured calibration threshold",
+    "pixel_count": 307200,
+    "valid_count": 22568,
+    "depth_valid_ratio": 0.07346354166666667,
+    "median_m": 0.261,
+    "mad_m": 0.0044478000000000035,
+    "stddev_m": 0.008345144435903238,
+    "minimum_m": 0.227,
+    "maximum_m": 0.268,
+    "zero_count": 284632,
+    "nonfinite_count": 0,
+    "outside_range_count": 284632
+  },
+  "runtime_workspace_exists": false
+}

@@ -1,0 +1,52 @@
+{
+  "state": "STOPPED",
+  "started_utc": "2026-11-02T16:23:30.321879+00:00",
+  "duration_limit_s": 600.0,
+  "source": "GET /api/status",
+  "classification": "OBSERVED_TCP_RANGE_NOT_CERTIFIED_FREE_VOLUME",
+  "frame": "magician_base_link",
+  "xyz_units": "mm",
+  "angle_units": "deg",
+  "recorder_sent_motion_command": false,
+  "samples": 765,
+  "accepted_samples": 684,
+  "rejected_samples": 81,
+  "request_errors": 0,
+  "alarm_samples": 81,
+  "tcp_min_mm_deg": [
+    -86.54324340820312,
+    -192.35389709472656,
+    -67.9453353881836,
+    -122.26764678955078
+  ],
+  "tcp_max_mm_deg": [
+    255.8642120361328,
+    221.78448486328125,
+    93.45005798339844,
+    113.24117279052734
+  ],
+  "joint_min_deg": [
+    -122.27,
+    13.61,
+    11.52,
+    0.0
+  ],
+  "joint_max_deg": [
+    113.24,
+    68.18,
+    63.98,
+    0.0
+  ],
+  "updated_utc": "2026-11-02T16:26:03.808008+00:00",
+  "last_tcp_mm_deg": [
+    208.0347137451172,
+    -7.4999680519104,
+    35.77903747558594,
+    -2.0647058486938477
+  ],
+  "last_alarm_codes": [],
+  "last_issues": [],
+  "last_success_elapsed_s": 153.2938866899999,
+  "elapsed_s": 153.48602498299988,
+  "stop_reason": "operator_requested"
+}

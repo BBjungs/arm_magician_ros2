@@ -1,0 +1,112 @@
+{
+  "state": "FAIL",
+  "reason": "not enough values to unpack (expected 3, got 2)",
+  "automatic_calibration": {
+    "state": "FAULT",
+    "accepted_pose_count": 0,
+    "total_poses": 10,
+    "last_completed_unix_s": null,
+    "dry_run": false,
+    "production_ready": false,
+    "reason": "not enough values to unpack (expected 3, got 2)",
+    "purpose": "AUTONOMOUS_10_POSES",
+    "run_id": "476049280eb1472c9aa2f3e85fb52012",
+    "motion_command_sent": false,
+    "blockers": [
+      "not enough values to unpack (expected 3, got 2)"
+    ],
+    "trace": [
+      {
+        "function": "AutomaticBackend.prepare",
+        "monotonic": 76561.798632796
+      },
+      {
+        "function": "AutomaticBackend.prepare.enter",
+        "monotonic": 76561.798694398
+      }
+    ],
+    "authorization_protocol": 2,
+    "pre_dispatch": {
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.7501485347747803,
+        "tcp_age_s": 0.04927420616149902,
+        "joints_age_s": 0.04927420616149902,
+        "alarms_age_s": 0.08203125
+      },
+      "workspace": "fcde7f4a974f4df8199a48ea889415bdff4d5209e879119454ee1bab43188ca4",
+      "baseline_gate": "",
+      "blockers": [],
+      "motion_command_sent": false,
+      "monotonic": 76578.595777285
+    },
+    "baseline_readiness": {
+      "accepted": true,
+      "exact_gate": "PASS",
+      "reasons": [],
+      "eligible": true,
+      "stable_for_s": 10.05832024400297,
+      "required_stable_s": 10.0,
+      "blockers": [],
+      "current_blockers": [],
+      "last_reset_gate": "HARDWARE_NOT_READY",
+      "last_reset_time": 76565.973761689,
+      "reset_count": 11
+    },
+    "PTP_RESTORE": "NOT_REQUIRED",
+    "authorization_revoked": true
+  },
+  "hardware_readiness": {
+    "state": "READY",
+    "ready": true,
+    "reason": "",
+    "blockers": [],
+    "depth_fresh": true,
+    "depth_stable": true,
+    "tcp_fresh": true,
+    "joints_fresh": true,
+    "alarms_fresh": true,
+    "robot_connected": true,
+    "safety_supported": false,
+    "safety_verified": false,
+    "physical_estop_present": true,
+    "operator_safety_verified": true,
+    "software_estop_monitoring": "NOT CONNECTED",
+    "depth_age_s": 0.13247895240783691,
+    "tcp_age_s": 0.015045642852783203,
+    "joints_age_s": 0.0629270076751709,
+    "alarms_age_s": 0.19586181640625
+  },
+  "depth_quality": {
+    "status": "VALID_DEPTH",
+    "code": "",
+    "reason": "",
+    "pixel_count": 307200,
+    "valid_count": 116383,
+    "depth_valid_ratio": 0.37885091145833333,
+    "median_m": 0.156,
+    "mad_m": 0.0044478000000000035,
+    "stddev_m": 0.031245054692586895,
+    "minimum_m": 0.15,
+    "maximum_m": 0.279,
+    "zero_count": 188397,
+    "nonfinite_count": 0,
+    "outside_range_count": 190817
+  },
+  "software_source_digest": "1806ab32ccf0606e32fc50cfecd4e33e404adbd7b038db5380f827c0f2d276f5",
+  "SENSOR_INGEST_STATE": "ACTIVE"
+}

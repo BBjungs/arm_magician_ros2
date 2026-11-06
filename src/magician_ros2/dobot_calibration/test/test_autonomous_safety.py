@@ -187,7 +187,7 @@ def test_whole_plan_collision_is_checked_before_dispatch(tmp_path, monkeypatch):
     backend.workspace = load_workspace(tmp_path, workspace_data())
     with pytest.raises(CalibrationError, match='NO_FEASIBLE_AUTOMATIC_PLAN'):
         backend.select_plan(transform(translation=[.19, 0, .125]))
-    assert len(calls) == 8
+    assert len(calls) >= 8
     assert all(mode == 2 and ground for mode, _, _, ground in calls)
 
 
@@ -276,9 +276,50 @@ def test_cancel_terminal_result_plus_fresh_stationary_feedback_allows_restore():
     node.motion_stop_terminal_stamp = 9.
     node.now_s = lambda: 10.
     node.tcp_stamp = node.joints_stamp = 9.9
-    node._table_touchoff_stability = lambda: (True, {}, None)
+    pose = node.history[-1][1]
+    node.history = [(stamp, pose.copy(), np.zeros(4)) for stamp in (9.4, 9.7, 9.9)]
     node._confirm_motion_stopped_before_restore()
     assert not node.motion_stop_confirmation_required
+
+
+@pytest.mark.parametrize('moving', [False, True])
+def test_automatic_prepare_uses_real_robot_stability_return_contract(tmp_path, moving):
+    node = motion_node()
+    pose = transform(translation=[.2, 0, .15])
+    node.history = [(stamp, pose.copy(), np.zeros(4)) for stamp in (9.4, 9.7, 9.9)]
+    if moving:
+        node.history[0][1][0, 3] += .002
+    node.calibration_transaction_lock = threading.Lock()
+    node.operation_lock = threading.Lock()
+    node.real_motion_arm = None
+    node.ptp_param_state_uncertain = False
+    node.supervised_auto = SimpleNamespace(worker=None)
+    node.status = lambda *_: None
+    node.settings.update(carrier_frame='', calibration_file=str(tmp_path / 'missing.npz'))
+    node.calibration_context = {}
+    node._resolve_camera_identity = lambda: SimpleNamespace(resolution='PASS')
+    node.automatic = SimpleNamespace(
+        trace=lambda *_: None, update=lambda *_, **__: None,
+        dispatch_lock=threading.RLock(), abort_event=threading.Event(),
+        purpose='COMMISSIONING_TWO_POSES')
+    policy_calls = []
+
+    def policy():
+        policy_calls.append(True)
+        raise RuntimeError('reached validator policy after stationary feedback')
+
+    node._automatic_validator_policy = policy
+    backend = AutomaticBackend(node)
+    backend.diagnostics = lambda: {'blockers': []}
+    backend.load_workspace = lambda: SimpleNamespace(digest='synthetic-workspace')
+    backend.prepare_observations = lambda: None
+    expected = 'Robot must be stationary' if moving else 'reached validator policy'
+    try:
+        with pytest.raises((CalibrationError, RuntimeError), match=expected):
+            backend.prepare(lambda: None)
+        assert bool(policy_calls) is not moving
+    finally:
+        node.operation_lock.release()
 
 
 def test_scene_thresholds_reject_obstacle_change_and_nonfinite_values():

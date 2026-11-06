@@ -186,6 +186,12 @@ def aggregate_system_readiness(
         "calibration_available": bool(calibration.get("available") is True),
         "calibration_verified": calibration_ok,
         "vision_running": vision_ok,
+        # A live detector with unusable depth must block picking, but restarting
+        # the robot/web stack cannot repair scene geometry and prevents HOME.
+        "vision_process_alive": bool(
+            vision.get("detector_running") is True
+            and _finite_nonnegative(vision.get("age_sec"), 5.0)
+        ),
         "web_running": True,
         "port_8080": True,
         "no_critical_alarm": no_critical_alarm,

@@ -35,12 +35,14 @@ def test_startup_and_missing_mount_fail_closed_without_motion(node, monkeypatch)
     node.settings['camera_id'] = 'test-only-device'
     node.camera_identity = CameraIdentity('test-only-device', 'YAML', True, 'PASS', '')
     monkeypatch.setattr(node, '_resolve_camera_identity', lambda: node.camera_identity)
+    monkeypatch.setattr(node, '_execute_guarded_motion', lambda *args: pytest.fail('must not move'))
     node.settings['mount_model'] = str(Path(__file__).resolve().parents[1] / 'config/mount_model.yaml')
     started, _ = node.start_operation(False)
     assert started
     node.worker.join(timeout=3)
     assert node.state == 'FAIL'
-    assert ('verified' in node.reason or 'factory camera TF unavailable' in node.reason)
+    assert node.automatic.snapshot()['state'] == 'FAULT'
+    assert node.automatic.snapshot()['blockers']
     assert node.active_goal is None
     assert not node.is_ready()
 
@@ -108,6 +110,71 @@ def test_automatic_start_cannot_overlap_operation(node):
         assert node.automatic.worker is None
     finally:
         node.operation_lock.release()
+
+
+def test_automatic_preflight_activates_inputs_before_requiring_baseline(node, monkeypatch):
+    from dobot_calibration.geometry import CalibrationError
+    backend = node.automatic.backend
+    monkeypatch.setattr(backend, 'load_workspace', lambda: SimpleNamespace(digest='surveyed'))
+    monkeypatch.setattr(node, '_resolve_camera_identity', lambda: SimpleNamespace(resolution='PASS'))
+    monkeypatch.setattr(node, '_execute_guarded_motion', lambda *a: pytest.fail('must not move'))
+    monkeypatch.setattr(node, '_set_ptp_common_params', lambda *a: pytest.fail('must not set PTP'))
+    activated = []
+
+    def prepare():
+        activated.append(True)
+        assert backend.workspace.digest == 'surveyed'
+        assert node.automatic.snapshot()['pre_dispatch']['baseline_gate'] == 'SCENE_BASELINE_MISSING'
+        raise CalibrationError('TEST_OBSERVATION_START_REACHED')
+
+    monkeypatch.setattr(backend, 'prepare_observations', prepare)
+    response = node.automatic_start_service(Trigger.Request(), Trigger.Response())
+    assert response.success
+    node.automatic.worker.join(3)
+    assert activated == [True]
+    assert node.automatic.snapshot()['reason'] == 'TEST_OBSERVATION_START_REACHED'
+    assert not node.operation_lock.locked()
+
+
+def test_cancelled_capture_preparation_does_not_activate_camera(node):
+    from dobot_calibration.geometry import CalibrationError
+    node.stop.set()
+    with pytest.raises(CalibrationError, match='cancelled'):
+        node._prepare_passive_capture()
+    assert node.camera_sync is None
+
+
+def test_unsafe_start_is_reported_before_scene_capture_or_motion(node, tmp_path, monkeypatch):
+    from dobot_calibration.calibration_workspace import CalibrationWorkspace
+    from dobot_calibration.geometry import transform
+    backend = node.automatic.backend
+    workspace = CalibrationWorkspace(np.array([-.00835, -.2041, -.0541]),
+        np.array([.38285, .2041, .3286]), -.058, .025, 'synthetic-workspace')
+    node.mount = SimpleNamespace(envelope_radius_m=.1526, translation_error_bound_m=.001)
+    node.history = [(node.now_s(), transform(translation=[.057741783, 0, -.01535643]), np.zeros(4))]
+    node.settings['calibration_file'] = str(tmp_path / 'missing.npz')
+    node.calibration_context = {}  # Normally populated by prepare_observations.
+    monkeypatch.setattr(backend, 'load_workspace', lambda: workspace)
+    monkeypatch.setattr(backend, 'diagnostics', lambda: {'blockers': []})
+    monkeypatch.setattr(backend, 'prepare_observations', lambda: None)
+    monkeypatch.setattr(backend, 'check', lambda: None)
+    monkeypatch.setattr(node, '_resolve_camera_identity', lambda: SimpleNamespace(resolution='PASS'))
+    monkeypatch.setattr(node, '_table_touchoff_stability', lambda: (True, {}))
+    monkeypatch.setattr(node, '_automatic_validator_policy', lambda: {
+        f'axis_{i}_range': [-140, 140] for i in range(1, 5)})
+    monkeypatch.setattr(node, 'capture', lambda: pytest.fail('scene masked the workspace failure'))
+    monkeypatch.setattr(node, '_execute_guarded_motion', lambda *a: pytest.fail('must not move'))
+    monkeypatch.setattr(node, '_set_ptp_common_params', lambda *a: pytest.fail('must not set PTP'))
+    response = node.automatic_start_service(Trigger.Request(), Trigger.Response())
+    assert response.success
+    node.automatic.worker.join(3)
+    status = node.automatic.snapshot()
+    assert status['state'] == 'FAULT'
+    assert status['reason'].startswith('START_POSE_OUTSIDE_WORKSPACE:')
+    assert status['start_pose_check']['violations']
+    assert status['accepted_pose_count'] == 0
+    assert not status['motion_command_sent']
+    assert not node.operation_lock.locked()
 
 
 def test_actual_autonomous_ros_service_reports_missing_workspace_without_motion(node, tmp_path, monkeypatch):

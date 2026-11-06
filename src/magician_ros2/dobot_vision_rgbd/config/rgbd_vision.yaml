@@ -17,5 +17,8 @@ object_fusion_node:
     debug_enabled: false
     visualization_enabled: true
     annotated_output_path: /tmp/dobot_rgbd_annotated.jpg
+    # Display only: RGB-D detection and all metric geometry retain source pixels.
+    annotated_max_width: 480
+    annotated_jpeg_quality: 80
     dry_run: true
     allow_real_motion: false

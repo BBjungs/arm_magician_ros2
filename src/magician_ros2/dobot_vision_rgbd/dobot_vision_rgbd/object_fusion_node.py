@@ -26,7 +26,7 @@ from .detection_schema import validate_detection
 from .rgbd_sync_node import registered_geometry_ok, sync_delta_ms
 from .shape_detector import ShapeDetector
 from .table_estimator import local_ring_depth
-from .visualization import annotate
+from .visualization import annotate, write_preview
 
 
 # Raw RGB-D frames exceed a UDP packet. Reliable delivery lets DDS repair
@@ -153,6 +153,10 @@ class ObjectFusionNode(Node):
         self.require_registered = bool(get('require_registered_depth'))
         self.debug = bool(get('debug_enabled'))
         self.annotated_path = str(get('annotated_output_path'))
+        self.annotated_max_width = int(get('annotated_max_width'))
+        self.annotated_jpeg_quality = int(get('annotated_jpeg_quality'))
+        if self.annotated_max_width <= 0 or not 1 <= self.annotated_jpeg_quality <= 100:
+            raise ValueError('Invalid annotated preview width or JPEG quality')
         self.dry_run = bool(get('dry_run'))
         self.allow_real_motion = bool(get('allow_real_motion'))
         if not self.dry_run or self.allow_real_motion:
@@ -282,7 +286,11 @@ class ObjectFusionNode(Node):
         intrinsics = {'fx': info_msg.k[0], 'fy': info_msg.k[4], 'cx': info_msg.k[2], 'cy': info_msg.k[5]}
         detections, masks = self.fusion.process(color, depth_mm, intrinsics)
         annotated = annotate(color, detections)
-        cv2.imwrite(self.annotated_path, annotated)
+        try:
+            write_preview(self.annotated_path, annotated,
+                          self.annotated_max_width, self.annotated_jpeg_quality)
+        except (OSError, ValueError, cv2.error) as exc:
+            self.get_logger().warn(f'Could not publish camera preview: {exc}')
         if self.debug:
             cv2.imwrite('/tmp/rgbd_debug_rgb.jpg', color)
             cv2.imwrite('/tmp/rgbd_debug_depth.png', np.clip(depth_mm, 0, 65535).astype(np.uint16))

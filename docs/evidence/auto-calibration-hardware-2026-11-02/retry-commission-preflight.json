@@ -1,0 +1,87 @@
+{
+  "stamp": 1793635737.6187286,
+  "state": "FAIL",
+  "ready": false,
+  "CAMERA_ID": "AY2A760003E",
+  "automatic_calibration": {
+    "state": "FAULT",
+    "accepted_pose_count": 0,
+    "total_poses": 10,
+    "last_completed_unix_s": null,
+    "dry_run": false,
+    "production_ready": false,
+    "reason": "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+    "purpose": "COMMISSIONING_TWO_POSES",
+    "run_id": "d7100c0b149f44f1a06f89d3cc1626cb",
+    "motion_command_sent": false,
+    "blockers": [
+      "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+      "SCENE_BASELINE_MISSING"
+    ],
+    "trace": [
+      {
+        "function": "AutomaticBackend.prepare",
+        "monotonic": 700.658661998
+      },
+      {
+        "function": "AutomaticBackend.prepare.enter",
+        "monotonic": 700.65875525
+      }
+    ],
+    "authorization_protocol": 2,
+    "pre_dispatch": {
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.6085784435272217,
+        "tcp_age_s": 0.01978278160095215,
+        "joints_age_s": 0.0735924243927002,
+        "alarms_age_s": 0.10168170928955078
+      },
+      "workspace": "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+      "baseline_gate": "SCENE_BASELINE_MISSING",
+      "blockers": [
+        "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+        "SCENE_BASELINE_MISSING"
+      ],
+      "motion_command_sent": false,
+      "monotonic": 700.69192224
+    },
+    "PTP_RESTORE": "NOT_REQUIRED",
+    "authorization_revoked": true
+  },
+  "hardware_readiness": {
+    "state": "READY",
+    "ready": true,
+    "reason": "",
+    "blockers": [],
+    "depth_fresh": true,
+    "depth_stable": true,
+    "tcp_fresh": true,
+    "joints_fresh": true,
+    "alarms_fresh": true,
+    "robot_connected": true,
+    "safety_supported": false,
+    "safety_verified": false,
+    "physical_estop_present": true,
+    "operator_safety_verified": true,
+    "software_estop_monitoring": "NOT CONNECTED",
+    "depth_age_s": 0.38352108001708984,
+    "tcp_age_s": 0.04602456092834473,
+    "joints_age_s": 0.1016988754272461,
+    "alarms_age_s": 0.03082895278930664
+  }
+}

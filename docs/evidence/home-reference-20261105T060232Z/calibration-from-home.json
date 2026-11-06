@@ -1,0 +1,500 @@
+{
+  "state": "FAIL",
+  "ready": false,
+  "available": false,
+  "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.224, volume_z_min deficit_mm=24.539, table deficit_mm=20.639",
+  "stamp": 1793858574.2005918,
+  "result": "FAIL",
+  "architecture": "markerless_hand_eye",
+  "command_frame": "TCP",
+  "calibration_parent_frame": "TCP",
+  "tcp_only_consumer_supported": true,
+  "bundle_path": "/home/jetson/.ros/dobot/markerless_calibration.npz",
+  "bundle_loaded": false,
+  "context_digest": "",
+  "geometry_verified": false,
+  "CALIBRATION_BOOTSTRAP_GEOMETRY_ELIGIBLE": true,
+  "CALIBRATION_BOOTSTRAP_GEOMETRY_BLOCKERS": [],
+  "CAMERA_ID_SOURCE": "YAML",
+  "CAMERA_ID": "AY2A760003E",
+  "CAMERA_ID_VERIFIED": true,
+  "CAMERA_ID_RESOLUTION": "PASS",
+  "EXACT_GATE": "",
+  "readiness": {
+    "HARDWARE_READY": true,
+    "PASSIVE_CAPTURE_READY": true,
+    "REAL_MOTION_READY": false,
+    "GEOMETRY_VERIFIED": false,
+    "point_cloud_source_usable": true,
+    "native_cloud_state": "stale",
+    "blockers": []
+  },
+  "AUTHORITATIVE_BASELINE_READY": false,
+  "AUTHORITATIVE_BASELINE_STABLE_FOR_S": 0.24257854101597331,
+  "AUTHORITATIVE_BASELINE_REQUIRED_STABLE_S": 10.0,
+  "AUTHORITATIVE_BASELINE_BLOCKERS": [],
+  "AUTHORITATIVE_BASELINE_CURRENT_BLOCKERS": [],
+  "AUTHORITATIVE_BASELINE_LAST_RESET_GATE": "HARDWARE_NOT_READY",
+  "AUTHORITATIVE_BASELINE_LAST_RESET_TIME": 223553.317916571,
+  "AUTHORITATIVE_BASELINE_RESET_COUNT": 18,
+  "AUTHORITATIVE_BASELINE_EXACT_GATE": "READINESS_STABILITY_WINDOW_NOT_MET",
+  "passive_mode": true,
+  "passive_pose_count": 0,
+  "passive_solve": {
+    "state": "IDLE",
+    "production_ready": false
+  },
+  "automatic_calibration": {
+    "state": "FAULT",
+    "accepted_pose_count": 0,
+    "total_poses": 10,
+    "last_completed_unix_s": null,
+    "dry_run": false,
+    "production_ready": false,
+    "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.224, volume_z_min deficit_mm=24.539, table deficit_mm=20.639",
+    "purpose": "COMMISSIONING_TWO_POSES",
+    "run_id": "ca6e9b16250c47a2b07b6f975ef1bfaf",
+    "motion_command_sent": false,
+    "blockers": [
+      "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.224, volume_z_min deficit_mm=24.539, table deficit_mm=20.639"
+    ],
+    "trace": [
+      {
+        "function": "AutomaticBackend.prepare",
+        "monotonic": 223555.128225011
+      },
+      {
+        "function": "AutomaticBackend.prepare.enter",
+        "monotonic": 223555.12829663
+      }
+    ],
+    "authorization_protocol": 2,
+    "pre_dispatch": {
+      "hardware_readiness": {
+        "state": "READY",
+        "ready": true,
+        "reason": "",
+        "blockers": [],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.3428761959075928,
+        "tcp_age_s": 0.03263282775878906,
+        "joints_age_s": 0.03263282775878906,
+        "alarms_age_s": 0.016997098922729492
+      },
+      "workspace": "fcde7f4a974f4df8199a48ea889415bdff4d5209e879119454ee1bab43188ca4",
+      "baseline_gate": "",
+      "blockers": [],
+      "motion_command_sent": false,
+      "monotonic": 223558.90150256
+    },
+    "start_pose_check": {
+      "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+      "padding_m": 0.1786,
+      "signed_margins_m": {
+        "volume_x_min": -0.020224273681640644,
+        "volume_y_min": 0.025499999955932773,
+        "volume_z_min": -0.02453868103027345,
+        "volume_x_max": 0.05422427368164065,
+        "volume_y_max": 0.025500000044067217,
+        "volume_z_max": 0.05003868103027345,
+        "table": -0.02063868103027345
+      },
+      "violations": [
+        {
+          "boundary": "volume_x_min",
+          "deficit_m": 0.020224273681640644
+        },
+        {
+          "boundary": "volume_z_min",
+          "deficit_m": 0.02453868103027345
+        },
+        {
+          "boundary": "table",
+          "deficit_m": 0.02063868103027345
+        }
+      ],
+      "allowed_center_min_m": [
+        0.17025,
+        -0.025499999999999995,
+        0.1245
+      ],
+      "allowed_center_max_m": [
+        0.20425000000000001,
+        0.025499999999999995,
+        0.15
+      ],
+      "table_min_center_z_m": 0.12060000000000001,
+      "current_xyz_mm": [
+        150.02572631835938,
+        -4.406721387795187e-08,
+        99.96131896972656
+      ]
+    },
+    "PTP_RESTORE": "NOT_REQUIRED",
+    "authorization_revoked": true
+  },
+  "workspace_proposal": {
+    "schema_version": 1,
+    "state": "INSUFFICIENT_OBSERVATION",
+    "motion_authorized": false,
+    "installation_verified": false,
+    "whole_robot_environment_verified": false,
+    "frame": "camera_optical",
+    "image_size": [
+      640,
+      480
+    ],
+    "frame_count": 3,
+    "stable_valid_ratio": 0.49318359375,
+    "unknown_or_unstable_ratio": 0.50681640625,
+    "minimum_clearance_m": 0.025,
+    "assumed_depth_margin_m": 0.01,
+    "camera_volume": null,
+    "base_volume": null,
+    "dominant_surface": {
+      "plane_camera": [
+        -0.001702370874042748,
+        0.08575105328048793,
+        -0.9963151403018495,
+        0.22154390025355988
+      ],
+      "quality": {
+        "plane_gate": "pre_calibration_dominant_plane",
+        "plane_inlier_count": 2773,
+        "plane_inlier_ratio": 0.69325,
+        "plane_normal_camera_optical": [
+          -0.001702370874042748,
+          0.08575105328048793,
+          -0.9963151403018495
+        ],
+        "plane_rms_m": 0.0007249620683993022,
+        "plane_median_distance_m": 0.0004890640123889345,
+        "plane_spatial_spread_m": [
+          0.07528734450408553,
+          0.04069246931121853,
+          0.0007249620683993041
+        ],
+        "plane_area_estimate_m2": 0.01225451182302255,
+        "plane_inlier_depth_range_m": [
+          0.214,
+          0.229
+        ],
+        "plane_thresholds": {
+          "min_points": 200,
+          "min_inlier_ratio": 0.3,
+          "max_distance_m": 0.004,
+          "min_spatial_width_m": 0.025
+        }
+      },
+      "confirmed_table": false
+    },
+    "observed_surface": {
+      "frame": "camera_optical",
+      "min_m": [
+        0.06346161813261815,
+        -0.07050945593507212,
+        0.215
+      ],
+      "max_m": [
+        0.11906981015471074,
+        0.07821203793891791,
+        0.229
+      ],
+      "size_mm": [
+        55.608192022092595,
+        148.72149387399003,
+        14.000000000000012
+      ],
+      "depth_range_m": [
+        0.215,
+        0.229
+      ],
+      "classification": "MEASURED_SURFACE_NOT_FREE_VOLUME"
+    },
+    "blockers": [
+      "CAMERA_TO_BASE_UNVERIFIED",
+      "WHOLE_ROBOT_ENVIRONMENT_NOT_OBSERVED",
+      "OPERATOR_REVIEW_REQUIRED",
+      "OBSERVED_REGION_TOO_SMALL_FOR_CLEARANCE",
+      "DEPTH_CLEARANCE_TOO_SMALL"
+    ],
+    "observed_roi_px": [
+      460,
+      96,
+      564,
+      400
+    ],
+    "camera_frame": "camera_color_optical_frame",
+    "base_frame": "magician_base_link",
+    "camera_id": "AY2A760003E",
+    "transform_source": "UNVERIFIED",
+    "depth_stamps": [
+      1793858428.880901,
+      1793858429.079936,
+      1793858429.3473148
+    ],
+    "intrinsics_fingerprint": "902c4a463b3c2a078b752132fa836907db738da35b6a7f683f5178876fa6ca4b",
+    "observed_unix_s": 1793858430.731598,
+    "motion_command_sent": false,
+    "preview_jpeg": "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"
+  },
+  "automatic_commissioning": null,
+  "software_source_digest": "31d83ca3bb410fd47bf69f3627a98f725dd92d839006722a99a4f30dd69ee03d",
+  "passive_pose_metadata": [],
+  "passive_guidance": {
+    "state": "PLAN_UNAVAILABLE",
+    "capture_enabled": false,
+    "automatic_capture": false,
+    "progress": [
+      {
+        "pose_index": 1,
+        "state": "GUIDE_TO_TARGET"
+      },
+      {
+        "pose_index": 2,
+        "state": "PENDING"
+      },
+      {
+        "pose_index": 3,
+        "state": "PENDING"
+      },
+      {
+        "pose_index": 4,
+        "state": "PENDING"
+      },
+      {
+        "pose_index": 5,
+        "state": "PENDING"
+      },
+      {
+        "pose_index": 6,
+        "state": "PENDING"
+      },
+      {
+        "pose_index": 7,
+        "state": "PENDING"
+      },
+      {
+        "pose_index": 8,
+        "state": "PENDING"
+      },
+      {
+        "pose_index": 9,
+        "state": "PENDING"
+      },
+      {
+        "pose_index": 10,
+        "state": "PENDING"
+      }
+    ]
+  },
+  "supervised_auto": {
+    "state": "IDLE",
+    "dry_run": true,
+    "real_motion_enabled": false,
+    "current_pose": 0,
+    "total_poses": 10,
+    "target": null,
+    "readiness": "",
+    "safety_status": "",
+    "motion_progress": 0.0,
+    "capture_result": "",
+    "registration_quality": {},
+    "blockers": [],
+    "history": []
+  },
+  "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+  "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+  "samples_collected": 0,
+  "samples_accepted": 0,
+  "samples_rejected": 0,
+  "translation_residual_mm": null,
+  "rotation_residual_deg": null,
+  "verification_status": "FAIL",
+  "verification_samples": 0,
+  "reload_verification_status": "MISSING",
+  "mount_translation_error_bound_mm": 1.0,
+  "mount_envelope_mm": 152.60000000000002,
+  "blockers": [
+    "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=20.224, volume_z_min deficit_mm=24.539, table deficit_mm=20.639"
+  ],
+  "metrics": {},
+  "depth_quality": {
+    "status": "VALID_DEPTH",
+    "code": "",
+    "reason": "",
+    "pixel_count": 307200,
+    "valid_count": 152320,
+    "depth_valid_ratio": 0.49583333333333335,
+    "median_m": 0.202,
+    "mad_m": 0.0044478000000000035,
+    "stddev_m": 0.29788859070347257,
+    "minimum_m": 0.165,
+    "maximum_m": 1.157,
+    "zero_count": 154880,
+    "nonfinite_count": 0,
+    "outside_range_count": 154880
+  },
+  "rgb_health": {
+    "fresh": true,
+    "frames": 300,
+    "age_ms": 86.24056199832819,
+    "fps": 16.821,
+    "max_stamp_gap_ms": 364.029,
+    "timestamp_valid": true,
+    "frame_id": "camera_color_optical_frame",
+    "rate_ok": false,
+    "state": "DEGRADED_RATE",
+    "expected_rate_ok": false
+  },
+  "depth_health": {
+    "fresh": true,
+    "frames": 300,
+    "age_ms": 49.344561998328196,
+    "fps": 20.315,
+    "max_stamp_gap_ms": 264.784,
+    "timestamp_valid": true,
+    "frame_id": "camera_color_optical_frame",
+    "rate_ok": true,
+    "state": "READY",
+    "expected_rate_ok": false,
+    "valid_ratio": 0.4913,
+    "valid": true
+  },
+  "RGB_FRESH": true,
+  "DEPTH_FRESH": true,
+  "RGB_CAMERAINFO_FRESH": true,
+  "DEPTH_CAMERAINFO_FRESH": true,
+  "RGB_DEPTH_CAMERAINFO_SYNCHRONIZED": true,
+  "SENSOR_INGEST_STATE": "ACTIVE",
+  "SENSOR_INGEST_OWNER": "passive_capture",
+  "SENSOR_INGEST_ACTIVATION_REASON": "passive_capture",
+  "SENSOR_INGEST_ACTIVATED_AT_MONOTONIC": 223190.492722441,
+  "SENSOR_INGEST_ACTIVATION_COUNT": 1,
+  "RGB_SUBSCRIPTION_ACTIVE": true,
+  "DEPTH_SUBSCRIPTION_ACTIVE": true,
+  "CLOUD_SUBSCRIPTION_ACTIVE": true,
+  "INTERNAL_SYNC_PAYLOAD_AVAILABLE": true,
+  "SYNC_PAYLOAD_AGE_MS": 5.003589991247281,
+  "RGB_DEPTH_SKEW_MS": 17.17972755432129,
+  "SYNC_PAIR_SUCCESS_COUNT": 4667,
+  "SYNC_PAIR_REJECT_COUNT": 2064,
+  "SYNC_PAIR_LAST_REASON": "PASS",
+  "SYNC_PAIR_RECENT_REJECTIONS": [
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 210.90412139892578,
+      "monotonic": 223556.481746274
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 710.6130123138428,
+      "monotonic": 223556.52469308
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 775.4092216491699,
+      "monotonic": 223556.557862408
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 113.05499076843262,
+      "monotonic": 223556.587416128
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 285.614013671875,
+      "monotonic": 223556.848389682
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 178.83014678955078,
+      "monotonic": 223557.350964817
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 274.25503730773926,
+      "monotonic": 223557.368082827
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 109.4970703125,
+      "monotonic": 223557.717670564
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 179.6243190765381,
+      "monotonic": 223557.745544452
+    },
+    {
+      "reason": "PAIR_SKEW_OVER_100MS",
+      "skew_ms": 384.7067356109619,
+      "monotonic": 223558.796626876
+    }
+  ],
+  "SYNC_PAYLOAD_GENERATION": 4667,
+  "SYNC_LAST_COMMIT_MONOTONIC": 223559.163099271,
+  "SYNC_LAST_COMMIT_RGB_STAMP": 1793858574.1056662,
+  "SYNC_LAST_COMMIT_DEPTH_STAMP": 1793858574.122846,
+  "SYNC_LAST_COMMIT_SKEW_MS": 17.17972755432129,
+  "SYNC_LAST_COMMIT_REASON": "PASS",
+  "RGB_PAYLOAD_QUEUE_SIZE": 0,
+  "DEPTH_PAYLOAD_QUEUE_SIZE": 3,
+  "RGB_DROPPED_TOO_OLD_COUNT": 1119,
+  "DEPTH_DROPPED_TOO_OLD_COUNT": 945,
+  "RGB_CAMERAINFO_CACHE": true,
+  "RGB_RATE_STATE": "DEGRADED_RATE",
+  "DEPTH_RATE_STATE": "READY",
+  "tcp_fresh": true,
+  "joint_fresh": true,
+  "alarm_state": {
+    "fresh": true,
+    "codes": []
+  },
+  "physical_estop": "PRESENT",
+  "hardware_safety": "OPERATOR VERIFIED",
+  "software_estop_monitoring": "NOT CONNECTED",
+  "safety_input_state": {
+    "supported": false,
+    "verified": false
+  },
+  "hardware_readiness": {
+    "state": "READY",
+    "ready": true,
+    "reason": "",
+    "blockers": [],
+    "depth_fresh": true,
+    "depth_stable": true,
+    "tcp_fresh": true,
+    "joints_fresh": true,
+    "alarms_fresh": true,
+    "robot_connected": true,
+    "safety_supported": false,
+    "safety_verified": false,
+    "physical_estop_present": true,
+    "operator_safety_verified": true,
+    "software_estop_monitoring": "NOT CONNECTED",
+    "depth_age_s": 0.6594336032867432,
+    "tcp_age_s": 0.049079179763793945,
+    "joints_age_s": 0.049079179763793945,
+    "alarms_age_s": 0.14159011840820312
+  },
+  "ui": {
+    "language": "th",
+    "step": "\u0e2e\u0e32\u0e23\u0e4c\u0e14\u0e41\u0e27\u0e23\u0e4c\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e04\u0e32\u0e25\u0e34\u0e40\u0e1a\u0e23\u0e15",
+    "status": "\u0e2e\u0e32\u0e23\u0e4c\u0e14\u0e41\u0e27\u0e23\u0e4c\u0e1c\u0e48\u0e32\u0e19\u0e17\u0e38\u0e01\u0e40\u0e07\u0e37\u0e48\u0e2d\u0e19\u0e44\u0e02\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e23\u0e49\u0e2d\u0e21",
+    "recommended_action": "",
+    "motion_allowed": false
+  },
+  "age_sec": 0.04
+}

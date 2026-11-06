@@ -1,4 +1,6 @@
 import threading
+from types import SimpleNamespace
+from unittest.mock import Mock
 
 import pytest
 
@@ -35,7 +37,8 @@ def _node_for_operator_status():
     ]
     node.status = lambda: {
         'motion': {'active_goal': False, 'vision_sequence_active': False},
-        'ros': {'ptp_action_ready': True, 'suction_ready': True},
+        'ros': {'ptp_action_ready': True, 'suction_ready': True,
+                'alarm_state_fresh': True, 'no_critical_alarm': True, 'alarm_codes': []},
     }
     node.vision_status = lambda: {
         'depth_stream_ok': True,
@@ -105,6 +108,28 @@ def test_operator_fault_codes_have_actionable_thai_messages():
     assert 'กล้อง' in message
 
 
+@pytest.mark.parametrize('alarm_state', [
+    {'alarm_state_fresh': True, 'no_critical_alarm': False, 'alarm_codes': [45, 48]},
+    {'alarm_state_fresh': False, 'no_critical_alarm': True, 'alarm_codes': []},
+    {'alarm_state_fresh': True, 'no_critical_alarm': True, 'alarm_codes': [45]},
+    {},
+])
+def test_operator_robot_not_ready_when_alarms_active_or_unknown(alarm_state):
+    node = _node_for_operator_status()
+    node.status = lambda: {
+        'motion': {'active_goal': False, 'vision_sequence_active': False},
+        'ros': {'ptp_action_ready': True, 'suction_ready': True, **alarm_state},
+    }
+    status = node.operator_status()
+    robot = next(check for check in status['checks'] if check['key'] == 'robot')
+    assert not status['ready']
+    assert not robot['ok']
+    assert 'alarm' in robot['reason']
+    assert status['fault_message'] == robot['reason']
+    for code in alarm_state.get('alarm_codes', []):
+        assert str(code) in robot['reason']
+
+
 def test_operator_start_refuses_failed_preflight_before_motion():
     node = _node_for_operator_status()
     node._operator_preflight = lambda job, place: {'ready': False}
@@ -126,6 +151,35 @@ def test_operator_stop_propagates_to_vision_robot_abort():
     assert node._operator_cancel_event.is_set()
     assert node._operator_job['state'] == 'STOPPING'
     assert result['requested'] is True
+
+
+def test_stop_cancels_calibration_even_if_robot_cancellation_fails():
+    node = SimpleNamespace(
+        _request_control_stop=Mock(return_value=True), calibration_cancel_client=object(),
+        _request_calibration_cancel=Mock(), cancel_move=Mock(side_effect=RuntimeError('robot offline')))
+    with pytest.raises(RuntimeError, match='robot offline'):
+        DobotWebNode.vision_cancel(node)
+    node._request_calibration_cancel.assert_called_once()
+
+
+def test_operator_stop_latches_startup_to_prevent_automatic_restart():
+    node = _node_for_operator_status()
+    node._integration_lock = threading.RLock()
+    node._startup_machine = SimpleNamespace(stop=Mock())
+    node.vision_cancel = Mock(return_value={'requested': True})
+    DobotWebNode.operator_stop(node)
+    node._startup_machine.stop.assert_called_once_with('operator STOP')
+
+
+@pytest.mark.parametrize('state', ['PREFLIGHT', 'WAITING_FOR_OPERATOR_AUTHORIZATION', 'MOVING', 'PAUSED', 'SAVING'])
+def test_home_and_manual_motion_cannot_overlap_calibration(state):
+    node = object.__new__(DobotWebNode)
+    node._calibration_status = {'automatic_calibration': {'state': state}}
+    node._operation_is_active = lambda: False
+    with pytest.raises(RuntimeError, match='Calibration owns motion'):
+        node.send_move({})
+    with pytest.raises(RuntimeError, match='Cannot HOME'):
+        node.call_homing()
 
 
 def test_operator_is_default_and_engineer_page_is_removed():

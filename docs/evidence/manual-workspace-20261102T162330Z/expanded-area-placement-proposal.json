@@ -1,0 +1,137 @@
+{
+  "classification": "DESIGN_ONLY_NOT_MEASURED_INSTALLATION_NOT_MOTION_AUTHORIZATION",
+  "operator_confirmed_size_mm": [
+    391.2,
+    408.2,
+    382.7
+  ],
+  "absolute_bounds_physically_confirmed": false,
+  "proposed_free_volume_min_mm": [
+    17.15,
+    -204.1,
+    -28.6
+  ],
+  "proposed_free_volume_max_mm": [
+    408.35,
+    204.1,
+    354.1
+  ],
+  "proposed_anchor_xyz_yaw_mm_deg": [
+    200,
+    0,
+    150,
+    0
+  ],
+  "scale": 0.85,
+  "segments": [
+    {
+      "index": 1,
+      "target_xyz_mm": [
+        200.0,
+        0.0,
+        150.0
+      ],
+      "local_model_result": "PASS",
+      "error": null
+    },
+    {
+      "index": 2,
+      "target_xyz_mm": [
+        229.75,
+        0.0,
+        150.0
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory violates a soft joint limit"
+    },
+    {
+      "index": 3,
+      "target_xyz_mm": [
+        212.75000000000003,
+        25.5,
+        158.5
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory violates a soft joint limit"
+    },
+    {
+      "index": 4,
+      "target_xyz_mm": [
+        212.75000000000003,
+        -25.5,
+        162.75
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory violates a soft joint limit"
+    },
+    {
+      "index": 5,
+      "target_xyz_mm": [
+        225.5,
+        17.0,
+        166.99999999999997
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory violates a soft joint limit"
+    },
+    {
+      "index": 6,
+      "target_xyz_mm": [
+        225.5,
+        -17.0,
+        171.24999999999997
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory violates a soft joint limit"
+    },
+    {
+      "index": 7,
+      "target_xyz_mm": [
+        195.75,
+        21.25,
+        158.5
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory has no inverse-kinematics solution"
+    },
+    {
+      "index": 8,
+      "target_xyz_mm": [
+        208.50000000000003,
+        -21.25,
+        175.5
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory violates a soft joint limit"
+    },
+    {
+      "index": 9,
+      "target_xyz_mm": [
+        229.75,
+        12.75,
+        162.75
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory violates a soft joint limit"
+    },
+    {
+      "index": 10,
+      "target_xyz_mm": [
+        195.75,
+        -21.25,
+        171.24999999999997
+      ],
+      "local_model_result": "FAIL",
+      "error": "CalibrationError: Automatic MOVL trajectory violates a soft joint limit"
+    }
+  ],
+  "local_workspace_ik_collision_all_pass": false,
+  "current_pose_to_proposed_anchor_validated": false,
+  "full_installation_collision_model_verified": false,
+  "motion_command_sent": false,
+  "limitations": [
+    "Bounds placement is proposed, not a claim about the actual expanded area.",
+    "Local collision model ground datum differs from the operator-reported table datum; this is not full workcell clearance certification.",
+    "Current robot pose, RGB-D and commissioning gates must pass separately."
+  ]
+}

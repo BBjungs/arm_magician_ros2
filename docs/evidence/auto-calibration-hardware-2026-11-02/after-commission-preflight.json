@@ -1,0 +1,124 @@
+{
+  "stamp": 1793635498.6127012,
+  "state": "FAIL",
+  "ready": false,
+  "CAMERA_ID": "AY2A760003E",
+  "automatic_calibration": {
+    "state": "FAULT",
+    "accepted_pose_count": 0,
+    "total_poses": 10,
+    "last_completed_unix_s": null,
+    "dry_run": false,
+    "production_ready": false,
+    "reason": "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+    "purpose": "COMMISSIONING_TWO_POSES",
+    "run_id": "79db95aa80ca482dafcd9d65741e465c",
+    "motion_command_sent": false,
+    "blockers": [
+      "ROBOT_ALARM: active alarm codes 45,48",
+      "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+      "SCENE_BASELINE_MISSING"
+    ],
+    "trace": [
+      {
+        "function": "AutomaticBackend.prepare",
+        "monotonic": 454.163836873
+      },
+      {
+        "function": "AutomaticBackend.prepare.enter",
+        "monotonic": 454.163917322
+      }
+    ],
+    "authorization_protocol": 2,
+    "pre_dispatch": {
+      "hardware_readiness": {
+        "state": "ROBOT_ALARM",
+        "ready": false,
+        "reason": "ROBOT_ALARM: active alarm codes 45,48",
+        "blockers": [
+          "ROBOT_ALARM: active alarm codes 45,48"
+        ],
+        "depth_fresh": true,
+        "depth_stable": true,
+        "tcp_fresh": true,
+        "joints_fresh": true,
+        "alarms_fresh": true,
+        "robot_connected": true,
+        "safety_supported": false,
+        "safety_verified": false,
+        "physical_estop_present": true,
+        "operator_safety_verified": true,
+        "software_estop_monitoring": "NOT CONNECTED",
+        "depth_age_s": 0.6067702770233154,
+        "tcp_age_s": 0.028255462646484375,
+        "joints_age_s": 0.12591123580932617,
+        "alarms_age_s": 0.015178203582763672
+      },
+      "workspace": "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+      "baseline_gate": "SCENE_BASELINE_MISSING",
+      "blockers": [
+        "ROBOT_ALARM: active alarm codes 45,48",
+        "WORKSPACE_NOT_CONFIGURED: /home/jetson/.ros/dobot/calibration_workspace.yaml",
+        "SCENE_BASELINE_MISSING"
+      ],
+      "motion_command_sent": false,
+      "monotonic": 454.255989523
+    },
+    "PTP_RESTORE": "NOT_REQUIRED",
+    "authorization_revoked": true
+  },
+  "hardware_readiness": {
+    "state": "ROBOT_ALARM",
+    "ready": false,
+    "reason": "ROBOT_ALARM: active alarm codes 45,48",
+    "blockers": [
+      "ROBOT_ALARM: active alarm codes 45,48"
+    ],
+    "depth_fresh": true,
+    "depth_stable": true,
+    "tcp_fresh": true,
+    "joints_fresh": true,
+    "alarms_fresh": true,
+    "robot_connected": true,
+    "safety_supported": false,
+    "safety_verified": false,
+    "physical_estop_present": true,
+    "operator_safety_verified": true,
+    "software_estop_monitoring": "NOT CONNECTED",
+    "depth_age_s": 0.09075522422790527,
+    "tcp_age_s": 0.04296565055847168,
+    "joints_age_s": 0.04296565055847168,
+    "alarms_age_s": 0.02503657341003418
+  },
+  "alarm_state": {
+    "fresh": true,
+    "codes": [
+      45,
+      48
+    ]
+  },
+  "tcp_fresh": true,
+  "joint_fresh": true,
+  "depth_quality": {
+    "status": "VALID_DEPTH",
+    "code": "",
+    "reason": "",
+    "pixel_count": 307200,
+    "valid_count": 168180,
+    "depth_valid_ratio": 0.5474609375,
+    "median_m": 0.258,
+    "mad_m": 0.0044478000000000035,
+    "stddev_m": 0.05766545044227525,
+    "minimum_m": 0.222,
+    "maximum_m": 0.511,
+    "zero_count": 139020,
+    "nonfinite_count": 0,
+    "outside_range_count": 139020
+  },
+  "workspace_proposal": {
+    "state": "FAILED",
+    "motion_command_sent": false,
+    "started_unix_s": 1793635228.9099407,
+    "reason": "WORKSPACE_OBSERVATION_TIMEOUT: ROBOT_ALARM: active alarm codes 45,48"
+  }
+}

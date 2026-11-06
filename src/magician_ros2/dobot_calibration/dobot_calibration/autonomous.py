@@ -6,7 +6,7 @@ import threading
 import time
 
 from .motion_authorization import new_run_id
-from .geometry import CalibrationError
+from .geometry import CalibrationError, RetryableCaptureError
 
 
 class AutomaticCalibration:
@@ -21,6 +21,8 @@ class AutomaticCalibration:
         self.authorization_request = None
         self.run_id = new_run_id()
         self.purpose = 'AUTONOMOUS_10_POSES'
+        self.force_recalibrate = False
+        self.verify_only = False
         self.status = {'state': 'IDLE', 'accepted_pose_count': 0, 'total_poses': 10,
                        'dry_run': False, 'production_ready': False, 'reason': '',
                        'authorization_protocol': 2}
@@ -33,7 +35,7 @@ class AutomaticCalibration:
         with self.lock:
             self.status.update(state=state, **fields)
 
-    def start(self, purpose='AUTONOMOUS_10_POSES'):
+    def start(self, purpose='AUTONOMOUS_10_POSES', *, force_recalibrate=False, verify_only=False):
         if purpose not in ('AUTONOMOUS_10_POSES', 'COMMISSIONING_TWO_POSES'):
             return False, 'Unknown calibration scope'
         with self.lock:
@@ -41,11 +43,15 @@ class AutomaticCalibration:
                 return False, 'Automatic calibration is already running'
             self.run_id = new_run_id()
             self.purpose = purpose
+            self.force_recalibrate = force_recalibrate
+            self.verify_only = verify_only
             self.authorization_event.clear()
             self.authorization_request = None
             self.abort_event.clear()
             self.pause_event.clear()
+            last_completed = self.status.get('last_completed_unix_s')
             self.status = {'state': 'PREFLIGHT', 'accepted_pose_count': 0, 'total_poses': 10,
+                           'last_completed_unix_s': last_completed,
                            'dry_run': False, 'production_ready': False, 'reason': '',
                            'purpose': purpose, 'run_id': self.run_id, 'motion_command_sent': False,
                            'blockers': [], 'trace': [], 'authorization_protocol': 2}
@@ -136,8 +142,11 @@ class AutomaticCalibration:
         try:
             self.trace('AutomaticBackend.prepare')
             targets = self.backend.prepare(self.checkpoint)
-            if len(targets) != 10:
+            expected_count = 3 if getattr(self.backend, 'reusing_saved', False) else 10
+            if len(targets) != expected_count:
                 raise RuntimeError('Automatic calibration requires exactly ten independent targets')
+            self.update('PREFLIGHT', total_poses=expected_count,
+                        reused_saved=bool(getattr(self.backend, 'reusing_saved', False)))
             # Audit the entire requested sequence before the first command.
             for previous, target in zip(targets, targets[1:]):
                 self.checkpoint()
@@ -154,12 +163,25 @@ class AutomaticCalibration:
                 self.update('SETTLING')
                 self.backend.settle(target, self.checkpoint)
                 self.checkpoint()
-                self.update('CAPTURING')
-                capture = self.backend.capture(target)
-                self.checkpoint()
-                self.update('VALIDATING_CAPTURE')
-                self.backend.accept(capture, index)
-                self.update('NEXT_POSE', accepted_pose_count=index)
+                attempts = 3
+                for attempt in range(1, attempts + 1):
+                    self.checkpoint()
+                    self.update('CAPTURING', capture_attempt=attempt, max_capture_attempts=attempts,
+                                capture_status='กำลังเก็บภาพ RGB-D')
+                    try:
+                        capture = self.backend.capture(target)
+                        self.checkpoint()
+                        self.update('VALIDATING_CAPTURE', capture_status='กำลังตรวจภาพ RGB-D')
+                        self.backend.accept(capture, index)
+                        break
+                    except RetryableCaptureError as error:
+                        # Never retry stale sensors, STOP, expired authorization or storage failures.
+                        self.checkpoint()
+                        if attempt == attempts:
+                            raise CalibrationError(f'CAPTURE_RETRIES_EXHAUSTED: Pose {index}: {error}') from error
+                        self.update('RETRYING_CAPTURE', capture_status=str(error))
+                        self.backend.settle(target, self.checkpoint)
+                self.update('NEXT_POSE', accepted_pose_count=index, capture_status='เก็บภาพผ่านแล้ว')
             self.checkpoint()
             if self.purpose == 'COMMISSIONING_TWO_POSES':
                 result = self.backend.commissioning_result()
@@ -170,6 +192,8 @@ class AutomaticCalibration:
             expected = 'COMMISSIONING_COMPLETE' if self.purpose == 'COMMISSIONING_TWO_POSES' else 'CANDIDATE_VERIFIED'
             if result.get('state') != expected:
                 raise RuntimeError('Automatic solution failed independent/reload verification')
+            if self.purpose != 'COMMISSIONING_TWO_POSES' and hasattr(self.backend, 'finalize'):
+                self.backend.finalize(result, self.checkpoint)
         except Exception as error:
             failure = str(error)
             try:
@@ -190,13 +214,22 @@ class AutomaticCalibration:
                     failure = str(error)
             if failure is not None:
                 self.update('SAFE_STOP' if self.abort_event.is_set() else 'FAULT', reason=failure,
+                            production_ready=False,
                             blockers=list(dict.fromkeys(self.snapshot().get('blockers', []) + [failure])))
+                if hasattr(self.backend, 'failed'):
+                    self.backend.failed(failure)
             else:
                 self.update(result['state'], result=result,
+                            production_ready=result.get('production_ready', False),
+                            last_completed_unix_s=result.get('completed_unix_s',
+                                self.snapshot().get('last_completed_unix_s')),
                             reason=('Two real poses acquired and PTP parameters restored; authorize ten poses separately'
                                     if self.purpose == 'COMMISSIONING_TWO_POSES' else
-                                    'Automatic collection and independent verification passed'))
+                                    result.get('reason', 'Automatic collection and independent verification passed')))
             try:
                 self.backend.persist_status(self.snapshot())
             except Exception as error:
-                self.update('FAULT', reason='AUDIT_PERSISTENCE_FAILED: ' + str(error))
+                reason = 'AUDIT_PERSISTENCE_FAILED: ' + str(error)
+                self.update('FAULT', reason=reason, production_ready=False)
+                if hasattr(self.backend, 'failed'):
+                    self.backend.failed(reason)

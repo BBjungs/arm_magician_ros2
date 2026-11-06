@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-02T16:30:49.189627+00:00",
+  "operator_authorized_real_hardware_testing": true,
+  "authorization_source": "explicit_user_instruction_in_conversation",
+  "measurement_source": "processed.json",
+  "measurement_classification": "OBSERVED_TCP_SAMPLES_NOT_CERTIFIED_FREE_VOLUME",
+  "tcp_bounds_mm_deg": {
+    "min": [
+      -79.63062286376953,
+      -192.35389709472656,
+      -67.9453353881836,
+      -110.72647094726562
+    ],
+    "max": [
+      255.8642120361328,
+      221.78448486328125,
+      93.45005798339844,
+      113.24117279052734
+    ]
+  },
+  "joint_bounds_deg": {
+    "min": [
+      -110.73,
+      13.61,
+      11.52,
+      0.0
+    ],
+    "max": [
+      113.24,
+      68.18,
+      63.98,
+      0.0
+    ]
+  },
+  "sample_count": 656,
+  "validated_motion_plan": null,
+  "whole_robot_free_volume_established_by_recording": false
+}

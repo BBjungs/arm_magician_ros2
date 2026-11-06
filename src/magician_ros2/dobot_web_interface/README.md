@@ -24,8 +24,48 @@ The root page is the Thai operator screen.  Its normal flow is
 **เลือกชิ้นงาน → ตำแหน่งวาง → เริ่มทำงาน** and it shows only the camera,
 safe readiness, object counts, and job progress.
 
-The operator Stop command calls the vision cancellation path, which also
-requests cancellation of the active robot motion.
+The **Home · กลับจุดเริ่มต้น** button beside Start calls the existing
+HOME command, then returns to the observation pose. It is available without
+Maintenance credentials and is disabled during a job, calibration, a pending Start/HOME
+request, or loss of status. The dashboard shows the command result separately
+from readiness so polling does not hide an error.
+
+The service watchdog uses the fresh detector heartbeat (`vision_process_alive`)
+for process recovery. Invalid depth still blocks production readiness through
+`vision_running`, but does not restart the robot and dashboard in a loop.
+Home displays its current blocking reason when work is active or status is lost.
+
+The operator preview requests up to 10 JPEGs per second, with only one image
+request in flight and no image polling while the tab is hidden. RGB-D fusion
+retains the original sensor resolution, intrinsics, thresholds, and processing
+rate; only its final annotated preview is reduced to 480 pixels wide at JPEG
+quality 80. Atomic preview replacement prevents partial JPEG reads. These display
+settings are `annotated_max_width` and `annotated_jpeg_quality` in
+`dobot_vision_rgbd/config/rgbd_vision.yaml`.
+
+Auto Calibration is read-only on the operator screen: current pose, accepted
+poses, percentage, RGB-D acquisition, result, last verified save, and failure
+reason are polled without issuing motion. STOP remains visible, including
+while the camera is enlarged; it cancels calibration and robot/vision work and
+latches startup stopped. It does not replace the physical Emergency Stop.
+
+### Maintenance access
+
+Commissioning, plan authorization, manual capture/solve, diagnostics and
+startup recovery live at `/maintenance`. Configure `DOBOT_MAINTENANCE_TOKEN`
+in the web process environment (or the existing `api_token` / `DOBOT_WEB_API_TOKEN`).
+Use HTTP Basic username `maintenance` and the configured token as the password;
+API clients can use `Authorization: Bearer <token>`. No token means access is
+disabled, not unrestricted. Use the site's trusted HTTPS gateway for remote
+credentials. The page, its static assets and maintenance command APIs enforce
+access on the server. Existing API paths are retained; clients calling these
+commands must now authenticate. Operator status, start and STOP remain available
+without maintenance credentials. HOME and Abort also remain available without
+credentials; HOME retains the server activity and browser origin checks.
+
+Authentication grants access to Maintenance only. Each motion plan still
+requires all seven on-site confirmations, the exact plan fingerprint, a fresh
+run-specific authorization, commissioning and the existing live safety checks.
 
 ## Integrated startup and readiness
 
@@ -37,13 +77,24 @@ robot services + fresh joints → live camera → synchronized valid RGB-D
 → fresh calibration PASS → HOME → observation pose → ready
 ```
 
-The launch starts the calibration verifier idle; it does not move the robot on
-its own. On the operator page, press **ตรวจระบบ** to request startup
-verification, then **HOME และจุดสังเกต** after the work area is clear.  The
-HOME request returns the robot to the configured observation pose before
-pick-all can begin.  `startup_auto:=true startup_auto_motion:=true` is an
-explicit opt-in for a supervised installation that authorizes automatic HOME
-and observation motion.
+The launch defaults to `startup_auto:=true`: the server requests the existing
+AutomaticCalibration worker once after device readiness. Page navigation and
+polling never start a calibration. A new calibration runs ten poses without
+Capture/Next/Continue after authorization. A matching saved bundle instead
+uses three independent verification poses, without refitting or collecting ten
+new poses; these motions require the same explicit authorization. Completing
+two-pose commissioning automatically prepares the next plan, which needs its
+own authorization. `startup_auto_motion` remains false by default. HOME and
+observation motion require commissioning and explicit deployment opt-in or
+the authenticated Maintenance controls.
+
+Verified geometry is saved atomically and reloaded. `AWAITING_LIVE_VALIDATION`
+is not READY: the existing `live_acceptance_error` gate still requires hardware,
+table stability, observability, independent verification, repeatability, reload,
+real-object validation and a READY health check. The repository does not yet
+produce that complete live acceptance record. Neither this UI nor automatic
+collection fabricates it. Installations missing that integration remain blocked
+from picking even when all ten images and the mathematical solution pass.
 
 The backend publishes the same decision at `GET /api/system/status`. A stale
 camera/depth frame, Dobot service or joint-telemetry loss, calibration failure,

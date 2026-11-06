@@ -1,4 +1,8 @@
 import math
+import base64
+import hmac
+import secrets
+import posixpath
 import os
 import threading
 import time
@@ -222,6 +226,9 @@ class DobotWebNode(Node):
         self.host = str(self.get_parameter('host').value)
         self.port = int(self.get_parameter('port').value)
         self.api_token = str(self.get_parameter('api_token').value)
+        self.maintenance_token = os.environ.get('DOBOT_MAINTENANCE_TOKEN', '') or self.api_token
+        # Transport credential for the in-process pick executor, not a motion permit.
+        self.internal_api_token = secrets.token_urlsafe(32)
         self.camera_raw_topic = str(self.get_parameter('camera_raw_topic').value)
         self.camera_compressed_topic = str(
             self.get_parameter('camera_compressed_topic').value
@@ -422,6 +429,7 @@ class DobotWebNode(Node):
         }
         self.calibration_automatic_authorize = self.create_client(
             AuthorizeCalibration, '/calibration/autonomous/authorize')
+        self.workspace_proposal_client = self.create_client(Trigger, '/calibration/workspace/propose')
 
         if self.enable_camera_preview and not self.camera_compressed_topic:
             self.create_subscription(
@@ -718,6 +726,20 @@ class DobotWebNode(Node):
             control_active = bool(self._control_owner)
         return bool(vision_active or operator_active or control_active)
 
+    def _calibration_is_active(self):
+        # Separate from operator activity: authorize/pause must remain callable
+        # while calibration owns motion, but HOME/manual moves must not overlap.
+        runtime = getattr(self, '_calibration_status', {})
+        if not isinstance(runtime, dict):
+            return False
+        automatic = runtime.get('automatic_calibration', {})
+        terminal = ('IDLE', 'FAULT', 'SAFE_STOP', 'COMMISSIONING_COMPLETE',
+                    'CANDIDATE_VERIFIED', 'AWAITING_LIVE_VALIDATION', 'READY')
+        return (runtime.get('workspace_proposal', {}).get('state') == 'OBSERVING'
+                or automatic.get('state', 'IDLE') not in terminal
+                or runtime.get('state') in ('AUTO_CALIBRATING', 'STARTING', 'CAPTURING',
+                                            'LOADING', 'CALIBRATING', 'SOLVING', 'VERIFYING', 'SAVING'))
+
     def _control_snapshot(self):
         with self._control_lock:
             return {
@@ -942,8 +964,8 @@ class DobotWebNode(Node):
     def _request_safe_stop(self, reason='stop requested'):
         """Signal every active controller before cancelling the current goal."""
         self._request_control_stop()
-        motion_result = self.cancel_move()
         self._request_calibration_cancel()
+        motion_result = self.cancel_move()
         self._acknowledge_control_stop()
         with self._operator_job_lock:
             if self._operator_job.get('active'):
@@ -1518,9 +1540,21 @@ class DobotWebNode(Node):
         ros = system.get('ros', {})
         robot_ok = bool(
             ros.get('ptp_action_ready')
+            and ros.get('alarm_state_fresh')
+            and ros.get('no_critical_alarm')
+            and not ros.get('alarm_codes')
             and not motion.get('active_goal')
             and not motion.get('vision_sequence_active')
         )
+        if not ros.get('alarm_state_fresh'):
+            robot_reason = 'ยังไม่มีข้อมูล alarm ที่เป็นปัจจุบันจากหุ่นยนต์'
+        elif ros.get('alarm_codes'):
+            robot_reason = 'หุ่นยนต์มี alarm: ' + ', '.join(map(str, ros['alarm_codes']))
+        elif not ros.get('no_critical_alarm'):
+            robot_reason = 'ยังยืนยันไม่ได้ว่าหุ่นยนต์ไม่มี alarm'
+        else:
+            robot_reason = ('action server พร้อม ไม่มี alarm และไม่มี motion ค้าง'
+                            if robot_ok else 'action server ไม่พร้อมหรือมี motion ค้าง')
         integrated_system = {'ready': True, 'blockers': []}
         system_ok = True
         if getattr(self, 'require_integrated_startup', False):
@@ -1549,8 +1583,7 @@ class DobotWebNode(Node):
             f'{place_id}: รอ calibration/target ที่ valid เพื่อยืนยัน trajectory แบบ live'
         )
         checks = [
-            self._operator_check('robot', robot_ok,
-                                 'action server พร้อมและไม่มี motion ค้าง' if robot_ok else 'action server ไม่พร้อมหรือมี motion ค้าง'),
+            self._operator_check('robot', robot_ok, robot_reason),
             self._operator_check('camera', camera_ok,
                                  '; '.join(filter(None, (safety_reasons.get('camera'), safety_reasons.get('yolo'))))),
             self._operator_check('depth', depth_ok,
@@ -1615,6 +1648,7 @@ class DobotWebNode(Node):
             passive_solve = calibration_runtime.get('passive_solve', {})
             automatic_calibration = calibration_runtime.get('automatic_calibration', {})
         except AttributeError:
+            calibration_runtime = {}
             calibration_guidance = {}
             supervised_auto = {}
             passive_solve = {}
@@ -1641,9 +1675,17 @@ class DobotWebNode(Node):
             'supervised_auto': supervised_auto,
             'passive_solve': passive_solve,
             'automatic_calibration': automatic_calibration,
+            'calibration': {
+                'state': calibration_runtime.get('state', 'UNKNOWN'),
+                'ready': calibration_runtime.get('ready') is True,
+                'reason': calibration_runtime.get('reason', ''),
+                'last_completed_unix_s': calibration_runtime.get('last_completed_unix_s'),
+            },
             'fault_message': (
                 '' if preflight['ready'] else
-                self._operator_fault_message(preflight.get('system'))
+                next((check['reason'] for check in preflight['checks']
+                      if check['key'] == 'robot' and not check['ok']),
+                     self._operator_fault_message(preflight.get('system')))
             ),
             'pick_all': {
                 'completed': operation['completed'] if operation['job'] == 'หยิบทั้งหมด' else 0,
@@ -1879,6 +1921,10 @@ class DobotWebNode(Node):
     def operator_stop(self):
         """Stop the UI job and propagate cancellation to the robot backend."""
         self._operator_cancel_event.set()
+        # Latch startup as stopped as well, so its timer cannot dispatch after STOP.
+        if hasattr(self, '_integration_lock'):
+            with self._integration_lock:
+                self._startup_machine.stop('operator STOP')
         result = self.vision_cancel()
         with self._operator_job_lock:
             if self._operator_job['active']:
@@ -2446,7 +2492,7 @@ class DobotWebNode(Node):
             acceleration_ratio=float(acceleration_ratio),
             tool_type='suction',
             cancel_event=self._vision_cancel_event,
-            api_token=self.api_token,
+            api_token=getattr(self, 'internal_api_token', self.api_token),
         )
         result = executor.execute([
             {
@@ -2471,7 +2517,7 @@ class DobotWebNode(Node):
             acceleration_ratio=0.10,
             tool_type='suction',
             cancel_event=cancel_event,
-            api_token=self.api_token,
+            api_token=getattr(self, 'internal_api_token', self.api_token),
         )
         command = 'suction_on' if enable else 'suction_off'
         result = executor.execute([
@@ -2547,9 +2593,9 @@ class DobotWebNode(Node):
 
     def vision_cancel(self):
         control_active = self._request_control_stop()
-        motion_result = self.cancel_move()
         if hasattr(self, 'calibration_cancel_client'):
             self._request_calibration_cancel()
+        motion_result = self.cancel_move()
         self._acknowledge_control_stop()
         with self._vision_operation_state_lock:
             sequence_active = self._vision_operation_active
@@ -2630,6 +2676,29 @@ class DobotWebNode(Node):
     def vision_calibration(self):
         """Compatibility view backed exclusively by /calibration/status."""
         return self.calibration_runtime_status()
+
+    def workspace_proposal_status(self):
+        runtime = self.calibration_runtime_status()
+        if runtime.get('age_sec') is None or runtime['age_sec'] > 2.0:
+            return {'state': 'UNAVAILABLE', 'reason': 'Calibration sensor status is stale'}
+        return runtime.get('workspace_proposal', {'state': 'UNAVAILABLE',
+                                                'reason': 'Sensor proposal backend is unavailable'})
+
+    def propose_workspace(self):
+        # This endpoint observes stationary sensors only. It cannot save an
+        # approved workspace, clear STOP, authorize calibration or move a joint.
+        if self._operation_is_active() or self._calibration_is_active():
+            raise RuntimeError('Stop active operations before observing the workspace')
+        with self._goal_lock:
+            if self._active_goal_handle is not None:
+                raise RuntimeError('Robot motion is active')
+        client = self.workspace_proposal_client
+        if not client.service_is_ready():
+            raise ConnectionError('Workspace observation service is unavailable')
+        future = client.call_async(Trigger.Request())
+        result = self._wait_for_future(future, 5.0)
+        return {'accepted': result.success, 'message': result.message,
+                'motion_command_sent': False, 'status_url': '/api/workspace/proposal'}
 
     def supervised_calibration_control(self, action):
         if action not in self.calibration_auto_clients:
@@ -2941,6 +3010,8 @@ class DobotWebNode(Node):
         return data.tobytes()
 
     def send_move(self, payload):
+        if self._calibration_is_active():
+            raise RuntimeError('Calibration owns motion; press STOP before manual movement')
         target_pose = payload.get('target_pose')
         if not isinstance(target_pose, list) or len(target_pose) != 4:
             raise ValueError('target_pose must contain four numbers')
@@ -3013,7 +3084,7 @@ class DobotWebNode(Node):
         }
 
     def call_homing(self, *, move_to_observation=True):
-        if self._operation_is_active():
+        if self._operation_is_active() or self._calibration_is_active():
             raise RuntimeError('Cannot HOME while an automatic operation is active; press STOP first')
         if not self.homing_client.wait_for_service(timeout_sec=0.25):
             raise ConnectionError('dobot_homing_service is not available')
@@ -3168,6 +3239,61 @@ def create_app(node):
 
     app.mount('/static', StaticFiles(directory=str(static_dir)), name='static')
 
+    @app.middleware('http')
+    async def maintenance_access(request, call_next):
+        # Match StaticFiles' normalized path; encoded dot/double-slash paths
+        # must not bypass access checks on the maintenance assets.
+        path = '/' + posixpath.normpath(request.scope['path']).lstrip('/')
+        # HOME is an operator command; retain the browser origin check even
+        # though it no longer requires Maintenance credentials.
+        if request.method == 'POST' and path == '/api/homing':
+            origin = request.headers.get('origin')
+            if origin and origin != str(request.base_url).rstrip('/'):
+                return Response('Cross-origin HOME request denied', status_code=403)
+        protected = path in ('/maintenance', '/static/maintenance.html', '/static/maintenance.js')
+        protected = protected or (request.method == 'POST' and (
+            path.startswith('/api/calibration/') and not path.endswith('/abort')
+            or path in ('/api/system/startup', '/api/move',
+                        '/api/restart_connection', '/api/gripper', '/api/suction',
+                        '/api/vision/calibration/auto', '/api/vision/calibration/test_point',
+                        '/api/vision/eye_in_hand/calibrate', '/api/vision/eye_in_hand/test_pixel')))
+        if protected:
+            token = getattr(node, 'maintenance_token', '') or getattr(node, 'api_token', '')
+            authorization = request.headers.get('authorization', '')
+            supplied = ''
+            username = ''
+            if authorization.startswith('Bearer '):
+                supplied = authorization[7:]
+            elif authorization.startswith('Basic '):
+                try:
+                    username, supplied = base64.b64decode(authorization[6:], validate=True).decode().split(':', 1)
+                except (ValueError, UnicodeError):
+                    supplied = ''
+            internal = (request.method == 'POST' and path in ('/api/move', '/api/suction', '/api/gripper')
+                        and username == 'dobot' and any(
+                            candidate and hmac.compare_digest(supplied.encode(), candidate.encode())
+                            for candidate in (getattr(node, 'internal_api_token', ''),
+                                              getattr(node, 'api_token', ''))))
+            if not token and not internal:
+                return Response('Maintenance access is not configured', status_code=503)
+            maintenance_ok = (username == 'maintenance' or authorization.startswith('Bearer ')) and (
+                bool(token) and hmac.compare_digest(supplied.encode(), token.encode()))
+            if not (internal or maintenance_ok):
+                return Response('Maintenance authentication required', status_code=401,
+                                headers={'WWW-Authenticate': 'Basic realm="Maintenance"'})
+            # Browser Basic credentials must not enable cross-origin commands.
+            origin = request.headers.get('origin')
+            if request.method == 'POST' and origin and origin != str(request.base_url).rstrip('/'):
+                return Response('Cross-origin maintenance request denied', status_code=403)
+        response = await call_next(request)
+        if protected:
+            response.headers['Cache-Control'] = 'no-store'
+        return response
+
+    @app.get('/maintenance', response_class=HTMLResponse)
+    def maintenance():
+        return (static_dir / 'maintenance.html').read_text(encoding='utf-8')
+
     @app.get('/', response_class=HTMLResponse)
     def index():
         return (static_dir / 'operator.html').read_text(encoding='utf-8')
@@ -3190,6 +3316,14 @@ def create_app(node):
     @app.post('/api/calibration/auto/{action}')
     def api_calibration_auto(action: str):
         return _call_api(node.supervised_calibration_control, action, busy_status=409)
+
+    @app.get('/api/workspace/proposal')
+    def api_workspace_proposal_status():
+        return _call_api(node.workspace_proposal_status)
+
+    @app.post('/api/workspace/proposal')
+    def api_workspace_proposal():
+        return _call_api(node.propose_workspace, busy_status=409)
 
     @app.post('/api/calibration/passive/{action}')
     def api_calibration_passive(action: str):

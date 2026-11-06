@@ -1,0 +1,75 @@
+{
+  "classification": "OBSERVED_TCP_SAMPLES_NOT_CERTIFIED_FREE_VOLUME",
+  "recording_state": "STOPPED",
+  "stop_reason": "operator_requested",
+  "started_utc": "2026-11-02T16:23:30.321879+00:00",
+  "duration_s": 153.48602498299988,
+  "total_samples": 765,
+  "fresh_alarm_clear_samples": 684,
+  "fresh_alarm_clear_within_joint_limits_samples": 656,
+  "alarm_or_invalid_samples": 81,
+  "alarm_clear_outside_joint_limits_samples": 28,
+  "alarm_sample_counts": {
+    "48": 47,
+    "40": 19,
+    "45": 15
+  },
+  "request_errors": 0,
+  "joint_limit_source": "src/magician_ros2/dobot_kinematics/config/axis_limits.yaml",
+  "joint_limits_deg": [
+    [
+      -120,
+      120
+    ],
+    [
+      -5,
+      90
+    ],
+    [
+      -15,
+      90
+    ],
+    [
+      -140,
+      140
+    ]
+  ],
+  "tcp_bounds_mm_deg": {
+    "min": [
+      -79.63062286376953,
+      -192.35389709472656,
+      -67.9453353881836,
+      -110.72647094726562
+    ],
+    "max": [
+      255.8642120361328,
+      221.78448486328125,
+      93.45005798339844,
+      113.24117279052734
+    ]
+  },
+  "joint_bounds_deg": {
+    "min": [
+      -110.73,
+      13.61,
+      11.52,
+      0.0
+    ],
+    "max": [
+      113.24,
+      68.18,
+      63.98,
+      0.0
+    ]
+  },
+  "motion_command_sent_by_recorder": false,
+  "runtime_workspace_written": false,
+  "limitations": [
+    "Extrema occur at different poses; their bounding box does not certify its interior or a route between them.",
+    "Only controller TCP/joint feedback was recorded, not the exterior of the camera, suction tool, brackets or cables.",
+    "Alarm-clear feedback and joint-limit compliance alone do not prove collision clearance.",
+    "Observed Z is the controller TCP coordinate, not a measurement of table height.",
+    "Joint 4 remained at zero; this recording does not measure clearance during independent wrist rotation.",
+    "Configured sphere/table policy with table Z=-58 mm requires TCP Z>=120.6 mm; no filtered sample reaches this height."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "kind": "PRE_DISPATCH_CHECK_ONLY_NO_MOTION_GOAL",
+  "current_tcp_mm_deg": [
+    119.68265533447266,
+    145.49078369140625,
+    50.41636657714844,
+    50.55882263183594
+  ],
+  "hypothetical_probe": "raise TCP Z by 1 mm",
+  "workspace_gate_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=50.567, volume_z_min deficit_mm=74.084, volume_y_max deficit_mm=119.991, table deficit_mm=70.184",
+  "anchor_clearance": {
+    "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+    "padding_m": 0.1786,
+    "signed_margins_m": {
+      "volume_x_min": -0.050567344665527356,
+      "volume_y_min": 0.17099078369140625,
+      "volume_z_min": -0.07408363342285157,
+      "volume_x_max": 0.08456734466552737,
+      "volume_y_max": -0.11999078369140626,
+      "volume_z_max": 0.09958363342285156,
+      "table": -0.07018363342285158
+    },
+    "violations": [
+      {
+        "boundary": "volume_x_min",
+        "deficit_m": 0.050567344665527356
+      },
+      {
+        "boundary": "volume_z_min",
+        "deficit_m": 0.07408363342285157
+      },
+      {
+        "boundary": "volume_y_max",
+        "deficit_m": 0.11999078369140626
+      },
+      {
+        "boundary": "table",
+        "deficit_m": 0.07018363342285158
+      }
+    ],
+    "allowed_center_min_m": [
+      0.17025,
+      -0.025499999999999995,
+      0.1245
+    ],
+    "allowed_center_max_m": [
+      0.20425000000000001,
+      0.025499999999999995,
+      0.15
+    ],
+    "table_min_center_z_m": 0.12060000000000001
+  },
+  "controller_reported_alarm_codes": [],
+  "action_server_ready": true,
+  "motion_command_sent": false
+}

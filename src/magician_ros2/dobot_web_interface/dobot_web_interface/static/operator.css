@@ -12,6 +12,17 @@
   --camera-ratio: 1.3333333333;
 }
 
+/* STOP stays above the expanded camera and within reach on mobile. */
+#stopButton { position: fixed; right: 18px; bottom: 18px; z-index: 1000;
+  min-width: 150px; min-height: 60px; border: 2px solid #fff; font-weight: 800;
+  box-shadow: 0 3px 18px #0009; }
+.operator-app { padding-bottom: 100px !important; }
+.calibration-status { display: grid; gap: 8px; }
+.calibration-status > div { display: flex; justify-content: space-between; gap: 16px; }
+.calibration-status dt { color: var(--muted); }
+.calibration-status dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+#calibrationProgressBar { width: 100%; height: 18px; accent-color: var(--green); }
+.calibration-card a, .topbar a, .job-card a { color: #9bd8ff; }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 body {

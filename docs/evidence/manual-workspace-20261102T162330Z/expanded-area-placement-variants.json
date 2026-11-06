@@ -1,0 +1,124 @@
+{
+  "classification": "DESIGN_ONLY_NOT_SURVEYED_OR_AUTHORIZED",
+  "proposals": [
+    {
+      "x_sign": -1,
+      "z_sign": -1,
+      "scale": 0.85,
+      "anchor_xyz_yaw_mm_deg": [
+        200,
+        0,
+        150,
+        0
+      ],
+      "proposed_free_volume_min_mm": [
+        -8.35,
+        -204.1,
+        -54.1
+      ],
+      "proposed_free_volume_max_mm": [
+        382.85,
+        204.1,
+        328.6
+      ],
+      "local_model_all_pass": true,
+      "segments": [
+        {
+          "index": 1,
+          "xyz_mm": [
+            200.0,
+            0.0,
+            150.0
+          ],
+          "error": null
+        },
+        {
+          "index": 2,
+          "xyz_mm": [
+            170.25,
+            0.0,
+            150.0
+          ],
+          "error": null
+        },
+        {
+          "index": 3,
+          "xyz_mm": [
+            187.25,
+            25.5,
+            141.5
+          ],
+          "error": null
+        },
+        {
+          "index": 4,
+          "xyz_mm": [
+            187.25,
+            -25.5,
+            137.25
+          ],
+          "error": null
+        },
+        {
+          "index": 5,
+          "xyz_mm": [
+            174.5,
+            17.0,
+            133.0
+          ],
+          "error": null
+        },
+        {
+          "index": 6,
+          "xyz_mm": [
+            174.5,
+            -17.0,
+            128.75
+          ],
+          "error": null
+        },
+        {
+          "index": 7,
+          "xyz_mm": [
+            204.25,
+            21.25,
+            141.5
+          ],
+          "error": null
+        },
+        {
+          "index": 8,
+          "xyz_mm": [
+            191.5,
+            -21.25,
+            124.5
+          ],
+          "error": null
+        },
+        {
+          "index": 9,
+          "xyz_mm": [
+            170.25,
+            12.75,
+            137.25
+          ],
+          "error": null
+        },
+        {
+          "index": 10,
+          "xyz_mm": [
+            204.25,
+            -21.25,
+            128.75
+          ],
+          "error": null
+        }
+      ]
+    }
+  ],
+  "current_pose_to_anchor_validated": false,
+  "actual_bounds_confirmed": false,
+  "full_workcell_collision_verified": false,
+  "motion_command_sent": false,
+  "model_limitations": "Repository ground plane datum is not the reported actual table datum; full workcell collision and sensor checks remain."
+}

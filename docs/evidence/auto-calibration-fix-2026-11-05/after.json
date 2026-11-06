@@ -1,0 +1,910 @@
+{
+  "status": {
+    "camera": {
+      "raw_topic": "/camera/color/image_raw",
+      "compressed_topic": "/camera/color/image_raw/compressed",
+      "device": "",
+      "direct_camera_connected": false,
+      "frame_age_sec": 0.01,
+      "frame_source": "/camera/color/image_raw/compressed",
+      "has_frame": true,
+      "camera_info_topic": "/camera/color/camera_info",
+      "intrinsics_source": "camera_info",
+      "intrinsics_age_sec": 0.0
+    },
+    "ros": {
+      "ptp_action_ready": true,
+      "homing_ready": true,
+      "gripper_ready": false,
+      "suction_ready": true,
+      "tool_mapping": "canonical",
+      "alarm_state_fresh": true,
+      "no_critical_alarm": true,
+      "alarm_codes": []
+    },
+    "motion": {
+      "active_goal": false,
+      "last_goal_age_sec": null,
+      "last_feedback": null,
+      "last_result": null,
+      "joints_deg": [
+        0.0,
+        15.55,
+        81.57,
+        0.0
+      ],
+      "joints_age_sec": 0.01,
+      "current_tcp_pose": [
+        57.741783142089844,
+        0.0,
+        -15.356430053710938,
+        0.0
+      ],
+      "current_tcp_pose_source": "dobot_pose_raw",
+      "current_tcp_pose_age_sec": 0.01,
+      "homing_confirmed": false,
+      "vision_sequence_active": false,
+      "vision_sequence_age_sec": null
+    },
+    "camera_health": {
+      "usb": {
+        "devices": [
+          {
+            "path": "2-1.2.2",
+            "product": "0614",
+            "role": "depth_data",
+            "serial": "",
+            "speed_mbps": 5000.0
+          },
+          {
+            "path": "1-2.2.1",
+            "product": "0511",
+            "role": "rgb_uvc",
+            "serial": "AY2A760003E",
+            "speed_mbps": 480.0
+          }
+        ],
+        "superspeed": true,
+        "camera_identity": "AY2A760003E",
+        "identity_valid": true
+      },
+      "streams": {
+        "rgb_info": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 2.83,
+          "fps": 30.02,
+          "timestamp_fps": 30.02,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 46,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 32.122,
+          "max_stamp_gap_ms": 90.3160572052002,
+          "estimated_missing_frames": 2,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true,
+          "intrinsics_valid": true
+        },
+        "depth_info": {
+          "fresh": true,
+          "frames": 300,
+          "age_ms": 15.83,
+          "fps": 29.82,
+          "timestamp_fps": 29.87,
+          "timestamp_valid": true,
+          "current_timestamp_valid": true,
+          "active_window_frames": 45,
+          "current_duplicate_timestamps": 0,
+          "current_regressed_timestamps": 0,
+          "duplicate_timestamps": 0,
+          "regressed_timestamps": 0,
+          "historical_duplicate_timestamps": 0,
+          "historical_regressed_timestamps": 0,
+          "median_timestamp_delta_ms": 34.245,
+          "max_stamp_gap_ms": 65.25897979736328,
+          "estimated_missing_frames": 2,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": true,
+          "state": "READY",
+          "expected_rate_ok": true,
+          "intrinsics_valid": true
+        },
+        "rgb": {
+          "fresh": true,
+          "frames": 155,
+          "age_ms": 28.990083989569918,
+          "fps": 11.517,
+          "max_stamp_gap_ms": 299.804,
+          "timestamp_valid": true,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": false,
+          "state": "DEGRADED_RATE",
+          "expected_rate_ok": false
+        },
+        "depth": {
+          "fresh": true,
+          "frames": 184,
+          "age_ms": 37.75508398956992,
+          "fps": 13.687,
+          "max_stamp_gap_ms": 500.716,
+          "timestamp_valid": true,
+          "frame_id": "camera_color_optical_frame",
+          "rate_ok": false,
+          "state": "DEGRADED_RATE",
+          "expected_rate_ok": false,
+          "valid_ratio": 0.5036,
+          "valid": true
+        }
+      },
+      "ready": true,
+      "blockers": [],
+      "warnings": [
+        "rgb_rate_unverified_or_degraded",
+        "depth_rate_unverified_or_degraded"
+      ],
+      "cloud_health_validation_enabled": false,
+      "cloud_health_state": "delegated_to_calibration",
+      "callback_diagnostics": {
+        "rgb": {
+          "enter_count": 407,
+          "exit_count": 407,
+          "exception_count": 0,
+          "last_enter_monotonic": 223195.748550638,
+          "last_exit_monotonic": 223195.748599727,
+          "last_exception": ""
+        },
+        "depth": {
+          "enter_count": 410,
+          "exit_count": 410,
+          "exception_count": 0,
+          "last_enter_monotonic": 223195.735551005,
+          "last_exit_monotonic": 223195.735602911,
+          "last_exception": ""
+        },
+        "rgb_info": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        },
+        "depth_info": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        },
+        "cloud": {
+          "enter_count": 0,
+          "exit_count": 0,
+          "exception_count": 0,
+          "last_enter_monotonic": null,
+          "last_exit_monotonic": null,
+          "last_exception": ""
+        }
+      },
+      "ldp_protection_active": false,
+      "alignment_metadata_consistent": true,
+      "rgb_payload_valid": true,
+      "depth_quality_state": "delegated_to_calibration",
+      "rgb_depth_skew_ms": 26.64,
+      "rgb_depth_sync_valid": true,
+      "age_sec": 0.03
+    }
+  },
+  "calibration": {
+    "state": "FAIL",
+    "ready": false,
+    "available": false,
+    "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956",
+    "stamp": 1793858210.6025937,
+    "result": "FAIL",
+    "architecture": "markerless_hand_eye",
+    "command_frame": "TCP",
+    "calibration_parent_frame": "TCP",
+    "tcp_only_consumer_supported": true,
+    "bundle_path": "/home/jetson/.ros/dobot/markerless_calibration.npz",
+    "bundle_loaded": false,
+    "context_digest": "",
+    "geometry_verified": false,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_ELIGIBLE": true,
+    "CALIBRATION_BOOTSTRAP_GEOMETRY_BLOCKERS": [],
+    "CAMERA_ID_SOURCE": "YAML",
+    "CAMERA_ID": "AY2A760003E",
+    "CAMERA_ID_VERIFIED": true,
+    "CAMERA_ID_RESOLUTION": "PASS",
+    "EXACT_GATE": "",
+    "readiness": {
+      "HARDWARE_READY": true,
+      "PASSIVE_CAPTURE_READY": true,
+      "REAL_MOTION_READY": false,
+      "GEOMETRY_VERIFIED": false,
+      "point_cloud_source_usable": true,
+      "native_cloud_state": "stale",
+      "blockers": []
+    },
+    "AUTHORITATIVE_BASELINE_READY": false,
+    "AUTHORITATIVE_BASELINE_STABLE_FOR_S": 0.6189686110010371,
+    "AUTHORITATIVE_BASELINE_REQUIRED_STABLE_S": 10.0,
+    "AUTHORITATIVE_BASELINE_BLOCKERS": [],
+    "AUTHORITATIVE_BASELINE_CURRENT_BLOCKERS": [],
+    "AUTHORITATIVE_BASELINE_LAST_RESET_GATE": "HARDWARE_NOT_READY",
+    "AUTHORITATIVE_BASELINE_LAST_RESET_TIME": 223191.515601014,
+    "AUTHORITATIVE_BASELINE_RESET_COUNT": 11,
+    "AUTHORITATIVE_BASELINE_EXACT_GATE": "READINESS_STABILITY_WINDOW_NOT_MET",
+    "passive_mode": true,
+    "passive_pose_count": 0,
+    "passive_solve": {
+      "state": "IDLE",
+      "production_ready": false
+    },
+    "automatic_calibration": {
+      "state": "FAULT",
+      "accepted_pose_count": 0,
+      "total_poses": 10,
+      "last_completed_unix_s": null,
+      "dry_run": false,
+      "production_ready": false,
+      "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956",
+      "purpose": "AUTONOMOUS_10_POSES",
+      "run_id": "3dd99e14082448299318560ed784b538",
+      "motion_command_sent": false,
+      "blockers": [
+        "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956"
+      ],
+      "trace": [
+        {
+          "function": "AutomaticBackend.prepare",
+          "monotonic": 223190.379964414
+        },
+        {
+          "function": "AutomaticBackend.prepare.enter",
+          "monotonic": 223190.380088771
+        }
+      ],
+      "authorization_protocol": 2,
+      "pre_dispatch": {
+        "hardware_readiness": {
+          "state": "READY",
+          "ready": true,
+          "reason": "",
+          "blockers": [],
+          "depth_fresh": true,
+          "depth_stable": true,
+          "tcp_fresh": true,
+          "joints_fresh": true,
+          "alarms_fresh": true,
+          "robot_connected": true,
+          "safety_supported": false,
+          "safety_verified": false,
+          "physical_estop_present": true,
+          "operator_safety_verified": true,
+          "software_estop_monitoring": "NOT CONNECTED",
+          "depth_age_s": 0.04329824447631836,
+          "tcp_age_s": 0.028021812438964844,
+          "joints_age_s": 0.028021812438964844,
+          "alarms_age_s": 0.015805482864379883
+        },
+        "workspace": "fcde7f4a974f4df8199a48ea889415bdff4d5209e879119454ee1bab43188ca4",
+        "baseline_gate": "",
+        "blockers": [],
+        "motion_command_sent": false,
+        "monotonic": 223194.885654768
+      },
+      "start_pose_check": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": -0.11250821685791017,
+          "volume_y_min": 0.025499999999999995,
+          "volume_z_min": -0.13985643005371093,
+          "volume_x_max": 0.14650821685791018,
+          "volume_y_max": 0.025499999999999995,
+          "volume_z_max": 0.16535643005371095,
+          "table": -0.13595643005371094
+        },
+        "violations": [
+          {
+            "boundary": "volume_x_min",
+            "deficit_m": 0.11250821685791017
+          },
+          {
+            "boundary": "volume_z_min",
+            "deficit_m": 0.13985643005371093
+          },
+          {
+            "boundary": "table",
+            "deficit_m": 0.13595643005371094
+          }
+        ],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001,
+        "current_xyz_mm": [
+          57.741783142089844,
+          0.0,
+          -15.356430053710938
+        ]
+      },
+      "PTP_RESTORE": "NOT_REQUIRED",
+      "authorization_revoked": true
+    },
+    "workspace_proposal": {
+      "state": "IDLE",
+      "motion_command_sent": false
+    },
+    "automatic_commissioning": null,
+    "software_source_digest": "31d83ca3bb410fd47bf69f3627a98f725dd92d839006722a99a4f30dd69ee03d",
+    "passive_pose_metadata": [],
+    "passive_guidance": {
+      "state": "PLAN_UNAVAILABLE",
+      "capture_enabled": false,
+      "automatic_capture": false,
+      "progress": [
+        {
+          "pose_index": 1,
+          "state": "GUIDE_TO_TARGET"
+        },
+        {
+          "pose_index": 2,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 3,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 4,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 5,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 6,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 7,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 8,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 9,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 10,
+          "state": "PENDING"
+        }
+      ]
+    },
+    "supervised_auto": {
+      "state": "IDLE",
+      "dry_run": true,
+      "real_motion_enabled": false,
+      "current_pose": 0,
+      "total_poses": 10,
+      "target": null,
+      "readiness": "",
+      "safety_status": "",
+      "motion_progress": 0.0,
+      "capture_result": "",
+      "registration_quality": {},
+      "blockers": [],
+      "history": []
+    },
+    "REAL_MOTION_ADAPTER_COMMISSIONED": false,
+    "FULL_AUTO_CALIBRATION_COMMISSIONED": false,
+    "samples_collected": 0,
+    "samples_accepted": 0,
+    "samples_rejected": 0,
+    "translation_residual_mm": null,
+    "rotation_residual_deg": null,
+    "verification_status": "FAIL",
+    "verification_samples": 0,
+    "reload_verification_status": "MISSING",
+    "mount_translation_error_bound_mm": 1.0,
+    "mount_envelope_mm": 152.60000000000002,
+    "blockers": [
+      "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956"
+    ],
+    "metrics": {},
+    "depth_quality": {
+      "status": "VALID_DEPTH",
+      "code": "",
+      "reason": "",
+      "pixel_count": 307200,
+      "valid_count": 154864,
+      "depth_valid_ratio": 0.5041145833333334,
+      "median_m": 0.224,
+      "mad_m": 0.005930400000000005,
+      "stddev_m": 0.048277001266920014,
+      "minimum_m": 0.195,
+      "maximum_m": 0.439,
+      "zero_count": 152336,
+      "nonfinite_count": 0,
+      "outside_range_count": 152336
+    },
+    "rgb_health": {
+      "fresh": true,
+      "frames": 149,
+      "age_ms": 77.24668601569161,
+      "fps": 11.357,
+      "max_stamp_gap_ms": 299.804,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": false,
+      "state": "DEGRADED_RATE",
+      "expected_rate_ok": false
+    },
+    "depth_health": {
+      "fresh": true,
+      "frames": 177,
+      "age_ms": 43.81868601569161,
+      "fps": 13.463,
+      "max_stamp_gap_ms": 500.716,
+      "timestamp_valid": true,
+      "frame_id": "camera_color_optical_frame",
+      "rate_ok": false,
+      "state": "DEGRADED_RATE",
+      "expected_rate_ok": false,
+      "valid_ratio": 0.5029,
+      "valid": true
+    },
+    "RGB_FRESH": true,
+    "DEPTH_FRESH": true,
+    "RGB_CAMERAINFO_FRESH": true,
+    "DEPTH_CAMERAINFO_FRESH": true,
+    "RGB_DEPTH_CAMERAINFO_SYNCHRONIZED": true,
+    "SENSOR_INGEST_STATE": "ACTIVE",
+    "SENSOR_INGEST_OWNER": "passive_capture",
+    "SENSOR_INGEST_ACTIVATION_REASON": "passive_capture",
+    "SENSOR_INGEST_ACTIVATED_AT_MONOTONIC": 223190.492722441,
+    "SENSOR_INGEST_ACTIVATION_COUNT": 1,
+    "RGB_SUBSCRIPTION_ACTIVE": true,
+    "DEPTH_SUBSCRIPTION_ACTIVE": true,
+    "CLOUD_SUBSCRIPTION_ACTIVE": true,
+    "INTERNAL_SYNC_PAYLOAD_AVAILABLE": true,
+    "SYNC_PAYLOAD_AGE_MS": 125.08922099368647,
+    "RGB_DEPTH_SKEW_MS": 8.183002471923828,
+    "SYNC_PAIR_SUCCESS_COUNT": 57,
+    "SYNC_PAIR_REJECT_COUNT": 19,
+    "SYNC_PAIR_LAST_REASON": "NO_DEPTH_SAMPLE",
+    "SYNC_PAIR_RECENT_REJECTIONS": [
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 361.2847328186035,
+        "monotonic": 223194.007614139
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 103.44815254211426,
+        "monotonic": 223194.111939213
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 695.3761577606201,
+        "monotonic": 223194.163888398
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 793.3969497680664,
+        "monotonic": 223194.169246145
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 236.30809783935547,
+        "monotonic": 223194.25252991
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 106.60505294799805,
+        "monotonic": 223194.293937145
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 138.19074630737305,
+        "monotonic": 223194.303048808
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 260.1032257080078,
+        "monotonic": 223194.674507961
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 140.5320167541504,
+        "monotonic": 223195.177826577
+      },
+      {
+        "reason": "PAIR_SKEW_OVER_100MS",
+        "skew_ms": 237.440824508667,
+        "monotonic": 223195.206999133
+      }
+    ],
+    "SYNC_PAYLOAD_GENERATION": 57,
+    "SYNC_LAST_COMMIT_MONOTONIC": 223195.445038419,
+    "SYNC_LAST_COMMIT_RGB_STAMP": 1793858210.329518,
+    "SYNC_LAST_COMMIT_DEPTH_STAMP": 1793858210.337701,
+    "SYNC_LAST_COMMIT_SKEW_MS": 8.183002471923828,
+    "SYNC_LAST_COMMIT_REASON": "PASS",
+    "RGB_PAYLOAD_QUEUE_SIZE": 9,
+    "DEPTH_PAYLOAD_QUEUE_SIZE": 0,
+    "RGB_DROPPED_TOO_OLD_COUNT": 13,
+    "DEPTH_DROPPED_TOO_OLD_COUNT": 6,
+    "RGB_CAMERAINFO_CACHE": true,
+    "RGB_RATE_STATE": "DEGRADED_RATE",
+    "DEPTH_RATE_STATE": "DEGRADED_RATE",
+    "tcp_fresh": true,
+    "joint_fresh": true,
+    "alarm_state": {
+      "fresh": true,
+      "codes": []
+    },
+    "physical_estop": "PRESENT",
+    "hardware_safety": "OPERATOR VERIFIED",
+    "software_estop_monitoring": "NOT CONNECTED",
+    "safety_input_state": {
+      "supported": false,
+      "verified": false
+    },
+    "hardware_readiness": {
+      "state": "READY",
+      "ready": true,
+      "reason": "",
+      "blockers": [],
+      "depth_fresh": true,
+      "depth_stable": true,
+      "tcp_fresh": true,
+      "joints_fresh": true,
+      "alarms_fresh": true,
+      "robot_connected": true,
+      "safety_supported": false,
+      "safety_verified": false,
+      "physical_estop_present": true,
+      "operator_safety_verified": true,
+      "software_estop_monitoring": "NOT CONNECTED",
+      "depth_age_s": 0.7634456157684326,
+      "tcp_age_s": 0.05501866340637207,
+      "joints_age_s": 0.05501866340637207,
+      "alarms_age_s": 0.03975176811218262
+    },
+    "ui": {
+      "language": "th",
+      "step": "\u0e2e\u0e32\u0e23\u0e4c\u0e14\u0e41\u0e27\u0e23\u0e4c\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e04\u0e32\u0e25\u0e34\u0e40\u0e1a\u0e23\u0e15",
+      "status": "\u0e2e\u0e32\u0e23\u0e4c\u0e14\u0e41\u0e27\u0e23\u0e4c\u0e1c\u0e48\u0e32\u0e19\u0e17\u0e38\u0e01\u0e40\u0e07\u0e37\u0e48\u0e2d\u0e19\u0e44\u0e02\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e23\u0e49\u0e2d\u0e21",
+      "recommended_action": "",
+      "motion_allowed": false
+    },
+    "age_sec": 0.23
+  },
+  "operator": {
+    "ready": false,
+    "overall_status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+    "checks": [
+      {
+        "key": "robot",
+        "label": "\u0e2b\u0e38\u0e48\u0e19\u0e22\u0e19\u0e15\u0e4c",
+        "ok": true,
+        "status": "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "action server \u0e1e\u0e23\u0e49\u0e2d\u0e21 \u0e44\u0e21\u0e48\u0e21\u0e35 alarm \u0e41\u0e25\u0e30\u0e44\u0e21\u0e48\u0e21\u0e35 motion \u0e04\u0e49\u0e32\u0e07"
+      },
+      {
+        "key": "camera",
+        "label": "\u0e01\u0e25\u0e49\u0e2d\u0e07",
+        "ok": true,
+        "status": "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "Camera frame is available; YOLO detector is ready"
+      },
+      {
+        "key": "depth",
+        "label": "\u0e04\u0e27\u0e32\u0e21\u0e25\u0e36\u0e01",
+        "ok": true,
+        "status": "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "depth_stream_ok=True, depth_data_valid=True, valid_ratio=0.5042"
+      },
+      {
+        "key": "calibration",
+        "label": "\u0e01\u0e32\u0e23\u0e04\u0e32\u0e25\u0e34\u0e40\u0e1a\u0e23\u0e15",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956"
+      },
+      {
+        "key": "suction",
+        "label": "\u0e2b\u0e31\u0e27\u0e14\u0e39\u0e14",
+        "ok": true,
+        "status": "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "service \u0e1e\u0e23\u0e49\u0e2d\u0e21"
+      },
+      {
+        "key": "objects",
+        "label": "\u0e0a\u0e34\u0e49\u0e19\u0e07\u0e32\u0e19\u0e17\u0e35\u0e48\u0e15\u0e23\u0e27\u0e08\u0e1e\u0e1a",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "No detections found for class 'black_cap'"
+      },
+      {
+        "key": "place",
+        "label": "\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07\u0e27\u0e32\u0e07",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "Zone A: \u0e23\u0e2d calibration/target \u0e17\u0e35\u0e48 valid \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19 trajectory \u0e41\u0e1a\u0e1a live"
+      },
+      {
+        "key": "safety",
+        "label": "\u0e01\u0e32\u0e23\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956; No selected target is available; confidence is below 0.7; place_id 'None' is not configured; No target pose to validate; Real motion is disabled by safety config; Robot homing is not confirmed"
+      },
+      {
+        "key": "system",
+        "label": "\u0e23\u0e30\u0e1a\u0e1a\u0e23\u0e27\u0e21",
+        "ok": false,
+        "status": "\u0e44\u0e21\u0e48\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+        "reason": "FAULT: CALIBRATION_FAILED: START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956; CALIBRATION_NOT_READY; HOME_NOT_READY; OBSERVATION_NOT_READY; REAL_MOTION_NOT_READY"
+      }
+    ],
+    "counts": {
+      "black": 0,
+      "white": 0,
+      "yellow": 0
+    },
+    "jobs": [
+      {
+        "id": "black",
+        "label": "\u0e2a\u0e35\u0e14\u0e33"
+      },
+      {
+        "id": "white",
+        "label": "\u0e2a\u0e35\u0e02\u0e32\u0e27"
+      },
+      {
+        "id": "yellow",
+        "label": "\u0e2a\u0e35\u0e40\u0e2b\u0e25\u0e37\u0e2d\u0e07"
+      },
+      {
+        "id": "pick_all",
+        "label": "\u0e2b\u0e22\u0e34\u0e1a\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14"
+      }
+    ],
+    "places": [
+      {
+        "id": "Zone A",
+        "label": "\u0e42\u0e0b\u0e19 A"
+      },
+      {
+        "id": "Zone B",
+        "label": "\u0e42\u0e0b\u0e19 B"
+      },
+      {
+        "id": "Zone C",
+        "label": "\u0e42\u0e0b\u0e19 C"
+      },
+      {
+        "id": "Reject",
+        "label": "\u0e04\u0e31\u0e14\u0e17\u0e34\u0e49\u0e07"
+      }
+    ],
+    "selected_job": "\u0e2a\u0e35\u0e14\u0e33",
+    "selected_place": "\u0e42\u0e0b\u0e19 A",
+    "operation": {
+      "active": false,
+      "state": "IDLE",
+      "message": "\u0e23\u0e2d\u0e04\u0e33\u0e2a\u0e31\u0e48\u0e07",
+      "job": "",
+      "place": "",
+      "completed": 0,
+      "total": 0,
+      "failed": 0
+    },
+    "control": {
+      "state": "FAULT",
+      "owner": "",
+      "stop_acknowledged": true
+    },
+    "motion_mode": "DRY_RUN",
+    "calibration_guidance": {
+      "state": "PLAN_UNAVAILABLE",
+      "capture_enabled": false,
+      "automatic_capture": false,
+      "progress": [
+        {
+          "pose_index": 1,
+          "state": "GUIDE_TO_TARGET"
+        },
+        {
+          "pose_index": 2,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 3,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 4,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 5,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 6,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 7,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 8,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 9,
+          "state": "PENDING"
+        },
+        {
+          "pose_index": 10,
+          "state": "PENDING"
+        }
+      ]
+    },
+    "supervised_auto": {
+      "state": "IDLE",
+      "dry_run": true,
+      "real_motion_enabled": false,
+      "current_pose": 0,
+      "total_poses": 10,
+      "target": null,
+      "readiness": "",
+      "safety_status": "",
+      "motion_progress": 0.0,
+      "capture_result": "",
+      "registration_quality": {},
+      "blockers": [],
+      "history": []
+    },
+    "passive_solve": {
+      "state": "IDLE",
+      "production_ready": false
+    },
+    "automatic_calibration": {
+      "state": "FAULT",
+      "accepted_pose_count": 0,
+      "total_poses": 10,
+      "last_completed_unix_s": null,
+      "dry_run": false,
+      "production_ready": false,
+      "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956",
+      "purpose": "AUTONOMOUS_10_POSES",
+      "run_id": "3dd99e14082448299318560ed784b538",
+      "motion_command_sent": false,
+      "blockers": [
+        "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956"
+      ],
+      "trace": [
+        {
+          "function": "AutomaticBackend.prepare",
+          "monotonic": 223190.379964414
+        },
+        {
+          "function": "AutomaticBackend.prepare.enter",
+          "monotonic": 223190.380088771
+        }
+      ],
+      "authorization_protocol": 2,
+      "pre_dispatch": {
+        "hardware_readiness": {
+          "state": "READY",
+          "ready": true,
+          "reason": "",
+          "blockers": [],
+          "depth_fresh": true,
+          "depth_stable": true,
+          "tcp_fresh": true,
+          "joints_fresh": true,
+          "alarms_fresh": true,
+          "robot_connected": true,
+          "safety_supported": false,
+          "safety_verified": false,
+          "physical_estop_present": true,
+          "operator_safety_verified": true,
+          "software_estop_monitoring": "NOT CONNECTED",
+          "depth_age_s": 0.04329824447631836,
+          "tcp_age_s": 0.028021812438964844,
+          "joints_age_s": 0.028021812438964844,
+          "alarms_age_s": 0.015805482864379883
+        },
+        "workspace": "fcde7f4a974f4df8199a48ea889415bdff4d5209e879119454ee1bab43188ca4",
+        "baseline_gate": "",
+        "blockers": [],
+        "motion_command_sent": false,
+        "monotonic": 223194.885654768
+      },
+      "start_pose_check": {
+        "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+        "padding_m": 0.1786,
+        "signed_margins_m": {
+          "volume_x_min": -0.11250821685791017,
+          "volume_y_min": 0.025499999999999995,
+          "volume_z_min": -0.13985643005371093,
+          "volume_x_max": 0.14650821685791018,
+          "volume_y_max": 0.025499999999999995,
+          "volume_z_max": 0.16535643005371095,
+          "table": -0.13595643005371094
+        },
+        "violations": [
+          {
+            "boundary": "volume_x_min",
+            "deficit_m": 0.11250821685791017
+          },
+          {
+            "boundary": "volume_z_min",
+            "deficit_m": 0.13985643005371093
+          },
+          {
+            "boundary": "table",
+            "deficit_m": 0.13595643005371094
+          }
+        ],
+        "allowed_center_min_m": [
+          0.17025,
+          -0.025499999999999995,
+          0.1245
+        ],
+        "allowed_center_max_m": [
+          0.20425000000000001,
+          0.025499999999999995,
+          0.15
+        ],
+        "table_min_center_z_m": 0.12060000000000001,
+        "current_xyz_mm": [
+          57.741783142089844,
+          0.0,
+          -15.356430053710938
+        ]
+      },
+      "PTP_RESTORE": "NOT_REQUIRED",
+      "authorization_revoked": true
+    },
+    "calibration": {
+      "state": "FAIL",
+      "ready": false,
+      "reason": "START_POSE_OUTSIDE_WORKSPACE: WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=112.508, volume_z_min deficit_mm=139.856, table deficit_mm=135.956",
+      "last_completed_unix_s": null
+    },
+    "fault_message": "\u0e23\u0e30\u0e1a\u0e1a\u0e2b\u0e22\u0e38\u0e14\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22 \u0e01\u0e23\u0e38\u0e13\u0e32\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e2e\u0e32\u0e23\u0e4c\u0e14\u0e41\u0e27\u0e23\u0e4c\u0e41\u0e25\u0e30\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e23\u0e27\u0e08\u0e23\u0e30\u0e1a\u0e1a\u0e43\u0e2b\u0e21\u0e48",
+    "pick_all": {
+      "completed": 0,
+      "total": 0,
+      "failed": 0
+    }
+  }
+}

@@ -1,4 +1,25 @@
 import cv2
+import os
+from pathlib import Path
+
+
+def write_preview(path, image, max_width=480, jpeg_quality=80):
+    """Publish a smaller JPEG atomically, without changing detection inputs."""
+    if max_width <= 0 or not 1 <= jpeg_quality <= 100:
+        raise ValueError('Invalid preview width or JPEG quality')
+    if image.shape[1] > max_width:
+        height = max(1, round(image.shape[0] * max_width / image.shape[1]))
+        image = cv2.resize(image, (max_width, height), interpolation=cv2.INTER_AREA)
+    ok, encoded = cv2.imencode('.jpg', image, [cv2.IMWRITE_JPEG_QUALITY, jpeg_quality])
+    if not ok:
+        raise ValueError('Could not encode preview JPEG')
+    path = Path(path)
+    temporary = path.with_name(path.name + '.tmp')
+    try:
+        temporary.write_bytes(encoded.tobytes())
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def annotate(image, detections):

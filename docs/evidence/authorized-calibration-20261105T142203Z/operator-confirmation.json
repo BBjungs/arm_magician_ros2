@@ -1,0 +1,12 @@
+{
+  "source": "explicit user message in current conversation",
+  "confirmed": [
+    "E-stop tested",
+    "STOP tested",
+    "swept area clear",
+    "camera and bracket secure"
+  ],
+  "scope": "new HOME endpoint and commissioning followed by ten-pose calibration",
+  "workspace_source": "existing operator-confirmed installation; unchanged",
+  "collision_review": "offline plan and runtime full-plan validation required"
+}

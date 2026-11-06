@@ -7,10 +7,10 @@ import subprocess
 import pytest
 
 
-def test_autonomous_buttons_and_status_do_not_follow_passive_guidance():
+def test_maintenance_authorization_is_scoped_to_the_reviewed_plan():
     if not shutil.which('node'):
         pytest.skip('Node.js required for browser-script contract test')
-    script = Path(__file__).parents[1] / 'dobot_web_interface/static/operator.js'
+    script = Path(__file__).parents[1] / 'dobot_web_interface/static/maintenance.js'
     result = subprocess.run(['node', '-e', r'''
 const fs = require('fs'), vm = require('vm'), assert = require('assert');
 class Element {

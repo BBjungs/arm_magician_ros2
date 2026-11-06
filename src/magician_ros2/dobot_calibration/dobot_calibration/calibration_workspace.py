@@ -9,6 +9,11 @@ import yaml
 from .geometry import CalibrationError, checked_transform, fingerprint, pose_distance
 
 
+# One picometre absorbs arithmetic roundoff at a serialized boundary. This is
+# not a physical clearance allowance; installation clearance remains unchanged.
+_ROUNDING_TOLERANCE_M = 1e-12
+
+
 @dataclass(frozen=True)
 class CalibrationWorkspace:
     lower: np.ndarray
@@ -74,7 +79,8 @@ class CalibrationWorkspace:
             'padding_m': padding,
             'signed_margins_m': margins,
             'violations': [{'boundary': boundary, 'deficit_m': -value}
-                           for boundary, value in margins.items() if value < 0],
+                           for boundary, value in margins.items()
+                           if value < -_ROUNDING_TOLERANCE_M],
             'allowed_center_min_m': (self.lower + padding).tolist(),
             'allowed_center_max_m': (self.upper - padding).tolist(),
             'table_min_center_z_m': float(self.table_z + padding),
@@ -97,8 +103,9 @@ class CalibrationWorkspace:
         margin = radius + self.clearance
         points = np.linspace(current[:3, 3], target[:3, 3],
                              max(2, int(np.ceil(distance / 0.002)) + 1))
-        if (np.any(points - margin < self.lower) or np.any(points + margin > self.upper)
-                or np.any(points[:, 2] - margin < self.table_z)):
+        if (np.any(points - margin < self.lower - _ROUNDING_TOLERANCE_M)
+                or np.any(points + margin > self.upper + _ROUNDING_TOLERANCE_M)
+                or np.any(points[:, 2] - margin < self.table_z - _ROUNDING_TOLERANCE_M)):
             report = self.clearance_diagnostics(current, target, mount)
             details = ', '.join(f"{v['boundary']} deficit_mm={v['deficit_m'] * 1000:.3f}"
                                 for v in report['violations'])
@@ -116,6 +123,41 @@ class CalibrationWorkspace:
                 or np.any(points[:, 0] < 0.08) or np.any(points[:, 2] < 0.07)
                 or np.any(points[:, 2] > 0.23)):
             raise CalibrationError('WORKSPACE_ROBOT_REACH_EXCEEDED')
+
+    def translate_plan_into_volume(self, targets, mount, *, reserve_m=0.0):
+        """Place a rigid plan inside measured bounds; this does NOT validate it.
+
+        Preserve every inter-pose displacement and rotation. The caller must
+        still validate the current pose to the first target and all subsequent
+        segments, including reach, joint limits and collisions.
+        """
+        if not targets:
+            raise CalibrationError('WORKSPACE_PLAN_EMPTY')
+        if not np.isfinite(reserve_m) or reserve_m < 0:
+            raise CalibrationError('WORKSPACE_PLAN_RESERVE_INVALID')
+        for target in targets:
+            checked_transform(target)
+        radius = float(mount.envelope_radius_m + mount.translation_error_bound_m)
+        if not np.isfinite(radius) or radius <= 0:
+            raise CalibrationError('WORKSPACE_MOUNT_ENVELOPE_INVALID')
+        padding = radius + self.clearance
+        lower, upper = self.lower + padding, self.upper - padding
+        lower = lower.copy()
+        lower[2] = max(lower[2], self.table_z + padding)
+        lower += reserve_m
+        upper -= reserve_m
+        xyz = np.asarray([target[:3, 3] for target in targets])
+        shift_min, shift_max = lower - xyz.min(axis=0), upper - xyz.max(axis=0)
+        if np.any(shift_min - shift_max > _ROUNDING_TOLERANCE_M):
+            raise CalibrationError('WORKSPACE_PLAN_VOLUME_TOO_SMALL')
+        # A min/max inversion below numerical tolerance is an exact-boundary
+        # roundoff case, not additional measured space.
+        shift = ((shift_min + shift_max) / 2 if reserve_m else
+                 np.clip(np.zeros(3), shift_min, np.maximum(shift_max, shift_min)))
+        translated = [target.copy() for target in targets]
+        for target in translated:
+            target[:3, 3] += shift
+        return translated
 
 
 def automatic_plan(anchor, *, x_sign=1, z_sign=1, scale=1.0):

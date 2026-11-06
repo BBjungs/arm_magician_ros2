@@ -1,0 +1,142 @@
+{
+  "utc": "2026-11-03T13:53:07.361430+00:00",
+  "requested_target_mm_deg": [
+    187.25,
+    0.0,
+    137.25,
+    0.0
+  ],
+  "current_tcp_mm_deg": [
+    122.1502685546875,
+    161.44271850585938,
+    114.7382583618164,
+    52.88823699951172
+  ],
+  "checks_only": true,
+  "motion_command_sent": false,
+  "endpoint_workspace_error": null,
+  "anchor_clearance": {
+    "scope": "SPHERE_CLEARANCE_ONLY_NOT_MOTION_AUTHORIZATION",
+    "padding_m": 0.1786,
+    "signed_margins_m": {
+      "volume_x_min": -0.048099731445312516,
+      "volume_y_min": 0.18694271850585936,
+      "volume_z_min": -0.0097617416381836,
+      "volume_x_max": 0.08209973144531255,
+      "volume_y_max": -0.13594271850585937,
+      "volume_z_max": 0.0352617416381836,
+      "table": -0.0058617416381836
+    },
+    "violations": [
+      {
+        "boundary": "volume_x_min",
+        "deficit_m": 0.048099731445312516
+      },
+      {
+        "boundary": "volume_z_min",
+        "deficit_m": 0.0097617416381836
+      },
+      {
+        "boundary": "volume_y_max",
+        "deficit_m": 0.13594271850585937
+      },
+      {
+        "boundary": "table",
+        "deficit_m": 0.0058617416381836
+      }
+    ],
+    "allowed_center_min_m": [
+      0.17025,
+      -0.025499999999999995,
+      0.1245
+    ],
+    "allowed_center_max_m": [
+      0.20425000000000001,
+      0.025499999999999995,
+      0.15
+    ],
+    "table_min_center_z_m": 0.12060000000000001
+  },
+  "segments_25mm_or_less": [
+    {
+      "segment": 1,
+      "end_xyz_mm": [
+        130.28773498535156,
+        141.26237869262695,
+        117.55222606658936
+      ],
+      "workspace_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=48.100, volume_z_min deficit_mm=9.762, volume_y_max deficit_mm=135.943, table deficit_mm=5.862"
+    },
+    {
+      "segment": 2,
+      "end_xyz_mm": [
+        138.42520141601562,
+        121.08203887939453,
+        120.3661937713623
+      ],
+      "workspace_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=39.962, volume_z_min deficit_mm=6.948, volume_y_max deficit_mm=115.762, table deficit_mm=3.048"
+    },
+    {
+      "segment": 3,
+      "end_xyz_mm": [
+        146.5626678466797,
+        100.90169906616211,
+        123.18016147613525
+      ],
+      "workspace_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=31.825, volume_z_min deficit_mm=4.134, volume_y_max deficit_mm=95.582, table deficit_mm=0.234"
+    },
+    {
+      "segment": 4,
+      "end_xyz_mm": [
+        154.70013427734375,
+        80.72135925292969,
+        125.99412918090822
+      ],
+      "workspace_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=23.687, volume_z_min deficit_mm=1.320, volume_y_max deficit_mm=75.402"
+    },
+    {
+      "segment": 5,
+      "end_xyz_mm": [
+        162.8376007080078,
+        60.541019439697266,
+        128.80809688568115
+      ],
+      "workspace_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=15.550, volume_y_max deficit_mm=55.221"
+    },
+    {
+      "segment": 6,
+      "end_xyz_mm": [
+        170.97506713867188,
+        40.360679626464844,
+        131.6220645904541
+      ],
+      "workspace_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_x_min deficit_mm=7.412, volume_y_max deficit_mm=35.041"
+    },
+    {
+      "segment": 7,
+      "end_xyz_mm": [
+        179.11253356933594,
+        20.180339813232422,
+        134.43603229522705
+      ],
+      "workspace_error": "WORKSPACE_SWEPT_ENVELOPE_CLEARANCE_FAILED: volume_y_max deficit_mm=14.861"
+    },
+    {
+      "segment": 8,
+      "end_xyz_mm": [
+        187.25,
+        0.0,
+        137.25
+      ],
+      "workspace_error": null
+    }
+  ],
+  "all_workspace_segments_pass": false,
+  "live_ros_trajectory_validator": {
+    "service": "/dobot_PTP_validation_service",
+    "motion_type": 2,
+    "is_valid": true,
+    "message": "Trajectory passed kinematics, limits, and collision checks"
+  },
+  "dispatch_decision": "WITHHELD_ATTACHMENT_WORKSPACE_AND_TABLE_CLEARANCE_FAILED"
+}

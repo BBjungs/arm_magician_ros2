@@ -1,0 +1,20 @@
+schema_version: 1
+source: explicit_user_statement_in_conversation
+operator_authorized_real_hardware_testing: true
+operator_reports_installation_area_verified: true
+operator_statement: "อนุญาต จากผู้ควบคุม ให้พื้นที่ติดตั้งที่ผ่านการตรวจสอบจริง"
+verification_evidence_type: operator_statement
+applicable_bounds: previous_explicit_free_volume_mm
+numeric_bounds_confirmed_actual_by_operator: true
+numeric_bounds_confirmation_statement: "ขอบเขตที่ระบุ เป็นจริง"
+previous_explicit_free_volume_mm:
+  min: [170, -70, 50]
+  max: [230, 70, 120]
+  source: prior_user_numbers_and_explicit_entire_free_volume_confirmation
+  configured_envelope_check: FAILED
+recorded_tcp_extrema:
+  source: processed.json
+  classification: observed_tcp_positions_not_surveyed_free_volume
+runtime_workspace_updated: false
+motion_authorization_issued: false
+note: The operator explicitly confirmed the stated numerical free-volume bounds as real. Their scope and provenance are resolved. The configured envelope still does not fit, so geometry validation remains failed and no motion is authorized by this record.
