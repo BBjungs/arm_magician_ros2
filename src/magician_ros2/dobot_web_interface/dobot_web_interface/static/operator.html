@@ -12,6 +12,7 @@
         <div>
           <h1>ระบบหยิบและวางชิ้นงาน</h1>
           <p>หน้าควบคุมผู้ปฏิบัติงาน</p>
+          <p><a href="/visual-servo">Eye-in-Hand Auto Approach (No Calibration)</a></p>
           <p id="motionMode">โหมดทดสอบ — ยังไม่อนุญาตการเคลื่อนไหวจริง</p>
         </div>
         <div id="overallStatus" class="overall-status not-ready" role="status">ไม่พร้อมใช้งาน</div>
@@ -80,9 +81,23 @@
         </section>
 
         <section id="calibrationPanel" class="calibration-card" aria-labelledby="calibrationTitle">
-          <div class="section-title"><h2 id="calibrationTitle">Auto Calibration</h2>
+          <div class="section-title"><h2 id="calibrationTitle">Object-Based Calibration</h2>
             <span id="calibrationStateLabel" class="calibration-badge">กำลังรอสถานะ</span></div>
           <p id="calibrationSummary" role="status" aria-live="polite">กำลังตรวจสอบ Calibration</p>
+          <p>เลือกวัตถุที่มีรูปทรงไม่สมมาตรและรายละเอียดชัดเจน แล้วกดเริ่ม · วางวัตถุให้อยู่นิ่งตลอดขั้นตอน</p>
+          <img id="objectReferenceImage" alt="คลิกเลือกวัตถุอ้างอิงจากภาพ RGB-D นี้" hidden style="width:100%;height:auto;cursor:crosshair">
+          <p id="objectReferenceStatus" role="status" aria-live="polite">หากมีวัตถุที่เหมาะสมชิ้นเดียว ระบบจะเลือกให้อัตโนมัติ</p>
+          <div class="buttons">
+            <button id="objectCalibrationStart" type="button">เริ่ม Calibration</button>
+            <button id="objectCalibrationDryRun" type="button">ตรวจข้อมูลและแผน · ไม่เคลื่อนแขน</button>
+          </div>
+          <p>เมื่อมีไฟล์ที่ตรวจรับแล้ว ระบบจะโหลดและตรวจความพร้อมโดยไม่คาลิเบรตใหม่ การเคลื่อนที่หลายมุมต้องได้รับอนุญาตตามแผนก่อน</p>
+          <details id="objectMotionAuthorization" hidden>
+            <summary>อนุญาตการเคลื่อนที่ตามแผนที่ตรวจสอบแล้ว</summary>
+            <p id="objectMotionPlan"></p>
+            <div id="objectMotionChecks"></div>
+            <button id="objectMotionAuthorize" type="button">ยืนยันและอนุญาตแผนนี้</button>
+          </details>
           <label for="calibrationProgressBar" id="calibrationProgressLabel">0%</label>
           <progress id="calibrationProgressBar" max="100" value="0">0%</progress>
           <dl class="calibration-status">
@@ -111,5 +126,6 @@
     </main>
     <script src="/static/operator.js?v=20261106-camera-1" defer></script>
 <script src="/static/workspace.js" defer></script>
+<script src="/static/object_calibration.js" defer></script>
   </body>
 </html>

@@ -30,6 +30,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetPTPCommonParams.srv"
   "srv/StartSmokeTest.srv"
   "srv/AuthorizeCalibration.srv"
+  "srv/SelectCalibrationObject.srv"
   DEPENDENCIES std_msgs geometry_msgs
 )
 

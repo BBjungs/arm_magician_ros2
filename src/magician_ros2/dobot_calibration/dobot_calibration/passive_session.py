@@ -175,6 +175,7 @@ class PassiveSessionStore:
             rgb_depth_sync_skew_ms=np.array(metadata['sync_skew_ms'], dtype=np.float64),
             rgb=capture.rgb,
             depth=capture.depth,
+            sensor_depth=(np.empty((0, 0)) if capture.sensor_depth is None else capture.sensor_depth),
             intrinsics=capture.intrinsics,
             intrinsics_fingerprint=np.array(str(intrinsics_fingerprint)),
             camera_info_json=np.array(json.dumps(camera_info or {}, allow_nan=False)),
@@ -219,7 +220,8 @@ class PassiveSessionStore:
                         value['rgb'].copy(), value['depth'].copy(),
                         value['intrinsics'].copy(), value['point_cloud'].copy(),
                         value['plane_coefficients'].copy(), quality,
-                        None if carrier.size == 0 else carrier)
+                        None if carrier.size == 0 else carrier,
+                        value['sensor_depth'].copy() if 'sensor_depth' in value and value['sensor_depth'].size else None)
             except (OSError, KeyError, ValueError, TypeError, json.JSONDecodeError) as error:
                 raise CalibrationError(f'Passive pose {index} is corrupt: {error}') from error
             captures.append(capture)

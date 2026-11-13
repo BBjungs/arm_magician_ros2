@@ -693,7 +693,8 @@ class AutomaticBackend:
             self.ptp_before = None
             self.node.passive_capture_active = False
             try:
-                if (self.pending_result is not None and self.ptp_restore == 'PASS'
+                if (self.pending_result is not None
+                        and (self.ptp_restore == 'PASS' or getattr(self, 'stationary_reuse_verified', False))
                         and not self.node.stop.is_set() and not self.node.automatic.abort_event.is_set()):
                     result, workflow = self.pending_result
                     error = (self.node.health_error()

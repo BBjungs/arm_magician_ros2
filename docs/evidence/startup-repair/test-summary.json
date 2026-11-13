@@ -1,0 +1,50 @@
+{
+  "web-rgbd-servo-tests.xml": [
+    {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "219",
+      "time": "30.257",
+      "timestamp": "2026-11-13T20:39:21.012319",
+      "hostname": "localhost.localdomain"
+    }
+  ],
+  "calibration-tests.xml": [
+    {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "427",
+      "time": "324.000",
+      "timestamp": "2026-11-13T20:37:41.584645",
+      "hostname": "localhost.localdomain"
+    }
+  ],
+  "startup-tests.xml": [
+    {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "8",
+      "time": "27.855",
+      "timestamp": "2026-11-13T20:36:56.621018",
+      "hostname": "localhost.localdomain"
+    }
+  ],
+  "closure-tests.xml": [
+    {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "66",
+      "time": "28.088",
+      "timestamp": "2026-11-13T20:52:41.543705",
+      "hostname": "localhost.localdomain"
+    }
+  ]
+}

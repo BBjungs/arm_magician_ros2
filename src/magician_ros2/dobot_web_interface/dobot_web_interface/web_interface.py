@@ -26,6 +26,7 @@ from dobot_web_interface.system_integration import StartupState
 from dobot_web_interface.system_integration import StartupStateMachine
 from dobot_web_interface.system_integration import aggregate_system_readiness
 from dobot_web_interface.system_integration import is_pose
+from dobot_web_interface.visual_servo_runtime import VisualServoRuntime
 from rclpy.action import ActionClient
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
@@ -429,6 +430,11 @@ class DobotWebNode(Node):
         }
         self.calibration_automatic_authorize = self.create_client(
             AuthorizeCalibration, '/calibration/autonomous/authorize')
+        from dobot_msgs.srv import SelectCalibrationObject
+        self.object_calibration_select = self.create_client(SelectCalibrationObject, '/calibration/object/select')
+        self.object_calibration_clients = {
+            action: self.create_client(Trigger, '/calibration/object/' + action)
+            for action in ('start', 'dry_run', 'recalibrate', 'commission')}
         self.workspace_proposal_client = self.create_client(Trigger, '/calibration/workspace/propose')
 
         if self.enable_camera_preview and not self.camera_compressed_topic:
@@ -511,6 +517,9 @@ class DobotWebNode(Node):
             self.vision_selected_target_topic,
             10,
         )
+        self.declare_parameter('visual_servo_config_path', os.environ.get('DOBOT_VISUAL_SERVO_CONFIG', ''))
+        self.visual_servo = VisualServoRuntime(
+            self, str(self.get_parameter('visual_servo_config_path').value))
         # The supervisor only observes and cancels.  All physical startup
         # actions are dispatched by a short-lived worker, never from a ROS
         # subscription callback.
@@ -698,13 +707,12 @@ class DobotWebNode(Node):
         # Calibration must remain valid throughout a real operation.  The
         # supervisor will cancel a sequence which loses the topic as well;
         # handling an explicit FAIL here makes that transition immediate.
-        if payload.get('state') == 'FAIL' and (
-            self._operation_is_active() or startup_verification_failed
-        ):
-            self._latch_system_fault(
-                'CALIBRATION_FAILED: ' + str(payload.get('reason') or 'verification failed'),
-                stop_motion=True,
-            )
+        if payload.get('state') == 'FAIL':
+            reason = 'CALIBRATION_FAILED: ' + str(payload.get('reason') or 'verification failed')
+            if self._operation_is_active() and not self._visual_servo_owns_control():
+                self._latch_system_fault(reason, stop_motion=True)
+            elif startup_verification_failed:
+                self._calibration_verification_failed(reason)
 
     def _camera_health_callback(self, msg):
         payload = self._parse_json_message(msg.data, 'camera health')
@@ -726,6 +734,9 @@ class DobotWebNode(Node):
             control_active = bool(self._control_owner)
         return bool(vision_active or operator_active or control_active)
 
+    def _visual_servo_owns_control(self):
+        return getattr(self, '_control_owner', '') == 'visual_servo'
+
     def _calibration_is_active(self):
         # Separate from operator activity: authorize/pause must remain callable
         # while calibration owns motion, but HOME/manual moves must not overlap.
@@ -733,7 +744,7 @@ class DobotWebNode(Node):
         if not isinstance(runtime, dict):
             return False
         automatic = runtime.get('automatic_calibration', {})
-        terminal = ('IDLE', 'FAULT', 'SAFE_STOP', 'COMMISSIONING_COMPLETE',
+        terminal = ('IDLE', 'FAULT', 'SAFE_STOP', 'COMMISSIONING_COMPLETE', 'DRY_RUN_COMPLETE',
                     'CANDIDATE_VERIFIED', 'AWAITING_LIVE_VALIDATION', 'READY')
         return (runtime.get('workspace_proposal', {}).get('state') == 'OBSERVING'
                 or automatic.get('state', 'IDLE') not in terminal
@@ -963,6 +974,9 @@ class DobotWebNode(Node):
 
     def _request_safe_stop(self, reason='stop requested'):
         """Signal every active controller before cancelling the current goal."""
+        servo = getattr(self, 'visual_servo', None)
+        if servo is not None:
+            servo.stop(reason=reason)
         self._request_control_stop()
         self._request_calibration_cancel()
         motion_result = self.cancel_move()
@@ -991,6 +1005,14 @@ class DobotWebNode(Node):
         """Abort active work as soon as a required live source disappears."""
         if not self._operation_is_active():
             return
+        if self._visual_servo_owns_control():
+            # IBVS owns a distinct, calibration-free admission policy. All
+            # robot, RGB-D, workspace and collision guards still apply.
+            try:
+                self.visual_servo.health(allow_motion=True)
+            except Exception as exc:
+                self.visual_servo.stop(reason=str(exc))
+            return
         if self._motion_is_authorized():
             return
         readiness = self._readiness_snapshot(ignore_motion_activity=True)
@@ -998,6 +1020,9 @@ class DobotWebNode(Node):
         self._latch_system_fault(str(blocker), stop_motion=True)
 
     def _advance_startup(self):
+        servo = getattr(self, 'visual_servo', None)
+        if self._visual_servo_owns_control() or (servo is not None and time.monotonic() < servo.enabled_until):
+            return
         if not (self.require_integrated_startup and self.startup_auto):
             return
         with self._integration_lock:
@@ -1030,15 +1055,25 @@ class DobotWebNode(Node):
             try:
                 response = request_future.result()
                 if not response.success:
-                    self._latch_system_fault(
+                    self._calibration_verification_failed(
                         'CALIBRATION_VERIFICATION_FAILED: ' + str(response.message),
                     )
                 else:
                     self.get_logger().info('[SYSTEM] guarded calibration workflow requested')
             except Exception as exc:
-                self._latch_system_fault(f'CALIBRATION_VERIFICATION_FAILED: {exc}')
+                self._calibration_verification_failed(f'CALIBRATION_VERIFICATION_FAILED: {exc}')
 
         future.add_done_callback(finished)
+
+    def _calibration_verification_failed(self, reason):
+        # Missing bundles block calibrated startup, not calibration-free IBVS.
+        # Preserve every existing robot/control fault and Auto Pick interlock.
+        with self._integration_lock:
+            self._startup_machine.fail(reason)
+        if self._operation_is_active() and not self._visual_servo_owns_control():
+            self._latch_system_fault(reason, stop_motion=True)
+        else:
+            self.get_logger().warn('[CALIBRATION] ' + reason)
 
     def _dispatch_startup_worker(self, callback, label):
         with self._integration_lock:
@@ -1680,6 +1715,9 @@ class DobotWebNode(Node):
                 'ready': calibration_runtime.get('ready') is True,
                 'reason': calibration_runtime.get('reason', ''),
                 'last_completed_unix_s': calibration_runtime.get('last_completed_unix_s'),
+                'calibration_method': calibration_runtime.get('calibration_method'),
+                'object_calibration': calibration_runtime.get('object_calibration', {}),
+                'age_sec': calibration_runtime.get('age_sec'),
             },
             'fault_message': (
                 '' if preflight['ready'] else
@@ -2762,6 +2800,30 @@ class DobotWebNode(Node):
         return {'accepted': accepted, 'message': message, 'dry_run': False,
                 'status_url': '/api/vision/calibration'}
 
+    def object_calibration_control(self, action, payload=None):
+        if self._operation_is_active() or self._calibration_is_active():
+            raise RuntimeError('Stop the active operation before selecting or starting calibration')
+        if action == 'select':
+            from dobot_msgs.srv import SelectCalibrationObject
+            if payload is not None and not isinstance(payload, dict):
+                raise ValueError('Object selection must be an object')
+            request = SelectCalibrationObject.Request()
+            request.selection_json = json.dumps(payload or {}, allow_nan=False)
+            client = self.object_calibration_select
+        elif action in self.object_calibration_clients:
+            request = Trigger.Request()
+            client = self.object_calibration_clients[action]
+        else:
+            raise ValueError('Unknown object calibration action')
+        if not client.service_is_ready():
+            raise ConnectionError('Object calibration service is unavailable')
+        result = self._wait_for_future(client.call_async(request), 5.0)
+        if action == 'select':
+            return {'accepted': result.accepted, 'report': json.loads(result.report),
+                    'motion_command_sent': False}
+        return {'accepted': result.success, 'message': result.message,
+                'dry_run': action == 'dry_run', 'status_url': '/api/vision/calibration'}
+
     def vision_auto_calibrate(self, payload):
         if not isinstance(payload, dict):
             raise ValueError('auto calibration payload must be an object')
@@ -3010,6 +3072,8 @@ class DobotWebNode(Node):
         return data.tobytes()
 
     def send_move(self, payload):
+        if self._visual_servo_owns_control():
+            raise RuntimeError('Visual servo owns motion; press STOP first')
         if self._calibration_is_active():
             raise RuntimeError('Calibration owns motion; press STOP before manual movement')
         target_pose = payload.get('target_pose')
@@ -3126,6 +3190,8 @@ class DobotWebNode(Node):
         return client.service_is_ready()
 
     def call_gripper(self, payload):
+        if self._visual_servo_owns_control():
+            raise RuntimeError('Visual servo is approach-only; tool actuation is blocked')
         if not self.gripper_client.wait_for_service(timeout_sec=0.25):
             raise ConnectionError('dobot_gripper_service is not available')
         state = str(payload.get('state', '')).lower()
@@ -3151,6 +3217,8 @@ class DobotWebNode(Node):
         return result
 
     def call_suction(self, payload):
+        if self._visual_servo_owns_control():
+            raise RuntimeError('Visual servo is approach-only; tool actuation is blocked')
         if not self.suction_client.wait_for_service(timeout_sec=0.25):
             raise ConnectionError('dobot_suction_cup_service is not available')
         request = SuctionCupControl.Request()
@@ -3228,8 +3296,12 @@ class DobotWebNode(Node):
         }
 
     def shutdown(self):
-        self._capture_stop.set()
-        if self._capture_thread is not None:
+        servo = getattr(self, 'visual_servo', None)
+        if servo is not None:
+            servo.shutdown()
+        if hasattr(self, '_capture_stop'):
+            self._capture_stop.set()
+        if getattr(self, '_capture_thread', None) is not None:
             self._capture_thread.join(timeout=2.0)
 
 
@@ -3244,6 +3316,17 @@ def create_app(node):
         # Match StaticFiles' normalized path; encoded dot/double-slash paths
         # must not bypass access checks on the maintenance assets.
         path = '/' + posixpath.normpath(request.scope['path']).lstrip('/')
+        servo_command = request.method == 'POST' and path.startswith('/api/visual_servo/')
+        if servo_command:
+            origin = request.headers.get('origin')
+            if origin and origin != str(request.base_url).rstrip('/'):
+                return Response('Cross-origin servo request denied', status_code=403)
+        if request.method == 'POST' and getattr(node, '_visual_servo_owns_control', lambda: False)() and (
+            path.startswith('/api/calibration/') and not path.endswith('/abort')
+            or path in ('/api/system/startup', '/api/vision/calibration/auto',
+                        '/api/vision/eye_in_hand/calibrate', '/api/workspace/proposal')
+        ):
+            return Response('Visual servo owns robot control; press STOP first', status_code=409)
         # HOME is an operator command; retain the browser origin check even
         # though it no longer requires Maintenance credentials.
         if request.method == 'POST' and path == '/api/homing':
@@ -3251,6 +3334,7 @@ def create_app(node):
             if origin and origin != str(request.base_url).rstrip('/'):
                 return Response('Cross-origin HOME request denied', status_code=403)
         protected = path in ('/maintenance', '/static/maintenance.html', '/static/maintenance.js')
+        protected = protected or (servo_command and path.endswith(('/enable', '/start')))
         protected = protected or (request.method == 'POST' and (
             path.startswith('/api/calibration/') and not path.endswith('/abort')
             or path in ('/api/system/startup', '/api/move',
@@ -3298,6 +3382,31 @@ def create_app(node):
     def index():
         return (static_dir / 'operator.html').read_text(encoding='utf-8')
 
+    @app.get('/visual-servo', response_class=HTMLResponse)
+    def visual_servo_page():
+        return (static_dir / 'visual_servo.html').read_text(encoding='utf-8')
+
+    @app.get('/api/visual_servo/status')
+    def visual_servo_status():
+        return _call_api(node.visual_servo.status)
+
+    @app.post('/api/visual_servo/enable')
+    async def visual_servo_enable(request: Request):
+        payload = await request.json()
+        return await run_in_threadpool(_call_api, node.visual_servo.enable, payload)
+
+    @app.post('/api/visual_servo/start')
+    def visual_servo_start():
+        return _call_api(node.visual_servo.start)
+
+    @app.post('/api/visual_servo/pause')
+    def visual_servo_pause():
+        return _call_api(node.visual_servo.stop, True, 'Operator PAUSE')
+
+    @app.post('/api/visual_servo/stop')
+    def visual_servo_stop():
+        return _call_api(node.visual_servo.stop)
+
     @app.get('/api/operator/status')
     def api_operator_status(job: str = 'black', place_id: str = 'Zone A'):
         return _call_api(node.operator_status, {'job': job, 'place_id': place_id})
@@ -3332,6 +3441,10 @@ def create_app(node):
     @app.post('/api/calibration/autonomous/{action}')
     def api_calibration_autonomous(action: str, payload: dict | None = None):
         return _call_api(node.automatic_calibration_control, action, payload, busy_status=409)
+
+    @app.post('/api/calibration/object/{action}')
+    def api_object_calibration(action: str, payload: dict | None = None):
+        return _call_api(node.object_calibration_control, action, payload, busy_status=409)
 
     @app.get('/api/system/status')
     def api_system_status():
@@ -3425,8 +3538,12 @@ def create_app(node):
         return _call_api(node.stop_all)
 
     @app.post('/api/homing')
-    def api_homing():
-        return _call_api(node.call_homing)
+    def api_homing(move_to_observation: bool = True):
+        if move_to_observation:
+            return _call_api(node.call_homing)
+        # Explicit operator HOME for IBVS must not dispatch the calibrated
+        # observation-pose workflow afterwards. Existing HOME defaults remain.
+        return _call_api(lambda: node.call_homing(move_to_observation=False))
 
     @app.post('/api/restart_connection')
     def api_restart_connection():
@@ -3513,35 +3630,39 @@ def _call_api(func, *args, busy_status=400):
 
 
 def main(args=None):
-    rclpy.init(args=args)
-    node = DobotWebNode()
-    executor = MultiThreadedExecutor()
-    executor.add_node(node)
-    ros_thread = threading.Thread(target=executor.spin, daemon=True)
-    ros_thread.start()
+    from dobot_calibration.node_lifecycle import node_lifecycle, record_failure
+    from rclpy.executors import ExternalShutdownException
+    with node_lifecycle(DobotWebNode, args, lambda value: value.shutdown()) as node:
+        executor = MultiThreadedExecutor()
+        ros_thread = None
+        failures = []
+        try:
+            executor.add_node(node)
+            app = create_app(node)
+            server = uvicorn.Server(uvicorn.Config(
+                app, host=node.host, port=node.port, log_level='info', access_log=False))
 
-    app = create_app(node)
-    server = uvicorn.Server(
-        uvicorn.Config(
-            app,
-            host=node.host,
-            port=node.port,
-            log_level='info',
-            access_log=False,
-        )
-    )
+            def spin():
+                try:
+                    executor.spin()
+                except ExternalShutdownException:
+                    server.should_exit = True
+                except Exception as exc:
+                    record_failure('Web ROS executor failed')
+                    failures.append(exc)
+                    server.should_exit = True
 
-    try:
-        server.run()
-    except KeyboardInterrupt:
-        pass
-    finally:
-        executor.shutdown()
-        ros_thread.join(timeout=2.0)
-        node.shutdown()
-        node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+            ros_thread = threading.Thread(target=spin, daemon=True)
+            ros_thread.start()
+            server.run()
+            if failures:
+                raise RuntimeError('Web ROS executor failed') from failures[0]
+        except KeyboardInterrupt:
+            pass
+        finally:
+            executor.shutdown(timeout_sec=2.0)
+            if ros_thread is not None:
+                ros_thread.join(timeout=2.0)
 
 
 if __name__ == '__main__':

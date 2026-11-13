@@ -12,6 +12,10 @@ import yaml
 class CalibrationError(ValueError):
     """An observation, movement or solution cannot be trusted."""
 
+    def __init__(self, *args, diagnostics=None):
+        super().__init__(*args)
+        self.diagnostics = dict(diagnostics or {})
+
 
 class RetryableCaptureError(CalibrationError):
     """Image quality rejected before any pose was accepted or persisted."""
@@ -26,7 +30,7 @@ class Limits:
     min_scene_thickness_m: float = 0.004
     min_scene_width_m: float = 0.025
     plane_inlier_m: float = 0.004
-    min_plane_ratio: float = 0.30
+    min_plane_ratio: float = 0.25
     max_table_tilt_deg: float = 15.0
     min_feature_inliers: int = 24
     min_feature_ratio: float = 0.45
@@ -141,6 +145,25 @@ def scene_geometry(points, limits=Limits()):
     return {'scene_spread_m': spread.tolist(), 'point_count': len(points)}
 
 
+def plane_diagnostics(points, mask, limits=Limits()):
+    """Report candidate support even when a quality gate rejects the plane."""
+    inliers = points[mask]
+    rms = None
+    if len(inliers) >= 3:
+        centered = inliers - inliers.mean(axis=0)
+        _, _, vt = np.linalg.svd(centered, full_matrices=False)
+        rms = float(np.sqrt(np.mean((centered @ vt[-1]) ** 2)))
+    return {
+        'plane_inlier_ratio': float(mask.mean()),
+        'min_plane_ratio': limits.min_plane_ratio,
+        'plane_inlier_count': int(mask.sum()),
+        'plane_rms_m': rms,
+        'plane_rejection_reason': '',
+        # Support and orientation alone cannot identify a physical tabletop.
+        'plane_table_identity': 'UNVERIFIED',
+    }
+
+
 def table_plane(points, expected_normal, limits=Limits(), seed=0):
     """Orientation-constrained RANSAC followed by an SVD plane fit."""
     points = finite_cloud(points, limits)
@@ -163,8 +186,10 @@ def table_plane(points, expected_normal, limits=Limits(), seed=0):
         mask = np.abs(points @ normal - a @ normal) < limits.plane_inlier_m
         if mask.sum() > best.sum():
             best = mask
+    quality = plane_diagnostics(points, best, limits)
     if best.mean() < limits.min_plane_ratio or best.sum() < limits.min_points:
-        raise CalibrationError('No sufficiently supported horizontal table plane')
+        reason = 'No sufficiently supported horizontal table plane'
+        raise CalibrationError(reason, diagnostics={**quality, 'plane_rejection_reason': reason})
     inliers = points[best]
     center = inliers.mean(axis=0)
     _, s, vt = np.linalg.svd(inliers - center, full_matrices=False)
@@ -172,9 +197,12 @@ def table_plane(points, expected_normal, limits=Limits(), seed=0):
     if normal @ normal_hint < 0:
         normal = -normal
     if normal @ normal_hint < cosine or s[1] / np.sqrt(len(inliers)) < 0.025:
-        raise CalibrationError('Table plane is tilted or has inadequate extent')
+        reason = 'Table plane is tilted or has inadequate extent'
+        raise CalibrationError(reason, diagnostics={**quality, 'plane_rejection_reason': reason})
     return np.r_[normal, -normal @ center], {
-        'plane_inlier_ratio': float(best.mean()),
+        **quality,
+        'plane_gate': 'orientation_constrained_table_plane',
+        'plane_normal_camera_optical': normal.tolist(),
         'plane_rmse_m': float(np.sqrt(np.mean(((inliers - center) @ normal) ** 2))),
     }
 

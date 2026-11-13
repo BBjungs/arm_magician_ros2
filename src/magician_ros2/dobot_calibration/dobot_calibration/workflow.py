@@ -196,6 +196,7 @@ def save_bundle(path, solution, anchor, context, verification, limits=Limits()):
         'limits': asdict(limits), 'metrics': solution.metrics,
         'observability': solution.observability, 'verification': verification,
         'anchor_stamp': anchor.stamp, 'anchor_quality': anchor.quality,
+        'calibration_method': anchor.quality.get('calibration_method', 'scene'),
     }
     metadata['context_digest'] = fingerprint(context)
     path = Path(path).expanduser()
@@ -212,6 +213,7 @@ def save_bundle(path, solution, anchor, context, verification, limits=Limits()):
                 command_training_poses=(solution.training_poses if solution.command_training_poses is None
                                         else solution.command_training_poses),
                 rgb=anchor.rgb, depth=anchor.depth,
+                sensor_depth=(np.empty((0, 0)) if anchor.sensor_depth is None else anchor.sensor_depth),
                 intrinsics=anchor.intrinsics, cloud=anchor.cloud, plane=anchor.plane)
             stream.flush()
             os.fsync(stream.fileno())
@@ -246,6 +248,12 @@ def load_bundle(path, context, mount, limits=Limits()):
                 raise CalibrationError('Calibration identity, intrinsics or mount model changed')
             if metadata['verification']['result'] != 'PASS':
                 raise CalibrationError('Saved calibration was not verified')
+            method = metadata.get('calibration_method', 'scene')
+            if method not in ('scene', 'object_based'):
+                raise CalibrationError('Unsupported calibration method')
+            object_only = method == 'object_based'
+            if metadata.get('anchor_quality', {}).get('calibration_method', 'scene') != method:
+                raise CalibrationError('Calibration method and anchor disagree')
             value = checked_transform(bundle['tool_T_camera']).copy()
             poses = bundle['training_poses'].copy()
             if poses.ndim != 3 or poses.shape[1:] != (4, 4) or len(poses) < 6:
@@ -257,26 +265,36 @@ def load_bundle(path, context, mount, limits=Limits()):
                 raise CalibrationError('Command and carrier pose counts differ')
             solution = Solution(value, metadata['metrics'], metadata['observability'], poses, commands)
             require_mount_agreement(value, mount, limits)
-            require_quality(solution.metrics, limits)
+            require_quality(solution.metrics, limits, **({'object_only': True} if object_only else {}))
             anchor = Capture(metadata['anchor_stamp'], checked_transform(bundle['anchor_pose']).copy(),
                              bundle['rgb'].copy(), bundle['depth'].copy(),
                              bundle['intrinsics'].copy(), bundle['cloud'].copy(),
                              bundle['plane'].copy(), metadata['anchor_quality'],
                              checked_transform(bundle['anchor_carrier_pose']).copy()
-                             if metadata['schema'] == 2 else None)
+                             if metadata['schema'] == 2 else None,
+                             bundle['sensor_depth'].copy() if object_only else None)
         if (anchor.rgb.dtype != np.uint8 or anchor.rgb.shape != (*anchor.depth.shape, 3)
                 or anchor.depth.ndim != 2 or anchor.intrinsics.shape != (3, 3)
                 or anchor.cloud.ndim != 2 or anchor.cloud.shape[1] != 3
-                or anchor.plane.shape != (4,) or not np.isfinite(anchor.plane).all()
-                or not np.isclose(np.linalg.norm(anchor.plane[:3]), 1)
+                or (not object_only and (anchor.plane.shape != (4,)
+                    or not np.isfinite(anchor.plane).all()
+                    or not np.isclose(np.linalg.norm(anchor.plane[:3]), 1)))
+                or (object_only and anchor.plane.size != 0)
                 or not np.isfinite(anchor.cloud).all() or not np.isfinite(anchor.stamp)
                 or not np.allclose(anchor.calibration_pose, poses[0])
                 or not np.allclose(anchor.base_T_tool, commands[0])):
             raise CalibrationError('Corrupt calibration reference data')
         # Recompute reference quality rather than trusting serialized summaries.
-        anchor = make_capture(anchor.stamp, anchor.base_T_tool, anchor.rgb, anchor.depth,
-                              anchor.intrinsics, anchor.cloud, solution.tool_T_camera, limits,
-                              base_T_carrier=anchor.base_T_carrier)
+        if object_only:
+            from .object_reference import make_object_capture
+            anchor = make_object_capture(anchor.stamp, anchor.base_T_tool, anchor.rgb,
+                anchor.sensor_depth, anchor.intrinsics, anchor.depth > 0, limits,
+                base_T_carrier=anchor.base_T_carrier,
+                identity=anchor.quality.get('object_identity'))
+        else:
+            anchor = make_capture(anchor.stamp, anchor.base_T_tool, anchor.rgb, anchor.depth,
+                                  anchor.intrinsics, anchor.cloud, solution.tool_T_camera, limits,
+                                  base_T_carrier=anchor.base_T_carrier)
         return solution, anchor
     except (OSError, KeyError, TypeError, ValueError, EOFError) as error:
         raise CalibrationError(f'Cannot load calibration: {error}') from error

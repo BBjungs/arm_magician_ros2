@@ -1,0 +1,32 @@
+python: /home/jetson/arm_magician_ws/.venv/bin/python 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]
+AMENT_PREFIX_PATH /home/jetson/arm_magician_ws/install/orbbec_description:/home/jetson/arm_magician_ws/install/dobot_web_interface:/home/jetson/arm_magician_ws/install/orbbec_camera:/home/jetson/arm_magician_ws/install/dobot_vision_yolo:/home/jetson/arm_magician_ws/install/dobot_vision_rgbd:/home/jetson/arm_magician_ws/install/dobot_demos:/home/jetson/arm_magician_ws/install/dobot_calibration:/home/jetson/arm_magician_ws/install/orbbec_camera_msgs:/home/jetson/arm_magician_ws/install/dobot_visualization_tools:/home/jetson/arm_magician_ws/install/dobot_bringup:/home/jetson/arm_magician_ws/install/dobot_state_updater:/home/jetson/arm_magician_ws/install/dobot_object_vision:/home/jetson/arm_magician_ws/install/dobot_motion:/home/jetson/arm_magician_ws/install/dobot_kinematics:/home/jetson/arm_magician_ws/install/dobot_homing:/home/jetson/arm_magician_ws/install/dobot_end_effector:/home/jetson/arm_magician_ws/install/dobot_diagnostics:/home/jetson/arm_magician_ws/install/dobot_msgs:/home/jetson/arm_magician_ws/install/dobot_control_panel:/home/jetson/arm_magician_ws/install/dobot_driver:/home/jetson/arm_magician_ws/install/dobot_description:/opt/ros/jazzy
+PYTHONPATH /home/jetson/arm_magician_ws/build/dobot_web_interface:/home/jetson/arm_magician_ws/install/dobot_web_interface/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_vision_yolo:/home/jetson/arm_magician_ws/install/dobot_vision_yolo/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_vision_rgbd:/home/jetson/arm_magician_ws/install/dobot_vision_rgbd/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_demos:/home/jetson/arm_magician_ws/install/dobot_demos/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_calibration:/home/jetson/arm_magician_ws/install/dobot_calibration/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/install/orbbec_camera_msgs/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_visualization_tools:/home/jetson/arm_magician_ws/install/dobot_visualization_tools/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_bringup:/home/jetson/arm_magician_ws/install/dobot_bringup/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_state_updater:/home/jetson/arm_magician_ws/install/dobot_state_updater/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_object_vision:/home/jetson/arm_magician_ws/install/dobot_object_vision/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_motion:/home/jetson/arm_magician_ws/install/dobot_motion/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_kinematics:/home/jetson/arm_magician_ws/install/dobot_kinematics/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_homing:/home/jetson/arm_magician_ws/install/dobot_homing/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_end_effector:/home/jetson/arm_magician_ws/install/dobot_end_effector/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_diagnostics:/home/jetson/arm_magician_ws/install/dobot_diagnostics/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/install/dobot_msgs/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/build/dobot_control_panel:/home/jetson/arm_magician_ws/install/dobot_control_panel/lib/python3.12/site-packages:/home/jetson/arm_magician_ws/install/dobot_driver/lib/python3.12/site-packages:/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages
+RMW_IMPLEMENTATION rmw_cyclonedds_cpp
+ROS_DOMAIN_ID 191
+numpy 1.26.4
+scipy 1.11.4
+fastapi 0.101.0
+uvicorn 0.27.1
+
+PROBE: dobot_calibration.node
+pybullet build time: Oct 29 2026 19:34:09
+module: /home/jetson/arm_magician_ws/build/dobot_calibration/dobot_calibration/node.py resolved: /home/jetson/arm_magician_ws/src/magician_ros2/dobot_calibration/dobot_calibration/node.py
+interfaces: /home/jetson/arm_magician_ws/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py
+ROS arguments: ['--ros-args', '-p', 'auto_start:=false', '-p', 'startup_auto:=false', '-p', 'startup_auto_motion:=false', '-p', 'enable_camera_preview:=false', '-p', 'calibration_file:=/tmp/startup-probe-absent.npz']
+Traceback (most recent call last):
+  File "/tmp/probe_dobot_startup.py", line 31, in <module>
+    node.__init__()
+  File "/home/jetson/arm_magician_ws/build/dobot_calibration/dobot_calibration/node.py", line 374, in __init__
+    from dobot_msgs.srv import SelectCalibrationObject
+ImportError: cannot import name 'SelectCalibrationObject' from 'dobot_msgs.srv' (/home/jetson/arm_magician_ws/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py)
+
+PROBE: dobot_web_interface.web_interface
+module: /home/jetson/arm_magician_ws/build/dobot_web_interface/dobot_web_interface/web_interface.py resolved: /home/jetson/arm_magician_ws/src/magician_ros2/dobot_web_interface/dobot_web_interface/web_interface.py
+interfaces: /home/jetson/arm_magician_ws/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py
+ROS arguments: ['--ros-args', '-p', 'auto_start:=false', '-p', 'startup_auto:=false', '-p', 'startup_auto_motion:=false', '-p', 'enable_camera_preview:=false', '-p', 'calibration_file:=/tmp/startup-probe-absent.npz']
+Traceback (most recent call last):
+  File "/tmp/probe_dobot_startup.py", line 31, in <module>
+    node.__init__()
+  File "/home/jetson/arm_magician_ws/build/dobot_web_interface/dobot_web_interface/web_interface.py", line 433, in __init__
+    from dobot_msgs.srv import SelectCalibrationObject
+ImportError: cannot import name 'SelectCalibrationObject' from 'dobot_msgs.srv' (/home/jetson/arm_magician_ws/install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py)

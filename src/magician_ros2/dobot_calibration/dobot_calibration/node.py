@@ -52,6 +52,8 @@ from .passive_session import PassiveSessionStore
 from .passive_solver import solve_session
 from .autonomous import AutomaticCalibration
 from .autonomous_backend import AutomaticBackend
+from .object_backend import ObjectBackend
+from .object_reference import ObjectReference
 from .passive_guidance import calibration_plan, compute_guidance
 from .supervised_auto import SupervisedAutoCalibration
 from .real_motion_adapter import RealMotionAdapter
@@ -107,6 +109,7 @@ class CalibrationNode(Node):
             # depth deprojection path is the production-safe fallback when a
             # driver cloud is absent, old, or from a different exposure.
             'point_cloud_source': 'AUTO',
+            'object_detections_topic': '/dobot_vision/detections',
             'planning_soft_margin_deg': 2.0,
             'tcp_topic': '/dobot_TCP', 'joints_topic': '/dobot_joint_states',
             'alarms_topic': '/dobot_alarms', 'safety_state_topic': '',
@@ -120,6 +123,7 @@ class CalibrationNode(Node):
             'camera_id': '', 'camera_id_source': 'YAML', 'mount_model': '',
             'calibration_file': '~/.ros/dobot/markerless_calibration.npz',
             'auto_start': False, 'recalibrate_on_failure': False,
+            'object_startup_restore': True,
             'ready_ttl_s': 600.0, 'capture_timeout_s': 15.0,
             'motion_timeout_s': 25.0,
             # Conservative shared leases exceed the observed 0.735/0.964 s
@@ -233,6 +237,7 @@ class CalibrationNode(Node):
         self.after_motion_stamp = self.now_s()
         self.last_capture_stamp = 0.0
         self.last_capture = None
+        self._record_plane_diagnostics()
         self.active_goal = None
         self.motion_dispatch_lock = threading.Lock()
         self.calibration_transaction_lock = threading.RLock()
@@ -297,6 +302,9 @@ class CalibrationNode(Node):
             self.auto_validate_target,
             real_motion_enabled=False)
         self.automatic = AutomaticCalibration(AutomaticBackend(self))
+        self.object_reference = ObjectReference()
+        self.object_capture_active = False
+        self.object_startup_attempted = False
         self.automatic_followup_run_id = None
         self.automatic_commissioning = None
         self.workspace_proposal = WorkspaceProposal(self)
@@ -364,6 +372,16 @@ class CalibrationNode(Node):
         self.ptp_set = self.create_client(SetPTPCommonParams,
                                           '/dobot/set_ptp_common_params', callback_group=self.group)
         self.create_service(Trigger, '/calibration/start', self.start_service, callback_group=self.group)
+        from dobot_msgs.srv import SelectCalibrationObject
+        self.create_subscription(String, self.settings['object_detections_topic'],
+                                 self._object_detections, 10, callback_group=self.sensor_group)
+        self.create_service(SelectCalibrationObject, '/calibration/object/select',
+                            self.object_select_service, callback_group=self.group)
+        for action in ('start', 'dry_run', 'recalibrate', 'commission'):
+            self.create_service(Trigger, '/calibration/object/' + action,
+                lambda request, response, action=action: self.object_start_service(action, response),
+                callback_group=self.group)
+        self.create_timer(2.0, self._restore_object_on_startup, callback_group=self.group)
         self.create_service(Trigger, '/calibration/recalibrate', self.recalibrate_service,
                             callback_group=self.group)
         self.create_service(Trigger, '/calibration/verify', self.verify_service, callback_group=self.group)
@@ -1241,6 +1259,8 @@ class CalibrationNode(Node):
                 'passive_pose_count': len(self.passive_captures),
                 'passive_solve': self.passive_solve_status,
                 'automatic_calibration': self.automatic.snapshot(),
+                'object_calibration': self.object_reference.snapshot(),
+                'calibration_method': ('object_based' if isinstance(self.automatic.backend, ObjectBackend) else 'scene'),
                 'workspace_proposal': self.workspace_proposal.snapshot(),
                 'automatic_commissioning': self.automatic_commissioning,
                 'software_source_digest': self.software_source_digest,
@@ -1269,6 +1289,7 @@ class CalibrationNode(Node):
                 'blockers': blockers,
                 'metrics': metrics,
                 'depth_quality': self.live_depth_quality,
+                'plane_diagnostics': dict(self.last_plane_diagnostics),
                 'rgb_health': (self.camera_health or {}).get('streams', {}).get('rgb', {}),
                 'depth_health': (self.camera_health or {}).get('streams', {}).get('depth', {}),
                 'RGB_FRESH': self.camera_freshness().rgb_fresh,
@@ -1650,7 +1671,7 @@ class CalibrationNode(Node):
                 'registration_quality': registration_quality,
                 'plane_diagnostics': {key: value for key, value in capture.quality.items()
                                      if key.startswith('plane_') or key.endswith('cloud_points')
-                                     or key == 'debug_artifact'},
+                                     or key in ('min_plane_ratio', 'debug_artifact')},
                 'rejection_reasons': reasons,
                 'geometry_verified': False,
             }
@@ -1677,6 +1698,7 @@ class CalibrationNode(Node):
         except Exception as error:
             return self._passive_reply(
                 response, False, pose_index=len(self.passive_captures) + 1,
+                plane_diagnostics=dict(self.last_plane_diagnostics),
                 rejection_reasons=[str(error)], geometry_verified=False)
         finally:
             self.passive_capture_active = False
@@ -1754,6 +1776,11 @@ class CalibrationNode(Node):
                     'depth_valid_ratio': float(quality['depth_valid_ratio']),
                     'plane_inliers': int(quality['plane_inlier_count']),
                     'plane_inlier_ratio': float(quality['plane_inlier_ratio']),
+                    'min_plane_ratio': quality['min_plane_ratio'],
+                    'plane_inlier_count': quality['plane_inlier_count'],
+                    'plane_rms_m': quality['plane_rms_m'],
+                    'plane_rejection_reason': quality['plane_rejection_reason'],
+                    'plane_table_identity': quality['plane_table_identity'],
                     'plane_RMS_mm': float(quality['plane_rms_m']) * 1000.0,
                     'cloud_extent_mm': extent_mm,
                     'native_cloud_metrics': native_metrics,
@@ -1767,6 +1794,7 @@ class CalibrationNode(Node):
                                            'geometry_verified': False}, allow_nan=False)
         except Exception as error:
             reports.append({'capture': 'REJECTED', 'rejection_reason': str(error),
+                            **self.last_plane_diagnostics,
                             'scene_geometry_diagnostic': self._scene_geometry_diagnostic()})
             response.success = False
             response.message = json.dumps({'markerless_capture_data_path': 'NOT_READY',
@@ -2081,6 +2109,7 @@ class CalibrationNode(Node):
         self.passive_capture_metadata.clear()
         self.last_capture_stamp = 0.0
         self.last_capture = None
+        self._record_plane_diagnostics()
         return self._passive_reply(response, True, pose_count=0,
                                    geometry_verified=False)
 
@@ -2162,8 +2191,66 @@ class CalibrationNode(Node):
         if self.operation_lock.locked():
             response.success, response.message = False, 'Another calibration operation is active'
         else:
-            response.success, response.message = self.automatic.start()
+            with self.automatic.lock:
+                if self.automatic.worker and self.automatic.worker.is_alive():
+                    response.success, response.message = False, 'Automatic calibration is already running'
+                    return response
+                if isinstance(self.automatic.backend, ObjectBackend):
+                    self.automatic.backend = AutomaticBackend(self)
+                response.success, response.message = self.automatic.start()
         return response
+
+    def _object_detections(self, message):
+        try:
+            packet = json.loads(message.data)
+            if not isinstance(packet, dict) or not isinstance(packet.get('detections'), list):
+                return
+            self.object_reference.update(packet)
+        except (ValueError, TypeError):
+            return
+
+    def object_select_service(self, request, response):
+        try:
+            with self.calibration_transaction_lock:
+                if self.operation_lock.locked() or (self.automatic.worker and self.automatic.worker.is_alive()):
+                    raise CalibrationError('Calibration is already running')
+                selection = json.loads(request.selection_json) if request.selection_json else {}
+                if not isinstance(selection, dict):
+                    raise CalibrationError('OBJECT_SELECTION_INVALID')
+                report = self.object_reference.select(selection, self.now_s())
+            response.accepted, response.report = True, json.dumps(report, allow_nan=False)
+        except (CalibrationError, ValueError, TypeError) as error:
+            response.accepted, response.report = False, json.dumps({'reason': str(error)})
+        return response
+
+    def object_start_service(self, action, response):
+        with self.calibration_transaction_lock, self.automatic.lock:
+            if (self.operation_lock.locked() or self.real_motion_arm is not None
+                    or (self.automatic.worker and self.automatic.worker.is_alive())):
+                response.success, response.message = False, 'Another calibration operation or permit is active'
+            else:
+                self.automatic.backend = ObjectBackend(self)
+                response.success, response.message = self.automatic.start(
+                    'COMMISSIONING_TWO_POSES' if action == 'commission' else 'AUTONOMOUS_10_POSES',
+                    dry_run=action == 'dry_run', force_recalibrate=action in ('recalibrate', 'commission'))
+        return response
+
+    def _restore_object_on_startup(self):
+        """Only a saved object bundle can trigger this nonmoving startup path."""
+        if (not self.settings['object_startup_restore'] or self.object_startup_attempted
+                or self.operation_lock.locked() or self.stop.is_set()
+                or (self.automatic.worker and self.automatic.worker.is_alive())):
+            return
+        try:
+            with np.load(Path(self.settings['calibration_file']).expanduser(), allow_pickle=False) as data:
+                metadata = json.loads(str(data['metadata']))
+            if (metadata.get('calibration_method') != 'object_based'
+                    or metadata.get('verification', {}).get('result') != 'PASS'):
+                return
+        except (OSError, ValueError, KeyError):
+            return
+        self.object_startup_attempted = True
+        self.object_start_service('start', Trigger.Response())
 
     def automatic_commission_service(self, request, response):
         if self.operation_lock.locked() or self.real_motion_arm is not None:
@@ -2747,7 +2834,19 @@ class CalibrationNode(Node):
             reason = identity.gate
             self.status('FAIL', reason)
             return False, reason
-        result = self.automatic.start(force_recalibrate=recalibrate, verify_only=verify_only)
+        with self.automatic.lock:
+            if self.automatic.worker and self.automatic.worker.is_alive():
+                return False, 'Automatic calibration is already running'
+            # Existing startup/verification clients must also restore object
+            # bundles through the nonmoving, plane-free object path.
+            try:
+                with np.load(Path(self.settings['calibration_file']).expanduser(), allow_pickle=False) as data:
+                    object_saved = json.loads(str(data['metadata'])).get('calibration_method') == 'object_based'
+            except (OSError, ValueError, KeyError):
+                object_saved = False
+            if object_saved:
+                self.automatic.backend = ObjectBackend(self)
+            result = self.automatic.start(force_recalibrate=recalibrate, verify_only=verify_only)
         self.worker = self.automatic.worker
         return result
 
@@ -2819,6 +2918,18 @@ class CalibrationNode(Node):
             raise CalibrationError('Invalid camera-carrier translation')
         return value
 
+    def _record_plane_diagnostics(self, quality=None, rejection_reason=''):
+        """Replace the last candidate report; unavailable metrics stay null."""
+        report = {
+            'plane_inlier_ratio': None, 'min_plane_ratio': self.limits.min_plane_ratio,
+            'plane_inlier_count': None, 'plane_rms_m': None,
+            'plane_rejection_reason': rejection_reason,
+            'plane_table_identity': 'UNVERIFIED',
+        }
+        report.update({key: value for key, value in (quality or {}).items()
+                       if key.startswith('plane_') or key == 'min_plane_ratio'})
+        self.last_plane_diagnostics = report
+
     def _deproject_depth(self, depth_m, intrinsics):
         """Factory optical convention: +X right, +Y down, +Z forward, metres."""
         height, width = depth_m.shape
@@ -2881,6 +2992,12 @@ class CalibrationNode(Node):
             stamp = min(stamps)
             if stamp <= self.last_capture_stamp:
                 continue
+            if self.object_capture_active and not self.object_reference.exposure_ready(stamp):
+                # Detection arrives after its RGB-D exposure. Wait without
+                # consuming that image; otherwise every detector result can
+                # remain one frame behind a capture loop that rejects early.
+                reason = 'OBJECT_DETECTION_EXPOSURE_MISMATCH'
+                continue
             try:
                 pose = settled_pose(history, stamp, self.after_motion_stamp)
                 # Also check the end of the synchronized exposure window.
@@ -2916,6 +3033,8 @@ class CalibrationNode(Node):
             source = ('ORBBEC_TOPIC' if requested == 'ORBBEC_TOPIC' else
                       'DEPTH_DEPROJECTION' if requested == 'DEPTH_DEPROJECTION' else
                       ('ORBBEC_TOPIC' if native is not None else 'DEPTH_DEPROJECTION'))
+            if self.object_capture_active:
+                source = 'DEPTH_DEPROJECTION'
             if source == 'ORBBEC_TOPIC' and native is None:
                 raise CalibrationError('Requested ORBBEC_TOPIC is ' + native_state)
             if source == 'ORBBEC_TOPIC':
@@ -2925,16 +3044,25 @@ class CalibrationNode(Node):
                 points = self._deproject_depth(depth_array, intrinsics)
             raw_point_count = int(len(points))
             try:
-                result = make_capture(stamp, pose, rgb_array, depth_array, intrinsics, points,
-                                      self.mount.tool_T_camera, self.limits,
-                                      base_T_carrier=carrier,
-                                      arbitrary_plane=self.passive_capture_active)
+                if self.object_capture_active:
+                    result = self.object_reference.capture(stamp, pose, rgb_array, depth_array,
+                        intrinsics, self.settings['camera_frame'], self.limits, carrier=carrier)
+                else:
+                    result = make_capture(stamp, pose, rgb_array, depth_array, intrinsics, points,
+                                          self.mount.tool_T_camera, self.limits,
+                                          base_T_carrier=carrier,
+                                          arbitrary_plane=self.passive_capture_active)
             except CalibrationError as error:
                 # Consume a rejected exposure: the bounded retry must wait for
                 # a new RGB-D frame, never accept the same image repeatedly.
+                if self.object_capture_active and str(error) == 'OBJECT_DETECTION_EXPOSURE_MISMATCH':
+                    reason = str(error)
+                    continue
+                self._record_plane_diagnostics(error.diagnostics, str(error))
                 self.last_capture_stamp = max(stamps)
                 self.checkpoint()
-                raise RetryableCaptureError(str(error)) from error
+                raise RetryableCaptureError(str(error), diagnostics=error.diagnostics) from error
+            self._record_plane_diagnostics(result.quality)
             result.quality['total_valid_cloud_points'] = raw_point_count
             result.quality['filtered_cloud_points'] = int(len(result.cloud))
             result.quality['point_cloud_source'] = source
@@ -2964,7 +3092,7 @@ class CalibrationNode(Node):
             result.quality['nan_inf_ratio'] = float(1.0 - raw_point_count / depth_array.size) if source == 'DEPTH_DEPROJECTION' else None
             result.quality['native_cloud_state'] = native_state
             result.quality['native_cross_validation'] = self._cloud_cross_validation(native, result.cloud)
-            if self.passive_capture_active:
+            if self.passive_capture_active and not self.object_capture_active:
                 debug_path = Path('~/.ros/dobot/passive_pose_1_debug.npz').expanduser()
                 debug_path.parent.mkdir(parents=True, exist_ok=True)
                 distances = np.abs(result.cloud @ result.plane[:3] + result.plane[3])
@@ -3121,28 +3249,35 @@ class CalibrationNode(Node):
             self.active_goal = None
 
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = CalibrationNode()
-    executor = MultiThreadedExecutor(num_threads=4)
-    executor.add_node(node)
-    try:
-        executor.spin()
-    except KeyboardInterrupt:
-        pass
-    finally:
+def _stop_workers(node):
+    if getattr(node, '_shutdown_workers_complete', False):
+        return
+    if hasattr(node, 'stop'):
         node.stop.set()
-        node.workspace_proposal.cancel()
-        if node.workspace_proposal.worker:
-            node.workspace_proposal.worker.join(timeout=2)
-        node.automatic.abort()
-        if node.automatic.worker:
-            node.automatic.worker.join(timeout=5)
-        if node.active_goal is not None:
-            node.active_goal.cancel_goal_async()
-        if node.worker is not None:
-            node.worker.join(timeout=2)
-        executor.shutdown(timeout_sec=2)
-        node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+    for name, action, timeout in (('workspace_proposal', 'cancel', 2),
+                                  ('automatic', 'abort', 5)):
+        operation = getattr(node, name, None)
+        if operation is not None:
+            getattr(operation, action)()
+            if operation.worker:
+                operation.worker.join(timeout=timeout)
+    if getattr(node, 'active_goal', None) is not None:
+        node.active_goal.cancel_goal_async()
+    if getattr(node, 'worker', None) is not None:
+        node.worker.join(timeout=2)
+    node._shutdown_workers_complete = True
+
+
+def main(args=None):
+    from .node_lifecycle import node_lifecycle
+    from rclpy.executors import ExternalShutdownException
+    with node_lifecycle(CalibrationNode, args, _stop_workers) as node:
+        executor = MultiThreadedExecutor(num_threads=4)
+        try:
+            executor.add_node(node)
+            executor.spin()
+        except (KeyboardInterrupt, ExternalShutdownException):
+            pass
+        finally:
+            _stop_workers(node)
+            executor.shutdown(timeout_sec=2)

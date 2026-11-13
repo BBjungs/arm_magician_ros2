@@ -140,6 +140,7 @@ def _maybe_start_calibration(context, *args, **kwargs):
             'carrier_frame': LaunchConfiguration('calibration_carrier_frame'),
             'mount_model': LaunchConfiguration('calibration_mount_model'),
             'auto_start': 'false',
+            'object_startup_restore': LaunchConfiguration('startup_auto'),
             'recalibrate_on_failure': LaunchConfiguration(
                 'startup_auto_recalibrate'
             ),
@@ -301,7 +302,7 @@ def generate_launch_description():
     web_node = Node(
         package='dobot_web_interface',
         executable='web_interface',
-        output='screen',
+        output='both',
         parameters=[
             {
                 'host': LaunchConfiguration('host'),

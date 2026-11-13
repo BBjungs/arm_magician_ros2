@@ -39,6 +39,7 @@ def test_maintenance_page_and_assets_require_credentials(path):
 
 
 @pytest.mark.parametrize('path', ['/api/calibration/autonomous/start',
+    '/api/calibration/object/select', '/api/calibration/object/start', '/api/calibration/object/dry_run',
     '/api/calibration/autonomous/authorize', '/api/calibration/passive/capture',
     '/api/calibration/auto/start', '/api/system/startup', '/api/move'])
 def test_maintenance_commands_fail_closed_without_access(path):

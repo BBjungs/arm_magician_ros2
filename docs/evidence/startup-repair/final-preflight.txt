@@ -1,0 +1,6 @@
+[PREFLIGHT] dobot_msgs.srv: /tmp/object-calibration-install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/srv/__init__.py
+[PREFLIGHT] dobot_msgs.action: /tmp/object-calibration-install/dobot_msgs/lib/python3.12/site-packages/dobot_msgs/action/__init__.py
+pybullet build time: Oct 29 2026 19:34:09
+[PREFLIGHT] dobot_calibration.node: /tmp/object-calibration-install/dobot_calibration/lib/python3.12/site-packages/dobot_calibration/node.py
+[PREFLIGHT] dobot_web_interface.web_interface: /tmp/object-calibration-install/dobot_web_interface/lib/python3.12/site-packages/dobot_web_interface/web_interface.py
+[PREFLIGHT] dobot_vision_rgbd.object_fusion_node: /tmp/object-calibration-install/dobot_vision_rgbd/lib/python3.12/site-packages/dobot_vision_rgbd/object_fusion_node.py

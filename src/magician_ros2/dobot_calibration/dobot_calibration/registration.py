@@ -8,7 +8,7 @@ from scipy.spatial import cKDTree
 
 from .geometry import (
     CalibrationError, Limits, apply, checked_transform, finite_cloud, inverse,
-    rigid_fit, scene_geometry, table_plane,
+    plane_diagnostics, rigid_fit, scene_geometry, table_plane,
 )
 
 
@@ -23,6 +23,7 @@ class Capture:
     plane: np.ndarray
     quality: dict = field(default_factory=dict)
     base_T_carrier: np.ndarray | None = None
+    sensor_depth: np.ndarray | None = None
 
     @property
     def calibration_pose(self):
@@ -110,8 +111,11 @@ def dominant_plane(points, limits=Limits(), seed=0):
         mask = np.abs((points - a) @ normal) < limits.plane_inlier_m
         if mask.sum() > best.sum():
             best, best_normal = mask, normal
+    quality = plane_diagnostics(points, best, limits)
+    quality['plane_gate'] = 'pre_calibration_dominant_plane'
     if best.sum() < limits.min_points or best.mean() < limits.min_plane_ratio:
-        raise CalibrationError('No sufficiently supported dominant plane')
+        reason = 'No sufficiently supported dominant plane'
+        raise CalibrationError(reason, diagnostics={**quality, 'plane_rejection_reason': reason})
     inliers = points[best]
     center = inliers.mean(axis=0)
     _, singular, vt = np.linalg.svd(inliers - center, full_matrices=False)
@@ -122,9 +126,11 @@ def dominant_plane(points, limits=Limits(), seed=0):
     distances = np.abs(inliers @ normal + coefficients[3])
     spread = singular / np.sqrt(len(inliers))
     if spread[1] < 0.025:
-        raise CalibrationError('Dominant plane has insufficient spatial extent')
+        reason = 'Dominant plane has insufficient spatial extent'
+        raise CalibrationError(reason, diagnostics={**quality, 'plane_rejection_reason': reason})
     area = float(4.0 * spread[0] * spread[1])
     return coefficients, {
+        **quality,
         'plane_gate': 'pre_calibration_dominant_plane',
         'plane_inlier_count': int(best.sum()),
         'plane_inlier_ratio': float(best.mean()),

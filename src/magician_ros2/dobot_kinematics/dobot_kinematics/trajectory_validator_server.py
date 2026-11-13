@@ -27,6 +27,11 @@ class PoseValidatorService(Node):
             'dobot_calibration_validation_service',
             self.calibration_trajectory_callback,
         )
+        self.create_service(
+            EvaluatePTPTrajectory,
+            'dobot_visual_servo_validation_service',
+            self.visual_servo_trajectory_callback,
+        )
         self.create_subscription(
             Float64MultiArray,
             'dobot_pose_raw',
@@ -164,6 +169,24 @@ class PoseValidatorService(Node):
             return response
 
         response.is_valid, response.message = self.is_target_valid(target, 2)
+        return response
+
+    def visual_servo_trajectory_callback(self, request, response):
+        """Stricter admission for IBVS; collision and ground guards are mandatory."""
+        response.is_valid = False
+        if not self.enable_collision_check or not self.detect_ground_collision:
+            response.message = 'Visual servo requires collision and ground checks enabled'
+            return response
+        if (int(request.motion_type) != 2 or len(request.target) != 4 or len(self.dobot_pose) != 4
+                or not 0 <= time.monotonic() - self.pose_received_monotonic <= .3
+                or not all(math.isfinite(v) for v in [*request.target, *self.dobot_pose])):
+            response.message = 'Visual servo requires finite MOVL and fresh TCP feedback'
+            return response
+        if (math.dist(list(request.target)[:3], self.dobot_pose[:3]) > 3.05
+                or abs(request.target[3] - self.dobot_pose[3]) > .2):
+            response.message = 'Visual servo permits translations up to 3 mm only'
+            return response
+        response.is_valid, response.message = self.is_target_valid(list(request.target), 2)
         return response
 
     def are_angles_in_range_joint(self, angles):

@@ -47,7 +47,24 @@ if [[ "${START_CAMERA,,}" =~ ^(1|true|yes|on)$ && "${ORBBEC_WS}" != "${DOBOT_WS_
   exit 1
 fi
 source "${DOBOT_WS_DIR}/install/setup.bash"
+# Optional immutable release overlay; retain the original underlay in place.
+# Use local_setup.bash to avoid recursively sourcing a relocated prefix chain.
+if [[ -n "${DOBOT_RELEASE_SETUP:-}" ]]; then
+  if [[ ! -r "${DOBOT_RELEASE_SETUP}" ]]; then
+    echo "[BOOT] Release overlay is unreadable: ${DOBOT_RELEASE_SETUP}" >&2
+    exit 78
+  fi
+  source "${DOBOT_RELEASE_SETUP}"
+fi
 set -u
+
+# Source and generated interfaces must form one release. Check before opening
+# either hardware device; a deterministic install error must not restart USB.
+if [[ ! -x "${DOBOT_WS_DIR}/.venv/bin/python" ]]; then
+  echo '[BOOT] Missing production Python virtual environment' >&2
+  exit 78
+fi
+"${DOBOT_WS_DIR}/.venv/bin/python" -m dobot_calibration.startup_preflight || exit 78
 
 : "${MAGICIAN_TOOL:=suction_cup}"
 : "${VISION_MODE:=eye_in_hand}"

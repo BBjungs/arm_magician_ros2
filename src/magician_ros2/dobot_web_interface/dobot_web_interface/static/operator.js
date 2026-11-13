@@ -106,6 +106,7 @@ function renderStatus(status) {
   replaceOptions(placeSelect, status.places || []);
   renderChecks(status.checks || []);
   renderAutomaticCalibration(status.automatic_calibration || {}, status.calibration || {});
+  if (window.renderObjectCalibration) window.renderObjectCalibration(status);
   const counts = status.counts || {};
   $('blackCount').textContent = counts.black || 0;
   $('whiteCount').textContent = counts.white || 0;
@@ -122,7 +123,7 @@ function renderStatus(status) {
 
   const canStart = status.ready === true && !operation.active && !startPending && !homePending;
   startButton.disabled = !canStart;
-  const calibrationIdle = ['IDLE', 'FAULT', 'SAFE_STOP', 'COMMISSIONING_COMPLETE',
+  const calibrationIdle = ['IDLE', 'FAULT', 'SAFE_STOP', 'COMMISSIONING_COMPLETE', 'DRY_RUN_COMPLETE',
     'CANDIDATE_VERIFIED', 'AWAITING_LIVE_VALIDATION', 'READY']
     .includes(status.automatic_calibration?.state || 'IDLE');
   const calibrationBusy = ['AUTO_CALIBRATING', 'STARTING', 'CAPTURING', 'LOADING',
@@ -156,6 +157,7 @@ function renderAutomaticCalibration(auto, calibration = {}) {
   const ready = calibration.ready === true && calibration.state === 'READY';
   const labels = {
     IDLE: 'รอตรวจสอบ', PREFLIGHT: 'ตรวจความพร้อม', LOADING: 'โหลดผลเดิม',
+    TRACKING_REFERENCE: 'กำลังตรวจวัตถุอ้างอิง', DRY_RUN_COMPLETE: 'ตรวจข้อมูลและแผนผ่าน · ไม่ได้เคลื่อนแขน',
     WARMING_UP: 'รอภาพและแขนนิ่ง', PREPARING_BASELINE: 'กำลังเก็บภาพฉากอ้างอิง',
     WAITING_FOR_OPERATOR_AUTHORIZATION: 'รอผู้ได้รับอนุญาตใน Maintenance',
     MOVING: 'กำลังจัดท่า', SETTLING: 'รอแขนหยุดนิ่ง', CAPTURING: 'กำลังเก็บภาพ RGB-D',
@@ -224,6 +226,7 @@ async function refreshStatus() {
     latestStatus = null;
     $('calibrationStateLabel').textContent = 'ขาดการเชื่อมต่อ';
     $('calibrationSummary').textContent = 'ไม่สามารถยืนยันสถานะ Calibration ได้';
+    if (window.renderObjectCalibration) window.renderObjectCalibration({});
     setNotice('ไม่สามารถอ่านสถานะระบบได้', true);
   } finally {
     statusPending = false;

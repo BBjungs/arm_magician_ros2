@@ -23,6 +23,7 @@ class AutomaticCalibration:
         self.purpose = 'AUTONOMOUS_10_POSES'
         self.force_recalibrate = False
         self.verify_only = False
+        self.dry_run = False
         self.status = {'state': 'IDLE', 'accepted_pose_count': 0, 'total_poses': 10,
                        'dry_run': False, 'production_ready': False, 'reason': '',
                        'authorization_protocol': 2}
@@ -35,7 +36,8 @@ class AutomaticCalibration:
         with self.lock:
             self.status.update(state=state, **fields)
 
-    def start(self, purpose='AUTONOMOUS_10_POSES', *, force_recalibrate=False, verify_only=False):
+    def start(self, purpose='AUTONOMOUS_10_POSES', *, force_recalibrate=False, verify_only=False,
+              dry_run=False):
         if purpose not in ('AUTONOMOUS_10_POSES', 'COMMISSIONING_TWO_POSES'):
             return False, 'Unknown calibration scope'
         with self.lock:
@@ -45,6 +47,7 @@ class AutomaticCalibration:
             self.purpose = purpose
             self.force_recalibrate = force_recalibrate
             self.verify_only = verify_only
+            self.dry_run = bool(dry_run)
             self.authorization_event.clear()
             self.authorization_request = None
             self.abort_event.clear()
@@ -52,7 +55,7 @@ class AutomaticCalibration:
             last_completed = self.status.get('last_completed_unix_s')
             self.status = {'state': 'PREFLIGHT', 'accepted_pose_count': 0, 'total_poses': 10,
                            'last_completed_unix_s': last_completed,
-                           'dry_run': False, 'production_ready': False, 'reason': '',
+                           'dry_run': self.dry_run, 'production_ready': False, 'reason': '',
                            'purpose': purpose, 'run_id': self.run_id, 'motion_command_sent': False,
                            'blockers': [], 'trace': [], 'authorization_protocol': 2}
             self.worker = threading.Thread(target=self.run, daemon=True)
@@ -138,6 +141,8 @@ class AutomaticCalibration:
             self.update(previous)
 
     def run(self):
+        if self.dry_run or getattr(self.backend, 'restore_without_motion', False):
+            return self._run_observation_only()
         result, failure = None, None
         try:
             self.trace('AutomaticBackend.prepare')
@@ -233,3 +238,47 @@ class AutomaticCalibration:
                 self.update('FAULT', reason=reason, production_ready=False)
                 if hasattr(self.backend, 'failed'):
                     self.backend.failed(reason)
+
+    def _run_observation_only(self):
+        """A separate branch with no authorize, move, settle or PTP calls."""
+        result, failure = None, None
+        try:
+            targets = self.backend.prepare(self.checkpoint)
+            expected_count = 0 if getattr(self.backend, 'reusing_saved', False) else 10
+            if len(targets) != expected_count:
+                raise CalibrationError('OBJECT_PLAN_REQUIRES_TEN_INDEPENDENT_TARGETS')
+            if self.dry_run:
+                for first, second in zip(targets, targets[1:]):
+                    self.checkpoint()
+                    self.backend.validate(first, second)
+                result = {'state': 'DRY_RUN_COMPLETE', 'production_ready': False,
+                          'motion_command_sent': False, 'planned_pose_count': len(targets),
+                          'reason': 'ตรวจข้อมูลวัตถุและแผนแล้ว ยังไม่ได้คำนวณหรือรับรอง Calibration'}
+            else:
+                if targets or not self.backend.reusing_saved:
+                    raise CalibrationError('SAVED_OBJECT_CALIBRATION_REQUIRED')
+                self.update('VERIFYING')
+                result = self.backend.verify_saved_stationary(self.checkpoint)
+                self.backend.finalize(result, self.checkpoint)
+            self.checkpoint()
+        except Exception as error:
+            failure = str(error)
+        finally:
+            try:
+                self.backend.close()
+            except Exception as error:
+                failure = 'CLEANUP_FAILED: ' + str(error)
+            if self.abort_event.is_set():
+                failure = 'Operator abort'
+            if failure:
+                self.update('FAULT', reason=failure, blockers=[failure], production_ready=False)
+                self.backend.failed(failure)
+            else:
+                self.update(result['state'], result=result, reason=result.get('reason', ''),
+                            production_ready=result.get('production_ready', False),
+                            reused_saved=not self.dry_run, motion_command_sent=False)
+            try:
+                self.backend.persist_status(self.snapshot())
+            except Exception as error:
+                self.update('FAULT', reason='AUDIT_PERSISTENCE_FAILED: ' + str(error), production_ready=False)
+                self.backend.failed(str(error))

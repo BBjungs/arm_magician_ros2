@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eye-in-Hand Auto Approach (No Calibration)</title>
+  <link rel="stylesheet" href="/static/visual_servo.css">
+  <script src="/static/visual_servo.js" defer></script>
+</head>
+<body>
+<main>
+  <header>
+    <a href="/">← Auto Pick (ต้องใช้ Calibration)</a>
+    <h1>Eye-in-Hand Auto Approach (No Calibration)</h1>
+    <p>เข้าใกล้ชิ้นงานสีดำและหยุดก่อนสัมผัส · ไม่หยิบ ไม่สั่งหัวจับ</p>
+  </header>
+  <div class="layout">
+    <section aria-label="ภาพกล้องและชิ้นงาน">
+      <div class="camera">
+        <img id="camera" src="/api/vision/annotated" alt="ภาพสดจากกล้อง RGB-D" width="640" height="480">
+        <svg id="overlay" viewBox="0 0 640 480" aria-label="กรอบชิ้นงานและจุดอ้างอิง">
+          <rect id="box" hidden></rect>
+          <path id="reference" d="M308 240h24 M320 228v24"></path>
+          <circle id="target" r="5" hidden></circle>
+        </svg>
+      </div>
+      <p id="cameraNotice" role="status">กำลังรับภาพ · กรอบแสดงผลจากข้อมูลตรวจจับล่าสุด</p>
+      <dl class="telemetry">
+        <div><dt>Pixel Error X / Y</dt><dd id="pixelError">—</dd></div>
+        <div><dt>Depth Distance</dt><dd id="depth">—</dd></div>
+        <div><dt>Current TCP Pose</dt><dd id="tcp">—</dd></div>
+        <div><dt>Estimated Motion Direction (X/Y/Z)</dt><dd id="direction">—</dd></div>
+        <div><dt>Jacobian Status</dt><dd id="jacobian">—</dd></div>
+        <div><dt>Robot State</dt><dd id="robot">—</dd></div>
+        <div><dt>Detection Confidence</dt><dd id="confidence">—</dd></div>
+        <div><dt>RGB / Depth Timestamp</dt><dd id="timestamps">—</dd></div>
+      </dl>
+    </section>
+    <section class="controls" aria-label="ควบคุมการเข้าใกล้">
+      <h2 id="state" aria-live="polite">DISCONNECTED</h2>
+      <p id="reason" role="status">กำลังตรวจสถานะ</p>
+      <p id="permit">ยังไม่ได้ ENABLE</p>
+      <p id="stopDepth">—</p>
+      <p>จุดกลางภาพไม่ใช่ตำแหน่ง TCP การหยิบจริงต้องยืนยันความสัมพันธ์กล้องกับหัวจับเพิ่มเติม</p>
+      <label>Maintenance token
+        <input id="token" type="password" autocomplete="off" placeholder="สิทธิ์ผู้ควบคุมสำหรับ ENABLE / START">
+      </label>
+      <fieldset>
+        <legend>ผู้ควบคุมยืนยันก่อนทดลองระยะสั้น</legend>
+        <label><input id="workspace" type="checkbox"> พื้นที่และเส้นทางปลอดสิ่งกีดขวาง</label>
+        <label><input id="estop" type="checkbox"> ทดสอบ E-STOP แล้วและพร้อมใช้งาน</label>
+        <label><input id="envelope" type="checkbox"> ยืนยันขนาดกล้อง/หัวจับและขอบเขตพื้นที่ที่วัดจริงแล้ว</label>
+      </fieldset>
+      <div class="buttons">
+        <button id="enable" disabled>ENABLE</button>
+        <button id="start" disabled>START APPROACH</button>
+        <button id="pause">PAUSE</button>
+        <button id="stop" class="stop">STOP</button>
+      </div>
+      <p id="command" role="alert"></p>
+      <p>PAUSE / STOP ยกเลิกสิทธิ์เคลื่อน ต้อง ENABLE ใหม่เพื่อเริ่มเรียนรู้ทิศทางอีกครั้ง</p>
+    </section>
+  </div>
+</main>
+</body>
+</html>

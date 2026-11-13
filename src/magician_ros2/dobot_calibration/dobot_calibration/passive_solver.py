@@ -8,17 +8,20 @@ from .workflow import load_bundle, save_bundle
 
 
 def solve_session(captures, mount, context, path, limits=Limits(), checkpoint=lambda: None,
-                  phase=lambda state: None):
+                  phase=lambda state: None, *, object_only=False):
     # The last three poses are held out BEFORE fitting, never used to tune it.
     if len(captures) != 10:
         raise CalibrationError(f'REAL_POSES_REQUIRED: {len(captures)}/10 accepted poses')
     if any(b.stamp <= a.stamp for a, b in zip(captures, captures[1:])):
         raise CalibrationError('Capture timestamps must be strictly increasing')
     checkpoint()
-    solution = solve(captures[:7], mount, limits)
+    solution = solve(captures[:7], mount, limits, **({'object_only': True} if object_only else {}))
     checkpoint()
     phase('VERIFYING')
-    report = verify(solution, captures[0], captures[7:], mount, limits)
+    report = verify(solution, captures[0], captures[7:], mount, limits,
+                    **({'object_only': True} if object_only else {}))
+    if object_only:
+        report['calibration_method'] = 'object_based'
     if report['result'] != 'PASS':
         raise CalibrationError('Independent verification failed: ' + report['reason'])
     checkpoint()
@@ -30,7 +33,8 @@ def solve_session(captures, mount, context, path, limits=Limits(), checkpoint=la
     if not np.allclose(restored.tool_T_camera, solution.tool_T_camera, atol=1e-12):
         raise CalibrationError('Reloaded transform differs from fitted transform')
     phase('VERIFYING')
-    reloaded_report = verify(restored, anchor, captures[7:], mount, limits)
+    reloaded_report = verify(restored, anchor, captures[7:], mount, limits,
+                            **({'object_only': True} if object_only else {}))
     if reloaded_report['result'] != 'PASS':
         raise CalibrationError('Reload verification failed: ' + reloaded_report['reason'])
     checkpoint()

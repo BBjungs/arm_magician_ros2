@@ -60,10 +60,11 @@ def collect_pairs(captures, limits=Limits()):
             for i, j in edges]
 
 
-def quality_metrics(captures, pairs, value, limits=Limits()):
+def quality_metrics(captures, pairs, value, limits=Limits(), *, object_only=False):
     translations, rotations, clouds, fitness, registration_rmse = [], [], [], [], []
     plane_offsets, plane_angles = [], []
-    planes = [transform_plane(c.calibration_pose @ value, c.plane) for c in captures]
+    planes = ([] if object_only else
+              [transform_plane(c.calibration_pose @ value, c.plane) for c in captures])
     for i, j, pair in pairs:
         a = inverse(captures[i].calibration_pose) @ captures[j].calibration_pose
         delta = inverse(a @ value) @ (value @ pair.first_T_second)
@@ -75,16 +76,18 @@ def quality_metrics(captures, pairs, value, limits=Limits()):
         clouds.append(cloud_rmse)
         fitness.extend([overlap, pair.quality['registration_fitness']])
         registration_rmse.append(pair.quality['registration_rmse_m'])
-        offset, angle = plane_difference(planes[i], planes[j])
-        plane_offsets.append(offset)
-        plane_angles.append(angle)
+        if not object_only:
+            offset, angle = plane_difference(planes[i], planes[j])
+            plane_offsets.append(offset)
+            plane_angles.append(angle)
     if not pairs:
         raise CalibrationError('No registration evidence')
     return {
         'translation_residual_m': float(max(translations)),
         'rotation_residual_deg': float(max(rotations)),
-        'table_plane_offset_m': float(max(plane_offsets)),
-        'table_plane_angle_deg': float(max(plane_angles)),
+        **({} if object_only else {
+            'table_plane_offset_m': float(max(plane_offsets)),
+            'table_plane_angle_deg': float(max(plane_angles))}),
         'cloud_rmse_m': float(max(clouds)),
         'registration_fitness': float(min(fitness)),
         'registration_rmse_m': float(max(registration_rmse)),
@@ -93,7 +96,7 @@ def quality_metrics(captures, pairs, value, limits=Limits()):
     }
 
 
-def require_quality(metrics, limits=Limits()):
+def require_quality(metrics, limits=Limits(), *, object_only=False):
     maximums = {
         'translation_residual_m': limits.max_translation_residual_m,
         'rotation_residual_deg': limits.max_rotation_residual_deg,
@@ -104,6 +107,8 @@ def require_quality(metrics, limits=Limits()):
     }
     minimums = {'registration_fitness': limits.min_registration_fitness,
                 'depth_valid_ratio': limits.min_depth_valid_ratio}
+    if object_only:
+        del maximums['table_plane_offset_m'], maximums['table_plane_angle_deg']
     for key, bound in maximums.items():
         if not np.isfinite(metrics[key]) or not 0 <= metrics[key] <= bound:
             raise CalibrationError(f'{key} exceeds quality limit: {metrics[key]} > {bound}')
@@ -123,7 +128,9 @@ def require_mount_agreement(value, mount, limits=Limits()):
         raise CalibrationError('Solution disagrees with fixed measured translation')
 
 
-def solve(captures, mount, limits=Limits(), pairs=None):
+def solve(captures, mount, limits=Limits(), pairs=None, *, object_only=False):
+    from .object_reference import require_same_method
+    require_same_method(captures, object_only)
     observable = excitation(captures, limits)
     pairs = collect_pairs(captures, limits) if pairs is None else pairs
     internal = getattr(mount, 'camera_reference_T_optical', np.eye(4))
@@ -169,12 +176,13 @@ def solve(captures, mount, limits=Limits(), pairs=None):
                 indices = np.linspace(0, len(pair.source) - 1, count).astype(int)
                 errors = apply(predicted, pair.source[indices]) - pair.target[indices]
                 parts.append(errors.ravel() / (0.004 * np.sqrt(count)))
-                p1 = transform_plane(captures[i].calibration_pose @ value, captures[i].plane)
-                p2 = transform_plane(captures[j].calibration_pose @ value, captures[j].plane)
-                if p1[:3] @ p2[:3] < 0:
-                    p2 = -p2
-                parts.extend([(p1[:3] - p2[:3]) / np.deg2rad(1),
-                              np.array([(p1[3] - p2[3]) / 0.003])])
+                if not object_only:
+                    p1 = transform_plane(captures[i].calibration_pose @ value, captures[i].plane)
+                    p2 = transform_plane(captures[j].calibration_pose @ value, captures[j].plane)
+                    if p1[:3] @ p2[:3] < 0:
+                        p2 = -p2
+                    parts.extend([(p1[:3] - p2[:3]) / np.deg2rad(1),
+                                  np.array([(p1[3] - p2[3]) / 0.003])])
         return np.concatenate(parts)
 
     fit = least_squares(residuals, initial, loss='soft_l1', max_nfev=250,
@@ -194,8 +202,8 @@ def solve(captures, mount, limits=Limits(), pairs=None):
         raise CalibrationError('Mount rotation is not observable')
     value = unpack(fit.x)
     require_mount_agreement(value, mount, limits)
-    metrics = quality_metrics(captures, pairs, value, limits)
-    require_quality(metrics, limits)
+    metrics = quality_metrics(captures, pairs, value, limits, object_only=object_only)
+    require_quality(metrics, limits, object_only=object_only)
     observable.update({'motion_jacobian_singular_values': singular.tolist(),
                        'translation_error_bound_m': mount.translation_error_bound_m,
                        'mount_source': mount.source})
@@ -203,10 +211,12 @@ def solve(captures, mount, limits=Limits(), pairs=None):
                     np.array([c.base_T_tool for c in captures]))
 
 
-def verify(solution, anchor, captures, mount, limits=Limits(), pairs=None):
+def verify(solution, anchor, captures, mount, limits=Limits(), pairs=None, *, object_only=False):
     """Return PASS/FAIL without fitting or modifying the saved transform."""
     metrics = {}
     try:
+        from .object_reference import require_same_method
+        require_same_method([anchor, *captures], object_only)
         require_mount_agreement(solution.tool_T_camera, mount, limits)
         if any((c.base_T_carrier is None) != (anchor.base_T_carrier is None) for c in captures):
             raise CalibrationError("Mixed TCP and camera-carrier verification observations")
@@ -220,8 +230,8 @@ def verify(solution, anchor, captures, mount, limits=Limits(), pairs=None):
                     raise CalibrationError('Verification pose overlaps a calibration pose')
         observations = [anchor, *captures]
         pairs = collect_pairs(observations, limits) if pairs is None else pairs
-        metrics = quality_metrics(observations, pairs, solution.tool_T_camera, limits)
-        require_quality(metrics, limits)
+        metrics = quality_metrics(observations, pairs, solution.tool_T_camera, limits, object_only=object_only)
+        require_quality(metrics, limits, object_only=object_only)
         return {'result': 'PASS', 'metrics': metrics, 'reason': ''}
     except (CalibrationError, ValueError, np.linalg.LinAlgError) as error:
         return {'result': 'FAIL', 'metrics': {k: v if np.isfinite(v) else None

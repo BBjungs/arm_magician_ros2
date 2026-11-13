@@ -23,16 +23,17 @@ def test_safety_remains_fail_closed_for_unverified_calibration():
         calibration_status={"architecture": "markerless_hand_eye", "ready": False},
         places={}, dry_run=True, robot_homed=False, vision_mode="eye_in_hand",
         tcp_pose=None)
-    assert report["ready"] is False
-    assert not report["checks"]["calibration"]["ok"]
+    assert report["allowed"] is False
+    checks = {item['name']: item for item in report['checks']}
+    assert not checks['calibration']['ok']
 
 
 def test_production_sources_do_not_import_retired_board_pipeline():
-    root = Path(__file__).resolve().parents[2]
+    root = Path(__file__).resolve().parents[1]
     active = [
         root / "dobot_vision_yolo" / "target_selector_node.py",
         root / "dobot_vision_yolo" / "pixel_to_robot_node.py",
-        root.parent / "launch" / "vision_pick_place.launch.py",
+        root / "launch" / "vision_pick_place.launch.py",
     ]
     forbidden = ("CalibrationStore", "EyeInHandConfigStore", "aruco")
     for path in active:

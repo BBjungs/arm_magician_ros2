@@ -1,4 +1,5 @@
 import json
+import base64
 import time
 from collections import deque
 from pathlib import Path
@@ -60,6 +61,10 @@ class ObjectFusion:
                 self.reject['depth_minimum_mm'], self.reject['depth_maximum_mm'])
             debug_masks.extend([mask, ring])
             detection = self._fuse(candidate, color_result, depth, table, intrinsics)
+            # Calibration consumes the observed silhouette and registered depth,
+            # independently of table-relative picking eligibility.
+            detection['calibration_outline'] = cv2.approxPolyDP(
+                candidate['contour'], 1.0, True).reshape(-1, 2).astype(int).tolist()
             detection.pop('contour', None)
             detection.pop('inner_mask', None)
             validate_detection(detection)
@@ -298,12 +303,24 @@ class ObjectFusionNode(Node):
             if masks:
                 cv2.imwrite('/tmp/rgbd_debug_masks.jpg', np.maximum.reduce(masks))
         self.count = len(detections)
-        self._publish(detections, delta, registered, '')
+        encoded_ok, encoded = cv2.imencode('.jpg', color, [cv2.IMWRITE_JPEG_QUALITY, 65])
+        self._publish(detections, delta, registered, '', {
+            'calibration_preview_jpeg': base64.b64encode(encoded).decode('ascii') if encoded_ok else '',
+            'rgb_stamp': self._stamp(color_msg),
+            'depth_stamp': self._stamp(depth_msg),
+            'image_size': [int(color_msg.width), int(color_msg.height)],
+            'rgb_frame_id': color_msg.header.frame_id,
+            'depth_frame_id': depth_msg.header.frame_id,
+        })
 
-    def _publish(self, detections, delta, registered, error):
+    def _publish(self, detections, delta, registered, error, source_metadata=None):
         stamp = self.get_clock().now().nanoseconds / 1e9
         message = String()
-        message.data = json.dumps({'stamp': stamp, 'vision_engine': 'rgbd_shape', 'detections': detections}, separators=(',', ':'))
+        message.data = json.dumps({
+            'stamp': stamp, 'vision_engine': 'rgbd_shape', 'detections': detections,
+            **(source_metadata or {}), 'registered_depth': bool(registered),
+            'sync_delta_ms': float(delta), 'error': error,
+        }, separators=(',', ':'))
         self.detections_pub.publish(message)
         self.last_detection_health = (detections, delta, registered, error)
         self._publish_status(detections, delta, registered, error)

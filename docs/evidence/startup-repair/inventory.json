@@ -1,0 +1,14 @@
+{
+  "production_service": "NRestarts=800\nExecMainStatus=0\nActiveState=inactive\n",
+  "git_head": "0ebd4a2714077518e78dc8886f2b6cdc15a32905",
+  "versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.11.4",
+    "fastapi": "0.101.0",
+    "uvicorn": "0.27.1",
+    "pybullet": "3.2.7"
+  },
+  "ros_rclpy_package": "ros-jazzy-rclpy\t7.1.12-1noble.20260911.111116\n",
+  "physical_motion_sent": false,
+  "production_restarted": false
+}

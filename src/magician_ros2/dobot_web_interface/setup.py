@@ -12,7 +12,9 @@ setup(
     packages=[package_name],
     package_data={package_name: ['static/operator.html', 'static/operator.css',
                                  'static/operator.js', 'static/maintenance.html',
-                                    'static/maintenance.js', 'static/workspace.js']},
+                                    'static/maintenance.js', 'static/workspace.js', 'static/object_calibration.js',
+                                    'static/visual_servo.html', 'static/visual_servo.js',
+                                    'static/visual_servo.css']},
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml', 'README.md']),

@@ -67,6 +67,135 @@ def test_passive_capture_services_have_no_motion_calls(node):
     assert node.status_payload()['geometry_verified'] is False
 
 
+def test_plane_failure_diagnostics_reach_status_and_passive_response(node, monkeypatch):
+    import json
+    from sensor_msgs.msg import CameraInfo, Image
+    from dobot_calibration.geometry import CalibrationError, RetryableCaptureError
+    from dobot_calibration.registration import dominant_plane
+    from synthetic_scene import MOUNT
+    from test_plane_quality import cloud_with_plane
+
+    with pytest.raises(CalibrationError) as caught:
+        dominant_plane(cloud_with_plane(249))
+    failure = caught.value
+    rgb, depth, info = Image(), Image(), CameraInfo()
+    for message in (rgb, depth, info):
+        message.header.stamp.sec = 10
+    depth.encoding = '32FC1'
+    info.width = info.height = 32
+    info.p = [100., 0., 16., 0., 0., 100., 16., 0., 0., 0., 1., 0.]
+    node.bundle = (rgb, depth, info)
+    node.history = []
+    node.last_capture_stamp = 0.
+    node.settings['carrier_frame'] = ''
+    node.settings['point_cloud_source'] = 'DEPTH_DEPROJECTION'
+    node.mount = MOUNT
+    monkeypatch.setattr(node, 'health_error', lambda: '')
+    monkeypatch.setattr(node, 'checkpoint', lambda: None)
+    monkeypatch.setattr(node, '_prepare_passive_capture', lambda: None)
+    monkeypatch.setattr(node, '_native_cloud_for', lambda stamp: (None, 'missing'))
+    monkeypatch.setattr(node, '_scene_geometry_diagnostic', lambda: {})
+    monkeypatch.setattr(node.bridge, 'imgmsg_to_cv2', lambda msg, encoding:
+                        np.zeros((32, 32, 3), dtype=np.uint8) if msg is rgb
+                        else np.full((32, 32), .4))
+    monkeypatch.setattr('dobot_calibration.node.settled_pose', lambda *args: np.eye(4))
+
+    def reject(*args, **kwargs):
+        raise failure
+
+    monkeypatch.setattr('dobot_calibration.node.make_capture', reject)
+    monkeypatch.setattr(node, '_execute_guarded_motion', lambda *args: pytest.fail('must not move'))
+    with pytest.raises(RetryableCaptureError) as retry:
+        node.capture()
+    assert retry.value.diagnostics == failure.diagnostics
+    assert node.last_capture_stamp == 10.
+    assert node.status_payload()['plane_diagnostics'] == failure.diagnostics
+    node.last_capture_stamp = 0.
+    response = node.passive_capture_test_service(Trigger.Request(), Trigger.Response())
+    assert not response.success
+    report = json.loads(response.message)['captures'][-1]
+    for key, value in failure.diagnostics.items():
+        assert report[key] == value
+    assert report['plane_inlier_ratio'] == .249
+    assert report['min_plane_ratio'] == .25
+
+
+def test_plane_status_clears_old_metrics_when_no_plane_can_be_fitted(node):
+    node._record_plane_diagnostics({'plane_inlier_ratio': .28, 'plane_rms_m': .001})
+    node._record_plane_diagnostics(rejection_reason='Insufficient valid point-cloud geometry')
+    report = node.status_payload()['plane_diagnostics']
+    assert report['min_plane_ratio'] == .25
+    assert report['plane_inlier_ratio'] is None
+    assert report['plane_inlier_count'] is None
+    assert report['plane_rms_m'] is None
+    assert report['plane_rejection_reason'] == 'Insufficient valid point-cloud geometry'
+
+
+def test_object_capture_waits_for_detector_and_never_calls_scene_plane_path(node, monkeypatch):
+    from sensor_msgs.msg import CameraInfo, Image
+    from object_scene import render_object, packet, START, MOUNT, K
+    rgb_data, depth_data, mask = render_object(START, 10.)
+    rgb, depth, info = Image(), Image(), CameraInfo()
+    for message in (rgb, depth, info):
+        message.header.stamp.sec = 10
+        message.header.frame_id = node.settings['camera_frame']
+    depth.encoding = '32FC1'
+    info.width, info.height = 640, 480
+    info.p = np.column_stack((K, np.zeros(3))).reshape(-1).tolist()
+    node.mount = MOUNT
+    node.bundle = (rgb, depth, info)
+    node.settings['carrier_frame'] = ''
+    node.settings['point_cloud_source'] = 'ORBBEC_TOPIC'
+    node.history = [(10., START.copy(), np.zeros(4))]
+    node.calibration_context = node.camera_context(info)
+    node.object_capture_active = node.passive_capture_active = True
+    node.last_capture_stamp = 0.
+    value = packet(rgb_data, mask, 10.)
+    value['rgb_frame_id'] = value['depth_frame_id'] = node.settings['camera_frame']
+    monkeypatch.setattr(node, 'health_error', lambda: '')
+    monkeypatch.setattr(node, 'checkpoint', lambda: None)
+    monkeypatch.setattr(node, '_native_cloud_for', lambda stamp: (None, 'missing'))
+    monkeypatch.setattr(node.bridge, 'imgmsg_to_cv2', lambda message, encoding:
+                        rgb_data if message is rgb else depth_data)
+    monkeypatch.setattr('dobot_calibration.node.settled_pose', lambda *args: START.copy())
+    monkeypatch.setattr('dobot_calibration.node.make_capture', lambda *a, **k: pytest.fail('Scene plane path called'))
+    ready = node.object_reference.exposure_ready
+    checks = []
+    def detector_ready(stamp):
+        checks.append(stamp)
+        if len(checks) == 1:
+            assert node.last_capture_stamp == 0.
+            node.object_reference.update(value)
+            return False
+        return ready(stamp)
+    monkeypatch.setattr(node.object_reference, 'exposure_ready', detector_ready)
+    result = node.capture()
+    assert len(checks) >= 2
+    assert result.plane.size == 0
+    assert result.quality['calibration_method'] == 'object_based'
+    assert result.quality['point_cloud_source'] == 'DEPTH_DEPROJECTION'
+    assert result.quality['exposure']['rgb_stamp'] == 10.
+    assert node.last_capture_stamp == 10.
+
+
+def test_object_selection_service_rejects_stale_frames_and_active_operation(node):
+    import json
+    from dobot_msgs.srv import SelectCalibrationObject
+    request = SelectCalibrationObject.Request()
+    request.selection_json = '{}'
+    response = node.object_select_service(request, SelectCalibrationObject.Response())
+    assert not response.accepted and 'STALE' in response.report
+    node.object_reference.update({'rgb_stamp': node.now_s(), 'detections': []})
+    response = node.object_select_service(request, SelectCalibrationObject.Response())
+    assert response.accepted and json.loads(response.report)['motion_command_sent'] is False
+    node.operation_lock.acquire()
+    try:
+        response = node.object_select_service(request, SelectCalibrationObject.Response())
+        assert not response.accepted and 'already running' in response.report
+    finally:
+        node.operation_lock.release()
+
+
 def test_passive_solve_requires_ten_real_poses_and_releases_lock(node):
     response = node.solve_passive_service(Trigger.Request(), Trigger.Response())
     assert not response.success

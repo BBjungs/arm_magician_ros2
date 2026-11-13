@@ -19,12 +19,14 @@ def generate_launch_description():
             'mount_model': LaunchConfiguration('mount_model'),
             'carrier_frame': ParameterValue(LaunchConfiguration('carrier_frame'), value_type=str),
             'auto_start': ParameterValue(LaunchConfiguration('auto_start'), value_type=bool),
+            'object_startup_restore': ParameterValue(
+                LaunchConfiguration('object_startup_restore'), value_type=bool),
             'recalibrate_on_failure': ParameterValue(
                 LaunchConfiguration('recalibrate_on_failure'), value_type=bool),
             'calibration_file': LaunchConfiguration('calibration_file'),
         }
         overrides.update(camera_parameter_overrides(requested))
-        return [Node(package='dobot_calibration', executable='markerless_calibration', output='screen',
+        return [Node(package='dobot_calibration', executable='markerless_calibration', output='both',
                      parameters=[LaunchConfiguration('config'), overrides])]
     return LaunchDescription([
         DeclareLaunchArgument('config', default_value=str(share / 'config/calibration.yaml')),
@@ -32,6 +34,7 @@ def generate_launch_description():
         DeclareLaunchArgument('camera_id', default_value='auto'),
         DeclareLaunchArgument('carrier_frame', default_value=''),
         DeclareLaunchArgument('auto_start', default_value='false'),
+        DeclareLaunchArgument('object_startup_restore', default_value='true'),
         DeclareLaunchArgument('recalibrate_on_failure', default_value='false'),
         DeclareLaunchArgument('calibration_file', default_value='~/.ros/dobot/markerless_calibration.npz'),
         OpaqueFunction(function=make_node),
