@@ -50,19 +50,12 @@ class NetworkPolicy:
 
 
 class Access:
-    def __init__(self, config, secret):
-        if secret and len(secret) < 24:
-            raise ValueError('DOBOT_OPERATOR_TOKEN must have at least 24 characters')
-        self.secret = secret.encode()
+    def __init__(self, config):
         self.config = config
         self.owner = None
         self.until = 0.
         self.confirmation = None
         self.requests = OrderedDict()
-
-    def authenticated(self, authorization):
-        return bool(self.secret and authorization.startswith('Bearer ')
-                    and secrets.compare_digest(self.secret, authorization[7:].encode()))
 
     def valid(self, owner, now):
         return bool(owner and owner == self.owner and now < self.until)
@@ -236,8 +229,8 @@ def make_handler(node, assets, policy=None):
         def do_POST(self):
             if not self.permitted_request():
                 return
-            if not node.access.authenticated(self.headers.get('Authorization', '')):
-                self.send_json(401, {'error': 'Operator authorization required'})
+            if self.headers.get_content_type() != 'application/json':
+                self.send_json(415, {'error': 'Use application/json for dashboard commands'})
                 return
             path = urlsplit(self.path).path
             owner = self.headers.get('X-Control-Lease', '')
@@ -249,7 +242,7 @@ def make_handler(node, assets, policy=None):
                 return
             try:
                 length = int(self.headers.get('Content-Length', '0'))
-                if not 0 < length <= 4096 or self.headers.get_content_type() != 'application/json':
+                if not 0 < length <= 4096:
                     raise ValueError('Invalid JSON request')
                 body = json.loads(self.rfile.read(length))
                 if not isinstance(body, dict):

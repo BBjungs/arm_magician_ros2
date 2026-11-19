@@ -4,9 +4,9 @@ The responsive dashboard uses HTML, CSS and JavaScript with a Python standard-li
 
 The baseline launch binds to `127.0.0.1`. For the dedicated Jetson LAN service, see [LAN Deployment](LAN_DEPLOYMENT.md). To forward the loopback launch from a desktop with SSH access, use `ssh -N -L 8080:127.0.0.1:8080 <operator>@<jetson>` and open the forwarded URL on that desktop. A mobile SSH client can forward the same loopback port for a browser on the phone. Keep the forwarding endpoint private. Use a separate ROS domain with local discovery for the simulator and keep the ROS domain trusted.
 
-## Operator authorization
+## Simulation controls
 
-Set `DOBOT_OPERATOR_TOKEN` in the launch environment to enable operator access. The browser keeps the token in JavaScript memory. Only authenticated operators can claim an exclusive short lease. The browser renews the lease while active. Expiration stops the current owner’s run. STOP requires an authenticated operator and can interrupt another lease, including while a confirmation is displayed.
+Press **Start camera** to begin. On the first control action the browser automatically acquires an exclusive session. Loading or refreshing the page only reads status and frames. Another browser may view the dashboard or press STOP at any time. Release the session to hand over control, or close the controlling tab and allow its heartbeat to expire. HOME, Observation Pose and Auto Center each require confirmation and pass the workflow readiness checks. Real motion remains disabled and requires separate commissioning and authorization for any future implementation.
 
 | HTTP route | Purpose |
 | --- | --- |
@@ -18,7 +18,7 @@ Set `DOBOT_OPERATOR_TOKEN` in the launch environment to enable operator access. 
 | POST `/api/command` | Submit an exact operation with a unique `Idempotency-Key` |
 | POST `/api/stop` | Cancel the workflow and initiate controller stop verification |
 
-POST calls require a Bearer token. Lease-scoped calls include `X-Control-Lease`. Confirmations are single-use and bound to the operation and relevant workflow state, including target identity. Reusing an idempotency key with the same payload returns the recorded result within the lease. A conflicting payload is rejected. A disconnected browser loses authorization when its lease expires.
+POST calls accept JSON from the configured network and browser origin. STOP accepts a JSON request without a lease. Lease-scoped calls include `X-Control-Lease`. Confirmations are single-use and bound to the operation and relevant workflow state, including target identity. Reusing an idempotency key with the same payload returns the recorded result within the lease. A conflicting payload is rejected. A disconnected browser loses authorization when its lease expires.
 
 The physical emergency stop is independent of the dashboard. Software STOP reports the verified workflow outcome through the run state.
 

@@ -14,7 +14,7 @@
       <h1>Dobot Eye-in-Hand Auto Center</h1>
     </div></div>
     <div class="top-actions"><span class="chip" id="mode">Connecting</span>
-      <button id="stop" class="stop" disabled>■ STOP</button></div>
+      <button id="stop" class="stop">■ STOP</button></div>
   </header>
   <main>
     <div class="layout">
@@ -34,14 +34,8 @@
       </section>
       <div class="side">
         <section class="panel" aria-labelledby="control-heading">
-          <header class="panel-head"><h2 id="control-heading">Operator controls</h2>
-            <span id="control-status" class="chip">View only</span></header>
-          <form id="access">
-            <label for="token">Operator token</label>
-            <div class="access-row"><input type="password" id="token" name="token" autocomplete="off" spellcheck="false" required>
-              <button type="submit">Take control</button></div>
-          </form>
-          <button id="release" hidden>Release control</button>
+          <header class="panel-head"><h2 id="control-heading">Controls</h2>
+            <button id="release" hidden>Release session</button></header>
           <div class="commands">
             <button id="camera-start" disabled>Start camera</button>
             <button id="home" disabled>HOME</button>

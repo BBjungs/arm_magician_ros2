@@ -40,7 +40,7 @@ The dedicated unit and launcher target `172.30.10.101:8080`. Simulation defaults
 | Colcon cached build and development overlay | All seven packages built. The development overlay included the rebuilt application and the unchanged baseline camera and GET driver artifacts. Installed executable linkage and ROS imports passed. |
 | Offline regression suite | 34 tests passed |
 | LAN request handling | Passed for root HTML, health, static assets, JSON API and a fresh mock JPEG using the target Host header and an allowed client address |
-| Network and motion authorization | Passed for out-of-range client rejection, cross-origin rejection, operator token, command deduplication, confirmed mock HOME and Auto Center, STOP and read-only motion rejection |
+| Network and motion authorization | Passed for out-of-range client rejection, cross-origin rejection, command deduplication, confirmed mock HOME and Auto Center, STOP and read-only motion rejection |
 | Camera and robot telemetry | Mock RGB and robot states verified. Camera timeout retired old JPEGs without taking down health. Passive firmware, TCP, alarms and tool outputs verified using ROS message fixtures. |
 | Dashboard JS and layout | Executed JavaScript against a LAN API/DOM fixture. Checked side-by-side desktop and stacked mobile layout at 1280 and 360 px in offscreen Qt WebKit. |
 | Startup and systemd configuration | Bash syntax and systemd unit verification passed. The launcher reached the HTTP socket setup on port 18080. |
@@ -48,3 +48,9 @@ The dedicated unit and launcher target `172.30.10.101:8080`. Simulation defaults
 | Host service and Production port ownership | Netlink and the systemd bus were unavailable in the sandbox. Unit installation, service enablement and LAN client verification remain pending. |
 
 The live IP assignment and physical sensor states require host verification. The [LAN deployment procedure](LAN_DEPLOYMENT.md) includes an alternate-port test, a port-ownership check, the unit installation, and a separate LAN-client test.
+
+## Direct simulation controls
+
+The development dashboard package rebuilt successfully on ROS 2 Jazzy. All 34 offline tests passed using HTTP requests without login credentials, including confirmed HOME, observation pose, target selection, Auto Center to CENTERED, STOP from another client without a lease, fault handling and read-only motion rejection. The LAN allowlist and browser-origin checks also apply to STOP.
+
+The JavaScript fixture verified that opening the page sends only reads, STOP works before a session exists, the first workflow action acquires a single browser lease, and read-only mode disables motion controls. Offscreen layouts passed at 1280 and 360 px. The installed dashboard assets matched the source. The development service restart was blocked by the sandbox systemd bus permissions. Curl to the LAN root and health endpoint received no HTTP response from this environment.

@@ -1,7 +1,6 @@
 """ROS graph and application lifecycle."""
 
 import argparse
-import os
 from pathlib import Path
 from threading import RLock
 import time
@@ -23,13 +22,13 @@ from .workflow import Workflow
 
 
 class AutoCenterNode(Node):
-    def __init__(self, config, secret):
+    def __init__(self, config):
         super().__init__('dobot_auto_center')
         self.config = config
         self.lock = RLock()
         self.clock = time.monotonic
         self.last_tick = None
-        self.access = Access(config['web'], secret)
+        self.access = Access(config['web'])
         self.simulated = config['hardware']['simulation_mode']
         self.robot = None if self.simulated else RobotReceiver(self, config['hardware'], self.clock)
         camera = config['camera'].copy()
@@ -67,7 +66,7 @@ class AutoCenterNode(Node):
         frame = self.workflow.frame
         status.update(
             mode='simulation' if self.simulated else 'read-only',
-            real_motion_enabled=False, operator_configured=bool(self.access.secret),
+            real_motion_enabled=False,
             camera_source='mock' if self.simulated else 'orbbec_ros',
             camera_status=('MOCK RGB' if self.simulated else 'LIVE ORBBEC RGB')
             if status['camera'] else ('MOCK CAMERA OFFLINE' if self.simulated else 'CAMERA DISCONNECTED'),
@@ -118,7 +117,7 @@ def main():
     node = None
     server = None
     try:
-        node = AutoCenterNode(config, os.environ.get('DOBOT_OPERATOR_TOKEN', ''))
+        node = AutoCenterNode(config)
         server = serve(node, share / 'web')
         node.get_logger().info(f'Dashboard at http://{server.server_address[0]}:{server.server_address[1]}')
         rclpy.spin(node)

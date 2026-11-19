@@ -18,25 +18,22 @@ source install/setup.bash
 
 ## เริ่ม simulation
 
-ใน terminal ที่ source overlay ของ branch นี้แล้ว ให้กำหนด token อย่างน้อย 24 ตัวอักษรและใช้ ROS domain แยกสำหรับ simulation
+ใน terminal ที่ source overlay ของ branch นี้แล้ว ให้ใช้ ROS domain แยกสำหรับ simulation
 
 ```bash
 export ROS_DOMAIN_ID=42
 export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-read -rsp 'New operator token (at least 24 characters): ' DOBOT_OPERATOR_TOKEN
-export DOBOT_OPERATOR_TOKEN
-printf '\n'
 ros2 launch dobot_auto_center auto_center.launch.py config:="$PWD/config"
 ```
 
-เปิด `http://127.0.0.1:8080` บน Jetson และใส่ token เดียวกัน จากเครื่องอื่นให้ใช้ authenticated tunnel ตาม [คู่มือ Dashboard](docs/WEB_DASHBOARD.md)
+เปิด `http://127.0.0.1:8080` บน Jetson จากเครื่องอื่นให้ใช้ authenticated tunnel ตาม [คู่มือ Dashboard](docs/WEB_DASHBOARD.md)
 
-1. กด **Take control** และ **Start camera** รอให้ RGB และ Registered Depth พร้อม
+1. กด **Start camera** รอให้ RGB และ Registered Depth พร้อม
 2. กด **HOME** และยืนยัน รอให้ระบบตรวจสอบตำแหน่ง
 3. กด **Observation pose** และยืนยันแยก รอให้ตำแหน่งสังเกตการณ์พร้อม
 4. กด **Start detection** เลือกชิ้นงานจากรายการแล้วกด **Lock target** หรือลาก ROI ครอบชิ้นเดียวบนภาพ
 5. กด **AUTO CENTER** และยืนยัน ดูค่าคลาดเคลื่อนและ TCP เปลี่ยนระหว่างการแก้ทีละช่วง
-6. เมื่อขึ้น **CENTERED** ระบบเข้าสู่ HOLDING ใช้ **STOP** ได้ทุกช่วงที่มี operator token
+6. เมื่อขึ้น **CENTERED** ระบบเข้าสู่ HOLDING ใช้ **STOP** ได้ทุกช่วง
 
 กำหนด `mock_scenario` เป็น `left`, `right`, `up`, `down`, `corner`, `centered`, `lost` หรือ `multiple` ใน `config/visual_servo.yaml` ก่อนเริ่ม node รองรับ `mock_jacobian` แบบ `normal`, `reversed`, `coupled` และ `singular`
 

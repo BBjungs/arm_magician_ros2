@@ -58,21 +58,11 @@ PY
     fail "Development overlay missing. Build in $workspace first."
 systemctl --user show-environment >/dev/null ||
     fail 'Run this from a terminal logged in as jetson on the Jetson host (user systemd is required).'
-if [[ -z "${DOBOT_OPERATOR_TOKEN:-}" && -t 0 ]]; then
-    read -rsp 'Operator token (24+ characters, or Enter for view only): ' DOBOT_OPERATOR_TOKEN
-    printf '\n'
-fi
-env_args=()
-if [[ -n "${DOBOT_OPERATOR_TOKEN:-}" ]]; then
-    (( ${#DOBOT_OPERATOR_TOKEN} >= 24 )) || fail 'Operator token must have at least 24 characters.'
-    export DOBOT_OPERATOR_TOKEN
-    env_args+=(--setenv=DOBOT_OPERATOR_TOKEN)
-fi
 systemd-run --user --collect --unit="$unit" --working-directory="$workspace" \
     --property=Type=exec --property=KillSignal=SIGINT \
     --setenv=DOBOT_WEB_MODE=simulation --setenv=DOBOT_WEB_BIND="$address" \
     --setenv=DOBOT_WEB_PORT="$port" --setenv=ROS_DOMAIN_ID=42 \
-    --setenv=ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST "${env_args[@]}" \
+    --setenv=ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST \
     "$workspace/scripts/start-eye-center-dashboard"
 
 for ((attempt=0; attempt<30; attempt++)); do

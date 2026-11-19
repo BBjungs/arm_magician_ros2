@@ -3,7 +3,8 @@
 const byId = (name) => document.getElementById(name);
 const canvas = byId('camera');
 const ctx = canvas.getContext('2d');
-let operatorToken = '';
+let sessionRequest;
+let stopGeneration = 0;
 let lease = '';
 let status;
 let displayed;
@@ -28,7 +29,7 @@ async function post(path, body = {}, requestId = '') {
   const reply = await fetch('/api/' + path, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json', Authorization: 'Bearer ' + operatorToken,
+      'Content-Type': 'application/json',
       'X-Control-Lease': lease, 'Idempotency-Key': requestId,
     },
     body: JSON.stringify(body), signal: AbortSignal.timeout(1800),
@@ -43,27 +44,26 @@ function newRequestId() {
   return Array.from(random, (value) => value.toString(16).padStart(2, '0')).join('');
 }
 
+async function withSession(path, body, requestId) {
+  const generation = stopGeneration;
+  if (!lease) {
+    sessionRequest ??= post('control').then(result => {
+      lease = result.lease;
+    }).finally(() => { sessionRequest = undefined; });
+    await sessionRequest;
+  }
+  if (generation !== stopGeneration) throw new Error('Command interrupted by STOP');
+  return post(path, body, requestId);
+}
+
 async function command(action, data = {}) {
   feedback();
   try {
-    await post('command', {action, ...data}, newRequestId());
+    await withSession('command', {action, ...data}, newRequestId());
   } catch (error) {
     feedback(error.message);
   }
 }
-
-byId('access').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  operatorToken = byId('token').value;
-  byId('token').value = '';
-  try {
-    lease = (await post('control')).lease;
-    feedback();
-  } catch (error) {
-    feedback(error.message);
-  }
-  if (status) renderStatus(status);
-});
 
 function clearLease() {
   lease = '';
@@ -99,6 +99,7 @@ setInterval(async () => {
 }, 500);
 
 byId('stop').onclick = async () => {
+  stopGeneration++;
   hideConfirmation();
   try {
     await post('stop');
@@ -119,7 +120,9 @@ const motionLabels = {
 
 async function askConfirmation(action) {
   try {
-    const result = await post('confirm', {action});
+    const generation = stopGeneration;
+    const result = await withSession('confirm', {action});
+    if (generation !== stopGeneration) return;
     confirmation = {action, token: result.confirmation};
     byId('confirm-text').textContent = motionLabels[action];
     byId('confirmation').hidden = false;
@@ -162,21 +165,15 @@ function renderStatus(s) {
   chip('camera-status', s.camera_status, s.camera ? (s.simulation ? 'warn' : 'good') : '');
   chip('state', s.state.replaceAll('_', ' '), s.state === 'CENTERED' ? 'good' : busy ? 'warn' : '');
   chip('robot', s.robot_status, s.connected ? (s.simulation ? 'warn' : 'good') : '');
-  chip('control-status', lease ? 'Control active' : 'View only', lease ? 'good' : '');
-  byId('access').hidden = Boolean(lease);
-  byId('token').disabled = !s.operator_configured;
-  byId('access').querySelector('button').disabled = !s.operator_configured;
   byId('release').hidden = !lease;
-  byId('stop').disabled = !operatorToken || !s.simulation;
   byId('camera-start').hidden = !s.simulation;
-  byId('camera-start').disabled = !lease || s.camera;
-  byId('home').disabled = !lease || busy || !s.simulation || !s.connected || !s.depth || s.state === 'FAULT';
-  byId('observation').disabled = !lease || busy || !s.simulation || !s.homed || s.observation_pose || s.state !== 'READY';
-  byId('detect').disabled = !lease || busy || !s.depth || s.state === 'FAULT' ||
+  byId('camera-start').disabled = s.camera;
+  byId('home').disabled = busy || !s.simulation || !s.connected || !s.depth || s.state === 'FAULT';
+  byId('observation').disabled = busy || !s.simulation || !s.homed || s.observation_pose || s.state !== 'READY';
+  byId('detect').disabled = busy || !s.depth || s.state === 'FAULT' ||
     (s.simulation && !s.observation_pose);
-  byId('center').disabled = !lease || busy || !s.simulation || s.state !== 'TARGET_LOCKED' || !s.depth;
+  byId('center').disabled = busy || !s.simulation || s.state !== 'TARGET_LOCKED' || !s.depth;
   byId('diagnostic').textContent = s.diagnostic;
-  if (!s.operator_configured) feedback('Set DOBOT_OPERATOR_TOKEN on the controller to enable operator controls.');
   byId('safety').textContent = s.safety;
   byId('motion').textContent = s.motion;
   byId('depth').textContent = !s.depth ? 'Unavailable' :
@@ -215,7 +212,7 @@ function updateChoices() {
     }
     choiceFrame = displayed;
   }
-  choices.disabled = !lease || running || !status?.detecting || !status?.camera || status?.state === 'FAULT';
+  choices.disabled = running || !status?.detecting || !status?.camera || status?.state === 'FAULT';
   byId('lock').disabled = choices.disabled || !choices.value;
 }
 
@@ -311,7 +308,7 @@ byId('lock').onclick = () => {
 };
 
 canvas.onpointerdown = (event) => {
-  if (!lease || running || !status?.detecting || !status.camera ||
+  if (running || !status?.detecting || !status.camera ||
       status.state === 'FAULT' || !displayed || drag) return;
   canvas.setPointerCapture(event.pointerId);
   const start = point(event);

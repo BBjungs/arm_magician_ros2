@@ -24,7 +24,6 @@ from dobot_auto_center.web import NetworkPolicy, load_assets, make_handler
 from test_core import CONFIG
 
 
-TOKEN = 'test-operator-key-24-characters'
 HOST = '172.30.10.101:8080'
 PEER = '172.30.10.42'
 WEB = Path(__file__).resolve().parents[2] / 'src' / 'dobot_auto_center' / 'web'
@@ -51,14 +50,14 @@ class Integration(unittest.TestCase):
         self.addCleanup(rclpy.try_shutdown)
         self.config = load(CONFIG)
         self.config['web'].update(bind='172.30.10.101', allowed_clients=['172.30.10.0/24'])
-        self.node = AutoCenterNode(self.config, TOKEN)
+        self.node = AutoCenterNode(self.config)
         self.addCleanup(self.node.destroy_node)
         self.addCleanup(self.node.close)
         self.handler = make_handler(self.node, load_assets(WEB))
         self.lease = ''
         self.next_heartbeat = 0.
 
-    def http(self, path, body=None, token=TOKEN, request_id=None, *, host=HOST, peer=PEER,
+    def http(self, path, body=None, request_id=None, *, host=HOST, peer=PEER,
              origin=None, handler=None):
         headers = {'Host': host}
         if origin is not None:
@@ -69,7 +68,7 @@ class Integration(unittest.TestCase):
             command = 'POST'
             payload = json.dumps(body).encode()
             headers.update({'Content-Type': 'application/json', 'Content-Length': str(len(payload)),
-                            'Authorization': 'Bearer ' + token, 'X-Control-Lease': self.lease,
+                            'X-Control-Lease': self.lease,
                             'Idempotency-Key': request_id or str(uuid.uuid4())})
         request = f'{command} {path} HTTP/1.1\r\n'
         request += ''.join(f'{k}: {v}\r\n' for k, v in headers.items()) + '\r\n'
@@ -151,7 +150,6 @@ class Integration(unittest.TestCase):
         self.assertIn(b'getRandomValues', self.http('/app.js')[1])
         self.assertIn(b'@media', self.http('/app.css')[1])
         self.assertFalse(self.node.motion.transport.commands)
-        self.assertEqual(self.http('/api/stop', {}, token='wrong')[0], 401)
         self.assertEqual(self.post('command', {'action': 'home'}, expected=403)['error'],
                          'Exclusive control lease required')
         self.prepare()
@@ -169,7 +167,7 @@ class Integration(unittest.TestCase):
         self.assertEqual(result['motion'], 'HOLDING')
         self.assertGreater(len(self.node.motion.transport.commands), 2)
 
-    def test_stop_works_during_native_action_from_authenticated_peer(self):
+    def test_stop_works_during_native_action_from_peer_without_lease(self):
         self.prepare()
         self.confirmed('center')
         self.wait(lambda s: s['state'] == 'CENTERING' and s['motion'] == 'MOVING')
@@ -196,6 +194,8 @@ class Integration(unittest.TestCase):
         self.assertEqual(self.http('/', peer='172.30.11.4')[0], 403)
         self.assertEqual(self.http('/', peer='198.51.100.4')[0], 403)
         self.assertEqual(self.http('/', host='controller.example:8080')[0], 403)
+        self.assertEqual(self.http('/api/stop', {}, origin='http://other.example')[0], 403)
+        self.assertEqual(self.http('/api/stop', {}, peer='172.30.11.4')[0], 403)
         self.assertEqual(self.http('/api/control', {}, origin='http://other.example')[0], 403)
         self.assertEqual(self.http('/api/control', {}, origin=f'http://{HOST}')[0], 200)
         for bind in ('0.0.0.0', '198.51.100.4'):
@@ -218,7 +218,7 @@ class Integration(unittest.TestCase):
         config = load(CONFIG)
         config['hardware']['simulation_mode'] = False
         config['web'].update(self.config['web'])
-        passive = AutoCenterNode(config, TOKEN)
+        passive = AutoCenterNode(config)
         self.addCleanup(passive.destroy_node)
         self.addCleanup(passive.close)
         handler = make_handler(passive, load_assets(WEB))
