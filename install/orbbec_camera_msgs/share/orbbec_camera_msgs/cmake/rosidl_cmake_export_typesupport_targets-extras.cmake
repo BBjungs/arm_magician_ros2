@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_cmake/rosidl_cmake_export_typesupport_targets-extras.cmake

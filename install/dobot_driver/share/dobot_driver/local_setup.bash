@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_driver/ament_cmake_environment_hooks/local_setup.bash

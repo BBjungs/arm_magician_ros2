@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/src/OrbbecSDK_ROS2/orbbec_camera/launch/multi_camera_synced.launch.py

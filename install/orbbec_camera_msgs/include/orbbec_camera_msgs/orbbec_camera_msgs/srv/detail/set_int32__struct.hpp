@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_generator_cpp/orbbec_camera_msgs/srv/detail/set_int32__struct.hpp

@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_cpp/dobot_msgs/srv/detail/gripper_control__rosidl_typesupport_introspection_cpp.hpp

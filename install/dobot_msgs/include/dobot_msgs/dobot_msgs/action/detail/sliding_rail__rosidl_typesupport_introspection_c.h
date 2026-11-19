@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_typesupport_introspection_c/dobot_msgs/action/detail/sliding_rail__rosidl_typesupport_introspection_c.h

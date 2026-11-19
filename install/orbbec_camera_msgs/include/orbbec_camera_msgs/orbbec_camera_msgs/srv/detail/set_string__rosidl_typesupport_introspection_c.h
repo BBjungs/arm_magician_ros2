@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/orbbec_camera_msgs/rosidl_typesupport_introspection_c/orbbec_camera_msgs/srv/detail/set_string__rosidl_typesupport_introspection_c.h

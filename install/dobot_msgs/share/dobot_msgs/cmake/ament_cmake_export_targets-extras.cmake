@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_msgs/ament_cmake_export_targets/ament_cmake_export_targets-extras.cmake

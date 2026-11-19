@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_web_interface/README.md

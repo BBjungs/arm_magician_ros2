@@ -1,0 +1,23 @@
+/camera/camera:
+  ros__parameters:
+    camera_name: camera
+    serial_number: ""
+    usb_port: ""
+    enable_hardware_reset: false
+    enable_color: true
+    color_width: 640
+    color_height: 480
+    color_fps: 30
+    color_format: MJPG
+    enable_depth: true
+    depth_width: 640
+    depth_height: 400
+    depth_fps: 30
+    depth_format: Y11
+    enable_ir: false
+    depth_registration: true
+    align_mode: HW
+    publish_tf: true
+    enable_point_cloud: false
+    enable_colored_point_cloud: false
+    enable_d2c_viewer: false

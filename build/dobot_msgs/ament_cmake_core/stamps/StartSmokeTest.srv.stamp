@@ -1,4 +1,0 @@
-bool operator_confirmed
----
-bool accepted
-string report

@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_diagnostics/launch/alarms_analyzer.launch.py

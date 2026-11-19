@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_vision_rgbd/launch/rgbd_vision.launch.py

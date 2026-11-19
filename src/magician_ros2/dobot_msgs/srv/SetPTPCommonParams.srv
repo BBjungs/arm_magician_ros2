@@ -1,7 +1,0 @@
-uint8 velocity_percent
-uint8 acceleration_percent
----
-bool success
-bool acknowledged
-bool timed_out
-string error

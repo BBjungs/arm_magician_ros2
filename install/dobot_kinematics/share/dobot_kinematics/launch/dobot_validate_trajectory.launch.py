@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_kinematics/launch/dobot_validate_trajectory.launch.py

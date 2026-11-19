@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_motion/launch/dobot_PTP.launch.py

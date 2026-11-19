@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/src/magician_ros2/dobot_end_effector/setup.py

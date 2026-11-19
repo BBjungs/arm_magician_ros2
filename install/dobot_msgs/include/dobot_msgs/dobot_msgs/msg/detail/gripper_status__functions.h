@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_msgs/rosidl_generator_c/dobot_msgs/msg/detail/gripper_status__functions.h

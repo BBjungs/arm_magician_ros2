@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_vision_yolo/launch/vision_pick_place.launch.py

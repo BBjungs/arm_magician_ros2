@@ -1,7 +1,0 @@
-/**:
-  ros__parameters:
-    auto_start: false
-    calibration_file: ~/.ros/dobot/markerless_calibration.npz
-    carrier_frame: ''
-    mount_model: /home/jetson/arm_magician_ws/install/dobot_calibration/share/dobot_calibration/config/mount_model.yaml
-    recalibrate_on_failure: false

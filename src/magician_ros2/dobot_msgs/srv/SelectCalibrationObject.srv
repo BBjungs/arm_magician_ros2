@@ -1,6 +1,0 @@
-# Empty selection_json requests automatic selection of a single suitable object.
-# Otherwise: {"pixel": [u, v], "image_size": [width, height], "rgb_stamp": seconds}
-string selection_json
----
-bool accepted
-string report

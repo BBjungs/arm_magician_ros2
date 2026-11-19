@@ -1,0 +1,8 @@
+/dobot_readback:
+  ros__parameters:
+    # Set an explicit /dev/serial/by-id path, or set usb_id and optionally usb_serial_number.
+    serial_port: ""
+    usb_id: ""
+    usb_serial_number: ""
+    serial_timeout: 0.15
+    poll_period: 0.5

@@ -1,3 +1,0 @@
-[console_scripts]
-camera_health_node = dobot_vision_rgbd.camera_health_node:main
-object_fusion_node = dobot_vision_rgbd.object_fusion_node:main

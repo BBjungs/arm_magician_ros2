@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/src/magician_ros2/dobot_demos/setup.py

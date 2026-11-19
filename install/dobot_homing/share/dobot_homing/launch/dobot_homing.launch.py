@@ -1,1 +1,0 @@
-/home/bbcontact/magician_ros2/build/dobot_homing/launch/dobot_homing.launch.py
