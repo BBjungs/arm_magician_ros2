@@ -63,6 +63,12 @@ curl -v http://172.30.10.101:8080/
 curl -v http://172.30.10.101:8080/health
 ```
 
+### Replacing the Jetson production dashboard
+
+The installed legacy unit is a **user** service, `dobot-magician.service`. Its launcher requires port 8080 and supervises the entire old robot, camera and web stack. Stopping the unit therefore also removes telemetry provided by that stack. To replace the old installation with the simulation dashboard, test port 18080 first and verify the old listener's PID with `ss -ltnp '( sport = :8080 )'` and `systemctl --user status <listener-pid>`. Have the workcell operator verify that the robot is stationary and ready for the old stack to shut down.
+
+After verifying that the legacy user unit owns the port, run `systemctl --user stop dobot-magician.service` on the Jetson as the unit owner. Recheck `ss -ltnp '( sport = :8080 )'` for any remaining listeners. Start the new unit on 8080 only when the port is clear. Once the new Dashboard root and health check pass from an allowed LAN client, disable the old launch at login with `systemctl --user disable dobot-magician.service`. Keep the old source, configuration and unit available for recovery. If the new launch fails, inspect its journal. Restore the old stack only after the operator confirms the workcell is ready for the old startup behavior.
+
 Confirm the final URL from a second LAN device. A healthy dashboard can report a disconnected camera or robot. If the new service fails, inspect its journal for the binding or overlay error. To roll back the new listener, use `sudo systemctl disable --now dobot-eye-center.service` and re-check port ownership with `ss`.
 
 ## Read-only hardware view
