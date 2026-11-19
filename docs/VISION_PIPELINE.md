@@ -1,0 +1,7 @@
+# Vision pipeline
+
+The detector backend implements `detect(observation) -> list[Detection]`. The HSV implementation thresholds a calibrated color range, removes isolated noise, computes connected components, filters by area and fill ratio, and rejects boxes near the image edge. The fill ratio is a shape heuristic used as confidence. An additional backend can implement the same contract and register in the detector factory. No model is needed for this simulator.
+
+The operator locks a target with an ROI containing exactly one detected center. The dashboard also turns an explicit list choice into an ROI. The server traces that selection through recent intervening observations, then tracks using centroid displacement, area ratio, and hue. Zero or multiple plausible matches invalidate the track. A lost track requires explicit selection again. Identical objects that exchange places below the camera's sampling resolution cannot be reliably distinguished by this appearance tracker. Inspect the intended workpiece and scene before any future hardware use.
+
+The receiver checks configured dimensions, color optical frame, CameraInfo intrinsics, timestamp skew and freshness. It treats registered `16UC1` as mm and `32FC1` as metres. It samples the scene for depth coverage and checks the median around the target center with a minimum valid sample fraction. Depth gates motion. The control law consumes only pixel error. All thresholds and topic names are in `camera.yaml`, `vision.yaml` and `safety.yaml`.

@@ -1,0 +1,14 @@
+tolerance_pixels: 12
+stable_frames: 5
+probe_mm: 3.0
+damping: 0.35
+gain: 0.72
+minimum_singular_value: 0.45
+maximum_condition_number: 12.0
+maximum_corrections: 36
+maximum_duration: 55.0
+maximum_xy_excursion_mm: 45.0
+maximum_error_increases: 2
+error_jitter_pixels: 1.5
+mock_jacobian: coupled
+mock_scenario: left

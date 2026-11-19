@@ -1,0 +1,9 @@
+simulation_mode: true
+real_motion_enabled: false
+autostart_motion: false
+telemetry_timeout: 0.40
+topics:
+  device: /dobot/device_status
+  alarms: /dobot/alarms
+  joints: /joint_states
+  tcp: /dobot/tcp_pose

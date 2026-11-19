@@ -1,0 +1,11 @@
+backend: hsv
+hsv_lower: [16, 95, 105]
+hsv_upper: [42, 255, 255]
+minimum_area: 650
+minimum_confidence: 0.70
+border_pixels: 3
+tracking_radius_pixels: 58
+tracking_area_ratio: 1.6
+tracking_hue_tolerance: 7
+depth_sample_radius: 4
+depth_minimum_fraction: 0.65

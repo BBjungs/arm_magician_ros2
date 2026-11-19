@@ -1,0 +1,12 @@
+width: 640
+height: 480
+rgb_topic: /camera/color/image_raw
+depth_topic: /camera/depth/image_raw
+info_topic: /camera/color/camera_info
+frame: camera_color_optical_frame
+freshness: 0.45
+max_depth_skew: 0.06
+mock_depth_m: 0.30
+mock_fps: 12
+selection_history_seconds: 2.0
+minimum_valid_depth_fraction: 0.25

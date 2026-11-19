@@ -1,0 +1,10 @@
+home: [195.0, 0.0, 115.0, 0.0]
+observation: [200.0, 0.0, 120.0, 0.0]
+max_step_mm: 8.0
+max_setup_travel_mm: 30.0
+speed_mm_s: 28.0
+max_speed_mm_s: 35.0
+timeout: 3.0
+settle_seconds: 0.13
+position_tolerance_mm: 0.35
+rotation_tolerance_deg: 0.25

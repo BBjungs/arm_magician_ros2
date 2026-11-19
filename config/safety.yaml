@@ -1,0 +1,15 @@
+# Geometry and limits below describe the simulator only.
+simulation_workcell_ready: true
+simulation_estop_available: true
+physical_workcell_commissioned: false
+workspace_min_mm: [155.0, -70.0, 95.0]
+workspace_max_mm: [245.0, 70.0, 145.0]
+joint_min_deg: [-40.0, -30.0, 25.0, -10.0]
+joint_max_deg: [40.0, 40.0, 125.0, 10.0]
+table_height_mm: 0.0
+clearance_mm: 15.0
+assembly_half_extent_mm: [25.0, 25.0, 32.0]
+link_radius_mm: 9.0
+obstacles_mm: []
+minimum_depth_m: 0.17
+maximum_depth_m: 0.65

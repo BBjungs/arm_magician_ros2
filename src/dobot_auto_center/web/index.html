@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dobot Eye-in-Hand Auto Center</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="mark" aria-hidden="true"></span><div>
+      <p>Magician · RGB-D workcell</p>
+      <h1>Dobot Eye-in-Hand Auto Center</h1>
+    </div></div>
+    <div class="top-actions"><span class="chip" id="mode">Connecting</span>
+      <button id="stop" class="stop" disabled>■ STOP</button></div>
+  </header>
+  <main>
+    <div class="layout">
+      <section class="panel camera-panel" aria-labelledby="camera-heading">
+        <header class="panel-head"><h2 id="camera-heading">RGB camera</h2>
+          <span id="camera-status" class="chip">Offline</span></header>
+        <div class="view" id="view">
+          <canvas id="camera" width="640" height="480" aria-label="Live RGB camera with detection overlays"></canvas>
+          <div class="empty" id="empty">Start the camera to see the live view</div>
+        </div>
+        <div class="camera-foot"><span><i class="key image-key"></i>Image center</span>
+          <span><i class="key target-key"></i>Target center</span><span id="resolution">640 × 480</span></div>
+        <div class="targets"><label for="choices">Target selection</label>
+          <select id="choices" aria-label="Detected objects"><option value="">Select a detected object</option></select>
+          <button id="lock" disabled>Lock target</button></div>
+        <p class="hint">Draw an ROI over one object, or select it from the list.</p>
+      </section>
+      <div class="side">
+        <section class="panel" aria-labelledby="control-heading">
+          <header class="panel-head"><h2 id="control-heading">Operator controls</h2>
+            <span id="control-status" class="chip">View only</span></header>
+          <form id="access">
+            <label for="token">Operator token</label>
+            <div class="access-row"><input type="password" id="token" name="token" autocomplete="off" spellcheck="false" required>
+              <button type="submit">Take control</button></div>
+          </form>
+          <button id="release" hidden>Release control</button>
+          <div class="commands">
+            <button id="camera-start" disabled>Start camera</button>
+            <button id="home" disabled>HOME</button>
+            <button id="observation" disabled>Observation pose</button>
+            <button id="detect" disabled>Start detection</button>
+            <button id="center" class="primary" disabled>AUTO CENTER</button>
+          </div>
+          <div id="confirmation" class="confirmation" hidden>
+            <p id="confirm-text"></p><div><button id="confirm-cancel">Cancel</button>
+              <button id="confirm-run" class="primary">Confirm</button></div>
+          </div>
+          <p id="feedback" role="status"></p>
+        </section>
+        <section class="panel" aria-labelledby="state-heading">
+          <header class="panel-head"><h2 id="state-heading">Run status</h2>
+            <span class="chip" id="state">Connecting</span></header>
+          <p class="diagnostic" id="diagnostic" role="status">Waiting for ROS telemetry</p>
+          <dl class="metrics">
+            <div><dt>Safety</dt><dd id="safety">—</dd></div>
+            <div><dt>Motion</dt><dd id="motion">—</dd></div>
+            <div><dt>Depth</dt><dd id="depth">—</dd></div>
+            <div><dt>Stable frames</dt><dd id="stable">—</dd></div>
+            <div><dt>Error X</dt><dd id="error-x">—</dd></div>
+            <div><dt>Error Y</dt><dd id="error-y">—</dd></div>
+          </dl>
+        </section>
+      </div>
+      <section class="panel telemetry" aria-labelledby="robot-heading">
+        <header class="panel-head"><h2 id="robot-heading">Robot telemetry</h2>
+          <span class="chip" id="robot">Waiting</span></header>
+        <div class="telemetry-body">
+          <div><h3>TCP <small>mm / °</small></h3><dl id="tcp" class="axes"></dl></div>
+          <div><h3>Joints <small>°</small></h3><dl id="joints" class="axes"></dl></div>
+          <div><h3>Robot alarm</h3><p id="alarms">Unknown</p></div>
+        </div>
+      </section>
+    </div>
+    <footer>Web STOP cancels the software run. The physical emergency stop is independent.</footer>
+  </main>
+</body>
+</html>

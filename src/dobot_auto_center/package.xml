@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>dobot_auto_center</name>
+  <version>0.1.0</version>
+  <description>Offline eye-in-hand centering and read-only ROS camera and robot monitoring</description>
+  <maintainer email="maintainer@example.com">Dobot workspace maintainers</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+  <depend>action_msgs</depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>dobot_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

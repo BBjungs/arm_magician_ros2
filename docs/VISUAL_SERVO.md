@@ -1,0 +1,7 @@
+# Visual servo
+
+Pixel error is `[u − width/2, v − height/2]`. With a stationary target and fixed Z/R, two short, authorized probes span TCP X/Y. For each probe the controller records the actual TCP displacement and target displacement between stationary observations. If the measured travel matrix is full rank, solving the two observations gives the local image Jacobian `J` in px/mm. The Jacobian empirically includes the installed orientation and working pose represented by the mock camera. It is discarded between runs and the controller bounds travel relative to the identification pose.
+
+The damped least-squares correction is `−gain × Jᵀ (JJᵀ + damping² I)⁻¹ e`, limited to the configured step size. Each move requires a verified settled pose and a newer image before another measurement qualifies. Rank, singular value, condition number, cumulative excursion, correction count, increasing error and overall run duration all have stop criteria.
+
+A target within tolerance on the first qualifying frame can finish with zero servo probes or corrections. Centering requires the configured count of consecutive new stationary measurements within tolerance in both axes, initially five at ±12 px. The run then transitions to CENTERED and sends no further motion. The mock Jacobians cover normal, reversed, coupled and singular mappings. Dobot reachability with actual joint kinematics, camera weight and orientation remains a hardware commissioning task.

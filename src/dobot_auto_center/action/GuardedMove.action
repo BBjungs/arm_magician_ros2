@@ -1,0 +1,13 @@
+# The workflow mints an expiring permit bound to one exact operation.
+string permit
+string operation
+float64[4] tcp_mm_deg
+float64 speed_mm_s
+---
+string code
+string diagnostic
+float64[4] tcp_mm_deg
+float64 settled_stamp
+---
+string phase
+float64[4] tcp_mm_deg
