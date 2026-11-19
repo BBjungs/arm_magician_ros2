@@ -1,5 +1,6 @@
 bind: 127.0.0.1
 port: 8080
+allowed_clients: []
 lease_seconds: 2.5
 confirmation_seconds: 20.0
 request_history_size: 256

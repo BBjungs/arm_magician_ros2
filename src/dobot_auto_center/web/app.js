@@ -38,10 +38,15 @@ async function post(path, body = {}, requestId = '') {
   return result;
 }
 
+function newRequestId() {
+  const random = crypto.getRandomValues(new Uint8Array(16));
+  return Array.from(random, (value) => value.toString(16).padStart(2, '0')).join('');
+}
+
 async function command(action, data = {}) {
   feedback();
   try {
-    await post('command', {action, ...data}, crypto.randomUUID());
+    await post('command', {action, ...data}, newRequestId());
   } catch (error) {
     feedback(error.message);
   }
@@ -154,15 +159,16 @@ function renderStatus(s) {
   const busy = ['CENTERING', 'HOMING', 'STOPPING'].includes(s.state) || ['MOVING', 'VERIFYING'].includes(s.motion);
   running = busy;
   chip('mode', s.simulation ? 'Simulation' : 'Read only', 'warn');
-  chip('camera-status', s.camera ? 'Live' : 'Offline', s.camera ? 'good' : '');
+  chip('camera-status', s.camera_status, s.camera ? (s.simulation ? 'warn' : 'good') : '');
   chip('state', s.state.replaceAll('_', ' '), s.state === 'CENTERED' ? 'good' : busy ? 'warn' : '');
-  chip('robot', s.connected ? 'Connected' : 'Offline', s.connected ? 'good' : '');
+  chip('robot', s.robot_status, s.connected ? (s.simulation ? 'warn' : 'good') : '');
   chip('control-status', lease ? 'Control active' : 'View only', lease ? 'good' : '');
   byId('access').hidden = Boolean(lease);
   byId('token').disabled = !s.operator_configured;
   byId('access').querySelector('button').disabled = !s.operator_configured;
   byId('release').hidden = !lease;
-  byId('stop').disabled = !operatorToken;
+  byId('stop').disabled = !operatorToken || !s.simulation;
+  byId('camera-start').hidden = !s.simulation;
   byId('camera-start').disabled = !lease || s.camera;
   byId('home').disabled = !lease || busy || !s.simulation || !s.connected || !s.depth || s.state === 'FAULT';
   byId('observation').disabled = !lease || busy || !s.simulation || !s.homed || s.observation_pose || s.state !== 'READY';
@@ -180,7 +186,16 @@ function renderStatus(s) {
   byId('error-y').textContent = s.error ? s.error[1].toFixed(1) + ' px' : '—';
   byId('resolution').textContent = s.width + ' × ' + s.height;
   byId('empty').hidden = s.camera && Boolean(image);
-  byId('empty').textContent = s.frame_id ? 'Camera feed unavailable' : 'Start the camera to see the live view';
+  byId('empty').textContent = s.simulation && !s.frame_id ? 'Start the mock camera' : s.camera_status;
+  byId('frame-age').textContent = s.camera_age_ms == null ? 'No fresh frame' : s.camera_age_ms + ' ms old';
+  byId('frame-age').title = s.camera_timestamp == null ? '' : new Date(s.camera_timestamp * 1000).toISOString();
+  for (const group of ['hardware-details', 'suction-details', 'gripper-details']) byId(group).hidden = s.simulation;
+  byId('firmware').textContent = s.firmware_version.length ? s.firmware_version.join('.') : 'Unavailable';
+  for (const tool of ['suction', 'gripper']) {
+    const sample = s[tool];
+    byId(tool).textContent = sample == null ? 'Unavailable' :
+      (sample.active ? 'Active' : 'Inactive') + (sample.control_enabled ? '' : ' · control disabled');
+  }
   byId('alarms').textContent = !s.alarm_valid ? 'Unknown' : s.alarms.length ? s.alarms.join(', ') : 'No active alarms';
   axes('tcp', ['X', 'Y', 'Z', 'R'], s.connected ? s.tcp : null);
   axes('joints', ['J1', 'J2', 'J3', 'J4'], s.connected ? s.joints : null);
@@ -260,7 +275,7 @@ async function update() {
     renderStatus(status);
     draw();
   } catch {
-    chip('camera-status', 'Disconnected');
+    chip('camera-status', 'CAMERA DISCONNECTED');
     chip('robot', 'Disconnected');
     byId('empty').textContent = 'Dashboard connection lost';
     byId('empty').hidden = false;

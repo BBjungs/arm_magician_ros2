@@ -7,3 +7,5 @@ topics:
   alarms: /dobot/alarms
   joints: /joint_states
   tcp: /dobot/tcp_pose
+  suction: /dobot/suction
+  gripper: /dobot/gripper

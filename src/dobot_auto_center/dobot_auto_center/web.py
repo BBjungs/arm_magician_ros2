@@ -1,4 +1,4 @@
-"""Loopback-only dashboard and operator authorization boundary."""
+"""Dashboard HTTP boundary for loopback and explicitly scoped private LANs."""
 
 from collections import OrderedDict
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -16,6 +16,37 @@ import cv2
 CONFIRMED = {'home', 'observation', 'center'}
 OPERATIONS = CONFIRMED | {'camera', 'detect', 'select'}
 REQUEST_KEY = re.compile(r'[A-Za-z0-9_-]{12,100}')
+
+
+PRIVATE_RANGES = tuple(map(ipaddress.IPv4Network, ('10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16')))
+
+
+class NetworkPolicy:
+    def __init__(self, config):
+        self.bind = ipaddress.IPv4Address(config['bind'])
+        self.port = config['port']
+        self.clients = tuple(ipaddress.IPv4Network(cidr) for cidr in config.get('allowed_clients', []))
+        if self.bind.is_loopback:
+            if self.clients:
+                raise ValueError('Loopback does not require a LAN allowlist')
+        elif (not any(self.bind in network for network in PRIVATE_RANGES) or not self.clients
+              or any(not any(client.subnet_of(network) for network in PRIVATE_RANGES)
+                     for client in self.clients)):
+            raise ValueError('LAN requires a specific private IPv4 bind and a private client CIDR allowlist')
+
+    def allows_peer(self, address):
+        try:
+            peer = ipaddress.IPv4Address(address)
+        except ipaddress.AddressValueError:
+            return False
+        if self.bind.is_loopback:
+            return peer.is_loopback
+        return any(peer in network for network in self.clients)
+
+    def allows_host(self, host):
+        names = (str(self.bind), 'localhost') if self.bind.is_loopback else (str(self.bind),)
+        return any(host == f'{name}:{self.port}' or (self.port == 80 and host == name)
+                   for name in names)
 
 
 class Access:
@@ -127,7 +158,9 @@ def dispatch(node, path, body, owner, request_id):
     return 404, {'error': 'Unknown operation'}
 
 
-def make_handler(node, assets):
+def make_handler(node, assets, policy=None):
+    policy = policy or NetworkPolicy(node.config['web'])
+
     class Handler(BaseHTTPRequestHandler):
         def setup(self):
             super().setup()
@@ -154,30 +187,41 @@ def make_handler(node, assets):
         def send_json(self, status, value):
             self.send_data(status, json.dumps(value, allow_nan=False).encode(), 'application/json')
 
-        def valid_host(self):
-            try:
-                host = urlsplit('//' + self.headers.get('Host', '')).hostname
-                return host == 'localhost' or ipaddress.ip_address(host or '').is_loopback
-            except ValueError:
-                return False
+        def permitted_request(self):
+            host = self.headers.get('Host', '')
+            origin = self.headers.get('Origin')
+            if (len(self.headers.get_all('Host', [])) == 1 and policy.allows_host(host)
+                    and policy.allows_peer(self.client_address[0])
+                    and (origin is None or origin == f'http://{host}')):
+                return True
+            self.send_json(403, {'error': 'Request outside the configured network or origin'})
+            return False
 
         def do_GET(self):
-            if not self.valid_host():
-                self.send_json(403, {'error': 'Loopback host required'})
+            if not self.permitted_request():
                 return
             path = urlsplit(self.path).path
             if path in assets:
                 content, content_type = assets[path]
                 self.send_data(200, content, content_type)
-            elif path == '/api/status':
+            elif path in ('/api/status', '/health'):
                 with node.lock:
-                    status = node.workflow.status(node.clock())
-                    status['operator_configured'] = bool(node.access.secret)
-                self.send_json(200, status)
+                    now = node.clock()
+                    status = node.dashboard_status(now)
+                    running = (node.last_tick is not None and now - node.last_tick <= 1.0)
+                if path == '/health':
+                    value = {key: status[key] for key in
+                             ('mode', 'camera_status', 'robot_status', 'real_motion_enabled')}
+                    self.send_json(200 if running else 503, {'ok': running, **value})
+                else:
+                    self.send_json(200, status)
             elif re.fullmatch(r'/api/frame/[0-9]{1,12}\.jpg', path):
                 frame_id = int(path.rsplit('/', 1)[1][:-4])
                 with node.lock:
-                    image = next((img for seq, img in node.workflow.images if seq == frame_id), None)
+                    status = node.workflow.status(node.clock())
+                    image = next((img for seq, img, captured in node.workflow.images
+                                  if seq == frame_id and status['camera']
+                                  and node.clock() - captured <= node.config['camera']['freshness']), None)
                 if image is None:
                     self.send_json(404, {'error': 'Frame expired'})
                     return
@@ -190,7 +234,9 @@ def make_handler(node, assets):
                 self.send_json(404, {'error': 'Not found'})
 
         def do_POST(self):
-            if not self.valid_host() or not node.access.authenticated(self.headers.get('Authorization', '')):
+            if not self.permitted_request():
+                return
+            if not node.access.authenticated(self.headers.get('Authorization', '')):
                 self.send_json(401, {'error': 'Operator authorization required'})
                 return
             path = urlsplit(self.path).path
@@ -225,16 +271,24 @@ def make_handler(node, assets):
     return Handler
 
 
-def serve(node, web_directory):
-    config = node.config['web']
-    bind = config['bind']
-    if bind != '127.0.0.1':
-        raise ValueError('Dashboard binds to 127.0.0.1. Use an authenticated tunnel for remote access')
+def load_assets(web_directory):
     files = {'/': ('index.html', 'text/html; charset=utf-8'),
              '/app.css': ('app.css', 'text/css; charset=utf-8'),
              '/app.js': ('app.js', 'text/javascript; charset=utf-8')}
-    assets = {url: ((web_directory / name).read_bytes(), content_type)
-              for url, (name, content_type) in files.items()}
-    server = ThreadingHTTPServer((bind, config['port']), make_handler(node, assets))
+    return {url: ((web_directory / name).read_bytes(), content_type)
+            for url, (name, content_type) in files.items()}
+
+
+def serve(node, web_directory):
+    config = node.config['web']
+    bind = config['bind']
+    policy = NetworkPolicy(config)
+    assets = load_assets(web_directory)
+
+    class DashboardServer(ThreadingHTTPServer):
+        def verify_request(self, _socket, address):
+            return policy.allows_peer(address[0])
+
+    server = DashboardServer((bind, config['port']), make_handler(node, assets, policy))
     Thread(target=server.serve_forever, daemon=True).start()
     return server

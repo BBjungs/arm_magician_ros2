@@ -5,7 +5,7 @@ import math
 
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
-from dobot_msgs.msg import AlarmState, DeviceStatus
+from dobot_msgs.msg import AlarmState, DeviceStatus, ToolState
 from geometry_msgs.msg import PoseStamped
 import numpy as np
 from rclpy.qos import qos_profile_sensor_data
@@ -96,20 +96,22 @@ class CameraReceiver:
             return None
         self.last_stamp = stamp
         if not synchronized:
-            return Observation(local, received, rgb, None)
+            return Observation(local, received, rgb, None, source_stamp=stamp)
         _, depth_stamp, depth = nearest
         sample = depth[::16, ::16]
         valid = np.mean(np.isfinite(sample) & (sample > 0)) >= self.config['minimum_valid_depth_fraction']
         return Observation(local, received, rgb, depth if valid else None, depth_stamp,
-                           calibrated)
+                           calibrated, stamp)
 
 
 class RobotReceiver:
     def __init__(self, node, config, clock):
         self.node, self.clock = node, clock
+        self.timeout = config['telemetry_timeout']
         self.samples = {}
         for key, kind in (('device', DeviceStatus), ('alarms', AlarmState),
-                          ('joints', JointState), ('tcp', PoseStamped)):
+                          ('joints', JointState), ('tcp', PoseStamped),
+                          ('suction', ToolState), ('gripper', ToolState)):
             node.create_subscription(kind, config['topics'][key],
                                      lambda msg, name=key: self.receive(name, msg), 10)
 
@@ -117,11 +119,11 @@ class RobotReceiver:
         self.samples[key] = local_stamp(self.node, message.header, self.clock), message
 
     def snapshot(self):
-        if len(self.samples) != 4:
+        keys = ('device', 'alarms', 'joints', 'tcp')
+        if not all(key in self.samples for key in keys):
             return Readback(0.)
-        device, alarm, joints, tcp = [self.samples[key][1]
-                                     for key in ('device', 'alarms', 'joints', 'tcp')]
-        stamp = min(entry[0] for entry in self.samples.values())
+        device, alarm, joints, tcp = [self.samples[key][1] for key in keys]
+        stamp = min(self.samples[key][0] for key in keys)
         if (len(joints.name) != len(joints.position)
                 or any(name not in joints.name for name in JOINT_NAMES)
                 or tcp.header.frame_id != 'magician_base_link'):
@@ -135,6 +137,27 @@ class RobotReceiver:
         if not all(map(math.isfinite, (*pose, *angles))):
             return Readback(stamp)
         return Readback(stamp, device.connected, alarm.valid, tuple(alarm.codes), pose, angles)
+
+
+    def device_status(self, now):
+        def fresh(topic):
+            sample = self.samples.get(topic)
+            return sample[1] if sample and 0 <= now - sample[0] <= self.timeout else None
+
+        device = fresh('device')
+        connected = bool(device and device.connected)
+        alarm = fresh('alarms') if connected else None
+        result = {
+            'device_connected': connected,
+            'device_name': device.device_name if connected else None,
+            'firmware_version': list(device.firmware_version) if connected else [],
+            'alarms': list(alarm.codes) if alarm and alarm.valid else [],
+            'alarm_valid': bool(alarm and alarm.valid),
+        }
+        for key in ('suction', 'gripper'):
+            tool = fresh(key) if connected else None
+            result[key] = {'control_enabled': tool.control_enabled, 'active': tool.active} if tool and tool.valid else None
+        return result
 
 
 class CameraPublisher:

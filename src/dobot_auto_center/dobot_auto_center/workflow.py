@@ -36,7 +36,7 @@ class Workflow:
         self.servo = VisualServo(config['visual_servo'])
         self.state = State.CONNECTING
         self.diagnostic = 'Waiting for telemetry'
-        self.camera_on = False
+        self.camera_on = not config['hardware']['simulation_mode']
         self.detecting = False
         self.homed = False
         self.at_observation = False
@@ -64,7 +64,7 @@ class Workflow:
             return
         self.frame = observation
         self.frame_id += 1
-        self.images.append((self.frame_id, observation.rgb))
+        self.images.append((self.frame_id, observation.rgb, observation.stamp))
         self.detections = self.detector.detect(observation) if self.detecting else []
         self.history.append((self.frame_id, observation.stamp, self.detections))
         if self.target is not None:

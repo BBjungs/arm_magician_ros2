@@ -2,7 +2,7 @@
 
 The responsive dashboard uses HTML, CSS and JavaScript with a Python standard-library HTTP backend. It displays the RGB stream, registered depth status, bounding boxes, object and image centers, pixel errors, TCP, joints, alarms, run state and diagnostic text.
 
-The server binds to `127.0.0.1`. From a desktop with SSH access, use `ssh -N -L 8080:127.0.0.1:8080 <operator>@<jetson>` and open the forwarded URL on that desktop. A mobile SSH client can forward the same loopback port for a browser on the phone. Keep the forwarding endpoint private. Use a separate ROS domain with local discovery for the simulator and keep the ROS domain trusted.
+The baseline launch binds to `127.0.0.1`. For the dedicated Jetson LAN service, see [LAN Deployment](LAN_DEPLOYMENT.md). To forward the loopback launch from a desktop with SSH access, use `ssh -N -L 8080:127.0.0.1:8080 <operator>@<jetson>` and open the forwarded URL on that desktop. A mobile SSH client can forward the same loopback port for a browser on the phone. Keep the forwarding endpoint private. Use a separate ROS domain with local discovery for the simulator and keep the ROS domain trusted.
 
 ## Operator authorization
 
@@ -10,6 +10,7 @@ Set `DOBOT_OPERATOR_TOKEN` in the launch environment to enable operator access. 
 
 | HTTP route | Purpose |
 | --- | --- |
+| GET `/health` | HTTP 200 while the ROS update loop is healthy, with separate camera and robot status |
 | GET `/api/status` | Current dashboard state and detection metadata |
 | GET `/api/frame/{frame_id}.jpg` | JPEG corresponding to a recent status sample |
 | POST `/api/control`, `/api/heartbeat`, `/api/release` | Acquire, renew or release control |

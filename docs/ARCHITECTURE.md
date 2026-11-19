@@ -12,12 +12,14 @@ The workflow advances only on qualified observations captured after motion and s
 
 | Interface | Type | Direction |
 | --- | --- | --- |
-| `/camera/color/image_raw` | `sensor_msgs/msg/Image` | Vision subscribes. Simulator publishes BGR8. |
-| `/camera/depth/image_raw` | `sensor_msgs/msg/Image` | Vision subscribes. Simulator publishes registered 16UC1. |
-| `/camera/color/camera_info` | `sensor_msgs/msg/CameraInfo` | Vision subscribes. Simulator publishes intrinsics. |
+| `/camera/color/image_raw` | `sensor_msgs/msg/Image` | Passive vision subscribes to BGR/RGB images. |
+| `/camera/depth/image_raw` | `sensor_msgs/msg/Image` | Passive vision subscribes to registered depth. |
+| `/camera/color/camera_info` | `sensor_msgs/msg/CameraInfo` | Passive vision subscribes to intrinsics. |
 | `/dobot/device_status`, `/dobot/alarms` | `dobot_msgs/msg/DeviceStatus`, `dobot_msgs/msg/AlarmState` | Passive mode subscribes. |
 | `/joint_states`, `/dobot/tcp_pose` | `sensor_msgs/msg/JointState`, `geometry_msgs/msg/PoseStamped` | Passive mode subscribes. |
 | `/dobot_auto_center/guarded_move` | `dobot_auto_center/action/GuardedMove` | Private to the simulation orchestrator. |
+
+The simulation camera publishes and subscribes to the same relative camera topic paths under `/dobot_auto_center/simulation`. This keeps simulated RGB-D separate from official Orbbec topics even if a process shares the hardware ROS domain. Passive telemetry includes fresh firmware information and reported suction and gripper outputs through the GET driver's `/dobot/suction` and `/dobot/gripper` topics.
 
 The Dobot GET driver reports position in metres and joint angles in radians. The passive adapter converts to mm and degrees for the dashboard, and retains the URDF joint convention. Mock transport TCP readback feeds the workflow directly and is independent of the commanded target. Sensor source timestamps are converted to local monotonic time at reception. The web worker never opens a device or sends ROS goals itself.
 

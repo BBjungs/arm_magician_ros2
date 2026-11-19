@@ -30,3 +30,21 @@ ros2 interface show dobot_auto_center/action/GuardedMove
 ```
 
 Physical mounting, actual registered depth, firmware compatibility, installed pose and joint conventions, HOME, full physical workspace and collision clearance, E-stop and real stop/cancel remain commissioning checks. The installed application rejects attempts to enable real motion.
+
+## Jetson LAN deployment verification
+
+The dedicated unit and launcher target `172.30.10.101:8080`. Simulation defaults to a separate DDS domain and publishes camera data in its own topic namespace. The configured client range is `172.30.10.0/24`.
+
+| Check | Result |
+| --- | --- |
+| Colcon cached build and development overlay | All seven packages built. The development overlay included the rebuilt application and the unchanged baseline camera and GET driver artifacts. Installed executable linkage and ROS imports passed. |
+| Offline regression suite | 34 tests passed |
+| LAN request handling | Passed for root HTML, health, static assets, JSON API and a fresh mock JPEG using the target Host header and an allowed client address |
+| Network and motion authorization | Passed for out-of-range client rejection, cross-origin rejection, operator token, command deduplication, confirmed mock HOME and Auto Center, STOP and read-only motion rejection |
+| Camera and robot telemetry | Mock RGB and robot states verified. Camera timeout retired old JPEGs without taking down health. Passive firmware, TCP, alarms and tool outputs verified using ROS message fixtures. |
+| Dashboard JS and layout | Executed JavaScript against a LAN API/DOM fixture. Checked side-by-side desktop and stacked mobile layout at 1280 and 360 px in offscreen Qt WebKit. |
+| Startup and systemd configuration | Bash syntax and systemd unit verification passed. The launcher reached the HTTP socket setup on port 18080. |
+| Host TCP, alternate port and LAN client verification | Socket creation returned `Operation not permitted`. Curl did not receive HTTP responses at 18080 or 8080. |
+| Host service and Production port ownership | Netlink and the systemd bus were unavailable in the sandbox. Unit installation, service enablement and LAN client verification remain pending. |
+
+The live IP assignment and physical sensor states require host verification. The [LAN deployment procedure](LAN_DEPLOYMENT.md) includes an alternate-port test, a port-ownership check, the unit installation, and a separate LAN-client test.

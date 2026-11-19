@@ -40,6 +40,10 @@ ros2 launch dobot_auto_center auto_center.launch.py config:="$PWD/config"
 
 กำหนด `mock_scenario` เป็น `left`, `right`, `up`, `down`, `corner`, `centered`, `lost` หรือ `multiple` ใน `config/visual_servo.yaml` ก่อนเริ่ม node รองรับ `mock_jacobian` แบบ `normal`, `reversed`, `coupled` และ `singular`
 
+## ใช้งานผ่าน LAN บน Jetson
+
+ใช้ startup script และ unit แยกสำหรับ `172.30.10.101:8080` ตาม [คู่มือ LAN Deployment](docs/LAN_DEPLOYMENT.md) คู่มือมีขั้นตอนทดสอบพอร์ต 18080 ก่อนเปิด service และวิธีเปิดโหมด Read-Only เพื่ออ่านข้อมูลจาก drivers ที่รันอยู่แล้ว
+
 ## ตรวจความพร้อมแบบ passive
 
 คัดลอก config ไปอีก directory ตั้ง `simulation_mode: false` และรัน launch ด้วย `config:=<directory>` เพื่ออ่าน topics ที่มีอยู่ โหมดนี้ไม่มี ROS action server หรือ motion transport ให้ใช้คำสั่งด้านล่างเพื่อตรวจ topics โดยไม่เปิดอุปกรณ์

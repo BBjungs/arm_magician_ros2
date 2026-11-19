@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -e
+set -o pipefail
+
+fail() { printf 'Dobot dashboard: %s\n' "$*" >&2; exit 1; }
+
+workspace="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
+mode="${DOBOT_WEB_MODE:-simulation}"
+bind="${DOBOT_WEB_BIND:-172.30.10.101}"
+port="${DOBOT_WEB_PORT:-8080}"
+config="${DOBOT_WEB_CONFIG:-$workspace/config}"
+
+case "$mode" in
+    simulation) export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-42}" ;;
+    read-only) export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-0}" ;;
+    *) fail 'DOBOT_WEB_MODE must be simulation or read-only' ;;
+esac
+export ROS_AUTOMATIC_DISCOVERY_RANGE="${ROS_AUTOMATIC_DISCOVERY_RANGE:-LOCALHOST}"
+
+[[ -r /opt/ros/jazzy/setup.bash ]] || fail 'ROS 2 Jazzy setup.bash is missing'
+[[ -r "$workspace/install/local_setup.bash" ]] || fail "Build the development overlay in $workspace/install"
+[[ -d "$config" ]] || fail "Configuration directory missing: $config"
+source /opt/ros/jazzy/setup.bash
+source "$workspace/install/local_setup.bash"
+[[ "$ROS_DISTRO" == jazzy ]] || fail 'Expected the ROS 2 Jazzy environment'
+prefix="$(ros2 pkg prefix dobot_auto_center)" || fail 'dobot_auto_center package missing from overlay'
+case "$prefix" in
+    "$workspace/install"|"$workspace/install/"*) ;;
+    *) fail "dobot_auto_center resolved outside the development overlay: $prefix" ;;
+esac
+python3 -c 'import cv2, yaml, numpy, rclpy; from cv_bridge import CvBridge; from dobot_msgs.msg import ToolState; from dobot_auto_center.action import GuardedMove' ||
+    fail 'ROS or Python dependencies unavailable in the development overlay'
+
+args=(--config "$config" --mode "$mode" --bind "$bind" --port "$port")
+case "$bind" in
+    127.*) ;;
+    *)
+        cidrs="${DOBOT_WEB_ALLOWED_CLIENTS:-172.30.10.0/24}"
+        IFS=, read -r -a clients <<< "$cidrs"
+        for client in "${clients[@]}"; do args+=(--allow-client "$client"); done
+        ;;
+esac
+
+printf 'Dobot dashboard starting in %s mode at http://%s:%s/ (ROS domain %s)\n' \
+    "$mode" "$bind" "$port" "$ROS_DOMAIN_ID"
+exec "$prefix/lib/dobot_auto_center/auto_center" "${args[@]}"

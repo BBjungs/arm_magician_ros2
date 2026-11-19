@@ -26,7 +26,7 @@
           <div class="empty" id="empty">Start the camera to see the live view</div>
         </div>
         <div class="camera-foot"><span><i class="key image-key"></i>Image center</span>
-          <span><i class="key target-key"></i>Target center</span><span id="resolution">640 × 480</span></div>
+          <span><i class="key target-key"></i>Target center</span><span id="frame-age">No fresh frame</span><span id="resolution">640 × 480</span></div>
         <div class="targets"><label for="choices">Target selection</label>
           <select id="choices" aria-label="Detected objects"><option value="">Select a detected object</option></select>
           <button id="lock" disabled>Lock target</button></div>
@@ -76,6 +76,9 @@
           <div><h3>TCP <small>mm / °</small></h3><dl id="tcp" class="axes"></dl></div>
           <div><h3>Joints <small>°</small></h3><dl id="joints" class="axes"></dl></div>
           <div><h3>Robot alarm</h3><p id="alarms">Unknown</p></div>
+          <div id="hardware-details" hidden><h3>Dobot firmware</h3><p id="firmware">Unavailable</p></div>
+          <div id="suction-details" hidden><h3>Suction output</h3><p id="suction">Unavailable</p></div>
+          <div id="gripper-details" hidden><h3>Gripper output</h3><p id="gripper">Unavailable</p></div>
         </div>
       </section>
     </div>

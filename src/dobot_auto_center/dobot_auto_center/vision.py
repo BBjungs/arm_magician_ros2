@@ -15,6 +15,7 @@ class Observation:
     depth: np.ndarray | None
     depth_stamp: float = 0.0
     calibrated: bool = False
+    source_stamp: float | None = None
 
     def fresh(self, now, timeout):
         return 0 <= now - self.stamp <= timeout and 0 <= now - self.received <= timeout
