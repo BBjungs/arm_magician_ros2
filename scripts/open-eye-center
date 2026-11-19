@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+# Start the existing LAN simulation for the current login. Print its verified URL.
+set -euo pipefail
+
+workspace="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
+address=172.30.10.101
+unit=dobot-eye-center-preview.service
+fail() { printf '%s\n' "$*" >&2; exit 1; }
+
+healthy() {
+    local url="http://$address:$1"
+    curl --noproxy '*' --max-time 2 -fsS "$url/health" 2>/dev/null |
+        python3 -c 'import json,sys
+try:
+    s = json.load(sys.stdin)
+    ok = (s["ok"] is True and s["mode"] in ("simulation", "read-only")
+          and s["real_motion_enabled"] is False and "camera_status" in s)
+except (ValueError, KeyError, TypeError):
+    ok = False
+sys.exit(0 if ok else 1)' &&
+        curl --noproxy '*' --max-time 2 -fsS "$url/" 2>/dev/null |
+        grep -F 'Dobot Eye-in-Hand Auto Center' >/dev/null
+}
+
+for port in 8080 18080; do
+    if healthy "$port"; then
+        printf 'Dashboard ready: http://%s:%s/\n' "$address" "$port"
+        exit 0
+    fi
+done
+
+# Bind and immediately release a probe socket. The server performs the final bind.
+# Only address-in-use permits trying the alternate port.
+port="$(python3 - "$address" <<'PY'
+import errno
+import socket
+import sys
+
+ip = sys.argv[1]
+for port in (8080, 18080):
+    try:
+        with socket.socket() as probe:
+            probe.bind((ip, port))
+    except OSError as error:
+        if error.errno == errno.EADDRINUSE:
+            print(f"{ip}:{port} is already in use", file=sys.stderr)
+            continue
+        print(f"Cannot bind {ip}:{port}: {error}", file=sys.stderr)
+        sys.exit(1)
+    print(port)
+    break
+else:
+    sys.exit("Both dashboard ports are occupied")
+PY
+)" || exit 1
+
+[[ -x "$workspace/install/dobot_auto_center/lib/dobot_auto_center/auto_center" ]] ||
+    fail "Development overlay missing. Build in $workspace first."
+systemctl --user show-environment >/dev/null ||
+    fail 'Run this from a terminal logged in as jetson on the Jetson host (user systemd is required).'
+if [[ -z "${DOBOT_OPERATOR_TOKEN:-}" && -t 0 ]]; then
+    read -rsp 'Operator token (24+ characters, or Enter for view only): ' DOBOT_OPERATOR_TOKEN
+    printf '\n'
+fi
+env_args=()
+if [[ -n "${DOBOT_OPERATOR_TOKEN:-}" ]]; then
+    (( ${#DOBOT_OPERATOR_TOKEN} >= 24 )) || fail 'Operator token must have at least 24 characters.'
+    export DOBOT_OPERATOR_TOKEN
+    env_args+=(--setenv=DOBOT_OPERATOR_TOKEN)
+fi
+systemd-run --user --collect --unit="$unit" --working-directory="$workspace" \
+    --property=Type=exec --property=KillSignal=SIGINT \
+    --setenv=DOBOT_WEB_MODE=simulation --setenv=DOBOT_WEB_BIND="$address" \
+    --setenv=DOBOT_WEB_PORT="$port" --setenv=ROS_DOMAIN_ID=42 \
+    --setenv=ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST "${env_args[@]}" \
+    "$workspace/scripts/start-eye-center-dashboard"
+
+for ((attempt=0; attempt<30; attempt++)); do
+    if systemctl --user is-active --quiet "$unit"; then
+        if healthy "$port"; then
+            printf 'Dashboard ready: http://%s:%s/\n' "$address" "$port"
+            exit 0
+        fi
+    else
+        break
+    fi
+    sleep 1
+done
+journalctl --user -u "$unit" -n 15 --no-pager >&2
+fail "Dashboard did not pass the root and health checks at http://$address:$port/"
