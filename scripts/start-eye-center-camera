@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+# Run only the Orbbec driver. Share the former Production launcher's host lock.
+set -eo pipefail
+workspace="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
+source /opt/ros/jazzy/setup.bash
+source "$workspace/install/local_setup.bash"
+export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-0}"
+export ROS_AUTOMATIC_DISCOVERY_RANGE="${ROS_AUTOMATIC_DISCOVERY_RANGE:-SUBNET}"
+export RMW_IMPLEMENTATION="${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}"
+
+exec 9>"${XDG_RUNTIME_DIR:?}/dobot-magician.lock"
+flock -n 9 || { echo 'Hardware stack lock is busy. Deferring camera startup.' >&2; exit 1; }
+
+prefix="$(ros2 pkg prefix orbbec_camera)"
+driver="$prefix/lib/orbbec_camera/orbbec_camera_node"
+[[ -x "$driver" && -r "$workspace/config/orbbec.yaml" ]]
+if pgrep -f '/orbbec_camera_node([[:space:]]|$)|component_container[^ ]* .*camera_container' >/dev/null; then
+    echo 'Camera driver is already running.'
+    exit 0
+fi
+owner="$(python3 - "$workspace/config/camera.yaml" <<'PY'
+import sys
+import time
+import rclpy
+import yaml
+
+with open(sys.argv[1]) as file:
+    camera = yaml.safe_load(file)
+rclpy.init()
+node = rclpy.create_node('eye_center_camera_owner_check')
+try:
+    deadline = time.monotonic() + 2
+    while time.monotonic() < deadline:
+        if any(ns.rstrip('/') + '/' + name == camera['driver_node']
+               for name, ns in node.get_node_names_and_namespaces()):
+            print(camera['driver_node'])
+            break
+        topics = [camera[key] for key in ('rgb_topic', 'depth_topic', 'info_topic')]
+        published = next((topic for topic in topics if node.count_publishers(topic)), None)
+        if published:
+            print(published)
+            break
+        rclpy.spin_once(node, timeout_sec=.1)
+finally:
+    node.destroy_node()
+    rclpy.shutdown()
+PY
+)"
+if [[ -n "$owner" ]]; then
+    echo "Existing ROS camera source: $owner"
+    exit 0
+fi
+
+# Also check the physical USB interfaces in case the existing driver uses another ROS domain.
+command -v fuser >/dev/null || { echo 'USB ownership check requires fuser.' >&2; exit 1; }
+for device in /sys/bus/usb/devices/*; do
+    [[ -r "$device/idVendor" && "$(<"$device/idVendor")" == 2bc5 ]] || continue
+    printf -v usb '/dev/bus/usb/%03d/%03d' "$(<"$device/busnum")" "$(<"$device/devnum")"
+    if [[ ! -c "$usb" ]]; then
+        echo "Orbbec USB device unavailable: $usb" >&2
+        exit 1
+    fi
+    if fuser -s "$usb"; then
+        echo "Orbbec USB device already in use: $usb" >&2
+        exit 1
+    fi
+done
+exec python3 "$workspace/scripts/run-orbbec-driver.py" "$driver" --ros-args -r __ns:=/camera -r __node:=camera \
+    --params-file "$workspace/config/orbbec.yaml" -p enable_ldp:=false

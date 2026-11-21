@@ -91,6 +91,53 @@ class ProtocolTests(unittest.TestCase):
 
 
 class SerialTests(unittest.TestCase):
+    def test_home_is_one_immediate_write_and_requires_a_matching_ack(self):
+        wire = FakeSerial()
+        command = bytes.fromhex("aa aa 06 1f 01 00 00 00 00 e0")
+        with patch("dobot_driver.serial_driver.serial.Serial", return_value=wire):
+            device = DobotSerial("fake", timeout=0.05)
+            wire.responses[31] = reply(31, b"", control=1)
+            device.start_homing()
+            self.assertEqual(wire.writes, [command])
+            wire.responses[31] = reply(31, b"", control=0) + reply(30, b"", control=1)
+            with self.assertRaisesRegex(TimeoutError, "acknowledgement"):
+                device.start_homing()
+            self.assertEqual(wire.writes, [command, command])
+            device.close()
+
+    def test_home_echo_is_not_an_ack_and_never_triggers_a_retry(self):
+        wire = FakeSerial()
+        echo = reply(31, bytes(4), control=1)
+        with patch("dobot_driver.serial_driver.serial.Serial", return_value=wire):
+            device = DobotSerial("test-port", timeout=0.05)
+            wire.responses[31] = echo
+            with self.assertRaisesRegex(TimeoutError, "RX 10 bytes: Unexpected HOME acknowledgement"):
+                device.start_homing()
+            self.assertEqual(wire.writes, [echo])
+            wire.responses[31] += reply(31, bytes(8), control=1)
+            device.start_homing()
+            self.assertEqual(wire.writes, [echo, echo])
+
+    def test_cancelled_home_guard_prevents_the_serial_write(self):
+        def cancelled():
+            raise ValueError("HOME cancelled")
+
+        wire = FakeSerial()
+        with patch("dobot_driver.serial_driver.serial.Serial", return_value=wire):
+            device = DobotSerial("test-port", timeout=0.05)
+            with self.assertRaisesRegex(ValueError, "HOME cancelled"):
+                device.start_homing(write_guard=cancelled)
+            self.assertEqual(wire.writes, [])
+
+    def test_pose_silence_reports_the_actual_write_and_port(self):
+        wire = FakeSerial()
+        with patch("dobot_driver.serial_driver.serial.Serial", return_value=wire):
+            device = DobotSerial("test-port", timeout=0.05, hardware_home=True)
+            self.assertIsNone(device.read_pose())
+            self.assertIn("test-port, TX aa aa 02 0a 00 f6 (6 bytes written), RX 0 bytes",
+                          device.last_reply_issue)
+            self.assertEqual(wire.writes, [encode_query(Command.POSE)])
+
     def test_port_selection_requires_unique_identifier(self):
         first = SimpleNamespace(device="first", vid=0x1234, pid=0x4321, serial_number="A")
         second = SimpleNamespace(device="second", vid=0x1234, pid=0x4321, serial_number="B")

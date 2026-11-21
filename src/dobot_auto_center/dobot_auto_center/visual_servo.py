@@ -9,12 +9,17 @@ class VisualServo:
         self.reset()
 
     def reset(self):
+        self.target_center = self.pixel_error = None
         self.samples = []
         self.jacobian = None
         self.stable = 0
         self.corrections = 0
         self.increases = 0
         self.previous_error = None
+
+    def observe(self, target, width, height):
+        self.target_center = target.center if target else None
+        self.pixel_error = target.error(width, height) if target else None
 
     def record_probe(self, before_tcp, after_tcp, before_error, after_error):
         self.samples.append((np.subtract(after_tcp[:2], before_tcp[:2]),

@@ -23,7 +23,7 @@ source install/setup.bash
 ```bash
 export ROS_DOMAIN_ID=42
 export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-ros2 launch dobot_auto_center auto_center.launch.py config:="$PWD/config"
+ros2 run dobot_auto_center auto_center --config "$PWD/config" --mode simulation
 ```
 
 เปิด `http://127.0.0.1:8080` บน Jetson จากเครื่องอื่นให้ใช้ authenticated tunnel ตาม [คู่มือ Dashboard](docs/WEB_DASHBOARD.md)
@@ -39,11 +39,11 @@ ros2 launch dobot_auto_center auto_center.launch.py config:="$PWD/config"
 
 ## ใช้งานผ่าน LAN บน Jetson
 
-ใช้ startup script และ unit แยกสำหรับ `172.30.10.101:8080` ตาม [คู่มือ LAN Deployment](docs/LAN_DEPLOYMENT.md) คู่มือมีขั้นตอนทดสอบพอร์ต 18080 ก่อนเปิด service และวิธีเปิดโหมด Read-Only เพื่ออ่านข้อมูลจาก drivers ที่รันอยู่แล้ว
+รัน `scripts/open-eye-center --restart` บน Jetson เพื่อรีสตาร์ต Dashboard และเปิดอัตโนมัติหลังบูตที่ `172.30.10.101:8080` คำสั่งนี้หยุดและปิด autostart ของ `dobot-magician.service` และตั้งบริการกล้อง Orbbec แยกต่างหาก ดู [คู่มือ LAN Deployment](docs/LAN_DEPLOYMENT.md)
 
 ## ตรวจความพร้อมแบบ passive
 
-คัดลอก config ไปอีก directory ตั้ง `simulation_mode: false` และรัน launch ด้วย `config:=<directory>` เพื่ออ่าน topics ที่มีอยู่ โหมดนี้ไม่มี ROS action server หรือ motion transport ให้ใช้คำสั่งด้านล่างเพื่อตรวจ topics โดยไม่เปิดอุปกรณ์
+ค่าเริ่มต้นอ่านภาพจาก Orbbec ผ่าน ROS ของ Production ใช้ `scripts/open-eye-center` บน Jetson เพื่อเปิด Dashboard ระบบขึ้น `LIVE ORBBEC RGB-D` เมื่อได้ RGB, Registered Depth และ CameraInfo ที่ตรงกันจากไดรเวอร์ หากข้อมูลขาดจะแสดง `Camera Offline` โหมดนี้ไม่มี ROS action server หรือ motion transport ให้ใช้คำสั่งด้านล่างเพื่อตรวจ topics โดยไม่เปิดอุปกรณ์
 
 ```bash
 ros2 run dobot_auto_center auto_center_readiness --config "$PWD/config" --seconds 5

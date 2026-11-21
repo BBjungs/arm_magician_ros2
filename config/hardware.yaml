@@ -1,4 +1,4 @@
-simulation_mode: true
+simulation_mode: false
 real_motion_enabled: false
 autostart_motion: false
 telemetry_timeout: 0.40

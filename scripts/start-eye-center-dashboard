@@ -5,17 +5,23 @@ set -o pipefail
 fail() { printf 'Dobot dashboard: %s\n' "$*" >&2; exit 1; }
 
 workspace="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
-mode="${DOBOT_WEB_MODE:-simulation}"
+mode="${DOBOT_WEB_MODE:-read-only}"
 bind="${DOBOT_WEB_BIND:-172.30.10.101}"
 port="${DOBOT_WEB_PORT:-8080}"
 config="${DOBOT_WEB_CONFIG:-$workspace/config}"
 
 case "$mode" in
-    simulation) export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-42}" ;;
-    read-only) export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-0}" ;;
-    *) fail 'DOBOT_WEB_MODE must be simulation or read-only' ;;
+    simulation)
+        export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-42}"
+        export ROS_AUTOMATIC_DISCOVERY_RANGE="${ROS_AUTOMATIC_DISCOVERY_RANGE:-LOCALHOST}"
+        ;;
+    read-only|hardware-home)
+        export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-0}"
+        export ROS_AUTOMATIC_DISCOVERY_RANGE="${ROS_AUTOMATIC_DISCOVERY_RANGE:-SUBNET}"
+        export RMW_IMPLEMENTATION="${RMW_IMPLEMENTATION:-rmw_cyclonedds_cpp}"
+        ;;
+    *) fail 'DOBOT_WEB_MODE must be simulation, read-only or hardware-home' ;;
 esac
-export ROS_AUTOMATIC_DISCOVERY_RANGE="${ROS_AUTOMATIC_DISCOVERY_RANGE:-LOCALHOST}"
 
 [[ -r /opt/ros/jazzy/setup.bash ]] || fail 'ROS 2 Jazzy setup.bash is missing'
 [[ -r "$workspace/install/local_setup.bash" ]] || fail "Build the development overlay in $workspace/install"
@@ -32,6 +38,9 @@ python3 -c 'import cv2, yaml, numpy, rclpy; from cv_bridge import CvBridge; from
     fail 'ROS or Python dependencies unavailable in the development overlay'
 
 args=(--config "$config" --mode "$mode" --bind "$bind" --port "$port")
+if [[ "$mode" == hardware-home ]]; then
+    args+=(--home-port "${DOBOT_HOME_PORT:?Missing dedicated Dobot serial port}")
+fi
 case "$bind" in
     127.*) ;;
     *)

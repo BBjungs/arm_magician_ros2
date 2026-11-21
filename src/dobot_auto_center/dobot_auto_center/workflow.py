@@ -17,6 +17,7 @@ class State(str, Enum):
     HOMING = 'HOMING'
     READY = 'READY'
     DETECTING = 'DETECTING'
+    PENDING_REVALIDATION = 'PENDING_REVALIDATION'
     TARGET_LOCKED = 'TARGET_LOCKED'
     CENTERING = 'CENTERING'
     CENTERED = 'CENTERED'
@@ -37,15 +38,21 @@ class Workflow:
         self.state = State.CONNECTING
         self.diagnostic = 'Waiting for telemetry'
         self.camera_on = not config['hardware']['simulation_mode']
-        self.detecting = False
+        self.passive = self.camera_on
+        self.detecting = self.passive
         self.homed = False
         self.at_observation = False
         self.frame = None
+        self.pending_preview = None
+        self.preview_id = 0
+        self.last_ingest = None
         self.frame_id = 0
         self.history = deque(maxlen=90)
         self.images = deque(maxlen=8)
+        self.frame_stamps = deque(maxlen=60)
         self.detections = []
         self.target = None
+        self.revalidate_until = None
         self.target_id = 0
         self.target_owner = None
         self.run_owner = None
@@ -62,19 +69,89 @@ class Workflow:
             return
         if self.frame is not None and observation.stamp <= self.frame.stamp:
             return
+        self.last_ingest = now
         self.frame = observation
         self.frame_id += 1
+        if observation.source_stamp is not None:
+            self.frame_stamps.append(observation.source_stamp)
         self.images.append((self.frame_id, observation.rgb, observation.stamp))
-        self.detections = self.detector.detect(observation) if self.detecting else []
-        self.history.append((self.frame_id, observation.stamp, self.detections))
-        if self.target is not None:
+        registered_depth = self.rgbd(now)
+        if self.passive and not registered_depth:
+            self.depth_unavailable(now)
+            return
+        self.detections = (self.detector.detect(observation, registered_depth=registered_depth)
+                           if self.detecting else [])
+        self.history.append((self.frame_id, observation.stamp, self.detections, observation.rgb.shape[:2]))
+        if self.state == State.PENDING_REVALIDATION:
+            candidate = None
+            if now <= self.revalidate_until and self.lease_valid(self.target_owner, now):
+                candidate = self.tracker.update(self.detections)
+            if candidate is None or candidate.depth is None:
+                self.clear_target()
+                self.transition(State.DETECTING, 'Target lost. Select a new ROI')
+            else:
+                self.target = candidate
+                self.revalidate_until = None
+                self.transition(State.TARGET_LOCKED, 'Target revalidated with fresh RGB-D')
+        elif self.target is not None:
             self.target = self.tracker.update(self.detections)
             if self.target is None:
                 if self.state == State.CENTERING:
                     self.stop(now, 'Target lost or identity ambiguous')
-                elif self.state == State.TARGET_LOCKED:
+                elif self.state in (State.TARGET_LOCKED, State.CENTERED):
+                    self.clear_target()
                     self.state = State.DETECTING
                     self.diagnostic = 'Target lost or identity ambiguous. Select a new ROI'
+
+        self.servo.observe(self.target, observation.rgb.shape[1], observation.rgb.shape[0])
+        if (self.state == State.CENTERED and self.servo.pixel_error is not None
+                and max(map(abs, self.servo.pixel_error)) > self.config['visual_servo']['tolerance_pixels']):
+            self.servo.stable = 0
+            self.transition(State.TARGET_LOCKED, 'Target moved away from image center')
+
+    def update_preview(self, preview):
+        if preview is not None and (self.pending_preview is None
+                                    or preview.source_ns != self.pending_preview.source_ns):
+            self.preview_id -= 1
+        self.pending_preview = preview
+
+    def display_frame(self, now):
+        if self.rgb_fresh(now):
+            return self.frame
+        if (self.camera_on and self.passive and self.pending_preview is not None
+                and self.pending_preview.fresh(now, self.config['camera']['freshness'])):
+            return self.pending_preview
+
+    def camera_offline(self):
+        self.pending_preview = None
+        self.frame = None
+        self.frame_stamps.clear()
+        self.history.clear()
+        self.images.clear()
+        self.detections = []
+        self.clear_target()
+        self.transition(State.DISCONNECTED, 'Camera Offline')
+
+    def depth_unavailable(self, now):
+        self.history.clear()
+        self.detections = []
+        if self.state == State.TARGET_LOCKED and self.target is not None:
+            self.revalidate_until = now + self.config['camera']['freshness']
+            self.target = None
+            self.servo.stable = 0
+            self.servo.observe(None, 0, 0)
+            self.transition(State.PENDING_REVALIDATION, 'Depth unavailable. Revalidating target')
+        if self.state == State.PENDING_REVALIDATION:
+            if now <= self.revalidate_until and self.lease_valid(self.target_owner, now):
+                return
+            self.clear_target()
+            self.transition(State.CONNECTING, 'Target lost. Waiting for registered depth')
+            return
+        self.clear_target()
+        self.transition(State.CONNECTING, 'Live RGB preview. Waiting for valid registered depth.')
+
+    def rgb_fresh(self, now):
+        return bool(self.camera_on and self.frame and self.frame.fresh(now, self.config['camera']['freshness']))
 
     def rgbd(self, now):
         return self.camera_on and self.frame is not None and self.frame.registered(now, self.config['camera'])
@@ -95,6 +172,9 @@ class Workflow:
         self.diagnostic = text
 
     def clear_target(self):
+        self.revalidate_until = None
+        self.servo.stable = 0
+        self.servo.observe(None, 0, 0)
         self.tracker.reset()
         self.target = None
         self.target_owner = None
@@ -131,15 +211,17 @@ class Workflow:
             if (not frames or frames[0][0] != data.get('frame_id')
                     or now - frames[0][1] > self.config['camera']['selection_history_seconds']):
                 raise ValueError('Selection frame expired')
+            height, width = frames[0][3]
             selection = Tracker(self.config['vision'])
             selection.lock(select_roi(frames[0][2], data.get('roi', ()),
-                                      self.frame.rgb.shape[1], self.frame.rgb.shape[0]))
+                                      width, height))
             if any(selection.update(entry[2]) is None for entry in frames[1:]):
                 raise ValueError('Selected object identity changed during selection')
             self.target = selection.target
             self.target_owner = owner
             self.target_id += 1
             self.tracker.lock(self.target)
+            self.servo.observe(self.target, self.frame.rgb.shape[1], self.frame.rgb.shape[0])
             self.transition(State.TARGET_LOCKED, 'Target locked for this session')
         elif command == 'center':
             if (self.state != State.TARGET_LOCKED or self.target is None
@@ -200,6 +282,17 @@ class Workflow:
             self.transition(State.FAULT if self.motion.fault else State.STOPPED, reason)
 
     def tick(self, now):
+        if self.passive:
+            if self.display_frame(now) is None:
+                self.camera_offline()
+            elif not self.rgbd(now):
+                self.depth_unavailable(now)
+            elif self.state in (State.DISCONNECTED, State.CONNECTING):
+                self.transition(State.DETECTING, 'Select a target with an image ROI')
+            elif self.target and not self.lease_valid(self.target_owner, now):
+                self.clear_target()
+                self.transition(State.DETECTING, 'Control lease expired. Select the target again')
+            return
         self.motion.tick(now, self.guard)
         if self.pending:
             if self.state != State.STOPPING and not self.lease_valid(self.run_owner, now):
@@ -263,8 +356,7 @@ class Workflow:
                 or self.motion.snapshot.moving):
             return
         self.last_processed = self.frame_id
-        width, height = self.frame.rgb.shape[1], self.frame.rgb.shape[0]
-        error = self.target.error(width, height)
+        error = self.servo.pixel_error
         pose = self.motion.snapshot.pose
         control = self.config['visual_servo']
         servo = self.servo
@@ -304,7 +396,10 @@ class Workflow:
         safety_state = {'FAULT': SafetyState.FAULT, 'STOPPING': SafetyState.STOPPING,
                         'CENTERED': SafetyState.CENTERED}.get(self.state, safety_state)
         camera = self.config['camera']
-        target = self.target
+        depth = bool(self.rgbd(now))
+        display = self.display_frame(now)
+        show_detections = not self.passive or depth
+        target = self.target if show_detections else None
         telemetry_fresh = 0 <= now - snapshot.stamp <= self.config['hardware']['telemetry_timeout']
         return {
             'state': self.state, 'safety': safety_state, 'diagnostic': self.diagnostic,
@@ -316,14 +411,14 @@ class Workflow:
             'detecting': self.detecting, 'motion': ('MOVING' if snapshot.moving else
                 'VERIFYING' if self.pending else 'HOLDING' if self.config['hardware']['simulation_mode']
                 and snapshot.connected and not self.motion.fault else 'UNKNOWN'),
-            'camera': bool(self.camera_on and self.frame and self.frame.fresh(now, camera['freshness'])),
-            'depth': bool(self.rgbd(now)), 'frame_id': self.frame_id,
+            'camera': display is not None,
+            'depth': depth, 'frame_id': (self.preview_id if display is not None and display is self.pending_preview else self.frame_id),
             'width': camera['width'], 'height': camera['height'],
             'detections': [{'box': d.box, 'center': d.center, 'confidence': d.confidence,
-                            'depth_m': d.depth} for d in self.detections],
+                            'depth_m': d.depth} for d in self.detections if show_detections],
             'target': target.center if target else None,
             'target_depth_m': target.depth if target else None,
-            'error': target.error(camera['width'], camera['height']) if target else None,
+            'error': self.servo.pixel_error,
             'target_id': self.target_id if target else None,
             'stable_frames': self.servo.stable, 'stable_frames_required': self.config['visual_servo']['stable_frames'],
             'corrections': self.servo.corrections,

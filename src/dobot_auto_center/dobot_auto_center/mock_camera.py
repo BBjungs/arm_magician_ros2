@@ -40,11 +40,9 @@ class MockCamera:
             cv2.line(image, (0, y), (width-1, y), (43, 45, 46), 1)
         for i, (ex, ey) in enumerate(SCENARIOS[self.scenario]):
             u, v = round(width / 2 + ex + shift[0]), round(height / 2 + ey + shift[1])
-            w, h = (27, 20) if i == 0 else (24, 18)
-            cv2.rectangle(image, (u-w-4, v-h+5), (u+w+7, v+h+7), (15, 18, 20), -1)
-            cv2.rectangle(image, (u-w, v-h), (u+w, v+h), (30, 175, 225), -1)
-            cv2.rectangle(image, (u-w+3, v-h+3), (u+w-3, v+h-3), (48, 197, 251), -1)
-            cv2.rectangle(depth, (u-w, v-h), (u+w, v+h), self.depth_mm, -1)
+            radius = 25 if i == 0 else 21
+            cv2.circle(image, (u, v), radius, (30, 175, 225), -1)
+            cv2.circle(depth, (u, v), radius, self.depth_mm, -1)
         if not self.depth_valid:
             depth.fill(0)
         return image, depth

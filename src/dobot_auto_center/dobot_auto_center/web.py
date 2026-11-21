@@ -1,6 +1,8 @@
 """Dashboard HTTP boundary for loopback and explicitly scoped private LANs."""
 
 from collections import OrderedDict
+from contextlib import contextmanager
+from dataclasses import dataclass
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import ipaddress
 import json
@@ -9,6 +11,7 @@ import re
 import secrets
 import subprocess
 from threading import Thread
+import time
 from urllib.parse import urlsplit
 
 import cv2
@@ -50,6 +53,13 @@ class NetworkPolicy:
                    for name in names)
 
 
+@dataclass
+class PendingHome:
+    request_id: str
+    encoded: str
+    cancelled: bool = False
+
+
 class Access:
     def __init__(self, config):
         self.config = config
@@ -57,11 +67,14 @@ class Access:
         self.until = 0.
         self.confirmation = None
         self.requests = OrderedDict()
+        self.pending_home = None
 
     def valid(self, owner, now):
         return bool(owner and owner == self.owner and now < self.until)
 
     def acquire(self, now):
+        if self.pending_home is not None:
+            raise ValueError('A HOME request is still in progress')
         if self.valid(self.owner, now):
             raise ValueError('Another browser holds control')
         self.owner = secrets.token_urlsafe(32)
@@ -93,7 +106,9 @@ class Access:
             if previous[0] != encoded:
                 return 409, {'error': 'Request ID was already used for another command'}
             return previous[1:]
-        if len(self.requests) >= self.config['request_history_size']:
+        if self.pending_home is not None and (body['action'] == 'home' or request_id == self.pending_home.request_id):
+            return 409, {'error': 'A HOME request is still in progress'}
+        if len(self.requests) + int(self.pending_home is not None) >= self.config['request_history_size']:
             return 409, {'error': 'Session command limit reached. Reacquire control'}
         try:
             action = body['action']
@@ -102,8 +117,13 @@ class Access:
                 if (not confirmation or body.get('confirmation') != confirmation[0]
                         or (action, fingerprint) != confirmation[1:3] or now >= confirmation[3]):
                     raise ValueError('A current, single-use confirmation is required')
-            callback()
+            if callback is None:
+                self.pending_home = PendingHome(request_id, encoded)
+                return self.pending_home
+            message = callback()
             response = 200, {'accepted': True}
+            if message:
+                response[1]['message'] = message
         except ValueError as error:
             response = 409, {'error': str(error)}
         self.requests[request_id] = (encoded, *response)
@@ -131,6 +151,8 @@ def dispatch(node, path, body, owner, request_id):
     now = node.clock()
     if path == '/api/stop':
         access.confirmation = None
+        if access.pending_home is not None:
+            access.pending_home.cancelled = True
         workflow.stop(now)
         return 200, {'accepted': True}
     if path == '/api/control':
@@ -149,12 +171,16 @@ def dispatch(node, path, body, owner, request_id):
     if not isinstance(action, str):
         return 400, {'error': 'Operation is required'}
     if action == 'reset':
-        if getattr(node, 'home_driver', None) is None:
+        if node.home_driver is None:
             return 403, {'error': 'Reset requires the live hardware dashboard'}
-        if getattr(access, 'pending_home', None) or workflow.pending or workflow.state in ('CENTERING', 'HOMING', 'STOPPING'):
+        if access.pending_home or workflow.pending or workflow.state in ('CENTERING', 'HOMING', 'STOPPING'):
             return 409, {'error': 'Wait for the arm to stop before resetting'}
+    live_home = action == 'home' and node.home_driver is not None
+    context = ('hardware-home',) if live_home else fingerprint(workflow)
     if path == '/api/confirm' and action in CONFIRMED:
-        return 200, {'confirmation': access.confirm(action, fingerprint(workflow), now)}
+        if live_home and access.pending_home is not None:
+            return 409, {'error': 'A HOME request is still in progress'}
+        return 200, {'confirmation': access.confirm(action, context, now)}
     if path == '/api/command' and action in OPERATIONS:
         if not REQUEST_KEY.fullmatch(request_id):
             return 400, {'error': 'A valid Idempotency-Key is required'}
@@ -164,10 +190,10 @@ def dispatch(node, path, body, owner, request_id):
                     or any(type(value) not in (int, float) or not math.isfinite(value)
                            for value in roi) or type(body.get('frame_id')) is not int):
                 return 400, {'error': 'Invalid ROI or frame ID'}
+        callback = None if live_home else lambda: workflow.command(action, body, owner, now)
         if action == 'reset':
-            return access.execute(request_id, body, fingerprint(workflow), now, restart_live_service)
-        return access.execute(request_id, body, fingerprint(workflow), now,
-                              lambda: workflow.command(action, body, owner, now))
+            callback = restart_live_service
+        return access.execute(request_id, body, context, now, callback)
     return 404, {'error': 'Unknown operation'}
 
 
@@ -210,6 +236,47 @@ def make_handler(node, assets, policy=None):
             self.send_json(403, {'error': 'Request outside the configured network or origin'})
             return False
 
+        def stream_frames(self):
+            last_id = None
+            last_sent = None
+            try:
+                while True:
+                    with node.lock:
+                        now = node.clock()
+                        status = node.workflow.status(now)
+                        frame = node.workflow.display_frame(now)
+                        frame_id = status['frame_id']
+                        metadata = {key: status[key] for key in ('frame_id', 'detections', 'target')}
+                    if not status['camera']:
+                        if last_sent is None:
+                            self.send_json(503, {'error': 'Camera Offline'})
+                            return
+                        if now - last_sent >= 1.5:
+                            self.wfile.write(b'--frame--\r\n')
+                            return
+                    elif frame_id != last_id:
+                        ok, jpeg = cv2.imencode('.jpg', frame.rgb, [cv2.IMWRITE_JPEG_QUALITY, 83])
+                        if not ok:
+                            if last_id is None:
+                                self.send_json(503, {'error': 'Image encoding failed'})
+                            return
+                        if last_id is None:
+                            self.send_response(200)
+                            self.send_header('Content-Type', 'multipart/x-mixed-replace; boundary=frame')
+                            self.send_header('Cache-Control', 'no-store')
+                            self.end_headers()
+                        header = (f'--frame\r\nContent-Type: image/jpeg\r\nContent-Length: {jpeg.size}\r\n'
+                                  f'X-Frame-Timestamp: {frame.source_stamp}\r\n'
+                                  f'X-Frame-Metadata: {json.dumps(metadata, separators=(",", ":"))}\r\n\r\n')
+                        self.wfile.write(header.encode('ascii'))
+                        self.wfile.write(jpeg.tobytes())
+                        self.wfile.write(b'\r\n')
+                        last_id = frame_id
+                        last_sent = node.clock()
+                    time.sleep(1 / 30)
+            except (BrokenPipeError, ConnectionResetError, TimeoutError):
+                return
+
         def do_GET(self):
             if not self.permitted_request():
                 return
@@ -217,6 +284,23 @@ def make_handler(node, assets, policy=None):
             if path in assets:
                 content, content_type = assets[path]
                 self.send_data(200, content, content_type)
+            elif path == '/api/stream.mjpg':
+                self.stream_frames()
+            elif path == '/api/camera-callback-health':
+                # Keep a blocked workflow tick from blocking this diagnostic read.
+                now = node.clock()
+                last_tick = node.last_tick
+                health = node.camera.callback_health(now)
+                health['workflow_frame_id'] = node.workflow.frame_id
+                health['executor'] = dict(last_tick_monotonic=last_tick,
+                                          tick_age_s=max(0., now-last_tick) if last_tick is not None else None,
+                                          tick_interval_ms=node.tick_interval_ms, tick_period_ms=25,
+                                          executor_type=type(node.executor).__name__)
+                self.send_json(200, health)
+            elif path == '/api/camera-trace':
+                with node.lock:
+                    events = list(node.camera.trace or ())
+                self.send_json(200, events)
             elif path in ('/api/status', '/health'):
                 with node.lock:
                     now = node.clock()
@@ -224,17 +308,21 @@ def make_handler(node, assets, policy=None):
                     running = (node.last_tick is not None and now - node.last_tick <= 1.0)
                 if path == '/health':
                     value = {key: status[key] for key in
-                             ('mode', 'camera_status', 'robot_status', 'real_motion_enabled')}
+                             ('mode', 'camera_status', 'robot_status', 'real_motion_enabled', 'stream_url')}
                     self.send_json(200 if running else 503, {'ok': running, **value})
                 else:
                     self.send_json(200, status)
-            elif re.fullmatch(r'/api/frame/[0-9]{1,12}\.jpg', path):
+            elif re.fullmatch(r'/api/frame/-?[0-9]{1,12}\.jpg', path):
                 frame_id = int(path.rsplit('/', 1)[1][:-4])
                 with node.lock:
                     status = node.workflow.status(node.clock())
                     image = next((img for seq, img, captured in node.workflow.images
                                   if seq == frame_id and status['camera']
                                   and node.clock() - captured <= node.config['camera']['freshness']), None)
+                    preview = node.workflow.pending_preview
+                    if (preview is not None and frame_id == node.workflow.preview_id
+                            and preview.fresh(node.clock(), node.config['camera']['freshness'])):
+                        image = preview.rgb
                 if image is None:
                     self.send_json(404, {'error': 'Frame expired'})
                     return
@@ -271,15 +359,45 @@ def make_handler(node, assets, policy=None):
             except (ValueError, TimeoutError, RecursionError):
                 self.send_json(400, {'error': 'Invalid JSON request'})
                 return
-            with node.lock:
-                status, response = self.dispatch_safe(path, body, owner, key)
+            trace_home = body.get('action') == 'home' and path in ('/api/confirm', '/api/command')
+            if trace_home:
+                node.get_logger().info(f"Received HOME POST {path}")
+            status, response = self.dispatch_safe(path, body, owner, key)
+            if trace_home:
+                detail = response.get('error', '')
+                node.get_logger().info(f"HOME POST {path} returned HTTP {status} {detail}".rstrip())
             self.send_json(status, response)
 
         def dispatch_safe(self, path, body, owner, key):
             try:
-                return dispatch(node, path, body, owner, key)
+                with node.lock:
+                    result = dispatch(node, path, body, owner, key)
+                if isinstance(result, PendingHome):
+                    return self.run_home(result, owner)
+                return result
             except (ValueError, OverflowError) as error:
                 return 409, {'error': str(error)}
+
+        def run_home(self, pending, owner):
+            @contextmanager
+            def authorize_write():
+                with node.lock:
+                    if pending.cancelled or not node.access.valid(owner, node.clock()):
+                        raise ValueError('HOME interrupted before serial write')
+                    yield
+
+            response = 409, {'error': 'HOME outcome unknown. Check the arm before sending HOME again.'}
+            try:
+                node.home_driver.start_homing(write_guard=authorize_write)
+                response = 200, {'accepted': True, 'message':
+                                 'HOME acknowledged. Wait until the arm stops and the indicator turns green.'}
+            except (OSError, ValueError) as error:
+                response = 409, {'error': str(error)}
+            finally:
+                with node.lock:
+                    node.access.requests[pending.request_id] = (pending.encoded, *response)
+                    node.access.pending_home = None
+            return response
 
     return Handler
 

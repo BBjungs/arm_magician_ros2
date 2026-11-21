@@ -9,7 +9,7 @@ StartLimitBurst=3
 Type=simple
 User=jetson
 WorkingDirectory=/home/jetson/arm_magician_ws/.hardware-only-reset
-Environment=DOBOT_WEB_MODE=simulation
+Environment=DOBOT_WEB_MODE=read-only
 Environment=DOBOT_WEB_BIND=172.30.10.101
 Environment=DOBOT_WEB_PORT=8080
 Environment=DOBOT_WEB_ALLOWED_CLIENTS=172.30.10.0/24

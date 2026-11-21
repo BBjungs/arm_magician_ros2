@@ -63,7 +63,7 @@ select { background: #11181c; padding: .4rem .55rem; min-width: 0; flex: 1; }
 .confirmation div { display: flex; gap: .5rem; margin-top: .5rem; justify-content: flex-end; }
 .view { position: relative; border: 1px solid var(--line); border-radius: .5rem; overflow: hidden; background: #0c1013; }
 canvas { display: block; width: 100%; height: auto; touch-action: none; }
-.empty { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 1rem; pointer-events: none; color: var(--muted); }
+.empty { position: absolute; inset: auto 0 0; display: grid; place-items: center; text-align: center; padding: 1rem; pointer-events: none; background: rgb(12 16 19 / 90%); color: white; }
 .camera-foot { padding: .65rem 0; flex-wrap: wrap; font-size: .875rem; }
 .camera-foot span:last-child { margin-left: auto; }
 .key { width: .6rem; height: .6rem; display: inline-block; margin-right: .35rem; border-radius: 50%; }

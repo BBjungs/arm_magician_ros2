@@ -6,12 +6,13 @@ The baseline launch binds to `127.0.0.1`. For the dedicated Jetson LAN service, 
 
 ## Simulation controls
 
-Press **Start camera** to begin. On the first control action the browser automatically acquires an exclusive session. Loading or refreshing the page only reads status and frames. Another browser may view the dashboard or press STOP at any time. Release the session to hand over control, or close the controlling tab and allow its heartbeat to expire. HOME, Observation Pose and Auto Center each require confirmation and pass the workflow readiness checks. Real motion remains disabled and requires separate commissioning and authorization for any future implementation.
+Press **Start camera** to begin. On the first control action the browser automatically acquires an exclusive session. Loading or refreshing the page only reads status and frames. Another browser may view the dashboard or press STOP at any time. Release the session to hand over control, or close the controlling tab and allow its heartbeat to expire. HOME, Observation Pose and Auto Center each require confirmation and pass the workflow readiness checks. In hardware-home mode the confirmed HOME button starts the physical Magician reference procedure. An acknowledgement means the controller accepted HOME. Wait for the arm to stop and its LED to turn green. Use the physical emergency stop if the procedure must be interrupted.
 
 | HTTP route | Purpose |
 | --- | --- |
 | GET `/health` | HTTP 200 while the ROS update loop is healthy, with separate camera and robot status |
 | GET `/api/status` | Current dashboard state and detection metadata |
+| GET `/api/stream.mjpg` | Multipart JPEG video with per-frame IDs, bounding boxes and centers in the X-Frame-Metadata part header. Returns 503 while offline. |
 | GET `/api/frame/{frame_id}.jpg` | JPEG corresponding to a recent status sample |
 | POST `/api/control`, `/api/heartbeat`, `/api/release` | Acquire, renew or release control |
 | POST `/api/confirm` | Obtain a short-lived confirmation for HOME, observation or Auto Center |

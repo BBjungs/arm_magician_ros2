@@ -32,7 +32,7 @@ async function post(path, body = {}, requestId = '') {
       'Content-Type': 'application/json',
       'X-Control-Lease': lease, 'Idempotency-Key': requestId,
     },
-    body: JSON.stringify(body), signal: AbortSignal.timeout(1800),
+    body: JSON.stringify(body), signal: AbortSignal.timeout(body.action === 'home' ? 5000 : 1800),
   });
   const result = await reply.json();
   if (!reply.ok) throw new Error(result.error);
@@ -59,7 +59,8 @@ async function withSession(path, body, requestId) {
 async function command(action, data = {}) {
   feedback();
   try {
-    await withSession('command', {action, ...data}, newRequestId());
+    const result = await withSession('command', {action, ...data}, newRequestId());
+    if (result.message) feedback(result.message);
   } catch (error) {
     feedback(error.message);
   }
@@ -103,13 +104,16 @@ byId('stop').onclick = async () => {
   hideConfirmation();
   try {
     await post('stop');
-    feedback('STOP requested');
+    feedback(status?.mode === 'hardware-home'
+      ? 'Dashboard operations stopped. Use the physical emergency stop to interrupt firmware HOME.'
+      : 'STOP requested');
   } catch (error) {
     feedback(error.message);
   }
 };
 
 byId('camera-start').onclick = () => command('camera');
+byId('reset').onclick = () => askConfirmation('reset');
 byId('detect').onclick = () => command('detect');
 
 const motionLabels = {
@@ -123,9 +127,11 @@ async function askConfirmation(action) {
   try {
     const generation = stopGeneration;
     const result = await withSession('confirm', {action});
-    if (generation !== stopGeneration) return;
+    if (generation !== stopGeneration || (action === 'center' && !displayed)) return;
     confirmation = {action, token: result.confirmation};
-    byId('confirm-text').textContent = motionLabels[action];
+    byId('confirm-text').textContent = action === 'home' && status?.mode === 'hardware-home'
+      ? 'The real arm will move to find its reference. Confirm the arm is stopped and its path is clear. Use the physical emergency stop to interrupt HOME.'
+      : motionLabels[action];
     byId('confirmation').hidden = false;
     byId('confirm-run').focus();
   } catch (error) {
@@ -162,32 +168,46 @@ function axes(id, labels, values) {
 function renderStatus(s) {
   const busy = ['CENTERING', 'HOMING', 'STOPPING'].includes(s.state) || ['MOVING', 'VERIFYING'].includes(s.motion);
   running = busy;
-  byId('reset').disabled = s.mode !== 'hardware-home' || busy;
-  chip('mode', s.simulation ? 'Simulation' : 'Read only', 'warn');
-  chip('camera-status', s.camera_status, s.camera ? (s.simulation ? 'warn' : 'good') : '');
-  chip('state', s.state.replaceAll('_', ' '), s.state === 'CENTERED' ? 'good' : busy ? 'warn' : '');
+  const liveHome = s.mode === 'hardware-home';
+  chip('mode', s.simulation ? 'Simulation' : liveHome ? 'Hardware HOME' : 'Read only', 'warn');
+  chip('camera-status', s.camera_status, s.camera ? (s.simulation || !s.depth ? 'warn' : 'good') : '');
+  const cameraWait = !s.simulation && ['CONNECTING', 'DISCONNECTED'].includes(s.state);
+  const stateLabel = cameraWait ? s.camera_readiness.replaceAll('_', ' ') :
+    s.state.replaceAll('_', ' ');
+  chip('state', stateLabel, s.state === 'CENTERED' ? 'good' : busy ? 'warn' : '');
   chip('robot', s.robot_status, s.connected ? (s.simulation ? 'warn' : 'good') : '');
   byId('release').hidden = !lease;
+  byId('reset').disabled = !liveHome || busy;
   byId('camera-start').hidden = !s.simulation;
   byId('camera-start').disabled = s.camera;
-  byId('home').disabled = busy || !s.simulation || !s.connected || !s.depth || s.state === 'FAULT';
+  byId('home').disabled = busy || (liveHome ? !s.home_available :
+    !s.simulation || !s.connected || !s.depth || s.state === 'FAULT');
+  const homeReason = liveHome && !s.home_available ? s.home_blocked_reason : '';
+  byId('home').title = homeReason || '';
+  byId('home-reason').textContent = homeReason ? 'HOME: ' + homeReason : '';
+  byId('home-reason').hidden = !homeReason;
   byId('observation').disabled = busy || !s.simulation || !s.homed || s.observation_pose || s.state !== 'READY';
-  byId('detect').disabled = busy || !s.depth || s.state === 'FAULT' ||
+  byId('detect').disabled = !displayed || busy || !s.depth || s.state === 'FAULT' ||
     (s.simulation && !s.observation_pose);
-  byId('center').disabled = busy || !s.simulation || s.state !== 'TARGET_LOCKED' || !s.depth;
+  byId('center').disabled = !displayed || busy || !s.simulation || s.state !== 'TARGET_LOCKED' || !s.depth;
   byId('diagnostic').textContent = s.diagnostic;
   byId('safety').textContent = s.safety;
   byId('motion').textContent = s.motion;
   byId('depth').textContent = !s.depth ? 'Unavailable' :
-    s.target_depth_m == null ? 'Registered' : s.target_depth_m.toFixed(3) + ' m';
+    (s.simulation ? 'Mock' : 'Registered') + (s.target_depth_m == null ? '' : ' · ' + s.target_depth_m.toFixed(3) + ' m');
   byId('stable').textContent = s.stable_frames + ' / ' + s.stable_frames_required;
   byId('error-x').textContent = s.error ? s.error[0].toFixed(1) + ' px' : '—';
   byId('error-y').textContent = s.error ? s.error[1].toFixed(1) + ' px' : '—';
-  byId('resolution').textContent = s.width + ' × ' + s.height;
-  byId('empty').hidden = s.camera && Boolean(image);
-  byId('empty').textContent = s.simulation && !s.frame_id ? 'Start the mock camera' : s.camera_status;
-  byId('frame-age').textContent = s.camera_age_ms == null ? 'No fresh frame' : s.camera_age_ms + ' ms old';
-  byId('frame-age').title = s.camera_timestamp == null ? '' : new Date(s.camera_timestamp * 1000).toISOString();
+  byId('resolution').textContent = s.camera ? s.width + ' × ' + s.height : '—';
+  byId('frame-rate').textContent = s.camera_fps == null ? '—' : s.camera_fps + ' fps';
+  byId('depth-skew').textContent = s.depth_skew_ms == null ? '—' : s.depth_skew_ms + ' ms';
+  byId('empty').hidden = s.camera && Boolean(displayed);
+  byId('empty').textContent = s.simulation && !s.frame_id ? 'Start the mock camera' :
+    image && !displayed ? 'Video paused · Last received frame' :
+    s.camera ? 'Waiting for video' : s.camera_status;
+  byId('frame-age').textContent = s.camera_age_ms == null ? 'No fresh frame' : s.camera_age_ms + ' ms old at server';
+  byId('frame-age').title = s.camera_timestamp == null ? '' : new Date(s.camera_timestamp * 1000).toISOString() +
+    ' · capture to receipt ' + s.capture_to_receive_ms + ' ms';
   for (const group of ['hardware-details', 'suction-details', 'gripper-details']) byId(group).hidden = s.simulation;
   byId('firmware').textContent = s.firmware_version.length ? s.firmware_version.join('.') : 'Unavailable';
   for (const tool of ['suction', 'gripper']) {
@@ -214,7 +234,7 @@ function updateChoices() {
     }
     choiceFrame = displayed;
   }
-  choices.disabled = running || !status?.detecting || !status?.camera || status?.state === 'FAULT';
+  choices.disabled = !displayed || running || !status?.detecting || !status?.depth || status?.state === 'FAULT';
   byId('lock').disabled = choices.disabled || !choices.value;
 }
 
@@ -229,8 +249,9 @@ function cross(x, y, color) {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  if (!image || !displayed || !status?.camera) return;
+  if (!image) return;
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+  if (!displayed || !status?.camera) return;
   cross(canvas.width / 2, canvas.height / 2, '#e3ebed');
   for (const object of displayed.detections) {
     ctx.strokeStyle = '#97e2bd';
@@ -251,34 +272,116 @@ function draw() {
   }
 }
 
+let streamController;
+
+function pauseVideo() {
+  displayed = drag = choiceFrame = undefined;
+  if (confirmation?.action === 'center') hideConfirmation();
+  for (const id of ['detect', 'center', 'lock', 'choices']) byId(id).disabled = true;
+  byId('choices').value = '';
+  if (image) {
+    byId('empty').textContent = 'Video paused · Last received frame';
+    byId('empty').hidden = false;
+  }
+  draw();
+}
+
+async function streamFrames(controller) {
+  let timeout;
+  let frameTimeout;
+  const watchdog = () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => controller.abort(), 1800);
+  };
+  try {
+    watchdog();
+    const response = await fetch('/api/stream.mjpg', {signal: controller.signal});
+    if (!response.ok) throw new Error('Video unavailable');
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = new Uint8Array(0);
+    let payloadSize = 0;
+    let metadata;
+    while (!controller.signal.aborted) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      const chunk = new Uint8Array(buffer.length + value.length);
+      chunk.set(buffer);
+      chunk.set(value, buffer.length);
+      buffer = chunk;
+      while (buffer.length) {
+        if (!payloadSize) {
+          let end = 0;
+          while (end + 3 < buffer.length && !(buffer[end] === 13 && buffer[end+1] === 10 &&
+                 buffer[end+2] === 13 && buffer[end+3] === 10)) end++;
+          if (end + 3 >= buffer.length) break;
+          const header = decoder.decode(buffer.subarray(0, end));
+          payloadSize = Number(/^Content-Length: (\d+)$/mi.exec(header)?.[1]);
+          if (!Number.isSafeInteger(payloadSize) || payloadSize <= 0) throw new Error('Invalid JPEG size');
+          metadata = JSON.parse(/^X-Frame-Metadata: (.+)$/mi.exec(header)[1]);
+          buffer = buffer.subarray(end + 4);
+        }
+        if (buffer.length < payloadSize) break;
+        watchdog();
+        clearTimeout(frameTimeout);
+        frameTimeout = setTimeout(pauseVideo, 600);
+        if (!drag) {
+          const bitmap = await createImageBitmap(new Blob([buffer.subarray(0, payloadSize)], {type: 'image/jpeg'}));
+          if (!drag && status?.camera && !controller.signal.aborted) {
+            image?.close();
+            image = bitmap;
+            displayed = metadata;
+            if (canvas.width !== image.width || canvas.height !== image.height) {
+              canvas.width = image.width;
+              canvas.height = image.height;
+            }
+            byId('empty').hidden = true;
+            draw();
+          } else bitmap.close();
+        }
+        buffer = buffer.subarray(payloadSize);
+        payloadSize = 0;
+      }
+    }
+  } catch {
+    // The status poll reconnects when fresh camera data is available.
+  } finally {
+    clearTimeout(timeout);
+    clearTimeout(frameTimeout);
+    controller.abort();
+    if (streamController === controller) {
+      streamController = undefined;
+      pauseVideo();
+      if (status) renderStatus(status);
+    }
+  }
+}
+
 async function update() {
   try {
     const response = await fetch('/api/status', {signal: AbortSignal.timeout(1500)});
     if (!response.ok) throw new Error('Dashboard unavailable');
     status = await response.json();
-    if (status.camera && !drag && displayed?.frame_id !== status.frame_id) {
-      const frame = await fetch('/api/frame/' + status.frame_id + '.jpg', {signal: AbortSignal.timeout(1500)});
-      if (frame.ok && !drag) {
-        const nextImage = await createImageBitmap(await frame.blob());
-        if (!drag) {
-          image?.close();
-          image = nextImage;
-          displayed = status;
-          canvas.width = status.width;
-          canvas.height = status.height;
-        } else {
-          nextImage.close();
-        }
-      }
+    if (status.camera && !streamController) {
+      streamController = new AbortController();
+      streamFrames(streamController);
+    } else if (!status.camera) {
+      pauseVideo();
     }
     renderStatus(status);
     draw();
   } catch {
-    chip('camera-status', 'CAMERA DISCONNECTED');
-    chip('robot', 'Disconnected');
-    byId('empty').textContent = 'Dashboard connection lost';
+    status = undefined;
+    pauseVideo();
+    chip('state', 'STATUS UNAVAILABLE');
+    byId('diagnostic').textContent = 'Waiting for the dashboard status response';
+    chip('camera-status', 'Dashboard unavailable');
+    byId('home-reason').hidden = true;
+    chip('robot', 'Robot status unavailable');
+    axes('tcp', ['X', 'Y', 'Z', 'R'], null);
+    axes('joints', ['J1', 'J2', 'J3', 'J4'], null);
+    byId('empty').textContent = image ? 'Dashboard connection lost · Last received frame' : 'Dashboard connection lost';
     byId('empty').hidden = false;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (const action of ['camera-start', 'reset', 'home', 'observation', 'detect', 'center', 'lock', 'choices']) byId(action).disabled = true;
   } finally {
     setTimeout(update, 175);
@@ -297,24 +400,28 @@ function bounds(a, b) {
     Math.max(a[0], b[0]), Math.max(a[1], b[1])];
 }
 
+function objectROI(object) {
+  const [x, y, w, h] = object.box;
+  return [x, y, x + w, y + h];
+}
+
 byId('choices').onchange = updateChoices;
 byId('lock').onclick = () => {
   const choices = byId('choices');
   const frame = choiceFrame;
   const object = frame?.detections[Number(choices.value)];
   if (!choices.value || !object) return;
-  const [x, y, w, h] = object.box;
-  command('select', {frame_id: frame.frame_id, roi: [x, y, x + w, y + h]});
+  command('select', {frame_id: frame.frame_id, roi: objectROI(object)});
   choices.value = '';
   updateChoices();
 };
 
 canvas.onpointerdown = (event) => {
-  if (running || !status?.detecting || !status.camera ||
-      status.state === 'FAULT' || !displayed || drag) return;
+  if (running || !status?.detecting || !status.depth ||
+      status.state === 'FAULT' || !(displayed?.frame_id > 0) || drag) return;
   canvas.setPointerCapture(event.pointerId);
   const start = point(event);
-  drag = {start, end: start, frame: displayed.frame_id, pointer: event.pointerId};
+  drag = {start, end: start, frame: displayed, pointer: event.pointerId};
 };
 canvas.onpointermove = (event) => {
   if (!drag || drag.pointer !== event.pointerId) return;
@@ -323,11 +430,22 @@ canvas.onpointermove = (event) => {
 };
 canvas.onpointerup = (event) => {
   if (!drag || drag.pointer !== event.pointerId) return;
-  const roi = bounds(drag.start, point(event));
-  const frameId = drag.frame;
+  const {start, frame} = drag;
+  const end = point(event);
   drag = undefined;
   draw();
-  command('select', {frame_id: frameId, roi});
+  let roi = bounds(start, end);
+  const rect = canvas.getBoundingClientRect();
+  if (Math.hypot((end[0] - start[0]) * rect.width / canvas.width,
+                 (end[1] - start[1]) * rect.height / canvas.height) <= 5) {
+    const hits = frame.detections.filter(({box: [x, y, w, h]}) =>
+      x <= start[0] && start[0] < x + w && y <= start[1] && start[1] < y + h);
+    if (hits.length !== 1) return feedback('Tap one detected object or draw an ROI around its center.');
+    roi = objectROI(hits[0]);
+  } else if (roi[0] === roi[2] || roi[1] === roi[3]) {
+    return feedback('Draw an ROI with both width and height.');
+  }
+  command('select', {frame_id: frame.frame_id, roi});
 };
 canvas.onpointercancel = () => { drag = undefined; draw(); };
 update();

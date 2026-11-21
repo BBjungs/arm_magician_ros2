@@ -1,6 +1,7 @@
 """Passive inspection of existing ROS topics. This command opens no device."""
 
 import argparse
+from collections import deque
 import json
 import time
 from pathlib import Path
@@ -11,7 +12,7 @@ from rclpy.node import Node
 from rclpy.utilities import remove_ros_args
 
 from .config import load
-from .ros_sensors import CameraReceiver, RobotReceiver
+from .ros_sensors import CameraReceiver, RobotReceiver, live_camera_status
 from .safety import Safety
 
 
@@ -33,11 +34,16 @@ def main():
         safety = Safety(config)
         deadline = clock() + args.seconds
         frame = None
+        stamps = deque(maxlen=60)
         while clock() < deadline:
             rclpy.spin_once(node, timeout_sec=0.05)
             candidate = camera.take(clock())
             if candidate is not None:
                 frame = candidate
+                if candidate.registered(clock(), config['camera']):
+                    stamps.append(candidate.source_stamp)
+                else:
+                    stamps.clear()
         now = clock()
         readback = robot.snapshot()
         health = 'Fresh, valid and alarm-free'
@@ -45,13 +51,23 @@ def main():
             safety.health(readback, now)
         except ValueError as error:
             health = str(error)
-        depth = bool(frame and frame.registered(now, config['camera']))
-        rgb = bool(frame and frame.fresh(now, config['camera']['freshness']))
+        depth = bool(camera.device_name and frame and frame.registered(now, config['camera']))
+        rgb = bool(camera.device_name and frame and frame.fresh(now, config['camera']['freshness']))
         device = robot.samples.get('device')
         report = {
             'hardware_motion_enabled': False,
-            'scene': 'Passive ROS topic inspection. Source provenance requires operator verification.',
-            'rgb_fresh': rgb, 'aligned_depth_fresh': depth, 'camera_info_valid': camera.info is not None,
+            'camera_status': live_camera_status(rgb, depth),
+            'camera_device': camera.device_name,
+            'camera_topics': {kind: camera.config[f'{kind}_topic'] for kind in ('rgb', 'depth', 'info')},
+            'camera_driver': camera.config['driver_node'] if rgb else None,
+            'rgbd_fps': (round((len(stamps) - 1) / (stamps[-1] - stamps[0]), 1)
+                         if depth and len(stamps) >= 2 and stamps[-1] > stamps[0] else None),
+            'resolution': list(frame.rgb.shape[1::-1]) if rgb else None,
+            'rgb_stamp': frame.source_stamp if rgb else None,
+            'frame_age_ms': round((now - frame.stamp) * 1000) if rgb else None,
+            'depth_skew_ms': round(abs(frame.depth_source_stamp - frame.source_stamp) * 1000, 1) if depth else None,
+            'rgb_fresh': rgb, 'aligned_depth_fresh': depth, 'camera_info_valid': bool(rgb and frame.calibrated and frame.info_stamp is not None
+                                            and 0 <= now - frame.info_stamp <= camera.config['freshness']),
             'robot_readback': health, 'tcp_mm_deg': readback.pose if readback.connected else None,
             'joint_deg': readback.joints if readback.connected else None,
             'alarm_codes': readback.alarms if readback.alarm_valid else None,

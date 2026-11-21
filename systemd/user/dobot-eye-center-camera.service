@@ -1,0 +1,18 @@
+[Unit]
+Description=Orbbec RGB-D driver for the Eye-in-Hand dashboard
+Conflicts=dobot-magician.service
+After=dobot-magician.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=exec
+WorkingDirectory=%h/arm_magician_ws/.hardware-only-reset
+ExecStart=%h/arm_magician_ws/.hardware-only-reset/scripts/start-eye-center-camera
+KillSignal=SIGINT
+TimeoutStopSec=15s
+Restart=on-failure
+RestartSec=10s
+NoNewPrivileges=true
+
+[Install]
+WantedBy=dobot-eye-center-live.service

@@ -1,80 +1,89 @@
 #!/usr/bin/env bash
-# Start the existing LAN simulation for the current login. Print its verified URL.
+# Enable the live dashboard at boot, start or restart it, and report its health.
 set -euo pipefail
 
 workspace="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
-address=172.30.10.101
-unit=dobot-eye-center-preview.service
-fail() { printf '%s\n' "$*" >&2; exit 1; }
+unit=dobot-eye-center-live.service
+camera_unit=dobot-eye-center-camera.service
+legacy=dobot-magician.service
+url=http://172.30.10.101:8080
+action=start
+case "$#:${1:-}" in
+    0:) ;;
+    1:--restart) action=restart ;;
+    *) echo "Usage: $0 [--restart]" >&2; exit 2 ;;
+esac
 
-healthy() {
-    local url="http://$address:$1"
-    curl --noproxy '*' --max-time 2 -fsS "$url/health" 2>/dev/null |
-        python3 -c 'import json,sys
-try:
-    s = json.load(sys.stdin)
-    ok = (s["ok"] is True and s["mode"] in ("simulation", "read-only")
-          and s["real_motion_enabled"] is False and "camera_status" in s)
-except (ValueError, KeyError, TypeError):
-    ok = False
-sys.exit(0 if ok else 1)' &&
-        curl --noproxy '*' --max-time 2 -fsS "$url/" 2>/dev/null |
-        grep -F 'Dobot Eye-in-Hand Auto Center' >/dev/null
+[[ -x "$workspace/install/dobot_auto_center/lib/dobot_auto_center/auto_center" ]] || {
+    echo "Build the development overlay in $workspace first." >&2
+    exit 1
 }
+systemctl --user show-environment >/dev/null || {
+    echo 'Cannot reach the jetson user systemd manager.' >&2
+    exit 1
+}
+[[ -x "$workspace/scripts/start-eye-center-camera" &&
+   -x "$workspace/install/orbbec_camera/lib/orbbec_camera/orbbec_camera_node" ]] || {
+    echo 'The Orbbec driver is missing from the development overlay.' >&2
+    exit 1
+}
+systemctl --user enable "$workspace/systemd/user/$unit" "$workspace/systemd/user/$camera_unit"
+legacy_state="$(systemctl --user show --property=LoadState --value "$legacy")" || [[ "$legacy_state" == not-found ]]
+case "$legacy_state" in
+    loaded) systemctl --user disable --now "$legacy" ;;
+    masked) systemctl --user stop "$legacy" ;;
+    not-found) ;;
+    *) echo "Unexpected $legacy load state: $legacy_state" >&2; exit 1 ;;
+esac
+systemctl --user daemon-reload
+# A previously running installation may still be listening on 18080.
+if [[ "$action" == start ]] && systemctl --user is-active --quiet "$unit" &&
+    ! curl --noproxy '*' -fsS --max-time 2 "$url/health" >/dev/null 2>&1; then
+    action=restart
+fi
+# An already running dashboard can be healthy while its camera is offline.
+# Recover the managed driver on a normal invocation as well as on --restart.
+if [[ "$action" == start ]] && systemctl --user is-active --quiet "$camera_unit" &&
+    curl --noproxy '*' -fsS --max-time 2 "$url/health" 2>/dev/null |
+        python3 -c 'import json, sys
+s = json.load(sys.stdin)
+sys.exit(0 if s.get("mode") in ("read-only", "hardware-home") and s.get("camera_status") == "Camera Offline" else 1)' 2>/dev/null; then
+    systemctl --user restart "$camera_unit"
+fi
+systemctl --user "$action" "$camera_unit" "$unit"
+systemctl --user is-enabled --quiet "$unit"
 
-for port in 8080 18080; do
-    if healthy "$port"; then
-        printf 'Dashboard ready: http://%s:%s/\n' "$address" "$port"
-        exit 0
-    fi
-done
-
-# Bind and immediately release a probe socket. The server performs the final bind.
-# Only address-in-use permits trying the alternate port.
-port="$(python3 - "$address" <<'PY'
-import errno
-import socket
-import sys
-
-ip = sys.argv[1]
-for port in (8080, 18080):
-    try:
-        with socket.socket() as probe:
-            probe.bind((ip, port))
-    except OSError as error:
-        if error.errno == errno.EADDRINUSE:
-            print(f"{ip}:{port} is already in use", file=sys.stderr)
-            continue
-        print(f"Cannot bind {ip}:{port}: {error}", file=sys.stderr)
-        sys.exit(1)
-    print(port)
-    break
-else:
-    sys.exit("Both dashboard ports are occupied")
-PY
-)" || exit 1
-
-[[ -x "$workspace/install/dobot_auto_center/lib/dobot_auto_center/auto_center" ]] ||
-    fail "Development overlay missing. Build in $workspace first."
-systemctl --user show-environment >/dev/null ||
-    fail 'Run this from a terminal logged in as jetson on the Jetson host (user systemd is required).'
-systemd-run --user --collect --unit="$unit" --working-directory="$workspace" \
-    --property=Type=exec --property=KillSignal=SIGINT \
-    --setenv=DOBOT_WEB_MODE=simulation --setenv=DOBOT_WEB_BIND="$address" \
-    --setenv=DOBOT_WEB_PORT="$port" --setenv=ROS_DOMAIN_ID=42 \
-    --setenv=ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST \
-    "$workspace/scripts/start-eye-center-dashboard"
-
+previous_frame=''
 for ((attempt=0; attempt<30; attempt++)); do
-    if systemctl --user is-active --quiet "$unit"; then
-        if healthy "$port"; then
-            printf 'Dashboard ready: http://%s:%s/\n' "$address" "$port"
+    if systemctl --user is-active --quiet "$unit" &&
+        camera="$(curl --noproxy '*' --max-time 2 -fsS "$url/health" 2>/dev/null |
+            python3 -c 'import json, sys
+s = json.load(sys.stdin)
+if not (s["ok"] is True and s["mode"] in ("read-only", "hardware-home")
+        and s["real_motion_enabled"] is (s["mode"] == "hardware-home")
+        and s["stream_url"] == "/api/stream.mjpg"):
+    sys.exit(1)
+print(s["camera_status"])' 2>/dev/null)" &&
+        frame="$(curl --noproxy '*' --max-time 2 -fsS "$url/api/status" 2>/dev/null |
+            python3 -c 'import json, sys
+s = json.load(sys.stdin)
+if not (s["camera_source"] == "orbbec_ros" and s["camera"] is True and s["depth"] is True
+        and type(s["frame_id"]) is int and s["frame_id"] > 0):
+    sys.exit(1)
+print(s["frame_id"])' 2>/dev/null)"; then
+        if [[ -n "$previous_frame" ]] && (( frame > previous_frame )) &&
+            curl --noproxy '*' --max-time 2 -fsS "$url/" 2>/dev/null |
+                grep -F 'Dobot Eye-in-Hand Auto Center' >/dev/null; then
+            printf 'Dashboard enabled and receiving Orbbec frames: %s/ (%s)\n' "$url" "$camera"
             exit 0
         fi
+        previous_frame="$frame"
     else
-        break
+        previous_frame=''
     fi
     sleep 1
 done
-journalctl --user -u "$unit" -n 15 --no-pager >&2
-fail "Dashboard did not pass the root and health checks at http://$address:$port/"
+
+journalctl --user -u "$camera_unit" -u "$unit" -n 30 --no-pager >&2
+echo "Could not verify fresh Orbbec RGB-D frames on the dashboard at $url/." >&2
+exit 1

@@ -96,6 +96,11 @@ def validate(config):
         box(*obstacle, 3, 'Obstacle')
     for pose in ('home', 'observation'):
         vector(motion[pose], 4, pose)
+    if config['vision']['backend'] == 'round':
+        if number(config['vision'].get('depth_edge_m', 0.01), 'depth_edge_m') <= 0:
+            raise ValueError('depth_edge_m must be positive')
+        if not 0 < number(config['vision'].get('minimum_circle_fill'), 'minimum_circle_fill') <= 1:
+            raise ValueError('minimum_circle_fill must be in (0, 1]')
     box(config['vision']['hsv_lower'], config['vision']['hsv_upper'], 3, 'HSV threshold')
     for entry, maximum in zip(config['vision']['hsv_upper'], (179, 255, 255)):
         if type(entry) is not int or entry > maximum:

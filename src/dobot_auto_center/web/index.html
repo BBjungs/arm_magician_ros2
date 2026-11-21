@@ -23,14 +23,14 @@
           <span id="camera-status" class="chip">Offline</span></header>
         <div class="view" id="view">
           <canvas id="camera" width="640" height="480" aria-label="Live RGB camera with detection overlays"></canvas>
-          <div class="empty" id="empty">Start the camera to see the live view</div>
+          <div class="empty" id="empty">Waiting for camera data</div>
         </div>
         <div class="camera-foot"><span><i class="key image-key"></i>Image center</span>
-          <span><i class="key target-key"></i>Target center</span><span id="frame-age">No fresh frame</span><span id="resolution">640 × 480</span></div>
+          <span><i class="key target-key"></i>Target center</span><span id="frame-age">No fresh frame</span><span id="frame-rate">—</span><span id="resolution">—</span></div>
         <div class="targets"><label for="choices">Target selection</label>
           <select id="choices" aria-label="Detected objects"><option value="">Select a detected object</option></select>
           <button id="lock" disabled>Lock target</button></div>
-        <p class="hint">Draw an ROI over one object, or select it from the list.</p>
+        <p class="hint">Tap a detected object, draw an ROI over its center, or select it from the list.</p>
       </section>
       <div class="side">
         <section class="panel" aria-labelledby="control-heading">
@@ -48,16 +48,18 @@
             <p id="confirm-text"></p><div><button id="confirm-cancel">Cancel</button>
               <button id="confirm-run" class="primary">Confirm</button></div>
           </div>
+          <p id="home-reason" hidden></p>
           <p id="feedback" role="status"></p>
         </section>
         <section class="panel" aria-labelledby="state-heading">
           <header class="panel-head"><h2 id="state-heading">Run status</h2>
-            <span class="chip" id="state">Connecting</span></header>
+            <span class="chip" id="state">Waiting for status</span></header>
           <p class="diagnostic" id="diagnostic" role="status">Waiting for ROS telemetry</p>
           <dl class="metrics">
             <div><dt>Safety</dt><dd id="safety">—</dd></div>
             <div><dt>Motion</dt><dd id="motion">—</dd></div>
-            <div><dt>Depth</dt><dd id="depth">—</dd></div>
+            <div><dt>RGB–depth skew</dt><dd id="depth-skew">—</dd></div>
+<div><dt>Depth</dt><dd id="depth">—</dd></div>
             <div><dt>Stable frames</dt><dd id="stable">—</dd></div>
             <div><dt>Error X</dt><dd id="error-x">—</dd></div>
             <div><dt>Error Y</dt><dd id="error-y">—</dd></div>

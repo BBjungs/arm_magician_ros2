@@ -9,7 +9,7 @@ from dobot_auto_center.config import load, validate
 from dobot_auto_center.mock_camera import JACOBIANS, MockCamera
 from dobot_auto_center.motion import Motion, MockTransport
 from dobot_auto_center.safety import Safety
-from dobot_auto_center.vision import ClassicalDetector, Observation, Tracker, select_roi
+from dobot_auto_center.vision import make_detector, Observation, Tracker, select_roi
 from dobot_auto_center.visual_servo import VisualServo
 from dobot_auto_center.workflow import State, Workflow
 
@@ -21,6 +21,7 @@ cv2.setNumThreads(1)
 class Simulation:
     def __init__(self, scenario='left', jacobian='coupled'):
         self.config = load(CONFIG)
+        self.config['hardware']['simulation_mode'] = True
         self.config['visual_servo'].update(mock_scenario=scenario, mock_jacobian=jacobian)
         self.mock = MockCamera(self.config)
         self.safety = Safety(self.config)
@@ -101,7 +102,7 @@ class VisionTests(unittest.TestCase):
     def setUp(self):
         self.config = load(CONFIG)
         self.mock = MockCamera(self.config)
-        self.detector = ClassicalDetector(self.config['vision'])
+        self.detector = make_detector(self.config['vision'])
 
     def observation(self, scenario):
         self.mock.scenario = scenario
@@ -114,6 +115,41 @@ class VisionTests(unittest.TestCase):
         np.testing.assert_allclose(d.error(640, 480), (-115, 0), atol=1)
         self.assertGreater(d.confidence, .9)
         self.assertAlmostEqual(d.depth, .30)
+
+    def test_round_shapes_across_colors_and_rejection_of_square(self):
+        frame = self.observation('lost')
+        frame.rgb[:] = 120
+        for x, color in [(70, (0, 0, 220)), (160, (0, 0, 0)), (250, (255, 255, 255))]:
+            cv2.circle(frame.rgb, (x, 110), 22, color, -1)
+        cv2.rectangle(frame.rgb, (300, 80), (350, 130), (0, 255, 255), -1)
+        centers = [d.center for d in self.detector.detect(frame)]
+        np.testing.assert_allclose(centers, [(70, 110), (160, 110), (250, 110)], atol=1)
+
+    def test_low_contrast_disk_survives_changing_color_contrast(self):
+        frame = self.observation('lost')
+        frame.depth = np.full(frame.rgb.shape[:2], 0.42, np.float32)
+        cv2.circle(frame.depth, (160, 120), 25, 0.37, -1)
+        noise = np.random.default_rng(42).normal(0, .0008, frame.depth.shape)
+        frame.depth += noise.astype(np.float32)
+        # A nearby raised square must not become a second target.
+        cv2.rectangle(frame.depth, (220, 90), (272, 142), .36, -1)
+        for gray in (120, 121, 200, 120):
+            frame.rgb[:] = 120
+            cv2.circle(frame.rgb, (160, 120), 25, (gray, gray, gray), -1)
+            if gray == 120:
+                self.assertEqual(self.detector.detect(frame, registered_depth=False), [])
+            disk, = self.detector.detect(frame, registered_depth=True)
+            np.testing.assert_allclose(disk.center, (160, 120), atol=1)
+            self.assertAlmostEqual(disk.depth, .37, places=2)
+
+    def test_depth_holes_and_recessed_circles_are_rejected(self):
+        frame = self.observation('lost')
+        frame.rgb[:] = 120
+        for value in (0., float('nan'), float('inf'), .50, .396):
+            with self.subTest(value=value):
+                frame.depth = np.full(frame.rgb.shape[:2], .4, np.float32)
+                cv2.circle(frame.depth, (160, 120), 25, value, -1)
+                self.assertEqual(self.detector.detect(frame, registered_depth=True), [])
 
     def test_stale_skew_and_invalid_registered_depth(self):
         frame = self.observation('centered')
@@ -133,6 +169,13 @@ class VisionTests(unittest.TestCase):
         self.assertEqual(tracker.update([second, d]), d)
         self.assertIsNone(tracker.update([d, d]))
         self.assertIsNone(tracker.update([d]))
+
+    def test_roi_validation_distinguishes_area_from_bounds(self):
+        for roi in ([80, 60, 80, 60], [80, 60, 90, 60], [90, 60, 80, 70]):
+            with self.assertRaisesRegex(ValueError, 'positive width and height'):
+                select_roi([], roi, 640, 480)
+        with self.assertRaisesRegex(ValueError, 'outside the image'):
+            select_roi([], [0, 0, 641, 480], 640, 480)
 
     def test_multiple_selection_requires_unique_roi(self):
         objects = self.detector.detect(self.observation('multiple'))
@@ -187,6 +230,24 @@ class ServoTests(unittest.TestCase):
         simulation.until(lambda: simulation.workflow.state == State.CENTERED)
         self.assertEqual(len(simulation.transport.commands), 2)
         self.assertEqual(simulation.workflow.servo.stable, 5)
+
+    def test_centered_target_drifts_without_automatic_motion(self):
+        simulation = Simulation('centered')
+        simulation.start()
+        simulation.until(lambda: simulation.workflow.state == State.CENTERED)
+        simulation.mock.reference[0] += 4
+        simulation.until(lambda: simulation.workflow.state == State.TARGET_LOCKED)
+        self.assertEqual(simulation.workflow.servo.stable, 0)
+        self.assertEqual(len(simulation.transport.commands), 2)
+
+    def test_centered_target_disappears(self):
+        simulation = Simulation('centered')
+        simulation.start()
+        simulation.until(lambda: simulation.workflow.state == State.CENTERED)
+        simulation.mock.scenario = 'lost'
+        simulation.until(lambda: simulation.workflow.state == State.DETECTING)
+        self.assertIsNone(simulation.workflow.target_owner)
+        self.assertEqual(len(simulation.transport.commands), 2)
 
     def test_singular_holds_after_probes(self):
         simulation = Simulation('left', 'singular')

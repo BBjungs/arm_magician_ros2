@@ -1,5 +1,7 @@
 width: 640
 height: 480
+driver_node: /camera/camera
+device_info_service: /camera/get_device_info
 rgb_topic: /camera/color/image_raw
 depth_topic: /camera/depth/image_raw
 info_topic: /camera/color/camera_info

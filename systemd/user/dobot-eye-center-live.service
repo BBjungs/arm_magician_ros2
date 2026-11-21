@@ -1,0 +1,24 @@
+[Unit]
+Description=Dobot Eye-in-Hand live Orbbec dashboard
+Conflicts=dobot-magician.service dobot-eye-center-preview.service dobot-eye-center-orbbec.service
+After=dobot-magician.service dobot-eye-center-preview.service dobot-eye-center-orbbec.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=exec
+WorkingDirectory=%h/arm_magician_ws/.hardware-only-reset
+Environment=DOBOT_WEB_MODE=hardware-home
+Environment=DOBOT_HOME_PORT=/dev/serial/by-id/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_1ccaa9c2f74aeb119ae710f21326e067-if00-port0
+Environment=DOBOT_WEB_BIND=172.30.10.101
+Environment=DOBOT_WEB_PORT=8080
+Environment=DOBOT_WEB_ALLOWED_CLIENTS=172.30.10.0/24
+ExecStart=%h/arm_magician_ws/.hardware-only-reset/scripts/start-eye-center-dashboard
+Restart=on-failure
+RestartSec=10s
+KillSignal=SIGINT
+TimeoutStopSec=10s
+NoNewPrivileges=true
+UMask=0077
+
+[Install]
+WantedBy=default.target
