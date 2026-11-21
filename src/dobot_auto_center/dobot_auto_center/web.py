@@ -7,13 +7,14 @@ import json
 import math
 import re
 import secrets
+import subprocess
 from threading import Thread
 from urllib.parse import urlsplit
 
 import cv2
 
 
-CONFIRMED = {'home', 'observation', 'center'}
+CONFIRMED = {'home', 'observation', 'center', 'reset'}
 OPERATIONS = CONFIRMED | {'camera', 'detect', 'select'}
 REQUEST_KEY = re.compile(r'[A-Za-z0-9_-]{12,100}')
 
@@ -109,6 +110,18 @@ class Access:
         return response
 
 
+def restart_live_service():
+    try:
+        subprocess.run(
+            ['systemctl', '--user', '--no-block', 'restart', 'dobot-eye-center-live.service'],
+            check=True, capture_output=True, text=True, timeout=2)
+    except subprocess.CalledProcessError as error:
+        raise ValueError(error.stderr.strip() or 'Service restart failed') from error
+    except (OSError, subprocess.TimeoutExpired) as error:
+        raise ValueError(str(error)) from error
+    return 'Reset requested. Reconnecting to dashboard…'
+
+
 def fingerprint(workflow):
     return workflow.state, workflow.homed, workflow.at_observation, workflow.target_id
 
@@ -135,6 +148,11 @@ def dispatch(node, path, body, owner, request_id):
     action = body.get('action')
     if not isinstance(action, str):
         return 400, {'error': 'Operation is required'}
+    if action == 'reset':
+        if getattr(node, 'home_driver', None) is None:
+            return 403, {'error': 'Reset requires the live hardware dashboard'}
+        if getattr(access, 'pending_home', None) or workflow.pending or workflow.state in ('CENTERING', 'HOMING', 'STOPPING'):
+            return 409, {'error': 'Wait for the arm to stop before resetting'}
     if path == '/api/confirm' and action in CONFIRMED:
         return 200, {'confirmation': access.confirm(action, fingerprint(workflow), now)}
     if path == '/api/command' and action in OPERATIONS:
@@ -146,6 +164,8 @@ def dispatch(node, path, body, owner, request_id):
                     or any(type(value) not in (int, float) or not math.isfinite(value)
                            for value in roi) or type(body.get('frame_id')) is not int):
                 return 400, {'error': 'Invalid ROI or frame ID'}
+        if action == 'reset':
+            return access.execute(request_id, body, fingerprint(workflow), now, restart_live_service)
         return access.execute(request_id, body, fingerprint(workflow), now,
                               lambda: workflow.command(action, body, owner, now))
     return 404, {'error': 'Unknown operation'}

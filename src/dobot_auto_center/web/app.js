@@ -113,6 +113,7 @@ byId('camera-start').onclick = () => command('camera');
 byId('detect').onclick = () => command('detect');
 
 const motionLabels = {
+  reset: 'รีสตาร์ตบริการ Dobot และเชื่อมต่อแดชบอร์ดใหม่หรือไม่?',
   home: 'Run mock HOME and verify the reference position?',
   observation: 'Move the mock arm from HOME to the observation pose?',
   center: 'Start mock Auto Center for the locked target?',
@@ -161,6 +162,7 @@ function axes(id, labels, values) {
 function renderStatus(s) {
   const busy = ['CENTERING', 'HOMING', 'STOPPING'].includes(s.state) || ['MOVING', 'VERIFYING'].includes(s.motion);
   running = busy;
+  byId('reset').disabled = s.mode !== 'hardware-home' || busy;
   chip('mode', s.simulation ? 'Simulation' : 'Read only', 'warn');
   chip('camera-status', s.camera_status, s.camera ? (s.simulation ? 'warn' : 'good') : '');
   chip('state', s.state.replaceAll('_', ' '), s.state === 'CENTERED' ? 'good' : busy ? 'warn' : '');
@@ -277,7 +279,7 @@ async function update() {
     byId('empty').textContent = 'Dashboard connection lost';
     byId('empty').hidden = false;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const action of ['camera-start', 'home', 'observation', 'detect', 'center', 'lock', 'choices']) byId(action).disabled = true;
+    for (const action of ['camera-start', 'reset', 'home', 'observation', 'detect', 'center', 'lock', 'choices']) byId(action).disabled = true;
   } finally {
     setTimeout(update, 175);
   }
